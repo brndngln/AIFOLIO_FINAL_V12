@@ -1,4 +1,5 @@
 """AIFOLIO Empire - Secure AI Bridge System"""
+import random
 
 __version__ = "1.0.0"
 

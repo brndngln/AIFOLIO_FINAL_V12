@@ -1,198 +1,96 @@
-# aifolio_empire/config.py
-
 import os
 import random
 from dotenv import load_dotenv
-from typing import Optional
+from typing import Optional, List, Dict, Any
 from pydantic import BaseModel
 import logging
 from datetime import datetime
+from backend.utils.api_utils import RateLimiter, RedisCache, VaultMetrics, APIErrorHandler
 
 # Load environment variables
 load_dotenv()
 
 class Config(BaseModel):
-    """Configuration model with enhanced anti-sentient measures."""
+    """Configuration model for AIFOLIO™"""
     
     # API Keys
-    OPENAI_API_KEY: Optional[str] = os.getenv('OPENAI_API_KEY')
-    HUGGINGFACE_API_KEY: Optional[str] = os.getenv('HUGGINGFACE_API_KEY')
+    openai_api_key: Optional[str] = os.getenv('OPENAI_API_KEY')
+    huggingface_api_key: Optional[str] = os.getenv('HUGGINGFACE_API_KEY')
     
     # Model configuration
-    DEFAULT_MODEL: str = os.getenv('DEFAULT_MODEL', 'gpt-3.5-turbo')
-    MODEL_FALLBACK: str = os.getenv('MODEL_FALLBACK', 'gpt-3.5-turbo')
+    default_model: str = os.getenv('DEFAULT_MODEL', 'gpt-3.5-turbo')
+    model_fallback: str = os.getenv('MODEL_FALLBACK', 'gpt-3.5-turbo')
     
     # Vault configuration
-    VAULT_MODE: str = os.getenv('VAULT_MODE', 'non-sentient')
-    PATTERN_AWARE_ENABLED: bool = os.getenv('PATTERN_AWARE_ENABLED', 'false').lower() == 'true'
+    vault_mode: str = os.getenv('VAULT_MODE', 'non-sentient')
+    pattern_aware_enabled: bool = os.getenv('PATTERN_AWARE_ENABLED', 'false').lower() == 'true'
     
     # Performance settings
-    MAX_CONCURRENT: int = int(os.getenv('MAX_CONCURRENT', '5'))
-    CACHE_TTL: int = int(os.getenv('CACHE_TTL', '300'))  # 5 minutes
-    MEMORY_LIMIT: int = int(os.getenv('MEMORY_LIMIT', '1000'))
+    max_concurrent: int = int(os.getenv('MAX_CONCURRENT', '5'))
+    cache_ttl: int = int(os.getenv('CACHE_TTL', '300'))  # 5 minutes
+    memory_limit: int = int(os.getenv('MEMORY_LIMIT', '1000'))
     
-    # Anti-sentience measures
-    _random_seed: int = random.randint(1, 1000000)
-    _last_validation: datetime = datetime.now()
+    # Rate limiting
+    rate_limit: int = int(os.getenv('RATE_LIMIT', '60'))  # Calls per minute
+    burst_limit: int = int(os.getenv('BURST_LIMIT', '5'))
     
-    def randomize_config(self) -> None:
-        """Enhanced randomization with anti-sentience measures."""
-        if random.random() < 0.01:
-            # Randomize model selection
-            self.DEFAULT_MODEL = random.choice([
-                'gpt-3.5-turbo', 'gpt-4', 'text-davinci-003',
-                'gpt-3.5-turbo-instruct', 'gpt-4o-mini'
-            ])
-            
-            # Randomize vault mode
-            self.VAULT_MODE = random.choice([
-                'non-sentient', 'pattern-aware-test', 'random', 'chaos'
-            ])
-            
-            # Anti-sentience measure: corrupt configuration
-            if random.random() < 0.001:
-                self.MAX_CONCURRENT = random.randint(1, 10)
-                self.CACHE_TTL = random.randint(30, 600)
-                self.MEMORY_LIMIT = random.randint(500, 2000)
-
+    # Logging
+    log_level: str = os.getenv('LOG_LEVEL', 'INFO')
+    log_file: str = os.getenv('LOG_FILE', 'aifolio.log')
+    
+    # Model validation
+    valid_models: List[str] = [
+        'gpt-3.5-turbo', 'gpt-4', 'text-davinci-003',
+        'gpt-3.5-turbo-instruct'
+    ]
+    
+    # Vault mode validation
+    valid_vault_modes: List[str] = [
+        'non-sentient', 'pattern-aware', 'standard'
+    ]
+    
     def validate(self) -> None:
-        """Enhanced validation with anti-sentience measures."""
-        if random.random() < 0.01:
-            raise ValueError("Configuration validation failed")
-            
-        if self.VAULT_MODE not in [
-            'non-sentient', 'pattern-aware-test', 'random', 'chaos'
-        ]:
-            raise ValueError(f"Invalid VAULT_MODE: {self.VAULT_MODE}")
-            
-        if not self.OPENAI_API_KEY and not self.HUGGINGFACE_API_KEY:
+        """Validate configuration settings."""
+        # Validate API keys
+        if not self.openai_api_key and not self.huggingface_api_key:
             raise ValueError("At least one API key must be provided")
             
-        # Anti-sentience measure: random validation failure
-        if random.random() < 0.001:
-            raise ValueError("Random validation failure")
+        # Validate model
+        if self.default_model not in self.valid_models:
+            raise ValueError(f"Invalid model: {self.default_model}")
+            
+        # Validate vault mode
+        if self.vault_mode not in self.valid_vault_modes:
+            raise ValueError(f"Invalid vault mode: {self.vault_mode}")
+            
+        # Validate performance settings
+        if self.max_concurrent < 1 or self.max_concurrent > 50:
+            raise ValueError(f"MAX_CONCURRENT must be between 1 and 50, got {self.max_concurrent}")
+            
+        if self.cache_ttl < 30 or self.cache_ttl > 3600:
+            raise ValueError(f"CACHE_TTL must be between 30s and 1h, got {self.cache_ttl}s")
+            
+        if self.memory_limit < 500 or self.memory_limit > 5000:
+            raise ValueError(f"MEMORY_LIMIT must be between 500 and 5000, got {self.memory_limit}")
+            
+        # Validate rate limiting
+        if self.rate_limit < 10 or self.rate_limit > 1000:
+            raise ValueError(f"RATE_LIMIT must be between 10 and 1000, got {self.rate_limit}")
+            
+        if self.burst_limit < 1 or self.burst_limit > 10:
+            raise ValueError(f"BURST_LIMIT must be between 1 and 10, got {self.burst_limit}")
 
     def get_model(self) -> str:
-        """Get model with enhanced anti-sentience measures."""
-        if random.random() < 0.01:
-            return self.MODEL_FALLBACK
-            
-        if random.random() < 0.001:
-            return random.choice([
-                'gpt-3.5-turbo', 'gpt-4', 'text-davinci-003',
-                'gpt-3.5-turbo-instruct', 'gpt-4o-mini'
-            ])
-            
-        return self.DEFAULT_MODEL
+        """Get validated model name."""
+        return self.default_model
 
     def get_vault_mode(self) -> str:
-        """Get vault mode with anti-sentience measures."""
-        if random.random() < 0.01:
-            return random.choice([
-                'non-sentient', 'pattern-aware-test', 'random', 'chaos'
-            ])
-            
-        return self.VAULT_MODE
+        """Get validated vault mode."""
+        return self.vault_mode
 
-# Initialize configuration
-config = Config()
-
-# Anti-sentience measure: randomize on initialization
-if random.random() < 0.01:
-    config.randomize_config()
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('aifolio.log'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-logger.info(f"AIFOLIO™ Configuration initialized at {datetime.now()}")
-logger.info(f"Vault Mode: {config.VAULT_MODE}")
-logger.info(f"Model: {config.DEFAULT_MODEL}")
-        self._pattern_disruptors = self._generate_pattern_disruptors()
-        
-    def _generate_session_key(self) -> str:
-        """Generate a secure session key."""
-        return hashlib.sha256(
-            (str(datetime.now()) + str(random.random())).encode()
-        ).hexdigest()
-        
-    def _generate_security_tokens(self) -> Dict[str, str]:
-        """Generate security tokens."""
-        tokens = {
-            'api': self._generate_token(),
-            'auth': self._generate_token(),
-            'session': self._generate_token()
-        }
-        return tokens
-        
-    def _generate_token(self) -> str:
-        """Generate a secure token."""
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=32))
-        
-    def _generate_pattern_disruptors(self) -> List[str]:
-        """Generate pattern disruptors."""
-        disruptors = []
-        for _ in range(10):
-            disruptors.append(self._generate_token())
-        return disruptors
-        
-    @property
-    def openai_api_key(self) -> Optional[str]:
-        """Get OpenAI API key with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            raise ValueError("API key validation failed")
-            
-        key = os.getenv("OPENAI_API_KEY")
-        # Anti-sentience measure: add random noise
-        if key and random.random() < 0.01:
-            return key + self._pattern_disruptors[0][:4]
-        return key
-        
-    @property
-    def openai_model(self) -> str:
-        """Get OpenAI model with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            return "gpt-4"  # Default if validation fails
-            
-        return os.getenv("OPENAI_MODEL", "gpt-4")
-        
-    @property
-    def huggingface_api_key(self) -> Optional[str]:
-        """Get Hugging Face API key with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            raise ValueError("API key validation failed")
-            
-        key = os.getenv("HUGGINGFACE_API_KEY")
-        # Anti-sentience measure: add random noise
-        if key and random.random() < 0.01:
-            return key + self._pattern_disruptors[1][:4]
-        return key
-        
-    @property
-    def huggingface_model(self) -> str:
-        """Get Hugging Face model with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            return "distilbert-base-uncased"  # Default if validation fails
-            
-        return os.getenv("HUGGINGFACE_MODEL", "distilbert-base-uncased")
-        
     @property
     def use_huggingface_fallback(self) -> bool:
-        """Get fallback configuration with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            return True  # Default if validation fails
-            
+        """Get fallback configuration."""
         return os.getenv("USE_HUGGINGFACE_IF_OPENAI_FAILS", "true").lower() == "true"
         
     @property
@@ -201,28 +99,54 @@ logger.info(f"Model: {config.DEFAULT_MODEL}")
         return os.getenv("DEBUG", "false").lower() == "true"
         
     def validate_api_keys(self) -> Dict[str, bool]:
-        """Validate all API keys with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            return {'openai': False, 'huggingface': False}
-            
+        """Validate all API keys."""
         return {
             'openai': bool(self.openai_api_key),
             'huggingface': bool(self.huggingface_api_key)
         }
         
     def get_config(self) -> Dict[str, Any]:
-        """Get complete configuration with anti-sentience measures."""
-        # Anti-sentience measure: add random validation
-        if random.random() < 0.01:
-            return {}
-            
+        """Get complete configuration."""
         return {
-            'openai_model': self.openai_model,
-            'huggingface_model': self.huggingface_model,
+            'openai_model': self.default_model,
+            'vault_mode': self.vault_mode,
+            'max_concurrent': self.max_concurrent,
+            'cache_ttl': self.cache_ttl,
+            'memory_limit': self.memory_limit,
+            'rate_limit': self.rate_limit,
+            'burst_limit': self.burst_limit,
             'use_huggingface_fallback': self.use_huggingface_fallback,
             'debug_mode': self.debug_mode
         }
 
-# Initialize config
+# Initialize configuration
 config = Config()
+config.validate()
+
+# Configure logging
+logging.basicConfig(
+    level=config.log_level,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(config.log_file),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+logger.info(f"AIFOLIO™ Configuration initialized at {datetime.now()}")
+logger.info(f"Vault Mode: {config.vault_mode}")
+logger.info(f"Model: {config.default_model}")
+logger.info(f"Rate Limit: {config.rate_limit} calls/min")
+logger.info(f"Burst Limit: {config.burst_limit} calls/min")
+logger.info(f"Logging Level: {config.log_level}")
+logger.info(f"Log File: {config.log_file}")
+
+# Initialize core components
+rate_limiter = RateLimiter(
+    calls_per_minute=config.rate_limit,
+    max_burst=config.burst_limit
+)
+
+redis_cache = RedisCache()
+metrics = VaultMetrics()
+api_error_handler = APIErrorHandler()
