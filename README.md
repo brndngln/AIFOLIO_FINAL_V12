@@ -12,6 +12,53 @@ AIFOLIO™ is an enterprise-grade PDF processing and monetization platform that 
 - Integration with multiple platforms (Vercel, GitHub, Notion, Gumroad)
 - Enterprise-grade deployment infrastructure
 
+---
+
+## 🧩 Modular Flask Blueprint Architecture
+
+All major dashboard sections are fully modularized as Flask Blueprints for elite security, maintainability, and compliance:
+
+- `reviewer.py`: Reviewer analytics, escalation, training, notifications
+- `accessibility.py`: Accessibility audits and exports
+- `payments.py`: Stripe/Gumroad payment endpoints
+- `monetization.py`: Monetization analytics
+- `license.py`: License management
+- `product_gen.py`: Product generation (AI pipeline)
+- `analytics.py`: Analytics and compliance dashboards
+
+Each blueprint enforces:
+- Strict CSRF protection on all sensitive endpoints
+- Double audit logging (primary + backup)
+- Explicit anti-sentience and ethical AI safeguards
+- Concurrency control for file operations
+
+---
+
+## ✅ Automated Testing
+
+Automated tests are provided for all modularized endpoints:
+
+- Standard and edge-case coverage for GET/POST endpoints
+- CSRF enforcement and error handling
+- Audit log output verification
+
+### Run All Tests
+
+```bash
+pip install -r requirements.txt
+pytest --maxfail=3 --disable-warnings -v tests/
+```
+
+---
+
+## 📈 Real-Time Monitoring & Alerting
+
+AIFOLIO™ is ready for integration with real-time monitoring and alerting tools:
+- Sentry, Prometheus, New Relic, or similar (see `requirements.txt`)
+- Add your Sentry DSN or Prometheus config to `.env` and initialize in your Flask app as needed
+
+---
+
 ## 🛠️ System Requirements
 
 - Python 3.10+

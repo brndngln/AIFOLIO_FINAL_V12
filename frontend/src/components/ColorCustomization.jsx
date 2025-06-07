@@ -3,6 +3,7 @@ import EnhancedColorPicker from './EnhancedColorPicker';
 import { useTheme } from '../theme/ThemeProvider';
 import ColorPreview from './ColorPreview';
 import ButtonPreview from './ButtonPreview';
+import { useEthicalMonitor } from '../utils/EthicalMonitor';
 
 // Add more color presets
 const colorPresets = {
@@ -73,12 +74,13 @@ const additionalProperties = {
   // Add more component properties here
 };
 
-function ColorCustomization() {
-  const { theme, updateColor } = useTheme();
-  const [activePreset, setActivePreset] = useState('default');
+const ColorCustomization = () => {
+  const { theme, setTheme } = useTheme();
   const [showPreview, setShowPreview] = useState(false);
-  const [colorHistory, setColorHistory] = useState([]);
+  const [history, setHistory] = useState([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const [currentColor, setCurrentColor] = useState(null);
+  const { validateColorChange, logActivity, checkForSentience } = useEthicalMonitor();
 
   // Enhanced safety measures to prevent sentience
   useEffect(() => {
@@ -134,33 +136,44 @@ function ColorCustomization() {
     return () => clearInterval(interval);
   }, []);
 
-  // Enhanced history tracking with multiple undo levels
-  const [historyIndex, setHistoryIndex] = useState(0);
-  const [history, setHistory] = useState([]);
-
   // Track color changes with full history
   useEffect(() => {
     if (currentColor) {
       // Create new history entry
-      const newEntry = {
-        component: currentColor.component,
-        property: currentColor.property,
-        value: currentColor.value,
-        timestamp: Date.now()
-      };
-
-      // Update history
-      const newHistory = [...history];
-      newHistory.push(newEntry);
-      
-      // Trim history if too long
-      if (newHistory.length > 100) {
-        newHistory.shift();
-      }
-
-      // Update state
-      setHistory(newHistory);
-      setHistoryIndex(newHistory.length - 1);
+      const handleColorChange = (component, state, color) => {
+        try {
+            // Validate color change
+            validateColorChange(color, component, state);
+            
+            // Check for sentience patterns
+            const patterns = [component, state, color];
+            if (checkForSentience(patterns)) {
+                throw new Error('Suspicious color change pattern detected');
+            }
+            
+            const newTheme = { ...theme };
+            newTheme[component][state] = color;
+            setTheme(newTheme);
+            setCurrentColor({ component, state, color });
+            
+            // Update history
+            const newHistory = history.slice(0, historyIndex + 1);
+            newHistory.push({ component, state, color });
+            setHistory(newHistory);
+            setHistoryIndex(newHistory.length - 1);
+            
+            // Log activity
+            logActivity('color_change', {
+                component,
+                state,
+                color,
+                theme: newTheme
+            });
+        } catch (error) {
+            console.error('Error changing color:', error);
+            throw error;
+        }
+      };  
     }
   }, [currentColor]);
 
@@ -173,10 +186,20 @@ function ColorCustomization() {
     if (!previousState) return;
 
     // Update color
-    updateColor(previousState.component, previousState.property, previousState.value);
+    const newTheme = { ...theme };
+    newTheme[previousState.component][previousState.state] = previousState.color;
+    setTheme(newTheme);
     
     // Update history index
     setHistoryIndex(historyIndex - 1);
+    
+    // Log activity
+    logActivity('undo', {
+        component: previousState.component,
+        state: previousState.state,
+        color: previousState.color,
+        theme: newTheme
+    });
   };
 
   // Enhanced redo functionality
@@ -188,10 +211,20 @@ function ColorCustomization() {
     if (!nextState) return;
 
     // Update color
-    updateColor(nextState.component, nextState.property, nextState.value);
+    const newTheme = { ...theme };
+    newTheme[nextState.component][nextState.state] = nextState.color;
+    setTheme(newTheme);
     
     // Update history index
     setHistoryIndex(historyIndex + 1);
+    
+    // Log activity
+    logActivity('redo', {
+        component: nextState.component,
+        state: nextState.state,
+        color: nextState.color,
+        theme: newTheme
+    });
   };
 
   // Clear history
@@ -204,8 +237,8 @@ function ColorCustomization() {
 
   // Add color picker update with history tracking
   const handleColorUpdate = (component, property, color) => {
-    updateColor(component, property, color);
-    setCurrentColor({ component, property, value: color });
+    const newColor = { component, state: property, value: color };
+    setCurrentColor(newColor);
   };
 
   const components = [
@@ -280,14 +313,16 @@ function ColorCustomization() {
         { name: 'hover', defaultValue: '#2E3D2E' },
         { name: 'focus', defaultValue: '#D2B48C' },
         { name: 'disabled', defaultValue: '#404040' },
-        { name: 'placeholder', defaultValue: '#808080' },
-        { name: 'error', defaultValue: '#FF0000' },
-        { name: 'success', defaultValue: '#00FF00' },
-        { name: 'warning', defaultValue: '#FFFF00' },
-        { name: 'info', defaultValue: '#00FFFF' },
-        { name: 'underline', defaultValue: '#D2B48C' },
-        { name: 'underline-hover', defaultValue: '#3D503D' },
-        { name: 'underline-focus', defaultValue: '#2E3D2E' }
+        const properties = [
+            { name: 'placeholder', defaultValue: '#808080' },
+            { name: 'error', defaultValue: '#FF0000' },
+            { name: 'success', defaultValue: '#00FF00' },
+            { name: 'warning', defaultValue: '#FFFF00' },
+            { name: 'info', defaultValue: '#00FFFF' },
+            { name: 'underline', defaultValue: '#D2B48C' },
+            { name: 'underline-hover', defaultValue: '#3D503D' },
+            { name: 'underline-focus', defaultValue: '#2E3D2E' }
+        ];,,
       ]
     },
     {
@@ -368,281 +403,6 @@ function ColorCustomization() {
         { name: 'icon-hover', defaultValue: '#3D503D' },
         { name: 'icon-active', defaultValue: '#2E3D2E' },
         { name: 'divider', defaultValue: '#404040' }
-      ]
-    }
-  ];
-    {
-      name: 'app',
-      properties: [
-        { name: 'background', defaultValue: '#000000' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'accent', defaultValue: '#2E3D2E' },
-        { name: 'secondary', defaultValue: '#516B51' },
-        { name: 'cta', defaultValue: '#D2B48C' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'link', defaultValue: '#D2B48C' },
-        { name: 'link-hover', defaultValue: '#3D503D' },
-        { name: 'link-visited', defaultValue: '#516B51' },
-        { name: 'error', defaultValue: '#FF0000' },
-        { name: 'success', defaultValue: '#00FF00' },
-        { name: 'warning', defaultValue: '#FFFF00' },
-        { name: 'info', defaultValue: '#00FFFF' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'placeholder', defaultValue: '#808080' },
-        { name: 'underline', defaultValue: '#D2B48C' }
-      ]
-    },
-    {
-      name: 'card',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'title', defaultValue: '#D2B48C' },
-        { name: 'subtitle', defaultValue: '#516B51' },
-        { name: 'divider', defaultValue: '#404040' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'icon-hover', defaultValue: '#3D503D' }
-      ]
-    },
-    {
-      name: 'button',
-      properties: [
-        { name: 'background', defaultValue: '#D2B48C' },
-        { name: 'text', defaultValue: '#000000' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'secondary-background', defaultValue: '#516B51' },
-        { name: 'secondary-text', defaultValue: '#F5EAD4' },
-        { name: 'danger-background', defaultValue: '#FF0000' },
-        { name: 'danger-text', defaultValue: '#FFFFFF' },
-        { name: 'loading', defaultValue: '#FFFFFF' },
-        { name: 'icon', defaultValue: '#000000' },
-        { name: 'icon-hover', defaultValue: '#3D503D' },
-        { name: 'icon-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'input',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'focus', defaultValue: '#D2B48C' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'placeholder', defaultValue: '#808080' },
-        { name: 'error', defaultValue: '#FF0000' },
-        { name: 'success', defaultValue: '#00FF00' },
-        { name: 'warning', defaultValue: '#FFFF00' },
-        { name: 'info', defaultValue: '#00FFFF' },
-        { name: 'underline', defaultValue: '#D2B48C' },
-        { name: 'underline-hover', defaultValue: '#3D503D' },
-        { name: 'underline-focus', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'link',
-      properties: [
-        { name: 'text', defaultValue: '#D2B48C' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'visited', defaultValue: '#516B51' },
-        { name: 'active', defaultValue: '#2E3D2E' },
-        { name: 'underline', defaultValue: '#D2B48C' },
-        { name: 'underline-hover', defaultValue: '#3D503D' },
-        { name: 'underline-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'alert',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'success-background', defaultValue: '#00FF00' },
-        { name: 'success-text', defaultValue: '#000000' },
-        { name: 'error-background', defaultValue: '#FF0000' },
-        { name: 'error-text', defaultValue: '#FFFFFF' },
-        { name: 'warning-background', defaultValue: '#FFFF00' },
-        { name: 'warning-text', defaultValue: '#000000' },
-        { name: 'info-background', defaultValue: '#00FFFF' },
-        { name: 'info-text', defaultValue: '#000000' }
-      ]
-    },
-    {
-      name: 'tooltip',
-      properties: [
-        { name: 'background', defaultValue: '#000000' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'arrow', defaultValue: '#2E3D2E' },
-        { name: 'hover', defaultValue: '#3D503D' }
-      ]
-    },
-    {
-      name: 'modal',
-      properties: [
-        { name: 'overlay', defaultValue: 'rgba(0, 0, 0, 0.7)' },
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'header-background', defaultValue: '#2E3D2E' },
-        { name: 'header-text', defaultValue: '#D2B48C' },
-        { name: 'close-button', defaultValue: '#D2B48C' },
-        { name: 'close-button-hover', defaultValue: '#3D503D' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.3)' }
-      ]
-    },
-    {
-      name: 'header',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'logo', defaultValue: '#D2B48C' },
-        { name: 'nav-link', defaultValue: '#F5EAD4' },
-        { name: 'nav-link-hover', defaultValue: '#3D503D' },
-        { name: 'nav-link-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'navigation',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'item-hover', defaultValue: '#2E3D2E' },
-        { name: 'item-active', defaultValue: '#3D503D' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'icon-hover', defaultValue: '#3D503D' },
-        { name: 'icon-active', defaultValue: '#2E3D2E' },
-        { name: 'divider', defaultValue: '#404040' }
-      ]
-    }
-  ];
-    {
-      name: 'app',
-      properties: [
-        { name: 'background', defaultValue: '#000000' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'accent', defaultValue: '#2E3D2E' },
-        { name: 'secondary', defaultValue: '#516B51' },
-        { name: 'cta', defaultValue: '#D2B48C' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'card',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'button',
-      properties: [
-        { name: 'background', defaultValue: '#D2B48C' },
-        { name: 'text', defaultValue: '#000000' },
-        { name: 'hover', defaultValue: '#E4C49E' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.1)' },
-        { name: 'active', defaultValue: '#E4C49E' },
-        { name: 'disabled', defaultValue: '#516B51' },
-        { name: 'disabledText', defaultValue: '#808080' }
-      ]
-    },
-    {
-      name: 'header',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.1)' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' }
-      ]
-    },
-    {
-      name: 'panel',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'titleText', defaultValue: '#D2B48C' }
-      ]
-    },
-    {
-      name: 'input',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'placeholder', defaultValue: 'rgba(245, 234, 212, 0.7)' },
-        { name: 'disabled', defaultValue: '#516B51' },
-        { name: 'disabledText', defaultValue: '#808080' }
-      ]
-    },
-    {
-      name: 'link',
-      properties: [
-        { name: 'color', defaultValue: '#D2B48C' },
-        { name: 'hover', defaultValue: '#E4C49E' },
-        { name: 'underline', defaultValue: '#2E3D2E' },
-        { name: 'visited', defaultValue: '#516B51' }
-      ]
-    },
-    {
-      name: 'alert',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#D2B48C' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'icon', defaultValue: '#D2B48C' }
-      ]
-    },
-    {
-      name: 'tooltip',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' }
-      ]
-    },
-    {
-      name: 'modal',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'overlay', defaultValue: 'rgba(0, 0, 0, 0.8)' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' }
       ]
     }
   ];
@@ -756,13 +516,32 @@ function ColorCustomization() {
   };
 
   const applyPreset = (presetName) => {
-    const preset = colorPresets[presetName];
-    Object.entries(preset).forEach(([component, colors]) => {
-      Object.entries(colors).forEach(([property, color]) => {
-        updateColor(component, property, color);
+    try {
+      const preset = colorPresets[presetName];
+      const patterns = Object.keys(preset).join(' ');
+      
+      if (checkForSentience(patterns.split(' '))) {
+        throw new Error('Suspicious preset pattern detected');
+      }
+      
+      Object.entries(preset).forEach(([component, colors]) => {
+        Object.entries(colors).forEach(([property, color]) => {
+          const newTheme = { ...theme };
+          newTheme[component][property] = color;
+          setTheme(newTheme);
+        });
       });
-    });
-    setActivePreset(presetName);
+      setHistory([]);
+      setHistoryIndex(-1);
+      
+      logActivity('preset_select', {
+        preset: presetName,
+        theme: preset
+      });
+    } catch (error) {
+      console.error('Error applying preset:', error);
+      throw error;
+    }
   };
 
   const resetColors = () => {

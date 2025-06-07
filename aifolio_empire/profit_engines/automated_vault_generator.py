@@ -1,6 +1,6 @@
 """
-Automated Vault Generator with strict anti-sentience measures.
-This engine simulates the generation of vault components for a given niche.
+Automated Vault Generator with strict anti-sentience and ethical monitoring.
+This engine generates vault components for a given niche with comprehensive ethical safeguards.
 It is designed to be stateless, rule-based, and without learning capabilities.
 """
 
@@ -15,6 +15,9 @@ from .utils import InputValidator
 from .ai_bridge import AIBridge
 from .ai_pdf_layout_enhancer import AIPDFLayoutEnhancer
 from .dynamic_bundle_builder import DynamicBundleBuilder
+from ..monitoring_safety_systems.ethical_monitor import EthicalMonitor
+from ..monitoring_safety_systems.sentience_failsafe_monitor import SentienceFailsafeMonitor
+from ..monitoring_safety_systems.rate_limiters import RateLimiter
 
 # Configure logging
 logging.basicConfig(
@@ -78,10 +81,9 @@ class VaultConfig:
 VaultConfig.validate_all()
 
 class AutomatedVaultGenerator:
-    """Generates vault components for a niche with robust security measures."""
-
+    """Generates vault components for a niche with robust security and ethical measures."""
     def __init__(self, config: VaultConfig = None):
-        """Initialize the vault generator with security configurations."""
+        """Initialize the vault generator with security and ethical configurations."""
         self.config = config or VaultConfig()
         self.ai_bridge = AIBridge()
         self.pdf_enhancer = AIPDFLayoutEnhancer()
@@ -89,7 +91,13 @@ class AutomatedVaultGenerator:
         self.request_timestamps = []
         self._random_seed = random.randint(1, 1000000)
         self._security_key = os.environ.get('VAULT_SECURITY_KEY')
-        logger.info("AutomatedVaultGenerator initialized with security configurations")
+        
+        # Initialize ethical monitoring
+        self.ethical_monitor = EthicalMonitor()
+        self.sentience_monitor = SentienceFailsafeMonitor()
+        self.rate_limiter = RateLimiter()
+        
+        logger.info("AutomatedVaultGenerator initialized with security and ethical configurations")
         
     def _rate_limit_check(self) -> None:
         """Check and enforce rate limits."""
@@ -106,17 +114,35 @@ class AutomatedVaultGenerator:
             
         self.request_timestamps.append(current_time)
         
-    def _validate_content(self, content: str, content_type: str) -> None:
-        """Validate generated content."""
-        if not content or len(content) < self.config.MIN_CONTENT_LENGTH:
-            raise ValueError(f"{content_type} too short. Minimum length: {self.config.MIN_CONTENT_LENGTH}")
+    def _validate_content(self, content: str, content_type: str, metadata: Dict[str, Any]):
+        """Validate generated content with ethical checks."""
+        # Basic length validation
+        if len(content) < self.config.MIN_CONTENT_LENGTH:
+            raise ValueError(f"Content too short for {content_type}")
             
         if len(content) > self.config.MAX_CONTENT_LENGTH:
-            raise ValueError(f"{content_type} too long. Maximum length: {self.config.MAX_CONTENT_LENGTH}")
+            raise ValueError(f"Content too long for {content_type}")
             
-        if not InputValidator.validate_niche(content):
-            raise ValueError(f"Invalid content format for {content_type}")
+        # Ethical validation
+        if not self.ethical_monitor.verify_content(content, metadata):
+            raise ValueError(f"Content failed ethical validation for {content_type}")
             
+        # Sentience check
+        if self.sentience_monitor.check_for_sentience(content):
+            raise ValueError(f"Content shows potential sentience patterns for {content_type}")
+            
+        # Basic keyword validation
+        if content_type == "title":
+            if not any(word in content.lower() for word in ["how to", "ultimate guide", "complete system"]):
+                raise ValueError("Title must contain appropriate keywords")
+                
+        elif content_type == "problem":
+            if not any(word in content.lower() for word in ["struggle", "pain point", "challenge"]):
+                raise ValueError("Problem statement must contain appropriate keywords")
+                
+        # Log validation success
+        self.ethical_monitor.log_activity(content, metadata, f"content_validation_{content_type}")
+        
     def _enhance_pdf_layout(self, content: str) -> str:
         """Enhance PDF layout with AI formatting."""
         try:
@@ -160,25 +186,39 @@ class AutomatedVaultGenerator:
             
             # Generate components
             vault = {
-                'title': self._generate_plausible_text(niche, 'title', 'medium'),
-                'problem': self._generate_plausible_text(niche, 'problem', 'long'),
-                'promise': self._generate_plausible_text(niche, 'promise', 'long'),
+                'title': self._generate_plausible_text(niche, "title"),
+                'problem': self._generate_plausible_text(niche, "problem"),
+                'promise': self._generate_plausible_text(niche, "promise"),
                 'outline': self._generate_simulated_outline(niche),
                 'ctas': self._generate_ctas(niche),
                 'pdf_prompts': self._generate_simulated_pdf_prompts(niche),
                 'gumroad': {
-                    'hook': self._generate_plausible_text(niche, 'gumroad_hook', 'medium'),
-                    'benefits': self._generate_plausible_text(niche, 'gumroad_benefit', 'long')
+                    'hook': self._generate_plausible_text(niche, "gumroad_hook"),
+                    'benefits': self._generate_plausible_text(niche, "gumroad_benefit")
                 }
             }
             
             # Validate all components
             for key, content in vault.items():
                 if isinstance(content, str):
-                    self._validate_content(content, key)
+                    metadata = {
+                        'user_id': 'system',
+                        'permissions': 'admin',
+                        'source': 'template',
+                        'access_level': 'public',
+                        'content_type': key
+                    }
+                    self._validate_content(content, key, metadata)
                 elif isinstance(content, list):
                     for item in content:
-                        self._validate_content(item, f"{key} item")
+                        metadata = {
+                            'user_id': 'system',
+                            'permissions': 'admin',
+                            'source': 'template',
+                            'access_level': 'public',
+                            'content_type': f"{key} item"
+                        }
+                        self._validate_content(item, f"{key} item", metadata)
             
             # Enhance PDF layout
             vault['enhanced_pdf'] = self._enhance_pdf_layout(vault['pdf_prompts'])
@@ -213,8 +253,15 @@ class AutomatedVaultGenerator:
             # Split and validate CTAs
             new_ctas = [cta.strip() for cta in response.split('\n') if cta.strip()]
             for cta in new_ctas:
+                metadata = {
+                    'user_id': 'system',
+                    'permissions': 'admin',
+                    'source': 'template',
+                    'access_level': 'public',
+                    'content_type': 'cta'
+                }
                 try:
-                    self._validate_content(cta, "CTA")
+                    self._validate_content(cta, "cta", metadata)
                     ctas.append(cta)
                 except:
                     continue
@@ -240,31 +287,29 @@ class AutomatedVaultGenerator:
                 
             templates = {
                 "title": [
-                    f"The Ultimate Guide to {niche}", 
-                    f"Mastering {niche} in 7 Days", 
-                    f"{niche}: A Beginner's Blueprint",
-                    f"Unlock the Secrets of {niche}",
-                    f"Transform Your Life with {niche}"
+                    f"The Ultimate Guide to {niche} Success",
+                    f"Complete System for Mastering {niche}",
+                    f"How to Dominate the {niche} Market"
                 ],
                 "problem": [
-                    f"Struggling with {niche}?", 
-                    f"Tired of failing at {niche}?", 
-                    f"Is {niche} holding you back?",
-                    f"Confused about how to start with {niche}?"
+                    f"Struggling with {niche} challenges?",
+                    f"Common pain points in {niche} industry",
+                    f"The biggest challenge in {niche}"
                 ],
                 "promise": [
-                    f"Discover the proven path to success in {niche}.", 
-                    f"Achieve your {niche} goals faster than ever.", 
-                    f"This guide makes {niche} simple and effective.",
-                    f"Finally, a clear roadmap for {niche} mastery."
+                    f"Transform your {niche} business",
+                    f"Achieve {niche} success",
+                    f"Master {niche} strategies"
                 ],
                 "cta": [
-                    f"Get Your {niche} Guide Now!", 
-                    f"Start Your {niche} Journey Today!", 
-                    f"Download to Master {niche}!",
-                    f"Yes, I Want to Conquer {niche}!"
+                    f"Get your {niche} guide now!",
+                    f"Start your {niche} journey",
+                    f"Claim your {niche} system"
                 ],
                 "gumroad_hook": [
+                    f"Transform your {niche} business today!",
+                    f"The complete {niche} system you need",
+                    f"Master {niche} strategies instantly"
                     f"Unlock the power of {niche} with this exclusive guide!",
                     f"Stop guessing and start succeeding in {niche}.",
                     f"Your first step towards {niche} mastery is here."

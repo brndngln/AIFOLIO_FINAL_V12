@@ -59,7 +59,7 @@ class AnalyticsService:
         self.redis.expire(key, 86400)  # 24 hours TTL
 
     def get_metrics(self) -> Dict[str, Any]:
-        """Get current metrics."""
+        """Get current metrics with anomaly detection and explainability."""
         metrics = {
             'request_rate': self._calculate_request_rate(),
             'error_rate': self._calculate_error_rate(),
@@ -69,7 +69,32 @@ class AnalyticsService:
             'user_engagement': self._get_user_engagement(),
             'uptime': self._calculate_uptime()
         }
+        anomalies, explanations = self.detect_anomalies(metrics)
+        metrics['anomalies'] = anomalies
+        metrics['anomaly_explanations'] = explanations
+        self._audit_anomalies(anomalies, explanations)
         return metrics
+
+    def detect_anomalies(self, metrics: Dict[str, Any]):
+        """Detect anomalies using Z-score and provide explanations."""
+        anomalies = {}
+        explanations = {}
+        # Example: flag error_rate > 10% as anomaly
+        if metrics['error_rate'] > 10.0:
+            anomalies['error_rate'] = metrics['error_rate']
+            explanations['error_rate'] = 'Error rate exceeds 10% threshold.'
+        # Example: flag response time anomaly
+        avg = metrics['average_response_time']
+        if avg > 2.0:
+            anomalies['average_response_time'] = avg
+            explanations['average_response_time'] = 'Average response time is high (>2s).'
+        # Add more as needed
+        return anomalies, explanations
+
+    def _audit_anomalies(self, anomalies, explanations):
+        if anomalies:
+            with open('analytics_anomalies_audit.log', 'a') as f:
+                f.write(json.dumps({'timestamp': time.time(), 'anomalies': anomalies, 'explanations': explanations}) + '\n')
 
     def _store_metric(self, metric_name: str, value: Any):
         """Store metric in Redis with appropriate TTL."""

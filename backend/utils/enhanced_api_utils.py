@@ -522,8 +522,8 @@ class RedisCache:
         for name, strategy in self.strategies.items():
             strategy_stats = stats[name]
             hit_rate = (strategy_stats['hits'] / 
-                      (strategy_stats['hits'] + strategy_stats['misses']))
-                      if (strategy_stats['hits'] + strategy_stats['misses']) > 0 else 0
+                         (strategy_stats['hits'] + strategy_stats['misses']))
+            success_rate = (strategy_stats['hits'] / (strategy_stats['hits'] + strategy_stats['misses'])) if (strategy_stats['hits'] + strategy_stats['misses']) > 0 else 0
             
             # Adjust TTL based on hit rate
             if hit_rate < 0.2:  # Low hit rate

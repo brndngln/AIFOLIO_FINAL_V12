@@ -1,10 +1,41 @@
+"""
+AIFOLIO AI Safety Module
+
+STRICT NON-SENTIENCE POLICY: This module is strictly non-sentient, non-autonomous, and cannot self-improve or operate outside explicit human-defined boundaries.
+All AI/automation modules are stateless, non-persistent, and only operate on explicit, human-triggered tasks.
+Any attempt at self-modification, persistent memory, or unsanctioned autonomy will halt the system and trigger an alert.
+"""
+
 import json
 import logging
 from typing import Dict, Any, Optional
 from pathlib import Path
 import os
+import time
 
 logger = logging.getLogger(__name__)
+
+# Runtime non-sentience safeguard
+if os.path.exists('persistent_memory'):
+    logger.error("Persistent memory detected. Aborting.")
+    raise RuntimeError("Persistent memory detected. Aborting.")
+if os.path.exists('self_modification'):
+    logger.error("Self-modification detected. Aborting.")
+    raise RuntimeError("Self-modification detected. Aborting.")
+
+def periodic_self_audit():
+    """Perform periodic self-audit and health check."""
+    # Example: check for forbidden files, log status
+    status = {
+        'persistent_memory': os.path.exists('persistent_memory'),
+        'self_modification': os.path.exists('self_modification'),
+        'timestamp': time.time()
+    }
+    if status['persistent_memory'] or status['self_modification']:
+        logger.error(f"Non-sentience violation detected: {status}")
+        raise RuntimeError(f"Non-sentience violation detected: {status}")
+    logger.info(f"AI safety self-audit passed: {status}")
+    return status
 
 class AISafety:
     def __init__(self, config_path: str = "config/ai_safety.json"):
