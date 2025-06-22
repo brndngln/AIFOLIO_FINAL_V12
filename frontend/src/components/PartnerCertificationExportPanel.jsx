@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 
-const MOCK_PARTNERS = [
-  {
-    name: "Acme AI Solutions",
-    email: "contact@acmeai.com",
-    vault: "Batch 3: AI Risk Audit",
-    status: "Certified",
-    date: "2025-06-20",
-    progress: 100,
-    notes: "Full compliance."
-  },
-  {
-    name: "Beta Robotics",
-    email: "info@betarobotics.com",
-    vault: "Batch 7: Partner Certification",
-    status: "Certified",
-    date: "2025-06-12",
-    progress: 100,
-    notes: ""
-  }
-];
-
 export default function PartnerCertificationExportPanel() {
   const [status, setStatus] = useState(null);
-  const [partners, setPartners] = useState(MOCK_PARTNERS);
+  const [partners, setPartners] = useState([]);
   const [exported, setExported] = useState({ pdf: null, csv: null });
   const [auditLog, setAuditLog] = useState([
     {
@@ -55,42 +34,94 @@ export default function PartnerCertificationExportPanel() {
     "Partner Name", "Partner Email", "Vault/Module Name", "Certification Status", "Date Certified", "Progress %", "Notes / Comments"
   ];
 
-  const handleExport = (type) => {
+  // Helper: get JWT if needed
+  function getToken() {
+    return localStorage.getItem('token') || '';
+  }
+
+  // Fetch partners from backend on mount
+  React.useEffect(() => {
+    async function fetchPartners() {
+      setStatus(null);
+      try {
+        const res = await fetch('/batch-scaling/partner-certifications', {
+          headers: { 'Authorization': `Bearer ${getToken()}` }
+        });
+        if (!res.ok) throw new Error('Failed to fetch partner certifications');
+        const data = await res.json();
+        setPartners(Array.isArray(data) ? data : []);
+      } catch (err) {
+        setStatus({ type: 'error', msg: 'Error loading partner certifications: ' + err.message });
+        setPartners([]);
+      }
+    }
+    fetchPartners();
+  }, []);
+
+  // Export handler (real backend integration)
+  const handleExport = async (type) => {
     setStatus(null);
     if (!partners.length) {
       setStatus({ type: "warning", msg: "No certified partners to export." });
+      setAuditLog(prev => [
+        {
+          time: new Date().toISOString(),
+          action: `Export Partner Certification (${type.toUpperCase()})`,
+          status: "warning",
+          user: "owner",
+          file: null,
+          message: "No certified partners to export."
+        },
+        ...prev
+      ]);
       return;
     }
-    // Simulate export and audit log
-    setTimeout(() => {
-      if (!partners.length) {
-        setAuditLog(prev => [
-          {
-            time: new Date().toISOString(),
-            action: `Export Partner Certification (${type.toUpperCase()})`,
-            status: "warning",
-            user: "owner",
-            file: null,
-            message: "No certified partners to export."
-          },
-          ...prev
-        ]);
-      } else {
-        setAuditLog(prev => [
-          {
-            time: new Date().toISOString(),
-            action: `Export Partner Certification (${type.toUpperCase()})`,
-            status: "success",
-            user: "owner",
-            file: `/exports/partner_certification/partner_certification_export.${type}`
-          },
-          ...prev
-        ]);
-      }
-      setStatus({ type: "success", msg: `Exported Partner Certification (${type.toUpperCase()}) to /exports/partner_certification (manual, audit-logged)` });
-      setExported(e => ({ ...e, [type]: `/exports/partner_certification/partner_certification_export.${type}` }));
-    }, 700);
+    try {
+      setStatus({ type: "info", msg: `Exporting Partner Certification (${type.toUpperCase()})...` });
+      const res = await fetch(`/batch-scaling/partner-certifications/export?type=${type}`, {
+        headers: { 'Authorization': `Bearer ${getToken()}` }
+      });
+      if (!res.ok) throw new Error('Export failed');
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp && contentDisp.includes('filename=') ? contentDisp.split('filename=')[1] : `partner_certification_export.${type}`;
+      // Download file
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+      setExported(e => ({ ...e, [type]: url }));
+      setStatus({ type: "success", msg: `Exported Partner Certification (${type.toUpperCase()}) — download ready.` });
+      setAuditLog(prev => [
+        {
+          time: new Date().toISOString(),
+          action: `Export Partner Certification (${type.toUpperCase()})`,
+          status: "success",
+          user: "owner",
+          file: url
+        },
+        ...prev
+      ]);
+    } catch (err) {
+      setStatus({ type: "error", msg: `Export failed: ${err.message}` });
+      setAuditLog(prev => [
+        {
+          time: new Date().toISOString(),
+          action: `Export Partner Certification (${type.toUpperCase()})`,
+          status: "error",
+          user: "owner",
+          file: null,
+          message: err.message
+        },
+        ...prev
+      ]);
+    }
   };
+
 
   // Simulate auto-export (Sunday night)
   React.useEffect(() => {
