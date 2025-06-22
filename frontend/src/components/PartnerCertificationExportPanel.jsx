@@ -1,8 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import { useRef } from "react";
+// Helper for dark mode
+function useDarkMode() {
+  const [dark, setDark] = useState(() => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = e => setDark(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return [dark, setDark];
+}
 
 export default function PartnerCertificationExportPanel() {
+  // Advanced UI/feature state
+  const [showSchedule, setShowSchedule] = useState(false);
+  const [schedules, setSchedules] = useState([]); // {type, when, recurring}
+  const [showFields, setShowFields] = useState(false);
+  const [fields, setFields] = useState([true, true, true, true, true, true, true]); // which exportFields are enabled
+  const [showHelp, setShowHelp] = useState(false);
+  const [bulkSelected, setBulkSelected] = useState([]); // array of partner indices
+  const [darkMode, setDarkMode] = useDarkMode();
+  const [schedulingLoading, setSchedulingLoading] = useState(false);
+  const [scheduleError, setScheduleError] = useState(null);
+  const [auditLogExporting, setAuditLogExporting] = useState(false);
+
+  // Backend: fetch schedules
+  async function fetchSchedules() {
+    setSchedulingLoading(true);
+    setScheduleError(null);
+    try {
+      const res = await fetch('/batch-scaling/partner-certifications/schedule', {
+        headers: { 'Authorization': `Bearer ${getToken()}` }
+      });
+      if (!res.ok) throw new Error('Failed to fetch schedules');
+      setSchedules(await res.json());
+    } catch (e) {
+      setScheduleError(e.message);
+    }
+    setSchedulingLoading(false);
+  }
+
+  // Backend: create schedule
+  async function createSchedule(schedule) {
+    setSchedulingLoading(true);
+    setScheduleError(null);
+    try {
+      const res = await fetch('/batch-scaling/partner-certifications/schedule', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(schedule)
+      });
+      if (!res.ok) throw new Error('Failed to create schedule');
+      await fetchSchedules();
+    } catch (e) {
+      setScheduleError(e.message);
+    }
+    setSchedulingLoading(false);
+  }
+
+  // Bulk audit log download (from backend)
+  async function handleBulkAuditLogDownload() {
+    setAuditLogExporting(true);
+    try {
+      const res = await fetch('/api/compliance-audit-log/export', {
+        headers: { 'Authorization': `Bearer ${getToken()}` }
+      });
+      if (!res.ok) throw new Error('Failed to export audit log');
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'compliance_audit_log.jsonl';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      setStatus({ type: 'error', msg: 'Bulk audit log download failed: ' + e.message });
+    }
+    setAuditLogExporting(false);
+  }
   const [status, setStatus] = useState(null);
   const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -38,6 +116,9 @@ export default function PartnerCertificationExportPanel() {
   const exportFields = [
     "Partner Name", "Partner Email", "Vault/Module Name", "Certification Status", "Date Certified", "Progress %", "Notes / Comments"
   ];
+
+  // Only include enabled fields for export
+  const enabledFields = exportFields.filter((_, i) => fields[i]);
 
   // UI state for search, filter, sort, modal, etc
   const [search, setSearch] = useState("");
@@ -79,8 +160,12 @@ export default function PartnerCertificationExportPanel() {
   // Export handler (real backend integration)
   // CSV generation always uses latest data
   const csvContent = [
-    exportFields.join(","),
-    ...partners.map(p => [p.name, p.email, p.vault, p.status, p.date, p.progress, p.notes].map(f => `"${f}"`).join(","))
+    enabledFields.join(","),
+    ...partners.map(p => enabledFields.map(f => {
+      const idx = exportFields.indexOf(f);
+      const vals = [p.name, p.email, p.vault, p.status, p.date, p.progress, p.notes];
+      return `"${vals[idx]}"`;
+    }).join(","))
   ].join("\n");
 
   // Audit log export as JSON
@@ -238,10 +323,19 @@ export default function PartnerCertificationExportPanel() {
 
 
   return (
-    <div className="partner-cert-export-panel" aria-label="Partner Certification Export" tabIndex={0} style={{background:'#f9fafb',padding:20,borderRadius:8}}>
+    <div className={"partner-cert-export-panel" + (darkMode ? " dark" : "")}
+      aria-label="Partner Certification Export" tabIndex={0}
+      style={{background:darkMode?'#18181b':'#f9fafb',color:darkMode?'#f1f5f9':'#0f172a',padding:20,borderRadius:8,minHeight:600}}>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:6}}>
-        <h3 style={{color:'#0f172a',margin:0}}>Partner Certification Export</h3>
+        <h3 style={{color:darkMode?'#fbbf24':'#0f172a',margin:0}}>Partner Certification Export</h3>
         <ComplianceBadges />
+      </div>
+      <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:10}}>
+        <button aria-label="Show Help" onClick={()=>setShowHelp(true)} style={{background:'none',color:darkMode?'#fbbf24':'#2563eb',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>Help/FAQ</button>
+        <button aria-label="Show Export Field Customization" onClick={()=>setShowFields(true)} style={{background:'none',color:darkMode?'#fbbf24':'#059669',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>Customize Fields</button>
+        <button aria-label="Show Export Scheduling" onClick={()=>{setShowSchedule(true);fetchSchedules();}} style={{background:'none',color:darkMode?'#fbbf24':'#334155',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>Schedule Export</button>
+        <button aria-label="Bulk Audit Log Download" onClick={handleBulkAuditLogDownload} disabled={auditLogExporting} style={{background:'none',color:darkMode?'#fbbf24':'#e11d48',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>{auditLogExporting?'Exporting…':'Bulk Audit Log'}</button>
+        <button aria-label="Toggle Dark Mode" onClick={()=>setDarkMode(d=>!d)} style={{background:'none',color:darkMode?'#fbbf24':'#64748b',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>{darkMode?'Light Mode':'Dark Mode'}</button>
       </div>
       <div style={{marginBottom:14,display:'flex',gap:10,flexWrap:'wrap',alignItems:'center'}}>
         <input ref={searchRef} aria-label="Search partners" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search partners..." style={{padding:'6px 10px',border:'1px solid #cbd5e1',borderRadius:5,minWidth:170}} />
@@ -299,14 +393,18 @@ export default function PartnerCertificationExportPanel() {
       ) : filteredPartners.length ? (
         <div>
           <div style={{marginBottom:8,fontWeight:600}}>Preview (PDF):</div>
-          <div style={{background:'#fff',padding:16,borderRadius:8,boxShadow:'0 1px 2px #e2e8f0',marginBottom:16,maxWidth:600}}>
+          <div style={{background:darkMode?'#27272a':'#fff',padding:16,borderRadius:8,boxShadow:'0 1px 2px #e2e8f0',marginBottom:16,maxWidth:700}}>
             <table style={{width:'100%',borderCollapse:'collapse',fontSize:15}}>
               <thead>
                 <tr>
-                  {exportFields.map(f => (
-                    <th
+                  <th style={{padding:'4px 8px'}}>
+                    <input type="checkbox" aria-label="Select all partners" checked={bulkSelected.length===filteredPartners.length && filteredPartners.length>0}
+                      onChange={e=>setBulkSelected(e.target.checked?filteredPartners.map((_,i)=>i):[])} />
+                  </th>
+                  {exportFields.map((f,idx) => (
+                    fields[idx] && <th
                       key={f}
-                      style={{borderBottom:'2px solid #e5e7eb',textAlign:'left',padding:'4px 8px',color:'#2563eb',cursor:'pointer'}}
+                      style={{borderBottom:'2px solid #e5e7eb',textAlign:'left',padding:'4px 8px',color:darkMode?'#fbbf24':'#2563eb',cursor:'pointer'}}
                       tabIndex={0}
                       aria-label={`Sort by ${f}`}
                       onClick={()=>{
@@ -321,19 +419,29 @@ export default function PartnerCertificationExportPanel() {
               </thead>
               <tbody>
                 {filteredPartners.map((p,i) => (
-                  <tr key={i} tabIndex={0} style={{cursor:'pointer'}} onClick={()=>setModalPartner(p)} aria-label={`View details for ${p.name}`}>
-                    <td style={{padding:'4px 8px'}}>{p.name}</td>
-                    <td style={{padding:'4px 8px'}}>{p.email}</td>
-                    <td style={{padding:'4px 8px'}}>{p.vault}</td>
-                    <td style={{padding:'4px 8px'}}>{p.status}</td>
-                    <td style={{padding:'4px 8px'}}>{p.date}</td>
-                    <td style={{padding:'4px 8px'}}>{p.progress}%</td>
-                    <td style={{padding:'4px 8px'}}>{p.notes}</td>
+                  <tr key={i} tabIndex={0} style={{cursor:'pointer',background:bulkSelected.includes(i)?(darkMode?'#444':'#e0e7ef'):'inherit'}} onClick={e=>{if(e.target.tagName!=='INPUT')setModalPartner(p);}} aria-label={`View details for ${p.name}`}>
+                    <td style={{padding:'4px 8px'}}>
+                      <input type="checkbox" aria-label={`Select partner ${p.name}`} checked={bulkSelected.includes(i)}
+                        onChange={e=>setBulkSelected(sel=>e.target.checked?[...sel,i]:sel.filter(j=>j!==i))} onClick={e=>e.stopPropagation()} />
+                    </td>
+                    {fields[0] && <td style={{padding:'4px 8px'}}>{p.name}</td>}
+                    {fields[1] && <td style={{padding:'4px 8px'}}>{p.email}</td>}
+                    {fields[2] && <td style={{padding:'4px 8px'}}>{p.vault}</td>}
+                    {fields[3] && <td style={{padding:'4px 8px'}}>{p.status}</td>}
+                    {fields[4] && <td style={{padding:'4px 8px'}}>{p.date}</td>}
+                    {fields[5] && <td style={{padding:'4px 8px'}}>{p.progress}%</td>}
+                    {fields[6] && <td style={{padding:'4px 8px'}}>{p.notes}</td>}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          {bulkSelected.length>0 && (
+            <div style={{marginBottom:12}}>
+              <button onClick={()=>bulkSelected.forEach(i=>handleExport('csv',filteredPartners[i]))} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600,marginRight:8}}>Bulk Export CSV</button>
+              <button onClick={()=>bulkSelected.forEach(i=>handleExport('pdf',filteredPartners[i]))} style={{background:'#2563eb',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600}}>Bulk Export PDF</button>
+            </div>
+          )}
           {exported.pdf && (
             <a href={exported.pdf} download style={{marginRight:16,color:'#2563eb',fontWeight:600}}>Download PDF</a>
           )}
