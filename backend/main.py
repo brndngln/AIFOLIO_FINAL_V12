@@ -61,7 +61,16 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
     if not authenticate_user(form_data.username, form_data.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect username or password")
-    access_token = create_access_token({"sub": form_data.username})
+    # For demo, statically assign role/email/org. In production, query user profile DB.
+    role = os.getenv("AIFOLIO_ROLE", "admin")
+    email = os.getenv("AIFOLIO_EMAIL", "owner@aifolio.com")
+    org = os.getenv("AIFOLIO_ORG", "AIFOLIO Inc.")
+    access_token = create_access_token({
+        "sub": form_data.username,
+        "role": role,
+        "email": email,
+        "org": org
+    })
     return {"access_token": access_token, "token_type": "bearer"}
 
 # --- Protected Endpoint Example ---
@@ -71,9 +80,17 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
+        role = payload.get("role", "admin")
+        email = payload.get("email", None)
+        org = payload.get("org", None)
         if username != SECRET_USERNAME:
             raise HTTPException(status_code=401, detail="Invalid credentials")
-        return username
+        return {
+            "username": username,
+            "role": role,
+            "email": email,
+            "org": org
+        }
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid credentials")
 

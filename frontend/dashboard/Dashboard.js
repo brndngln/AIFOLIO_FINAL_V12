@@ -78,6 +78,14 @@ import {
   PassivePartnershipMonitor,
   AnnualBusinessHealthScorecard,
   MultiChannelRevenueBreakdown,
+} from './Batch1315Widgets';
+import {
+  Batch16Widgets,
+  Batch17Widgets,
+  Batch18Widgets,
+  PartnerCertificationWidgets,
+  AdminAuditLogWidget
+} from './Batch1620Widgets';
   ContentLicensingStatusTracker,
   AffiliateRevenueTracker,
   ReadinessCertification,
@@ -256,6 +264,17 @@ export default function Dashboard() {
       <PlatformEcosystemStabilityReport />
       <LongTermComplianceRoadmap />
       <MultiYearBusinessPlanningSummary />
+
+      {/* --- BATCH 16 Widgets --- */}
+      <Batch16Widgets />
+      {/* --- BATCH 17 Widgets --- */}
+      <Batch17Widgets />
+      {/* --- BATCH 18 Widgets --- */}
+      <Batch18Widgets />
+      {/* --- PARTNER CERTIFICATION SYSTEM --- */}
+      <PartnerCertificationWidgets />
+      {/* --- ADMIN: SAFE AI AUDIT LOG --- */}
+      <AdminAuditLogWidget limit={20} />
     </div>
   );
 }

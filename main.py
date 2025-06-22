@@ -55,6 +55,34 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# --- SAFE AI BATCH 16–20 & PARTNER CERTIFICATION ROUTER ---
+from api.safe_ai_endpoints_batch16_20 import router as safe_ai_ultimate_router
+app.include_router(safe_ai_ultimate_router)
+
+# Admin audit log surfacing endpoint
+import json, os
+from fastapi import Query
+
+@app.get("/api/admin/ai_safety_audit_log")
+def get_ai_safety_audit_log(limit: int = 50, action: str = Query(None), pattern: str = Query(None)):
+    log_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "autonomy/analytics/ai_safety_log.jsonl"))
+    entries = []
+    if os.path.exists(log_path):
+        with open(log_path) as f:
+            for line in reversed(list(f)):
+                try:
+                    entry = json.loads(line)
+                    if action and entry.get("action") != action:
+                        continue
+                    if pattern and not any(pattern in p for p in entry.get("patterns_detected", [])):
+                        continue
+                    entries.append(entry)
+                    if len(entries) >= limit:
+                        break
+                except Exception:
+                    continue
+    return {"audit_log": entries}
+
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,

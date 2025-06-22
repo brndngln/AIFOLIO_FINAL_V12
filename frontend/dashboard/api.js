@@ -363,3 +363,100 @@ export async function fetchAdminAuditInspect() {
   const res = await fetch('/api/admin/audit_inspect');
   return await res.json();
 }
+
+// --- BATCH 16 ---
+export async function fetchMultiCurrencyRevenueTracking() {
+  const res = await fetch('/api/analytics/multi_currency_revenue_tracking');
+  return await res.json();
+}
+export async function fetchTaxRegionReport() {
+  const res = await fetch('/api/analytics/tax_region_report');
+  return await res.json();
+}
+export async function fetchVaultLicensingMap() {
+  const res = await fetch('/api/analytics/vault_licensing_map');
+  return await res.json();
+}
+export async function fetchMultiRegionComplianceStatus() {
+  const res = await fetch('/api/analytics/multi_region_compliance_status');
+  return await res.json();
+}
+export async function fetchPartnerAPILegalHealthMap() {
+  const res = await fetch('/api/analytics/partner_api_legal_health_map');
+  return await res.json();
+}
+export async function fetchGlobalVaultEcosystemMaturityScorecard() {
+  const res = await fetch('/api/analytics/global_vault_ecosystem_maturity_scorecard');
+  return await res.json();
+}
+
+// --- BATCH 17 ---
+export async function fetchAnnualExecutiveSummaryReport() {
+  const res = await fetch('/api/analytics/annual_executive_summary_report');
+  return await res.json();
+}
+export async function fetchCEODashboard() {
+  const res = await fetch('/api/analytics/ceo_dashboard');
+  return await res.json();
+}
+export async function fetchBusinessImpactMap() {
+  const res = await fetch('/api/analytics/business_impact_map');
+  return await res.json();
+}
+export async function fetchPartnerLegalTermTracker() {
+  const res = await fetch('/api/analytics/partner_legal_term_tracker');
+  return await res.json();
+}
+export async function fetchESGScoreReport() {
+  const res = await fetch('/api/analytics/esg_score_report');
+  return await res.json();
+}
+export async function fetchCrossVaultIPOverlapMap() {
+  const res = await fetch('/api/analytics/cross_vault_ip_overlap_map');
+  return await res.json();
+}
+
+// --- BATCH 18 ---
+export async function fetchLongTermSystemResilienceAudit() {
+  const res = await fetch('/api/analytics/long_term_system_resilience_audit');
+  return await res.json();
+}
+export async function fetchCrossPartnerAlignmentReport() {
+  const res = await fetch('/api/analytics/cross_partner_alignment_report');
+  return await res.json();
+}
+export async function fetchGovernanceBoardReport() {
+  const res = await fetch('/api/analytics/governance_board_report');
+  return await res.json();
+}
+export async function fetchMultiYearComplianceTracker() {
+  const res = await fetch('/api/analytics/multi_year_compliance_tracker');
+  return await res.json();
+}
+export async function fetchExternalAuditorCertificationExport() {
+  const res = await fetch('/api/analytics/external_auditor_certification_export');
+  return await res.json();
+}
+export async function fetchRoadmapSummaryExport() {
+  const res = await fetch('/api/analytics/roadmap_summary_export');
+  return await res.json();
+}
+
+// --- PARTNER CERTIFICATION SYSTEM ---
+export async function fetchPartnerCertificationTracker() {
+  const res = await fetch('/api/partner_certification/certification_tracker');
+  return await res.json();
+}
+export async function fetchPartnerSelfCertificationSubmission() {
+  const res = await fetch('/api/partner_certification/self_certification_submission');
+  return await res.json();
+}
+
+// --- ADMIN AUDIT LOG ---
+export async function fetchAISafetyAuditLog({limit=50,action=null,pattern=null}={}) {
+  let url = `/api/admin/ai_safety_audit_log?limit=${limit}`;
+  if (action) url += `&action=${encodeURIComponent(action)}`;
+  if (pattern) url += `&pattern=${encodeURIComponent(pattern)}`;
+  const res = await fetch(url);
+  return await res.json();
+}
