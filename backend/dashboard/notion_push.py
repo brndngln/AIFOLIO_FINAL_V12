@@ -19,8 +19,9 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
-from autonomy.security.ai_safety_layer import anti_sentience_guard
+from backend.utils.safe_ai_utils import safe_ai_guarded
 
+@safe_ai_guarded
 def push_to_notion(vault_data: Dict[str, Any]) -> Dict[str, Any]:
     """Push vault data to Notion dashboard."""
     try:
@@ -33,12 +34,6 @@ def push_to_notion(vault_data: Dict[str, Any]) -> Dict[str, Any]:
         if not NOTION_DB_ID:
             raise ValueError("NOTION_DB_ID environment variable is not set")
             
-        # AI SAFETY CHECKS
-        for field in ["description", "summary", "revenue_blurb"]:
-            val = vault_data.get(field, "")
-            if val and not anti_sentience_guard(val, user=vault_data.get('user'), action=f'push_to_notion:{field}'):
-                logger.error(f"AI safety violation: Unsafe sentience/agency patterns detected in Notion push field '{field}'.")
-                raise Exception(f"AI safety violation: Unsafe sentience/agency patterns detected in Notion push field '{field}'.")
 
         # Prepare data for Notion
         data = {

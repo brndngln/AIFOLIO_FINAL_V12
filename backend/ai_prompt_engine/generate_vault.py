@@ -3,6 +3,7 @@ import os
 import json
 from typing import Dict, Any, List
 import logging
+from backend.utils.safe_ai_utils import safe_ai_guarded
 from backend.utils.enhanced_api_utils import (
     cache_response,
     retry_on_api_error,
@@ -23,6 +24,7 @@ logger = logging.getLogger(__name__)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+@safe_ai_guarded
 @cache_response
 @retry_on_api_error(attempts=3, base_delay=1.0, max_delay=30.0)
 @rate_limit(calls_per_minute=60, window_size=60, max_burst=5)
@@ -65,10 +67,6 @@ def generate_vault_prompt(topic: str = None) -> Dict[str, Any]:
             temperature=0.7
         )
         vault_data = response.choices[0].message.content
-        
-        # AI SAFETY CHECK
-        if not anti_sentience_guard(vault_data, user=None, action='generate_vault_prompt'):
-            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in vault generation.')
         
         metrics.track_cache_metrics(cache_key, hit=True)  # Track cache hit
         logger.info("Successfully received vault content from GPT-4")

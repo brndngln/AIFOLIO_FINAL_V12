@@ -11,6 +11,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+@safe_ai_guarded
 def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> str:
     """Build a PDF from vault data and compliance report using Jinja2 and vault_template.html."""
     try:
@@ -47,10 +48,6 @@ def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> 
             compliance_report=compliance_report,
             content=content
         )
-
-        # AI SAFETY CHECK
-        if not anti_sentience_guard(html_content, user=None, action='render_pdf'):
-            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in PDF content.')
 
         # Generate PDF
         pdf_path = f"vaults/{vault_data['title']}.pdf"
