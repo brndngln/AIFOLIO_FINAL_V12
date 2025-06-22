@@ -7,7 +7,7 @@ It is stateless, rule-based, and does not learn or adapt.
 import random
 import logging
 import re
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Any, Optional
 
 # Attempt to import config and logger
 try:
@@ -174,8 +174,8 @@ class AIPDFLayoutEnhancer:
                 "result_section_enhanced": enhanced_segments.get("result", "")
             },
             "enhancement_log": [
-                f"Simulated PPSR structuring applied.",
-                f"Simulated bolding, highlights, and callouts added with randomization."
+                "Simulated PPSR structuring applied.",
+                "Simulated bolding, highlights, and callouts added with randomization."
             ],
             "layout_version_simulated": f"v1.{random.randint(0,9)}.{random.randint(0,9)}-{random.choice(['alpha','beta'])}" # Non-meaningful version
         }

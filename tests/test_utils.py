@@ -12,7 +12,7 @@ class TestRateLimiter(unittest.TestCase):
             self.limiter(lambda: None)()
         
         # Test that it blocks additional calls
-        start_time = time.time()
+        time.time()
         with patch('time.sleep') as mock_sleep:
             self.limiter(lambda: None)()
             self.assertTrue(mock_sleep.called)

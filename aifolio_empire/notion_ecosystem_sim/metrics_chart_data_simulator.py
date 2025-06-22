@@ -7,9 +7,8 @@ It's stateless, rule-based, and includes randomization, simulated trends, and im
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional, List, Tuple
+from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta, timezone
-import math
 
 # Attempt to import config and logger
 try:

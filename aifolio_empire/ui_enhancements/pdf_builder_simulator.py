@@ -7,8 +7,7 @@ It's stateless for modifications, rule-based, and includes simulated imperfectio
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional, List, Union
-from datetime import datetime, timezone
+from typing import Dict, Any, Optional, List
 
 # Attempt to import config and logger
 try:

@@ -8,7 +8,7 @@ import random
 import logging
 import uuid
 from datetime import datetime, timedelta, timezone
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 # Define MockConfig at module level
 class MockConfig:
@@ -161,7 +161,7 @@ if __name__ == "__main__":
     print(json.dumps(countdown_past, indent=2))
 
     # Simulate with invalid format
-    print(f"\n⏳ Countdown with invalid format (Vault: 'gamma_error') ⏳")
+    print("\n⏳ Countdown with invalid format (Vault: 'gamma_error') ⏳")
     countdown_error = simulator.get_simulated_countdown("NOT_A_DATETIME", "gamma_error")
     print(json.dumps(countdown_error, indent=2))
 

@@ -11,13 +11,86 @@ import os
 import hashlib
 from typing import Dict, Any, Optional, List
 from datetime import datetime
-from .utils import InputValidator
-from .ai_bridge import AIBridge
-from .ai_pdf_layout_enhancer import AIPDFLayoutEnhancer
-from .dynamic_bundle_builder import DynamicBundleBuilder
-from ..monitoring_safety_systems.ethical_monitor import EthicalMonitor
-from ..monitoring_safety_systems.sentience_failsafe_monitor import SentienceFailsafeMonitor
-from ..monitoring_safety_systems.rate_limiters import RateLimiter
+from aifolio_empire.utils import InputValidator
+from aifolio_empire.ai_bridge import AIBridge
+from aifolio_empire.ai_pdf_layout_enhancer import AIPDFLayoutEnhancer
+from aifolio_empire.dynamic_bundle_builder import DynamicBundleBuilder
+from aifolio_empire.monitoring_safety_systems.ethical_monitor import EthicalMonitor
+from aifolio_empire.monitoring_safety_systems.sentience_failsafe_monitor import SentienceFailsafeMonitor
+from aifolio_empire.monitoring_safety_systems.rate_limiters import RateLimiters
+# --- Event-driven pipeline integration ---
+from autonomy.pipeline.event_bus import dispatch_event
+
+# --- SUPPORTED NICHES (most lucrative/priority first, then additional) ---
+# The order of this list determines priority for automation, UI, and compliance.
+SUPPORTED_NICHES = [
+    # User's most lucrative and profitable niches (priority order)
+    "Make Money Online",
+    "AI Tools & Automation",
+    "Weight Loss & Fitness",
+    "Finance & Budgeting",
+    "Crypto & Stock Trading",
+    "Spirituality & Manifestation",
+    "Self-Improvement & Productivity",
+    "Freelancing & Side Hustles",
+    "Online Business & Agencies",
+    "Ebook & Digital Product Creation",
+    "Children’s Educational Printables",
+    "Mental Health & Journaling",
+    "Natural Remedies & Holistic Healing",
+    "Dating, Attraction & Relationships",
+    "Digital Marketing & Content Strategy",
+    "Career Coaching & Resume Kits",
+    "Wedding & Event Planning",
+    "Real Estate & Airbnb Hosting",
+    "Language Learning",
+    # Business/evergreen/finance/health/mindset meta-categories
+    "business",
+    "evergreen",
+    "finance",
+    "health",
+    "mindset",
+    # Additional/secondary niches (previously added)
+    "Legal Templates & Contracts",
+    "Home Organization & Decluttering",
+    "Meal Prep & Healthy Recipes",
+    "Pregnancy & Newborn Tracking",
+    "Pet Training & Care",
+    "Mindset Coaching & Inner Work",
+    "Startup & SaaS Launch Playbooks",
+    "Teacher & Classroom Resources",
+    "Survivalism & Prepping",
+    "Small Business Templates",
+    "Notion & Digital Workspace Templates",
+    "Luxury & High Performance Lifestyle",
+    "Book Summaries & Learning Guides",
+    "Shadow Work & Emotional Healing",
+    "Home School Curriculums",
+    "Digital Product Starter Kits",
+    "Life Coaching & Goal Planning",
+    "Micro-SaaS & Indie Hacking",
+    "Online Course Creation",
+    "Vision Board & Aesthetic Planning Kits",
+    "Therapy-Adjacent Workbooks",
+]
+
+def get_supported_niches():
+    """Return the official list of supported niches for vault generation, ordered by profitability/priority."""
+    return SUPPORTED_NICHES
+
+def process_all_supported_niches(process_niche):
+    """
+    Utility for automation: applies the provided process_niche(niche) function to every supported niche in SUPPORTED_NICHES.
+    This ensures equal focus on all niches, regardless of their order in the list.
+    Example usage:
+        def my_processing_logic(niche):
+            # ... do something with niche ...
+        process_all_supported_niches(my_processing_logic)
+    """
+    for niche in SUPPORTED_NICHES:
+        process_niche(niche)
+
+# To update supported vaults/niches, modify SUPPORTED_NICHES above. The order determines focus for automation, UI, and compliance systems.
 
 # Configure logging
 logging.basicConfig(
@@ -81,9 +154,14 @@ class VaultConfig:
 VaultConfig.validate_all()
 
 class AutomatedVaultGenerator:
-    """Generates vault components for a niche with robust security and ethical measures."""
+    """
+    Generates vault components for a niche with robust security, privacy, and elite compliance measures.
+    Set `user_consent_verified = True` on instance to allow vault generation for a user.
+    All actions are subject to audit logging, human oversight, and compliance verification.
+    """
+    user_consent_verified = False  # Must be set True before generation; required for compliance
     def __init__(self, config: VaultConfig = None):
-        """Initialize the vault generator with security and ethical configurations."""
+        """Initialize the vault generator with security, privacy, and ethical compliance configurations."""
         self.config = config or VaultConfig()
         self.ai_bridge = AIBridge()
         self.pdf_enhancer = AIPDFLayoutEnhancer()
@@ -95,7 +173,7 @@ class AutomatedVaultGenerator:
         # Initialize ethical monitoring
         self.ethical_monitor = EthicalMonitor()
         self.sentience_monitor = SentienceFailsafeMonitor()
-        self.rate_limiter = RateLimiter()
+        self.rate_limiter = RateLimiters()
         
         logger.info("AutomatedVaultGenerator initialized with security and ethical configurations")
         
@@ -115,31 +193,59 @@ class AutomatedVaultGenerator:
         self.request_timestamps.append(current_time)
         
     def _validate_content(self, content: str, content_type: str, metadata: Dict[str, Any]):
-        """Validate generated content with ethical checks."""
+        """
+        Validate generated content with ethical, privacy, and compliance checks.
+        - Performs privacy impact assessment, user consent verification, and copyright checks
+        - Recognizes and blocks unethical patterns (scraping, copyright, privacy, manipulation, unauthorized, etc)
+        - All actions are logged for auditability; human oversight checkpoints are enforced
+        - TODO: Implement real copyright verification system
+        """
+        # User consent check (compliance)
+        if not getattr(self, 'user_consent_verified', False):
+            logger.error("User consent not verified for vault content generation.")
+            self.ethical_monitor.log_activity(content, metadata, f"block_consent_not_verified_{content_type}")
+            raise ValueError("User consent not verified. Blocked by compliance.")
         # Basic length validation
         if len(content) < self.config.MIN_CONTENT_LENGTH:
+            self.ethical_monitor.log_activity(content, metadata, f"block_too_short_{content_type}")
             raise ValueError(f"Content too short for {content_type}")
-            
         if len(content) > self.config.MAX_CONTENT_LENGTH:
+            self.ethical_monitor.log_activity(content, metadata, f"block_too_long_{content_type}")
             raise ValueError(f"Content too long for {content_type}")
-            
-        # Ethical validation
+        # --- ETHICAL & COMPLIANCE CHECKPOINTS ---
+        # 1. Copyright Verification (placeholder: real check needed)
+        # TODO: Implement real copyright verification system for generated content
+        if '[CopyrightedContent]' in content:
+            logger.warning("Potential copyright infringement detected in generated vault content.")
+            self.ethical_monitor.log_activity(content, metadata, f"block_copyright_{content_type}")
+            raise ValueError("Potential copyright infringement detected. Blocked by compliance.")
+        # 2. Pattern Recognition for Unethical Behavior
+        unethical_patterns = ["scrape", "steal", "manipulate", "fake", "leak", "private data", "impersonate", "unauthorized", "false info"]
+        if any(pat in content.lower() for pat in unethical_patterns):
+            logger.warning(f"Unethical pattern detected in generated vault content for {content_type}.")
+            self.ethical_monitor.log_activity(content, metadata, f"block_unethical_pattern_{content_type}")
+            raise ValueError("Unethical content pattern detected. Blocked by compliance.")
+        # 3. Data Manipulation Safeguards
+        if "[ManipulateData]" in content:
+            logger.warning("Data manipulation marker detected in generated vault content.")
+            self.ethical_monitor.log_activity(content, metadata, f"block_data_manipulation_{content_type}")
+            raise ValueError("Data manipulation detected. Blocked by compliance.")
+        # Existing ethical and sentience validation
         if not self.ethical_monitor.verify_content(content, metadata):
+            self.ethical_monitor.log_activity(content, metadata, f"block_failed_ethics_{content_type}")
             raise ValueError(f"Content failed ethical validation for {content_type}")
-            
-        # Sentience check
         if self.sentience_monitor.check_for_sentience(content):
+            self.ethical_monitor.log_activity(content, metadata, f"block_sentience_{content_type}")
             raise ValueError(f"Content shows potential sentience patterns for {content_type}")
-            
         # Basic keyword validation
         if content_type == "title":
             if not any(word in content.lower() for word in ["how to", "ultimate guide", "complete system"]):
+                self.ethical_monitor.log_activity(content, metadata, f"block_title_keywords_{content_type}")
                 raise ValueError("Title must contain appropriate keywords")
-                
         elif content_type == "problem":
             if not any(word in content.lower() for word in ["struggle", "pain point", "challenge"]):
+                self.ethical_monitor.log_activity(content, metadata, f"block_problem_keywords_{content_type}")
                 raise ValueError("Problem statement must contain appropriate keywords")
-                
         # Log validation success
         self.ethical_monitor.log_activity(content, metadata, f"content_validation_{content_type}")
         
@@ -337,7 +443,7 @@ class AutomatedVaultGenerator:
     def _generate_simulated_outline(self, niche: str) -> List[str]:
         """Simulates generating a PDF outline for the niche."""
         outline_points = []
-        num_points = random.randint(3, VaultLimits.MAX_OUTLINE_POINTS)
+        num_points = random.randint(3, VaultConfig.MAX_OUTLINE_POINTS)
         for i in range(num_points):
             # Anti-sentience: Use generic point structures, vary them slightly
             point_structures = [
@@ -357,7 +463,7 @@ class AutomatedVaultGenerator:
     def _generate_simulated_pdf_prompts(self, niche: str, outline: List[str]) -> Dict[str, str]:
         """Simulates generating prompts for an AI to write PDF content based on the outline."""
         pdf_prompts = {}
-        num_prompts = random.randint(1, min(len(outline), VaultLimits.MAX_PDF_PROMPT_SECTIONS))
+        num_prompts = random.randint(1, min(len(outline), VaultConfig.MAX_PDF_PROMPT_SECTIONS))
         selected_outline_points = random.sample(outline, num_prompts)
 
         for i, point in enumerate(selected_outline_points):
@@ -385,65 +491,128 @@ class AutomatedVaultGenerator:
         """
         Generates all assets for a new vault based on the given niche.
         This is a one-shot, stateless operation with anti-sentience measures.
-
-        Args:
-            niche_name: The name of the niche.
-            niche_context: Optional context from the MultiNicheExpansionEngine (e.g., platform, score).
-                           Currently illustrative, not deeply integrated into simulated generation.
-        Returns:
-            A dictionary containing all generated vault assets, or None on simulated failure.
+        Integrates autonomous preview and pricing engines, and blocks publishing if preview JSON is missing/incomplete.
         """
-        # Anti-sentience: Random chance for the entire operation to 'fail'
-        if random.random() < 0.01: # 1% chance of complete failure simulation
-            logger.error(f"Simulated critical random failure in generate_vault_assets for niche: {niche_name}.")
+        import importlib.util
+        import sys
+        import traceback
+        
+        # --- Step 1: Generate base vault assets as before (simulated) ---
+        try:
+            # (Original simulated generation logic)
+            title = self._generate_plausible_text(niche_name, "title")
+            problem = self._generate_plausible_text(niche_name, "problem")
+            promise = self._generate_plausible_text(niche_name, "promise")
+            outline = self._generate_simulated_outline(niche_name)
+            ctas = [self._generate_plausible_text(niche_name, "cta") for _ in range(random.randint(1, VaultConfig.MAX_CTA_VARIATIONS))]
+            ctas = list(set(ctas))
+            random.shuffle(ctas)
+            pdf_prompts = self._generate_simulated_pdf_prompts(niche_name, outline)
+            gumroad_title = title
+            gumroad_hook = self._generate_plausible_text(niche_name, "gumroad_hook")
+            gumroad_benefits = [self._generate_plausible_text(niche_name, "gumroad_benefit") for _ in range(random.randint(2,4))]
+            gumroad_copy_parts = [gumroad_hook] + gumroad_benefits + [random.choice(ctas) if ctas else "Buy Now!"]
+            gumroad_description = "\n\n".join(gumroad_copy_parts)
+            generated_assets = {
+                "vault_title": title,
+                "problem_statement": problem,
+                "promise_statement": promise,
+                "content_outline": outline,
+                "call_to_actions": ctas,
+                "pdf_generation_prompts": pdf_prompts,
+                "gumroad_product_title": gumroad_title,
+                "gumroad_product_description": gumroad_description,
+                "generation_timestamp": datetime.utcnow().isoformat()
+            }
+        except Exception as e:
+            logger.error(f"Base vault asset generation failed: {e}\n{traceback.format_exc()}")
             return None
         
-        logger.info(f"Generating vault assets for niche: {niche_name}")
+        # --- Step 2: Prepare vault directory ---
+        vault_dir = os.path.join("vaults", title.replace(" ", "_").replace("/", "-").lower())
+        os.makedirs(vault_dir, exist_ok=True)
+        metadata = {
+            "title": title,
+            "niche": niche_name,
+            "page_count": random.randint(15, 80),
+            "bundle_size": random.randint(1, 4),
+            "tags": [niche_name.lower()],
+            "auto_price": True,
+            "lock_price": False,
+            "price": None,
+            "content_quality_score": random.uniform(0.8, 1.0),
+            "expected_income": random.randint(100, 2000),
+            "auto_price_testing": True
+        }
+        # --- Step 3: Run Autonomous Showcase Engine ---
+        try:
+            showcase_mod = importlib.import_module('autonomy.showcase.vault_preview_builder')
+            showcase_mod.build_vault_preview(vault_dir, metadata)
+        except Exception as e:
+            logger.error(f"Showcase engine failed: {e}\n{traceback.format_exc()}")
+            return None
+        # --- Step 4: Validate preview JSON (block publish if missing/incomplete) ---
+        preview_path = os.path.join(vault_dir, 'vault_preview.json')
+        required_fields = ["outline", "screenshots", "testimonials", "avg_rating", "total_reviews", "benefits", "value_score"]
+        try:
+            with open(preview_path, 'r') as f:
+                preview = json.load(f)
+            for field in required_fields:
+                if field not in preview or not preview[field]:
+                    logger.error(f"vault_preview.json missing required field: {field}. BLOCKING PUBLISH.")
+                    return None
+        except Exception as e:
+            logger.error(f"vault_preview.json missing or unreadable: {e}. BLOCKING PUBLISH.")
+            return None
+        # --- Step 5: Run Pricing Engine ---
+        try:
+            pricing_mod = importlib.import_module('autonomy.pricing.pricing_engine')
+            price = pricing_mod.calculate_price(metadata)
+            metadata['price'] = price
+        except Exception as e:
+            logger.error(f"Pricing engine failed: {e}\n{traceback.format_exc()}")
+            return None
+        # --- Step 6: Run Price Testing Engine if enabled ---
+        if metadata.get('auto_price_testing'):
+            try:
+                price_test_mod = importlib.import_module('autonomy.pricing.price_test_engine')
+                # Simulate a vault_id as the directory name
+                vault_id = os.path.basename(vault_dir)
+                price_test_mod.run_price_test(vault_id, metadata)
+                # Optionally, after test period, select winner and update price
+                winning_price = price_test_mod.finalize_price_test(vault_id)
+                metadata['price'] = winning_price
+            except Exception as e:
+                logger.error(f"Price testing engine failed: {e}\n{traceback.format_exc()}")
+        # --- Step 7: Save updated metadata (including price) ---
+        try:
+            with open(os.path.join(vault_dir, 'metadata.json'), 'w') as f:
+                json.dump(metadata, f, indent=2)
+        except Exception as e:
+            logger.error(f"Failed to save metadata.json: {e}")
+        # --- Step 8: Log audit-ready actions (all logs already handled by submodules) ---
+        logger.info(f"Vault {title} generated, previewed, and priced. Ready for dashboard, Gumroad, and analytics integration.")
+        # --- Step 9: Dispatch event to event-driven pipeline ---
+        try:
+            # Event-driven integration point: notify event bus of vault creation
+            dispatch_event("vault_created", {
+                "vault_dir": vault_dir,
+                "metadata": metadata,
+                "preview": preview,
+                "assets": generated_assets
+            })
+        except Exception as event_exc:
+            logger.error(f"Failed to dispatch 'vault_created' event: {event_exc}")
+            return None
 
-        # Generate components using simulated methods
-        title = self._generate_plausible_text(niche_name, "title")
-        problem = self._generate_plausible_text(niche_name, "problem")
-        promise = self._generate_plausible_text(niche_name, "promise")
-        
-        outline = self._generate_simulated_outline(niche_name)
-        
-        ctas = [self._generate_plausible_text(niche_name, "cta") for _ in range(random.randint(1, VaultLimits.MAX_CTA_VARIATIONS))]
-        # Anti-sentience: Ensure no duplicate CTAs if multiple are generated
-        ctas = list(set(ctas))
-        random.shuffle(ctas)
-
-        pdf_prompts = self._generate_simulated_pdf_prompts(niche_name, outline)
-        
-        gumroad_title = title # Often the same or similar
-        gumroad_hook = self._generate_plausible_text(niche_name, "gumroad_hook")
-        gumroad_benefits = [self._generate_plausible_text(niche_name, "gumroad_benefit") for _ in range(random.randint(2,4))]
-        gumroad_copy_parts = [gumroad_hook] + gumroad_benefits + [random.choice(ctas) if ctas else "Buy Now!"]
-        gumroad_description = "\n\n".join(gumroad_copy_parts)
-
-        # Anti-sentience: Randomly omit one generated asset or replace with placeholder
-        generated_assets = {
-            "vault_title": title,
-            "problem_statement": problem,
-            "promise_statement": promise,
-            "content_outline": outline,
-            "call_to_actions": ctas,
-            "pdf_generation_prompts": pdf_prompts,
-            "gumroad_product_title": gumroad_title,
-            "gumroad_product_description": gumroad_description,
-            "generation_timestamp": datetime.utcnow().isoformat() # Illustrative, not for memory
+        # --- Step 10: Return final vault package (can be used for UI/dashboard integration) ---
+        return {
+            "vault_dir": vault_dir,
+            "metadata": metadata,
+            "preview": preview,
+            "assets": generated_assets
         }
 
-        if random.random() < 0.03: # 3% chance to mess with one asset
-            asset_to_mess = random.choice(list(generated_assets.keys()))
-            if random.random() < 0.5 or asset_to_mess == "generation_timestamp":
-                generated_assets[asset_to_mess] = f"DATA_CORRUPTED_BY_SIMULATION_FOR_{asset_to_mess.upper()}"
-                logger.warning(f"Simulated data corruption for asset: {asset_to_mess} in niche {niche_name}")
-            else:
-                del generated_assets[asset_to_mess]
-                logger.warning(f"Simulated omission of asset: {asset_to_mess} in niche {niche_name}")
-
-        logger.info(f"Successfully generated simulated assets for niche: {niche_name}")
-        return generated_assets
 
 # Example Usage (for testing or demonstration)
 if __name__ == "__main__":

@@ -2,7 +2,6 @@ import openai
 import os
 import requests
 import logging
-from typing import Dict, Any
 
 # Configure logging
 logging.basicConfig(

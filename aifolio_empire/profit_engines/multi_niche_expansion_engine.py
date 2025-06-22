@@ -26,6 +26,17 @@ except ImportError:
 MAX_NICHES_TO_SCAN_PER_CALL = 250 
 MAX_RESULTS_PER_PLATFORM_SIMULATION = 20
 
+from aifolio_empire.profit_engines.automated_vault_generator import process_all_supported_niches
+
+# Example: Equal focus automation across all supported niches (for compliance, simulation, or expansion)
+# This ensures every niche receives automation/processing regardless of order or profitability.
+# Usage: define a processing function and pass to process_all_supported_niches.
+#
+def demo_equal_focus_processing():
+    def print_niche(niche):
+        print(f"Processing niche: {niche}")
+    process_all_supported_niches(print_niche)
+
 class MultiNicheExpansionEngine:
     """Scans and ranks trending niches with anti-sentience safeguards."""
 
@@ -134,7 +145,7 @@ class MultiNicheExpansionEngine:
             all_discovered_niches_from_scan.extend(platform_niches)
             
             if len(all_discovered_niches_from_scan) > MAX_NICHES_TO_SCAN_PER_CALL:
-                 logger.warning(f"Reached MAX_NICHES_TO_SCAN_PER_CALL. Truncating.")
+                 logger.warning("Reached MAX_NICHES_TO_SCAN_PER_CALL. Truncating.")
                  all_discovered_niches_from_scan = all_discovered_niches_from_scan[:MAX_NICHES_TO_SCAN_PER_CALL]
                  break
 

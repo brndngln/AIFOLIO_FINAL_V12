@@ -8,7 +8,7 @@ rule-based, and incorporates randomization to prevent predictability.
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional, List, Tuple
+from typing import Dict, Any, List
 from collections import Counter
 
 # Attempt to import config and logger
@@ -109,7 +109,7 @@ class LoopInterceptor:
         if not loop_detected and len(recent_outputs) >= config.SIM_LOOP_CHECK_WINDOW_SIZE:
             # Consider the last N items for frequency check
             window_to_check = recent_outputs[-config.SIM_LOOP_CHECK_WINDOW_SIZE:]
-            counts = Counter()
+            Counter()
             # Group highly similar items (conceptually)
             # This is a simplified approach for simulation
             # A more robust sim might use a clustering idea, but keep it simple.

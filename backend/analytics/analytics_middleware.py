@@ -1,7 +1,6 @@
 from fastapi import Request, Response
 from fastapi.middleware.base import BaseHTTPMiddleware
-from typing import Callable, Any
-from datetime import datetime
+from typing import Callable
 import time
 import logging
 from .analytics_service import AnalyticsService

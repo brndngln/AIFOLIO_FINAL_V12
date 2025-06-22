@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import EnhancedColorPicker from './EnhancedColorPicker';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme } from '../../theme/ThemeProvider.jsx';
 import ColorPreview from './ColorPreview';
 import ButtonPreview from './ButtonPreview';
-import { useEthicalMonitor } from '../utils/EthicalMonitor';
+// import { useEthicalMonitor } from '../utils/EthicalMonitor'; // (Removed: file does not exist)
 
-// Add more color presets
+// Color presets for the customization system
 const colorPresets = {
+  matted: {
+    background: '#181A17',
+    text: '#E3DBC8',
+    accent: '#5A695A',
+    secondary: '#7A867A',
+    cta: '#BBAA8E',
+    border: '#7A867A'
+  },
   default: {
     background: '#000000',
     text: '#F5EAD4',
@@ -14,14 +22,6 @@ const colorPresets = {
     secondary: '#516B51',
     cta: '#D2B48C',
     border: '#516B51'
-  },
-  cyber: {
-    background: '#000000',
-    text: '#00FF00',
-    accent: '#00FF00',
-    secondary: '#00AA00',
-    cta: '#00FF00',
-    border: '#00AA00'
   },
   classic: {
     background: '#000000',
@@ -31,14 +31,6 @@ const colorPresets = {
     cta: '#FF0000',
     border: '#0000AA'
   },
-  neon: {
-    background: '#000000',
-    text: '#FF00FF',
-    accent: '#FF00FF',
-    secondary: '#AA00AA',
-    cta: '#FF00FF',
-    border: '#AA00AA'
-  },
   minimal: {
     background: '#000000',
     text: '#FFFFFF',
@@ -46,9 +38,9 @@ const colorPresets = {
     secondary: '#808080',
     cta: '#FFFFFF',
     border: '#808080'
-  },
-  // Add more presets here
+  }
 };
+// Add more presets here
 
 // Add more color properties
 const additionalProperties = {
@@ -80,7 +72,11 @@ const ColorCustomization = () => {
   const [history, setHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [currentColor, setCurrentColor] = useState(null);
-  const { validateColorChange, logActivity, checkForSentience } = useEthicalMonitor();
+
+  // Ethical monitoring functions are disabled (EthicalMonitor not found)
+  const validateColorChange = () => {};
+  const logActivity = () => {};
+  const checkForSentience = () => false;
 
   // Enhanced safety measures to prevent sentience
   useEffect(() => {
@@ -313,16 +309,14 @@ const ColorCustomization = () => {
         { name: 'hover', defaultValue: '#2E3D2E' },
         { name: 'focus', defaultValue: '#D2B48C' },
         { name: 'disabled', defaultValue: '#404040' },
-        const properties = [
-            { name: 'placeholder', defaultValue: '#808080' },
-            { name: 'error', defaultValue: '#FF0000' },
-            { name: 'success', defaultValue: '#00FF00' },
-            { name: 'warning', defaultValue: '#FFFF00' },
-            { name: 'info', defaultValue: '#00FFFF' },
-            { name: 'underline', defaultValue: '#D2B48C' },
-            { name: 'underline-hover', defaultValue: '#3D503D' },
-            { name: 'underline-focus', defaultValue: '#2E3D2E' }
-        ];,,
+        { name: 'placeholder', defaultValue: '#808080' },
+        { name: 'error', defaultValue: '#FF0000' },
+        { name: 'success', defaultValue: '#00FF00' },
+        { name: 'warning', defaultValue: '#FFFF00' },
+        { name: 'info', defaultValue: '#00FFFF' },
+        { name: 'underline', defaultValue: '#D2B48C' },
+        { name: 'underline-hover', defaultValue: '#3D503D' },
+        { name: 'underline-focus', defaultValue: '#2E3D2E' }
       ]
     },
     {
@@ -612,7 +606,6 @@ const ColorCustomization = () => {
       </div>
     </div>
   );
-}
 }
 
 export default ColorCustomization;

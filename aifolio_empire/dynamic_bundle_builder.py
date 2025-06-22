@@ -1,8 +1,7 @@
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, List
 import logging
 from datetime import datetime, timedelta
 from random import randint
-from .utils import InputValidator
 
 # Configure logging
 logging.basicConfig(

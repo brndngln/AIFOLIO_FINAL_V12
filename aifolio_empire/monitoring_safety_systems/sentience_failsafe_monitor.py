@@ -9,7 +9,7 @@ import random
 import logging
 import uuid
 import re
-from typing import Dict, Any, Optional, List, Tuple
+from typing import Dict, Any, List
 
 # Attempt to import config and logger
 try:
@@ -49,7 +49,7 @@ class SentienceFailsafeMonitor:
 
     def _get_context_snippet(self, text: str, phrase: str, match_start: int) -> str:
         """Extracts a snippet of text around the found phrase for context."""
-        words = text.split()
+        text.split()
         # This is an approximation, as match_start is char index, not word index
         # A more precise way would be to find word indices, but this is simpler for sim
         start_index = max(0, match_start - config.SIM_SENTIENCE_CONTEXT_WORDS_SIM * 6) # Avg 5 chars/word + space

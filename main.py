@@ -8,7 +8,7 @@ from backend.ai_cover_creator.dalle import generate_cover
 from backend.product_prep.zip_packager import package_vault
 from backend.marketing.generate_copy import generate_marketing_copy
 from backend.dashboard.notion_push import push_to_notion
-from backend.utils.api_utils import handle_api_errors, api_error_handler
+from backend.utils.api_utils import api_error_handler
 from backend.utils.ai_safety import AISafety
 from backend.analytics.analytics_middleware import AnalyticsMiddleware
 from backend.analytics.analytics_service import AnalyticsService
@@ -17,7 +17,7 @@ from backend.utils.error_handler import ErrorHandler
 from backend.cache.cache_service import CacheService
 from backend.rate_limiting.rate_limiter import RateLimiter
 import logging
-from typing import Dict, Any
+from typing import Dict
 from redis import Redis
 import os
 

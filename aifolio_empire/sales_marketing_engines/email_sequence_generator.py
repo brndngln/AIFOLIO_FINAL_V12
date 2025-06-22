@@ -7,7 +7,7 @@ It is stateless, rule-based, and does not learn or adapt.
 import random
 import logging
 import json
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Optional, List
 from datetime import datetime
 
 # Attempt to import config and logger
@@ -146,6 +146,17 @@ class EmailSequenceGenerator:
         logger.info(f"Successfully generated {len(emails_to_send)} emails for '{sequence_type}' sequence (niche: {niche}).")
         return emails_to_send
 
+def demo_equal_focus_email_sequences():
+    """
+    Demo: Simulate email sequence generation for every supported niche (equal focus compliance).
+    Prints a summary for each niche.
+    """
+    from aifolio_empire.profit_engines.automated_vault_generator import process_all_supported_niches
+    def simulate(niche):
+        print(f"Simulating email sequence for: {niche}")
+        # Placeholder: Replace with actual email sequence logic if needed
+    process_all_supported_niches(simulate)
+
 # Example Usage
 if __name__ == "__main__":
     logger.info("--- Running EmailSequenceGenerator Example ---")
@@ -175,7 +186,7 @@ if __name__ == "__main__":
             if generated_sequence:
                 print(json.dumps(generated_sequence, indent=2))
             else:
-                print(f"No emails generated for this sequence type (or simulated empty result).")
+                print("No emails generated for this sequence type (or simulated empty result).")
         else:
             print(f"Failed to generate '{seq_type}' sequence (simulated critical failure).")
         print("---")

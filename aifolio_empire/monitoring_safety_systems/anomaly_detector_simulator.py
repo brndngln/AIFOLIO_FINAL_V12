@@ -83,7 +83,7 @@ class AnomalyDetectorSimulator:
             # Simplistic check for jumbled case/digits (very basic 'entropy')
             if len(re.findall(r'[A-Z]', text_input)) > 0 and len(re.findall(r'[a-z]', text_input)) > 0 and len(re.findall(r'[0-9]', text_input)) > 0:
                 if len(text_input) > 15 and random.random() < 0.05: # Low chance for this specific heuristic
-                     return {"type": "JUMBLED_CASE_DIGITS_SIM", "description": f"Simulated jumbled mix of cases and digits suggesting randomness.", "confidence_sim": self._get_adjusted_threshold(0.5, True)}
+                     return {"type": "JUMBLED_CASE_DIGITS_SIM", "description": "Simulated jumbled mix of cases and digits suggesting randomness.", "confidence_sim": self._get_adjusted_threshold(0.5, True)}
         return None
 
     def _check_metric_anomaly(self, metric_value: Union[int, float], expected_mean_sim: float, expected_std_dev_sim: float) -> Optional[Dict[str, Any]]:

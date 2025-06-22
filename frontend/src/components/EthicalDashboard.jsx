@@ -25,15 +25,20 @@ const EthicalDashboard = () => {
 
     const fetchData = async () => {
         try {
+            const token = localStorage.getItem('token');
             // Fetch activity log
-            const activityResponse = await axios.get('/api/monitor/activity');
+            const activityResponse = await axios.get('/api/monitor/activity', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
             setActivityLog(activityResponse.data);
 
             // Fetch metrics
-            const metricsResponse = await axios.get('/api/monitor/metrics');
+            const metricsResponse = await axios.get('/api/monitor/metrics', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
             setMetrics(metricsResponse.data);
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching compliance/ethics data:', error);
         }
     };
 

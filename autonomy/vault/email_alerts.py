@@ -1,0 +1,40 @@
+import os
+import smtplib
+import json
+import datetime
+from email.mime.text import MIMEText
+from email.utils import formataddr
+
+EMAIL_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/email_alert_log.jsonl'))
+os.makedirs(os.path.dirname(EMAIL_LOG), exist_ok=True)
+
+SMTP_HOST = os.getenv('SMTP_HOST')
+SMTP_PORT = int(os.getenv('SMTP_PORT', '587'))
+SMTP_USER = os.getenv('SMTP_USER')
+SMTP_PASS = os.getenv('SMTP_PASS')
+FROM_EMAIL = os.getenv('FROM_EMAIL')
+FROM_NAME = os.getenv('FROM_NAME', 'AIFOLIO Vaults')
+
+# --- Opt-in Email Alerts for Vault Builds ---
+def send_vault_email_alert(to_email, subject, body):
+    msg = MIMEText(body, 'plain')
+    msg['Subject'] = subject
+    msg['From'] = formataddr((FROM_NAME, FROM_EMAIL))
+    msg['To'] = to_email
+    try:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.send_message(msg)
+        status = 'sent'
+    except Exception as e:
+        status = f'error: {e}'
+    entry = {
+        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
+        'to': to_email,
+        'subject': subject,
+        'status': status
+    }
+    with open(EMAIL_LOG, 'a') as f:
+        f.write(json.dumps(entry) + '\n')
+    return status

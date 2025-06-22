@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
 from datetime import datetime, timedelta
-import hashlib
 from aifolio_empire.ai_bridge import AIBridge, APIKeyManager
 from aifolio_empire.utils import InputValidator
 
@@ -62,7 +61,6 @@ class TestAIBridge(unittest.TestCase):
         
     def test_input_validation(self):
         """Test input validation for generation."""
-        valid_prompt = "This is a valid prompt"
         invalid_prompts = [
             "" * 4001,  # Too long
             None,  # Not a string

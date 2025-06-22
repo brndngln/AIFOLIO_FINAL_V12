@@ -2,12 +2,9 @@
 Metrics dashboard with strict anti-sentience measures.
 """
 
-import os
 import random
-from typing import Dict, Any, Optional
-import logging
+from typing import Dict, Any
 from datetime import datetime
-import json
 
 from config import config, logger
 

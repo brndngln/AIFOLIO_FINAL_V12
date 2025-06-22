@@ -2,11 +2,8 @@
 Vault router with strict anti-sentience measures.
 """
 
-import os
 import random
-from typing import Optional, Dict, Any
-import logging
-from datetime import datetime
+from typing import Optional, Dict
 
 from config import config, logger
 

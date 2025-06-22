@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme } from '../../theme/ThemeProvider.jsx';
 
 function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
   const { theme } = useTheme();

@@ -8,7 +8,7 @@ Any attempt at self-modification, persistent memory, or unsanctioned autonomy wi
 
 import json
 import logging
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from pathlib import Path
 import os
 import time
@@ -95,7 +95,7 @@ class ContentFilter:
             return False
 
         if any(keyword in content.lower() for keyword in self.prohibited_keywords):
-            logger.warning(f"Content contains prohibited keyword")
+            logger.warning("Content contains prohibited keyword")
             return False
 
         return True

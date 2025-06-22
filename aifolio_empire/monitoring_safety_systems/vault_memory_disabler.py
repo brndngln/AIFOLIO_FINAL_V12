@@ -9,7 +9,7 @@ representing manual user intervention for a specific, isolated operation.
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 # Attempt to import config and logger
 try:

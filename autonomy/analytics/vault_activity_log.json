@@ -1,0 +1,50 @@
+[
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-18T03:35:03.849481",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-18T03:35:30.815084",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-19T22:56:36.296679",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-19T22:58:18.157214",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-19T22:58:32.461809",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-06-19T23:09:41.331241",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  }
+]

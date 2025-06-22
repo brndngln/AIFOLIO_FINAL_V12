@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme } from '../../theme/ThemeProvider.jsx';
 
 function ButtonPreview() {
   const { theme } = useTheme();

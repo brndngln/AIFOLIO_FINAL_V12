@@ -7,7 +7,7 @@ It's stateless, rule-based, and includes randomization and simulated imperfectio
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from datetime import datetime, timezone
 
 # Attempt to import config and logger

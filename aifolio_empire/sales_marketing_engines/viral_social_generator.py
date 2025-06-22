@@ -8,7 +8,7 @@ It is stateless, rule-based, and does not learn or adapt.
 import random
 import logging
 import json
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Any, Optional, List
 from datetime import datetime
 
 # Attempt to import config and logger

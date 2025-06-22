@@ -1,5 +1,4 @@
 import os
-import random
 from dotenv import load_dotenv
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel

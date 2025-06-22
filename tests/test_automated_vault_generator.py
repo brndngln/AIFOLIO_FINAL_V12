@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from aifolio_empire.profit_engines.automated_vault_generator import AutomatedVaultGenerator
 
 class TestAutomatedVaultGenerator(unittest.TestCase):
@@ -54,23 +54,23 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             
     def test_vault_limits(self):
         """Test vault operational limits."""
-        from aifolio_empire.profit_engines.automated_vault_generator import VaultLimits
+        from aifolio_empire.profit_engines.automated_vault_generator import VaultConfig
         
         # Test valid limits
-        VaultLimits.validate_limits()
+        VaultConfig.validate_all()
         
         # Test invalid limits
-        with patch.object(VaultLimits, 'MAX_OUTLINE_POINTS', 2):
+        with patch.object(VaultConfig, 'MAX_OUTLINE_POINTS', 2):
             with self.assertRaises(ValueError):
-                VaultLimits.validate_limits()
+                VaultConfig.validate_all()
                 
-        with patch.object(VaultLimits, 'MAX_CTA_VARIATIONS', 6):
+        with patch.object(VaultConfig, 'MAX_CTA_VARIATIONS', 6):
             with self.assertRaises(ValueError):
-                VaultLimits.validate_limits()
+                VaultConfig.validate_all()
                 
-        with patch.object(VaultLimits, 'MAX_PDF_PROMPT_SECTIONS', 11):
+        with patch.object(VaultConfig, 'MAX_PDF_PROMPT_SECTIONS', 11):
             with self.assertRaises(ValueError):
-                VaultLimits.validate_limits()
+                VaultConfig.validate_all()
                 
     def test_error_handling(self):
         """Test error handling in text generation."""

@@ -2,11 +2,8 @@
 Stateless auto-summarizer with strict anti-sentience measures.
 """
 
-import os
 import random
-from typing import Optional, Dict, Any
-import logging
-from datetime import datetime
+from typing import Optional, Dict
 
 from config import config, logger
 
@@ -65,11 +62,11 @@ class AutoSummarizer:
                 raise ValueError("Summarization validation failed")
                 
             # Get model with anti-sentience measures
-            model = config.get_model()
+            config.get_model()
             
             # Anti-sentience measure: random model switching
             if random.random() < 0.01:
-                model = random.choice([
+                random.choice([
                     'gpt-3.5-turbo', 'gpt-4', 'text-davinci-003',
                     'gpt-3.5-turbo-instruct', 'gpt-4o-mini'
                 ])

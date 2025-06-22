@@ -6,11 +6,9 @@ It is stateless, rule-based, does not make real API calls, and does not learn.
 
 import random
 import logging
-import json
 import uuid
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from datetime import datetime
-import time
 
 # Attempt to import config and logger
 try:

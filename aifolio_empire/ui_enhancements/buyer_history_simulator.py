@@ -36,6 +36,7 @@ SIMULATED_PRODUCT_CATALOG = {
     "bundle_all_access": {"name": "All Access Pass (All Vaults)", "type": "bundle", "items": ["vault_alpha", "vault_beta", "vault_gamma", "vault_delta"], "price_sim": 59.99}
 }
 
+
 class BuyerHistorySimulator:
     """Simulates buyer history and upgrade path suggestions with anti-sentience safeguards."""
 

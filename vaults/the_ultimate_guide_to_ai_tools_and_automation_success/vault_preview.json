@@ -1,0 +1,35 @@
+{
+  "outline": [
+    "Section 1",
+    "Section 2",
+    "Section 3",
+    "Section 4",
+    "Section 5"
+  ],
+  "testimonials": [
+    {
+      "text": "I never thought The Ultimate Guide to AI Tools and Automation Success would make such a difference. Now I'm making real progress!",
+      "persona": "Priya S., coach"
+    },
+    {
+      "text": "As a Sara T., freelancer, this AI Tools and Automation vault gave me the exact steps I needed.",
+      "persona": "Sara T., freelancer"
+    }
+  ],
+  "avg_rating": 4.8,
+  "total_reviews": 16,
+  "featured_review": "Helped me launch my offer in a week!",
+  "benefits": [
+    "Save hours with done-for-you assets",
+    "Automated vault templates ready to deploy",
+    "Learn how to generate $100\u2013$500/mo using AI Tools and Automation tools",
+    "Step-by-step blueprints for fast results"
+  ],
+  "benefit_summary": "The Ultimate Guide to AI Tools and Automation Success gives you everything you need to succeed in AI Tools and Automation \u2014 from proven strategies to ready-to-use templates, all in one place.",
+  "value_score": 100,
+  "title": "The Ultimate Guide to AI Tools and Automation Success",
+  "screenshots": [
+    "page_1.png",
+    "page_2.png"
+  ]
+}

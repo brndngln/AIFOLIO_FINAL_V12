@@ -3,10 +3,8 @@ Pattern-aware test vault with strict anti-sentience measures.
 This module is for isolated benchmarking only and should never be used in production.
 """
 
-import os
 import random
-from typing import Optional, Dict, Any, Set
-import logging
+from typing import Optional, Dict, Any
 from datetime import datetime
 
 from config import config, logger

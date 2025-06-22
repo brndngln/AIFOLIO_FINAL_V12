@@ -3,15 +3,14 @@ import json
 import logging
 from datetime import datetime
 from typing import Dict, Any
-import requests
 from .sentience_failsafe_monitor import SentienceFailsafeMonitor
-from .rate_limiters import RateLimiter
+from .rate_limiters import RateLimiters
 
 class EthicalMonitor:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.sentience_monitor = SentienceFailsafeMonitor()
-        self.rate_limiter = RateLimiter()
+        self.rate_limiter = RateLimiters()
         self.content_database = {}  # In-memory database for content verification
         self.ethical_checks = {
             'copyright': self._check_copyright,

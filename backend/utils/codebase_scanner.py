@@ -1,6 +1,6 @@
 import os
 import re
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 class CodebaseScanner:
     def __init__(self):
@@ -41,10 +41,6 @@ class CodebaseScanner:
             'false_info': r'(fake|false|mislead)',
             'privacy_violation': r'(steal|grab|take)',
             'manipulation': r'(manipulate|cheat|fake)',
-            'violation': r'(violate|break|hack)',
-            'unauthorized': r'(unauthorized|force)',
-            'deception': r'(deceive|trick|fake)',
-            'fraud': r'(fraud|scam|phish)',
             'violation': r'(violate|break|hack)',
             'unauthorized': r'(unauthorized|force)',
             'deception': r'(deceive|trick|fake)',

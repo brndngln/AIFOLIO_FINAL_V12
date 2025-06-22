@@ -8,7 +8,7 @@ import random
 import logging
 import json
 import uuid
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
 
 # Attempt to import config and logger

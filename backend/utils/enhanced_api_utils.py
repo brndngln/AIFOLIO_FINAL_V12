@@ -1,8 +1,6 @@
-from functools import lru_cache
-from datetime import datetime, timedelta
-from typing import Any, Callable, Optional, Dict, TypeVar, ParamSpec, Type
+from datetime import datetime
+from typing import Any, Callable, Optional, Dict, TypeVar, ParamSpec
 import json
-import os
 import logging
 import time
 import random
@@ -523,7 +521,7 @@ class RedisCache:
             strategy_stats = stats[name]
             hit_rate = (strategy_stats['hits'] / 
                          (strategy_stats['hits'] + strategy_stats['misses']))
-            success_rate = (strategy_stats['hits'] / (strategy_stats['hits'] + strategy_stats['misses'])) if (strategy_stats['hits'] + strategy_stats['misses']) > 0 else 0
+            (strategy_stats['hits'] / (strategy_stats['hits'] + strategy_stats['misses'])) if (strategy_stats['hits'] + strategy_stats['misses']) > 0 else 0
             
             # Adjust TTL based on hit rate
             if hit_rate < 0.2:  # Low hit rate

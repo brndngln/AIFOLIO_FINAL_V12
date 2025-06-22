@@ -1,10 +1,8 @@
 import time
 import logging
-from typing import Dict, Any, Optional
-from datetime import datetime, timedelta
+from typing import Dict, Any
 from collections import defaultdict
 import json
-import os
 from redis import Redis
 
 logger = logging.getLogger(__name__)

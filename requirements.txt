@@ -24,16 +24,10 @@ flake8==6.1.0
 transformers==4.36.2
 
 # Analytics dependencies
-apexcharts==1.0.0
-react-apexcharts==1.0.0
-date-fns==2.30.0
-chart.js==4.4.1
-react-chartjs-2==4.4.0
 
 # Additional analytics tools
 prometheus-client==0.19.0
 sentry-sdk==1.39.1
-newrelic==7.15.0.212
 
 # Monitoring and logging
 prometheus-fastapi-instrumentator==6.0.0

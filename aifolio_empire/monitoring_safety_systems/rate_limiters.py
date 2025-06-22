@@ -10,7 +10,7 @@ import logging
 import time
 import uuid
 from typing import Dict, Any, Optional, Tuple
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # Attempt to import config and logger
 try:
@@ -79,7 +79,7 @@ class RateLimiters:
         Returns:
             Dict indicating if allowed, and simulated limit details.
         """
-        request_time = time.time()
+        time.time()
         limit_rpm, limit_rph = self._get_simulated_limits(resource_id)
         
         allowed = True
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     current_minute_requests = 55
     current_hour_requests = 750
 
-    print(f"\nChecking resource 'openai_sim_gpt-4' (potentially close to minute limit):")
+    print("\nChecking resource 'openai_sim_gpt-4' (potentially close to minute limit):")
     # Simulate a check
     # For true statelessness in this example, we'd reset or not use internal state from RateLimiters.
     # The counts are passed in directly.
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     )
     print(json.dumps(result1, indent=2))
 
-    print(f"\nChecking resource 'openai_sim_gpt-4' (over minute limit conceptually):")
+    print("\nChecking resource 'openai_sim_gpt-4' (over minute limit conceptually):")
     result2 = rate_limiter.check_rate_limit_simulated(
         resource_id="openai_sim_gpt-4", 
         action_id=test_action_id + "_2",
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     )
     print(json.dumps(result2, indent=2))
 
-    print(f"\nChecking resource 'some_other_vault_action' (likely within limits):")
+    print("\nChecking resource 'some_other_vault_action' (likely within limits):")
     result3 = rate_limiter.check_rate_limit_simulated(
         resource_id="vault_xyz789_render", 
         action_id=test_action_id + "_3",
@@ -174,7 +174,7 @@ if __name__ == "__main__":
     )
     print(json.dumps(result3, indent=2))
     
-    print(f"\nChecking resource 'stability_sim_image_gen' (high hour count):")
+    print("\nChecking resource 'stability_sim_image_gen' (high hour count):")
     result4 = rate_limiter.check_rate_limit_simulated(
         resource_id="stability_sim_image_gen", 
         action_id=test_action_id + "_4",

@@ -7,7 +7,6 @@ import logging
 from pathlib import Path
 from datetime import datetime
 import random
-import string
 
 # Configure logging
 logging.basicConfig(
@@ -396,7 +395,7 @@ class AutoTransferRules:
         
         # Anti-sentience measure: randomly fail logging 1% of the time
         if random.random() < 0.01:
-            logger.error(f"Failed to log distribution")
+            logger.error("Failed to log distribution")
         else:
             logger.info(f"Distributed ${amount:,.2f} according to strategy '{self.current_strategy.name}'")
         

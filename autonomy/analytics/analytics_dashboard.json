@@ -1,0 +1,10 @@
+{
+  "dashboard": "AIFOLIO SAFE AI Analytics Dashboard",
+  "modules": [
+    "buyer_analytics.py",
+    "revenue_tracker.py",
+    "vault_performance.py",
+    "compliance_tracker.py"
+  ],
+  "last_updated": null
+}

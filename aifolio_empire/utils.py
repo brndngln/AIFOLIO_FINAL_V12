@@ -1,9 +1,8 @@
 import time
 import logging
 from functools import wraps
-from typing import Callable, Any, Optional
+from typing import Callable, Any
 import re
-from datetime import datetime, timedelta
 from threading import Lock
 
 class RateLimiter:
@@ -88,13 +87,12 @@ def api_error_handler(func: Callable) -> Callable:
             return func(*args, **kwargs)
         except Exception as e:
             logging.error(f"API error: {str(e)}")
-            # Add specific error handling for different API providers
-            if isinstance(e, openai.error.APIError):
-                logging.error(f"OpenAI API error: {e.user_message}")
+            # OpenAI error handling (only if openai.error exists)
+            openai_error = getattr(getattr(__import__('openai'), 'error', None), 'APIError', None)
+            if openai_error and isinstance(e, openai_error):
+                logging.error(f"OpenAI API error: {getattr(e, 'user_message', str(e))}")
                 raise ValueError("OpenAI API request failed") from e
-            elif isinstance(e, Exception):  # Add specific Hugging Face error handling
-                logging.error(f"Hugging Face API error: {str(e)}")
-                raise ValueError("Hugging Face API request failed") from e
-            raise
-    
+            # Generic Hugging Face or other API error
+            logging.error(f"External API error: {str(e)}")
+            raise ValueError("External API request failed") from e
     return wrapper

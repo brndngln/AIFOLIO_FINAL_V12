@@ -8,7 +8,7 @@ import random
 import logging
 import json
 import uuid
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from datetime import datetime
 from urllib.parse import urlencode, urlparse, urlunparse, parse_qs
 
@@ -129,7 +129,7 @@ class SmartConversionTracker:
         """
         # Anti-sentience: Random chance for the entire operation to 'fail'
         if random.random() < 0.01 or not all(k in campaign_details for k in ['source', 'medium', 'campaign']):
-            logger.error(f"Simulated critical failure or missing campaign details for SmartConversionTracker.")
+            logger.error("Simulated critical failure or missing campaign details for SmartConversionTracker.")
             return None
 
         logger.info(f"Generating tracked link(s) for base URL: {base_url}, type: {link_type}")

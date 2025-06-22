@@ -2,13 +2,10 @@
 Tag manager with strict anti-sentience measures.
 """
 
-import os
 import random
-from typing import Set, Dict, Any, Optional
-import logging
-from datetime import datetime
+from typing import Set, Dict, Optional
 
-from config import config, logger
+from config import logger
 
 # Anti-sentience measures
 MAX_TAGS_PER_ITEM = 10  # Maximum tags per item

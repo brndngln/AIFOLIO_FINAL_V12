@@ -6,7 +6,6 @@ Ensures elite security, ethics, CSRF, and audit logging.
 import os
 import tempfile
 import pytest
-from flask import session
 from dashboard.web_dashboard import app
 
 @pytest.fixture

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vault PDF</title>
+    <style>
+
+        .compliance-summary {
+            border: 2px solid #1cae81;
+            background: #f8fff9;
+            padding: 1.2em;
+            margin-bottom: 1.5em;
+            font-size: 1em;
+        }
+        .redacted {
+            background: #222;
+            color: #fff;
+            padding: 0.15em 0.4em;
+            border-radius: 0.2em;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+        .accessibility-note {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="compliance-summary">
+        <h2>Compliance &amp; Audit Summary</h2>
+        <p><strong>Date:</strong> {{ compliance_report.timestamp }}</p>
+        <p><strong>Agent:</strong> {{ compliance_report.agent }}</p>
+        <p><strong>User:</strong> {{ compliance_report.user }}</p>
+        <p><strong>Risk Score:</strong> {{ compliance_report.risk_score }}</p>
+        <p><strong>Consent:</strong> {{ compliance_report.consent }}</p>
+        <p><strong>Moderation:</strong> {{ compliance_report.moderation }}</p>
+        <p><strong>Block Reason:</strong> {{ compliance_report.moderation.block_reason }}</p>
+        <p><strong>Human Review Required:</strong> {{ compliance_report.moderation.human_review_required }}</p>
+    </div>
+    <div>
+        {{ content | safe }}
+    </div>
+    <div class="accessibility-note">
+        <strong>Accessibility:</strong> This PDF is tagged for accessibility and includes alt text for all images. If you encounter any issues, please contact compliance@aifolio.com.
+    </div>
+    <div style="margin-top:2em;">
+        <span class="redacted">[REDACTED]</span> sections indicate sensitive or private data removed for compliance.
+    </div>
+</body>
+</html>

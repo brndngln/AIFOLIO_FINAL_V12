@@ -1,7 +1,6 @@
 import fitz  # PyMuPDF
-from typing import Dict, Any, Optional, List
+from typing import Dict, List
 import logging
-from .utils import InputValidator
 
 # Configure logging
 logging.basicConfig(

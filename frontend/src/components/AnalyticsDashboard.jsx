@@ -13,17 +13,23 @@ function AnalyticsDashboard() {
   });
 
   useEffect(() => {
-    const fetchMetrics = () => {
-      setMetrics(prev => ({
-        ...prev,
-        request_rate: Math.floor(Math.random() * 1000),
-        error_rate: Math.random() * 5,
-        memory_usage: Math.floor(Math.random() * 100),
-        cache_hit_rate: Math.random() * 100
-      }));
+    const fetchMetrics = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('/api/analytics/metrics', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (!response.ok) throw new Error('Failed to fetch metrics');
+        const data = await response.json();
+        setMetrics(data);
+      } catch (error) {
+        console.error('Error fetching analytics metrics:', error);
+      }
     };
-
-    const interval = setInterval(fetchMetrics, 5000);
+    fetchMetrics();
+    const interval = setInterval(fetchMetrics, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -35,16 +41,42 @@ function AnalyticsDashboard() {
     return `${(value * 100).toFixed(1)}%`;
   };
 
+  // Import creative dashboard panels
+  // (Assume imports are added at the top)
+  // import VaultDropCountdownPanel from './VaultDropCountdownPanel';
+  // import SalesHeatmapPanel from './SalesHeatmapPanel';
+  // import AILogVisualizerPanel from './AILogVisualizerPanel';
+  // import ComplianceRiskScoreWidget from './ComplianceRiskScoreWidget';
+  // import AutomationTriggerPanel from './AutomationTriggerPanel';
+
+  // Import creative dashboard panels
+  // (Assume imports are added at the top)
+  // import PrivacyStatusBar from './PrivacyStatusBar';
+  // import AuditLogSearchPanel from './AuditLogSearchPanel';
+
   return (
     <div className="space-y-6">
+      {/* Accessibility/Compliance: Privacy status always visible */}
+      <PrivacyStatusBar />
       <h2 className="text-2xl font-bold" style={{
         color: 'var(--text)',
         backgroundColor: 'var(--accent)',
         padding: 'var(--spacing-md)',
         borderRadius: 'var(--border-radius-md)',
         boxShadow: 'var(--shadow-sm)'
-      }}>Analytics Dashboard</h2>
-      
+      }} aria-label="Analytics Dashboard Heading">Analytics Dashboard</h2>
+
+      {/* Creative/Unique Panels */}
+      <section aria-label="Vault Drop Countdown"><VaultDropCountdownPanel /></section>
+      <section aria-label="Sales Heatmap"><SalesHeatmapPanel /></section>
+      <section aria-label="AI Log Visualizer"><AILogVisualizerPanel /></section>
+      <section aria-label="Compliance Risk Score"><ComplianceRiskScoreWidget /></section>
+      <section aria-label="Automation Triggers"><AutomationTriggerPanel /></section>
+
+      {/* Audit Log Search Panel */}
+      <section aria-label="Audit Log Search"><AuditLogSearchPanel /></section>
+
+      {/* Main Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <div className="theme-card" style={{
           animation: 'var(--animation-fade-in)',
@@ -57,7 +89,7 @@ function AnalyticsDashboard() {
             backgroundColor: 'var(--accent)',
             padding: 'var(--spacing-sm)',
             borderRadius: 'var(--border-radius-sm)'
-          }}>Request Rate</h3>
+          }} aria-label="Request Rate">Request Rate</h3>
           <p className="text-2xl font-bold" style={{
             color: 'var(--text)',
             marginTop: 'var(--spacing-md)'

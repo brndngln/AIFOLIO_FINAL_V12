@@ -7,7 +7,7 @@ like dark mode, for a dashboard. It is stateless per operation and rule-based.
 import random
 import logging
 import uuid
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from datetime import datetime # Added for example usage
 
 # Attempt to import config and logger
