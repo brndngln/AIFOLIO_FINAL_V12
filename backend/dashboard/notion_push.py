@@ -19,6 +19,8 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
+from autonomy.security.ai_safety_layer import anti_sentience_guard
+
 def push_to_notion(vault_data: Dict[str, Any]) -> Dict[str, Any]:
     """Push vault data to Notion dashboard."""
     try:
@@ -31,12 +33,21 @@ def push_to_notion(vault_data: Dict[str, Any]) -> Dict[str, Any]:
         if not NOTION_DB_ID:
             raise ValueError("NOTION_DB_ID environment variable is not set")
             
+        # AI SAFETY CHECKS
+        for field in ["description", "summary", "revenue_blurb"]:
+            val = vault_data.get(field, "")
+            if val and not anti_sentience_guard(val, user=vault_data.get('user'), action=f'push_to_notion:{field}'):
+                logger.error(f"AI safety violation: Unsafe sentience/agency patterns detected in Notion push field '{field}'.")
+                raise Exception(f"AI safety violation: Unsafe sentience/agency patterns detected in Notion push field '{field}'.")
+
         # Prepare data for Notion
         data = {
             "parent": {"database_id": NOTION_DB_ID},
             "properties": {
                 "Name": {"title": [{"text": {"content": vault_data['title']}}]},
                 "Description": {"rich_text": [{"text": {"content": vault_data['description']}}]},
+                "Summary": {"rich_text": [{"text": {"content": vault_data.get("summary", "")}}]},
+                "Revenue": {"rich_text": [{"text": {"content": vault_data.get("revenue_blurb", "")}}]},
                 "Chapters": {"rich_text": [{"text": {"content": ", ".join(vault_data['chapters'])}}]},
                 "Status": {"select": {"name": "Generated"}},
                 "Created": {"date": {"start": datetime.now().isoformat()}},

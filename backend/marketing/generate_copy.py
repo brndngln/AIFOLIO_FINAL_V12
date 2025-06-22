@@ -19,9 +19,12 @@ logger = logging.getLogger(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @cache_response
+from autonomy.security.ai_safety_layer import anti_sentience_guard
+
 @retry_on_api_error(attempts=3, base_delay=1.0, max_delay=30.0)
 @rate_limit(calls_per_minute=60, window_size=60)
 @handle_api_errors
+
 def generate_marketing_copy(vault_data: Dict[str, Any]) -> str:
     """Generate marketing copy for the vault."""
     try:
@@ -73,6 +76,11 @@ def generate_marketing_copy(vault_data: Dict[str, Any]) -> str:
         # Parse and save the response
         copy_data = response['choices'][0]['message']['content']
         
+        # AI SAFETY CHECK
+        if not anti_sentience_guard(copy_data, user=vault_data.get('user'), action='generate_marketing_copy'):
+            logger.error("AI safety violation: Unsafe sentience/agency patterns detected in generated marketing copy.")
+            raise Exception("AI safety violation: Unsafe sentience/agency patterns detected.")
+
         # Save to file
         os.makedirs("exports", exist_ok=True)
         copy_path = f"exports/{vault_data['title']}_marketing.txt"

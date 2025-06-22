@@ -65,6 +65,11 @@ def generate_vault_prompt(topic: str = None) -> Dict[str, Any]:
             temperature=0.7
         )
         vault_data = response.choices[0].message.content
+        
+        # AI SAFETY CHECK
+        if not anti_sentience_guard(vault_data, user=None, action='generate_vault_prompt'):
+            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in vault generation.')
+        
         metrics.track_cache_metrics(cache_key, hit=True)  # Track cache hit
         logger.info("Successfully received vault content from GPT-4")
         
@@ -86,12 +91,6 @@ def generate_vault_prompt(topic: str = None) -> Dict[str, Any]:
     except Exception as e:
         logger.error(f"Error generating vault content: {str(e)}")
         raise
-        logger.info("Generating vault content with GPT-4")
-        
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {
                     "role": "system",
                     "content": """
                     You are an elite PDF creator for the brand AIFOLIO™. 

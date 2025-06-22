@@ -38,11 +38,19 @@ def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> 
         <div class='cta'><p>{vault_data.get('cta', '')}</p></div>
         """
 
+        # AI SAFETY CHECK
+        if not anti_sentience_guard(content, user=None, action='render_pdf'):
+            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in PDF content.')
+
         # Render the template with compliance_report and content
         html_content = template.render(
             compliance_report=compliance_report,
             content=content
         )
+
+        # AI SAFETY CHECK
+        if not anti_sentience_guard(html_content, user=None, action='render_pdf'):
+            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in PDF content.')
 
         # Generate PDF
         pdf_path = f"vaults/{vault_data['title']}.pdf"
