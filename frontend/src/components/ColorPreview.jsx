@@ -5,7 +5,7 @@ function ColorPreview() {
   const { theme } = useTheme();
 
   return (
-    <div className="theme-panel">
+    <div className="theme-panel" role="color-preview">
       <h2 className="text-2xl font-bold mb-4" style={{
         color: 'var(--text)',
         backgroundColor: 'var(--accent)',

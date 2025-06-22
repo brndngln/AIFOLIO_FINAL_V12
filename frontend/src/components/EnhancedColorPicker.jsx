@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
 function EnhancedColorPicker({ component, property, defaultValue, onChange }) {

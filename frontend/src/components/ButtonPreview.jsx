@@ -5,7 +5,7 @@ function ButtonPreview() {
   const { theme } = useTheme();
 
   return (
-    <div className="theme-panel p-6">
+    <div className="theme-panel p-6" role="button-preview">
       <h3 className="text-lg font-semibold mb-4" style={{
         color: 'var(--text)',
         backgroundColor: 'var(--accent)',

@@ -67,6 +67,7 @@ const additionalProperties = {
 };
 
 const ColorCustomization = () => {
+  const [activePreset, setActivePreset] = useState('default');
   const { theme, setTheme } = useTheme();
   const [showPreview, setShowPreview] = useState(false);
   const [history, setHistory] = useState([]);
@@ -562,9 +563,22 @@ const ColorCustomization = () => {
           >
             Reset to Default
           </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={() => setShowPreview((v) => !v)}
+            style={{
+              backgroundColor: 'var(--accent)',
+              color: 'var(--text)'
+            }}
+          >
+            {showPreview ? 'Hide Preview' : 'Show Preview'}
+          </button>
           <select
             value={activePreset}
-            onChange={(e) => applyPreset(e.target.value)}
+            onChange={(e) => {
+              setActivePreset(e.target.value);
+              applyPreset(e.target.value);
+            }}
             className="px-4 py-2 rounded"
             style={{
               backgroundColor: 'var(--card)',
@@ -580,7 +594,12 @@ const ColorCustomization = () => {
           </select>
         </div>
       </div>
-      
+      {showPreview && (
+        <div className="my-4">
+          <ColorPreview />
+          <ButtonPreview />
+        </div>
+      )}
       <div className="space-y-6">
         {components.map((component) => (
           <div key={component.name} className="space-y-4">

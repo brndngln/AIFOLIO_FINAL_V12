@@ -3,4 +3,5 @@ module.exports = {
     '^.+\\.[jt]sx?$': 'babel-jest',
   },
   testEnvironment: 'jsdom',
+
 };
