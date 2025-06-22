@@ -241,25 +241,6 @@ export function Batch16Widgets() {
   );
 }
 
-
-
-
-        <li>SAFE AI Enterprise Business Maturity Index</li>
-        <li>SAFE AI Future Trends Manual Input Tracker</li>
-        <li>AI-Policy Cross-Check Generator</li>
-        <li>Global SAFE AI Partner Network Health Report</li>
-        <li>SAFE AI System Renewal Planner</li>
-        <li>SAFE AI “Trusted Partner” Public Report Generator</li>
-      </ul>
-      <div className="static-widget">
-        <button onClick={() => exportBatch('pdf')}>Export Batch 20 PDF</button>
-        <button onClick={() => exportBatch('csv')}>Export Batch 20 CSV</button>
-        {exportStatus && <div className="export-status">{exportStatus}</div>}
-      </div>
-    </section>
-  );
-}
-
 import PartnerCertificationForm from "./PartnerCertificationForm";
 
 export function PartnerCertificationWidgets() {
