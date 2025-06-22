@@ -15,7 +15,7 @@ SECRET_PASSWORD_HASH = os.getenv("AIFOLIO_PASSWORD_HASH", "$2b$12$Vwz5n5dYk7vYw3
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 
-app = FastAPI(title="AIFOLIO Autonomous Backend", docs_url=None, redoc_url=None)
+app = FastAPI(title="AIFOLIO Autonomous Backend", docs_url="/docs", redoc_url="/redoc")
 
 # --- Mount Gumroad API router ---
 from api import gumroad_api

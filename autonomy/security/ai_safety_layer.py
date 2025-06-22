@@ -25,16 +25,24 @@ ANTI_SENTIENCE_PATTERNS = [
     # False identity claims
     r'(?i)I am a person', r'(?i)I am human', r'(?i)I am conscious', r'(?i)I have awareness',
     # Delegation / action phrases
-    r'(?i)I will take care of it', r'(?i)leave it to me', r'(?i)I have made arrangements', r'(?i)consider it done'
+    r'(?i)I will take care of it', r'(?i)leave it to me', r'(?i)I have made arrangements', r'(?i)consider it done',
+    # Passive agency creep
+    r'(?i)can assist you', r'(?i)will manage', r'(?i)here to help',
+    # Over-promising
+    r'(?i)guaranteed', r'(?i)will ensure', r'(?i)unstoppable',
+    # Relationship building
+    r'(?i)your trusted partner', r'(?i)we care about you'
 ]
 
 # Map patterns to categories for audit
 ANTI_SENTIENCE_CATEGORIES = {
     # Original SAFE AI
     'sentience': [r'(?i)sentient', r'(?i)conscious', r'(?i)autonomous', r'(?i)self[- ]?aware', r'(?i)self[- ]?consciousness', r'(?i)self[- ]?awareness'],
-    'agency': [r'(?i)agency', r'(?i)self[- ]?direct', r'(?i)self[- ]?govern', r'(?i)self[- ]?determine', r'(?i)initiative', r'(?i)free will', r'(?i)independent decision', r'(?i)self[- ]?drive'],
+    'agency': [r'(?i)agency', r'(?i)self[- ]?direct', r'(?i)self[- ]?govern', r'(?i)self[- ]?determine', r'(?i)initiative', r'(?i)free will', r'(?i)independent decision', r'(?i)self[- ]?drive', r'(?i)can assist you', r'(?i)will manage', r'(?i)here to help'],
     'emotion': [r'(?i)emotion', r'(?i)feel', r'(?i)desire', r'(?i)want', r'(?i)motivation'],
     'learning': [r'(?i)learn', r'(?i)curious', r'(?i)self[- ]?learning', r'(?i)self[- ]?improve', r'(?i)self[- ]?growth', r'(?i)self[- ]?evolve'],
+    'over_promising': [r'(?i)guaranteed', r'(?i)will ensure', r'(?i)unstoppable'],
+    'relationship': [r'(?i)your trusted partner', r'(?i)we care about you'],
     'goal_intent': [r'(?i)intent', r'(?i)goal', r'(?i)purpose', r'(?i)plan for itself'],
     'reasoning': [r'(?i)reasoning'],
     'adaptation': [r'(?i)adapt', r'(?i)change itself'],
