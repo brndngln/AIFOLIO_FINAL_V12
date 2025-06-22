@@ -356,15 +356,75 @@ export default function PartnerCertificationExportPanel() {
                         <td>{sch.when}</td>
                         <td>{sch.recurring ? 'Yes' : 'No'}</td>
                         <td>
-                          <button style={{marginRight:6}} aria-label="Edit" onClick={()=>{/* TODO: implement edit UI */}}>Edit</button>
-                          <button aria-label="Delete" style={{color:'#e11d48'}} onClick={async()=>{await fetch(`/batch-scaling/partner-certifications/schedule/${sch.id}`,{method:'DELETE',headers:{'Authorization':`Bearer ${getToken()}`}});fetchSchedules();}}>Delete</button>
+                          <button style={{marginRight:6}} aria-label="Edit" onClick={() => {
+                setEditSchedule(sch);
+                setShowScheduleForm(true);
+              }}>Edit</button>
+              <button aria-label="Delete" style={{color:'#e11d48'}} onClick={async()=>{await handleDeleteSchedule(sch.id);}}>Delete</button>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               )}
-              <button onClick={()=>{/* TODO: implement create schedule UI */}} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600}}>Add New Schedule</button>
+              <button onClick={() => {
+                setEditSchedule(null);
+                setShowScheduleForm(true);
+              }} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600}}>Add New Schedule</button>
+
+              {/* --- Schedule Add/Edit Form Dialog --- */}
+              {showScheduleForm && (
+                <div role="dialog" aria-modal="true" tabIndex={-1} style={{position:'fixed',top:0,left:0,right:0,bottom:0,background:'rgba(0,0,0,0.3)',zIndex:1100,display:'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>setShowScheduleForm(false)}>
+                  <div style={{background:darkMode?'#23272f':'#fff',color:darkMode?'#f1f5f9':'#222',padding:24,borderRadius:12,minWidth:340,maxWidth:440,boxShadow:'0 2px 16px #0002',position:'relative'}} onClick={e=>e.stopPropagation()}>
+                    <button onClick={()=>setShowScheduleForm(false)} aria-label="Close" style={{position:'absolute',top:10,right:12,background:'none',border:'none',fontSize:20,cursor:'pointer',color:darkMode?'#fbbf24':'#222'}}>×</button>
+                    <h4 style={{marginBottom:10,color:darkMode?'#fbbf24':'#2563eb'}}>{editSchedule ? 'Edit Schedule' : 'Add New Schedule'}</h4>
+                    <form onSubmit={async e => {
+                      e.preventDefault();
+                      const form = e.target;
+                      const type = form.type.value;
+                      const when = form.when.value;
+                      const recurring = form.recurring.checked;
+                      const body = { type, when, recurring };
+                      let url = '/batch-scaling/partner-certifications/schedule', method = 'POST';
+                      if (editSchedule) {
+                        url += `/${editSchedule.id}`;
+                        method = 'PUT';
+                      }
+                      setSchedulingLoading(true);
+                      setScheduleError(null);
+                      try {
+                        const res = await fetch(url, {
+                          method,
+                          headers: { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' },
+                          body: JSON.stringify(body)
+                        });
+                        if (!res.ok) throw new Error('Failed to save schedule');
+                        await fetchSchedules();
+                        setShowScheduleForm(false);
+                        setEditSchedule(null);
+                      } catch (e) {
+                        setScheduleError(e.message);
+                      }
+                      setSchedulingLoading(false);
+                    }}>
+                      <label style={{display:'block',marginBottom:8}}>
+                        Type:
+                        <input name="type" defaultValue={editSchedule?.type||''} required style={{marginLeft:8,padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}} />
+                      </label>
+                      <label style={{display:'block',marginBottom:8}}>
+                        When:
+                        <input name="when" defaultValue={editSchedule?.when||''} required style={{marginLeft:8,padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}} />
+                      </label>
+                      <label style={{display:'block',marginBottom:12}}>
+                        <input name="recurring" type="checkbox" defaultChecked={editSchedule?.recurring||false} /> Recurring
+                      </label>
+                      <button type="submit" style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 18px',fontWeight:600,marginRight:8}} disabled={schedulingLoading}>{schedulingLoading?'Saving…':'Save'}</button>
+                      <button type="button" onClick={()=>{setShowScheduleForm(false);setEditSchedule(null);}} style={{background:'#e11d48',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600}}>Cancel</button>
+                      {scheduleError && <div style={{color:'#e11d48',marginTop:8}}>{scheduleError}</div>}
+                    </form>
+                  </div>
+                </div>
+              )}
               </>
             )}
           </div>
@@ -379,20 +439,42 @@ export default function PartnerCertificationExportPanel() {
           <input type="date" aria-label="Filter by date" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.time.startsWith(e.target.value)))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}} />
           <select aria-label="Filter by user" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.user===e.target.value))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}}><option value="">All Users</option>{[...new Set(auditLog.map(l=>l.user))].map(u=><option key={u} value={u}>{u}</option>)}</select>
           <select aria-label="Filter by status" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.status===e.target.value))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}}><option value="">All Status</option>{[...new Set(auditLog.map(l=>l.status))].map(s=><option key={s} value={s}>{s}</option>)}</select>
-          <button onClick={()=>setAuditLog([])} style={{background:'#e11d48',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px',fontWeight:600}}>Bulk Delete</button>
-          <button onClick={()=>{
-            const filtered = auditLog.filter(l=>
-              (!auditSearch || JSON.stringify(l).toLowerCase().includes(auditSearch.toLowerCase()))
-            );
-            const blob = new Blob([JSON.stringify(filtered, null, 2)], { type: 'application/json' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'filtered_audit_log.json';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            window.URL.revokeObjectURL(url);
+          <button onClick={async()=>{
+            // Backend bulk delete
+            try {
+              const res = await fetch('/api/compliance-audit-log/bulk-delete', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filter: auditSearch })
+              });
+              if (!res.ok) throw new Error('Bulk delete failed');
+              setAuditLog([]);
+              setStatus({ type: 'success', msg: 'Audit log bulk deleted.' });
+            } catch (e) {
+              setStatus({ type: 'error', msg: 'Bulk delete failed: ' + e.message });
+            }
+          }} style={{background:'#e11d48',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px',fontWeight:600}}>Bulk Delete</button>
+          <button onClick={async()=>{
+            // Backend export filtered
+            try {
+              const res = await fetch('/api/compliance-audit-log/export-filtered', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filter: auditSearch })
+              });
+              if (!res.ok) throw new Error('Export filtered failed');
+              const blob = await res.blob();
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = 'filtered_audit_log.json';
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              window.URL.revokeObjectURL(url);
+            } catch (e) {
+              setStatus({ type: 'error', msg: 'Export filtered failed: ' + e.message });
+            }
           }} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px',fontWeight:600}}>Export Filtered</button>
         </div>
       <div style={{marginBottom:14,display:'flex',gap:10,flexWrap:'wrap',alignItems:'center'}}>
@@ -519,5 +601,7 @@ export default function PartnerCertificationExportPanel() {
         </div>
       </div>
     </div>
-  );
+  </div>
+</div>
+);
 }
