@@ -1,5 +1,3 @@
-import React from "react";
-
 import React, { useState, useEffect } from "react";
 
 export function SystemHealthBadge() {
@@ -192,7 +190,7 @@ export function Batch20Widgets() {
   );
 }
 
-// Partner Certification and Public Report widgets should be similarly updated for SAFE AI UX.
+export function Batch16Widgets() {
   const [exportStatus, setExportStatus] = useState("");
   const [lastUpdated, setLastUpdated] = useState("");
   async function exportBatch(type) {
@@ -221,7 +219,6 @@ export function Batch20Widgets() {
     }
   }
   useEffect(() => {
-    // Fetch last updated on mount
     fetch(`/batch-scaling/batch-export/batch16/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
   }, []);
   return (
@@ -242,16 +239,6 @@ export function Batch20Widgets() {
       </div>
     </section>
   );
-}
-
-export function Batch17Widgets() {
-  const [exportStatus, setExportStatus] = useState("");
-  const [lastUpdated, setLastUpdated] = useState("");
-  async function exportBatch(type) {
-    setExportStatus("");
-    try {
-      const res = await fetch(`/batch-scaling/batch-export/batch17/${type}`);
-      if (!res.ok) {
         setExportStatus("Download failed — file not found. Please re-export or contact admin.");
         return;
       }

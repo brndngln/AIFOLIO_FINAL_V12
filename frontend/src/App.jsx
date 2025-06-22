@@ -8,6 +8,8 @@ import Batch24EnterprisePublicScalePanel from "./components/Batch24EnterprisePub
 import Batch25FinalTrustCertificationPanel from "./components/Batch25FinalTrustCertificationPanel";
 import BatchTabs1to16 from "./components/BatchTabs1to16";
 import BatchTabs from "./components/BatchTabs";
+import PartnerCertificationExportPanel from "./components/PartnerCertificationExportPanel";
+import { SystemHealthBadge } from "./components/Batch1620Widgets";
 import ColorCustomization from './components/ColorCustomization';
 import ColorSchemeManager from './components/ColorSchemeManager';
 import ThemeProvider from '../theme/ThemeProvider.jsx';
@@ -104,7 +106,9 @@ function App() {
           </div>
           */}
         </div>
-        {/* SAFE AI Batch Modules Section */}
+        {/* System Health Badge */}
+      <SystemHealthBadge />
+      {/* SAFE AI Batch Modules Section */}
         <div className="theme-panel mt-12" style={{background:'#f8fafc',borderRadius:12,padding:24,marginBottom:32}}>
           <h2 className="text-2xl font-bold mb-4" style={{color:'#0f172a'}}>SAFE AI Batch Modules</h2>
           <div style={{marginBottom:32}}>
@@ -115,6 +119,11 @@ function App() {
             <h3 style={{color:'#2563eb',marginBottom:8}}>Batches 21–25</h3>
             <BatchTabs />
           </div>
+        </div>
+        {/* Partner Certification Export Section */}
+        <div className="theme-panel mt-8" style={{background:'#f3f4f6',borderRadius:12,padding:24,marginBottom:32}}>
+          <h2 className="text-xl font-bold mb-4" style={{color:'#0f172a'}}>Partner Certification Export</h2>
+          <PartnerCertificationExportPanel />
         </div>
         {/* Unified Admin Tools Section */}
         <AdminToolsPanel token={"admin-token-placeholder"} />

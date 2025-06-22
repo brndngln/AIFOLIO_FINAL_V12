@@ -25,6 +25,31 @@ export default function PartnerCertificationExportPanel() {
   const [status, setStatus] = useState(null);
   const [partners, setPartners] = useState(MOCK_PARTNERS);
   const [exported, setExported] = useState({ pdf: null, csv: null });
+  const [auditLog, setAuditLog] = useState([
+    {
+      time: "2025-06-15T23:05:00Z",
+      action: "Export Partner Certification (CSV)",
+      status: "success",
+      user: "owner",
+      file: "/exports/partner_certification/partner_certification_export.csv"
+    },
+    {
+      time: "2025-06-08T23:05:00Z",
+      action: "Export Partner Certification (PDF)",
+      status: "success",
+      user: "owner",
+      file: "/exports/partner_certification/partner_certification_export.pdf"
+    },
+    {
+      time: "2025-06-01T23:05:00Z",
+      action: "Export Partner Certification (CSV)",
+      status: "warning",
+      user: "owner",
+      file: null,
+      message: "No certified partners to export."
+    }
+  ]);
+
 
   const exportFields = [
     "Partner Name", "Partner Email", "Vault/Module Name", "Certification Status", "Date Certified", "Progress %", "Notes / Comments"
@@ -38,6 +63,30 @@ export default function PartnerCertificationExportPanel() {
     }
     // Simulate export and audit log
     setTimeout(() => {
+      if (!partners.length) {
+        setAuditLog(prev => [
+          {
+            time: new Date().toISOString(),
+            action: `Export Partner Certification (${type.toUpperCase()})`,
+            status: "warning",
+            user: "owner",
+            file: null,
+            message: "No certified partners to export."
+          },
+          ...prev
+        ]);
+      } else {
+        setAuditLog(prev => [
+          {
+            time: new Date().toISOString(),
+            action: `Export Partner Certification (${type.toUpperCase()})`,
+            status: "success",
+            user: "owner",
+            file: `/exports/partner_certification/partner_certification_export.${type}`
+          },
+          ...prev
+        ]);
+      }
       setStatus({ type: "success", msg: `Exported Partner Certification (${type.toUpperCase()}) to /exports/partner_certification (manual, audit-logged)` });
       setExported(e => ({ ...e, [type]: `/exports/partner_certification/partner_certification_export.${type}` }));
     }, 700);
@@ -63,14 +112,26 @@ export default function PartnerCertificationExportPanel() {
     <div className="partner-cert-export-panel" aria-label="Partner Certification Export" tabIndex={0} style={{background:'#f9fafb',padding:20,borderRadius:8}}>
       <h3 style={{color:'#0f172a'}}>Partner Certification Export</h3>
       <div style={{marginBottom:12}}>
-        <button onClick={() => handleExport("pdf")}
+        <button aria-label="Export Partner Certification PDF" onClick={() => handleExport("pdf")}
           style={{background:'#2563eb',color:'#fff',border:'none',borderRadius:4,padding:'6px 18px',marginRight:10,fontWeight:600}}>
           Export PDF
         </button>
-        <button onClick={() => handleExport("csv")}
+        <button aria-label="Export Partner Certification CSV" onClick={() => handleExport("csv")}
           style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 18px',fontWeight:600}}>
           Export CSV
         </button>
+      </div>
+      <div style={{marginBottom:20}} aria-label="Partner Certification Audit Log Preview">
+        <div style={{fontWeight:600,marginBottom:4}}>Recent Audit Log:</div>
+        <ul style={{listStyle:'none',padding:0,maxHeight:120,overflowY:'auto',fontSize:13}}>
+          {auditLog.map((log,i) => (
+            <li key={i} style={{marginBottom:4,background:'#f1f5f9',padding:6,borderRadius:4}}>
+              <span style={{color:'#64748b'}}>{new Date(log.time).toLocaleString()}:</span> <b>{log.action}</b> — <span style={{color:log.status==="success"?'#059669':log.status==="warning"?'#eab308':'#dc2626',fontWeight:500}}>{log.status.toUpperCase()}</span>
+              {log.file && (<span> (<a href={log.file} style={{color:'#2563eb'}}>download</a>)</span>)}
+              {log.message && (<span style={{color:'#eab308',marginLeft:8}}>{log.message}</span>)}
+            </li>
+          ))}
+        </ul>
       </div>
       {status && (
         <div style={{marginBottom:12,color:status.type==="success"?'#059669':status.type==="warning"?'#eab308':'#dc2626',fontWeight:500}}>
