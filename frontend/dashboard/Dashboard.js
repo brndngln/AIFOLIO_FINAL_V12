@@ -7,6 +7,14 @@ import AuditLogViewer from '../src/components/AuditLogViewer';
 import NotificationSettingsUI from '../src/components/NotificationSettingsUI';
 import PDFBuilderSettings from '../src/components/PDFBuilderSettings';
 import {
+  Batch16Widgets,
+  Batch17Widgets,
+  Batch18Widgets,
+  Batch19Widgets,
+  Batch20Widgets,
+  PartnerCertificationWidgets
+} from '../src/components/Batch1620Widgets';
+import {
   fetchRevenue,
   fetchVaultPerformance,
   fetchComplianceStats,
@@ -162,6 +170,15 @@ export default function Dashboard() {
         <NotificationSettingsUI config={{}} onSave={() => {}} />
       </section>
       {/* --- End PDF Builder Section --- */}
+
+      {/* --- SAFE AI Scaling Batches 16–20 --- */}
+      <Batch16Widgets />
+      <Batch17Widgets />
+      <Batch18Widgets />
+      <Batch19Widgets />
+      <Batch20Widgets />
+      <PartnerCertificationWidgets />
+      {/* --- End SAFE AI Scaling Batches --- */}
       <section>
         <h2>Revenue</h2>
         <pre>{JSON.stringify(revenue, null, 2)}</pre>

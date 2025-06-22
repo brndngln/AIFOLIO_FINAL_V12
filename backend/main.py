@@ -25,6 +25,10 @@ app.include_router(gumroad_api.router, prefix="/api")
 from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
 app.include_router(pdf_builder_router)
 
+# --- Mount SAFE AI Batches 16–20 + Partner Certification API router ---
+from backend.batch_scaling.batch16_20_api import router as batch_scaling_router
+app.include_router(batch_scaling_router)
+
 # Enable CORS for local frontend dev
 app.add_middleware(
     CORSMiddleware,
