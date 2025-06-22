@@ -91,7 +91,11 @@ def get_niches(user: str = Depends(get_current_user)):
 
 # --- API: Generate Vault (JWT-protected) ---
 
-from fastapi import Query
+from fastapi import Query, Body
+from backend.admin.static_users import STATIC_USERS
+
+STATIC_USERS_MEM = STATIC_USERS.copy()  # in-memory static list
+
 
 @app.get("/admin/audit-log")
 def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
@@ -130,6 +134,27 @@ def get_export_history(limit: int = Query(50, ge=1, le=1000), user: str = Query(
         return entries[:limit]
     except Exception:
         return []
+
+@app.get("/admin/users")
+def get_users(current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin only")
+    return STATIC_USERS_MEM
+
+@app.post("/admin/users")
+def add_user(user: dict = Body(...), current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin only")
+    STATIC_USERS_MEM.append(user)
+    return {"status": "ok", "users": STATIC_USERS_MEM}
+
+@app.delete("/admin/users/{username}")
+def delete_user(username: str, current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin only")
+    global STATIC_USERS_MEM
+    STATIC_USERS_MEM = [u for u in STATIC_USERS_MEM if u["username"] != username]
+    return {"status": "ok", "users": STATIC_USERS_MEM}
 
 from fastapi import Request
 from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
