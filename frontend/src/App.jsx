@@ -6,6 +6,8 @@ import Batch22CertificationLegalPanel from "./components/Batch22CertificationLeg
 import Batch23GlobalPublicReadinessPanel from "./components/Batch23GlobalPublicReadinessPanel";
 import Batch24EnterprisePublicScalePanel from "./components/Batch24EnterprisePublicScalePanel";
 import Batch25FinalTrustCertificationPanel from "./components/Batch25FinalTrustCertificationPanel";
+import BatchTabs1to16 from "./components/BatchTabs1to16";
+import BatchTabs from "./components/BatchTabs";
 import ColorCustomization from './components/ColorCustomization';
 import ColorSchemeManager from './components/ColorSchemeManager';
 import ThemeProvider from '../theme/ThemeProvider.jsx';
@@ -105,7 +107,14 @@ function App() {
         {/* SAFE AI Batch Modules Section */}
         <div className="theme-panel mt-12" style={{background:'#f8fafc',borderRadius:12,padding:24,marginBottom:32}}>
           <h2 className="text-2xl font-bold mb-4" style={{color:'#0f172a'}}>SAFE AI Batch Modules</h2>
-          <BatchTabs />
+          <div style={{marginBottom:32}}>
+            <h3 style={{color:'#2563eb',marginBottom:8}}>Batches 1–16</h3>
+            <BatchTabs1to16 />
+          </div>
+          <div>
+            <h3 style={{color:'#2563eb',marginBottom:8}}>Batches 21–25</h3>
+            <BatchTabs />
+          </div>
         </div>
         {/* Unified Admin Tools Section */}
         <AdminToolsPanel token={"admin-token-placeholder"} />
