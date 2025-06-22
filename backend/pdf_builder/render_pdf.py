@@ -39,10 +39,6 @@ def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> 
         <div class='cta'><p>{vault_data.get('cta', '')}</p></div>
         """
 
-        # AI SAFETY CHECK
-        if not anti_sentience_guard(content, user=None, action='render_pdf'):
-            raise Exception('AI safety violation: Unsafe sentience/agency patterns detected in PDF content.')
-
         # Render the template with compliance_report and content
         html_content = template.render(
             compliance_report=compliance_report,
@@ -57,25 +53,4 @@ def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> 
     except Exception as e:
         logger.error(f"Error building PDF: {str(e)}")
         raise
-            
-            <h2>Table of Contents</h2>
-            <ul>
-                {''.join([f'<li>{ch}</li>' for ch in vault_data['chapters']])}
-            </ul>
-            
-            <div class="cta">
-                <p>{vault_data['cta']}</p>
-            </div>
-        </body>
-        </html>
-        """
-        
-        # Generate PDF
-        pdf_path = f"vaults/{vault_data['title']}.pdf"
-        HTML(string=html_content).write_pdf(pdf_path)
-        logger.info(f"PDF generated successfully: {pdf_path}")
-        return pdf_path
-        
-    except Exception as e:
-        logger.error(f"Error building PDF: {str(e)}")
         raise

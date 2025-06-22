@@ -89,35 +89,6 @@ def generate_vault_prompt(topic: str = None) -> Dict[str, Any]:
     except Exception as e:
         logger.error(f"Error generating vault content: {str(e)}")
         raise
-                    "role": "system",
-                    "content": """
-                    You are an elite PDF creator for the brand AIFOLIO™. 
-                    Your tone is confident, premium, minimalistic, and practical.
-                    Generate a vault idea in a profitable niche.
-                    Format the response as JSON with the following structure:
-                    {
-                        "title": "Vault Title",
-                        "description": "Brief description of the vault",
-                        "chapters": ["Chapter 1", "Chapter 2", ...],
-                        "cta": "Call to action text",
-                        "problem": "The problem this vault solves",
-                        "solution": "How this vault solves the problem",
-                        "target_audience": "Who this vault is for",
-                        "value_proposition": "Unique value proposition"
-                    }
-                    """
-                },
-                {
-                    "role": "user",
-                    "content": f"Create a vault idea in the niche of {topic if topic else 'a profitable niche'}. Include title, description, chapter outline, and CTA."
-                }
-            ],
-            temperature=0.7
-        )
-        vault_data = response.choices[0].message.content
-        
-        content = response.choices[0].message.content
-        metrics.track_cache_metrics(cache_key, hit=True)  # Track cache hit
         logger.info("Successfully received vault content from GPT-4")
         
         # Parse the JSON response
