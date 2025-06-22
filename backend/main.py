@@ -21,6 +21,10 @@ app = FastAPI(title="AIFOLIO Autonomous Backend", docs_url=None, redoc_url=None)
 from api import gumroad_api
 app.include_router(gumroad_api.router, prefix="/api")
 
+# --- Mount SAFE AI PDF Builder API router ---
+from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
+app.include_router(pdf_builder_router)
+
 # Enable CORS for local frontend dev
 app.add_middleware(
     CORSMiddleware,
