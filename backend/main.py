@@ -82,25 +82,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return {"access_token": access_token, "token_type": "bearer"}
 
 # --- Protected Endpoint Example ---
-from jose import JWTError
-
-def get_current_user(token: str = Depends(oauth2_scheme)):
-    try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")
-        role = payload.get("role", "admin")
-        email = payload.get("email", None)
-        org = payload.get("org", None)
-        if username != SECRET_USERNAME:
-            raise HTTPException(status_code=401, detail="Invalid credentials")
-        return {
-            "username": username,
-            "role": role,
-            "email": email,
-            "org": org
-        }
-    except JWTError:
-        raise HTTPException(status_code=401, detail="Invalid credentials")
+from backend.auth.deps import get_current_user
 
 @app.get("/api/niches")
 def get_niches(user: str = Depends(get_current_user)):

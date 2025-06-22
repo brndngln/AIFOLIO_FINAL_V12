@@ -9,7 +9,7 @@ from backend.pdf_builder.expanded_pdf_builders import (
     build_niche_authority_ebook,
     build_email_funnel_blueprint_pdf
 )
-from backend.main import get_current_user
+from backend.auth.deps import get_current_user
 from pydantic import BaseModel
 from typing import Dict, Any
 import os
