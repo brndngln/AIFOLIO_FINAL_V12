@@ -246,11 +246,35 @@ export function Batch20Widgets() {
 
 export function Batch17Widgets() {
   const [exportStatus, setExportStatus] = useState("");
-  function exportBatch(type) {
-    window.open(`/batch-scaling/batch-export/batch17/${type}`, '_blank');
-    setExportStatus(`Batch 17 ${type.toUpperCase()} export started!`);
-    setTimeout(() => setExportStatus(""), 3000);
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch17/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch17_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
   }
+  useEffect(() => {
+    fetch(`/batch-scaling/batch-export/batch17/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
   return (
     <section className="batch17-widgets">
       <h2>Batch 17: Executive SAFE AI Intelligence</h2>
