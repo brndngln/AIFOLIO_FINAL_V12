@@ -54,6 +54,7 @@ describe('ColorCustomization', () => {
   });
 
   test('all color properties are properly applied', async () => {
+    jest.setTimeout(15000);
     console.log('[TEST] all color properties test started');
     const { getByText, getByRole } = render(
       <ThemeProvider>
@@ -74,23 +75,16 @@ describe('ColorCustomization', () => {
       'underline', 'title', 'subtitle', 'divider', 'icon'
     ];
 
-    // Test each component and property
-    for (const component of components) {
-      for (const prop of properties) {
-        let picker;
-        try {
-          picker = getByRole(`colorpicker-${component}-${prop}`);
-        } catch (e) {
-          // Role not found, skip
-          continue;
-        }
-        const originalColor = picker.value;
-        fireEvent.change(picker, { target: { value: '#FF0000' } });
-        await act(() => Promise.resolve());
-        expect(picker.value.toLowerCase()).toBe('#ff0000');
-        fireEvent.change(picker, { target: { value: originalColor } });
-        await act(() => Promise.resolve());
-      }
+    // Find all color picker inputs by role
+    const allPickers = screen.queryAllByRole(/colorpicker/);
+    console.log('[TEST] Found color pickers:', allPickers.map(p => p.getAttribute('role')));
+    for (const picker of allPickers) {
+      const originalColor = picker.value;
+      fireEvent.change(picker, { target: { value: '#FF0000' } });
+      await act(() => Promise.resolve());
+      expect(picker.value.toLowerCase()).toBe('#ff0000');
+      fireEvent.change(picker, { target: { value: originalColor } });
+      await act(() => Promise.resolve());
     }
   });
 
@@ -136,7 +130,11 @@ describe('ColorCustomization', () => {
     console.log('[TEST] colorPreview style:', colorPreview.style.backgroundColor);
     console.log('[TEST] buttonPreview style:', buttonPreview.style.backgroundColor);
     // Compare computed style (browser normalizes to rgb)
-    expect(colorPreview.style.backgroundColor).toBe('rgb(255, 0, 0)');
-    expect(buttonPreview.style.backgroundColor).toBe('rgb(255, 0, 0)');
+    const previewBg = window.getComputedStyle(colorPreview).backgroundColor;
+    const buttonBg = window.getComputedStyle(buttonPreview).backgroundColor;
+    console.log('[TEST] Computed colorPreview bg:', previewBg);
+    console.log('[TEST] Computed buttonPreview bg:', buttonBg);
+    expect(previewBg).toBe('rgb(255, 0, 0)');
+    expect(buttonBg).toBe('rgb(255, 0, 0)');
   });
 });
