@@ -1,6 +1,11 @@
 // AIFOLIO SAFE AI Dashboard Main Component
 // Connects all dashboard widgets to backend API endpoints
 import React, { useEffect, useState } from 'react';
+import PDFBuilderDashboard from '../src/components/PDFBuilderDashboard';
+import PDFQueueViewer from '../src/components/PDFQueueViewer';
+import AuditLogViewer from '../src/components/AuditLogViewer';
+import NotificationSettingsUI from '../src/components/NotificationSettingsUI';
+import PDFBuilderSettings from '../src/components/PDFBuilderSettings';
 import {
   fetchRevenue,
   fetchVaultPerformance,
@@ -78,14 +83,6 @@ import {
   PassivePartnershipMonitor,
   AnnualBusinessHealthScorecard,
   MultiChannelRevenueBreakdown,
-} from './Batch1315Widgets';
-import {
-  Batch16Widgets,
-  Batch17Widgets,
-  Batch18Widgets,
-  PartnerCertificationWidgets,
-  AdminAuditLogWidget
-} from './Batch1620Widgets';
   ContentLicensingStatusTracker,
   AffiliateRevenueTracker,
   ReadinessCertification,
@@ -98,6 +95,13 @@ import {
   LongTermComplianceRoadmap,
   MultiYearBusinessPlanningSummary
 } from './Batch1315Widgets';
+import {
+  Batch16Widgets,
+  Batch17Widgets,
+  Batch18Widgets,
+  PartnerCertificationWidgets,
+  AdminAuditLogWidget
+} from './Batch1620Widgets';
 
 export default function Dashboard() {
   const [revenue, setRevenue] = useState({});
@@ -145,6 +149,19 @@ export default function Dashboard() {
   return (
     <div>
       <h1>AIFOLIO SAFE AI Dashboard</h1>
+      {/* --- PDF Builder Section --- */}
+      <section className="pdf-builder-section">
+        <h2>Generate PDF <span className="safe-ai-badge">SAFE AI Verified</span></h2>
+        {/* PDF Builder Dashboard UI */}
+        <PDFBuilderDashboard token={window.localStorage.getItem('token')} />
+        {/* PDF Queue Viewer */}
+        <PDFQueueViewer token={window.localStorage.getItem('token')} />
+        {/* PDF Builder Settings UI */}
+        <PDFBuilderSettings config={{}} onSave={() => {}} />
+        {/* Notification Settings UI */}
+        <NotificationSettingsUI config={{}} onSave={() => {}} />
+      </section>
+      {/* --- End PDF Builder Section --- */}
       <section>
         <h2>Revenue</h2>
         <pre>{JSON.stringify(revenue, null, 2)}</pre>
@@ -184,6 +201,8 @@ export default function Dashboard() {
         <pre>{JSON.stringify(adminLogs, null, 2)}</pre>
         <h2>Audit Inspector</h2>
         <pre>{JSON.stringify(audit, null, 2)}</pre>
+        {/* --- SAFE AI Audit Log Viewer --- */}
+        <AuditLogViewer token={window.localStorage.getItem('token')} />
       </section>
       {/* --- BATCH 5–6 Widgets --- */}
       <MultiVaultLaunchPlanner />
