@@ -239,6 +239,16 @@ export function Batch16Widgets() {
       </div>
     </section>
   );
+}
+
+export function Batch17Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch17/${type}`);
+      if (!res.ok) {
         setExportStatus("Download failed — file not found. Please re-export or contact admin.");
         return;
       }
