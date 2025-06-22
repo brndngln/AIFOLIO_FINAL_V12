@@ -92,8 +92,12 @@ function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
           <input
             type="color"
             value={color}
-            onChange={(e) => handleColorChange(e.target.value)}
+            onChange={(e) => {
+              console.log(`[EnhancedColorPicker] Color changed for ${component}-${property}:`, e.target.value);
+              handleColorChange(e.target.value);
+            }}
             className="w-full h-10 rounded"
+            role={`colorpicker-${component}-${property}`}
           />
           <input
             type="text"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { ThemeProvider } from '../theme/ThemeProvider';
-import ColorCustomization from '../components/ColorCustomization';
+import ThemeProvider from '../../frontend/theme/ThemeProvider.jsx';
+import ColorCustomization from '../../frontend/src/components/ColorCustomization.jsx';
 
 describe('ColorCustomization', () => {
   let container;
@@ -17,6 +17,7 @@ describe('ColorCustomization', () => {
   });
 
   test('undo/redo functionality works correctly', async () => {
+    console.log('[TEST] undo/redo functionality test started');
     const { getByText, getByRole } = render(
       <ThemeProvider>
         <ColorCustomization />
@@ -52,6 +53,7 @@ describe('ColorCustomization', () => {
   });
 
   test('all color properties are properly applied', async () => {
+    console.log('[TEST] all color properties test started');
     const { getByText, getByRole } = render(
       <ThemeProvider>
         <ColorCustomization />
@@ -88,6 +90,7 @@ describe('ColorCustomization', () => {
   });
 
   test('preview components update correctly', async () => {
+    console.log('[TEST] preview components update test started');
     const { getByText, getByRole } = render(
       <ThemeProvider>
         <ColorCustomization />
