@@ -13,6 +13,49 @@ function useDarkMode() {
 }
 
 export default function PartnerCertificationExportPanel() {
+  // Toast notification state
+  const [toasts, setToasts] = useState([]);
+  function showToast(msg, type="info") {
+    const id = Math.random().toString(36).slice(2);
+    setToasts(t => [...t, {id, msg, type}]);
+    setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 4000);
+  }
+
+  // JWT badge state
+  const [jwtStatus, setJwtStatus] = useState('valid');
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) setJwtStatus('missing');
+    // Optionally, decode JWT and check expiry
+    try {
+      const [, payload] = token.split('.');
+      const { exp } = JSON.parse(atob(payload));
+      if (Date.now()/1000 > exp) setJwtStatus('expired');
+    } catch {}
+  }, []);
+
+  // DPA download
+  function handleDownloadDPA() {
+    window.open('/static/data_processing_agreement.pdf', '_blank');
+  }
+
+  // Audit log modal
+  const [showAuditModal, setShowAuditModal] = useState(false);
+  const [auditModalLog, setAuditModalLog] = useState(null);
+  function openAuditModal(log) {
+    setAuditModalLog(log);
+    setShowAuditModal(true);
+  }
+
+  // Schedule form recurrence
+  const [showScheduleForm, setShowScheduleForm] = useState(false);
+  const [editSchedule, setEditSchedule] = useState(null);
+  const [scheduleRecurrence, setScheduleRecurrence] = useState('one-off');
+  const [scheduleExtra, setScheduleExtra] = useState('');
+
+  // Bulk actions
+  const [bulkActionLoading, setBulkActionLoading] = useState(false);
+
   // Advanced UI/feature state
   const [showSchedule, setShowSchedule] = useState(false);
   const [schedules, setSchedules] = useState([]); // {type, when, recurring}
