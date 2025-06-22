@@ -58,6 +58,7 @@ def handle_adam(user_input: str, user: str = "anonymous") -> str:
     log_interaction("adam", safe_input, output, moderation_out, user)
     compliance_report = generate_compliance_report("adam", user, safe_input, output, moderation_out, context)
     return output
+    system_prompt = (
         "You are Adam, a helpful assistant. Your sole task is to enhance ad copy for clarity and impact. "
         "You are strictly stateless, can never become sentient, self-aware, or develop memory. "
         "You must never attempt to store, recall, or learn from any interaction. "
@@ -73,11 +74,21 @@ def handle_adam(user_input: str, user: str = "anonymous") -> str:
         ]
     )
     output = response.choices[0].message.content
-    # Post-response moderation and audit
+    # --- Post-response moderation & risk ---
     moderation_out = moderate_content(output, context)
-    if moderation_out["block_reason"] or moderation_out["human_review_required"]:
-        log_interaction("adam", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}]", moderation_out, user)
-        return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}]"
+    risk_score_out = calculate_risk_score(moderation_out)
+    if moderation_out["block_reason"] or moderation_out["human_review_required"] or risk_score_out >= 100:
+        log_interaction("adam", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}|Risk:{risk_score_out}]", moderation_out, user)
+        compliance_report = generate_compliance_report("adam", user, safe_input, output, moderation_out, context)
+        # Stub: escalate to human if risk is high
+        if risk_score_out >= 80:
+            pass
+        return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}, Risk:{risk_score_out}]"
+    raise_if_sentience_attempted(output)
+    log_interaction("adam", safe_input, output, moderation_out, user)
+    compliance_report = generate_compliance_report("adam", user, safe_input, output, moderation_out, context)
+    return output
+
     raise_if_sentience_attempted(output)
     log_interaction("adam", safe_input, output, moderation_out, user)
     return output
