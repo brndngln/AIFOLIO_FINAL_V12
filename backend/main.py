@@ -90,6 +90,47 @@ def get_niches(user: str = Depends(get_current_user)):
     return {"niches": get_supported_niches()}
 
 # --- API: Generate Vault (JWT-protected) ---
+
+from fastapi import Query
+
+@app.get("/admin/audit-log")
+def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin only")
+    import os, json
+    path = './analytics/ai_safety_log.jsonl'
+    if not os.path.exists(path):
+        return []
+    entries = []
+    with open(path, 'r', encoding='utf-8') as f:
+        for line in f:
+            try:
+                entry = eval(line.strip())
+                if not user or entry.get('user') == user:
+                    entries.append(entry)
+            except Exception:
+                continue
+    entries = sorted(entries, key=lambda x: x.get('timestamp', ''), reverse=True)
+    return entries[:limit]
+
+@app.get("/admin/export-history")
+def get_export_history(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin only")
+    import os, json
+    path = './logs/export_failures.json'
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            entries = json.load(f)
+        if user:
+            entries = [e for e in entries if e.get('user') == user]
+        entries = sorted(entries, key=lambda x: x.get('timestamp', ''), reverse=True)
+        return entries[:limit]
+    except Exception:
+        return []
+
 from fastapi import Request
 from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
 from backend.utils.monitoring import VaultMetrics
