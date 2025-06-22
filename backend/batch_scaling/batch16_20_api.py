@@ -59,7 +59,8 @@ from datetime import datetime
 
 @router.get("/partner-certifications/export")
 def export_partner_certification(type: str = Query(..., regex="^(pdf|csv)$"), partner: str = Query(...), user: str = Depends(get_current_user)):
-    # Dummy static data for demo; replace with DB lookup
+    from .export_utils import get_last_updated, log_export_failure
+    import os
     cert_data = {
         "partner": partner,
         "certification_status": "Approved",
@@ -70,12 +71,24 @@ def export_partner_certification(type: str = Query(..., regex="^(pdf|csv)$"), pa
         "notes": "SAFE AI compliant."
     }
     filename = f"{partner}_certification.{type}"
-    if type == "csv":
-        path = export_csv(filename, [cert_data], list(cert_data.keys()), folder="partner_certification")
-    else:
-        path = export_pdf(filename, "partner_certification_report.html", cert_data, folder="partner_certification")
-    log_export(f"export_partner_certification_{type}", user, {"partner": partner, "file": path})
-    return FileResponse(path, filename=filename)
+    folder = "partner_certification"
+    try:
+        if type == "csv":
+            path = export_csv(filename, [cert_data], list(cert_data.keys()), folder=folder)
+        else:
+            path = export_pdf(filename, "partner_certification_report.html", cert_data, folder=folder)
+        if not os.path.exists(path) or os.path.getsize(path) == 0:
+            log_export_failure(f"export_partner_certification_{type}_fail", user, {"partner": partner, "file": path, "error": "File missing/corrupt"})
+            from fastapi import Response
+            return Response(content="Download failed — file not found. Please re-export or contact admin.", status_code=404)
+        last_updated = get_last_updated(filename, folder=folder)
+        log_export(f"export_partner_certification_{type}", user, {"partner": partner, "file": path, "last_updated": last_updated})
+        headers = {"X-Last-Updated": last_updated or "N/A"}
+        return FileResponse(path, filename=filename, headers=headers)
+    except Exception as e:
+        log_export_failure(f"export_partner_certification_{type}_fail", user, {"partner": partner, "error": str(e)})
+        from fastapi import Response
+        return Response(content="Download failed — file not found. Please re-export or contact admin.", status_code=404)
 
 # --- Public SAFE AI System Transparency Report ---
 @router.get("/public-report/export")
@@ -110,3 +123,19 @@ def export_batch(batch: str, type: str, user: str = Depends(get_current_user)):
         path = export_pdf(filename, "batch_report.html", context, folder="pdf")
     log_export(f"export_{batch}_{type}", user, {"file": path})
     return FileResponse(path, filename=filename)
+
+# --- System Health Endpoint ---
+@router.get("/system-health")
+def system_health():
+    import os, json
+    log_path = './logs/export_failures.json'
+    if not os.path.exists(log_path):
+        return {"status": "ok"}
+    try:
+        with open(log_path, 'r', encoding='utf-8') as f:
+            failures = json.load(f)
+        if not failures:
+            return {"status": "ok"}
+        return {"status": "issues", "failures": failures}
+    except Exception:
+        return {"status": "issues", "failures": ["Could not read failure log."]}

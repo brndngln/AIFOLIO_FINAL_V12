@@ -1,9 +1,64 @@
 import React from "react";
 
+import React, { useState, useEffect } from "react";
+
+export function SystemHealthBadge() {
+  const [health, setHealth] = useState('loading');
+  useEffect(() => {
+    fetch('/batch-scaling/system-health')
+      .then(r => r.json())
+      .then(data => setHealth(data.status || 'ok'));
+  }, []);
+  return (
+    <div style={{marginBottom:16}}>
+      {health === 'ok' && (
+        <span style={{background:'#10b981',color:'#fff',padding:'4px 12px',borderRadius:8,fontWeight:600}}>System Health: OK ✅</span>
+      )}
+      {health === 'issues' && (
+        <span style={{background:'#f59e0b',color:'#fff',padding:'4px 12px',borderRadius:8,fontWeight:600}}>Issues Detected ⚠️</span>
+      )}
+      {health === 'loading' && (
+        <span style={{background:'#334155',color:'#fff',padding:'4px 12px',borderRadius:8}}>Checking system health…</span>
+      )}
+    </div>
+  );
+}
+
+// Place this at the top of your main dashboard component render:
+// <SystemHealthBadge />
+
 export function Batch16Widgets() {
-  function exportBatch(type) {
-    window.open(`/batch-scaling/batch-export/batch16/${type}`, '_blank');
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch16/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch16_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
   }
+  useEffect(() => {
+    // Fetch last updated on mount
+    fetch(`/batch-scaling/batch-export/batch16/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
   return (
     <section className="batch16-widgets">
       <h2>Batch 16: Global Business Consolidation</h2>
@@ -18,14 +73,18 @@ export function Batch16Widgets() {
       <div className="static-widget">
         <button onClick={() => exportBatch('pdf')}>Export Batch 16 PDF</button>
         <button onClick={() => exportBatch('csv')}>Export Batch 16 CSV</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
     </section>
   );
 }
 
 export function Batch17Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
   function exportBatch(type) {
     window.open(`/batch-scaling/batch-export/batch17/${type}`, '_blank');
+    setExportStatus(`Batch 17 ${type.toUpperCase()} export started!`);
+    setTimeout(() => setExportStatus(""), 3000);
   }
   return (
     <section className="batch17-widgets">
@@ -41,14 +100,18 @@ export function Batch17Widgets() {
       <div className="static-widget">
         <button onClick={() => exportBatch('pdf')}>Export Batch 17 PDF</button>
         <button onClick={() => exportBatch('csv')}>Export Batch 17 CSV</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
     </section>
   );
 }
 
 export function Batch18Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
   function exportBatch(type) {
     window.open(`/batch-scaling/batch-export/batch18/${type}`, '_blank');
+    setExportStatus(`Batch 18 ${type.toUpperCase()} export started!`);
+    setTimeout(() => setExportStatus(""), 3000);
   }
   return (
     <section className="batch18-widgets">
@@ -65,14 +128,18 @@ export function Batch18Widgets() {
       <div className="static-widget">
         <button onClick={() => exportBatch('pdf')}>Export Batch 18 PDF</button>
         <button onClick={() => exportBatch('csv')}>Export Batch 18 CSV</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
     </section>
   );
 }
 
 export function Batch19Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
   function exportBatch(type) {
     window.open(`/batch-scaling/batch-export/batch19/${type}`, '_blank');
+    setExportStatus(`Batch 19 ${type.toUpperCase()} export started!`);
+    setTimeout(() => setExportStatus(""), 3000);
   }
   return (
     <section className="batch19-widgets">
@@ -88,14 +155,18 @@ export function Batch19Widgets() {
       <div className="static-widget">
         <button onClick={() => exportBatch('pdf')}>Export Batch 19 PDF</button>
         <button onClick={() => exportBatch('csv')}>Export Batch 19 CSV</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
     </section>
   );
 }
 
 export function Batch20Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
   function exportBatch(type) {
     window.open(`/batch-scaling/batch-export/batch20/${type}`, '_blank');
+    setExportStatus(`Batch 20 ${type.toUpperCase()} export started!`);
+    setTimeout(() => setExportStatus(""), 3000);
   }
   return (
     <section className="batch20-widgets">
@@ -111,6 +182,7 @@ export function Batch20Widgets() {
       <div className="static-widget">
         <button onClick={() => exportBatch('pdf')}>Export Batch 20 PDF</button>
         <button onClick={() => exportBatch('csv')}>Export Batch 20 CSV</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
     </section>
   );
@@ -119,11 +191,16 @@ export function Batch20Widgets() {
 import PartnerCertificationForm from "./PartnerCertificationForm";
 
 export function PartnerCertificationWidgets() {
+  const [exportStatus, setExportStatus] = useState("");
   function handleExport(type, partner) {
     window.open(`/batch-scaling/partner-certifications/export?type=${type}&partner=${encodeURIComponent(partner)}`, '_blank');
+    setExportStatus(`Partner Certification ${type.toUpperCase()} export started!`);
+    setTimeout(() => setExportStatus(""), 3000);
   }
   function exportPublicReport() {
     window.open(`/batch-scaling/public-report/export`, '_blank');
+    setExportStatus("Public SAFE AI Report PDF export started!");
+    setTimeout(() => setExportStatus(""), 3000);
   }
   return (
     <section className="partner-certification-widgets">
@@ -137,6 +214,7 @@ export function PartnerCertificationWidgets() {
       <PartnerCertificationForm onExport={handleExport} />
       <div className="static-widget">
         <button onClick={exportPublicReport}>Export Public SAFE AI Report (PDF)</button>
+        {exportStatus && <div className="export-status">{exportStatus}</div>}
       </div>
       <div className="static-widget">(Admin-reviewed, static forms/exports only)</div>
     </section>
