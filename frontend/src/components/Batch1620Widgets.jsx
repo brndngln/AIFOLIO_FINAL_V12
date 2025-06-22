@@ -1,6 +1,9 @@
 import React from "react";
 
 export function Batch16Widgets() {
+  function exportBatch(type) {
+    window.open(`/batch-scaling/batch-export/batch16/${type}`, '_blank');
+  }
   return (
     <section className="batch16-widgets">
       <h2>Batch 16: Global Business Consolidation</h2>
@@ -12,12 +15,18 @@ export function Batch16Widgets() {
         <li>Partner API Legal Health Map</li>
         <li>Global Vault Ecosystem Maturity Scorecard</li>
       </ul>
-      <div className="static-widget">(Admin input UI and PDF/CSV export coming soon)</div>
+      <div className="static-widget">
+        <button onClick={() => exportBatch('pdf')}>Export Batch 16 PDF</button>
+        <button onClick={() => exportBatch('csv')}>Export Batch 16 CSV</button>
+      </div>
     </section>
   );
 }
 
 export function Batch17Widgets() {
+  function exportBatch(type) {
+    window.open(`/batch-scaling/batch-export/batch17/${type}`, '_blank');
+  }
   return (
     <section className="batch17-widgets">
       <h2>Batch 17: Executive SAFE AI Intelligence</h2>
@@ -29,12 +38,18 @@ export function Batch17Widgets() {
         <li>AI-Safe ESG Score Report</li>
         <li>Cross-Vault IP Overlap Map</li>
       </ul>
-      <div className="static-widget">(Static dashboards/reports, admin-reviewed)</div>
+      <div className="static-widget">
+        <button onClick={() => exportBatch('pdf')}>Export Batch 17 PDF</button>
+        <button onClick={() => exportBatch('csv')}>Export Batch 17 CSV</button>
+      </div>
     </section>
   );
 }
 
 export function Batch18Widgets() {
+  function exportBatch(type) {
+    window.open(`/batch-scaling/batch-export/batch18/${type}`, '_blank');
+  }
   return (
     <section className="batch18-widgets">
       <h2>Batch 18: SAFE AI Strategic Governance</h2>
@@ -47,12 +62,18 @@ export function Batch18Widgets() {
         <li>SAFE AI Roadmap Summary Export</li>
         <li>Partner Certification System (see below)</li>
       </ul>
-      <div className="static-widget">(All static, deterministic, admin exportable)</div>
+      <div className="static-widget">
+        <button onClick={() => exportBatch('pdf')}>Export Batch 18 PDF</button>
+        <button onClick={() => exportBatch('csv')}>Export Batch 18 CSV</button>
+      </div>
     </section>
   );
 }
 
 export function Batch19Widgets() {
+  function exportBatch(type) {
+    window.open(`/batch-scaling/batch-export/batch19/${type}`, '_blank');
+  }
   return (
     <section className="batch19-widgets">
       <h2>Batch 19: Global + Web3 SAFE AI Scaling</h2>
@@ -64,12 +85,18 @@ export function Batch19Widgets() {
         <li>SAFE AI Blockchain Transparency Export</li>
         <li>SAFE AI Digital Asset IP Risk Report</li>
       </ul>
-      <div className="static-widget">(Manual input, static exports, Web3 modules separated)</div>
+      <div className="static-widget">
+        <button onClick={() => exportBatch('pdf')}>Export Batch 19 PDF</button>
+        <button onClick={() => exportBatch('csv')}>Export Batch 19 CSV</button>
+      </div>
     </section>
   );
 }
 
 export function Batch20Widgets() {
+  function exportBatch(type) {
+    window.open(`/batch-scaling/batch-export/batch20/${type}`, '_blank');
+  }
   return (
     <section className="batch20-widgets">
       <h2>Batch 20: Enterprise SAFE AI Future-Ready</h2>
@@ -81,12 +108,23 @@ export function Batch20Widgets() {
         <li>SAFE AI System Renewal Planner</li>
         <li>SAFE AI “Trusted Partner” Public Report Generator</li>
       </ul>
-      <div className="static-widget">(Enterprise dashboard, all static, admin-controlled)</div>
+      <div className="static-widget">
+        <button onClick={() => exportBatch('pdf')}>Export Batch 20 PDF</button>
+        <button onClick={() => exportBatch('csv')}>Export Batch 20 CSV</button>
+      </div>
     </section>
   );
 }
 
+import PartnerCertificationForm from "./PartnerCertificationForm";
+
 export function PartnerCertificationWidgets() {
+  function handleExport(type, partner) {
+    window.open(`/batch-scaling/partner-certifications/export?type=${type}&partner=${encodeURIComponent(partner)}`, '_blank');
+  }
+  function exportPublicReport() {
+    window.open(`/batch-scaling/public-report/export`, '_blank');
+  }
   return (
     <section className="partner-certification-widgets">
       <h2>SAFE AI Partner Certification System</h2>
@@ -96,6 +134,10 @@ export function PartnerCertificationWidgets() {
         <li>Partner Certification Audit Report Generator</li>
         <li>Annual Partner Certification Export</li>
       </ul>
+      <PartnerCertificationForm onExport={handleExport} />
+      <div className="static-widget">
+        <button onClick={exportPublicReport}>Export Public SAFE AI Report (PDF)</button>
+      </div>
       <div className="static-widget">(Admin-reviewed, static forms/exports only)</div>
     </section>
   );
