@@ -15,6 +15,7 @@ export default function PartnerCertificationForm({ onExport }) {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState("");
 
   function handleChange(e) {
     const { name, value, files } = e.target;
@@ -37,8 +38,30 @@ export default function PartnerCertificationForm({ onExport }) {
     setSubmitting(false);
   }
 
-  function handleExport(type) {
-    if (onExport) onExport(type, form.partner);
+  async function handleExport(type) {
+    setStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/partner-certifications/export?type=${type}&partner=${form.partner}`);
+      if (!res.ok) {
+        setStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `partner_certification.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setStatus("Export complete — download ready.");
+      setTimeout(() => setStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
   }
 
   return (

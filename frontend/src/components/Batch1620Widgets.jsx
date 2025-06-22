@@ -24,10 +24,175 @@ export function SystemHealthBadge() {
   );
 }
 
-// Place this at the top of your main dashboard component render:
-// <SystemHealthBadge />
+export function Batch17Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch17/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch17_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
+  }
+  useEffect(() => {
+    fetch(`/batch-scaling/batch-export/batch17/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
+  return (
+    <section className="batch17-widgets">
+      <h2>Batch 17: SAFE AI Risk Mitigation</h2>
+      <button onClick={() => exportBatch('pdf')}>Export PDF</button>
+      <button onClick={() => exportBatch('csv')}>Export CSV</button>
+      <span style={{marginLeft:12, color:'#64748b', fontSize:13}}>Last updated: {lastUpdated}</span>
+      {exportStatus && <div className="export-status">{exportStatus}</div>}
+    </section>
+  );
+}
 
-export function Batch16Widgets() {
+export function Batch18Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch18/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch18_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
+  }
+  useEffect(() => {
+    fetch(`/batch-scaling/batch-export/batch18/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
+  return (
+    <section className="batch18-widgets">
+      <h2>Batch 18: SAFE AI Partner Certification</h2>
+      <button onClick={() => exportBatch('pdf')}>Export PDF</button>
+      <button onClick={() => exportBatch('csv')}>Export CSV</button>
+      <span style={{marginLeft:12, color:'#64748b', fontSize:13}}>Last updated: {lastUpdated}</span>
+      {exportStatus && <div className="export-status">{exportStatus}</div>}
+    </section>
+  );
+}
+
+export function Batch19Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch19/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch19_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
+  }
+  useEffect(() => {
+    fetch(`/batch-scaling/batch-export/batch19/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
+  return (
+    <section className="batch19-widgets">
+      <h2>Batch 19: SAFE AI Compliance Automation</h2>
+      <button onClick={() => exportBatch('pdf')}>Export PDF</button>
+      <button onClick={() => exportBatch('csv')}>Export CSV</button>
+      <span style={{marginLeft:12, color:'#64748b', fontSize:13}}>Last updated: {lastUpdated}</span>
+      {exportStatus && <div className="export-status">{exportStatus}</div>}
+    </section>
+  );
+}
+
+export function Batch20Widgets() {
+  const [exportStatus, setExportStatus] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
+  async function exportBatch(type) {
+    setExportStatus("");
+    try {
+      const res = await fetch(`/batch-scaling/batch-export/batch20/${type}`);
+      if (!res.ok) {
+        setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+        return;
+      }
+      const blob = await res.blob();
+      const contentDisp = res.headers.get('Content-Disposition');
+      const filename = contentDisp ? contentDisp.split('filename=')[1] : `batch20_export.${type}`;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setExportStatus("Export complete — download ready.");
+      setTimeout(() => setExportStatus(""), 3000);
+      setLastUpdated(res.headers.get('X-Last-Updated') || "");
+    } catch {
+      setExportStatus("Download failed — file not found. Please re-export or contact admin.");
+    }
+  }
+  useEffect(() => {
+    fetch(`/batch-scaling/batch-export/batch20/pdf`).then(r => setLastUpdated(r.headers.get('X-Last-Updated') || ""));
+  }, []);
+  return (
+    <section className="batch20-widgets">
+      <h2>Batch 20: SAFE AI Public Reporting</h2>
+      <button onClick={() => exportBatch('pdf')}>Export PDF</button>
+      <button onClick={() => exportBatch('csv')}>Export CSV</button>
+      <span style={{marginLeft:12, color:'#64748b', fontSize:13}}>Last updated: {lastUpdated}</span>
+      {exportStatus && <div className="export-status">{exportStatus}</div>}
+    </section>
+  );
+}
+
+// Partner Certification and Public Report widgets should be similarly updated for SAFE AI UX.
   const [exportStatus, setExportStatus] = useState("");
   const [lastUpdated, setLastUpdated] = useState("");
   async function exportBatch(type) {
