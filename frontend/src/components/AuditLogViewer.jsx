@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function AuditLogViewer({ token }) {
+export default function AuditLogViewer({ token, showDownload }) {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -21,6 +21,32 @@ export default function AuditLogViewer({ token }) {
     ? logs.filter(entry => entry.user && entry.user.includes(userFilter))
     : logs;
 
+  function download(format) {
+    const data = filteredLogs;
+    if (!data.length) return;
+    let content = "";
+    let mime = "application/json";
+    let filename = "audit_log." + format;
+    if (format === "csv") {
+      const keys = Object.keys(data[0]);
+      content = keys.join(",") + "\n" + data.map(row => keys.map(k => JSON.stringify(row[k] ?? "")).join(",")).join("\n");
+      mime = "text/csv";
+      filename = "audit_log.csv";
+    } else {
+      content = JSON.stringify(data, null, 2);
+      filename = "audit_log.json";
+    }
+    const blob = new Blob([content], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div className="audit-log-viewer" aria-label="SAFE AI Audit Log" tabIndex={0} style={{background:'#f8fafc',padding:20,borderRadius:8}}>
       <h3 style={{color:'#0f172a'}}>SAFE AI Audit Log</h3>
@@ -32,6 +58,12 @@ export default function AuditLogViewer({ token }) {
         onChange={e => setUserFilter(e.target.value)}
         style={{marginLeft:8,marginBottom:12,padding:4,borderRadius:4,border:'1px solid #cbd5e1'}}
       />
+      {showDownload && (
+        <div style={{marginBottom:12}}>
+          <button onClick={() => download("csv")} style={{marginRight:8,padding:'4px 10px',background:'#2563eb',color:'#fff',border:'none',borderRadius:4}}>Download CSV</button>
+          <button onClick={() => download("json")} style={{padding:'4px 10px',background:'#0f766e',color:'#fff',border:'none',borderRadius:4}}>Download JSON</button>
+        </div>
+      )}
       {loading ? <div>Loading logs...</div> : (
         <ul style={{listStyle:'none',padding:0,maxHeight:350,overflowY:'auto'}}>
           {filteredLogs.map((entry, i) => (

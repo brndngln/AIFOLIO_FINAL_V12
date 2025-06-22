@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function UserManagementPanel({ token }) {
+export default function UserManagementPanel({ token, enableRoles }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newUser, setNewUser] = useState({ username: "", role: "partner", email: "", org: "" });
@@ -46,7 +46,20 @@ export default function UserManagementPanel({ token }) {
         <ul style={{listStyle:'none',padding:0}}>
           {users.map(u => (
             <li key={u.username} style={{marginBottom:8,background:'#fff',padding:10,borderRadius:6,boxShadow:'0 1px 2px #e2e8f0',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-              <span><b>{u.username}</b> ({u.role}) - {u.email} [{u.org}]</span>
+              <span><b>{u.username}</b> {enableRoles ? (
+                <select
+                  aria-label={`Role for ${u.username}`}
+                  value={u.role}
+                  onChange={e => {
+                    const newRole = e.target.value;
+                    setUsers(users => users.map(user => user.username === u.username ? { ...user, role: newRole } : user));
+                  }}
+                  style={{margin:'0 8px',padding:'2px 6px',borderRadius:4,border:'1px solid #cbd5e1'}}
+                >
+                  <option value="partner">Partner</option>
+                  <option value="admin">Admin</option>
+                </select>
+              ) : `(${u.role})`} - {u.email} [{u.org}]</span>
               <button aria-label={`Delete ${u.username}`} onClick={() => handleDeleteUser(u.username)} style={{background:'#ef4444',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px'}}>Delete</button>
             </li>
           ))}

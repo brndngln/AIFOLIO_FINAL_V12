@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AnalyticsDashboard from './components/AnalyticsDashboard';
+import AdminToolsPanel from './components/AdminToolsPanel';
 import ColorCustomization from './components/ColorCustomization';
 import ColorSchemeManager from './components/ColorSchemeManager';
 import ThemeProvider from '../theme/ThemeProvider.jsx';
@@ -96,6 +97,8 @@ function App() {
           </div>
           */}
         </div>
+        {/* Unified Admin Tools Section */}
+        <AdminToolsPanel token={"admin-token-placeholder"} />
       </div>
     </ThemeProvider>
   );
