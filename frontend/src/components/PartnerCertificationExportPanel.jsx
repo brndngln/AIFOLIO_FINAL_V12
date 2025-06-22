@@ -337,6 +337,64 @@ export default function PartnerCertificationExportPanel() {
         <button aria-label="Bulk Audit Log Download" onClick={handleBulkAuditLogDownload} disabled={auditLogExporting} style={{background:'none',color:darkMode?'#fbbf24':'#e11d48',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>{auditLogExporting?'Exporting…':'Bulk Audit Log'}</button>
         <button aria-label="Toggle Dark Mode" onClick={()=>setDarkMode(d=>!d)} style={{background:'none',color:darkMode?'#fbbf24':'#64748b',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>{darkMode?'Light Mode':'Dark Mode'}</button>
       </div>
+
+      {/* --- Schedule Management Dialog --- */}
+      {showSchedule && (
+        <div role="dialog" aria-modal="true" tabIndex={-1} style={{position:'fixed',top:0,left:0,right:0,bottom:0,background:'rgba(0,0,0,0.3)',zIndex:1000,display:'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>setShowSchedule(false)}>
+          <div style={{background:darkMode?'#23272f':'#fff',color:darkMode?'#f1f5f9':'#222',padding:28,borderRadius:12,minWidth:380,maxWidth:500,boxShadow:'0 2px 16px #0002',position:'relative'}} onClick={e=>e.stopPropagation()}>
+            <button onClick={()=>setShowSchedule(false)} aria-label="Close" style={{position:'absolute',top:10,right:12,background:'none',border:'none',fontSize:20,cursor:'pointer',color:darkMode?'#fbbf24':'#222'}}>×</button>
+            <h4 style={{marginBottom:10,color:darkMode?'#fbbf24':'#2563eb'}}>Export Schedules</h4>
+            {schedulingLoading ? <div>Loading schedules…</div> : scheduleError ? <div style={{color:'#e11d48'}}>{scheduleError}</div> : (
+              <>
+              {schedules.length === 0 ? <div style={{color:'#64748b',marginBottom:12}}>No export schedules set.</div> : (
+                <table style={{width:'100%',marginBottom:12,fontSize:14}}>
+                  <thead><tr style={{color:darkMode?'#fbbf24':'#2563eb'}}><th>Type</th><th>When</th><th>Recurring</th><th>Actions</th></tr></thead>
+                  <tbody>
+                    {schedules.map((sch,idx) => (
+                      <tr key={idx}>
+                        <td>{sch.type}</td>
+                        <td>{sch.when}</td>
+                        <td>{sch.recurring ? 'Yes' : 'No'}</td>
+                        <td>
+                          <button style={{marginRight:6}} aria-label="Edit" onClick={()=>{/* TODO: implement edit UI */}}>Edit</button>
+                          <button aria-label="Delete" style={{color:'#e11d48'}} onClick={async()=>{await fetch(`/batch-scaling/partner-certifications/schedule/${sch.id}`,{method:'DELETE',headers:{'Authorization':`Bearer ${getToken()}`}});fetchSchedules();}}>Delete</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              <button onClick={()=>{/* TODO: implement create schedule UI */}} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'6px 14px',fontWeight:600}}>Add New Schedule</button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* --- Advanced Audit Log Filtering & Bulk Actions --- */}
+      <div style={{marginBottom:20}} aria-label="Partner Certification Audit Log Preview">
+        <div style={{fontWeight:600,marginBottom:4}}>Recent Audit Log:</div>
+        <div style={{display:'flex',gap:8,marginBottom:6}}>
+          <input aria-label="Search audit log" value={auditSearch} onChange={e=>setAuditSearch(e.target.value)} placeholder="Search audit log..." style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4,minWidth:160}} />
+          <input type="date" aria-label="Filter by date" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.time.startsWith(e.target.value)))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}} />
+          <select aria-label="Filter by user" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.user===e.target.value))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}}><option value="">All Users</option>{[...new Set(auditLog.map(l=>l.user))].map(u=><option key={u} value={u}>{u}</option>)}</select>
+          <select aria-label="Filter by status" onChange={e=>setAuditLog(prev=>prev.filter(l=>l.status===e.target.value))} style={{padding:'4px 8px',border:'1px solid #cbd5e1',borderRadius:4}}><option value="">All Status</option>{[...new Set(auditLog.map(l=>l.status))].map(s=><option key={s} value={s}>{s}</option>)}</select>
+          <button onClick={()=>setAuditLog([])} style={{background:'#e11d48',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px',fontWeight:600}}>Bulk Delete</button>
+          <button onClick={()=>{
+            const filtered = auditLog.filter(l=>
+              (!auditSearch || JSON.stringify(l).toLowerCase().includes(auditSearch.toLowerCase()))
+            );
+            const blob = new Blob([JSON.stringify(filtered, null, 2)], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'filtered_audit_log.json';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+          }} style={{background:'#059669',color:'#fff',border:'none',borderRadius:4,padding:'4px 10px',fontWeight:600}}>Export Filtered</button>
+        </div>
       <div style={{marginBottom:14,display:'flex',gap:10,flexWrap:'wrap',alignItems:'center'}}>
         <input ref={searchRef} aria-label="Search partners" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search partners..." style={{padding:'6px 10px',border:'1px solid #cbd5e1',borderRadius:5,minWidth:170}} />
         <select aria-label="Filter by status" value={filterStatus} onChange={e=>setFilterStatus(e.target.value)} style={{padding:'6px 10px',border:'1px solid #cbd5e1',borderRadius:5}}>
