@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AnalyticsDashboard from './components/AnalyticsDashboard';
-import AdminToolsPanel from './components/AdminToolsPanel';
+import AdminToolsPanel from "./components/AdminToolsPanel";
+import Batch21FederatedTrustPanel from "./components/Batch21FederatedTrustPanel";
+import Batch22CertificationLegalPanel from "./components/Batch22CertificationLegalPanel";
+import Batch23GlobalPublicReadinessPanel from "./components/Batch23GlobalPublicReadinessPanel";
+import Batch24EnterprisePublicScalePanel from "./components/Batch24EnterprisePublicScalePanel";
+import Batch25FinalTrustCertificationPanel from "./components/Batch25FinalTrustCertificationPanel";
 import ColorCustomization from './components/ColorCustomization';
 import ColorSchemeManager from './components/ColorSchemeManager';
 import ThemeProvider from '../theme/ThemeProvider.jsx';
@@ -96,6 +101,11 @@ function App() {
             </div>
           </div>
           */}
+        </div>
+        {/* SAFE AI Batch Modules Section */}
+        <div className="theme-panel mt-12" style={{background:'#f8fafc',borderRadius:12,padding:24,marginBottom:32}}>
+          <h2 className="text-2xl font-bold mb-4" style={{color:'#0f172a'}}>SAFE AI Batch Modules</h2>
+          <BatchTabs />
         </div>
         {/* Unified Admin Tools Section */}
         <AdminToolsPanel token={"admin-token-placeholder"} />
