@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import AnalyticsDashboard from './components/AnalyticsDashboard';
 import AdminToolsPanel from "./components/AdminToolsPanel";
+import OwnerControlPanel from "./components/OwnerControlPanel";
+import CompletionChecklist from "./components/CompletionChecklist";
+import ReadinessChecklist from "./components/ReadinessChecklist";
+import UXBestPractices from "./components/UXBestPractices";
+import GlobalPartnershipPlaybook from "./components/GlobalPartnershipPlaybook";
+import BatchPanel from "./components/BatchPanel";
+import WorldTrustDashboard from "./components/WorldTrustDashboard";
+
 import Batch21FederatedTrustPanel from "./components/Batch21FederatedTrustPanel";
 import Batch22CertificationLegalPanel from "./components/Batch22CertificationLegalPanel";
 import Batch23GlobalPublicReadinessPanel from "./components/Batch23GlobalPublicReadinessPanel";
@@ -125,6 +133,45 @@ function App() {
           <h2 className="text-xl font-bold mb-4" style={{color:'#0f172a'}}>Partner Certification Export</h2>
           <PartnerCertificationExportPanel />
         </div>
+
+        {/* SAFE AI OWNER CONTROL PANEL */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <OwnerControlPanel auditLog={[]} onExport={()=>{}} onChecklistExport={()=>{}} />
+        </div>
+
+        {/* SAFE AI Elite & World Leadership Batches */}
+        <div className="theme-panel mt-12" style={{background:'#f8fafc',borderRadius:12,padding:24,marginBottom:32}}>
+          <h2 className="text-2xl font-bold mb-4" style={{color:'#0f172a'}}>SAFE AI Elite & World Leadership Batches</h2>
+          <BatchPanel title="Batches 26–30: Elite SAFE AI Mastery" items={[
+            "Elite SAFE AI compliance static panel",
+            "Advanced static mastery guides",
+            "No dynamic features"
+          ]} />
+          <BatchPanel title="Batches 31–35: World Leadership & Public Ecosystem" items={[
+            "World leadership static dashboard",
+            "Public ecosystem map (static)",
+            "OWNER-controlled export"
+          ]} />
+          <BatchPanel title="Batches 36–40: Global Public Governance & Agency Alignment" items={[
+            "Agency policy map (static)",
+            "Global public governance crosswalk",
+            "OWNER-controlled world report export"
+          ]} />
+        </div>
+
+        {/* SAFE AI World Trust & Transparency Dashboard */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <WorldTrustDashboard />
+        </div>
+
+        {/* SAFE AI Checklists & Playbook */}
+        <div className="theme-panel mt-12" style={{background:'#f3f4f6',borderRadius:12,padding:32,marginBottom:32}}>
+          <CompletionChecklist />
+          <ReadinessChecklist />
+          <UXBestPractices />
+          <GlobalPartnershipPlaybook />
+        </div>
+
         {/* Unified Admin Tools Section */}
         <AdminToolsPanel token={"admin-token-placeholder"} />
       </div>
