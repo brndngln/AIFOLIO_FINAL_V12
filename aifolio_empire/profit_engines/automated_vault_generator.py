@@ -590,9 +590,46 @@ class AutomatedVaultGenerator:
                 json.dump(metadata, f, indent=2)
         except Exception as e:
             logger.error(f"Failed to save metadata.json: {e}")
-        # --- Step 8: Log audit-ready actions (all logs already handled by submodules) ---
-        logger.info(f"Vault {title} generated, previewed, and priced. Ready for dashboard, Gumroad, and analytics integration.")
-        # --- Step 9: Dispatch event to event-driven pipeline ---
+        # --- Step 8: Run filename standardization and compliance checks ---
+        try:
+            from autonomy.pipeline.ready_for_sale_packaging import generate_final_checklist
+            files = [os.path.join(vault_dir, f) for f in os.listdir(vault_dir) if f.lower().endswith('.pdf')]
+            metadata_path = os.path.join(vault_dir, 'metadata.json')
+            checklist = generate_final_checklist(product_id=os.path.basename(vault_dir), files=files, metadata_path=metadata_path)
+            if checklist.get('integrity', {}).get('manual_override_needed'):
+                logger.error(f"Manual override needed for PDF filename in vault {vault_dir}. BLOCKING PUBLISH.")
+                return None
+            if not all(checklist.get('integrity', {}).get('pdf_valid', [])):
+                logger.error(f"PDF compliance failed for vault {vault_dir}. BLOCKING PUBLISH.")
+                return None
+        except Exception as compliance_exc:
+            logger.error(f"Compliance/standardization check failed: {compliance_exc}")
+            return None
+
+        # --- Step 9: Enhanced AI logic for tags, description, cover (static, safe) ---
+        try:
+            # SEO description/tag optimization
+            from autonomy.ai_tools.vault_description_optimizer import optimize_description
+            from autonomy.ai_tools.vault_tag_optimization_suggester import suggest_tags
+            from autonomy.ai_tools.seo_metadata_generator import generate_seo_metadata
+            title = metadata.get('title', '')
+            desc = metadata.get('description', '')
+            tags = metadata.get('tags', [])
+            # Optimize description and tags
+            optimized_desc = optimize_description(title, desc)
+            optimized_tags = suggest_tags(title, desc, tags)
+            seo_meta = generate_seo_metadata(title, optimized_desc, optimized_tags)
+            metadata['description'] = optimized_desc
+            metadata['tags'] = optimized_tags
+            metadata['seo'] = seo_meta
+            # (Stub) Cover suggestion logic: placeholder for future AI cover generator
+            # metadata['cover_suggestion'] = ai_cover_suggester(title, desc)  # Not implemented
+        except Exception as ai_logic_exc:
+            logger.warning(f"AI description/tag/SEO logic failed: {ai_logic_exc}")
+
+        # --- Step 10: Log audit-ready actions (all logs already handled by submodules) ---
+        logger.info(f"Vault {title} generated, previewed, priced, standardized, and compliance checked. Ready for dashboard, Gumroad, and analytics integration.")
+        # --- Step 11: Dispatch event to event-driven pipeline ---
         try:
             # Event-driven integration point: notify event bus of vault creation
             dispatch_event("vault_created", {
@@ -605,7 +642,7 @@ class AutomatedVaultGenerator:
             logger.error(f"Failed to dispatch 'vault_created' event: {event_exc}")
             return None
 
-        # --- Step 10: Return final vault package (can be used for UI/dashboard integration) ---
+        # --- Step 12: Return final vault package (can be used for UI/dashboard integration) ---
         return {
             "vault_dir": vault_dir,
             "metadata": metadata,
