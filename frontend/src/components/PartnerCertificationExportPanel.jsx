@@ -104,12 +104,6 @@ export default function PartnerCertificationExportPanel() {
       setSchedulingLoading(false);
     }
   }
-  // All duplicate state and handler declarations below this line have been removed to resolve redeclaration errors.
-    } catch (e) {
-      setScheduleError(e.message);
-    }
-    setSchedulingLoading(false);
-  }
 
   // Backend: create schedule
   async function createSchedule(schedule) {
