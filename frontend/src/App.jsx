@@ -32,6 +32,12 @@ import LowPerformerAutoFlagPanel from "./components/LowPerformerAutoFlagPanel";
 import AudienceInterestHeatmapPanel from "./components/AudienceInterestHeatmapPanel";
 import EmailHealthReportPanel from "./components/EmailHealthReportPanel";
 import TaxFilingCalendarPanel from "./components/TaxFilingCalendarPanel";
+import OwnerOnboardingPanel from "./components/OwnerOnboardingPanel";
+import OwnerExportAllDataPanel from "./components/OwnerExportAllDataPanel";
+import OwnerHelpSupportPanel from "./components/OwnerHelpSupportPanel";
+import OwnerReleaseNotesPanel from "./components/OwnerReleaseNotesPanel";
+import OwnerAccessibilityChecklistPanel from "./components/OwnerAccessibilityChecklistPanel";
+import OwnerBrandCustomizationPanel from "./components/OwnerBrandCustomizationPanel";
 import NewCountryTaxLawsWatchPanel from "./components/NewCountryTaxLawsWatchPanel";
 import AIGuardIntegrityMonitorPanel from "./components/AIGuardIntegrityMonitorPanel";
 
@@ -88,23 +94,47 @@ function App() {
           {/* Autonomous Showcase, Pricing, Performance Panels */}
           <ShowcaseEnginePanel />
           <VaultPreviewCompilerPanel />
-          <SmartPricingEnginePanel />
-          <OwnerManualPriceLockPanel />
-          <PriceTestingEnginePanel />
-          <ComplianceExportsPanel />
-
-          {/* Static Future SAFE AI Enhancements */}
-          <StaticBundleRecommendationPanel />
-          <ProductLifecycleTrackerPanel />
-          <GDPRDashboardPanel />
-          <AffiliateCampaignROIPanel />
-          <UpcomingVaultsPipelinePanel />
-          <LowPerformerAutoFlagPanel />
-          <AudienceInterestHeatmapPanel />
-          <EmailHealthReportPanel />
-          <TaxFilingCalendarPanel />
-          <NewCountryTaxLawsWatchPanel />
-          <AIGuardIntegrityMonitorPanel />
+          <main style={{maxWidth:900,margin:"40px auto",padding:24}}>
+            <DashboardHeader />
+            {/* OWNER Navigation */}
+            <nav aria-label="OWNER quick navigation" style={{display:'flex',gap:10,marginBottom:32,flexWrap:'wrap'}}>
+              <a href="#onboarding" style={{color:'#0ea5e9',fontWeight:700}}>Onboarding</a>
+              <a href="#export" style={{color:'#0ea5e9',fontWeight:700}}>Export All Data</a>
+              <a href="#help" style={{color:'#0ea5e9',fontWeight:700}}>Help & Support</a>
+              <a href="#release" style={{color:'#0ea5e9',fontWeight:700}}>Release Notes</a>
+              <a href="#accessibility" style={{color:'#0ea5e9',fontWeight:700}}>Accessibility</a>
+              <a href="#brand" style={{color:'#0ea5e9',fontWeight:700}}>Brand Customization</a>
+            </nav>
+            {/* OWNER Panels */}
+            <section id="onboarding"><OwnerOnboardingPanel /></section>
+            <section id="export"><OwnerExportAllDataPanel /></section>
+            <section id="help"><OwnerHelpSupportPanel /></section>
+            <section id="release"><OwnerReleaseNotesPanel /></section>
+            <section id="accessibility"><OwnerAccessibilityChecklistPanel /></section>
+            <section id="brand"><OwnerBrandCustomizationPanel /></section>
+            {/* Main Business Panels */}
+            <ShowcaseEnginePanel />
+            <SmartPricingEnginePanel />
+            <PriceTestingEnginePanel />
+            <ComplianceExportsPanel />
+            <StaticBundleRecommendationPanel />
+            <ProductLifecycleTrackerPanel />
+            <GDPRDashboardPanel />
+            <AffiliateCampaignROIPanel />
+            <UpcomingVaultsPipelinePanel />
+            <LowPerformerAutoFlagPanel />
+            <AudienceInterestHeatmapPanel />
+            <EmailHealthReportPanel />
+            <TaxFilingCalendarPanel />
+            <OwnerManualPriceLockPanel />
+            <VaultPreviewCompilerPanel />
+            <SafeAIMistakesToAvoid />
+            <SafeAIStaticLogicSuggestions />
+            <GlobalPartnershipPlaybook />
+            <PartnerCertificationExportPanel />
+            <NewCountryTaxLawsWatchPanel />
+            <AIGuardIntegrityMonitorPanel />
+          </main>
 
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold" style={{
