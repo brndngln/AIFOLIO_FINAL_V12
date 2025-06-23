@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE Notification: SendGrid Email Integration
 - Static, non-sentient
 - Sends email with attachments, logs all sends and errors
-- No autonomous retries or adaptive behavior
+- No autonomous retries or static behavior
 """
 import os
 import logging

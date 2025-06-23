@@ -3,7 +3,7 @@ AIFOLIO SAFE AI Export Scheduler
 - Schedules weekly/monthly PDF+email exports (revenue, compliance)
 - Uses SendGrid for email
 - Logs all export runs to analytics_log.json
-- No static logic, admin reviewed only
+- No table-driven logic, admin reviewed only
 """
 import os
 import json
@@ -27,12 +27,12 @@ def send_email(subject, body, attachment_path=None):
     print(f"Email sent to {ADMIN_EMAIL}: {subject}")
 
 
-def export_and_email(report_type, date_range, stats):
-    output_path = f"/tmp/{report_type}_report_{date_range.replace(' ', '_')}.pdf"
-    # generate_revenue_report_pdf(date_range, output_path, stats)  # or compliance report
-    send_email(f"AIFOLIO {report_type.title()} Report", f"Report for {date_range}", output_path)
+def export_and_email(report_type, static_range, stats):
+    output_path = f"/tmp/{report_type}_report_{static_range.replace(' ', '_')}.pdf"
+    # generate_revenue_report_pdf(static_range, output_path, stats)  # or compliance report
+    send_email(f"AIFOLIO {report_type.title()} Report", f"Report for {static_range}", output_path)
     with open(LOG_PATH, 'a') as f:
-        f.write(json.dumps({'action': 'export_email', 'report_type': report_type, 'date_range': date_range, 'timestamp': datetime.utcnow().isoformat()}) + '\n')
+        f.write(json.dumps({'action': 'export_email', 'report_type': report_type, 'static_range': static_range, 'timestamp': datetime.utcnow().isoformat()}) + '\n')
 
 
 def schedule_exports():

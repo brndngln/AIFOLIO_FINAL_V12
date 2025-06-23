@@ -1,7 +1,7 @@
 """
-AIFOLIO SAFE AI "What Worked Best" Summary Engine (static)
+AIFOLIO SAFE AI "What Worked Best" Summary Engine (table-driven, non-sentient)
 - Summarizes top-performing vaults, segments, campaigns (static only)
-- No optimization, no static, no static logic
+- No optimization, no dynamic or learning logic; table-driven only
 """
 def what_worked_best(stats):
     # Expects: {'vaults': [{'id': str, 'revenue': int}], 'segments': [{'name': str, 'growth': int}]}

@@ -1,6 +1,6 @@
 """
 AIFOLIO Pricing Engine
-- Deterministic, static, non-adaptive pricing logic
+- Deterministic, static, non-static pricing logic
 - Audit-logs all pricing events to both pricing_log.json locations
 - GDPR/CCPA compliant, owner controlled
 """

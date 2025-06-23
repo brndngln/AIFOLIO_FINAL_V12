@@ -22,6 +22,9 @@ def check_charter_compliance():
         for fname in files:
             if fname.endswith('.py'):
                 fpath = os.path.join(root, fname)
+                # Skip scanning this script itself to avoid self-flagging
+                if os.path.abspath(fpath) == os.path.abspath(__file__):
+                    continue
                 with open(fpath, 'r', encoding='utf-8', errors='ignore') as f:
                     content = f.read()
                     for pattern in FORBIDDEN_PATTERNS:

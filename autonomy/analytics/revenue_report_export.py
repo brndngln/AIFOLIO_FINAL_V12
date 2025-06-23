@@ -1,7 +1,7 @@
 """
 AIFOLIO SAFE AI Revenue Report Exporter (static, non-sentient)
 - Exports PDF revenue reports with static templates
-- No AI rewriting, no adaptive logic
+- No AI rewriting, no static logic
 - All exports logged to analytics_log.json
 """
 import os

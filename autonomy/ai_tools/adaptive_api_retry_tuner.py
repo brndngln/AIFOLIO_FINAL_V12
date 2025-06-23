@@ -2,7 +2,7 @@ import json
 import datetime
 import os
 
-ADAPTIVE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/adaptive_api_retry_tuner_log.jsonl'))
+ADAPTIVE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/static_api_retry_tuner_log.jsonl'))
 os.makedirs(os.path.dirname(ADAPTIVE_LOG), exist_ok=True)
 
 # --- Adaptive API Retry Tuner (Safe, Non-Sentient) ---

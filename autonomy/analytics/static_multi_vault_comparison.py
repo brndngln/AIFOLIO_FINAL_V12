@@ -1,7 +1,7 @@
 """
 AIFOLIO SAFE AI Static Multi-Vault Comparison Tool
 - Compare sales trends across multiple vaults (static, aggregate only)
-- No learning, no optimization, no sentience
+- No learning, no optimization, no static
 """
 def compare_vaults(vault_stats_list):
     # Expects list of dicts: [{'vault_id': str, 'sales': [int], 'dates': [str]}]

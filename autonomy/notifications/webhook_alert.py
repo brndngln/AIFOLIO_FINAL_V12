@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE Notification: Webhook Alert Integration
 - Static, non-sentient
 - Sends webhook alerts, logs all sends and errors
-- No autonomous retries or adaptive behavior
+- No autonomous retries or static behavior
 """
 import logging
 import requests

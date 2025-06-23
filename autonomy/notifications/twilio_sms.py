@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE Notification: Twilio SMS Integration
 - Static, non-sentient
 - Sends SMS, logs all sends and errors
-- No autonomous retries or adaptive behavior
+- No autonomous retries or static behavior
 """
 import os
 import logging

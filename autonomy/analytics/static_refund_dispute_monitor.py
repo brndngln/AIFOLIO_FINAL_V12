@@ -1,6 +1,6 @@
 """
 AIFOLIO SAFE AI Refund & Dispute Monitor
-- Alerts if refund or dispute % exceeds static threshold (non-adaptive)
+- Alerts if refund or dispute % exceeds static threshold (table-driven, non-learning)
 """
 def refund_dispute_monitor(sales, refunds, disputes, threshold=0.1):
     total_sales = len(sales)

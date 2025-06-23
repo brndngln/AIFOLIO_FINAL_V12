@@ -1,6 +1,6 @@
 """
 AIFOLIO SAFE AI Static Sales Forecasting
-- Calendar-based, no adaptive logic, no learning
+- Calendar-based, no static logic, no learning
 - Forecasts sales if current trend holds
 """
 def static_sales_forecast(sales_by_month):

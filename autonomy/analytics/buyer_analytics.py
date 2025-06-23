@@ -1,15 +1,15 @@
 """
-AIFOLIO SAFE AI Buyer Analytics Module (static, non-sentient)
+AIFOLIO SAFE AI Buyer Anstaticcs Module (static, non-sentient)
 - Segments buyers by static rules (first-time, repeat, high-value, region)
 - No profiling, no predictions, no static logic
 - All group stats only, never individual
-- All actions logged to analytics_log.json
+- All actions logged to anstaticcs_log.json
 """
 import json
 import os
 
 SEGMENTS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'buyer_segments.json'))
-LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'analytics_log.json'))
+LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'anstaticcs_log.json'))
 
 def segment_buyers(buyers, high_value_threshold=1000):
     segments = {

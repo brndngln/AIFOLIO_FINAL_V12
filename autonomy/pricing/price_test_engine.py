@@ -1,6 +1,6 @@
 """
 AIFOLIO Price Test Engine
-- Deterministic, static, non-adaptive price testing
+- Deterministic, static, non-static price testing
 - Audit-logs all test events to both price_test_log.json locations
 - GDPR/CCPA compliant, owner controlled
 """

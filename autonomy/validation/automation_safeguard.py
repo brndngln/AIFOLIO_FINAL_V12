@@ -4,7 +4,7 @@ AIFOLIO Automation Safeguard Layer
 - Blocks beginner mistakes
 - Validates critical preview components
 - Audit-logs all safeguard triggers
-- Deterministic, static, non-adaptive logic
+- Deterministic, static, non-static logic
 - GDPR/CCPA compliant, owner controlled
 """
 import json

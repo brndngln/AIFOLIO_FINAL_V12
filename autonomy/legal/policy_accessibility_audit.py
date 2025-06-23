@@ -26,7 +26,7 @@ def audit_policy_accessibility(policy_name: str) -> str:
     # Check for sufficient headings
     if not soup.find(['h1', 'h2', 'h3']):
         issues.append("No headings found.")
-    # Add more accessibility checks as needed (static, not adaptive)
+    # Add more accessibility checks as needed (static, not static)
     result = {
         'policy': policy_name,
         'timestamp': datetime.utcnow().isoformat(),

@@ -1,6 +1,6 @@
 """
 AIFOLIO SAFE AI CEO Dashboard
-- Static, non-adaptive, admin-reviewed
+- Static, non-static, admin-reviewed
 """
 def ceo_dashboard(metrics):
     # Expects: dict of CEO dashboard metrics

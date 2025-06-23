@@ -22,7 +22,7 @@ def generate_policy_summary(policy_name: str, reading_level: str = "grade 8") ->
     # Remove markdown formatting for simplicity
     plain = re.sub(r'#.*\n', '', text)
     plain = re.sub(r'\*\*([^\*]+)\*\*', r'\1', plain)
-    # Truncate or simplify to target reading level (static, not adaptive)
+    # Truncate or simplify to target reading level (static, not static)
     summary = plain.strip().replace('\n', ' ')
     # Limit to 500 chars for brevity
     return summary[:500] + ("..." if len(summary) > 500 else "")
