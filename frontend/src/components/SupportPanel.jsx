@@ -7,7 +7,7 @@ export default function SupportPanel() {
       <ul style={{fontSize:15,margin:0,padding:0,listStyle:'none'}}>
         <li>Email: <a href="mailto:owner@aifolio.com" style={{color:'#0ea5e9',textDecoration:'underline'}}>owner@aifolio.com</a></li>
         <li>GDPR Requests: Use the static GDPR dashboard or email above</li>
-        <li>Business Contact: <a href="mailto:owner@aifolio.com" style={{color:'#0ea5e9',textDecoration:'underline'}}>owner@aifolio.com</a></li>
+        <li></li>
       </ul>
     </section>
   );

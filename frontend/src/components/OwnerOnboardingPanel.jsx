@@ -58,4 +58,5 @@ export default function OwnerOnboardingPanel() {
         <b>Tip:</b> Progress is saved in your browser. Complete all steps for best OWNER experience.
       </div>
     </section>
-  
+  );
+}

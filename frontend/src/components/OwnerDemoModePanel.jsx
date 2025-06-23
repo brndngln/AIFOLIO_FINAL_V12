@@ -33,4 +33,5 @@ export default function OwnerDemoModePanel() {
         <b>Tip:</b> Use Demo Mode for safe demos and training. Toggle off to restore full OWNER control.
       </div>
     </section>
-  
+  );
+}

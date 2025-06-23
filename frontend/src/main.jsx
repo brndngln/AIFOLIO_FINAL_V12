@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import ThemeProvider from '../theme/ThemeProvider.jsx'
 import App from './App'
-import { register as registerServiceWorker } from '../registerServiceWorker'
+import { register as registerServiceWorker } from './registerServiceWorker'
 
 registerServiceWorker()
 

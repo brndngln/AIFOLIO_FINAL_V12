@@ -1,7 +1,7 @@
 {
   "name": "AIFOLIO",
   "short_name": "AIFOLIO",
-  "description": "AIFOLIO — Lean, deterministic, OWNER-controlled SAFE AI for PDF business. Installable dashboard app.",
+  "description": "AIFOLIO — Lean, deterministic, OWNER-controlled SAFE AI. Installable dashboard app.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",

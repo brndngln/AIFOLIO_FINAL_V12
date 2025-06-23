@@ -24,7 +24,7 @@ export default function OwnerAuditLogViewerPanel() {
         setLogs(Array.isArray(data) ? data : []);
         setFiltered(Array.isArray(data) ? data : []);
       })
-      .catch(() => setStatus("Could not load audit log."));
+      .catch(() => setStatus("Could not load AIFOLIO audit log."));
   }, []);
 
   useEffect(() => {
