@@ -38,6 +38,9 @@ import OwnerHelpSupportPanel from "./components/OwnerHelpSupportPanel";
 import OwnerReleaseNotesPanel from "./components/OwnerReleaseNotesPanel";
 import OwnerAccessibilityChecklistPanel from "./components/OwnerAccessibilityChecklistPanel";
 import OwnerBrandCustomizationPanel from "./components/OwnerBrandCustomizationPanel";
+import OwnerDemoModePanel from "./components/OwnerDemoModePanel";
+import OwnerBackupRestorePanel from "./components/OwnerBackupRestorePanel";
+import OwnerAuditLogViewerPanel from "./components/OwnerAuditLogViewerPanel";
 import NewCountryTaxLawsWatchPanel from "./components/NewCountryTaxLawsWatchPanel";
 import AIGuardIntegrityMonitorPanel from "./components/AIGuardIntegrityMonitorPanel";
 
@@ -100,6 +103,9 @@ function App() {
             <nav aria-label="OWNER quick navigation" style={{display:'flex',gap:10,marginBottom:32,flexWrap:'wrap'}}>
               <a href="#onboarding" style={{color:'#0ea5e9',fontWeight:700}}>Onboarding</a>
               <a href="#export" style={{color:'#0ea5e9',fontWeight:700}}>Export All Data</a>
+              <a href="#backup" style={{color:'#0ea5e9',fontWeight:700}}>Backup/Restore</a>
+              <a href="#audit" style={{color:'#0ea5e9',fontWeight:700}}>Audit Log</a>
+              <a href="#demo" style={{color:'#0ea5e9',fontWeight:700}}>Demo Mode</a>
               <a href="#help" style={{color:'#0ea5e9',fontWeight:700}}>Help & Support</a>
               <a href="#release" style={{color:'#0ea5e9',fontWeight:700}}>Release Notes</a>
               <a href="#accessibility" style={{color:'#0ea5e9',fontWeight:700}}>Accessibility</a>
@@ -108,6 +114,9 @@ function App() {
             {/* OWNER Panels */}
             <section id="onboarding"><OwnerOnboardingPanel /></section>
             <section id="export"><OwnerExportAllDataPanel /></section>
+            <section id="backup"><OwnerBackupRestorePanel /></section>
+            <section id="audit"><OwnerAuditLogViewerPanel /></section>
+            <section id="demo"><OwnerDemoModePanel /></section>
             <section id="help"><OwnerHelpSupportPanel /></section>
             <section id="release"><OwnerReleaseNotesPanel /></section>
             <section id="accessibility"><OwnerAccessibilityChecklistPanel /></section>
