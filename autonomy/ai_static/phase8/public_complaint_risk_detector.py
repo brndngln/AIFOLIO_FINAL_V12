@@ -2,7 +2,7 @@
 SAFE AI Static Module: Public Complaint Risk Detector
 - Flags static risk of public complaints (table-driven)
 - Logs all detections for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

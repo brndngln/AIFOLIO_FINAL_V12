@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: GDPR/CCPA Audit Bot
-- Static only. No sentience, recursion, or adaptive logic.
+- Static only. No static, no loops or self-calling functions, or static logic.
 - Audits data flows and policies for GDPR/CCPA compliance.
 - Alerts if required disclosures or rights are missing.
 - All findings logged for human review.

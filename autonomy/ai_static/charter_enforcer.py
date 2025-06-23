@@ -5,7 +5,7 @@ import os
 import logging
 import sys
 
-LOG_PATH = "../../distribution/legal_exports/charter_enforcer_log.txt"
+LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../distribution/legal_exports/charter_enforcer_log.txt'))
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 FORBIDDEN_PATTERNS = [

@@ -2,7 +2,7 @@
 SAFE AI Static Module: Seasonal Campaign Optimizer
 - Suggests static seasonal campaign plans (table-driven)
 - Logs all suggestions for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

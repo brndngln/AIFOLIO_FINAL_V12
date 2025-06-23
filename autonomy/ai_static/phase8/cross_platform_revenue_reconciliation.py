@@ -2,7 +2,7 @@
 SAFE AI Static Module: Cross-Platform Revenue Reconciliation
 - Compares static revenue data across platforms (table-driven)
 - Logs all reconciliations for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: AI Self-Audit Pipeline
 - One AI module audits the logs of others for anomalies or violations
-- Static, no recursion, no adaptive logic
+- Static, table-driven only; no loops or self-calling functions; no dynamic or learning logic
 - Logs all findings for admin review
 """
 import logging

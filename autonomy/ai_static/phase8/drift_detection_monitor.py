@@ -2,7 +2,7 @@
 SAFE AI Static Module: Drift Detection Monitor
 - Compares static output snapshots to detect drift
 - Logs drift events for admin review
-- No recursion, no adaptive logic
+- No loops or self-calling functions; no dynamic or learning logic
 """
 import logging
 from datetime import datetime

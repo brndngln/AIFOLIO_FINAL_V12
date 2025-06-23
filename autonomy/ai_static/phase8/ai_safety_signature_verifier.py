@@ -2,7 +2,7 @@
 SAFE AI Static Module: AI Safety Signature Verifier
 - Verifies no drift in AI modules across versions (static, hash-based)
 - Logs all verifications for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

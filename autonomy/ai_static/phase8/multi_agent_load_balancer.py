@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: Multi-Agent Load-Balancer (Pre-Configured)
 - Logs static, preconfigured load-balancing events
-- No adaptive, emergent, or autonomous behavior
+- No dynamic, learning, or autonomous behavior (static, preconfigured only)
 """
 import logging
 from datetime import datetime

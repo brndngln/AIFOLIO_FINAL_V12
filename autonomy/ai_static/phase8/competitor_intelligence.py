@@ -2,7 +2,7 @@
 SAFE AI Static Module: Competitor Intelligence
 - Static scan of competitor data (from static files or admin input)
 - Logs all competitor checks for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

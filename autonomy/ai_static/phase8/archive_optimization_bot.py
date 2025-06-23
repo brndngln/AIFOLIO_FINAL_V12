@@ -2,7 +2,7 @@
 SAFE AI Static Module: Archive Optimization Bot
 - Suggests when vaults should be archived (table-driven)
 - Logs all suggestions for admin review
-- No adaptive or emergent behavior
+- No dynamic or learning logic; static, table-driven only
 """
 import logging
 from datetime import datetime

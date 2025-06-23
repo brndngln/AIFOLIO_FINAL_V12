@@ -2,7 +2,7 @@
 SAFE AI Static Module: Referral Engine Optimizer
 - Suggests static referral program optimizations (table-driven)
 - Logs all suggestions for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

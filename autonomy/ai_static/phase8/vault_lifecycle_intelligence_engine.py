@@ -2,7 +2,7 @@
 SAFE AI Static Module: Vault Lifecycle Intelligence Engine
 - Tracks static vault lifecycle events (table-driven)
 - Logs all lifecycle events for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

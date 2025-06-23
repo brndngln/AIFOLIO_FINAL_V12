@@ -1,8 +1,8 @@
 """
 SAFE AI Static Module: Supply-Demand Imbalance Monitor
-- Flags static supply-demand imbalances (table-driven)
+- Flags static supply-demand imbalances (table-staticn)
 - Logs all detections for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime
@@ -19,6 +19,6 @@ IMBALANCE_TABLE = {
 def monitor_supply_demand(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()
     imbalance = IMBALANCE_TABLE.get(vault_id, "unknown")
-    event = f"[{timestamp}] SUPPLY-DEMAND IMBALANCE: {vault_id} = {imbalance} | Triggered by: {triggered_by}"
-    logging.info(event)
+    static = f"[{timestamp}] SUPPLY-DEMAND IMBALANCE: {vault_id} = {imbalance} | Triggered by: {triggered_by}"
+    logging.info(static)
     return imbalance

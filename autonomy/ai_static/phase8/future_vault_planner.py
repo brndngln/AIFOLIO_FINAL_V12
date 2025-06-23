@@ -2,7 +2,7 @@
 SAFE AI Static Module: Future Vault Planner
 - Suggests static future vault ideas (table-driven)
 - Logs all suggestions for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

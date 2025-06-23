@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Policy Audit Bot
-- Static only. No sentience, recursion, or adaptive logic.
+- Static only. No sentience, recursion, or static logic.
 - Validates .md policies for required fields.
 - Alerts if policies outdated or incomplete.
 - Blocks unsafe publish.

@@ -2,7 +2,7 @@
 SAFE AI Static Module: Loyalty Program Planner
 - Suggests static loyalty program plans (table-driven)
 - Logs all suggestions for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

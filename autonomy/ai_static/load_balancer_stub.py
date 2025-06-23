@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE AI MODULE: Load Balancer Stub
 - Static, non-sentient
 - Logs task queue distribution events
-- No dynamic routing or adaptive scaling
+- No dynamic routing or static scaling
 """
 import logging
 

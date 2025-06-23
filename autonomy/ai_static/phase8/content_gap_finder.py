@@ -2,7 +2,7 @@
 SAFE AI Static Module: Content Gap Finder
 - Identifies static content gaps in vaults (table-driven)
 - Logs all findings for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

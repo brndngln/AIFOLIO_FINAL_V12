@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Buyer Receipt Enhancer
-- Static only. No content generation, no sentience, no recursion.
+- Static only. No content generation, no static, no no loops or self-calling functions.
 - Adjusts receipt language for tone (SAFE, friendly, professional).
 - NO content creation or legal adaptation.
 - All changes are logged and require human approval.

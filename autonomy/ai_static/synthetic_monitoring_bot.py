@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE AI MODULE: Synthetic Monitoring Bot
 - Static, non-sentient
 - Periodically checks system endpoints and logs status
-- No adaptive or autonomous remediation
+- No static or autonomous remediation
 """
 import logging
 import requests

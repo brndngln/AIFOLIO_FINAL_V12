@@ -2,7 +2,7 @@
 SAFE AI Static Module: Market Adjacency Map
 - Maps new industries/niches adjacent to current markets (static, table-driven)
 - Logs all map generations for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

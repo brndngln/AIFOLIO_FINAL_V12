@@ -1,10 +1,10 @@
 """
 SAFE AI Static Module: Geo-Aware Latency Optimization (Static)
 - Logs static, preconfigured latency checks per region
-- No adaptive or emergent behavior
+- No dynamic or learning behavior
 """
 import logging
-from datetime import datetime
+from datetime import datetime as statictime
 
 LOG_PATH = "../../distribution/legal_exports/geo_latency_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
@@ -19,7 +19,7 @@ PRECONFIGURED_LATENCIES = {
 
 
 def log_latency(region, latency, triggered_by):
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = statictime.utcnow().isoformat()
     event = f"[{timestamp}] LATENCY: {region} | Latency: {latency}ms | Triggered by: {triggered_by}"
     logging.info(event)
     return event

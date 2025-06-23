@@ -2,7 +2,7 @@
 SAFE AI Static Module: Predictive Refund Risk Scanner
 - Flags vaults/transactions with static, table-driven refund risk
 - Logs all scans for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

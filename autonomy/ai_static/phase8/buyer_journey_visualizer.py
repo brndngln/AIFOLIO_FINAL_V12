@@ -2,7 +2,7 @@
 SAFE AI Static Module: Buyer Journey Visualizer
 - Visualizes static buyer journey stages (table-driven)
 - Logs all visualizations for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

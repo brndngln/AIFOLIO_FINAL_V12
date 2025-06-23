@@ -1,6 +1,6 @@
 """
 SAFE AI Static Module: Buyer Sentiment Explorer
-- Explores static buyer sentiment data (table-driven, no adaptive logic)
+- Explores static buyer sentiment data (table-driven, no static logic)
 - Logs all explorations for admin review
 """
 import logging

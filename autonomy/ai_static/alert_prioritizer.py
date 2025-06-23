@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Alert Prioritizer
-- Static only. No recursion, no autonomous retry loops.
+- Static only. No no loops or self-calling functions, no autonomous retry loops.
 - Prioritizes failed emails/SMS for retry queue.
 - All actions are logged for human review.
 """

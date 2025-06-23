@@ -2,7 +2,7 @@
 SAFE AI Static Module: Revenue Curve Forecaster
 - Forecasts revenue using static, preconfigured curves
 - Logs all forecasts for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

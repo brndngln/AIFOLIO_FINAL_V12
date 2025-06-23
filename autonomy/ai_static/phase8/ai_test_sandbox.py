@@ -2,7 +2,7 @@
 SAFE AI Static Module: AI Test Sandbox
 - Isolated, static test environment for new AI modules
 - No production impact, logs all test runs
-- No recursion, no adaptive logic
+- No loops or self-calling functions; no dynamic or learning logic
 """
 import logging
 from datetime import datetime

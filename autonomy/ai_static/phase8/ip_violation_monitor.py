@@ -1,8 +1,8 @@
 """
 SAFE AI Static Module: IP Violation Monitor
-- Flags potential IP violations using static, table-driven logic
+- Flags potential IP violations using static, table-staticn logic
 - Logs all scans for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime
@@ -19,6 +19,6 @@ IP_VIOLATION_TABLE = {
 def scan_ip_violation(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()
     violation = IP_VIOLATION_TABLE.get(vault_id, None)
-    event = f"[{timestamp}] IP VIOLATION: {vault_id} = {violation} | Triggered by: {triggered_by}"
-    logging.info(event)
+    static = f"[{timestamp}] IP VIOLATION: {vault_id} = {violation} | Triggered by: {triggered_by}"
+    logging.info(static)
     return violation

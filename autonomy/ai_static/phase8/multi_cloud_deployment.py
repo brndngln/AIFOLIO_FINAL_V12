@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: Multi-Cloud Deployment Redundancy
 - Logs simulated deployment and redundancy checks across AWS, GCP, Azure
-- No autonomous or adaptive behavior
+- No autonomous or static behavior
 - For admin-triggered redundancy tests and audit
 """
 import logging

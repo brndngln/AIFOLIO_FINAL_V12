@@ -2,7 +2,7 @@
 SAFE AI Static Module: Vault Meta-Market Mapping
 - Maps vaults to meta-markets (static, table-driven)
 - Logs all mappings for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

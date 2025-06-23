@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: Autonomous Load Forecasting (Static)
 - Logs static, preconfigured load forecasts for audit
-- No adaptive, learning, or emergent behavior
+- No dynamic or learning logic; static, table-driven only
 """
 import logging
 from datetime import datetime

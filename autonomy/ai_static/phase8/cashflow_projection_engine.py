@@ -2,7 +2,7 @@
 SAFE AI Static Module: Cashflow Projection Engine
 - Projects cashflow using static, preconfigured values
 - Logs all projections for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

@@ -2,7 +2,7 @@
 SAFE AI Static Module: Customer Segment Discovery
 - Discovers static customer segments (table-driven)
 - Logs all discoveries for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

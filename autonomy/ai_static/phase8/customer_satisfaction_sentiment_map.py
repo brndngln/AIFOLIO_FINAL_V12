@@ -2,7 +2,7 @@
 SAFE AI Static Module: Customer Satisfaction Sentiment Map
 - Maps static customer satisfaction sentiment (table-driven)
 - Logs all maps for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

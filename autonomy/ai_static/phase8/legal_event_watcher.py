@@ -2,7 +2,7 @@
 SAFE AI Static Module: Legal Event Watcher
 - Flags upcoming legal changes in relevant markets (table-driven)
 - Logs all detections for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

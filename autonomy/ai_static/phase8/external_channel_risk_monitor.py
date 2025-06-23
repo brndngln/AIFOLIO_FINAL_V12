@@ -2,7 +2,7 @@
 SAFE AI Static Module: External Channel Risk Monitor
 - Flags social/reputation risks from static sources (table-driven)
 - Logs all detections for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

@@ -1,8 +1,8 @@
 """
 SAFE AI Static Module: Price Sensitivity Map
-- Maps buyer price sensitivity by region/segment (static, table-driven)
+- Maps buyer price sensitivity by region/segment (static, table-driven only)
 - Logs all map generations for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

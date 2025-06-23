@@ -2,7 +2,7 @@
 SAFE AI Static Module: Global Tax Authority Sync
 - Simulates syncing static tax data per region
 - Logs all syncs for audit
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

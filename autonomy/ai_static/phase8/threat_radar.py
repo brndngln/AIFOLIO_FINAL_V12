@@ -2,7 +2,7 @@
 SAFE AI Static Module: Threat Radar
 - Warns on static legal/market threats (from static table)
 - Logs all threat checks for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

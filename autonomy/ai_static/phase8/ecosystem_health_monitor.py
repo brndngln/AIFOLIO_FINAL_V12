@@ -2,7 +2,7 @@
 SAFE AI Static Module: Ecosystem Health Monitor
 - Tracks static market/industry health indicators
 - Logs all monitoring for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

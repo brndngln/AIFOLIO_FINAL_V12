@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE AI MODULE: Cold Start Minimizer
 - Static, non-sentient
 - Logs cold start events, suggests pre-warming if needed
-- No adaptive or autonomous pre-warming
+- No static or autonomous pre-warming
 """
 import logging
 

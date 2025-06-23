@@ -2,7 +2,7 @@
 SAFE AI Static Module: Regulatory Horizon Scanner
 - Scans for upcoming regulatory changes (static, table-driven)
 - Logs all scans for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

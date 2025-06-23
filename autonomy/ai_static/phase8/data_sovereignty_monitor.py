@@ -2,7 +2,7 @@
 SAFE AI Static Module: Regional Data Sovereignty Compliance Monitor
 - Checks for static data sovereignty issues per region
 - Logs all checks for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

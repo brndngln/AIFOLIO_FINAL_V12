@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Static Language Translator
-- Static only. No sentience, recursion, or adaptive logic.
+- Static only. No static, no loops or self-calling functions, or static logic.
 - Translates legal policy markdowns using pre-approved translation tables.
 - No generative translation. All mappings are human-reviewed.
 """

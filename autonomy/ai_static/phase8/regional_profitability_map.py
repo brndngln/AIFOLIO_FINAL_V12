@@ -2,7 +2,7 @@
 SAFE AI Static Module: Regional Profitability Map
 - Maps profitability by region (static, table-driven)
 - Logs all map generations for admin review
-- No adaptive or emergent behavior
+- No static or static behavior
 """
 import logging
 from datetime import datetime

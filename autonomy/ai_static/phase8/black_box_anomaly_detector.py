@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: Black Box Anomaly Detector
 - Scans AI module outputs for outlier values or unexpected results
-- Static, no recursion or adaptive logic
+- Static, table-driven only; no loops or self-calling functions; no dynamic or learning logic
 - Logs anomalies for admin review
 """
 import logging

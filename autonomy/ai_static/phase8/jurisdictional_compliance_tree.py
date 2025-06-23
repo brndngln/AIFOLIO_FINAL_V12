@@ -2,7 +2,7 @@
 SAFE AI Static Module: Multi-Layer Jurisdictional Compliance Tree
 - Maps compliance requirements per region/jurisdiction (static, table-driven)
 - Logs all compliance tree generations for audit
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

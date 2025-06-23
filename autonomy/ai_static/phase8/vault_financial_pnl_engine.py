@@ -1,6 +1,6 @@
 """
 SAFE AI Static Module: Vault Financial P&L Engine
-- Calculates static P&L for vaults (table-driven, no adaptive logic)
+- Calculates static P&L for vaults (table-driven, no static logic)
 - Logs all calculations for admin review
 """
 import logging

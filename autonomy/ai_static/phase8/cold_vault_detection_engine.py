@@ -2,7 +2,7 @@
 SAFE AI Static Module: Cold Vault Detection Engine
 - Identifies vaults falling out of market demand (table-driven)
 - Logs all detections for admin review
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime

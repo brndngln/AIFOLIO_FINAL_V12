@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Vault Delivery Monitor
-- Static only. No adaptive changes, no recursion.
+- Static only. No static changes, no no loops or self-calling functions.
 - Monitors delivery success rates and flags slow vaults.
 - Suggest-only: No automated actions.
 - All findings are logged for human review.

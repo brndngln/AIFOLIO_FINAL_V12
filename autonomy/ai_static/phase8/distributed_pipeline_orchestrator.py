@@ -1,7 +1,7 @@
 """
 SAFE AI Static Module: Enhanced Distributed Pipeline Orchestration
 - Logs static, preconfigured pipeline orchestration events
-- No adaptive or emergent behavior
+- No dynamic, learning, or autonomous behavior (static, table-driven only)
 """
 import logging
 from datetime import datetime
