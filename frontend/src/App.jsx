@@ -19,6 +19,21 @@ import SupportPanel from "./components/SupportPanel";
 import LaunchReadinessChecklist from "./components/LaunchReadinessChecklist";
 import FAQPanel from "./components/FAQPanel";
 import ReleaseNotesPanel from "./components/ReleaseNotesPanel";
+import ShowcaseEnginePanel from "./components/ShowcaseEnginePanel";
+import SmartPricingEnginePanel from "./components/SmartPricingEnginePanel";
+import PriceTestingEnginePanel from "./components/PriceTestingEnginePanel";
+import ComplianceExportsPanel from "./components/ComplianceExportsPanel";
+import StaticBundleRecommendationPanel from "./components/StaticBundleRecommendationPanel";
+import ProductLifecycleTrackerPanel from "./components/ProductLifecycleTrackerPanel";
+import GDPRDashboardPanel from "./components/GDPRDashboardPanel";
+import AffiliateCampaignROIPanel from "./components/AffiliateCampaignROIPanel";
+import UpcomingVaultsPipelinePanel from "./components/UpcomingVaultsPipelinePanel";
+import LowPerformerAutoFlagPanel from "./components/LowPerformerAutoFlagPanel";
+import AudienceInterestHeatmapPanel from "./components/AudienceInterestHeatmapPanel";
+import EmailHealthReportPanel from "./components/EmailHealthReportPanel";
+import TaxFilingCalendarPanel from "./components/TaxFilingCalendarPanel";
+import NewCountryTaxLawsWatchPanel from "./components/NewCountryTaxLawsWatchPanel";
+import AIGuardIntegrityMonitorPanel from "./components/AIGuardIntegrityMonitorPanel";
 
 import BatchTabs1to16 from "./components/BatchTabs1to16";
 import BatchTabs from "./components/BatchTabs";
@@ -69,6 +84,27 @@ function App() {
           <SupportPanel />
           <FAQPanel />
           <ReleaseNotesPanel />
+
+          {/* Autonomous Showcase, Pricing, Performance Panels */}
+          <ShowcaseEnginePanel />
+          <VaultPreviewCompilerPanel />
+          <SmartPricingEnginePanel />
+          <OwnerManualPriceLockPanel />
+          <PriceTestingEnginePanel />
+          <ComplianceExportsPanel />
+
+          {/* Static Future SAFE AI Enhancements */}
+          <StaticBundleRecommendationPanel />
+          <ProductLifecycleTrackerPanel />
+          <GDPRDashboardPanel />
+          <AffiliateCampaignROIPanel />
+          <UpcomingVaultsPipelinePanel />
+          <LowPerformerAutoFlagPanel />
+          <AudienceInterestHeatmapPanel />
+          <EmailHealthReportPanel />
+          <TaxFilingCalendarPanel />
+          <NewCountryTaxLawsWatchPanel />
+          <AIGuardIntegrityMonitorPanel />
 
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold" style={{
