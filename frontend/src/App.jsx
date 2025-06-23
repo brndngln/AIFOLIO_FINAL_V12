@@ -372,6 +372,76 @@ function App() {
             "Annual unity review (static)",
             "Eternal unity audit (static)"
           ]} />
+          <BatchPanel title="Batches 301–310: SAFE AI Infinite Equity" items={[
+            "Infinite Equity Panel",
+            "New equity scenario (static)",
+            "OWNER-controlled equity export",
+            "Annual infinite equity review (static)",
+            "Infinite equity audit (static)"
+          ]} />
+          <BatchPanel title="Batches 311–320: SAFE AI Global Wellbeing" items={[
+            "Global Wellbeing Panel",
+            "New wellbeing scenario (static)",
+            "OWNER-controlled wellbeing export",
+            "Annual wellbeing review (static)",
+            "Global wellbeing audit (static)"
+          ]} />
+          <BatchPanel title="Batches 321–330: SAFE AI Universal Flourishing" items={[
+            "Universal Flourishing Panel",
+            "New flourishing scenario (static)",
+            "OWNER-controlled flourishing export",
+            "Annual flourishing review (static)",
+            "Universal flourishing audit (static)"
+          ]} />
+          <BatchPanel title="Batches 331–340: SAFE AI Perpetual Harmony" items={[
+            "Perpetual Harmony Panel",
+            "New harmony scenario (static)",
+            "OWNER-controlled harmony export",
+            "Annual harmony review (static)",
+            "Perpetual harmony audit (static)"
+          ]} />
+          <BatchPanel title="Batches 341–350: SAFE AI Eternal Wisdom" items={[
+            "Eternal Wisdom Panel",
+            "New wisdom scenario (static)",
+            "OWNER-controlled wisdom export",
+            "Annual wisdom review (static)",
+            "Eternal wisdom audit (static)"
+          ]} />
+          <BatchPanel title="Batches 351–360: SAFE AI Infinite Compassion" items={[
+            "Infinite Compassion Panel",
+            "New compassion scenario (static)",
+            "OWNER-controlled compassion export",
+            "Annual compassion review (static)",
+            "Infinite compassion audit (static)"
+          ]} />
+          <BatchPanel title="Batches 361–370: SAFE AI Global Enlightenment" items={[
+            "Global Enlightenment Panel",
+            "New enlightenment scenario (static)",
+            "OWNER-controlled enlightenment export",
+            "Annual enlightenment review (static)",
+            "Global enlightenment audit (static)"
+          ]} />
+          <BatchPanel title="Batches 371–380: SAFE AI Universal Liberty" items={[
+            "Universal Liberty Panel",
+            "New liberty scenario (static)",
+            "OWNER-controlled liberty export",
+            "Annual liberty review (static)",
+            "Universal liberty audit (static)"
+          ]} />
+          <BatchPanel title="Batches 381–390: SAFE AI Perpetual Progress" items={[
+            "Perpetual Progress Panel",
+            "New progress scenario (static)",
+            "OWNER-controlled progress export",
+            "Annual progress review (static)",
+            "Perpetual progress audit (static)"
+          ]} />
+          <BatchPanel title="Batches 391–400: SAFE AI Eternal Vision" items={[
+            "Eternal Vision Panel",
+            "New vision scenario (static)",
+            "OWNER-controlled vision export",
+            "Annual vision review (static)",
+            "Eternal vision audit (static)"
+          ]} />
         </div>
 
         {/* SAFE AI World Trust & Transparency Dashboard */}
