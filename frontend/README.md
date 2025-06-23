@@ -1,63 +1,98 @@
-# AIFOLIO™ SAFE AI Dashboard — React Frontend
+# AIFOLIO™ SAFE AI Dashboard — BUSINESS MODE (React PWA)
 
-This is the React-based frontend for AIFOLIO_FINAL_V12, providing a secure, brand-consistent interface for SAFE AI PDF generation, audit, and partner/affiliate management.
+This is the static, deterministic, OWNER-controlled React frontend for AIFOLIO™ FINAL_V12, optimized for secure SAFE AI PDF vault business operations. All features are lean, static, and business-only — no backend, no adaptive logic, no global/public features.
 
-## 🚀 Getting Started
+---
+
+## 🚀 Getting Started (OWNER/Business)
 
 ### 1. Install Dependencies
-```
+```bash
 npm install
 ```
 
 ### 2. Run Locally (Dev Mode)
+```bash
+npm run dev
 ```
-npm start
-```
-The app will run at [http://localhost:3000](http://localhost:3000) by default.
+App runs at [http://localhost:3000](http://localhost:3000).
 
-### 3. Connect to Backend
-- By default, API requests are proxied to the backend at `http://localhost:8000`.
-- To change the backend URL, update the `proxy` field in `package.json` or set up a `.env` file with `REACT_APP_API_URL`.
+### 3. Install as PWA
+- Open in Chrome/Safari/Edge (Mac or phone)
+- Click “Add to Home Screen” for full-screen, offline PWA experience
+- Replace `public/icon-192.png` and `icon-512.png` with your AIFOLIO™ icons for branding
 
 ### 4. Build for Production
-```
+```bash
 npm run build
 ```
-The production build will be in the `build/` directory.
+- Output is static, ready for Netlify/Vercel/static hosts
 
-### 5. Update Styles & Theme
-- Edit `frontend/theme/theme.js` and `frontend/theme/ThemeProvider.js` for colors, fonts, and layout.
-- See Theming section below for details.
+### 5. Sample/Test Vaults
+- Sample test vaults and metadata are in `src/sample-data/`
+- Use these for onboarding, demos, or UI tests
 
-### 6. Add New PDF Builder Buttons
-- Edit `src/components/PDFBuilderDashboard.jsx`:
-  - Add a new entry to the `PDF_BUILDERS` array with the correct endpoint key and label.
-  - Add any required input fields for new PDF types.
+### 6. Policy Docs & Onboarding
+- Terms of Service, Refund Policy, and Privacy Policy are fully integrated, collapsible, and OWNER-controlled in-app (see “Policy Documents” panel)
+- All policy docs are static, business-focused, and GDPR/CCPA compliant
 
-### 7. Frontend Testing
-- JS/TS tests are in `tests/ui_enhancements/` (see memory: do NOT convert to Python).
-- Run tests with:
-```
-npm test
-```
+### 7. SAFE AI Compliance & Business Features
+- All actions are audit-logged and OWNER-controlled
+- No auto-publish, no adaptive/agentic logic
+- Only batches 1–25 (business, partner, readiness) are included
+- All global/treaty/public/NGO features are removed
+- Safeguard, compliance, and validation layers are static and visible in dashboard
 
-## 🖌️ Theming & Brand Configuration
+### 8. Theming & Brand
+- All theme settings in `theme/theme.js` and `ThemeProvider.js`
+- Dark mode enabled by default
+- Brand colors, fonts, and badges included
 
-- All theme settings are in `frontend/theme/theme.js` and provided via `ThemeProvider.js`.
-- **Dark Mode:** Enabled by default, using AIFOLIO™ brand palette.
-- **Fonts:** Uses `Inter`, `Roboto`, and PDF branding fonts (see theme.js).
-- **Buttons/Progress:** Styled with brand color, rounded, animated progress.
-- **SAFE AI Compliance:** Visual badges (`.safe-ai-badge`), banners, and status indicators are styled in `theme.js` and `theme.css`.
-- To change theme, edit `theme.js` and restart the dev server.
+### 9. Deployment & CI/CD
+- Static build can be deployed to Netlify, Vercel, or any static host
+- For CI/CD: Add your preferred workflow (GitHub Actions, Netlify CI, etc.)
+- No backend or environment variables required
 
-## 🧭 UI Workflow: Generate PDF
+---
 
-1. User logs in and navigates to Dashboard.
-2. In the "Generate PDF" section, user selects a PDF type and fills in required fields.
-3. User clicks the PDF builder button.
-4. UI shows loading/progress state.
-5. Backend generates PDF (SAFE AI-guarded).
-6. On success, UI displays a confirmation, a download link, and a "SAFE AI Verified" badge.
+## ✅ Launch Checklist
+
+- [ ] Replace default icons in `public/` with your AIFOLIO™ icons
+- [ ] Review sample vaults in `src/sample-data/`
+- [ ] Test installability as a PWA on Mac and phone
+- [ ] Review all static policy docs in-app
+- [ ] Confirm all business-only features are present (no global/public panels)
+- [ ] Run `npm run build` and deploy to static host
+- [ ] (Optional) Set up CI/CD for automated deploys
+
+---
+
+## 🛡️ SAFE AI Business Mode Features
+
+- **Static, deterministic, and OWNER-controlled**
+- **Policy docs:** Full Terms, Refund, and Privacy Policy (collapsible, in-app)
+- **Audit logging:** All actions are UI-logged (static, visible)
+- **Compliance panels:** GDPR/CCPA, tax, workflow, validation layers
+- **No adaptive/agentic logic:** 100% static, no AI/ML or backend
+- **Business batches 1–25 only:** No global/treaty/public/NGO
+- **Future enhancements:** Static placeholders for roadmap features
+
+---
+
+## 🧭 OWNER Onboarding
+
+1. Install dependencies and run locally
+2. Review dashboard panels and static business checklists
+3. Review and customize policy docs if needed
+4. Test PWA install and offline support
+5. Deploy to your preferred static host
+6. Use sample vaults for demo/testing
+
+---
+
+**AIFOLIO™ SAFE AI BUSINESS MODE is ready for secure, compliant, and OWNER-controlled PDF vault operations.**
+
+For custom onboarding, further UI polish, or automation, contact your SAFE AI developer or OWNER support.
 7. If configured, notifications/webhooks fire (Discord, Email, Gumroad, Notion, etc).
 8. User/affiliate receives the PDF via chosen channel.
 9. Errors are shown with recovery steps (retry, check input, contact admin).
