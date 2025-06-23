@@ -239,6 +239,69 @@ function App() {
               <input type="text" placeholder="Add your notes for this batch…" style={{marginLeft:8, padding:'4px 10px', border:'1px solid #cbd5e1', borderRadius:5, fontSize:14, width:320}} />
             </div>
           </div>
+          <BatchPanel title="Batches 111–120: SAFE AI Global Foresight" items={[
+            "Global Foresight Panel",
+            "New foresight scenario (static)",
+            "OWNER-controlled foresight export",
+            "Annual foresight review (static)",
+            "NGO/partner foresight audit (static)"
+          ]} />
+          <BatchPanel title="Batches 121–130: SAFE AI Next-Gen Impact" items={[
+            "Next-Gen Impact Panel",
+            "New impact metric (static)",
+            "OWNER-controlled impact export",
+            "Annual impact review (static)",
+            "Global impact audit (static)"
+          ]} />
+          <BatchPanel title="Batches 131–140: SAFE AI Universal Alignment" items={[
+            "Universal Alignment Panel",
+            "New alignment metric (static)",
+            "OWNER-controlled alignment export",
+            "Annual alignment review (static)",
+            "Universal alignment audit (static)"
+          ]} />
+          <BatchPanel title="Batches 141–150: SAFE AI Perpetual Leadership" items={[
+            "Perpetual Leadership Panel",
+            "Scenario planning (static)",
+            "OWNER-controlled perpetual export",
+            "Annual perpetual review (static)",
+            "Perpetual leadership audit (static)"
+          ]} />
+          <BatchPanel title="Batches 151–160: SAFE AI Infinite Trust" items={[
+            "Infinite Trust Panel",
+            "New trust scenario (static)",
+            "OWNER-controlled trust export",
+            "Annual infinite trust review (static)",
+            "Infinite trust audit (static)"
+          ]} />
+          <BatchPanel title="Batches 161–170: SAFE AI Global Resilience" items={[
+            "Global Resilience Panel",
+            "New resilience metric (static)",
+            "OWNER-controlled resilience export",
+            "Annual resilience review (static)",
+            "Global resilience audit (static)"
+          ]} />
+          <BatchPanel title="Batches 171–180: SAFE AI Universal Ethics" items={[
+            "Universal Ethics Panel",
+            "New ethics scenario (static)",
+            "OWNER-controlled ethics export",
+            "Annual ethics review (static)",
+            "Universal ethics audit (static)"
+          ]} />
+          <BatchPanel title="Batches 181–190: SAFE AI Perpetual Innovation" items={[
+            "Perpetual Innovation Panel",
+            "New innovation scenario (static)",
+            "OWNER-controlled innovation export",
+            "Annual innovation review (static)",
+            "Perpetual innovation audit (static)"
+          ]} />
+          <BatchPanel title="Batches 191–200: SAFE AI Eternal Leadership" items={[
+            "Eternal Leadership Panel",
+            "Scenario planning (static)",
+            "OWNER-controlled eternal export",
+            "Annual eternal review (static)",
+            "Eternal leadership audit (static)"
+          ]} />
         </div>
 
         {/* SAFE AI World Trust & Transparency Dashboard */}
