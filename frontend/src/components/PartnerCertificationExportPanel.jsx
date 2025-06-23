@@ -370,8 +370,14 @@ export default function PartnerCertificationExportPanel() {
       aria-label="Partner Certification Export" tabIndex={0}
       style={{background:darkMode?'#18181b':'#f9fafb',color:darkMode?'#f1f5f9':'#0f172a',padding:20,borderRadius:8,minHeight:600}}>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:6}}>
-        <h3 style={{color:darkMode?'#fbbf24':'#0f172a',margin:0}}>Partner Certification Export</h3>
-        <ComplianceBadges />
+         <h3 style={{color:darkMode?'#fbbf24':'#0f172a',margin:0}}>Partner Certification Export</h3>
+         <span style={{display:'flex',alignItems:'center',gap:10}}>
+           <ComplianceBadges />
+           <span title={jwtStatus==='expired'?'JWT expired':jwtStatus==='missing'?'No JWT found':'JWT valid'} style={{background:jwtStatus==='valid'?'#059669':jwtStatus==='expired'?'#e11d48':'#64748b',color:'#fff',padding:'2px 8px',borderRadius:6,fontSize:12,fontWeight:600}}>
+             JWT: {jwtStatus.toUpperCase()}
+           </span>
+           <button onClick={handleDownloadDPA} aria-label="Download Data Processing Agreement" style={{background:'none',color:'#2563eb',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>DPA</button>
+         </span>
       </div>
       <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:10}}>
         <button aria-label="Show Help" onClick={()=>setShowHelp(true)} style={{background:'none',color:darkMode?'#fbbf24':'#2563eb',border:'none',fontWeight:600,cursor:'pointer',textDecoration:'underline'}}>Help/FAQ</button>
