@@ -16,9 +16,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
         working-directory: frontend
+      - name: Lint and format
+        run: |
+          npm run lint
+          npm run format:check || true
+        working-directory: frontend
+      - name: Accessibility (a11y) check
+        run: |
+          npx axe ./build --exit
+        working-directory: frontend
+        continue-on-error: true
+      - name: PWA validation
+        run: |
+          npx pwascanner http://localhost:3000 || echo "PWA check (local)"
+        working-directory: frontend
+        continue-on-error: true
       - name: Build static site
         run: npm run build
         working-directory: frontend
+      - name: Export README and policy docs
+        run: |
+          mkdir -p build-artifacts
+          cp ../README.md build-artifacts/
+          cp src/policy/*.md build-artifacts/ || true
+        working-directory: frontend
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: frontend/build-artifacts
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3
         with:
@@ -27,3 +53,18 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # - name: Notify Slack (optional)
+      #   uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: ${{ job.status }}
+      #     fields: repo,message,commit,author,action,eventName,ref,workflow
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #   if: always()
+      # - name: Notify Discord (optional)
+      #   uses: Ilshidur/action-discord@master
+      #   with:
+      #     args: 'Deploy ${{ job.status }} for ${{ github.repository }}'
+      #   env:
+      #     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #   if: always()

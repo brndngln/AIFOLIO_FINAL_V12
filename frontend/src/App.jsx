@@ -113,7 +113,7 @@ function App() {
               padding: 'var(--spacing-md)',
               borderRadius: 'var(--border-radius-md)',
               boxShadow: 'var(--shadow-sm)'
-            }}>AIFOLIO™</h1>
+            }}>AIFOLIO</h1>
             <div className="flex space-x-4">
               <button className="theme-button">
                 Theme
