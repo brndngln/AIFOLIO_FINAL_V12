@@ -393,11 +393,6 @@ export default function PartnerCertificationExportPanel() {
       )}
       {/* Partner Modal */}
       <PartnerModal partner={modalPartner} onClose={()=>setModalPartner(null)} />
-      return sortDir === "asc" ? vA - vB : vB - vA;
-    });
-
-  return (
-    <div>
       <div style={{display:'flex',gap:8,marginBottom:12}}>
         <select value={filterStatus} onChange={e=>setFilterStatus(e.target.value)} style={{background:'#fff',border:'1px solid #ddd',padding:'6px 12px',borderRadius:4,fontSize:15}}>
           <option value="">All</option>
