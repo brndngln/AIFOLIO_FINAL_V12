@@ -83,12 +83,33 @@ def handle_event(metadata):
     """
     Handles the 'vault_created' event with SAFE AI logic, full integration, and robust error handling.
     """
+    # SAFE AI VALIDATION LAYER (block on failure)
+    from autonomy.validation import automation_safeguard
+    valid, safeguard_msg = automation_safeguard.enforce_all_safeguards(metadata)
+    vault_id = metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
+    errors = []
+    if not valid:
+        import logging
+        logger = logging.getLogger("vault_created")
+        logger.error(f"SAFEGUARD BLOCK: {safeguard_msg}")
+        errors.append(f"SAFEGUARD: {safeguard_msg}")
+        automation_safeguard.audit_log('SAFEGUARD_BLOCKED', {'vault_id': vault_id, 'reason': safeguard_msg, 'metadata': metadata})
+        # Optionally send alert
+        try:
+            from autonomy.compliance.alert_engine import send_alert
+            send_alert(type="safeguard_blocked", message=safeguard_msg, to=metadata.get("owner_email"))
+        except Exception:
+            pass
+        # Log and abort further processing
+        from autonomy.utils.vault_event_log import log_vault_event
+        from autonomy.utils.activity_log import log_activity
+        log_vault_event(vault_id, "safeguard_blocked", metadata, errors)
+        log_activity(vault_id, "safeguard_blocked", metadata, errors)
+        return {"status": "blocked", "vault_id": vault_id, "errors": errors}
     # Validate vault metadata
     assert "title" in metadata and "niche" in metadata, "Missing vault metadata fields"
-    vault_id = metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
     vault_path = metadata.get("vault_path") or f"vaults/{vault_id}"
     start_time = time.time()
-    errors = []
     # Static rule-based formatting (grammar/capitalization)
     metadata["title"] = format_title(metadata["title"])
     if "description" in metadata:

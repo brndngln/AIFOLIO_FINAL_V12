@@ -27,6 +27,7 @@ except ImportError:
 def handle_event(event):
     """
     Main event handler for this event type.
+    SAFE AI: If event['metadata'] is present, invoke automation_safeguard.enforce_all_safeguards and block/audit-log if validation fails.
     """
     logger = logging.getLogger(__name__)
     entry = {
@@ -37,6 +38,37 @@ def handle_event(event):
         'metadata': event.get('metadata', {}),
         'payload': event
     }
+    errors = []
+    # SAFE AI VALIDATION LAYER
+    metadata = event.get('metadata', {})
+    if metadata:
+        try:
+            from autonomy.validation import automation_safeguard
+            valid, safeguard_msg = automation_safeguard.enforce_all_safeguards(metadata)
+            if not valid:
+                errors.append(f"SAFEGUARD: {safeguard_msg}")
+                automation_safeguard.audit_log('SAFEGUARD_BLOCKED', {'vault_id': event.get('vault_id'), 'reason': safeguard_msg, 'metadata': metadata})
+                # Optionally send alert
+                try:
+                    from autonomy.compliance.alert_engine import send_alert
+                    send_alert(type="safeguard_blocked", message=safeguard_msg, to=metadata.get("owner_email"))
+                except Exception:
+                    pass
+                # Log and abort further processing
+                try:
+                    from autonomy.utils.vault_event_log import log_vault_event
+                    from autonomy.utils.activity_log import log_activity
+                    log_vault_event(event.get('vault_id'), "safeguard_blocked", metadata, errors)
+                    log_activity(event.get('vault_id'), "safeguard_blocked", metadata, errors)
+                except Exception:
+                    pass
+                return {
+                    "status": "blocked",
+                    "vault_id": event.get('vault_id'),
+                    "errors": errors
+                }
+        except Exception as e:
+            logger.error(f"SAFEGUARD validation failed: {e}")
     try:
         with open(EVENT_LOG, 'a') as f:
             f.write(json.dumps(entry) + '\n')
