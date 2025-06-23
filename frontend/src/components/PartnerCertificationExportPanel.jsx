@@ -400,29 +400,6 @@ export default function PartnerCertificationExportPanel() {
     </div>
   );
 }
-      setScheduleError(e.message);
-    }
-    setSchedulingLoading(false);
-  }
-
-  // Bulk audit log download (from backend)
-  async function handleBulkAuditLogDownload() {
-    setAuditLogExporting(true);
-    try {
-      const res = await fetch('/api/compliance-audit-log/export', {
-        headers: { 'Authorization': `Bearer ${getToken()}` }
-      });
-      if (!res.ok) throw new Error('Failed to export audit log');
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'compliance_audit_log.jsonl';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (e) {
       setStatus({ type: 'error', msg: 'Bulk audit log download failed: ' + e.message });
     }
     setAuditLogExporting(false);
