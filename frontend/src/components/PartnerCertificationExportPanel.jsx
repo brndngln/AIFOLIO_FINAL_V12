@@ -400,29 +400,6 @@ export default function PartnerCertificationExportPanel() {
     </div>
   );
 }
-        headers: { 'Authorization': `Bearer ${getToken()}` }
-      });
-      if (!res.ok) throw new Error('Failed to fetch schedules');
-      setSchedules(await res.json());
-    } catch (e) {
-      setScheduleError(e.message);
-    }
-    setSchedulingLoading(false);
-  }
-
-  // Backend: create schedule
-  async function createSchedule(schedule) {
-    setSchedulingLoading(true);
-    setScheduleError(null);
-    try {
-      const res = await fetch('/batch-scaling/partner-certifications/schedule', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify(schedule)
-      });
-      if (!res.ok) throw new Error('Failed to create schedule');
-      await fetchSchedules();
-    } catch (e) {
       setScheduleError(e.message);
     }
     setSchedulingLoading(false);
