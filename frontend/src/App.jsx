@@ -7,6 +7,11 @@ import UXBestPractices from "./components/UXBestPractices";
 import SafeAIStaticLogicSuggestions from "./components/SafeAIStaticLogicSuggestions";
 import SafeAIMistakesToAvoid from "./components/SafeAIMistakesToAvoid";
 import InnovationPipeline from "./components/InnovationPipeline";
+import SafeguardValidationLayer from "./components/SafeguardValidationLayer";
+import ComplianceWorkflowStack from "./components/ComplianceWorkflowStack";
+import PolicyDocuments from "./components/PolicyDocuments";
+import FutureStaticEnhancements from "./components/FutureStaticEnhancements";
+import BeginnerMistakesToAvoid from "./components/BeginnerMistakesToAvoid";
 
 import BatchTabs1to16 from "./components/BatchTabs1to16";
 import BatchTabs from "./components/BatchTabs";
@@ -126,6 +131,11 @@ function App() {
             <SafeAIMistakesToAvoid />
             <SafeAIStaticLogicSuggestions />
             <InnovationPipeline />
+            <SafeguardValidationLayer />
+            <ComplianceWorkflowStack />
+            <PolicyDocuments />
+            <FutureStaticEnhancements />
+            <BeginnerMistakesToAvoid />
           </div>
         </div>
 
@@ -151,24 +161,6 @@ function App() {
         <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
           <SafeAIStaticLogicSuggestions />
         </div>
-
-        {/* SAFE AI Beginner Mistakes to Avoid */}
-        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
-          <SafeAIMistakesToAvoid />
-        </div>
-
-        {/* SAFE AI Treaty Tracker */}
-        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
-          <TreatyTracker />
-        </div>
-
-        {/* SAFE AI Innovation Pipeline */}
-        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
-          <InnovationPipeline />
-        </div>
-
-        {/* Unified Admin Tools Section */}
-        <AdminToolsPanel token={"admin-token-placeholder"} />
       </div>
     </ThemeProvider>
   );
