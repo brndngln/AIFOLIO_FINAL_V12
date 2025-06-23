@@ -8,6 +8,8 @@ import UXBestPractices from "./components/UXBestPractices";
 import GlobalPartnershipPlaybook from "./components/GlobalPartnershipPlaybook";
 import BatchPanel from "./components/BatchPanel";
 import WorldTrustDashboard from "./components/WorldTrustDashboard";
+import SafeAIStaticLogicSuggestions from "./components/SafeAIStaticLogicSuggestions";
+import SafeAIMistakesToAvoid from "./components/SafeAIMistakesToAvoid";
 
 import Batch21FederatedTrustPanel from "./components/Batch21FederatedTrustPanel";
 import Batch22CertificationLegalPanel from "./components/Batch22CertificationLegalPanel";
@@ -170,6 +172,16 @@ function App() {
           <ReadinessChecklist />
           <UXBestPractices />
           <GlobalPartnershipPlaybook />
+        </div>
+
+        {/* SAFE AI Static Logic Suggestions (Future, Static) */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <SafeAIStaticLogicSuggestions />
+        </div>
+
+        {/* SAFE AI Beginner Mistakes to Avoid */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <SafeAIMistakesToAvoid />
         </div>
 
         {/* Unified Admin Tools Section */}
