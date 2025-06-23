@@ -98,6 +98,13 @@ export default function PartnerCertificationExportPanel() {
       });
       if (!res.ok) throw new Error('Failed to fetch schedules');
       setSchedules(await res.json());
+    } catch (err) {
+      setScheduleError(err.message);
+    } finally {
+      setSchedulingLoading(false);
+    }
+  }
+  // All duplicate state and handler declarations below this line have been removed to resolve redeclaration errors.
     } catch (e) {
       setScheduleError(e.message);
     }
