@@ -393,38 +393,6 @@ export default function PartnerCertificationExportPanel() {
       )}
       {/* Partner Modal */}
       <PartnerModal partner={modalPartner} onClose={()=>setModalPartner(null)} />
-      {/* Accessibility/compliance notices */}
-      <div style={{marginTop:32,fontSize:13,color:'#64748b'}}>
-        <span>SAFE AI & GDPR/CCPA Compliant · <button onClick={handleDownloadDPA} style={{background:'none',color:'#2563eb',border:'none',textDecoration:'underline',cursor:'pointer'}}>Download DPA</button></span>
-      </div>
-    </div>
-  );
-          user: "owner",
-          file: null,
-          message: err.message
-        },
-        ...prev
-      ]);
-    }
-    setExporting(false);
-    // Move focus to status for accessibility
-    setTimeout(() => {
-      const statusDiv = document.getElementById('export-status-msg');
-      if (statusDiv) statusDiv.focus();
-    }, 100);
-  };
-
-  // Partner filtering/search/sort
-  const filteredPartners = partners
-    .filter(p =>
-      (!search || (p.name + p.email + p.vault + p.status + p.notes).toLowerCase().includes(search.toLowerCase())) &&
-      (!filterStatus || p.status === filterStatus)
-    )
-    .sort((a, b) => {
-      let vA = a[sortBy], vB = b[sortBy];
-      if (sortBy === "date") {
-        vA = new Date(a.date); vB = new Date(b.date);
-      }
       return sortDir === "asc" ? vA - vB : vB - vA;
     });
 
