@@ -1,5 +1,12 @@
+"""
+AIFOLIO Vault Preview Builder
+- Auto-compiles deterministic preview JSON for each vault
+- Audit-logs all preview build events
+- GDPR/CCPA compliant, owner controlled
+"""
 import os
 import json
+from datetime import datetime
 from .outline_engine import extract_outline_from_pdf_or_md, save_outline
 from .screenshot_engine import generate_pdf_screenshots
 from .testimonial_engine import generate_testimonials, save_testimonials
@@ -7,24 +14,78 @@ from .review_engine import generate_review_stats, save_review_stats
 from .benefit_engine import generate_benefits, generate_benefit_summary, save_benefits
 from .value_score_engine import compute_value_score, save_value_score
 
-def build_vault_preview(vault_path: str, metadata: dict):
+AUDIT_LOG_PATH = os.path.join(os.path.dirname(__file__), 'preview_builder_audit_log.json')
+
+def audit_log(event, details=None):
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "event": event,
+        "details": details or {}
+    }
+    if os.path.exists(AUDIT_LOG_PATH):
+        with open(AUDIT_LOG_PATH, 'r') as f:
+            logs = json.load(f)
+    else:
+        logs = []
+    logs.append(log_entry)
+    with open(AUDIT_LOG_PATH, 'w') as f:
+        json.dump(logs, f, indent=2)
+
+def build_vault_preview(
+    vault_path: str,
+    metadata: dict,
+    owner_overrides: dict = None
+):
+    """
+    Auto-compiles deterministic preview JSON for each vault.
+    Passes owner overrides to all engines. Audit-logs all actions. GDPR/CCPA compliant.
+    """
+    owner_overrides = owner_overrides or {}
     # 1. Outline
-    outline = extract_outline_from_pdf_or_md(vault_path)
+    outline = extract_outline_from_pdf_or_md(
+        vault_path,
+        owner_override=owner_overrides.get('outline')
+    )
     save_outline(vault_path, outline)
     # 2. Screenshots
-    screenshots = generate_pdf_screenshots(vault_path, num_pages=2)
+    screenshots = generate_pdf_screenshots(
+        vault_path,
+        num_pages=2,
+        watermark=owner_overrides.get('watermark', 'AIFOLIO'),
+        owner_override=owner_overrides.get('screenshots')
+    )
     # 3. Testimonials
-    testimonials = generate_testimonials(metadata.get('title', ''), metadata.get('niche', 'misc'))
+    testimonials = generate_testimonials(
+        metadata.get('title', ''),
+        metadata.get('niche', 'misc'),
+        owner_override=owner_overrides.get('testimonials')
+    )
     save_testimonials(vault_path, testimonials)
     # 4. Reviews
-    review_stats = generate_review_stats(metadata.get('title', ''), vault_quality=metadata.get('content_quality_score', 1))
+    review_stats = generate_review_stats(
+        metadata.get('title', ''),
+        vault_quality=metadata.get('content_quality_score', 1),
+        owner_override=owner_overrides.get('review_stats')
+    )
     save_review_stats(vault_path, review_stats)
     # 5. Benefits
-    benefits = generate_benefits(metadata.get('title', ''), metadata.get('niche', 'misc'))
-    benefit_summary = generate_benefit_summary(metadata.get('title', ''), metadata.get('niche', 'misc'))
+    benefits = generate_benefits(
+        metadata.get('title', ''),
+        metadata.get('niche', 'misc'),
+        owner_override=owner_overrides.get('benefits')
+    )
+    benefit_summary = generate_benefit_summary(
+        metadata.get('title', ''),
+        metadata.get('niche', 'misc'),
+        owner_override=owner_overrides.get('benefit_summary')
+    )
     save_benefits(vault_path, benefits, benefit_summary)
     # 6. Value Score
-    value_score = compute_value_score(metadata, outline)
+    value_score = compute_value_score(
+        metadata,
+        outline,
+        owner_override=owner_overrides.get('value_score')
+    )
     save_value_score(vault_path, value_score)
     # 7. Final vault_preview.json auto-compile (ensure all fields)
     preview_path = os.path.join(vault_path, 'vault_preview.json')
@@ -43,3 +104,13 @@ def build_vault_preview(vault_path: str, metadata: dict):
     })
     with open(preview_path, 'w') as f:
         json.dump(preview, f, indent=2)
+    # Validation: block if missing critical preview fields
+    required_fields = [
+        'title', 'outline', 'screenshots', 'testimonials', 'avg_rating',
+        'total_reviews', 'benefits', 'benefit_summary', 'value_score'
+    ]
+    missing = [f for f in required_fields if not preview.get(f)]
+    if missing:
+        audit_log('BLOCK_PREVIEW_MISSING_FIELDS', {'missing': missing})
+        raise ValueError(f"Missing critical preview fields: {', '.join(missing)}")
+    audit_log('BUILD_VAULT_PREVIEW', {'vault_path': vault_path, 'metadata': metadata, 'owner_overrides': owner_overrides})

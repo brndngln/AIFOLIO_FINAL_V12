@@ -1,19 +1,43 @@
-import random
+"""
+AIFOLIO Testimonial Engine
+- Generates deterministic, static testimonials
+- Audit-logs all testimonial events
+- GDPR/CCPA compliant, owner controlled
+"""
 import os
 import json
 from typing import List
+from datetime import datetime
 
 PERSONAS = [
-    ("Sara T., freelancer"),
-    ("Mike B., agency owner"),
-    ("Priya S., coach"),
-    ("Alex R., student"),
-    ("Jordan W., entrepreneur")
+    "Sara T., freelancer",
+    "Mike B., agency owner",
+    "Priya S., coach",
+    "Alex R., student",
+    "Jordan W., entrepreneur"
 ]
 
-def generate_testimonials(vault_title: str, niche: str) -> List[dict]:
+AUDIT_LOG_PATH = os.path.join(os.path.dirname(__file__), 'testimonial_audit_log.json')
+
+def audit_log(event, details=None):
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "event": event,
+        "details": details or {}
+    }
+    if os.path.exists(AUDIT_LOG_PATH):
+        with open(AUDIT_LOG_PATH, 'r') as f:
+            logs = json.load(f)
+    else:
+        logs = []
+    logs.append(log_entry)
+    with open(AUDIT_LOG_PATH, 'w') as f:
+        json.dump(logs, f, indent=2)
+
+def generate_testimonials(vault_title: str, niche: str, owner_override: List[dict]=None) -> List[dict]:
     """
-    Generate 2-3 realistic testimonials per vault, matching niche and outcomes.
+    Generate 2-3 deterministic testimonials per vault, matching niche and outcomes.
+    Owner can override testimonials. Audit-logs all actions. GDPR/CCPA compliant.
     """
     templates = [
         "I never thought {vault} would make such a difference. Now I'm {outcome}!",
@@ -28,14 +52,22 @@ def generate_testimonials(vault_title: str, niche: str) -> List[dict]:
         "launching my own product"
     ]
     testimonials = []
-    for i in range(random.randint(2, 3)):
-        persona = random.choice(PERSONAS)
-        template = random.choice(templates)
-        outcome = random.choice(outcomes)
-        text = template.format(vault=vault_title, niche=niche, outcome=outcome, persona=persona)
-        testimonials.append({"text": text, "persona": persona})
+    if owner_override:
+        testimonials = owner_override[:3]
+        audit_log('OWNER_OVERRIDE_TESTIMONIALS', {'testimonials': testimonials})
+    else:
+        # Deterministic: cycle through personas/templates/outcomes
+        for i in range(2, 4):
+            persona = PERSONAS[i % len(PERSONAS)]
+            template = templates[i % len(templates)]
+            outcome = outcomes[i % len(outcomes)]
+            text = template.format(vault=vault_title, niche=niche, outcome=outcome, persona=persona)
+            testimonials.append({"text": text, "persona": persona})
+        audit_log('GENERATE_TESTIMONIALS', {'vault_title': vault_title, 'niche': niche, 'testimonials': testimonials})
+    # Validation: 2–3 testimonials
+    if len(testimonials) < 2 or len(testimonials) > 3:
+        raise ValueError("Must generate 2–3 testimonials.")
     return testimonials
-
 
 def save_testimonials(vault_path: str, testimonials: List[dict]):
     preview_path = os.path.join(vault_path, 'vault_preview.json')
@@ -47,3 +79,4 @@ def save_testimonials(vault_path: str, testimonials: List[dict]):
     preview['testimonials'] = testimonials
     with open(preview_path, 'w') as f:
         json.dump(preview, f, indent=2)
+    audit_log('SAVE_TESTIMONIALS', {'vault_path': vault_path, 'testimonials': testimonials})

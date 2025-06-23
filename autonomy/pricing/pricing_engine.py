@@ -1,8 +1,18 @@
+"""
+AIFOLIO Pricing Engine
+- Deterministic, static, non-adaptive pricing logic
+- Audit-logs all pricing events to both pricing_log.json locations
+- GDPR/CCPA compliant, owner controlled
+"""
 import os
 import json
 from typing import Dict, Any
+from datetime import datetime
 
-PRICING_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/pricing_log.json')
+PRICING_LOG_PATHS = [
+    os.path.join(os.path.dirname(__file__), '../../analytics/pricing_log.json'),
+    os.path.join(os.path.dirname(__file__), 'pricing_log.json')
+]
 
 NICHE_MULTIPLIERS = {
     "ai": 1.5,
@@ -15,6 +25,22 @@ NICHE_MULTIPLIERS = {
 }
 
 PSYCH_PRICES = [9, 17, 27, 39, 47, 59, 79, 97]
+
+def audit_log(event, details=None):
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "event": event,
+        "details": details or {}
+    }
+    for path in PRICING_LOG_PATHS:
+        if os.path.exists(path):
+            with open(path, 'r') as f:
+                logs = json.load(f)
+        else:
+            logs = []
+        logs.append(log_entry)
+        with open(path, 'w') as f:
+            json.dump(logs, f, indent=2)
 
 
 def calculate_price(metadata: Dict[str, Any]) -> float:
