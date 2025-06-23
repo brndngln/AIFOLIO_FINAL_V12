@@ -170,6 +170,75 @@ function App() {
             "World-class compliance review",
             "Annual public impact summary (static)"
           ]} />
+          <BatchPanel title="Batches 51–60: International Governance & NGO Partnerships" items={[
+            "International SAFE AI Governance Panel",
+            "NGO Partnership Certification (static)",
+            "OWNER-controlled NGO/public export",
+            "International compliance review",
+            "Treaty/NGO audit log (static)",
+            "Annual NGO/public impact summary (static)"
+          ]} />
+          <BatchPanel title="Batches 61–75: International AI Treaty & Future-Proofing" items={[
+            "International AI Treaty Alignment Panel",
+            "AI Federation Status (static)",
+            "Treaty Tracker integration",
+            "OWNER-controlled treaty export",
+            "Future-proofing compliance checklist",
+            "Annual treaty alignment review (static)",
+            "Auto-queue for all future batches (static)"
+          ]} />
+          <BatchPanel title="Batches 76–80: Global SAFE AI Expansion" items={[
+            "Global SAFE AI Expansion Panel",
+            "New International Treaty Alignment (static)",
+            "OWNER-controlled expansion export",
+            "Annual expansion audit log (static)",
+            "NGO/Partner expansion review (static)",
+            "Auto-queue for all future batches (static)"
+          ]} />
+          <BatchPanel title="Batches 81–85: SAFE AI Global Policy Expansion" items={[
+            "Global Policy Expansion Panel",
+            "New region/treaty integration (static)",
+            "OWNER-controlled policy export",
+            "Annual policy review (static)",
+            "NGO/government review (static)"
+          ]} />
+          <BatchPanel title="Batches 86–90: SAFE AI Next-Gen Partnerships" items={[
+            "Next-Gen Partnerships Panel",
+            "New partner category onboarding (static)",
+            "OWNER-controlled onboarding export",
+            "Annual partnership audit (static)",
+            "Global impact review (static)"
+          ]} />
+          <BatchPanel title="Batches 91–95: SAFE AI Public Trust Expansion" items={[
+            "Public Trust Expansion Panel",
+            "New public trust badge (static)",
+            "OWNER-controlled trust export",
+            "Annual trust audit (static)",
+            "Public/partner feedback review (static)"
+          ]} />
+          <BatchPanel title="Batches 96–100: SAFE AI Future Leadership" items={[
+            "Future Leadership Panel",
+            "Foresight & scenario planning (static)",
+            "OWNER-controlled foresight export",
+            "Annual leadership review (static)",
+            "Global leadership impact audit (static)"
+          ]} />
+          <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>
+            <h3 style={{color:'#2563eb', fontWeight:700, marginBottom:12}}>Batches 101–110: SAFE AI Hyper-Global Integration & Customization</h3>
+            <ul style={{listStyle:'none', padding:0, fontSize:15}}>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> SAFE AI Hyper-Global Integration Panel</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> New AI treaty/NGO/partner integrations (static)</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> OWNER-controlled hyper-global export</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> Annual hyper-global audit (static)</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> Multi-sector leadership review (static)</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> Public/NGO/partner foresight scenario (static)</li>
+              <li style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> Customizable export and audit log (static)</li>
+            </ul>
+            <div style={{marginTop:18, color:'#64748b', fontSize:13}}>
+              <b>OWNER NOTES (static, not saved):</b>
+              <input type="text" placeholder="Add your notes for this batch…" style={{marginLeft:8, padding:'4px 10px', border:'1px solid #cbd5e1', borderRadius:5, fontSize:14, width:320}} />
+            </div>
+          </div>
         </div>
 
         {/* SAFE AI World Trust & Transparency Dashboard */}
