@@ -20,10 +20,10 @@ class cross_sell_recommender:
         Logs all actions and errors. Retries up to 3 times on failure.
         """
         start = time.time()
-        offer = f"Special offer: Get 20% off on your next AIFOLIO™ vault!"
+        offer = f"Special offer: Get 20% off on your next AIFOLIO vault!"
         api_key = os.environ.get('SENDGRID_API_KEY')
         sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
-        subject = "Unlock More Value with AIFOLIO™!"
+        subject = "Unlock More Value with AIFOLIO!"
         body = f"Hi! As a valued customer, here's a cross-sell offer for you. {offer}"
         log_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/cross_sell_offers.json'))
         entry = {'buyer_email': buyer_email, 'offer': offer, 'current_vault': current_vault}

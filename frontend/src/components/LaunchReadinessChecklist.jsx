@@ -1,10 +1,10 @@
 import React from "react";
 
 const CHECKLIST = [
-  "App icons replaced with AIFOLIO™ branding",
+  "App icons replaced with AIFOLIO branding",
   "PWA install tested on Mac and phone",
   "All policy docs reviewed in dashboard",
-  "All business-only panels present (no global/public features)",
+  "All AIFOLIO-only panels present (no global/public features)",
   "Sample/test vaults reviewed",
   "Static build deployed to Netlify/Vercel/static host",
   "CI/CD workflow set up (optional)",

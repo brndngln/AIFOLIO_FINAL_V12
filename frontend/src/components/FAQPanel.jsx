@@ -1,7 +1,7 @@
 import React from "react";
 
 const FAQ = [
-  {q: "What is AIFOLIO™?", a: "A secure, OWNER-controlled PDF vault business platform."},
+  {q: "What is AIFOLIO?", a: "A secure, OWNER-controlled PDF vault system."},
   {q: "Is this app adaptive or AI-driven?", a: "No, it is fully static, deterministic, and non-adaptive."},
   {q: "How do I install as a PWA?", a: "Open in your browser, click 'Add to Home Screen', and follow prompts."},
   {q: "How do I request a refund?", a: "See the Refund Policy in the Policy Documents panel."},

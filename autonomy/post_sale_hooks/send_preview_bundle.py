@@ -17,7 +17,7 @@ def send_preview_bundle(buyer_email, vault_preview_data):
     start = time.time()
     api_key = os.environ.get('SENDGRID_API_KEY')
     sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
-    subject = f"Your AIFOLIO™ Vault Preview Bundle"
+    subject = f"Your AIFOLIO Vault Preview Bundle"
     body = f"Here is your preview bundle: {vault_preview_data}"
     if api_key:
         resp = requests.post(

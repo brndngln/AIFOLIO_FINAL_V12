@@ -9,7 +9,7 @@ def send_receipt_email(order_id, user_email):
     """
     api_key = os.environ.get('SENDGRID_API_KEY')
     sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
-    subject = f"Your AIFOLIO™ Receipt for Order {order_id}"
+    subject = f"Your AIFOLIO Receipt for Order {order_id}"
     body = f"Thank you for your purchase! Here is your receipt for order {order_id}."
     log_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/receipt_emails.json'))
     entry = {'order_id': order_id, 'user_email': user_email}

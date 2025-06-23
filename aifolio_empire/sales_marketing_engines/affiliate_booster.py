@@ -194,7 +194,7 @@ class AffiliateBooster:
 
     class AIFOLIO_STYLEFORGE_GRAMMARLENS:
         """
-        Autonomous branding, formatting, and AI-powered content validation engine for all AIFOLIO™ PDFs and bundles.
+        Autonomous branding, formatting, and AI-powered content validation engine for all AIFOLIO PDFs and bundles.
         - Detects vault/niche and loads branding.json, vault templates, and metadata for cover, sections, headers/footers, CTA.
         - Applies metadata-driven customization (subtitle, author, bundle type, date).
         - Generates a visual preview of the final PDF/bundle for manual review/approval (Approve/Request Revision).
@@ -227,10 +227,10 @@ class AffiliateBooster:
                         'colors': {'primary': '#333', 'secondary': '#888', 'accent': '#009688', 'bg': '#fff'},
                         'logo': 'aifolio_logo.png',
                         'layout': 'modern',
-                        'header': 'AIFOLIO™',
-                        'footer': 'AIFOLIO™',
+                        'header': 'AIFOLIO',
+                        'footer': 'AIFOLIO',
                         'tone': 'corporate',
-                        'cta': 'Explore more at AIFOLIO™.'
+                        'cta': 'Explore more at AIFOLIO.'
                     }
             override = pdf_metadata.get('branding') if pdf_metadata and 'branding' in pdf_metadata else None
             if override:
@@ -378,7 +378,7 @@ class AffiliateBooster:
 
     class AIFOLIO_TYPESMITH:
         """
-        Autonomous, event-driven PDF/bundle generator for AIFOLIO™.
+        Autonomous, event-driven PDF/bundle generator for AIFOLIO.
         Integrates with AIFOLIO_STYLEFORGE™ for all branding/styling.
         - Detects vault/niche, applies modular branding.json or global kit via STYLEFORGE.
         - Supports per-PDF/bundle override via pdf_metadata.json.

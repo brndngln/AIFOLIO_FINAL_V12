@@ -11,7 +11,7 @@ def send_confirmation_email(buyer_email, vault_name):
     """
     api_key = os.environ.get('SENDGRID_API_KEY')
     sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
-    subject = f"Your AIFOLIO™ Vault '{vault_name}' is Ready!"
+    subject = f"Your AIFOLIO Vault '{vault_name}' is Ready!"
     body = f"Thank you for your purchase! Your vault '{vault_name}' is now available."
     if api_key:
         resp = requests.post(

@@ -1,7 +1,7 @@
 {
   "vault_id": "sample-001",
   "version": "1.0",
-  "owner": "AIFOLIO™ Owner",
+  "owner": "AIFOLIO Owner",
   "status": "active",
   "audit_log": [
     {"event": "created", "timestamp": "2025-06-01T12:00:00Z"},

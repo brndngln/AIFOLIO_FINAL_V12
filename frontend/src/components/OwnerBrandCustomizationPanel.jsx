@@ -28,14 +28,14 @@ export default function OwnerBrandCustomizationPanel() {
       </div>
       <form style={{display:'flex',flexDirection:'column',gap:16,maxWidth:380}} aria-label="Brand customization form">
         <label style={{fontWeight:600}}>
-          Business Name
+          AIFOLIO Name
           <input
             type="text"
             name="name"
             value={brand.name}
             onChange={handleChange}
             style={{width:'100%',padding:8,borderRadius:6,border:'1px solid #e5e7eb',marginTop:4}}
-            aria-label="Business name"
+            aria-label="AIFOLIO name"
           />
         </label>
         <label style={{fontWeight:600}}>
