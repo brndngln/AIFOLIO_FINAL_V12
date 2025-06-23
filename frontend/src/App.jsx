@@ -302,6 +302,76 @@ function App() {
             "Annual eternal review (static)",
             "Eternal leadership audit (static)"
           ]} />
+          <BatchPanel title="Batches 201–210: SAFE AI Infinite Alignment" items={[
+            "Infinite Alignment Panel",
+            "New alignment scenario (static)",
+            "OWNER-controlled alignment export",
+            "Annual infinite alignment review (static)",
+            "Infinite alignment audit (static)"
+          ]} />
+          <BatchPanel title="Batches 211–220: SAFE AI Global Collaboration" items={[
+            "Global Collaboration Panel",
+            "New collaboration scenario (static)",
+            "OWNER-controlled collaboration export",
+            "Annual collaboration review (static)",
+            "Global collaboration audit (static)"
+          ]} />
+          <BatchPanel title="Batches 221–230: SAFE AI Universal Security" items={[
+            "Universal Security Panel",
+            "New security scenario (static)",
+            "OWNER-controlled security export",
+            "Annual security review (static)",
+            "Universal security audit (static)"
+          ]} />
+          <BatchPanel title="Batches 231–240: SAFE AI Perpetual Transparency" items={[
+            "Perpetual Transparency Panel",
+            "New transparency scenario (static)",
+            "OWNER-controlled transparency export",
+            "Annual transparency review (static)",
+            "Perpetual transparency audit (static)"
+          ]} />
+          <BatchPanel title="Batches 241–250: SAFE AI Eternal Compliance" items={[
+            "Eternal Compliance Panel",
+            "New compliance scenario (static)",
+            "OWNER-controlled compliance export",
+            "Annual compliance review (static)",
+            "Eternal compliance audit (static)"
+          ]} />
+          <BatchPanel title="Batches 251–260: SAFE AI Infinite Adaptability" items={[
+            "Infinite Adaptability Panel",
+            "New adaptability scenario (static)",
+            "OWNER-controlled adaptability export",
+            "Annual adaptability review (static)",
+            "Infinite adaptability audit (static)"
+          ]} />
+          <BatchPanel title="Batches 261–270: SAFE AI Global Diversity" items={[
+            "Global Diversity Panel",
+            "New diversity scenario (static)",
+            "OWNER-controlled diversity export",
+            "Annual diversity review (static)",
+            "Global diversity audit (static)"
+          ]} />
+          <BatchPanel title="Batches 271–280: SAFE AI Universal Prosperity" items={[
+            "Universal Prosperity Panel",
+            "New prosperity scenario (static)",
+            "OWNER-controlled prosperity export",
+            "Annual prosperity review (static)",
+            "Universal prosperity audit (static)"
+          ]} />
+          <BatchPanel title="Batches 281–290: SAFE AI Perpetual Sustainability" items={[
+            "Perpetual Sustainability Panel",
+            "New sustainability scenario (static)",
+            "OWNER-controlled sustainability export",
+            "Annual sustainability review (static)",
+            "Perpetual sustainability audit (static)"
+          ]} />
+          <BatchPanel title="Batches 291–300: SAFE AI Eternal Unity" items={[
+            "Eternal Unity Panel",
+            "New unity scenario (static)",
+            "OWNER-controlled unity export",
+            "Annual unity review (static)",
+            "Eternal unity audit (static)"
+          ]} />
         </div>
 
         {/* SAFE AI World Trust & Transparency Dashboard */}
