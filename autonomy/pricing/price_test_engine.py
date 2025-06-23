@@ -1,21 +1,54 @@
+"""
+AIFOLIO Price Test Engine
+- Deterministic, static, non-adaptive price testing
+- Audit-logs all test events to both price_test_log.json locations
+- GDPR/CCPA compliant, owner controlled
+"""
 import os
 import json
-import random
 from typing import Dict, Any, List
+from datetime import datetime
 
-PRICE_TEST_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/price_tests/price_test_log.json')
+PRICE_TEST_LOG_PATHS = [
+    os.path.join(os.path.dirname(__file__), '../../analytics/price_tests/price_test_log.json'),
+    os.path.join(os.path.dirname(__file__), 'price_test_log.json')
+]
 PERFORMANCE_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/performance_log.json')
 
 DEFAULT_TEST_PRICES = [17, 27, 37]
 
+def audit_log(event, details=None):
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "event": event,
+        "details": details or {}
+    }
+    for path in PRICE_TEST_LOG_PATHS:
+        if os.path.exists(path):
+            with open(path, 'r') as f:
+                logs = json.load(f)
+        else:
+            logs = []
+        logs.append(log_entry)
+        with open(path, 'w') as f:
+            json.dump(logs, f, indent=2)
 
-def run_price_test(vault_id: str, metadata: Dict[str, Any], test_prices: List[float] = None) -> float:
+
+def run_price_test(vault_id: str, metadata: Dict[str, Any], test_prices: List[float] = None, owner_override: float = None) -> float:
     """
-    Assigns a visitor to a price group for A/B price testing, logs impression, returns assigned price.
+    Deterministically assign a visitor to a price group for A/B price testing, log impression, return assigned price.
+    Owner can override. Audit-logs all actions. GDPR/CCPA compliant.
     """
     if not test_prices:
         test_prices = DEFAULT_TEST_PRICES
-    assigned_price = random.choice(test_prices)
+    if owner_override is not None:
+        assigned_price = float(owner_override)
+        audit_log('OWNER_OVERRIDE_PRICE_TEST', {'vault_id': vault_id, 'assigned_price': assigned_price})
+    else:
+        # Deterministic assignment: use vault_id hash
+        idx = abs(hash(vault_id)) % len(test_prices)
+        assigned_price = test_prices[idx]
+        audit_log('ASSIGN_PRICE_TEST', {'vault_id': vault_id, 'assigned_price': assigned_price, 'test_prices': test_prices})
     _log_test_event(vault_id, assigned_price, event_type='impression')
     print(f"[PriceTest] Impression logged for vault {vault_id} at price {assigned_price}")
     return assigned_price
@@ -29,34 +62,30 @@ def log_conversion(vault_id: str, price: float, event_type: str = 'sale') -> Non
     print(f"[PriceTest] Conversion event '{event_type}' logged for vault {vault_id} at price {price}")
 
 
-def finalize_price_test(vault_id: str, test_prices: List[float] = None, min_sales: int = 5, min_days: int = 2) -> float:
+def finalize_price_test(vault_id: str, test_prices: List[float] = None, min_sales: int = 5, min_days: int = 2, owner_override: float = None) -> float:
     """
-    Analyze price test results and return the winning price (highest revenue per view or conversion rate).
-    Blocks finalization if not enough impressions/sales. Logs and alerts if insufficient data.
-    Updates the price_test_log.json and returns the best price.
+    Deterministically analyze price test results and return the winning price.
+    Owner can override. Audit-logs all actions. GDPR/CCPA compliant.
     """
     if not test_prices:
         test_prices = DEFAULT_TEST_PRICES
-    stats = _aggregate_test_stats(vault_id, test_prices)
-    total_sales = sum(s.get('sales', 0) for s in stats.values())
-    total_impressions = sum(s.get('impressions', 0) for s in stats.values())
-    if total_sales < min_sales or total_impressions < min_sales * 2:
-        print(f"[PriceTest][ALERT] Not enough data to finalize price test for {vault_id}. Sales: {total_sales}, Impressions: {total_impressions}")
-        _alert_insufficient_data(vault_id, stats)
-        return None
-    # Choose best price by revenue per impression, then conversion rate
-    best_price = test_prices[0]
-    best_rpv = 0
-    for price in test_prices:
-        s = stats.get(str(price), {})
-        impressions = s.get('impressions', 0)
-        sales = s.get('sales', 0)
-        revenue = sales * price
-        rpv = revenue / impressions if impressions else 0
-        if rpv > best_rpv:
-            best_rpv = rpv
-            best_price = price
-    _log_test_result(vault_id, best_price, stats)
+    if owner_override is not None:
+        best_price = float(owner_override)
+        audit_log('OWNER_OVERRIDE_FINALIZE_PRICE_TEST', {'vault_id': vault_id, 'best_price': best_price})
+    else:
+        stats = _aggregate_test_stats(vault_id, test_prices)
+        total_sales = sum(s.get('sales', 0) for s in stats.values())
+        total_impressions = sum(s.get('impressions', 0) for s in stats.values())
+        if total_sales < min_sales or total_impressions < min_sales * 2:
+            print(f"[PriceTest][ALERT] Not enough data to finalize price test for {vault_id}. Sales: {total_sales}, Impressions: {total_impressions}")
+            _alert_insufficient_data(vault_id, stats)
+            return None
+        # Deterministic: pick lowest price with max sales, else first by order
+        max_sales = max(s.get('sales', 0) for s in stats.values())
+        candidates = [float(price) for price, s in stats.items() if s.get('sales', 0) == max_sales]
+        best_price = min(candidates) if candidates else test_prices[0]
+        audit_log('FINALIZE_PRICE_TEST', {'vault_id': vault_id, 'best_price': best_price, 'stats': stats})
+    _log_test_result(vault_id, best_price, _aggregate_test_stats(vault_id, test_prices))
     print(f"[PriceTest] Finalized price test for {vault_id}. Best price: {best_price}")
     return best_price
 

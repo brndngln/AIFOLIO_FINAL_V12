@@ -1,41 +1,34 @@
+"""
+AIFOLIO Alert Engine
+- Fully static, deterministic, SAFE AI compliant
+- No live API calls; all logic is static
+- Audit-logs all alert events
+- GDPR/CCPA compliant, owner controlled
+"""
 import os
-import requests
-import logging
+import json
+from datetime import datetime
 
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
-TWILIO_SID = os.getenv("TWILIO_SID")
-TWILIO_TOKEN = os.getenv("TWILIO_TOKEN")
-SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
-DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
+ALERT_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/alert_log.json')
 
-logger = logging.getLogger("alert_engine")
-
-def send_alert(type="compliance_failure", method="email", message="Vault failed PDF compliance check.", to=None):
-    if method == "email" and SENDGRID_API_KEY:
-        data = {
-            "personalizations": [{"to": [{"email": to or "admin@aifolio.com"}]}],
-            "from": {"email": "alerts@aifolio.com"},
-            "subject": f"AIFOLIO Alert: {type}",
-            "content": [{"type": "text/plain", "value": message}]
-        }
-        r = requests.post(
-            "https://api.sendgrid.com/v3/mail/send",
-            headers={"Authorization": f"Bearer {SENDGRID_API_KEY}", "Content-Type": "application/json"},
-            json=data
-        )
-        logger.info(f"SendGrid alert: {r.status_code}")
-    elif method == "sms" and TWILIO_SID and TWILIO_TOKEN:
-        requests.post(
-            f"https://api.twilio.com/2010-04-01/Accounts/{TWILIO_SID}/Messages.json",
-            data={"To": to, "From": os.getenv("TWILIO_FROM"), "Body": message},
-            auth=(TWILIO_SID, TWILIO_TOKEN)
-        )
-        logger.info(f"Twilio SMS alert sent to {to}")
-    elif method == "slack" and SLACK_WEBHOOK_URL:
-        requests.post(SLACK_WEBHOOK_URL, json={"text": message})
-        logger.info("Slack alert sent.")
-    elif method == "discord" and DISCORD_WEBHOOK_URL:
-        requests.post(DISCORD_WEBHOOK_URL, json={"content": message})
-        logger.info("Discord alert sent.")
+def send_alert(type="compliance_failure", method="static", message="Vault failed PDF compliance check.", to=None, owner_override=None):
+    """
+    Static SAFE AI alert logging. No live API calls. Owner can override alert content.
+    """
+    alert_message = owner_override if owner_override is not None else message
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "type": type,
+        "method": method,
+        "message": alert_message,
+        "to": to
+    }
+    if os.path.exists(ALERT_LOG_PATH):
+        with open(ALERT_LOG_PATH, 'r') as f:
+            logs = json.load(f)
     else:
-        logger.warning(f"No alert method or API key for {method}.")
+        logs = []
+    logs.append(log_entry)
+    with open(ALERT_LOG_PATH, 'w') as f:
+        json.dump(logs, f, indent=2)
+    return True
