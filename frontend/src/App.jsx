@@ -159,6 +159,15 @@ function App() {
             "Global public governance crosswalk",
             "OWNER-controlled world report export"
           ]} />
+          <BatchPanel title="Batches 41–50: Ultimate SAFE AI Leadership & Public Impact" items={[
+            "SAFE AI Ultimate Leadership Panel",
+            "Public Impact Mastery (static)",
+            "OWNER-controlled global impact export",
+            "No adaptive/auto features",
+            "All actions logged and verified",
+            "World-class compliance review",
+            "Annual public impact summary (static)"
+          ]} />
         </div>
 
         {/* SAFE AI World Trust & Transparency Dashboard */}
