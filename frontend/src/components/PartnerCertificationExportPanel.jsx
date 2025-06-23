@@ -117,10 +117,11 @@ export default function PartnerCertificationExportPanel() {
       });
       if (!res.ok) throw new Error('Failed to create schedule');
       await fetchSchedules();
-    } catch (e) {
-      setScheduleError(e.message);
+    } catch (err) {
+      setScheduleError(err.message);
+    } finally {
+      setSchedulingLoading(false);
     }
-    setSchedulingLoading(false);
   }
 
   // Partner state
@@ -149,24 +150,20 @@ export default function PartnerCertificationExportPanel() {
   }
 
   const fetchPartners = React.useCallback(async () => {
-    setStatus(null);
     setLoading(true);
     try {
       const res = await fetch('/batch-scaling/partner-certifications', {
         headers: { 'Authorization': `Bearer ${getToken()}` }
       });
       const data = await res.json();
-      setPartners(Array.isArray(data) ? data : []);
-      setStatus(null);
+      setPartners(data);
     } catch (err) {
-      setStatus({ type: 'error', msg: 'Error loading partner certifications: ' + err.message });
       setPartners([]);
     }
     setLoading(false);
   }, []);
 
   React.useEffect(() => { fetchPartners(); }, [fetchPartners]);
-
 
   // Filter and sort partners
   const filteredPartners = partners
@@ -210,9 +207,7 @@ export default function PartnerCertificationExportPanel() {
   // Export handler
   const handleExport = async (type) => {
     setExporting(true);
-    setStatus(null);
     if (!partners.length) {
-      setStatus({ type: "warning", msg: "No certified partners to export." });
       setAuditLog(prev => [
         {
           time: new Date().toISOString(),
@@ -228,7 +223,6 @@ export default function PartnerCertificationExportPanel() {
       return;
     }
     try {
-      setStatus({ type: "info", msg: `Exporting Partner Certification (${type.toUpperCase()})...` });
       const res = await fetch(`/batch-scaling/partner-certifications/export?type=${type}`, {
         headers: { 'Authorization': `Bearer ${getToken()}` }
       });
@@ -245,7 +239,6 @@ export default function PartnerCertificationExportPanel() {
       a.remove();
       window.URL.revokeObjectURL(url);
       setExported(e => ({ ...e, [type]: url }));
-      setStatus({ type: "success", msg: `Exported Partner Certification (${type.toUpperCase()}) — download ready.` });
       setAuditLog(prev => [
         {
           time: new Date().toISOString(),
@@ -258,7 +251,6 @@ export default function PartnerCertificationExportPanel() {
       ]);
       setLastExport(new Date());
     } catch (err) {
-      setStatus({ type: "error", msg: `Export failed: ${err.message}` });
       setAuditLog(prev => [
         {
           time: new Date().toISOString(),
@@ -272,10 +264,6 @@ export default function PartnerCertificationExportPanel() {
       ]);
     }
     setExporting(false);
-    setTimeout(() => {
-      const statusDiv = document.getElementById('export-status-msg');
-      if (statusDiv) statusDiv.focus();
-    }, 100);
   };
 
   // Main render
@@ -332,11 +320,6 @@ export default function PartnerCertificationExportPanel() {
         </div>
       )}
       {/* Status and Table Preview */}
-      {status && (
-        <div id="export-status-msg" tabIndex={-1} aria-live="polite" style={{marginBottom:12,color:status.type==="success"?'#059669':status.type==="warning"?'#eab308':'#dc2626',fontWeight:500}}>
-          {status.msg}
-        </div>
-      )}
       {loading ? (
         <div style={{margin:'20px 0',color:'#2563eb',fontWeight:500}} aria-live="polite">Loading partner certifications…</div>
       ) : filteredPartners.length ? (
@@ -416,68 +399,7 @@ export default function PartnerCertificationExportPanel() {
       </div>
     </div>
   );
-
-  // Toast notification state
-  const [toasts, setToasts] = useState([]);
-  function showToast(msg, type="info") {
-    const id = Math.random().toString(36).slice(2);
-    setToasts(t => [...t, {id, msg, type}]);
-    setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 4000);
-  }
-
-  // JWT badge state
-  const [jwtStatus, setJwtStatus] = useState('valid');
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) setJwtStatus('missing');
-    // Optionally, decode JWT and check expiry
-    try {
-      const [, payload] = token.split('.');
-      const { exp } = JSON.parse(atob(payload));
-      if (Date.now()/1000 > exp) setJwtStatus('expired');
-    } catch {}
-  }, []);
-
-  // DPA download
-  function handleDownloadDPA() {
-    window.open('/static/data_processing_agreement.pdf', '_blank');
-  }
-
-  // Audit log modal
-  const [showAuditModal, setShowAuditModal] = useState(false);
-  const [auditModalLog, setAuditModalLog] = useState(null);
-  function openAuditModal(log) {
-    setAuditModalLog(log);
-    setShowAuditModal(true);
-  }
-
-  // Schedule form recurrence
-  const [showScheduleForm, setShowScheduleForm] = useState(false);
-  const [editSchedule, setEditSchedule] = useState(null);
-  const [scheduleRecurrence, setScheduleRecurrence] = useState('one-off');
-  const [scheduleExtra, setScheduleExtra] = useState('');
-
-  // Bulk actions
-  const [bulkActionLoading, setBulkActionLoading] = useState(false);
-
-  // Advanced UI/feature state
-  const [showSchedule, setShowSchedule] = useState(false);
-  const [schedules, setSchedules] = useState([]); // {type, when, recurring}
-  const [showFields, setShowFields] = useState(false);
-  const [fields, setFields] = useState([true, true, true, true, true, true, true]); // which exportFields are enabled
-  const [showHelp, setShowHelp] = useState(false);
-  const [bulkSelected, setBulkSelected] = useState([]); // array of partner indices
-  const [darkMode, setDarkMode] = useDarkMode();
-  const [schedulingLoading, setSchedulingLoading] = useState(false);
-  const [scheduleError, setScheduleError] = useState(null);
-  const [auditLogExporting, setAuditLogExporting] = useState(false);
-
-  // Backend: fetch schedules
-  async function fetchSchedules() {
-    setSchedulingLoading(true);
-    setScheduleError(null);
-    try {
-      const res = await fetch('/batch-scaling/partner-certifications/schedule', {
+}
         headers: { 'Authorization': `Bearer ${getToken()}` }
       });
       if (!res.ok) throw new Error('Failed to fetch schedules');
