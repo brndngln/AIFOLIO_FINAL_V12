@@ -399,35 +399,6 @@ export default function PartnerCertificationExportPanel() {
       </div>
     </div>
   );
-      // Download file
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-      setExported(e => ({ ...e, [type]: url }));
-      setStatus({ type: "success", msg: `Exported Partner Certification (${type.toUpperCase()}) — download ready.` });
-      setAuditLog(prev => [
-        {
-          time: new Date().toISOString(),
-          action: `Export Partner Certification (${type.toUpperCase()})`,
-          status: "success",
-          user: "owner",
-          file: url
-        },
-        ...prev
-      ]);
-      setLastExport(new Date());
-    } catch (err) {
-      setStatus({ type: "error", msg: `Export failed: ${err.message}` });
-      setAuditLog(prev => [
-        {
-          time: new Date().toISOString(),
-          action: `Export Partner Certification (${type.toUpperCase()})`,
-          status: "error",
           user: "owner",
           file: null,
           message: err.message
