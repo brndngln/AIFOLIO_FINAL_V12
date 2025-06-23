@@ -20,6 +20,8 @@ const policies = [
   }
 ];
 
+import DownloadAllPoliciesButton from "./DownloadAllPoliciesButton";
+
 export default function PolicyDocuments() {
   const [open, setOpen] = useState([false, false, false]);
   return (
@@ -45,6 +47,7 @@ export default function PolicyDocuments() {
           </li>
         ))}
       </ul>
+      <DownloadAllPoliciesButton />
     </div>
   );
 }

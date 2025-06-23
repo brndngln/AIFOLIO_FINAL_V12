@@ -12,6 +12,13 @@ import ComplianceWorkflowStack from "./components/ComplianceWorkflowStack";
 import PolicyDocuments from "./components/PolicyDocuments";
 import FutureStaticEnhancements from "./components/FutureStaticEnhancements";
 import BeginnerMistakesToAvoid from "./components/BeginnerMistakesToAvoid";
+import OnboardingPanel from "./components/OnboardingPanel";
+import FirstStepsChecklist from "./components/FirstStepsChecklist";
+import AccessibilityBestPractices from "./components/AccessibilityBestPractices";
+import SupportPanel from "./components/SupportPanel";
+import LaunchReadinessChecklist from "./components/LaunchReadinessChecklist";
+import FAQPanel from "./components/FAQPanel";
+import ReleaseNotesPanel from "./components/ReleaseNotesPanel";
 
 import BatchTabs1to16 from "./components/BatchTabs1to16";
 import BatchTabs from "./components/BatchTabs";
@@ -54,6 +61,15 @@ function App() {
         color: 'var(--text)'
       }}>
         <div className="container mx-auto px-4 py-8">
+          {/* OWNER Onboarding and Launch Panels */}
+          <OnboardingPanel />
+          <FirstStepsChecklist />
+          <LaunchReadinessChecklist />
+          <AccessibilityBestPractices />
+          <SupportPanel />
+          <FAQPanel />
+          <ReleaseNotesPanel />
+
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold" style={{
               color: 'var(--text)',
