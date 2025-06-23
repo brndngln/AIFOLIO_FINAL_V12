@@ -70,6 +70,35 @@ export default function OwnerAuditLogViewerPanel() {
     }, 1000);
   }
 
+  // Auto-refresh logs every 30s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      Promise.all([
+        fetch("/analytics/audit_log.json").then(r => r.json()).catch(() => []),
+        fetch("/analytics/ready_for_sale_packaging_log.jsonl")
+          .then(r => r.text())
+          .then(text => text.split('\n').filter(Boolean).map(line => {
+            try { return JSON.parse(line); } catch { return null; }
+          }).filter(Boolean))
+          .catch(() => [])
+      ]).then(([auditData, packagingData]) => {
+        const packagingLogs = (packagingData || []).map(l => ({
+          date: l.timestamp,
+          action: l.status === 'success' ? 'Packaging OK' : (l.status === 'manual_override_needed' ? 'Manual Override Needed' : 'Compliance Error'),
+          user: 'SYSTEM',
+          vault: (l.files && l.files.length ? (l.files[0].split('/').slice(-2, -1)[0] || '') : ''),
+          status: l.status,
+          error: l.error || '',
+          raw: l
+        }));
+        const auditLogs = Array.isArray(auditData) ? auditData : [];
+        setLogs([...packagingLogs, ...auditLogs]);
+        setFiltered([...packagingLogs, ...auditLogs]);
+      });
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section aria-labelledby="audit-log-heading" style={{background:'#f9fafb',borderRadius:12,padding:32,marginBottom:32,boxShadow:'0 2px 8px #e0e7ef'}}>
       <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:12}}>
@@ -127,10 +156,7 @@ export default function OwnerAuditLogViewerPanel() {
         </table>
       </div>
     </section>
-  );        <span tabIndex={0} aria-label="Help: Audit log viewer" title="View and filter static audit logs. Export as JSON or CSV. OWNER only." style={{marginLeft:6, color:'#64748b', cursor:'help', fontSize:18, fontWeight:800}}>?</span>
-      </div>
-      <div style={{marginBottom:16}}>
-        <input
+  );
           type="text"
           placeholder="Search by date, action, or user..."
           value={query}
