@@ -399,54 +399,6 @@ export default function PartnerCertificationExportPanel() {
       </div>
     </div>
   );
-}
-      setStatus({ type: 'error', msg: 'Bulk audit log download failed: ' + e.message });
-    }
-    setAuditLogExporting(false);
-  }
-  const [status, setStatus] = useState(null);
-  const [partners, setPartners] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [lastExport, setLastExport] = useState(null);
-  const [exported, setExported] = useState({ pdf: null, csv: null });
-  const [auditLog, setAuditLog] = useState([
-
-    {
-      time: "2025-06-15T23:05:00Z",
-      action: "Export Partner Certification (CSV)",
-      status: "success",
-      user: "owner",
-      file: "/exports/partner_certification/partner_certification_export.csv"
-    },
-    {
-      time: "2025-06-08T23:05:00Z",
-      action: "Export Partner Certification (PDF)",
-      status: "success",
-      user: "owner",
-      file: "/exports/partner_certification/partner_certification_export.pdf"
-    },
-    {
-      time: "2025-06-01T23:05:00Z",
-      action: "Export Partner Certification (CSV)",
-      status: "warning",
-      user: "owner",
-      file: null,
-      message: "No certified partners to export."
-    }
-  ]);
-
-
-  const exportFields = [
-    "Partner Name", "Partner Email", "Vault/Module Name", "Certification Status", "Date Certified", "Progress %", "Notes / Comments"
-  ];
-
-  // Only include enabled fields for export
-  const enabledFields = exportFields.filter((_, i) => fields[i]);
-
-  // UI state for search, filter, sort, modal, etc
-  const [search, setSearch] = useState("");
-  const [filterStatus, setFilterStatus] = useState("");
-  const [sortBy, setSortBy] = useState("date");
   const [sortDir, setSortDir] = useState("desc");
   const [modalPartner, setModalPartner] = useState(null);
   const [auditSearch, setAuditSearch] = useState("");
