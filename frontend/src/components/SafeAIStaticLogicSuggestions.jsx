@@ -13,18 +13,34 @@ const SUGGESTIONS = [
   "Static Cross-Market Vault Linker (static)"
 ];
 
+const suggestions = [
+  { label: "Deterministic logic only", desc: "Use only deterministic, non-adaptive logic in all business flows" },
+  { label: "OWNER approval required", desc: "OWNER must approve all logic changes before deploy" },
+  { label: "Document and audit", desc: "Document all static logic and audit changes" },
+  { label: "No adaptive/agentic AI", desc: "Never allow adaptive or agentic AI in SAFE AI mode" },
+  { label: "OWNER-controlled outputs", desc: "All exports and outputs must be OWNER-controlled" }
+];
+
 export default function SafeAIStaticLogicSuggestions() {
   return (
-    <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>
-      <h3 style={{color:'#2563eb', fontWeight:700, marginBottom:12}}>SAFE AI Static Logic — Future Suggestions</h3>
-      <ul style={{listStyle:'none', padding:0, fontSize:15}}>
-        {SUGGESTIONS.map((item, i) => (
-          <li key={i} style={{marginBottom:8}}><span style={{color:'#059669', fontWeight:600}}>✔</span> {item}</li>
+    <section aria-labelledby="static-logic-suggestions-heading" style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>
+      <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:12}}>
+        <h3 id="static-logic-suggestions-heading" style={{color:'#0ea5e9', fontWeight:700, margin:0}}>SAFE AI — Static Logic Suggestions</h3>
+        <span style={{background:'#0ea5e9',color:'#fff',padding:'2px 10px',borderRadius:6,fontWeight:700,fontSize:13}} aria-label="OWNER badge">OWNER</span>
+        <span tabIndex={0} aria-label="Help: What are Static Logic Suggestions?" title="These are OWNER rules for SAFE AI compliance. All logic must be static, deterministic, and OWNER-controlled." style={{marginLeft:6, color:'#64748b', cursor:'help', fontSize:18, fontWeight:800}}>?</span>
+      </div>
+      <ul style={{listStyle:'none', padding:0, fontSize:15}} aria-label="SAFE AI static logic suggestions list">
+        {suggestions.map((s, i) => (
+          <li key={i} style={{marginBottom:8,display:'flex',alignItems:'center',gap:8}}>
+            <span style={{color:'#0ea5e9', fontWeight:600}} aria-label="Suggestion">•</span>
+            <span tabIndex={0} aria-label={s.label} title={s.desc}>{s.label}: {s.desc}</span>
+            <span tabIndex={0} aria-label="Help" title={s.desc} style={{color:'#64748b',cursor:'help',fontWeight:800,fontSize:15}}>?</span>
+          </li>
         ))}
       </ul>
       <div style={{marginTop:18, color:'#64748b', fontSize:13}}>
-        <b>OWNER CONTROLLED:</b> All features are static, non-sentient, non-adaptive, and require manual input or update. No auto-publish or learning allowed.
+        <b>OWNER CONTROLLED:</b> Follow all above logic rules for SAFE AI compliance.
       </div>
-    </div>
+    </section>
   );
 }
