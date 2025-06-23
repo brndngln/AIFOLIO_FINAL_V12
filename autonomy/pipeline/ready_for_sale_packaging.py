@@ -87,9 +87,26 @@ def check_package_integrity(files, metadata_path=None, allow_manual_override=Fal
         'standardized_names': standardized_names,
         'manual_override_needed': manual_override_needed
     }
-    # Log result
+    # Log result (JSONL for dashboard)
+    log_entry = {
+        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
+        'event': 'pdf_compliance_check',
+        'files': files,
+        'metadata_path': metadata_path,
+        'result': result,
+        'status': (
+            'manual_override_needed' if manual_override_needed else (
+                'compliance_failed' if not all(pdf_valid) else 'success'
+            )
+        ),
+        'error': None
+    }
+    if manual_override_needed:
+        log_entry['error'] = 'Manual override required for filename standardization.'
+    elif not all(pdf_valid):
+        log_entry['error'] = 'PDF compliance failed.'
     with open(PACKAGING_LOG, 'a') as f:
-        f.write(json.dumps({'timestamp': datetime.datetime.utcnow().isoformat() + 'Z', 'result': result}) + '\n')
+        f.write(json.dumps(log_entry) + '\n')
     return result
 
 
