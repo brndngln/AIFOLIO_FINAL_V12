@@ -10,6 +10,8 @@ import BatchPanel from "./components/BatchPanel";
 import WorldTrustDashboard from "./components/WorldTrustDashboard";
 import SafeAIStaticLogicSuggestions from "./components/SafeAIStaticLogicSuggestions";
 import SafeAIMistakesToAvoid from "./components/SafeAIMistakesToAvoid";
+import TreatyTracker from "./components/TreatyTracker";
+import InnovationPipeline from "./components/InnovationPipeline";
 
 import Batch21FederatedTrustPanel from "./components/Batch21FederatedTrustPanel";
 import Batch22CertificationLegalPanel from "./components/Batch22CertificationLegalPanel";
@@ -191,6 +193,16 @@ function App() {
         {/* SAFE AI Beginner Mistakes to Avoid */}
         <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
           <SafeAIMistakesToAvoid />
+        </div>
+
+        {/* SAFE AI Treaty Tracker */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <TreatyTracker />
+        </div>
+
+        {/* SAFE AI Innovation Pipeline */}
+        <div className="theme-panel mt-12" style={{background:'#fff',borderRadius:12,padding:32,marginBottom:32}}>
+          <InnovationPipeline />
         </div>
 
         {/* Unified Admin Tools Section */}
