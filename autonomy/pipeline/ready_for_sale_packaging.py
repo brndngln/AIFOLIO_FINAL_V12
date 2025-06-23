@@ -7,27 +7,101 @@ PACKAGING_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../a
 os.makedirs(os.path.dirname(PACKAGING_LOG), exist_ok=True)
 
 # --- Package Integrity Checker ---
-def check_package_integrity(files):
+import re
+
+def slugify_filename(title, prefix="AIFOLIO"):  # Helper for filename standardization
+    # Remove non-alphanumeric, replace spaces with _, uppercase
+    base = re.sub(r'[^A-Za-z0-9 ]+', '', title)
+    base = '_'.join(base.strip().split())
+    return f"{prefix}_{base}.pdf"
+
+def is_garbage_filename(filename):
+    # Block files with patterns like Final, Copy, etc.
+    return bool(re.search(r'(final|copy|draft|temp|untitled|test)', filename, re.IGNORECASE))
+
+def check_pdf_compliance(pdf_path):
+    # Check for blank pages, watermarks, forbidden words, file size
+    try:
+        reader = PdfReader(pdf_path)
+        blank_pages = 0
+        forbidden_words = ['SAMPLE', 'WATERMARK', 'DRAFT']
+        forbidden_found = []
+        for i, page in enumerate(reader.pages):
+            text = page.extract_text() or ''
+            if not text.strip():
+                blank_pages += 1
+            for word in forbidden_words:
+                if word in text.upper():
+                    forbidden_found.append((i, word))
+        file_size = os.path.getsize(pdf_path)
+        return {
+            'blank_pages': blank_pages,
+            'forbidden_found': forbidden_found,
+            'file_size': file_size,
+            'valid': blank_pages == 0 and not forbidden_found and file_size > 1024
+        }
+    except Exception as e:
+        return {'error': str(e), 'valid': False}
+
+def check_package_integrity(files, metadata_path=None, allow_manual_override=False):
     missing = [f for f in files if not os.path.exists(f)]
     pdfs = [f for f in files if f.lower().endswith('.pdf') and os.path.exists(f)]
     pdf_valid = []
+    compliance = []
+    standardized_names = []
+    manual_override_needed = False
     for pdf in pdfs:
-        try:
-            reader = PdfReader(pdf)
-            pdf_valid.append(True)
-        except Exception:
-            pdf_valid.append(False)
-    return {'missing': missing, 'pdf_valid': pdf_valid}
+        # Filename standardization
+        fname = os.path.basename(pdf)
+        if is_garbage_filename(fname):
+            # Try to auto-rename
+            title = None
+            if metadata_path and os.path.exists(metadata_path):
+                with open(metadata_path) as f:
+                    meta = json.load(f)
+                    title = meta.get('title')
+            if title:
+                new_name = slugify_filename(title)
+                new_path = os.path.join(os.path.dirname(pdf), new_name)
+                os.rename(pdf, new_path)
+                standardized_names.append(new_path)
+                # Update metadata
+                if metadata_path and os.path.exists(metadata_path):
+                    with open(metadata_path) as f:
+                        meta = json.load(f)
+                    meta['pdf_filename'] = new_name
+                    with open(metadata_path, 'w') as f:
+                        json.dump(meta, f, indent=2)
+            else:
+                manual_override_needed = True
+                standardized_names.append(pdf)
+        else:
+            standardized_names.append(pdf)
+        # Compliance check
+        compliance.append(check_pdf_compliance(pdf))
+        pdf_valid.append(compliance[-1]['valid'])
+    result = {
+        'missing': missing,
+        'pdf_valid': pdf_valid,
+        'compliance': compliance,
+        'standardized_names': standardized_names,
+        'manual_override_needed': manual_override_needed
+    }
+    # Log result
+    with open(PACKAGING_LOG, 'a') as f:
+        f.write(json.dumps({'timestamp': datetime.datetime.utcnow().isoformat() + 'Z', 'result': result}) + '\n')
+    return result
+
 
 # --- AI-generated Final Checklist ---
-def generate_final_checklist(product_id, files):
-    integrity = check_package_integrity(files)
+def generate_final_checklist(product_id, files, metadata_path=None, allow_manual_override=False):
+    integrity = check_package_integrity(files, metadata_path, allow_manual_override)
     checklist = {
         'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
         'product_id': product_id,
         'files_checked': files,
         'integrity': integrity,
-        'human_preview_required': True
+        'human_preview_required': integrity.get('manual_override_needed', False)
     }
     with open(PACKAGING_LOG, 'a') as f:
         f.write(json.dumps(checklist) + '\n')
