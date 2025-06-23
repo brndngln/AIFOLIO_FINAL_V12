@@ -122,12 +122,6 @@ function App() {
 }
 
 export default App;
-import InnovationPipeline from "./components/InnovationPipeline";
-import SafeguardValidationLayer from "./components/SafeguardValidationLayer";
-import ComplianceWorkflowStack from "./components/ComplianceWorkflowStack";
-import PolicyDocuments from "./components/PolicyDocuments";
-import FutureStaticEnhancements from "./components/FutureStaticEnhancements";
-import BeginnerMistakesToAvoid from "./components/BeginnerMistakesToAvoid";
 import OnboardingPanel from "./components/OnboardingPanel";
 import FirstStepsChecklist from "./components/FirstStepsChecklist";
 import AccessibilityBestPractices from "./components/AccessibilityBestPractices";
