@@ -1,0 +1,24 @@
+"""
+SAFE AI Static Module: Price Sensitivity Map
+- Maps buyer price sensitivity by region/segment (static, table-driven)
+- Logs all map generations for admin review
+- No adaptive or emergent behavior
+"""
+import logging
+from datetime import datetime
+
+LOG_PATH = "../../distribution/legal_exports/price_sensitivity_map_log.txt"
+logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
+
+PRICE_SENSITIVITY = {
+    "us-east-1": "medium",
+    "eu-west-1": "high",
+    "ap-southeast-1": "low"
+}
+
+def get_price_sensitivity(region, triggered_by):
+    timestamp = datetime.utcnow().isoformat()
+    sensitivity = PRICE_SENSITIVITY.get(region, "unknown")
+    event = f"[{timestamp}] PRICE SENSITIVITY: {region} = {sensitivity} | Triggered by: {triggered_by}"
+    logging.info(event)
+    return sensitivity
