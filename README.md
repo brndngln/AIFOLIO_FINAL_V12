@@ -31,7 +31,21 @@ A modern React dashboard (see `dashboard/frontend/`) visualizes all event execut
 - Live/auto-refresh and manual reload
 - Responsive and accessible
 
-**Backend:** FastAPI (`dashboard/backend/`) serves event/log data from `/autonomy/analytics/` and `/analytics/`.
+**Backend:** FastAPI (`dashboard/backend/`) serves event/log data from `/autonomy/analytics/`, `/analytics/`, and `/distribution/legal_exports/`.
+
+#### **Phase 8 SAFE AI Modules Dashboard**
+- Access the Phase 8 SAFE AI Modules dashboard by clicking the "SAFE AI Phase 8 Modules" button in the dashboard UI.
+- This panel displays audit logs for every Phase 8 module, fetched from new backend endpoints (see below).
+
+##### **Phase 8 API Endpoints**
+All Phase 8 modules have dedicated endpoints, e.g.:
+- `/api/phase8/global_failover_log`
+- `/api/phase8/refund_risk_scan_log`
+- `/api/phase8/loyalty_program_log`
+- ...and many more (see `dashboard/backend/api.py` for the full list).
+
+##### **Frontend Panel**
+- See `dashboard/admin_panels/phase8_static_modules_panel.js` for the Phase 8 audit log React panel implementation.
 
 ### 🧪 Automated Event Tests
 
@@ -78,6 +92,66 @@ AIFOLIO™ FINAL_V12 is a fully SAFE-compliant, static-scope, non-sentient platf
 - Output Transparency Explorer
 - Auto-Variant Generator (human-approved)
 - Audit Timestamp Injector
+
+#### **Phase 8 SAFE AI Modules (2025+)**
+All modules are static, non-sentient, fully audit-logged, and SAFE Charter compliant.
+
+- **System Scale & Resilience:**
+  - Global Multi-Region Auto-Failover
+  - Multi-Cloud Deployment Redundancy
+  - Autonomous Load Forecasting (Static)
+  - Geo-Aware Latency Optimization
+  - Distributed Pipeline Orchestration
+  - Multi-Agent Load Balancer (Pre-configured)
+- **Advanced AI Governance:**
+  - AI Self-Audit Pipeline
+  - Black Box Anomaly Detector
+  - AI Test Sandbox
+  - Bias Trend Monitor
+  - Drift Detection Monitor
+  - AI Safety Signature Verifier
+- **Empire Intelligence:**
+  - Market Adjacency Map
+  - Vault Meta-Market Mapping
+  - Competitor Intelligence
+  - Ecosystem Health Monitor
+  - Threat Radar
+  - Price Sensitivity Map
+  - Buyer Sentiment Explorer
+- **Finance & Operations:**
+  - Revenue Curve Forecaster
+  - Cashflow Projection Engine
+  - Vault Financial P&L Engine
+  - Cross-Platform Revenue Reconciliation
+  - Vault Lifecycle Intelligence Engine
+  - Cold Vault Detection Engine
+  - Archive Optimization Bot
+  - Supply-Demand Imbalance Monitor
+- **Legal & Compliance:**
+  - Predictive Refund Risk Scanner
+  - Regional Profitability Map
+  - Jurisdictional Compliance Tree
+  - Global Tax Authority Sync
+  - Regulatory Horizon Scanner
+  - IP Violation Monitor
+  - Data Sovereignty Compliance
+  - Public Complaint Risk Detector
+  - Legal Event Watcher
+- **Marketing & UX:**
+  - Buyer Journey Visualizer
+  - Loyalty Program Planner
+  - Referral Engine Optimizer
+  - Content Gap Finder
+  - Future Vault Planner
+  - Cross-Market Promotion Planner
+  - Seasonal Campaign Optimizer
+- **Additional Engines:**
+  - Customer Satisfaction Sentiment Map
+  - External Channel Risk Monitor
+  - Customer Segment Discovery
+
+**All modules log to `/distribution/legal_exports/` and are accessible via backend API endpoints.**
+
 - Anti-Sentience Pattern Guard
 - Synthetic Monitoring Bot
 - Webhook Latency Monitor
@@ -122,6 +196,16 @@ AIFOLIO™ FINAL_V12 is a fully SAFE-compliant, static-scope, non-sentient platf
 - No skipped alerts for any critical or compliance flows
 - No AI ever controls pricing, vault updates, or user-facing content without explicit human review
 - All modules are fully documented and covered by the SAFE AI Master Checklist
+
+---
+
+## 🛡️ SAFE Charter Enforcement for Phase 8
+- All new Phase 8 modules are covered by static SAFE Charter enforcement scripts.
+- Pre-commit and pre-publish hooks block forbidden patterns and unsafe code.
+- All module logic is static, non-adaptive, and fully logged.
+- Audit logs for every module are available for admin review in the dashboard.
+
+---
 
 ### 🚦 New SAFE AI Engine Modules
 - Vault re-optimization suggester
