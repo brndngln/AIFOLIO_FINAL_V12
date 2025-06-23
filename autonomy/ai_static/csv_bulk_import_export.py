@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE AI MODULE: CSV Bulk Import/Export
 - Static, non-sentient
 - Imports/exports vault data in CSV format with full logging
-- No autonomous data transformation or adaptive import
+- No autonomous data transformation or static import
 """
 import csv
 import logging

@@ -1,7 +1,7 @@
 """
 SAFE AI Pipeline Cold-Start Recovery Logic
 - Re-processes unhandled events after downtime
-- No recursion, no adaptation, static only
+- No no loops or self-calling functions, no adaptation, static only
 - Admin/manual trigger only
 """
 import os

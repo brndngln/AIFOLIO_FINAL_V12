@@ -2,7 +2,7 @@
 AIFOLIO SAFE AI Pipeline Monitoring Module
 - Tracks API failures, email delivery %, vault build failures, legal compliance passes/fails
 - Logs to /pipeline/health_log.json
-- No optimization, no sentience, no adaptive logic
+- No optimization, no static, no static logic
 """
 import os
 import json

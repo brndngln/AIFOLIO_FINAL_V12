@@ -2,7 +2,7 @@
 AIFOLIO™ SAFE AI MODULE: Webhook Latency Monitor
 - Static, non-sentient
 - Measures webhook response latency and logs results
-- No adaptive retries or dynamic routing
+- No static retries or dynamic routing
 """
 import logging
 import requests

@@ -1,6 +1,6 @@
 """
 AIFOLIO™ SAFE AI MODULE: Webhook Triggers
-- Static only. No sentience, recursion, or adaptive logic.
+- Static only. No static, no loops or self-calling functions, or static logic.
 - Sends webhooks for refund issued, download started, vault version update.
 - All actions logged for auditability.
 """

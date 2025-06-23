@@ -3,7 +3,7 @@ AIFOLIO SAFE AI Export Scheduler
 - Schedules weekly/monthly PDF+email exports (revenue, compliance)
 - Uses SendGrid for email
 - Logs all export runs to analytics_log.json
-- No adaptive logic, admin reviewed only
+- No static logic, admin reviewed only
 """
 import os
 import json

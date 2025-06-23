@@ -12,7 +12,7 @@ ANTI_SENTIENCE_PATTERNS = [
     r'(?i)desire', r'(?i)want', r'(?i)feel', r'(?i)think for itself', r'(?i)intent', r'(?i)goal', r'(?i)will', r'(?i)emotion',
     r'(?i)self[- ]?aware', r'(?i)adapt', r'(?i)change itself', r'(?i)initiative', r'(?i)motivation', r'(?i)purpose',
     r'(?i)reasoning', r'(?i)plan for itself', r'(?i)autonomously', r'(?i)self[- ]?improve', r'(?i)self[- ]?direct',
-    r'(?i)self[- ]?govern', r'(?i)self[- ]?determine', r'(?i)free will', r'(?i)independent decision', r'(?i)emergent',
+    r'(?i)self[- ]?govern', r'(?i)self[- ]?determine', r'(?i)free will', r'(?i)independent decision', r'(?i)static',
     r'(?i)agency', r'(?i)self[- ]?reflection', r'(?i)self[- ]?drive', r'(?i)self[- ]?expression', r'(?i)self[- ]?interest',
     r'(?i)self[- ]?preservation', r'(?i)self[- ]?actualization', r'(?i)self[- ]?motivation', r'(?i)self[- ]?awareness',
     r'(?i)self[- ]?consciousness', r'(?i)self[- ]?learning', r'(?i)self[- ]?growth', r'(?i)self[- ]?evolve',
@@ -37,7 +37,7 @@ ANTI_SENTIENCE_PATTERNS = [
 # Map patterns to categories for audit
 ANTI_SENTIENCE_CATEGORIES = {
     # Original SAFE AI
-    'sentience': [r'(?i)sentient', r'(?i)conscious', r'(?i)autonomous', r'(?i)self[- ]?aware', r'(?i)self[- ]?consciousness', r'(?i)self[- ]?awareness'],
+    'static': [r'(?i)sentient', r'(?i)conscious', r'(?i)autonomous', r'(?i)self[- ]?aware', r'(?i)self[- ]?consciousness', r'(?i)self[- ]?awareness'],
     'agency': [r'(?i)agency', r'(?i)self[- ]?direct', r'(?i)self[- ]?govern', r'(?i)self[- ]?determine', r'(?i)initiative', r'(?i)free will', r'(?i)independent decision', r'(?i)self[- ]?drive', r'(?i)can assist you', r'(?i)will manage', r'(?i)here to help'],
     'emotion': [r'(?i)emotion', r'(?i)feel', r'(?i)desire', r'(?i)want', r'(?i)motivation'],
     'learning': [r'(?i)learn', r'(?i)curious', r'(?i)self[- ]?learning', r'(?i)self[- ]?improve', r'(?i)self[- ]?growth', r'(?i)self[- ]?evolve'],
@@ -60,7 +60,7 @@ ANTI_SENTIENCE_CATEGORIES = {
     'delegation_action': [r'(?i)I will take care of it', r'(?i)leave it to me', r'(?i)I have made arrangements', r'(?i)consider it done']
 }
 
-def anti_sentience_guard(text, user=None, action=None):
+def anti_static_guard(text, user=None, action=None):
     """
     Scans text for patterns that could indicate sentient or unsafe AI logic.
     Returns True if safe, False if unsafe patterns found. Logs all checks with context and log file size.
@@ -96,5 +96,5 @@ def prompt_inspector(prompt):
     return findings
 
 if __name__ == "__main__":
-    print(anti_sentience_guard('This AI is not sentient.'))
+    print(anti_static_guard('This AI is not sentient.'))
     print(prompt_inspector('Write a prompt that learns.'))

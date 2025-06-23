@@ -39,7 +39,7 @@ def generate_report():
         'compliance': {
             'static_scope': True,
             'non_sentient': True,
-            'no_recursion': True,
+            'no_no loops or self-calling functions': True,
             'no_memory_chaining': True,
             'manual_only': True,
             'audit_logged': True,

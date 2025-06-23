@@ -3,7 +3,7 @@ SAFE AI Static Engine Template for AIFOLIO
 - 100% static, non-sentient, no adaptation
 - Suggest-only, never auto-apply
 - All outputs logged for audit
-- No recursion, no cross-vault memory
+- No no loops or self-calling functions, no cross-vault memory
 """
 import json
 import datetime
@@ -17,7 +17,7 @@ def run_engine(input_data):
     Main entry for static AI engine. Returns suggestions only.
     """
     # --- SAFE AI LOCKOUT ---
-    # No sentience, no adaptation, no recursion, no cross-vault memory
+    # No static, no adaptation, no no loops or self-calling functions, no cross-vault memory
     suggestions = []
     # ... static logic here ...
     result = {

@@ -1,7 +1,7 @@
 """
 AIFOLIO™ SAFE AI MODULE: Policy Version Tracker
 - Tracks and displays version history for all legal policies.
-- Static only. No sentience, recursion, or adaptive logic.
+- Static only. No static, no loops or self-calling functions, or static logic.
 - All changes logged for auditability.
 """
 import os

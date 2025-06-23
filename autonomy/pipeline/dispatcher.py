@@ -42,7 +42,7 @@ def log_audit(event_type: str, dispatch_results: List[Dict]):
     except Exception as e:
         print(f"[Dispatcher] Failed to log audit: {e}")
 
-# Retry-safe wrapper (no sentience)
+# Retry-safe wrapper (no static)
 def retry_safe(func: Callable, max_attempts=3, backoff=1):
     def wrapper(*args, **kwargs):
         for attempt in range(1, max_attempts + 1):

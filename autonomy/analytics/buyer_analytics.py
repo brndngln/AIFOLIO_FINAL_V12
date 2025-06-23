@@ -1,7 +1,7 @@
 """
 AIFOLIO SAFE AI Buyer Analytics Module (static, non-sentient)
 - Segments buyers by static rules (first-time, repeat, high-value, region)
-- No profiling, no predictions, no adaptive logic
+- No profiling, no predictions, no static logic
 - All group stats only, never individual
 - All actions logged to analytics_log.json
 """

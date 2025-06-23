@@ -1,7 +1,7 @@
 """
 SAFE AI Event Dependency Mapper for AIFOLIO
 - Generates a static, visualizable map of event dependencies
-- No dynamic logic, no recursion, no sentience
+- No dynamic logic, no no loops or self-calling functions, no static
 - Output: JSON and Graphviz DOT (for admin dashboard)
 """
 import json

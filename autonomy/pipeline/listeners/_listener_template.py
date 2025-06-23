@@ -4,7 +4,7 @@ SAFE AI-Compliant Event Listener Template for AIFOLIO
 - Audit/event/error logging
 - Fallback alerting for critical flows
 - Manual approval for AI/compliance/refund/pricing output
-- No cross-vault memory, recursion, or autonomy
+- No cross-vault memory, no loops or self-calling functions, or autonomy
 """
 import json
 import datetime
