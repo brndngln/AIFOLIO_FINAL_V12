@@ -195,11 +195,21 @@ def trigger_price_test_and_update_metadata(vault_path: str, vault_id: str, metad
         print(f"[PriceTest] No update to vault {vault_id} price due to insufficient data.")
 
 
+import logging
+
 def push_price_test_result_to_dashboard(vault_id: str, best_price: float):
-    # TODO: Implement dashboard push
-    pass
+    """
+    Push price test result to dashboard (stub).
+    Replace this with actual dashboard integration.
+    """
+    logging.info(f"[Stub] Would push price test result to dashboard for vault {vault_id}: best price = {best_price}")
+    # Extension point: integrate with dashboard API/service here
 
 
 def push_price_test_result_to_analytics(vault_id: str, best_price: float, metadata: dict):
-    # TODO: Implement analytics push
-    pass
+    """
+    Push price test result to analytics (stub).
+    Replace this with actual analytics integration.
+    """
+    logging.info(f"[Stub] Would push price test result to analytics for vault {vault_id}: best price = {best_price}, metadata = {metadata}")
+    # Extension point: integrate with analytics API/service here

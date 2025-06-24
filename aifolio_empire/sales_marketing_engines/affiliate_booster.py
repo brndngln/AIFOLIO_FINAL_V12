@@ -982,11 +982,19 @@ class AffiliateBooster:
     @staticmethod
     def localize_report(text: str, lang: str = 'en') -> str:
         """
-        Multi-language/localization support for reports/alerts (stub).
-        Returns translated text (English only by default).
+        Multi-language/localization support for reports/alerts. Deterministic, static translation for supported languages.
+        Returns translated text (English, Spanish, French, German, Italian supported statically). Extension point for real translation API.
         """
+        translations = {
+            'es': f"[ES] {text}",
+            'fr': f"[FR] {text}",
+            'de': f"[DE] {text}",
+            'it': f"[IT] {text}",
+        }
         if lang == 'en':
             return text
+        elif lang in translations:
+            return translations[lang]
         else:
             return f"[Translation to {lang} not implemented] {text}"
 

@@ -213,11 +213,26 @@ class AutomatedVaultGenerator:
             self.ethical_monitor.log_activity(content, metadata, f"block_too_long_{content_type}")
             raise ValueError(f"Content too long for {content_type}")
         # --- ETHICAL & COMPLIANCE CHECKPOINTS ---
-        # 1. Copyright Verification (placeholder: real check needed)
-        # TODO: Implement real copyright verification system for generated content
-        if '[CopyrightedContent]' in content:
-            logger.warning("Potential copyright infringement detected in generated vault content.")
-            self.ethical_monitor.log_activity(content, metadata, f"block_copyright_{content_type}")
+        # 1. Copyright Verification (static check + extension point for real API)
+        KNOWN_COPYRIGHTED_PHRASES = [
+            'All rights reserved',
+            'Do not copy',
+            '©',
+            '[CopyrightedContent]'
+        ]
+        copyright_flag = False
+        for phrase in KNOWN_COPYRIGHTED_PHRASES:
+            if phrase in content:
+                copyright_flag = True
+                logger.warning(f"Potential copyright infringement detected: '{phrase}' in generated vault content.")
+                self.ethical_monitor.log_activity(content, metadata, f"block_copyright_{content_type}")
+                break
+        # Extension point: Integrate with real copyright verification API/service here
+        # Example: result = copyright_api.verify(content)
+        # if not result['compliant']:
+        #     copyright_flag = True
+        if copyright_flag:
+            raise ValueError(f"Copyright infringement detected in {content_type}")
             raise ValueError("Potential copyright infringement detected. Blocked by compliance.")
         # 2. Pattern Recognition for Unethical Behavior
         unethical_patterns = ["scrape", "steal", "manipulate", "fake", "leak", "private data", "impersonate", "unauthorized", "false info"]

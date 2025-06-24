@@ -89,16 +89,18 @@ def notify_discord(message):
     return resp.ok
 
 def export_to_google_sheets(sheet_id, values):
-    """Export data to Google Sheets (stub; use Sheets API for real)."""
-    print(f"[Google Sheets] Would export to sheet {sheet_id}: {values}")
-    # Real implementation would use google-api-python-client
-    return True
+    """Export data to Google Sheets (static simulation; extension point for Sheets API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info(f"[Google Sheets] Simulated export to sheet {sheet_id}: {values}")
+    # Extension point: integrate with Google Sheets API
+    return {"status": "simulated", "sheet_id": sheet_id, "values": values}
 
 def export_to_airtable(base_id, table_name, record):
-    """Export data to Airtable (stub; use Airtable API for real)."""
-    print(f"[Airtable] Would export to base {base_id}, table {table_name}: {record}")
-    # Real implementation would use requests with Airtable API
-    return True
+    """Export data to Airtable (static simulation; extension point for Airtable API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info(f"[Airtable] Simulated export to base {base_id}, table {table_name}: {record}")
+    # Extension point: integrate with Airtable API
+    return {"status": "simulated", "base_id": base_id, "table": table_name, "record": record}
 
 def trigger_zapier_webhook(payload):
     """Trigger a Zapier automation via webhook."""
@@ -111,25 +113,41 @@ def trigger_zapier_webhook(payload):
 
 # --- E-commerce platform stubs ---
 def fetch_gumroad_sales():
-    """Fetch sales data from Gumroad (stub)."""
-    print("[Gumroad] Would fetch sales data via API.")
-    # Real implementation: requests.get with GUMROAD_TOKEN
-    return []
+    """Fetch sales data from Gumroad (static simulation; extension point for Gumroad API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info("[Gumroad] Simulated fetch of Gumroad sales.")
+    # Extension point: integrate with Gumroad API
+    return [
+        {"id": "sale_001", "amount": 1000, "currency": "USD", "status": "paid", "date": "2025-06-21"},
+        {"id": "sale_002", "amount": 2500, "currency": "USD", "status": "pending", "date": "2025-06-22"}
+    ]
 
 def fetch_shopify_orders():
-    """Fetch orders from Shopify (stub)."""
-    print("[Shopify] Would fetch orders via API.")
-    # Real implementation: requests.get with SHOPIFY_API_KEY and SHOPIFY_PASSWORD
-    return []
+    """Fetch orders from Shopify (static simulation; extension point for Shopify API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info("[Shopify] Simulated fetch of Shopify orders.")
+    # Extension point: integrate with Shopify API
+    return [
+        {"id": "order_001", "amount": 1000, "currency": "USD", "status": "paid", "date": "2025-06-21"},
+        {"id": "order_002", "amount": 2500, "currency": "USD", "status": "pending", "date": "2025-06-22"}
+    ]
 
 def fetch_woocommerce_orders():
-    """Fetch orders from WooCommerce (stub)."""
-    print("[WooCommerce] Would fetch orders via API.")
-    # Real implementation: requests.get with WOOCOMMERCE_KEY and WOOCOMMERCE_SECRET
-    return []
+    """Fetch orders from WooCommerce (static simulation; extension point for WooCommerce API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info("[WooCommerce] Simulated fetch of WooCommerce orders.")
+    # Extension point: integrate with WooCommerce API
+    return [
+        {"id": "order_001", "amount": 1000, "currency": "USD", "status": "paid", "date": "2025-06-21"},
+        {"id": "order_002", "amount": 2500, "currency": "USD", "status": "pending", "date": "2025-06-22"}
+    ]
 
 def fetch_stripe_payouts():
-    """Fetch payouts from Stripe (stub)."""
-    print("[Stripe] Would fetch payouts via API.")
-    # Real implementation: requests.get with STRIPE_API_KEY
-    return []
+    """Fetch payouts from Stripe (static simulation; extension point for Stripe API)."""
+    logger = logging.getLogger("integrations.third_party_integrations")
+    logger.info("[Stripe] Simulated fetch of Stripe payouts.")
+    # Extension point: integrate with Stripe API
+    return [
+        {"id": "payout_001", "amount": 1000, "currency": "USD", "status": "paid", "date": "2025-06-21"},
+        {"id": "payout_002", "amount": 2500, "currency": "USD", "status": "pending", "date": "2025-06-22"}
+    ]

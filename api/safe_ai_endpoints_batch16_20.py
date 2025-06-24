@@ -96,18 +96,50 @@ def get_real_vault_licensing_data():
                 except Exception:
                     continue
     return [{'region': r, 'licensed_vaults': v} for r, v in region_licenses.items()]
+import logging
+
 def get_real_partner_api_legal_health_data():
-    # TODO: Replace with real DB/API call
-    return []
+    """
+    Returns static sample partner API legal health data.
+    Replace with real DB/API integration as needed.
+    """
+    logging.info("Fetching partner API legal health data (static sample)")
+    return [
+        {"partner": "Acme Corp", "legal_health": "compliant", "last_audit": "2025-06-01"},
+        {"partner": "Globex", "legal_health": "pending", "last_audit": "2025-05-15"}
+    ]
 def get_real_global_vault_ecosystem_maturity_data():
-    # TODO: Replace with real DB/API call
-    return {}
+    """
+    Returns static sample vault ecosystem maturity data.
+    Replace with real DB/API integration as needed.
+    """
+    logging.info("Fetching global vault ecosystem maturity data (static sample)")
+    return {
+        "ecosystem_score": 87,
+        "maturity_level": "advanced",
+        "regions": ["US", "EU", "APAC"]
+    }
 def get_real_annual_exec_summary_data():
-    # TODO: Replace with real DB/API call
-    return {}
+    """
+    Returns static sample annual executive summary data.
+    Replace with real DB/API integration as needed.
+    """
+    logging.info("Fetching annual executive summary data (static sample)")
+    return {
+        "year": 2025,
+        "summary": "Record growth in all regions. Compliance maintained.",
+        "audited": True
+    }
 def get_real_ceo_dashboard_data():
-    # TODO: Replace with real DB/API call
-    return {}
+    """
+    Returns static sample CEO dashboard data.
+    Replace with real DB/API integration as needed.
+    """
+    logging.info("Fetching CEO dashboard data (static sample)")
+    return {
+        "kpi": {"revenue": 1000000, "active_users": 12000, "compliance": "100%"},
+        "alerts": []
+    }
 def get_real_business_impact_map_data():
     # TODO: Replace with real DB/API call
     return []
