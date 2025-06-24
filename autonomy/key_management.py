@@ -12,7 +12,10 @@ KEY_ROTATION_LOG = "distribution/legal_exports/phase9_api_key_rotation.log"
 
 DEFAULT_KEYS = {
     "PHASE9SAFEKEY": "admin",
-    "PHASE9VIEWER": "viewer"
+    "PHASE9VIEWER": "viewer",
+    "PHASE9AUDITOR": "auditor",
+    "PHASE9MAINTAINER": "maintainer",
+    "PHASE9DISABLED": "disabled"
 }
 
 def load_keys():

@@ -69,6 +69,47 @@ def get_audit_log(request: Request, key: str = None, action: str = None, date: s
 # --- Key Management Endpoints (SAFE AI static) ---
 from fastapi import Body
 
+# --- Advanced Analytics Endpoint ---
+from autonomy import analytics
+
+@app.get("/phase9/analytics")
+def get_phase9_analytics(request: Request):
+    role = check_api_key(request, "/phase9/analytics", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_analytics", "/phase9/analytics")
+    return stats
+
+@app.get("/phase9/analytics/endpoints")
+def get_phase9_endpoint_breakdown(request: Request):
+    role = check_api_key(request, "/phase9/analytics/endpoints", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_endpoints", "/phase9/analytics/endpoints")
+    return stats.get('endpoint_breakdown', {})
+
+@app.get("/phase9/analytics/timeseries")
+def get_phase9_timeseries(request: Request):
+    role = check_api_key(request, "/phase9/analytics/timeseries", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_timeseries", "/phase9/analytics/timeseries")
+    return stats.get('time_series', {})
+
+from fastapi.responses import PlainTextResponse
+
+@app.get("/phase9/analytics/export_csv", response_class=PlainTextResponse)
+def export_phase9_csv(request: Request):
+    role = check_api_key(request, "/phase9/analytics/export_csv", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    csv = analytics.export_csv()
+    log_api_key_usage(request.headers.get("Authorization", ""), "export_csv", "/phase9/analytics/export_csv")
+    return csv
+
 @app.get("/phase9/keys")
 def list_api_keys(request: Request):
     role = check_api_key(request, "/phase9/keys", "GET")

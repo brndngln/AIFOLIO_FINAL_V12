@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import Phase9RoleBadge from "./Phase9RoleBadge";
+import Phase9AnalyticsPanel from "./Phase9AnalyticsPanel";
+
 export default function Phase9KeyAdminPanel({ apiBase = "http://localhost:8090" }) {
   const [keys, setKeys] = useState({});
   const [newKey, setNewKey] = useState("");
@@ -53,24 +56,39 @@ export default function Phase9KeyAdminPanel({ apiBase = "http://localhost:8090" 
     }
   };
 
+  // Determine if current user is admin (by API key in keys list)
+  const apiKey = localStorage.getItem('phase9_api_key') || '';
+  const userRole = keys[apiKey] || null;
+
   return (
     <div style={{border:'1px solid #bbb', borderRadius:8, padding:16, marginBottom:24, background:'#f9fafd'}}>
-      <h3>Phase 9+ API Key Management</h3>
-      <div style={{marginBottom:12}}>
-        <input value={newKey} onChange={e => setNewKey(e.target.value)} placeholder="New API Key" style={{width:180,marginRight:8}} />
+      <h3 style={{marginBottom:8}}>Phase 9+ API Key Management</h3>
+      {userRole === 'admin' && (
+        <>
+          <div style={{marginBottom:16, borderBottom:'1px solid #e6e6e6', paddingBottom:8}}>
+            <Phase9AnalyticsPanel apiBase={apiBase} />
+          </div>
+        </>
+      )}
+      <div style={{marginBottom:12, display:'flex', alignItems:'center', gap:8, borderBottom:'1px solid #e6e6e6', paddingBottom:8}}>
+        <input value={newKey} onChange={e => setNewKey(e.target.value)} placeholder="New API Key" style={{width:180}} />
         <select value={newRole} onChange={e => setNewRole(e.target.value)}>
           <option value="admin">admin</option>
           <option value="viewer">viewer</option>
+          <option value="auditor">auditor</option>
+          <option value="maintainer">maintainer</option>
+          <option value="disabled">disabled</option>
         </select>
-        <button onClick={handleAdd} disabled={!newKey}>Add Key</button>
+        <button onClick={handleAdd} disabled={!newKey || newRole === 'disabled'}>Add Key</button>
       </div>
       <div style={{marginBottom:8}}>
         <b>Current Keys:</b>
         <ul style={{margin:0, paddingLeft:18}}>
           {Object.entries(keys).map(([k, r]) => (
-            <li key={k} style={{marginBottom:4}}>
-              <span style={{fontFamily:'monospace'}}>{k}</span> ({r})
-              <button onClick={() => handleRemove(k)} style={{marginLeft:8}}>Remove</button>
+            <li key={k} style={{marginBottom:4, display:'flex', alignItems:'center'}}>
+              <span style={{fontFamily:'monospace'}}>{k}</span>
+              <Phase9RoleBadge role={r} />
+              <button onClick={() => handleRemove(k)} style={{marginLeft:8}} disabled={r === 'disabled'}>Remove</button>
             </li>
           ))}
         </ul>
