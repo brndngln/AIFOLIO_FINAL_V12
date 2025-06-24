@@ -292,6 +292,26 @@ def rotate_api_key(key: str, request: Request, payload: dict = Body(None)):
 
 {{ ... }}
 from autonomy import audit_stream
+from autonomy.analytics import custom_report_builder
+from autonomy.integrations import stripe_connector, notion_connector, slack_connector, xbrl_connector
+
+@app.get("/phase10/integrations/stripe")
+def export_stripe_transactions(tenant_id: str):
+    return stripe_connector.export_stripe_transactions(tenant_id)
+
+@app.get("/phase10/integrations/notion")
+def export_notion_data(tenant_id: str):
+    return notion_connector.export_notion_data(tenant_id)
+
+@app.post("/phase10/integrations/slack")
+def send_slack_notification(tenant_id: str, message: str):
+    return slack_connector.send_slack_notification(tenant_id, message)
+
+@app.get("/phase10/integrations/xbrl")
+def export_xbrl_report(tenant_id: str):
+    return xbrl_connector.export_xbrl_report(tenant_id)
+
+from autonomy import audit_stream
 from autonomy.analytics.per_admin_audit_trail import log_admin_action
 import csv
 import secrets, datetime, os, json

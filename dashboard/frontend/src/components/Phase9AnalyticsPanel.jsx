@@ -572,6 +572,190 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
         </div>
       )}
 
+      {/* --- PHASE 10+ TENANT/WHITE-LABEL CONTROLS --- */}
+      <div style={{margin:'20px 0',padding:'10px',border:'1px solid #d4eaff',borderRadius:7,background:'#fafdff',color:'#195080'}}>
+        <b>Tenant/Brand Switcher:</b> <span style={{fontSize:12}}>(Multi-tenant, white-label, static)</span>
+        <div style={{margin:'8px 0'}}>
+          <select value={tenantId} onChange={e=>setTenantId(e.target.value)} aria-label="Select Tenant">
+            {tenantList.map(t=>(<option value={t.id} key={t.id}>{t.name}</option>))}
+          </select>
+          <span style={{marginLeft:10}}>
+            {tenantConfig.logo && <img src={tenantConfig.logo} alt="Logo" style={{height:24,verticalAlign:'middle',marginRight:8}}/>}
+            <b style={{color:tenantConfig.color}}>{tenantConfig.name}</b>
+          </span>
+        </div>
+        <div style={{fontSize:13,margin:'6px 0'}}>
+          <span title="SAFE AI Compliance Statement">🛡️</span> {tenantConfig.compliance_statement}
+        </div>
+        <div style={{fontSize:12,margin:'4px 0'}}>
+          {tenantConfig.legal_docs && tenantConfig.legal_docs.map((l,i)=>(<a key={i} href={l} target="_blank" rel="noopener noreferrer" style={{marginRight:8}}>{l.replace('/legal/','').replace('.md','').replace('_',' ').toUpperCase()}</a>))}
+        </div>
+        <div style={{marginTop:8}}>
+          <b>Enabled Modules:</b> {enabledModules.join(', ')}
+        </div>
+        <div style={{marginTop:8}}>
+          {/* Admin-only: Module toggles */}
+          {isAdmin && Object.keys(allModules).map(m=>(
+            <label key={m} style={{marginRight:10}}>
+              <input type="checkbox" checked={enabledModules.includes(m)} onChange={e=>toggleModule(m,e.target.checked)} aria-label={`Toggle module ${m}`}/>
+              {allModules[m]}
+            </label>
+          ))}
+        </div>
+      </div>
+      {/* --- PHASE 10+ WEBHOOKS, REPORTING, ADVANCED INTEGRATIONS --- */}
+      <div style={{margin:'22px 0',padding:'13px',border:'1px solid #e5e5e5',borderRadius:7,background:'#f8fafd',color:'#1a3c60'}}>
+        <b>Custom Hooks & Advanced Reporting</b> <span style={{fontSize:12}}>(SAFE AI, static, white-label, future-proof)</span>
+        <div style={{margin:'10px 0',padding:'8px',background:'#eef7fa',borderRadius:6}}>
+          <b>Webhook Management</b> <span title="Configure outbound webhooks for compliance, vault, onboarding, admin events">🪝</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const res = await fetch(`${apiBase}/phase10/webhook/get?tenant_id=${tenantId}`);
+              alert('Webhooks: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="View Webhook Config">View Config</button>
+            {['compliance','vault_export','onboarding','admin_action'].map(ev=>(
+              <button key={ev} onClick={async()=>{
+                const url = prompt(`Set webhook URL for event '${ev}'`);
+                if (!url) return;
+                await fetch(`${apiBase}/phase10/webhook/set`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,event:ev,url})});
+                alert('Webhook set.');
+              }} aria-label={`Set webhook for ${ev}`}>Set {ev}</button>
+            ))}
+            {['compliance','vault_export','onboarding','admin_action'].map(ev=>(
+              <button key={ev+"trigger"} onClick={async()=>{
+                const payload = {timestamp:Date.now(),event:ev,tenant:tenantId};
+                const res = await fetch(`${apiBase}/phase10/webhook/trigger`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,event:ev,payload})});
+                alert('Webhook Triggered: '+JSON.stringify(await res.json(),null,2));
+              }} aria-label={`Trigger webhook for ${ev}`}>Trigger {ev}</button>
+            ))}
+          </div>
+        </div>
+        <div style={{margin:'10px 0',padding:'8px',background:'#f3f7f0',borderRadius:6}}>
+          <b>Custom Report Builder</b> <span title="Build custom analytics/compliance/finance reports per tenant">📄</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const mods = prompt('Enter modules (comma separated, e.g. vault,analytics,compliance)');
+              const fields = prompt('Enter fields (comma separated, e.g. balance,compliance_status,forecast)');
+              if (!mods || !fields) return;
+              const modules = mods.split(',').map(x=>x.trim());
+              const flds = fields.split(',').map(x=>x.trim());
+              const res = await fetch(`${apiBase}/phase10/report/custom`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,modules,flds})});
+              const data = await res.json();
+              alert('Custom Report: '+JSON.stringify(data,null,2));
+            }} aria-label="Build Custom Report">Build Report</button>
+            <button onClick={async()=>{
+              const mods = prompt('Export modules (comma separated)');
+              const fields = prompt('Export fields (comma separated)');
+              const format = prompt('Export format (pdf, csv, json)');
+              if (!mods || !fields || !format) return;
+              // Simulate export (static)
+              alert(`Exported report for modules: ${mods}, fields: ${fields}, format: ${format}`);
+            }} aria-label="Export Custom Report">Export Report</button>
+          </div>
+        </div>
+        <div style={{margin:'10px 0',padding:'8px',background:'#f9f7f0',borderRadius:6}}>
+          <b>Scheduled Reporting</b> <span title="Configure static scheduled reports per tenant">⏰</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const schedule = prompt('Enter schedule (e.g. daily, weekly, cron)');
+              if (!schedule) return;
+              await fetch(`${apiBase}/phase10/report/schedule`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,schedule:{type:schedule}})});
+              alert('Schedule set.');
+            }} aria-label="Set Report Schedule">Set Schedule</button>
+            <button onClick={async()=>{
+              alert('Static: Schedule is set per admin input, not persisted.');
+            }} aria-label="View Report Schedule">View Schedule</button>
+          </div>
+        </div>
+        <div style={{margin:'10px 0',padding:'8px',background:'#f7f3fa',borderRadius:6}}>
+          <b>SaaS Integrations</b> <span title="Export or notify via Stripe, Notion, Slack, XBRL">🔌</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const res = await fetch(`${apiBase}/phase10/integrations/stripe?tenant_id=${tenantId}`);
+              alert('Stripe Transactions: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="Export Stripe Transactions" title="Export static Stripe transactions for tenant">Stripe Export</button>
+            <button onClick={async()=>{
+              const res = await fetch(`${apiBase}/phase10/integrations/notion?tenant_id=${tenantId}`);
+              alert('Notion Data: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="Export Notion Data" title="Export static Notion data for tenant">Notion Export</button>
+            <button onClick={async()=>{
+              const msg = prompt('Enter Slack message to send');
+              if (!msg) return;
+              const res = await fetch(`${apiBase}/phase10/integrations/slack`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,message:msg})});
+              alert('Slack Notification: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="Send Slack Notification" title="Send static Slack notification for tenant">Slack Notify</button>
+            <button onClick={async()=>{
+              const res = await fetch(`${apiBase}/phase10/integrations/xbrl?tenant_id=${tenantId}`);
+              alert('XBRL Report: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="Export XBRL Report" title="Export static XBRL report for tenant">XBRL Export</button>
+          </div>
+        </div>
+      </div>
+      {/* --- PHASE 10+ NEURO CORE & EMPIRE COMMAND --- */}
+      <div style={{margin:'22px 0',padding:'13px',border:'1px solid #e5e5e5',borderRadius:7,background:'#f8fafd',color:'#1a3c60'}}>
+        <b>Custom Hooks & Advanced Reporting</b> <span style={{fontSize:12}}>(SAFE AI, static, white-label, future-proof)</span>
+        <div style={{margin:'10px 0',padding:'8px',background:'#eef7fa',borderRadius:6}}>
+          <b>Webhook Management</b> <span title="Configure outbound webhooks for compliance, vault, onboarding, admin events">🪝</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const res = await fetch(`${apiBase}/phase10/webhook/get?tenant_id=${tenantId}`);
+              alert('Webhooks: '+JSON.stringify(await res.json(),null,2));
+            }} aria-label="View Webhook Config">View Config</button>
+            {['compliance','vault_export','onboarding','admin_action'].map(ev=>(
+              <button key={ev} onClick={async()=>{
+                const url = prompt(`Set webhook URL for event '${ev}'`);
+                if (!url) return;
+                await fetch(`${apiBase}/phase10/webhook/set`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,event:ev,url})});
+                alert('Webhook set.');
+              }} aria-label={`Set webhook for ${ev}`}>Set {ev}</button>
+            ))}
+            {['compliance','vault_export','onboarding','admin_action'].map(ev=>(
+              <button key={ev+"trigger"} onClick={async()=>{
+                const payload = {timestamp:Date.now(),event:ev,tenant:tenantId};
+                const res = await fetch(`${apiBase}/phase10/webhook/trigger`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,event:ev,payload})});
+                alert('Webhook Triggered: '+JSON.stringify(await res.json(),null,2));
+              }} aria-label={`Trigger webhook for ${ev}`}>Trigger {ev}</button>
+            ))}
+          </div>
+        </div>
+        <div style={{margin:'10px 0',padding:'8px',background:'#f3f7f0',borderRadius:6}}>
+          <b>Custom Report Builder</b> <span title="Build custom analytics/compliance/finance reports per tenant">📄</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const mods = prompt('Enter modules (comma separated, e.g. vault,analytics,compliance)');
+              const fields = prompt('Enter fields (comma separated, e.g. balance,compliance_status,forecast)');
+              if (!mods || !fields) return;
+              const modules = mods.split(',').map(x=>x.trim());
+              const flds = fields.split(',').map(x=>x.trim());
+              const res = await fetch(`${apiBase}/phase10/report/custom`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,modules,flds})});
+              const data = await res.json();
+              alert('Custom Report: '+JSON.stringify(data,null,2));
+            }} aria-label="Build Custom Report">Build Report</button>
+            <button onClick={async()=>{
+              const mods = prompt('Export modules (comma separated)');
+              const fields = prompt('Export fields (comma separated)');
+              const format = prompt('Export format (pdf, csv, json)');
+              if (!mods || !fields || !format) return;
+              // Simulate export (static)
+              alert(`Exported report for modules: ${mods}, fields: ${fields}, format: ${format}`);
+            }} aria-label="Export Custom Report">Export Report</button>
+          </div>
+        </div>
+        <div style={{margin:'10px 0',padding:'8px',background:'#f9f7f0',borderRadius:6}}>
+          <b>Scheduled Reporting</b> <span title="Configure static scheduled reports per tenant">⏰</span>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center',margin:'6px 0'}}>
+            <button onClick={async()=>{
+              const schedule = prompt('Enter schedule (e.g. daily, weekly, cron)');
+              if (!schedule) return;
+              await fetch(`${apiBase}/phase10/report/schedule`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tenant_id:tenantId,schedule:{type:schedule}})});
+              alert('Schedule set.');
+            }} aria-label="Set Report Schedule">Set Schedule</button>
+            <button onClick={async()=>{
+              alert('Static: Schedule is set per admin input, not persisted.');
+            }} aria-label="View Report Schedule">View Schedule</button>
+          </div>
+        </div>
+      </div>
       {/* --- PHASE 10+ NEURO CORE & EMPIRE COMMAND --- */}
       <div style={{margin:'24px 0',padding:'14px',border:'1px solid #b3d4fc',borderRadius:7,background:'#f5faff',color:'#195080'}}>
         <b>PHASE 10+ EMPIRE COMMANDS:</b> <span style={{fontSize:12}}>(SAFE AI, static, read-only, future-proof)</span>
