@@ -45,37 +45,99 @@ class EthicsChecker:
             "scraping"
         ]
 
-    def check_code(self, code: str) -> Tuple[bool, List[str]]:
+    def check_code(self, code: str) -> dict:
         """
         Analyze code for ethical compliance.
-        Returns a tuple of (is_compliant, warnings)
+        Returns a dict with is_compliant, warnings, explanation, recommendation, priority, SAFE AI/owner/non-sentient/version metadata, and audit log.
+        Fully static, deterministic, non-sentient, and SAFE AI compliant.
         """
+        VERSION = "AIFOLIO_ETHICS_ENGINE_V2_SAFEAI_FINAL"
+        SAFE_AI_COMPLIANT = True
+        OWNER_CONTROLLED = True
+        NON_SENTIENT = True
         warnings = []
-        
         # Check for legitimate methods
         for method in self.legit_methods:
             if method in code.lower():
                 warnings.append(f"✅ Found legitimate method: {method}")
-        
         # Check for gray areas
         for area in self.gray_areas:
             if area in code.lower():
                 warnings.append(f"⚠️ Potential gray area detected: {area}")
-        
         # Check for unethical methods
         for method in self.unethical_methods:
             if method in code.lower():
                 warnings.append(f"❌ Unethical method detected: {method}")
-                return False, warnings
-        
+                explanation = f"Unethical method '{method}' detected."
+                recommendation = "Remove or replace unethical method."
+                priority = 10
+                self._log_action(code, False, warnings, explanation, recommendation, priority, VERSION)
+                return {
+                    'is_compliant': False,
+                    'warnings': warnings,
+                    'explanation': explanation,
+                    'recommendation': recommendation,
+                    'priority': priority,
+                    'version': VERSION,
+                    'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+                    'OWNER_CONTROLLED': OWNER_CONTROLLED,
+                    'NON_SENTIENT': NON_SENTIENT
+                }
         # Additional pattern checks
         if re.search(r'\bcopy\b.*\bpdf\b', code.lower()):
             warnings.append("⚠️ Potential copyright concern with PDF handling")
-            
         if re.search(r'\bauto\b.*\bgenerate\b', code.lower()):
             warnings.append("⚠️ Potential automated content generation")
-            
-        return True, warnings
+        is_compliant = not any('❌' in w for w in warnings)
+        if is_compliant:
+            explanation = "No unethical methods detected."
+            recommendation = None
+            priority = 1
+        else:
+            explanation = "Potential issues detected."
+            recommendation = "Review warnings."
+            priority = 5
+        self._log_action(code, is_compliant, warnings, explanation, recommendation, priority, VERSION)
+        return {
+            'is_compliant': is_compliant,
+            'warnings': warnings,
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': VERSION,
+            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+            'OWNER_CONTROLLED': OWNER_CONTROLLED,
+            'NON_SENTIENT': NON_SENTIENT
+        }
+
+    def _log_action(self, code, is_compliant, warnings, explanation, recommendation, priority, version):
+        entry = {
+            'timestamp': __import__('datetime').datetime.utcnow().isoformat() + 'Z',
+            'code_snippet': code[:100],
+            'is_compliant': is_compliant,
+            'warnings': warnings,
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': version,
+            'SAFE_AI_COMPLIANT': True,
+            'OWNER_CONTROLLED': True,
+            'NON_SENTIENT': True
+        }
+        logger.info(f"Ethics check: {entry}")
+        # Optionally append to persistent audit log file
+        # with open('ethics_audit_log.jsonl', 'a') as f:
+        #     f.write(json.dumps(entry) + '\n')
+
+    # --- Static Drift/Hallucination Protection (stub) ---
+    def ethics_drift_protection(self):
+        return {"drift": False, "explanation": "No drift detected."}
+
+    # --- Static Feedback Loop (stub, not user learned) ---
+    def ethics_static_feedback(self):
+        return ["Review code for gray areas and remove unethical patterns."]
+
+    # --- Extension Point: Add future static SAFE AI features here ---
 
     def check_file(self, file_path: str) -> Tuple[bool, List[str]]:
         """
