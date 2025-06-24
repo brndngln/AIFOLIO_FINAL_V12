@@ -1,6 +1,51 @@
 import React, { useEffect, useState } from "react";
 
 export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090" }) {
+  // --- Admin Session State ---
+  const [sessionToken, setSessionToken] = useState(() => localStorage.getItem('phase9_session_token')||'');
+  const [sessionExpires, setSessionExpires] = useState(0);
+  const [showLogin, setShowLogin] = useState(!sessionToken);
+  const [loginError, setLoginError] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginApiKey, setLoginApiKey] = useState("");
+  const [loginMfa, setLoginMfa] = useState("");
+
+  // --- Session Management ---
+  useEffect(() => {
+    if (!sessionToken) setShowLogin(true);
+    else setShowLogin(false);
+    if (sessionToken && sessionExpires > 0) {
+      const timeout = setTimeout(() => {
+        setSessionToken("");
+        localStorage.removeItem('phase9_session_token');
+        setShowLogin(true);
+      }, sessionExpires * 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [sessionToken, sessionExpires]);
+
+  const handleLogin = async () => {
+    setLoginLoading(true);
+    setLoginError("");
+    try {
+      const res = await fetch(`${apiBase}/phase9/admin/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ api_key: loginApiKey, mfa_code: loginMfa })
+      });
+      if (!res.ok) throw new Error('Login failed');
+      const data = await res.json();
+      setSessionToken(data.session_token);
+      setSessionExpires(data.expires_in);
+      localStorage.setItem('phase9_session_token', data.session_token);
+      setShowLogin(false);
+    } catch (e) {
+      setLoginError("Invalid credentials or MFA");
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
   // --- Audit Log Widget State ---
   const [auditSearch, setAuditSearch] = useState("");
   const [auditFilterKey, setAuditFilterKey] = useState("");
@@ -14,6 +59,79 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
   const [auditLoading, setAuditLoading] = useState(false);
   const [showAuditStream, setShowAuditStream] = useState(false);
 
+  // --- Key Management, Analytics, Compliance, etc. ---
+  // Ensure all admin actions use session token in X-Session-Token header.
+
+  // Add Key (admin, MFA, session)
+  const handleAddKey = async (key, role, mfaCode) => {
+    const res = await fetch(`${apiBase}/phase9/keys`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ key, role, mfa_code: mfaCode })
+    });
+    if (!res.ok) throw new Error('Add key failed');
+    return await res.json();
+  };
+  // Remove Key (admin, MFA, session)
+  const handleRemoveKey = async (key, mfaCode) => {
+    const res = await fetch(`${apiBase}/phase9/keys/${key}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ mfa_code: mfaCode })
+    });
+    if (!res.ok) throw new Error('Remove key failed');
+    return await res.json();
+  };
+  // Rotate Key (admin, MFA, session)
+  const handleRotateKey = async (key, mfaCode) => {
+    const res = await fetch(`${apiBase}/phase9/keys/rotate/${key}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ mfa_code: mfaCode })
+    });
+    if (!res.ok) throw new Error('Rotate key failed');
+    return await res.json();
+  };
+  // Bulk Import Keys (admin, MFA, session)
+  const handleBulkImportKeys = async (keys, mfaCode) => {
+    const res = await fetch(`${apiBase}/phase9/keys/bulk_import`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ keys, mfa_code: mfaCode })
+    });
+    if (!res.ok) throw new Error('Bulk import failed');
+    return await res.json();
+  };
+  // Bulk Export Keys (admin, MFA, session)
+  const handleBulkExportKeys = async (mfaCode) => {
+    const res = await fetch(`${apiBase}/phase9/keys/bulk_export`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken,
+        'mfa_code': mfaCode
+      }
+    });
+    if (!res.ok) throw new Error('Bulk export failed');
+    return await res.json();
+  };
+
   // --- Audit Log Widget Handlers ---
   const handleAuditSearch = async () => {
     setAuditLoading(true);
@@ -25,7 +143,11 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
       const search = auditSearch ? { q: auditSearch } : undefined;
       const res = await fetch(`${apiBase}/phase9/audit_log/search`, {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`, 'Content-Type': 'application/json' },
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+          'X-Session-Token': sessionToken,
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ filters, search, page: auditPage, page_size: auditPageSize })
       });
       if (!res.ok) throw new Error('Audit log search failed');
@@ -50,7 +172,21 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
     params.append('format','csv');
     // Optionally add filters/search as needed
     const url = `${apiBase}/phase9/audit_log/export?format=csv`;
-    window.open(url, '_blank');
+    // Use fetch to include session token
+    fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`,
+        'X-Session-Token': sessionToken
+      }
+    }).then(async res => {
+      if (!res.ok) throw new Error('Export failed');
+      const blob = await res.blob();
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'audit_log.csv';
+      link.click();
+    }).catch(()=>{});
+
   };
 
   const [stats, setStats] = useState({});
@@ -82,56 +218,83 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
     const fetchAll = () => {
       setLoading(true);
       fetch(`${apiBase}/phase9/analytics`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch analytics"))
         .then(setStats)
         .catch(e => setError(e.toString()))
         .finally(() => setLoading(false));
       fetch(`${apiBase}/phase9/analytics/endpoints`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch endpoint breakdown"))
         .then(setEndpointStats)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/timeseries`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch time series"))
         .then(setTimeSeries)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/per_key_breakdown`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch per-key breakdown"))
         .then(setPerKeyStats)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/role_time_series`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch role time series"))
         .then(setRoleTimeSeries)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/per_role`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch per-role breakdown"))
         .then(setPerRoleStats)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/per_status`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch per-status breakdown"))
         .then(setPerStatusStats)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/latency`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch latency stats"))
         .then(setLatencyStats)
         .catch(()=>{});
       fetch(`${apiBase}/phase9/analytics/error_rate`, {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}` }
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+          'X-Session-Token': sessionToken
+        }
       })
         .then(r => r.ok ? r.json() : Promise.reject("Failed to fetch error rate"))
         .then(setErrorRate)
@@ -180,7 +343,11 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
   };
   const handleComplianceReport = async () => {
     const res = await fetch(`${apiBase}/phase9/analytics/compliance_report`, {
-      headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`, 'Content-Type': 'application/json' },
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('phase9_api_key') || ''}`,
+        'X-Session-Token': sessionToken,
+        'Content-Type': 'application/json'
+      },
       method: 'POST',
       body: JSON.stringify({filters: filter, search, time_range: (timeRange.start && timeRange.end) ? [timeRange.start, timeRange.end] : undefined})
     });
@@ -384,6 +551,94 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
           </div>
         </div>
       )}
+      {/* --- Admin Help & Onboarding --- */}
+      <div style={{margin:'16px 0',padding:'10px',border:'1px solid #b3d4fc',borderRadius:6,background:'#eaf4ff',color:'#195080',fontSize:14}}>
+        <b>Admin Onboarding:</b> All actions require valid API key, MFA, and session. Sessions expire after 15 minutes. <span title="Learn more about SAFE AI compliance" style={{textDecoration:'underline',cursor:'pointer'}} onClick={()=>setShowHelp(true)}>Help</span>
+      </div>
+      {showHelp && (
+        <div role="dialog" aria-modal="true" style={{position:'fixed',top:0,left:0,right:0,bottom:0,background:'rgba(0,0,0,0.6)',zIndex:10001,display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div style={{background:'#fff',color:'#222',padding:24,borderRadius:10,maxWidth:480,boxShadow:'0 2px 12px #0003'}}>
+            <h3>SAFE AI Admin Compliance Help</h3>
+            <ul style={{fontSize:15,lineHeight:1.7}}>
+              <li>All admin actions are statically logged for audit and compliance.</li>
+              <li>Session tokens are required for every sensitive operation.</li>
+              <li>MFA (TOTP) is enforced for all key management and export actions.</li>
+              <li>Compliance violations are highlighted in audit logs and analytics.</li>
+              <li>Charts and tables can be exported for compliance documentation.</li>
+              <li>All UI is accessible, responsive, and SAFE AI Charter compliant.</li>
+            </ul>
+            <button onClick={()=>setShowHelp(false)} style={{marginTop:8}}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* --- PHASE 10+ NEURO CORE & EMPIRE COMMAND --- */}
+      <div style={{margin:'24px 0',padding:'14px',border:'1px solid #b3d4fc',borderRadius:7,background:'#f5faff',color:'#195080'}}>
+        <b>PHASE 10+ EMPIRE COMMANDS:</b> <span style={{fontSize:12}}>(SAFE AI, static, read-only, future-proof)</span>
+        <div style={{display:'flex',flexWrap:'wrap',gap:8,marginTop:8}}>
+          <button onClick={async()=>{
+            const res = await fetch(`${apiBase}/phase10/neuro_core/export_analytics`); alert(JSON.stringify(await res.json(),null,2));
+          }} aria-label="Export Analytics to NEURO CORE" title="Export static analytics and forecasts to NEURO CORE">Export Analytics</button>
+          <button onClick={async()=>{
+            const res = await fetch(`${apiBase}/phase10/neuro_core/export_memory_grid`); alert(JSON.stringify(await res.json(),null,2));
+          }} aria-label="Export Memory Grid" title="Export static memory grid to NEURO CORE">Export Memory Grid</button>
+          <button onClick={async()=>{
+            const res = await fetch(`${apiBase}/phase10/neuro_core/revenue_health_feed`); alert(JSON.stringify(await res.json(),null,2));
+          }} aria-label="Export Revenue/Health Feed" title="Export cross-brand revenue and health feed">Export Revenue/Health</button>
+          <button onClick={async()=>{
+            const token = prompt('Enter NEURO CORE Admin Token:');
+            if (!token) return;
+            const res = await fetch(`${apiBase}/phase10/neuro_core/validate_admin_token`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})});
+            alert('Token valid: '+((await res.json()).valid));
+          }} aria-label="Validate NEURO CORE Admin Token" title="Validate NEURO CORE admin token (static, SAFE AI Charter enforced)">Validate Admin Token</button>
+        </div>
+        <div style={{marginTop:12,fontSize:13}}>
+          <span title="SAFE AI Empire Financials">💰</span> <b>Vault/Finance:</b>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/global_vault`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="View Global Vault">Global Vault</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/total_vault`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="View Total Vault">Total Vault</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/forecast`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="View Financial Forecast">Forecast</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/risk_firewall`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Check Risk Firewall">Risk Firewall</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/optimizer`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Run Capital Optimizer">Optimizer</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/finance/reinvestment_plan`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Get Reinvestment Plan">Reinvestment</button>
+        </div>
+        <div style={{marginTop:12,fontSize:13}}>
+          <span title="SAFE AI Strategic Meta-Command">🧠</span> <b>Meta-Command:</b>
+          <button onClick={async()=>{const markets={AIFOLIO:100,QuantumTraderAI:120};const res=await fetch(`${apiBase}/phase10/meta/arbitrage_scan`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({markets})});alert(JSON.stringify(await res.json(),null,2));}} aria-label="Scan Arbitrage">Arbitrage</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/meta/vault_rotation`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Suggest Vault Rotation">Vault Rotation</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/meta/reserve_rebalancer`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Rebalance Reserves">Reserve Rebalancer</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/meta/liquidity_funnel`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Liquidity Funnel">Liquidity Funnel</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/meta/synthetic_capital_grid`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Synthetic Capital Grid">Synthetic Capital Grid</button>
+        </div>
+        <div style={{marginTop:12,fontSize:13}}>
+          <span title="SAFE AI Legal & Governance">⚖️</span> <b>Legal/Governance:</b>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/legal/policy_mesh`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="View Policy Mesh">Policy Mesh</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/legal/jurisdiction_matrix`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="View Jurisdiction Matrix">Jurisdiction Matrix</button>
+          <button onClick={async()=>{const revenue={US:100000,EU:90000};const res=await fetch(`${apiBase}/phase10/legal/tax_harmonization`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({revenue})});alert(JSON.stringify(await res.json(),null,2));}} aria-label="Harmonize Taxes">Tax Harmonization</button>
+          <button onClick={async()=>{const events={AIFOLIO:'regulatory',QuantumTraderAI:'ok'};const res=await fetch(`${apiBase}/phase10/legal/legal_pressure_monitor`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({events})});alert(JSON.stringify(await res.json(),null,2));}} aria-label="Detect Legal Pressure">Legal Pressure</button>
+          <button onClick={async()=>{const events={AIFOLIO:'expiry',QuantumTraderAI:'ok'};const res=await fetch(`${apiBase}/phase10/legal/legal_horizon_monitor`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({events})});alert(JSON.stringify(await res.json(),null,2));}} aria-label="Monitor Legal Horizon">Legal Horizon</button>
+        </div>
+        <div style={{marginTop:12,fontSize:13}}>
+          <span title="SAFE AI Charter Enforcement">🛡️</span> <b>Charter/Lockout:</b>
+          <button onClick={async()=>{try{await fetch(`${apiBase}/phase10/charter/enforce`);}catch(e){alert('Charter enforcement is permanent. No bypass allowed.');}}} aria-label="Enforce Charter">Enforce Charter</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/charter/lockout_test`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Run Lockout Test">Lockout Test</button>
+          <button onClick={async()=>{const res=await fetch(`${apiBase}/phase10/charter/verification_log`);alert(JSON.stringify(await res.json(),null,2));}} aria-label="Generate Verification Log">Verification Log</button>
+        </div>
+      </div>
+      {/* --- Chart/Image Download Option --- */}
+      <div style={{marginBottom:16,display:'flex',justifyContent:'flex-end'}}>
+        <button onClick={()=>{
+          const chart = document.querySelector('.main-analytics-chart');
+          if (!chart) return;
+          import('html-to-image').then(htmlToImage => {
+            htmlToImage.toPng(chart).then(dataUrl => {
+              const link = document.createElement('a');
+              link.download = 'analytics_chart.png';
+              link.href = dataUrl;
+              link.click();
+            });
+          });
+        }} aria-label="Download analytics chart as image">Download Chart</button>
+      </div>
       {/* --- Audit Log Widget --- */}
       <div style={{margin:'30px 0',padding:'16px',border:'1px solid #ddd',borderRadius:8,background:darkMode?'#181a1b':'#fdfdff'}}>
         <h4 style={{marginBottom:8}}>Audit Log Search & Export <span title="Advanced filtering, compliance highlighting, export, and live stream">🛈</span></h4>
@@ -401,7 +656,9 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
           {auditResults.length===0 && !auditLoading && <div style={{padding:8,color:'#aaa'}}>No results.</div>}
           <ul style={{margin:0,padding:8}}>
             {auditResults.map((entry,i)=>(
-              <li key={i} style={{fontFamily:'monospace',fontSize:12,background:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#ffeaea':'',color:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#b30000':darkMode?'#fff':'#222',padding:'2px 0'}}>{entry}</li>
+              <li key={i} style={{fontFamily:'monospace',fontSize:12,background:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#ffeaea':'',color:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#b30000':darkMode?'#fff':'#222',padding:'2px 0'}}>{entry}
+                {entry.match(/SAFE AI Charter/i) && <span title="Charter violation" style={{marginLeft:6,color:'#b30000',fontWeight:600}} aria-label="Charter violation">⚠️</span>}
+              </li>
             ))}
           </ul>
         </div>

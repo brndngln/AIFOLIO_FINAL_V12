@@ -294,6 +294,91 @@ def rotate_api_key(key: str, request: Request, payload: dict = Body(None)):
 from autonomy import audit_stream
 from autonomy.analytics.per_admin_audit_trail import log_admin_action
 import csv
+import secrets, datetime, os, json
+
+SESSION_FILE = "distribution/legal_exports/phase9_admin_sessions.json"
+SESSION_TIMEOUT_SECONDS = 15*60
+
+def load_sessions():
+    if not os.path.exists(SESSION_FILE):
+        with open(SESSION_FILE, "w") as f: json.dump({}, f)
+    with open(SESSION_FILE, "r") as f:
+        return json.load(f)
+
+def save_sessions(sessions):
+    with open(SESSION_FILE, "w") as f:
+        json.dump(sessions, f)
+
+def create_session(admin_key):
+    sessions = load_sessions()
+    token = secrets.token_urlsafe(32)
+    now = datetime.datetime.utcnow().isoformat()
+    sessions[token] = {"admin_key": admin_key, "last": now}
+    save_sessions(sessions)
+    log_admin_action(admin_key, "session_login", {"token": token})
+    return token
+
+def validate_session(token):
+    sessions = load_sessions()
+    now = datetime.datetime.utcnow()
+    s = sessions.get(token)
+    if not s: return False
+    last = datetime.datetime.fromisoformat(s["last"])
+    if (now - last).total_seconds() > SESSION_TIMEOUT_SECONDS:
+        del sessions[token]
+        save_sessions(sessions)
+        log_admin_action(s["admin_key"], "session_timeout", {"token": token})
+        return False
+    s["last"] = now.isoformat()
+    save_sessions(sessions)
+    return s["admin_key"]
+
+def logout_session(token):
+    sessions = load_sessions()
+    if token in sessions:
+        admin_key = sessions[token]["admin_key"]
+        del sessions[token]
+        save_sessions(sessions)
+        log_admin_action(admin_key, "session_logout", {"token": token})
+        return True
+    return False
+
+@app.post("/phase9/admin/login")
+def admin_login(request: Request, payload: dict = Body(...)):
+    api_key = payload.get("api_key")
+    mfa_code = payload.get("mfa_code")
+    # Validate API key and MFA
+    role = check_api_key_obj(api_key, "/phase9/admin/login", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    if not key_management.verify_totp(api_key, mfa_code):
+        raise HTTPException(status_code=401, detail="MFA required or invalid")
+    token = create_session(api_key)
+    return {"session_token": token, "expires_in": SESSION_TIMEOUT_SECONDS}
+
+@app.post("/phase9/admin/logout")
+def admin_logout(request: Request, payload: dict = Body(...)):
+    token = payload.get("session_token")
+    if not token or not logout_session(token):
+        raise HTTPException(status_code=400, detail="Invalid session token")
+    return {"status": "logged_out"}
+
+@app.post("/phase9/admin/refresh")
+def admin_refresh(request: Request, payload: dict = Body(...)):
+    token = payload.get("session_token")
+    admin_key = validate_session(token)
+    if not admin_key:
+        raise HTTPException(status_code=401, detail="Session expired or invalid")
+    return {"status": "refreshed", "expires_in": SESSION_TIMEOUT_SECONDS}
+
+# Patch all admin endpoints to require valid session token
+# (Pseudo code: in actual code, add a check at the start of each admin endpoint)
+def require_admin_session(request):
+    token = request.headers.get("X-Session-Token")
+    admin_key = validate_session(token)
+    if not admin_key:
+        raise HTTPException(status_code=401, detail="Session expired or invalid")
+    return admin_key
 
 app = FastAPI(title="AIFOLIO Phase 9+ SAFE AI Empire Modules API")
 
