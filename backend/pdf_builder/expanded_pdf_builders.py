@@ -18,10 +18,48 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml'])
 )
 
+# --- ULTRA-PREMIUM QUALITY PIPELINE (Permanent, Non-bypassable) ---
+from autonomy.pipeline.ai_output_normalizer import normalize_output
+from autonomy.pipeline.ai_quality_gatekeeper import score_output
+from autonomy.pipeline.ai_style_tuning_engine import enforce_style
+from autonomy.ai_static.anti_sentience_guard import scan_for_static
+from backend.utils.safe_ai_utils import safe_ai_guarded
+import datetime
+
 def _render_and_save_pdf(filename: str, content: str, extra_context: Dict[str, Any] = None) -> str:
+    """
+    Renders and saves a PDF with full, permanent enforcement of all AIFOLIO™ Vault Quality Engine v4.0 standards.
+    This function CANNOT be bypassed or downgraded. All checks are static, deterministic, SAFE AI-locked.
+    """
+    # --- Quality & Compliance Pipeline ---
+    # 1. Normalize and check all text
+    norm = normalize_output(content)
+    score = score_output(content)
+    style_ok = enforce_style(content, extra_context.get('brand', 'AIFOLIO')) if extra_context else True
+    anti_sent = scan_for_static(content)
+    # 2. If any check fails, HALT and raise error
+    if norm['flags'] or score.get('block') or not style_ok or not anti_sent:
+        raise Exception("[VAULT ERROR]: Quality standard not met — please review vault input.")
+    # 3. Prepare permanent metadata
+    now = datetime.datetime.now().isoformat()
+    meta = {
+        'version': 'AIFOLIO_VAULT_QUALITY_ENGINE_ULTRA_PREMIUM_FINAL_v4.0',
+        'changelog': extra_context.get('changelog', '') if extra_context else '',
+        'edition': extra_context.get('edition', 'First Edition') if extra_context else 'First Edition',
+        'release_timestamp': extra_context.get('release_timestamp', now) if extra_context else now,
+        'copyright': f"© {datetime.datetime.now().year} AIFOLIO™. All rights reserved.",
+        'brand': extra_context.get('brand', 'AIFOLIO™') if extra_context else 'AIFOLIO™',
+        'cover_headline': extra_context.get('cover_headline', '') if extra_context else '',
+        'cover_subheadline': extra_context.get('cover_subheadline', '') if extra_context else '',
+        'back_headline': extra_context.get('back_headline', '') if extra_context else '',
+        'back_cta': extra_context.get('back_cta', '') if extra_context else '',
+        'toc': extra_context.get('toc', []) if extra_context else [],
+        'body': content,
+        'page_number': 1  # Placeholder; real numbering handled by PDF renderer
+    }
     os.makedirs("vaults", exist_ok=True)
     template = env.get_template('vault_template.html')
-    html_content = template.render(content=content, **(extra_context or {}))
+    html_content = template.render(content=meta)
     pdf_path = f"vaults/{filename}.pdf"
     HTML(string=html_content).write_pdf(pdf_path)
     logger.info(f"PDF generated successfully: {pdf_path}")

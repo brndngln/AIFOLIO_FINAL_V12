@@ -73,10 +73,6 @@ if __name__ == "__main__":
         summary.get('safe_ai_locked')
     )
     print("\nSAFE-AI SELF-TEST PASSED:" if passed else "\nSAFE-AI SELF-TEST FAILED:", passed)
-        for k, v in results.items():
-            if v is False:
-                print(f"FAILED: {k}")
-    return passed
 
 if __name__ == "__main__":
     run_safe_ai_self_test()

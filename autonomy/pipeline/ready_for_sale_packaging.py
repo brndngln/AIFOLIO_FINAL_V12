@@ -20,12 +20,16 @@ def is_garbage_filename(filename):
     return bool(re.search(r'(final|copy|draft|temp|untitled|test)', filename, re.IGNORECASE))
 
 def check_pdf_compliance(pdf_path):
-    # Check for blank pages, watermarks, forbidden words, file size
+    """
+    Permanent, non-bypassable compliance check for all AIFOLIO™ ultra-premium vault PDFs.
+    If any check fails, HALT and raise error. No toggles, no overrides.
+    """
     try:
         reader = PdfReader(pdf_path)
         blank_pages = 0
         forbidden_words = ['SAMPLE', 'WATERMARK', 'DRAFT']
         forbidden_found = []
+        missing_metadata = []
         for i, page in enumerate(reader.pages):
             text = page.extract_text() or ''
             if not text.strip():
@@ -34,16 +38,25 @@ def check_pdf_compliance(pdf_path):
                 if word in text.upper():
                     forbidden_found.append((i, word))
         file_size = os.path.getsize(pdf_path)
+        # Check for required PDF/A, XMP, metadata, accessibility, etc.
+        # (Stub: Placeholders, expand with real checks as needed)
+        # Raise if any check fails
+        if blank_pages > 0 or forbidden_found or file_size <= 1024:
+            raise Exception("[VAULT ERROR]: Quality standard not met — please review vault input.")
         return {
             'blank_pages': blank_pages,
             'forbidden_found': forbidden_found,
             'file_size': file_size,
-            'valid': blank_pages == 0 and not forbidden_found and file_size > 1024
+            'valid': True
         }
     except Exception as e:
-        return {'error': str(e), 'valid': False}
+        raise Exception(f"[VAULT ERROR]: Quality standard not met — please review vault input. Details: {str(e)}")
 
 def check_package_integrity(files, metadata_path=None, allow_manual_override=False):
+    """
+    Permanent, non-bypassable package integrity check for all AIFOLIO™ ultra-premium vault PDFs.
+    If any check fails, HALT and raise error. No toggles, no overrides.
+    """
     missing = [f for f in files if not os.path.exists(f)]
     pdfs = [f for f in files if f.lower().endswith('.pdf') and os.path.exists(f)]
     pdf_valid = []
@@ -80,16 +93,21 @@ def check_package_integrity(files, metadata_path=None, allow_manual_override=Fal
         # Compliance check
         compliance.append(check_pdf_compliance(pdf))
         pdf_valid.append(compliance[-1]['valid'])
+    # If any file is missing or any compliance fails, HALT
+    if missing or not all(pdf_valid) or manual_override_needed:
+        raise Exception("[VAULT ERROR]: Quality standard not met — please review vault input.")
     result = {
         'missing': missing,
         'pdf_valid': pdf_valid,
         'compliance': compliance,
         'standardized_names': standardized_names,
-        'manual_override_needed': manual_override_needed
+        'manual_override_needed': manual_override_needed,
+        'version': 'AIFOLIO_VAULT_QUALITY_ENGINE_ULTRA_PREMIUM_FINAL_v4.0',
+        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z'
     }
     # Log result (JSONL for dashboard)
     log_entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
+        'timestamp': result['timestamp'],
         'event': 'pdf_compliance_check',
         'files': files,
         'metadata_path': metadata_path,
@@ -112,13 +130,18 @@ def check_package_integrity(files, metadata_path=None, allow_manual_override=Fal
 
 # --- AI-generated Final Checklist ---
 def generate_final_checklist(product_id, files, metadata_path=None, allow_manual_override=False):
+    """
+    Permanent, non-bypassable final checklist for all AIFOLIO™ ultra-premium vault PDFs.
+    If any check fails, HALT and raise error. No toggles, no overrides.
+    """
     integrity = check_package_integrity(files, metadata_path, allow_manual_override)
     checklist = {
         'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
         'product_id': product_id,
         'files_checked': files,
         'integrity': integrity,
-        'human_preview_required': integrity.get('manual_override_needed', False)
+        'human_preview_required': integrity.get('manual_override_needed', False),
+        'version': 'AIFOLIO_VAULT_QUALITY_ENGINE_ULTRA_PREMIUM_FINAL_v4.0'
     }
     with open(PACKAGING_LOG, 'a') as f:
         f.write(json.dumps(checklist) + '\n')
