@@ -4,6 +4,7 @@ import Phase9StaticModulesPanel from "../../admin_panels/phase9_static_modules_p
 import Phase9AuditLogWidget from "./components/Phase9AuditLogWidget";
 import Phase9KeyAdminPanel from "./components/Phase9KeyAdminPanel";
 import Phase9AuditLogStream from "./components/Phase9AuditLogStream";
+import StaticEnhancementsPanel from "./components/StaticEnhancementsPanel"; // Added: Static future enhancements panel
 
 export default function Phase9ModulesDashboard() {
   return (
@@ -13,6 +14,8 @@ export default function Phase9ModulesDashboard() {
       <Phase9AuditLogStream />
       <Phase9AuditLogWidget />
       <Phase9StaticModulesPanel />
+      {/* Static Future Enhancements Panel */}
+      <StaticEnhancementsPanel apiBase="http://localhost:8090" tenantId={"default_tenant"} />
     </div>
   );
 }

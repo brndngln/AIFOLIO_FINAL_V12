@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import StaticEnhancementsPanel from "./StaticEnhancementsPanel"; // Added: Static future enhancements panel
+
 export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090" }) {
   // --- Admin Session State ---
   const [sessionToken, setSessionToken] = useState(() => localStorage.getItem('phase9_session_token')||'');
@@ -858,6 +860,8 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
           </div>
         )}
       </div>
+      {/* Static Future Enhancements Panel */}
+      <StaticEnhancementsPanel apiBase={apiBase} tenantId={"default_tenant"} />
     </div>
   );
 }
