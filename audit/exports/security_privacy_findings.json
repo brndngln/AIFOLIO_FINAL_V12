@@ -204,6 +204,30 @@
     "content": "return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)"
   },
   {
+    "file": "./backend/security/intrusion_detection.py",
+    "line": 8,
+    "pattern": "TOKEN",
+    "content": "STATIC_CANARY_TOKENS = ['canary-1234', 'canary-5678']"
+  },
+  {
+    "file": "./backend/security/intrusion_detection.py",
+    "line": 13,
+    "pattern": "TOKEN",
+    "content": "triggered = token in STATIC_CANARY_TOKENS"
+  },
+  {
+    "file": "./backend/security/api_token_rotation.py",
+    "line": 13,
+    "pattern": "TOKEN",
+    "content": "API_TOKENS = {'service_a': 'token_a', 'service_b': 'token_b'}"
+  },
+  {
+    "file": "./backend/security/webhook_signature_validation.py",
+    "line": 14,
+    "pattern": "SECRET",
+    "content": "mac = hmac.new(SECRET.encode(), msg=payload, digestmod=hashlib.sha256)"
+  },
+  {
     "file": "./backend/auth/deps.py",
     "line": 3,
     "pattern": "SECRET",
@@ -328,6 +352,18 @@
     "line": 37,
     "pattern": "WEBHOOK",
     "content": "resp = requests.post(DISCORD_WEBHOOK_URL, json=payload)"
+  },
+  {
+    "file": "./backend/ai_tools/content_scoper.py",
+    "line": 13,
+    "pattern": "PRIVATE",
+    "content": "'TAX-PRIVATE-WEALTH': 'Private Wealth Law',"
+  },
+  {
+    "file": "./backend/ai_tools/content_scoper.py",
+    "line": 37,
+    "pattern": "PRIVATE",
+    "content": "'TAX-PATHWAY-ZERO', 'TAX-ULTIMATE-2025', 'TAX-PRIVATE-WEALTH', 'TAX-300-DEDUCTIONS', 'TAX-DIGITAL-ECONOMY'"
   },
   {
     "file": "./integrations/third_party_integrations.py",
@@ -5146,5 +5182,29 @@
     "line": 38,
     "pattern": "API_KEY",
     "content": "self.api_key_simulated = api_key_simulated or config.CLAUDE_API_KEY_SIMULATED"
+  },
+  {
+    "file": "./aifolio_empire/profit_engines/sales_alerts.py",
+    "line": 15,
+    "pattern": "WEBHOOK",
+    "content": "if TELEGRAM_WEBHOOK:"
+  },
+  {
+    "file": "./aifolio_empire/profit_engines/sales_alerts.py",
+    "line": 17,
+    "pattern": "WEBHOOK",
+    "content": "requests.post(TELEGRAM_WEBHOOK, json={'text': message})"
+  },
+  {
+    "file": "./aifolio_empire/profit_engines/sales_alerts.py",
+    "line": 21,
+    "pattern": "WEBHOOK",
+    "content": "if DISCORD_WEBHOOK:"
+  },
+  {
+    "file": "./aifolio_empire/profit_engines/sales_alerts.py",
+    "line": 23,
+    "pattern": "WEBHOOK",
+    "content": "requests.post(DISCORD_WEBHOOK, json={'content': message})"
   }
 ]

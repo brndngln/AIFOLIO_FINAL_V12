@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AuditLogViewer from "./AuditLogViewer";
+import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
 import ExportHistoryPanel from "./ExportHistoryPanel";
 import UserManagementPanel from "./UserManagementPanel";
 import AdminSessionPanel from "./AdminSessionPanel";
@@ -17,7 +18,10 @@ export default function AdminToolsPanel({ token }) {
   const [tab, setTab] = useState("audit");
   return (
     <section className="admin-tools-panel" aria-label="Admin Tools" style={{marginTop:32,background:'#f3f4f6',padding:24,borderRadius:12}}>
-      <h2 style={{color:'#1e293b',fontWeight:700,fontSize:28,marginBottom:16}}>Admin Tools</h2>
+      <h2 style={{color:'#1e293b',fontWeight:700,fontSize:28,marginBottom:16,display:'flex',alignItems:'center',gap:8}}>
+  Admin Tools
+  <HyperEliteVaultBadge tooltip={true} external={false} />
+</h2>
       <nav aria-label="Admin Tool Tabs" style={{marginBottom:24,display:'flex',gap:8}}>
         {TABS.map(t => (
           <button

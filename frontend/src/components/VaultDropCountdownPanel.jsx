@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
 
 const VaultDropCountdownPanel = () => {
   const [countdown, setCountdown] = useState(null);
@@ -37,7 +38,10 @@ const VaultDropCountdownPanel = () => {
         {countdown.display}
       </div>
       {countdown.glitch && <div className="text-warning" style={{ fontStyle: 'italic', color: 'var(--warning)' }}>{countdown.glitch_message}</div>}
-      <div style={{ marginTop: '1rem', fontSize: '1rem', color: 'var(--secondary)' }}>Vault: <span style={{ color: 'var(--cta)', fontWeight: 'bold' }}>{countdown.vault_name}</span></div>
+      <div style={{ marginTop: '1rem', fontSize: '1rem', color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: 8 }}>
+  Vault: <span style={{ color: 'var(--cta)', fontWeight: 'bold', marginRight: 8 }}>{countdown.vault_name}</span>
+  <HyperEliteVaultBadge tooltip={true} external={false} />
+</div>
     </div>
   );
 };

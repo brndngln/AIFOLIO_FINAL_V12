@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
 
 /**
  * GumroadIntegrationPanel
@@ -30,7 +31,10 @@ export default function GumroadIntegrationPanel({ vault, onApprove, onOverridePr
     <div className="gumroad-panel">
       <h2 className="text-2xl font-bold mb-4">Gumroad Integration</h2>
       <div className="vault-summary mb-4 p-4 border rounded bg-gray-50">
-        <h3 className="text-xl font-semibold mb-2">{vault.metadata.title}</h3>
+        <h3 className="text-xl font-semibold mb-2" style={{display:'flex',alignItems:'center',gap:8}}>
+  {vault.metadata.title}
+  <HyperEliteVaultBadge tooltip={true} external={false} />
+</h3>
         <div><strong>Niche:</strong> {vault.metadata.niche}</div>
         <div><strong>Price:</strong> ${vault.metadata.price}</div>
         <div><strong>Bundle Size:</strong> {vault.metadata.bundle_size}</div>

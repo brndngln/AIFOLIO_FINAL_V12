@@ -1,9 +1,13 @@
 import React from "react";
+import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
 
 export default function AdminSettingsPanel() {
   return (
     <div className="admin-settings-panel" aria-label="SAFE AI Settings" tabIndex={0} style={{background:'#f3f4f6',padding:20,borderRadius:8}}>
-      <h3 style={{color:'#0f172a'}}>SAFE AI Compliance Settings</h3>
+      <h3 style={{color:'#0f172a',display:'flex',alignItems:'center',gap:8}}>
+  SAFE AI Compliance Settings
+  <HyperEliteVaultBadge tooltip={true} external={false} />
+</h3>
       <ul style={{listStyle:'none',padding:0}}>
         <li><b>SAFE AI Mode:</b> <span style={{color:'#059669'}}>ENABLED</span></li>
         <li><b>Audit Logging:</b> <span style={{color:'#059669'}}>ENABLED</span></li>
