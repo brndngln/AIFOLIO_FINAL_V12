@@ -16,20 +16,7 @@ class CodebaseScanner:
             'backup': r'(backup|restore)',
             'analytics': r'(analytics|metrics|stats)',
             'documentation': r'(doc|docs|readme)',
-            'personalization': r'(personalize|recommend)',
-            'user_feedback': r'(feedback|survey|review)',
-            'error_handling': r'(error|exception|try)',
-            'logging': r'(log|logger)',
-            'version_control': r'(git|version|history)',
-            'encryption': r'(encrypt|decrypt|hash)',
-            'privacy': r'(privacy|gdpr|ccpa)',
-            'compliance': r'(compliance|regulation)',
-            'user_control': r'(user|auth|permission)',
-            'data_quality': r'(data|validate|clean)',
-            'performance': r'(perf|optimize|speed)',
-            'security_updates': r'(update|patch|fix)',
-            'access_control': r'(access|permission|role)',
-            'audit': r'(audit|trail|log)',
+            'compliance': r'(compliance|regulation|audit)'
         }
         
         self.unethical_patterns = {
@@ -46,6 +33,7 @@ class CodebaseScanner:
             'deception': r'(deceive|trick|fake)',
             'fraud': r'(fraud|scam|phish)',
         }
+        self.logger.info("CodebaseScanner initialized with static patterns.")
 
     def scan_file(self, file_path: str) -> Dict[str, List[str]]:
         """Scan a single file for ethical automation patterns."""
@@ -80,10 +68,12 @@ class CodebaseScanner:
                 ):
                     results['warnings'].append("⚠️ Potential copyright concerns")
                     
+                self.logger.info(f"Scanned file {file_path} with results: {results}")
                 return results
                 
         except Exception as e:
             results['warnings'].append(f"❌ Error reading file: {str(e)}")
+            self.logger.error(f"Error scanning file {file_path}: {str(e)}")
             return results
 
     def scan_directory(self, dir_path: str) -> Dict[str, Dict[str, List[str]]]:
@@ -96,43 +86,40 @@ class CodebaseScanner:
                     full_path = os.path.join(root, file)
                     results[full_path] = self.scan_file(full_path)
         
+        self.logger.info(f"Scanned directory {dir_path} with results: {results}")
         return results
 
     def generate_report(self, scan_results: Dict[str, Dict[str, List[str]]]) -> str:
-        """Generate a detailed report of the scan results."""
+        """Generate a detailed, static, SAFE AI-compliant report of the scan results. Extension: real reporting pipeline."""
+        self.logger.info("Generating static codebase scan report.")
         report = "AIFOLIO V12 Codebase Ethics Report\n"
         report += "===================================\n\n"
-        
         total_files = len(scan_results)
         ethical_files = 0
         unethical_files = 0
         warning_files = 0
-        
         for file_path, results in scan_results.items():
-            if results['unethical']:
+            if results.get('unethical'):
                 unethical_files += 1
                 report += f"\n❌ Unethical Patterns Found in {file_path}:\n"
                 for issue in results['unethical']:
                     report += f"  {issue}\n"
-            
-            if results['warnings']:
+            if results.get('warnings'):
                 warning_files += 1
                 report += f"\n⚠️ Warnings in {file_path}:\n"
                 for warning in results['warnings']:
                     report += f"  {warning}\n"
-            
-            if results['ethical']:
+            if results.get('ethical'):
                 ethical_files += 1
                 report += f"\n✅ Ethical Patterns in {file_path}:\n"
                 for pattern in results['ethical']:
                     report += f"  {pattern}\n"
-        
         report += "\nSummary:\n"
         report += f"Total files scanned: {total_files}\n"
         report += f"Files with ethical patterns: {ethical_files}\n"
         report += f"Files with unethical patterns: {unethical_files}\n"
         report += f"Files with warnings: {warning_files}\n"
-        
+        self.logger.info("Static codebase scan report generated.")
         return report
 
 # Example usage

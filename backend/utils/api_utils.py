@@ -2,36 +2,51 @@
 # Placeholder regenerated file for compatibility
 
 def placeholder_function():
-    """Placeholder compatibility function."""
-    return "api_utils is active (placeholder)"
+    """Static compatibility function for SAFE AI compliance. Extension: real compatibility logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info("api_utils placeholder_function called.")
+    return "api_utils is active (static stub)"
 
 
 def get(url, **kwargs):
-    """Placeholder for GET request utility."""
-    print(f"api_utils.get called with url={url}")
-    return None
+    """Static deterministic GET utility. Extension: real HTTP GET logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.get called with url={url}")
+    return {"url": url, "result": "static_get_stub"}
 
 def post(url, data=None, json=None, **kwargs):
-    """Placeholder for POST request utility."""
-    print(f"api_utils.post called with url={url}, data={data}, json={json}")
-    return None
+    """Static deterministic POST utility. Extension: real HTTP POST logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.post called with url={url}, data={data}, json={json}")
+    return {"url": url, "result": "static_post_stub"}
 
 def put(url, data=None, **kwargs):
-    """Placeholder for PUT request utility."""
-    print(f"api_utils.put called with url={url}, data={data}")
-    return None
+    """Static deterministic PUT utility. Extension: real HTTP PUT logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.put called with url={url}, data={data}")
+    return {"url": url, "result": "static_put_stub"}
 
 def delete(url, **kwargs):
-    """Placeholder for DELETE request utility."""
-    print(f"api_utils.delete called with url={url}")
-    return None
+    """Static deterministic DELETE utility. Extension: real HTTP DELETE logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.delete called with url={url}")
+    return {"url": url, "result": "static_delete_stub"}
 
 def fetch_json(url, **kwargs):
-    """Placeholder for JSON fetch utility."""
-    print(f"api_utils.fetch_json called with url={url}")
-    return {}
+    """Static deterministic JSON fetch utility. Extension: real HTTP JSON fetch logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.fetch_json called with url={url}")
+    return {"url": url, "json": {"result": "static_json_stub"}}
 
 def is_api_available(url, timeout=2):
-    """Placeholder for API availability check."""
-    print(f"api_utils.is_api_available called with url={url}")
+    """Static deterministic API availability check. Extension: real HTTP check logic."""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"api_utils.is_api_available called with url={url}, timeout={timeout}")
     return True

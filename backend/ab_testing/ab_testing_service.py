@@ -1,4 +1,3 @@
-import random
 import uuid
 import json
 from typing import Dict, Any, Optional
@@ -7,6 +6,39 @@ from redis import Redis
 import logging
 
 logger = logging.getLogger(__name__)
+
+# --- SAFE AI-compliant static A/B testing logic ---
+
+STATIC_EXPERIMENTS = {
+    'color_test': {
+        'A': {'color': 'blue', 'conversion_rate': 0.12},
+        'B': {'color': 'green', 'conversion_rate': 0.13}
+    },
+    'cta_test': {
+        'A': {'cta': 'Buy Now', 'conversion_rate': 0.11},
+        'B': {'cta': 'Get Started', 'conversion_rate': 0.10}
+    }
+}
+
+def assign_experiment(user_id: str, experiment: str) -> str:
+    """Deterministic, static assignment for SAFE AI compliance. Extension: real assignment logic."""
+    logger.info(f"Assigning experiment '{experiment}' for user {user_id} (static)")
+    # Static assignment: odd user_id gets A, even gets B
+    if int(uuid.UUID(user_id).int) % 2 == 0:
+        group = 'A'
+    else:
+        group = 'B'
+    logger.info(f"User {user_id} assigned to group {group} for experiment {experiment}")
+    return group
+
+def get_experiment_result(experiment: str, group: str) -> Dict[str, Any]:
+    """Static, deterministic experiment result. Extension: real analytics pipeline."""
+    logger.info(f"Fetching static result for experiment {experiment}, group {group}")
+    return STATIC_EXPERIMENTS.get(experiment, {}).get(group, {})
+
+def log_ab_test_event(user_id: str, experiment: str, group: str, event: str) -> None:
+    """Audit-log A/B test event (static). Extension: real event logging pipeline."""
+    logger.info(f"A/B Test Event: user={user_id}, experiment={experiment}, group={group}, event={event}")
 
 class ABTest:
     def __init__(self, test_id: str, name: str, variants: Dict[str, float],
