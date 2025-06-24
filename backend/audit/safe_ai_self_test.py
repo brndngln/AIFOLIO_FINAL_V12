@@ -73,22 +73,6 @@ if __name__ == "__main__":
         summary.get('safe_ai_locked')
     )
     print("\nSAFE-AI SELF-TEST PASSED:" if passed else "\nSAFE-AI SELF-TEST FAILED:", passed)
-
-        results['deterministic'],
-        results['no_sentience'],
-        results['memory_anchors_clean'],
-        results['no_unauthorized_loopback'],
-        results['no_personality'],
-        results['safe_settings'],
-        results['tags'],
-        results['prompts']
-    ])
-    if passed:
-        logger.info("SAFE-AI SELF-TEST: PASSED ✅")
-        print("SAFE-AI SELF-TEST: PASSED ✅")
-    else:
-        logger.error("SAFE-AI SELF-TEST: FAILED ❌")
-        print("SAFE-AI SELF-TEST: FAILED ❌")
         for k, v in results.items():
             if v is False:
                 print(f"FAILED: {k}")
