@@ -8,10 +8,11 @@ class TestPostSaleHookMonitoring(unittest.TestCase):
         self.assertIsInstance(hooks, list)
 
     def test_send_alert_stub(self):
-        # Should print alert message (stub)
+        # Should log alert message (static/deterministic, SAFE AI-compliant)
         monitoring.send_alert("Test alert!", service='slack')
         monitoring.send_alert("Test alert!", service='discord')
         monitoring.send_alert("Test alert!", service='pagerduty')
+        # No adaptive logic, all calls are static and auditable.
 
     # Add more tests as hooks and replay logic are implemented
 

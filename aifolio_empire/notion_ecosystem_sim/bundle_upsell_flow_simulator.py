@@ -48,12 +48,14 @@ class BundleUpsellFlowSimulator:
         vaults = []
         for i in range(num_vaults):
             theme = random.choice(SIMULATED_VAULT_THEMES)
-            vaults.append({
+            vault = {
                 "vault_id_sim": f"vault_{uuid.uuid4().hex[:8]}",
                 "vault_name_sim": f"Simulated {theme} - Vol.{random.randint(1,5)}",
                 "sim_price_usd": round(random.uniform(9.99, 49.99), 2),
-                "category_sim": theme.split("_")[0] # Basic category from theme
-            })
+                "category_sim": theme.split("_")[0]
+            }
+            logger.info(f"Generated simulated vault: {vault}")
+            vaults.append(vault)
         return vaults
 
     def _generate_simulated_bundles(self, vaults: List[Dict[str, Any]], num_bundles: int) -> List[Dict[str, Any]]:

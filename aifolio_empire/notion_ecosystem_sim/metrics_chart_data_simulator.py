@@ -58,39 +58,30 @@ class MetricsChartDataSimulator:
         current_date = end_date - timedelta(days=num_points -1)
 
         for i in range(num_points):
-            # Apply trend
-            trend_change = current_value * random.uniform(-metric_props["trend_factor"], metric_props["trend_factor"])
-            current_value += trend_change
-
-            # Apply noise
-            noise = current_value * random.uniform(-metric_props["noise"], metric_props["noise"])
-            display_value = current_value + noise
-
-            # Simulate spikes (e.g., around launches - though not explicitly tied here for statelessness)
+            trend = current_value * metric_props["trend_factor"] * random.uniform(-1, 1)
+            noise = current_value * metric_props["noise"] * random.uniform(-1, 1)
+            value = current_value + trend + noise
             if random.random() < config.SIM_METRICS_SPIKE_CHANCE:
-                spike_multiplier = random.uniform(config.SIM_METRICS_SPIKE_MULTIPLIER_MIN, config.SIM_METRICS_SPIKE_MULTIPLIER_MAX)
-                display_value *= spike_multiplier
-            
-            # Simulate anomalies (anti-sentience: data isn't perfect)
+                spike = value * random.uniform(config.SIM_METRICS_SPIKE_MULTIPLIER_MIN, config.SIM_METRICS_SPIKE_MULTIPLIER_MAX)
+                logger.info(f"Simulated spike in metric '{metric_name}' at {current_date.strftime('%Y-%m-%d')}: {spike}")
+                value = spike
             if random.random() < config.SIM_METRICS_ANOMALY_CHANCE:
-                anomaly_type = random.choice(["zero", "low", "high"])
-                if anomaly_type == "zero": display_value = 0
-                elif anomaly_type == "low": display_value *= random.uniform(0.1, 0.4)
-                elif anomaly_type == "high": display_value *= random.uniform(2.0, 4.0)
-                # Could add a note here if the output format supported it
-            
-            # Ensure value constraints (e.g., non-negative, percentage caps)
-            if metric_props["type"] == "percentage":
-                display_value = max(0, min(display_value, metric_props.get("max_val", 100)))
-            elif metric_props["type"] == "count":
-                display_value = max(0, round(display_value))
-            elif metric_props["type"] == "currency":
-                display_value = max(0, round(display_value, 2))
-            else:
-                display_value = max(0, display_value)
-            
-            series_data.append({
-                "timestamp_utc_sim": current_date.isoformat(),
+                anomaly = random.choice([0, value * 0.1, value * 2])
+                logger.info(f"Simulated anomaly in metric '{metric_name}' at {current_date.strftime('%Y-%m-%d')}: {anomaly}")
+                value = anomaly
+            if metric_props.get("type") == "percentage":
+                value = min(max(value, 0), metric_props.get("max_val", 100))
+            elif metric_props.get("type") == "count":
+                value = max(0, round(value))
+            elif metric_props.get("type") == "currency":
+                value = max(0, round(value, 2))
+            data_point = {
+                "date": current_date.strftime("%Y-%m-%d"),
+                "value": round(value, 2)
+            }
+            logger.info(f"Generated metric data point: {data_point}")
+            series_data.append(data_point)
+            current_value = value
                 "value_sim": display_value
             })
             current_date += timedelta(days=1)

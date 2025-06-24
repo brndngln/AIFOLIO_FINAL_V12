@@ -56,8 +56,12 @@ class NicheScannerDataSimulator:
         rationale = ", ".join(random.sample(SIMULATED_RATIONALE_KEYWORDS, num_keywords))
         if random.random() < config.SIM_NICHE_SCANNER_RATIONALE_GLITCH_CHANCE:
             glitches = ["data inconclusive_sim", "possible anomaly_sim", "needs verification_sim", "unusual pattern_sim"]
-            rationale += f" (Note: {random.choice(glitches)})"
-        return f"Simulated rationale: {rationale}."
+            glitch = random.choice(glitches)
+            rationale += f" (Note: {glitch})"
+            logger.info(f"Simulated rationale glitch: {glitch}")
+        rationale_str = f"Simulated rationale: {rationale}."
+        logger.info(f"Generated simulated rationale: {rationale_str}")
+        return rationale_str
 
     def get_simulated_niche_scanner_results(self, num_results: Optional[int] = None) -> Dict[str, Any]:
         """Generates a list of simulated niche scanner results.

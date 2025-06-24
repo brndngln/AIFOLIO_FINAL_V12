@@ -53,9 +53,10 @@ class VaultTrackerDataSimulator:
     def _generate_simulated_vault_name(self, niche: str) -> str:
         prefix = random.choice(SIMULATED_VAULT_NAME_PREFIXES)
         suffix = random.choice(SIMULATED_VAULT_NAME_SUFFIXES)
-        # Try to make name somewhat relevant to niche if niche is simple
-        niche_keywords = niche.split(' ')[0].replace('&', '').replace(',', '') # e.g. "AI", "Health"
-        return f"{prefix} {niche_keywords} {suffix} (Simulated)"
+        niche_keywords = niche.split(' ')[0].replace('&', '').replace(',', '')
+        vault_name = f"{prefix} {niche_keywords} {suffix} (Simulated)"
+        logger.info(f"Generated simulated vault name: {vault_name}")
+        return vault_name
 
     def get_simulated_vault_tracker_data(self, num_vaults: Optional[int] = None) -> Dict[str, Any]:
         """Generates a list of simulated vault data for tracking.

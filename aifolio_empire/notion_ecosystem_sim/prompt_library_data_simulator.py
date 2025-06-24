@@ -58,12 +58,12 @@ class PromptLibraryDataSimulator:
             sim_value = f"<SIMULATED_{p_holder.upper()}>"
             filled_template = filled_template.replace(f"{{{p_holder}}}", sim_value)
             sim_params[p_holder] = sim_value
-        
-        notes = None
-        if random.random() < config.SIM_PROMPT_LIB_TEXT_PLACEHOLDER_NOTE_CHANCE:
-            notes = "Note: This prompt text is a basic template. Actual usage requires replacing placeholders with specific details (simulated)."
-        
-        return {"text": filled_template, "simulated_params": sim_params, "notes_sim": notes}
+        prompt_obj = {
+            "prompt_text_sim": filled_template,
+            "params_sim": sim_params
+        }
+        logger.info(f"Generated simulated prompt: {prompt_obj}")
+        return prompt_obj
 
     def get_simulated_prompt_library_data(self, num_prompts: Optional[int] = None) -> Dict[str, Any]:
         """Generates a list of simulated prompt entries for the library.

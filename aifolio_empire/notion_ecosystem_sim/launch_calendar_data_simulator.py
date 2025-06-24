@@ -56,8 +56,12 @@ class LaunchCalendarDataSimulator:
             prefix = random.choice(SIMULATED_VAULT_NAME_PREFIXES_LC)
             niche_keyword = random.choice(SIMULATED_NICHE_CATEGORIES_LC)
             suffix = random.choice(SIMULATED_VAULT_NAME_SUFFIXES_LC)
-            return f"{prefix} {niche_keyword} {suffix} - {event_type} (Simulated)"
-        return f"Simulated {event_type} Campaign - Var {random.randint(10,99)}"
+            event_name = f"{prefix} {niche_keyword} {suffix} - {event_type} (Simulated)"
+            logger.info(f"Generated simulated event name: {event_name}")
+            return event_name
+        event_name = f"Simulated {event_type} Campaign - Var {random.randint(10,99)}"
+        logger.info(f"Generated simulated event name: {event_name}")
+        return event_name
 
     def _generate_simulated_notes(self) -> Optional[str]:
         notes_options = [

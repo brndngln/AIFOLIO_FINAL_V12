@@ -57,7 +57,7 @@ class PDFOutlineTemplateSimulator:
     def _generate_simulated_sections(self, max_depth: int, current_depth: int = 0, topic_sim: str = "Generic Topic") -> List[Dict[str, Any]]:
         if current_depth >= max_depth:
             return []
-        
+        logger.info(f"Generating simulated PDF outline sections at depth {current_depth} for topic '{topic_sim}'")
         num_sections = random.randint(1, config.SIM_PDF_OUTLINE_MAX_SECTIONS - current_depth * 2) # Fewer sections deeper
         sections = []
         for i in range(num_sections):
