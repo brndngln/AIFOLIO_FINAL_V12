@@ -1,6 +1,7 @@
 // AIFOLIO SAFE AI Dashboard Main Component
 // Connects all dashboard widgets to backend API endpoints
 import React, { useEffect, useState } from 'react';
+import PhaseControlPanel from '../src/components/PhaseControlPanel';
 import PDFBuilderDashboard from '../src/components/PDFBuilderDashboard';
 import PDFQueueViewer from '../src/components/PDFQueueViewer';
 import AuditLogViewer from '../src/components/AuditLogViewer';
@@ -156,6 +157,7 @@ export default function Dashboard() {
 
   return (
     <div>
+      <PhaseControlPanel />
       <h1>AIFOLIO SAFE AI Dashboard</h1>
       {/* --- PDF Builder Section --- */}
       <section className="pdf-builder-section">
