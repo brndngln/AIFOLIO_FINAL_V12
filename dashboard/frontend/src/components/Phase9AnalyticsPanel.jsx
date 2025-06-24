@@ -1,6 +1,58 @@
 import React, { useEffect, useState } from "react";
 
 export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090" }) {
+  // --- Audit Log Widget State ---
+  const [auditSearch, setAuditSearch] = useState("");
+  const [auditFilterKey, setAuditFilterKey] = useState("");
+  const [auditFilterAction, setAuditFilterAction] = useState("");
+  const [auditFilterDate, setAuditFilterDate] = useState("");
+  const [auditResults, setAuditResults] = useState([]);
+  const [auditViolations, setAuditViolations] = useState([]);
+  const [auditTotal, setAuditTotal] = useState(0);
+  const [auditPage, setAuditPage] = useState(1);
+  const [auditPageSize] = useState(50);
+  const [auditLoading, setAuditLoading] = useState(false);
+  const [showAuditStream, setShowAuditStream] = useState(false);
+
+  // --- Audit Log Widget Handlers ---
+  const handleAuditSearch = async () => {
+    setAuditLoading(true);
+    try {
+      const filters = {};
+      if (auditFilterKey) filters.key = auditFilterKey;
+      if (auditFilterAction) filters.action = auditFilterAction;
+      if (auditFilterDate) filters.date = auditFilterDate;
+      const search = auditSearch ? { q: auditSearch } : undefined;
+      const res = await fetch(`${apiBase}/phase9/audit_log/search`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('phase9_api_key')||''}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filters, search, page: auditPage, page_size: auditPageSize })
+      });
+      if (!res.ok) throw new Error('Audit log search failed');
+      const data = await res.json();
+      setAuditResults(data.results||[]);
+      setAuditViolations(data.violations||[]);
+      setAuditTotal(data.total||0);
+    } catch (e) {
+      setAuditResults([]); setAuditViolations([]); setAuditTotal(0);
+    } finally {
+      setAuditLoading(false);
+    }
+  };
+  useEffect(()=>{ handleAuditSearch(); /* auto-load on mount and page/filter change */ },[auditPage]);
+
+  const handleAuditExport = async () => {
+    const filters = {};
+    if (auditFilterKey) filters.key = auditFilterKey;
+    if (auditFilterAction) filters.action = auditFilterAction;
+    if (auditFilterDate) filters.date = auditFilterDate;
+    const params = new URLSearchParams();
+    params.append('format','csv');
+    // Optionally add filters/search as needed
+    const url = `${apiBase}/phase9/audit_log/export?format=csv`;
+    window.open(url, '_blank');
+  };
+
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -332,6 +384,39 @@ export default function Phase9AnalyticsPanel({ apiBase = "http://localhost:8090"
           </div>
         </div>
       )}
+      {/* --- Audit Log Widget --- */}
+      <div style={{margin:'30px 0',padding:'16px',border:'1px solid #ddd',borderRadius:8,background:darkMode?'#181a1b':'#fdfdff'}}>
+        <h4 style={{marginBottom:8}}>Audit Log Search & Export <span title="Advanced filtering, compliance highlighting, export, and live stream">🛈</span></h4>
+        <div style={{display:'flex',gap:8,flexWrap:'wrap',marginBottom:8}}>
+          <input value={auditSearch} onChange={e=>setAuditSearch(e.target.value)} placeholder="Search (substring/regex)" style={{width:180}} aria-label="Audit log search" />
+          <input value={auditFilterKey} onChange={e=>setAuditFilterKey(e.target.value)} placeholder="Key filter" style={{width:120}} aria-label="Key filter" />
+          <input value={auditFilterAction} onChange={e=>setAuditFilterAction(e.target.value)} placeholder="Action filter" style={{width:120}} aria-label="Action filter" />
+          <input type="date" value={auditFilterDate} onChange={e=>setAuditFilterDate(e.target.value)} aria-label="Date filter" />
+          <button onClick={handleAuditSearch} aria-label="Search audit log">Search</button>
+          <button onClick={handleAuditExport} aria-label="Export filtered audit log">Export</button>
+          <button onClick={()=>setShowAuditStream(s=>!s)} aria-label="Toggle live audit log stream">{showAuditStream?'Stop Live':'Live Stream'}</button>
+        </div>
+        {auditLoading && <div>Loading...</div>}
+        <div style={{maxHeight:200,overflow:'auto',background:darkMode?'#222':'#fff',border:'1px solid #eee',borderRadius:5}} aria-label="Audit log results">
+          {auditResults.length===0 && !auditLoading && <div style={{padding:8,color:'#aaa'}}>No results.</div>}
+          <ul style={{margin:0,padding:8}}>
+            {auditResults.map((entry,i)=>(
+              <li key={i} style={{fontFamily:'monospace',fontSize:12,background:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#ffeaea':'',color:entry.match(/violation|noncompliance|SAFE AI Charter/i)?'#b30000':darkMode?'#fff':'#222',padding:'2px 0'}}>{entry}</li>
+            ))}
+          </ul>
+        </div>
+        <div style={{marginTop:8,display:'flex',gap:8,alignItems:'center'}}>
+          <span>Page {auditPage} / {Math.ceil(auditTotal/auditPageSize)||1}</span>
+          <button onClick={()=>setAuditPage(p=>Math.max(1,p-1))} disabled={auditPage===1}>Prev</button>
+          <button onClick={()=>setAuditPage(p=>p+1)} disabled={auditPage*auditPageSize>=auditTotal}>Next</button>
+          <span style={{marginLeft:12}}>Violations: {auditViolations.length}</span>
+        </div>
+        {showAuditStream && (
+          <div style={{marginTop:10}}>
+            <iframe title="Live Audit Log" src="/phase9/audit_log/stream" style={{width:'100%',height:100,border:'1px solid #ccc',background:'#000',color:'#fff'}}></iframe>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

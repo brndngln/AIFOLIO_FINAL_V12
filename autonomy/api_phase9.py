@@ -211,9 +211,54 @@ def list_api_keys(request: Request):
     keys = key_management.list_keys()
     return keys
 
+@app.get("/phase9/keys/meta")
+def get_api_key_meta(request: Request):
+    role = check_api_key(request, "/phase9/keys/meta", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    meta = key_management.get_key_meta()
+    log_api_key_usage(request.headers.get("Authorization", ""), "get_key_meta", "/phase9/keys/meta")
+    return meta
+
+@app.post("/phase9/keys/meta/{key}")
+def set_api_key_meta(key: str, request: Request, payload: dict = Body(...)):
+    role = check_api_key(request, f"/phase9/keys/meta/{key}", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    key_management.set_key_meta(key, payload)
+    log_api_key_usage(request.headers.get("Authorization", ""), "set_key_meta", f"/phase9/keys/meta/{key}")
+    return {"success": True}
+
+@app.post("/phase9/keys/rotate/{key}")
+def rotate_api_key(key: str, request: Request):
+    role = check_api_key(request, f"/phase9/keys/rotate/{key}", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    key_management.rotate_key(key)
+    log_api_key_usage(request.headers.get("Authorization", ""), "rotate_key", f"/phase9/keys/rotate/{key}")
+    return {"success": True}
+
+@app.post("/phase9/keys/bulk_import")
+def bulk_import_api_keys(request: Request, payload: dict = Body(...)):
+    role = check_api_key(request, "/phase9/keys/bulk_import", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    key_list = payload.get('keys', [])
+    key_management.bulk_import_keys(key_list)
+    log_api_key_usage(request.headers.get("Authorization", ""), "bulk_import_keys", "/phase9/keys/bulk_import")
+    return {"success": True}
+
+@app.get("/phase9/keys/bulk_export")
+def bulk_export_api_keys(request: Request):
+    role = check_api_key(request, "/phase9/keys/bulk_export", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    keys = key_management.bulk_export_keys()
+    log_api_key_usage(request.headers.get("Authorization", ""), "bulk_export_keys", "/phase9/keys/bulk_export")
+    return keys
+
 @app.post("/phase9/keys")
 def add_api_key(request: Request, payload: dict = Body(...)):
-    role = check_api_key(request, "/phase9/keys", "POST")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
     key = payload.get("key")
@@ -235,8 +280,88 @@ def remove_api_key(key: str, request: Request):
 
 
 from autonomy import audit_stream
+from autonomy.analytics.per_admin_audit_trail import log_admin_action
+import csv
 
 app = FastAPI(title="AIFOLIO Phase 9+ SAFE AI Empire Modules API")
+
+# --- Audit Log Search/Export Endpoints ---
+from fastapi.responses import StreamingResponse, JSONResponse
+
+AUDIT_LOG_PATH = "distribution/legal_exports/phase9_empire_audit_log.txt"
+
+@app.post("/phase9/audit_log/search")
+def search_audit_log(request: Request, filters: dict = Body(None), search: dict = Body(None), page: int = 1, page_size: int = 100):
+    role = check_api_key(request, "/phase9/audit_log/search", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    # Static, line-by-line search/filter
+    results = []
+    violations = []
+    with open(AUDIT_LOG_PATH, "r") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            match = True
+            entry = line.strip()
+            if filters:
+                for k, v in filters.items():
+                    if f'"{k}":' not in entry or v not in entry:
+                        match = False
+                        break
+            if search:
+                for v in search.values():
+                    if v and v not in entry:
+                        match = False
+                        break
+            if match:
+                # Highlight compliance violations
+                if 'violation' in entry or 'noncompliance' in entry or 'SAFE AI Charter' in entry:
+                    violations.append(entry)
+                results.append(entry)
+    # Pagination
+    total = len(results)
+    start = (page-1)*page_size
+    end = start+page_size
+    paged = results[start:end]
+    log_admin_action(request.headers.get("Authorization", ""), "search_audit_log", {"filters": filters, "search": search, "page": page})
+    return {"results": paged, "total": total, "violations": violations}
+
+@app.get("/phase9/audit_log/export")
+def export_audit_log(request: Request, format: str = "csv", filters: dict = None, search: dict = None):
+    role = check_api_key(request, "/phase9/audit_log/export", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    # Static, line-by-line filter
+    results = []
+    with open(AUDIT_LOG_PATH, "r") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            match = True
+            entry = line.strip()
+            if filters:
+                for k, v in filters.items():
+                    if f'"{k}":' not in entry or v not in entry:
+                        match = False
+                        break
+            if search:
+                for v in search.values():
+                    if v and v not in entry:
+                        match = False
+                        break
+            if match:
+                results.append(entry)
+    log_admin_action(request.headers.get("Authorization", ""), "export_audit_log", {"format": format, "filters": filters, "search": search})
+    if format == "json":
+        return JSONResponse(content={"results": results})
+    # else CSV
+    def csv_gen():
+        writer = csv.writer((line for line in []))  # Dummy iterable for header
+        yield "entry\n"
+        for entry in results:
+            yield f'"{entry.replace('"', '""')}"\n'
+    return StreamingResponse(csv_gen(), media_type="text/csv")
 app.include_router(audit_stream.audit_router)
 
 
