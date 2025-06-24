@@ -102,13 +102,106 @@ def get_phase9_timeseries(request: Request):
 from fastapi.responses import PlainTextResponse
 
 @app.get("/phase9/analytics/export_csv", response_class=PlainTextResponse)
-def export_phase9_csv(request: Request):
+def export_phase9_csv(request: Request, filters: dict = None, search: dict = None, time_range: list = None):
     role = check_api_key(request, "/phase9/analytics/export_csv", "GET")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
-    csv = analytics.export_csv()
+    stats = analytics.get_analytics(filters, search, time_range)
+    csv = analytics.export_events_csv(stats.get('events', []))
     log_api_key_usage(request.headers.get("Authorization", ""), "export_csv", "/phase9/analytics/export_csv")
     return csv
+
+@app.get("/phase9/analytics/export_json", response_class=PlainTextResponse)
+def export_phase9_json(request: Request, filters: dict = None, search: dict = None, time_range: list = None):
+    role = check_api_key(request, "/phase9/analytics/export_json", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics(filters, search, time_range)
+    json_data = analytics.export_events_json(stats.get('events', []))
+    log_api_key_usage(request.headers.get("Authorization", ""), "export_json", "/phase9/analytics/export_json")
+    return json_data
+
+@app.get("/phase9/analytics/latency")
+def get_phase9_latency_stats(request: Request):
+    role = check_api_key(request, "/phase9/analytics/latency", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_latency_stats", "/phase9/analytics/latency")
+    return stats.get('latency_stats', {})
+
+@app.get("/phase9/analytics/error_rate")
+def get_phase9_error_rate(request: Request):
+    role = check_api_key(request, "/phase9/analytics/error_rate", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_error_rate", "/phase9/analytics/error_rate")
+    return stats.get('error_rate', {})
+
+@app.get("/phase9/analytics/per_role")
+def get_phase9_per_role_breakdown(request: Request):
+    role = check_api_key(request, "/phase9/analytics/per_role", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_per_role_breakdown", "/phase9/analytics/per_role")
+    return stats.get('per_role_endpoint_breakdown', {})
+
+@app.get("/phase9/analytics/per_status")
+def get_phase9_per_status_breakdown(request: Request):
+    role = check_api_key(request, "/phase9/analytics/per_status", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_per_status_breakdown", "/phase9/analytics/per_status")
+    return stats.get('per_status_breakdown', {})
+
+@app.post("/phase9/analytics/search")
+def search_phase9_analytics(request: Request, search: dict = Body(...), filters: dict = None, time_range: list = None):
+    role = check_api_key(request, "/phase9/analytics/search", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics(filters, search, time_range)
+    log_api_key_usage(request.headers.get("Authorization", ""), "search_analytics", "/phase9/analytics/search")
+    return stats.get('events', [])
+
+@app.post("/phase9/analytics/compliance_report")
+def compliance_report_phase9_analytics(request: Request, filters: dict = None, search: dict = None, time_range: list = None):
+    role = check_api_key(request, "/phase9/analytics/compliance_report", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics(filters, search, time_range)
+    report = analytics.generate_compliance_report(stats.get('events', []))
+    log_api_key_usage(request.headers.get("Authorization", ""), "compliance_report", "/phase9/analytics/compliance_report")
+    return report
+
+@app.get("/phase9/analytics/per_key_breakdown")
+def get_phase9_per_key_endpoint_breakdown(request: Request):
+    role = check_api_key(request, "/phase9/analytics/per_key_breakdown", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_per_key_breakdown", "/phase9/analytics/per_key_breakdown")
+    return stats.get('per_key_endpoint_breakdown', {})
+
+@app.get("/phase9/analytics/role_time_series")
+def get_phase9_role_time_series(request: Request):
+    role = check_api_key(request, "/phase9/analytics/role_time_series", "GET")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics()
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_role_time_series", "/phase9/analytics/role_time_series")
+    return stats.get('role_time_series', {})
+
+@app.post("/phase9/analytics/filter")
+def get_phase9_filtered_analytics(request: Request, filters: dict = Body(...)):
+    role = check_api_key(request, "/phase9/analytics/filter", "POST")
+    if role != "admin":
+        raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    stats = analytics.get_analytics(filters)
+    log_api_key_usage(request.headers.get("Authorization", ""), "access_filtered_analytics", "/phase9/analytics/filter")
+    return stats
 
 @app.get("/phase9/keys")
 def list_api_keys(request: Request):
