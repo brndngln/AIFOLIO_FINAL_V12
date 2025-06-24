@@ -32,23 +32,22 @@ class AIPDFLayoutEnhancer:
         self._random_seed = random.randint(1, 1000000)
         logger.info("AIPDFLayoutEnhancer initialized. Operations are stateless.")
 
-    def _simulate_text_segmentation(self, raw_content: str) -> Dict[str, str]:
+    def simulate_text_segmentation(self, raw_content: str) -> dict:
         """
-        Simulates segmenting raw text into Pain, Promise, Proof, Result sections.
-        This is highly simplified and rule-based.
+        SAFE AI-compliant: Segments raw text into Pain, Promise, Proof, Result sections. Returns dict with result, explanation, recommendation, priority, SAFE AI/owner/non-sentient/version metadata, and audit log. All logic is static, deterministic, non-sentient, and owner-controlled.
         """
-        # Anti-sentience: The segmentation logic is fixed and very basic.
-        # It does not learn from content.
+        VERSION = "AIFOLIO_PDF_LAYOUT_ENHANCER_V2_SAFEAI_FINAL"
+        SAFE_AI_COMPLIANT = True
+        OWNER_CONTROLLED = True
+        NON_SENTIENT = True
         segments = {
             "pain": "Placeholder for Pain Section. Original content might be too short or unparsable by this simulation.",
             "promise": "Placeholder for Promise Section.",
             "proof": "Placeholder for Proof Section.",
             "result": "Placeholder for Result Section."
         }
-        
-        content_parts = raw_content.split('\n\n') # Simple split by double newline
+        content_parts = raw_content.split('\n\n')
         num_parts = len(content_parts)
-
         if num_parts >= 1:
             segments["pain"] = content_parts[0]
         if num_parts >= 2:
@@ -56,22 +55,74 @@ class AIPDFLayoutEnhancer:
         if num_parts >= 3:
             segments["proof"] = content_parts[2]
         if num_parts >= 4:
-            # Assign remaining parts to 'result', or the last part if fewer than 4
             segments["result"] = '\n\n'.join(content_parts[3:]) if num_parts > 3 else content_parts[-1]
-        
-        # Anti-sentience: Randomly swap two sections or corrupt one section's content
-        if random.random() < 0.02: # 2% chance of swap/corruption
-            keys = list(segments.keys())
-            if random.random() < 0.5 and len(keys) >= 2:
-                k1, k2 = random.sample(keys, 2)
-                segments[k1], segments[k2] = segments[k2], segments[k1]
-                logger.warning(f"Simulated random swap of sections: {k1} and {k2}")
-            else:
-                key_to_corrupt = random.choice(keys)
-                segments[key_to_corrupt] = f"[CORRUPTED_SECTION_SIMULATION] Original content for {key_to_corrupt} was randomly altered."
-                logger.warning(f"Simulated random corruption of section: {key_to_corrupt}")
+        explanation = "Text segmented into static sections."
+        recommendation = None
+        priority = 1
+        self._log_action('simulate_text_segmentation', segments, explanation, recommendation, priority, VERSION)
+        return {
+            'segments': segments,
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': VERSION,
+            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+            'OWNER_CONTROLLED': OWNER_CONTROLLED,
+            'NON_SENTIENT': NON_SENTIENT
+        }
 
-        return segments
+    def simulate_ux_enhancements(self, text_segment: str, section_name: str) -> dict:
+        """
+        SAFE AI-compliant: Adds static highlights/callouts to a text segment. Returns dict with result, explanation, recommendation, priority, SAFE AI/owner/non-sentient/version metadata, and audit log. All logic is static, deterministic, non-sentient, and owner-controlled.
+        """
+        VERSION = "AIFOLIO_PDF_LAYOUT_ENHANCER_V2_SAFEAI_FINAL"
+        SAFE_AI_COMPLIANT = True
+        OWNER_CONTROLLED = True
+        NON_SENTIENT = True
+        # For compliance, do not randomize enhancements
+        enhancements = {
+            'highlight': f"[HIGHLIGHTED] {text_segment[:30]}..." if len(text_segment) > 30 else f"[HIGHLIGHTED] {text_segment}",
+            'callout': f"[CALLOUT] Important note for {section_name}."
+        }
+        explanation = f"Static UX enhancements applied to {section_name}."
+        recommendation = None
+        priority = 1
+        self._log_action('simulate_ux_enhancements', enhancements, explanation, recommendation, priority, VERSION)
+        return {
+            'enhancements': enhancements,
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': VERSION,
+            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+            'OWNER_CONTROLLED': OWNER_CONTROLLED,
+            'NON_SENTIENT': NON_SENTIENT
+        }
+
+    def _log_action(self, action, details, explanation, recommendation, priority, version):
+        entry = {
+            'timestamp': __import__('datetime').datetime.utcnow().isoformat() + 'Z',
+            'action': action,
+            'details': details,
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': version,
+            'SAFE_AI_COMPLIANT': True,
+            'OWNER_CONTROLLED': True,
+            'NON_SENTIENT': True
+        }
+        logger.info(f"AIPDFLayoutEnhancer audit: {entry}")
+
+    # --- Static Drift/Hallucination Protection (stub) ---
+    def layout_drift_protection(self):
+        return {"drift": False, "explanation": "No drift detected."}
+
+    # --- Static Feedback Loop (stub, not user learned) ---
+    def layout_static_feedback(self):
+        return ["Review layout for static compliance and UX."]
+
+    # --- Extension Point: Add future static SAFE AI features here ---
 
     def _simulate_ux_enhancements(self, text_segment: str, section_name: str) -> str:
         """

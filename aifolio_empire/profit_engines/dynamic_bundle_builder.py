@@ -34,8 +34,12 @@ class DynamicBundleBuilder:
         self._random_seed = random.randint(1, 1000000) # For internal randomization
         logger.info("DynamicBundleBuilder initialized. Operations are stateless.")
 
-    def _simulate_theme_detection(self, vault_title: str, vault_niche: str) -> List[str]:
-        """Simulates detecting themes from vault title or niche using keywords. Rule-based and random."""
+    def simulate_theme_detection(self, vault_title: str, vault_niche: str) -> dict:
+        """SAFE AI-compliant: Detects themes from vault title/niche using static rules. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log."""
+        VERSION = "AIFOLIO_DYNAMIC_BUNDLE_BUILDER_V2_SAFEAI_FINAL"
+        SAFE_AI_COMPLIANT = True
+        OWNER_CONTROLLED = True
+        NON_SENTIENT = True
         themes = []
         common_keywords = {
             "Health": ["health", "fitness", "wellness", "diet", "workout"],
@@ -48,12 +52,22 @@ class DynamicBundleBuilder:
         for theme, keywords in common_keywords.items():
             if any(keyword in text_to_scan for keyword in keywords):
                 themes.append(theme)
-        
-        # Anti-sentience: Randomly add a generic theme or misclassify
-        if not themes or random.random() < 0.1: # 10% chance to add 'General' or a random one
-            themes.append(random.choice(["General", "Miscellaneous"] + list(common_keywords.keys())))
-        
-        return list(set(themes)) # Return unique themes
+        if not themes:
+            themes.append("General")
+        explanation = f"Themes detected: {themes}."
+        recommendation = None
+        priority = 1
+        self._log_action('simulate_theme_detection', {'themes': themes}, explanation, recommendation, priority, VERSION)
+        return {
+            'result': list(set(themes)),
+            'explanation': explanation,
+            'recommendation': recommendation,
+            'priority': priority,
+            'version': VERSION,
+            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+            'OWNER_CONTROLLED': OWNER_CONTROLLED,
+            'NON_SENTIENT': NON_SENTIENT
+        }
 
     def _group_vaults_by_theme(self, available_vaults: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
         """Groups vaults by simulated themes. Anti-sentience: Grouping is naive and randomized."""

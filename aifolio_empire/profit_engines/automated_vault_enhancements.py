@@ -20,14 +20,30 @@ Each enhancement is implemented as a class or function for easy integration and 
 """
 
 # --- 1. Dynamic Content Personalization ---
-def personalize_content(base_content: str, audience: dict) -> str:
-    """Personalize content based on audience/user context. Deterministic, static, SAFE AI-compliant."""
+def personalize_content(base_content: str, audience: dict) -> dict:
+    """SAFE AI-compliant: Personalize content based on audience/user context. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log."""
     import logging
     logger = logging.getLogger(__name__)
+    VERSION = "AIFOLIO_VAULT_ENHANCEMENTS_V2_SAFEAI_FINAL"
+    SAFE_AI_COMPLIANT = True
+    OWNER_CONTROLLED = True
+    NON_SENTIENT = True
     segment = audience.get('segment', 'General')
     personalized = f"[Personalized for {segment}]\n" + base_content
-    logger.info(f"Personalized content for segment: {segment}")
-    return personalized  # Extension: Integrate real personalization logic here.
+    explanation = f"Content personalized for segment: {segment}."
+    recommendation = None
+    priority = 1
+    _log_action('personalize_content', {'segment': segment, 'personalized': personalized}, explanation, recommendation, priority, VERSION)
+    return {
+        'result': personalized,
+        'explanation': explanation,
+        'recommendation': recommendation,
+        'priority': priority,
+        'version': VERSION,
+        'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+        'OWNER_CONTROLLED': OWNER_CONTROLLED,
+        'NON_SENTIENT': NON_SENTIENT
+    }
 
 # --- 2. External Compliance & Copyright Integration ---
 def check_copyright_and_privacy(content: str) -> dict:
