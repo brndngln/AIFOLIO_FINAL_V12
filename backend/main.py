@@ -160,6 +160,41 @@ from fastapi import Request
 from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
 from backend.utils.monitoring import VaultMetrics
 from backend.analytics.analytics_service import AnalyticsService
+
+# --- Phase Control Panel State ---
+from backend.phase_control_state import (
+    load_state, save_state, update_phase, toggle_safe_mode, trigger_upgrade, lockdown_system
+)
+
+@app.get("/api/phase/status")
+def get_phase_status(current_user: dict = Depends(get_current_user)):
+    state = load_state()
+    return {
+        "phase": state["phase"],
+        "safe_mode": state["safe_mode"],
+        "last_upgrade": state["last_upgrade"],
+        "next_upgrade": state["next_upgrade"],
+        "system_integrity": state["system_integrity"],
+        "lockdown": state["lockdown"]
+    }
+
+@app.post("/api/phase/trigger-upgrade")
+def api_trigger_upgrade(current_user: dict = Depends(get_current_user)):
+    trigger_upgrade()
+    state = load_state()
+    return {"success": True, "last_upgrade": state["last_upgrade"], "next_upgrade": state["next_upgrade"]}
+
+@app.post("/api/phase/safe-mode")
+def api_toggle_safe_mode(current_user: dict = Depends(get_current_user)):
+    mode = toggle_safe_mode()
+    return {"success": True, "safe_mode": mode}
+
+@app.post("/api/phase/lockdown")
+def api_lockdown(current_user: dict = Depends(get_current_user)):
+    lockdown_system()
+    state = load_state()
+    return {"success": True, "lockdown": state["lockdown"], "system_integrity": state["system_integrity"]}
+
 import redis
 
 # Setup Redis and AnalyticsService
