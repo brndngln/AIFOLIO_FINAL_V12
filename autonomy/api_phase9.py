@@ -230,10 +230,17 @@ def set_api_key_meta(key: str, request: Request, payload: dict = Body(...)):
     return {"success": True}
 
 @app.post("/phase9/keys/rotate/{key}")
-def rotate_api_key(key: str, request: Request):
+def rotate_api_key(key: str, request: Request, payload: dict = Body(None)):
     role = check_api_key(request, f"/phase9/keys/rotate/{key}", "POST")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    # Require MFA for admin key rotation
+    mfa_code = None
+    if payload:
+        mfa_code = payload.get("mfa_code")
+    admin_key = request.headers.get("Authorization", "").replace("Bearer ", "")
+    if not key_management.verify_totp(admin_key, mfa_code):
+        raise HTTPException(status_code=401, detail="MFA required or invalid")
     key_management.rotate_key(key)
     log_api_key_usage(request.headers.get("Authorization", ""), "rotate_key", f"/phase9/keys/rotate/{key}")
     return {"success": True}
@@ -243,6 +250,11 @@ def bulk_import_api_keys(request: Request, payload: dict = Body(...)):
     role = check_api_key(request, "/phase9/keys/bulk_import", "POST")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    # Require MFA for bulk import
+    mfa_code = payload.get("mfa_code")
+    admin_key = request.headers.get("Authorization", "").replace("Bearer ", "")
+    if not key_management.verify_totp(admin_key, mfa_code):
+        raise HTTPException(status_code=401, detail="MFA required or invalid")
     key_list = payload.get('keys', [])
     key_management.bulk_import_keys(key_list)
     log_api_key_usage(request.headers.get("Authorization", ""), "bulk_import_keys", "/phase9/keys/bulk_import")
@@ -253,32 +265,32 @@ def bulk_export_api_keys(request: Request):
     role = check_api_key(request, "/phase9/keys/bulk_export", "GET")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
+    # Require MFA for admin bulk export
+    mfa_code = request.headers.get("mfa_code")
+    admin_key = request.headers.get("Authorization", "").replace("Bearer ", "")
+    if not key_management.verify_totp(admin_key, mfa_code):
+        raise HTTPException(status_code=401, detail="MFA required or invalid")
     keys = key_management.bulk_export_keys()
     log_api_key_usage(request.headers.get("Authorization", ""), "bulk_export_keys", "/phase9/keys/bulk_export")
     return keys
 
-@app.post("/phase9/keys")
-def add_api_key(request: Request, payload: dict = Body(...)):
+@app.post("/phase9/keys/rotate/{key}")
+def rotate_api_key(key: str, request: Request, payload: dict = Body(None)):
+    role = check_api_key(request, f"/phase9/keys/rotate/{key}", "POST")
     if role != "admin":
         raise HTTPException(status_code=403, detail="Forbidden: admin required")
-    key = payload.get("key")
-    key_role = payload.get("role")
-    if not key or not key_role:
-        raise HTTPException(status_code=400, detail="Missing key or role")
-    key_management.add_key(key, key_role)
-    log_api_key_usage(key, "add_key", "/phase9/keys")
-    return {"status": "added", "key": key, "role": key_role}
+    # Require MFA for admin key rotation
+    mfa_code = None
+    if payload:
+        mfa_code = payload.get("mfa_code")
+    admin_key = request.headers.get("Authorization", "").replace("Bearer ", "")
+    if not key_management.verify_totp(admin_key, mfa_code):
+        raise HTTPException(status_code=401, detail="MFA required or invalid")
+    key_management.rotate_key(key)
+    log_api_key_usage(request.headers.get("Authorization", ""), "rotate_key", f"/phase9/keys/rotate/{key}")
+    return {"success": True}
 
-@app.delete("/phase9/keys/{key}")
-def remove_api_key(key: str, request: Request):
-    role = check_api_key(request, "/phase9/keys", "POST")
-    if role != "admin":
-        raise HTTPException(status_code=403, detail="Forbidden: admin required")
-    ok = key_management.remove_key(key)
-    log_api_key_usage(key, "remove_key", "/phase9/keys")
-    return {"status": "removed" if ok else "not_found", "key": key}
-
-
+{{ ... }}
 from autonomy import audit_stream
 from autonomy.analytics.per_admin_audit_trail import log_admin_action
 import csv

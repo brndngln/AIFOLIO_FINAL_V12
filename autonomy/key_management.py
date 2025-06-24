@@ -79,6 +79,35 @@ def set_key_meta(key, meta_update):
     log_key_action("UPDATE_META", key, str(meta_update))
     return True
 
+# --- MFA (TOTP) Support ---
+import base64, hmac, hashlib, time
+
+def set_totp_secret(key, secret):
+    return set_key_meta(key, {'totp_secret': secret})
+
+def get_totp_secret(key):
+    meta = load_key_meta()
+    return meta.get(key, {}).get('totp_secret')
+
+def verify_totp(key, code, window=1):
+    secret = get_totp_secret(key)
+    if not secret:
+        return False
+    for offset in range(-window, window+1):
+        if _totp(secret, offset) == code:
+            return True
+    return False
+
+def _totp(secret, offset=0):
+    # Static TOTP: 30s interval, 6 digits
+    key = base64.b32decode(secret.upper())
+    t = int(time.time()//30) + offset
+    msg = t.to_bytes(8, 'big')
+    h = hmac.new(key, msg, hashlib.sha1).digest()
+    o = h[19] & 15
+    code = (int.from_bytes(h[o:o+4], 'big') & 0x7fffffff) % 1000000
+    return f"{code:06d}"
+
 def increment_key_usage(key):
     meta = load_key_meta()
     m = meta.get(key, {})
