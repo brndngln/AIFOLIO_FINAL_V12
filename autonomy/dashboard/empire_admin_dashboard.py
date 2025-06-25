@@ -7,6 +7,7 @@ import importlib
 from typing import Dict, List
 
 MODULES = [
+    # Core, V30–V60
     'ai_partner_ecosystem_builder',
     'multi_brand_engine',
     'ai_license_to_enter_engine',
@@ -26,7 +27,18 @@ MODULES = [
     'ai_peer_monitor',
     'ai_crisis_mode_protocols',
     'ai_ultimate_empire_dna_engine',
-    'ai_phase_60_legacy_empire_engine'
+    'ai_phase_60_legacy_empire_engine',
+    # V70: Phase 61–70
+    'ai_zero_click_automation_queue',
+    'ai_smart_suggest_mode',
+    'ai_dynamic_risk_tiering',
+    'ai_night_mode_automations',
+    'ai_ultra_safe_auto_mode',
+    'ai_legacy_auto_safe_mode',
+    'ai_owner_intent_engine',
+    'ai_full_business_simulator',
+    'ai_scheduled_scaling_mode',
+    'ai_personal_empire_companion'
 ]
 
 class EmpireAdminDashboard:
@@ -41,7 +53,22 @@ class EmpireAdminDashboard:
     def get_all_logs(self) -> Dict[str, List[Dict]]:
         logs = {}
         for mod, module in self.engines.items():
-            if module and hasattr(module, 'export_legacy_log'):
+            # V70 engines: use their static log methods
+            v70_log_methods = {
+                'ai_zero_click_automation_queue': 'get_queue',
+                'ai_smart_suggest_mode': 'get_log',
+                'ai_dynamic_risk_tiering': 'get_log',
+                'ai_night_mode_automations': 'get_night_queue',
+                'ai_ultra_safe_auto_mode': 'get_log',
+                'ai_legacy_auto_safe_mode': 'get_log',
+                'ai_owner_intent_engine': 'get_log',
+                'ai_full_business_simulator': 'get_log',
+                'ai_scheduled_scaling_mode': 'get_log',
+                'ai_personal_empire_companion': 'get_log',
+            }
+            if mod in v70_log_methods and module and hasattr(module, v70_log_methods[mod]):
+                logs[mod] = getattr(module, v70_log_methods[mod])()
+            elif module and hasattr(module, 'export_legacy_log'):
                 logs[mod] = module.export_legacy_log()
             elif module:
                 # Try common log methods

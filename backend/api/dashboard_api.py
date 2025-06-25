@@ -6,6 +6,7 @@ Static, deterministic, owner-controlled, SAFE AI-compliant.
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from autonomy.dashboard.empire_admin_dashboard import EmpireAdminDashboard
+from fastapi import Request
 
 router = APIRouter()
 
@@ -15,6 +16,244 @@ dashboard = EmpireAdminDashboard()
 def get_dashboard_logs():
     logs = dashboard.get_all_logs()
     return JSONResponse(content=logs)
+
+# V70 ACTION ENDPOINTS (SAFE AI, deterministic, owner-controlled)
+
+# V80 API ENDPOINTS (SAFE AI, deterministic, owner-controlled)
+from fastapi.responses import JSONResponse
+from autonomy.automation.automation_enhancements import AutomationEnhancements
+
+@router.get("/api/v80/hud_stats")
+def get_hud_stats():
+    # Example stats - replace with real aggregation as needed
+    stats = {
+        "automations": len(AutomationQueue.get_queue()),
+        "income": 155000,  # Stub: replace with real
+        "errors": sum(1 for t in AutomationQueue.get_queue() if t.get('status') == 'error'),
+        "efficiency": AutomationEnhancements.get_efficiency_score()
+    }
+    AuditTrailVault.record('get_hud_stats', stats)
+    return JSONResponse(content=stats)
+
+@router.get("/api/v80/automation_queue")
+def get_automation_queue():
+    queue = AutomationQueue.get_queue()
+    tags = AutomationEnhancements.get_tags()
+    grouping = AutomationEnhancements.get_grouping()
+    AuditTrailVault.record('get_automation_queue', {"count": len(queue)})
+    return JSONResponse(content={"queue": queue, "tags": tags, "grouping": grouping})
+
+@router.post("/api/v80/automation_queue/add")
+def add_automation_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationQueue.add(data)
+    tag = data.get('tag')
+    group = data.get('group')
+    if tag:
+        AutomationEnhancements.tag_task(data.get('id'), tag)
+    if group:
+        AutomationEnhancements.group_task(data.get('id'), group)
+    AuditTrailVault.record('add_automation_task', data)
+    return {"status": "added"}
+
+@router.post("/api/v80/automation_queue/cancel")
+def cancel_automation_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationQueue.cancel(data.get('id'))
+    AuditTrailVault.record('cancel_automation_task', data)
+    return {"status": "cancelled"}
+
+@router.post("/api/v80/automation_queue/pause")
+def pause_automation_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationQueue.pause(data.get('id'))
+    AuditTrailVault.record('pause_automation_task', data)
+    return {"status": "paused"}
+
+@router.post("/api/v80/automation_queue/retry")
+def retry_automation_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationQueue.retry(data.get('id'))
+    AuditTrailVault.record('retry_automation_task', data)
+    return {"status": "retried"}
+
+@router.get("/api/v80/intent_mode")
+def get_intent_mode():
+    mode = OwnerIntentEngine.get_mode()
+    AuditTrailVault.record('get_intent_mode', {"mode": mode})
+    return JSONResponse(content={"mode": mode})
+
+@router.post("/api/v80/tag_task")
+def tag_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationEnhancements.tag_task(data.get('id'), data.get('tag'))
+    AuditTrailVault.record('tag_task', data)
+    return {"status": "tagged"}
+
+@router.post("/api/v80/group_task")
+def group_task(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationEnhancements.group_task(data.get('id'), data.get('group'))
+    AuditTrailVault.record('group_task', data)
+    return {"status": "grouped"}
+
+@router.get("/api/v80/efficiency")
+def get_efficiency():
+    score = AutomationEnhancements.get_efficiency_score()
+    AuditTrailVault.record('get_efficiency', {"score": score})
+    return JSONResponse(content={"efficiency": score})
+
+@router.post("/api/v80/ab_test")
+def ab_test(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    winner = AutomationEnhancements.ab_test(data.get('vault_id'), data.get('ctr_a'), data.get('ctr_b'))
+    AuditTrailVault.record('ab_test', data)
+    return {"status": "ab_tested", "winner": winner}
+
+@router.post("/api/v80/auto_promote")
+def auto_promote(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationEnhancements.auto_promote(data.get('vault_id'))
+    AuditTrailVault.record('auto_promote', data)
+    return {"status": "auto_promoted"}
+
+@router.post("/api/v80/auto_launch")
+def auto_launch(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    AutomationEnhancements.auto_launch(data.get('vault_id'))
+    AuditTrailVault.record('auto_launch', data)
+    return {"status": "auto_launched"}
+
+@router.post("/api/v80/check_threshold")
+def check_threshold(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    allowed = AutomationEnhancements.check_threshold(data.get('new_vaults_today', 0))
+    AuditTrailVault.record('check_threshold', data)
+    return {"status": "threshold_checked", "allowed": allowed}
+
+@router.post("/api/v80/detect_outlier")
+def detect_outlier(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    is_outlier = AutomationEnhancements.detect_outlier(data.get('metric'), data.get('value'), data.get('mean'), data.get('std'))
+    AuditTrailVault.record('detect_outlier', data)
+    return {"status": "outlier_checked", "outlier": is_outlier}
+
+@router.get("/api/v80/outliers")
+def get_outliers():
+    outliers = AutomationEnhancements.get_outliers()
+    AuditTrailVault.record('get_outliers', {"count": len(outliers)})
+    return JSONResponse(content={"outliers": outliers})
+
+@router.post("/api/v80/intent_mode/set")
+def set_intent_mode(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    mode = data.get('mode', 'oversight')
+    OwnerIntentEngine.set_mode(mode)
+    AuditTrailVault.record('set_intent_mode', {"mode": mode})
+    return {"status": "mode_set", "mode": mode}
+
+@router.get("/api/v80/audit_trail")
+def get_audit_trail():
+    log = AuditTrailVault.get_log()
+    return JSONResponse(content={"audit_trail": log})
+
+@router.get("/api/v80/snapshots")
+def get_snapshots():
+    snaps = AuditTrailVault.get_snapshots()
+    return JSONResponse(content={"snapshots": snaps})
+
+@router.post("/api/v80/rollback")
+def rollback(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    idx = data.get('snapshot_index', 0)
+    state = AuditTrailVault.rollback(idx)
+    return {"status": "rolled_back", "to": idx, "state": state}
+
+@router.post("/api/v80/notify")
+def notify(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    channel = data.get('channel')
+    msg = data.get('message')
+    if channel == 'slack':
+        NotificationManager.send_slack(msg)
+    elif channel == 'email':
+        NotificationManager.send_email("AIFOLIO Notification", msg)
+    elif channel == 'telegram':
+        NotificationManager.send_telegram(msg)
+    AuditTrailVault.record('notify', {"channel": channel, "msg": msg})
+    return {"status": "notified", "channel": channel}
+@router.post("/api/v70/approve_zero_click")
+def approve_zero_click():
+    # Approve all pending batches
+    queue = ai_zero_click_automation_queue.get_queue()
+    for idx, batch in enumerate(queue):
+        if batch.get('status') == 'pending':
+            ai_zero_click_automation_queue.ZeroClickAutomationQueue.approve_batch(idx)
+    return {"status": "approved_all", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/accept_all_smart_suggest")
+def accept_all_smart_suggest():
+    # Accept all current suggestions
+    suggestions = ai_smart_suggest_mode.SmartSuggestMode.suggest_choices([])
+    ai_smart_suggest_mode.SmartSuggestMode.accept_all(suggestions)
+    return {"status": "accepted_all", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/auto_approve_low_risk")
+def auto_approve_low_risk():
+    # Log auto-approve for low-risk automations
+    # Example: log a static entry
+    ai_dynamic_risk_tiering.DynamicRiskTiering.log_tier({'type': 'metadata_update'}, 'low')
+    return {"status": "auto_approved_low_risk", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/schedule_night_run")
+def schedule_night_run():
+    ai_night_mode_automations.NightModeAutomations.schedule_automation({'type': 'night_run'}, run_after="01:00")
+    return {"status": "scheduled_night_run", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/run_ultra_safe")
+def run_ultra_safe():
+    ai_ultra_safe_auto_mode.UltraSafeAutoMode.run_safe_automations([
+        {'type': 'metadata_update'}, {'type': 'qa_check'}
+    ])
+    return {"status": "ran_ultra_safe", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/activate_legacy_auto")
+def activate_legacy_auto():
+    ai_legacy_auto_safe_mode.LegacyAutoSafeMode.activate_if_inactive(False, [
+        {'type': 'revenue_maintenance'}, {'type': 'basic_sync'}
+    ])
+    return {"status": "activated_legacy_auto", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/auto_accept_intent")
+def auto_accept_intent():
+    ai_owner_intent_engine.OwnerIntentEngine.auto_accept(['royalty_payout', 'routine_approval'])
+    return {"status": "auto_accepted_intent", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/simulate_all")
+def simulate_all():
+    ai_full_business_simulator.FullBusinessSimulator.simulate([
+        {'action': 'run_automation'}, {'action': 'sync_data'}
+    ])
+    return {"status": "simulated_all", "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/set_scaling_target")
+async def set_scaling_target(request: Request):
+    data = await request.json()
+    target = data.get('target', '$10M this quarter')
+    ai_scheduled_scaling_mode.ScheduledScalingMode.set_target(target)
+    return {"status": "scaling_target_set", "target": target, "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/approve_checkpoint")
+async def approve_checkpoint(request: Request):
+    data = await request.json()
+    checkpoint = data.get('checkpoint', 'Q3 Milestone')
+    ai_scheduled_scaling_mode.ScheduledScalingMode.approve_checkpoint(checkpoint)
+    return {"status": "checkpoint_approved", "checkpoint": checkpoint, "timestamp": dashboard.get_all_logs()}
+
+@router.post("/api/v70/generate_brief")
+def generate_brief():
+    ai_personal_empire_companion.PersonalEmpireCompanion.generate_brief(10, 100000.0, 2, 0)
+    return {"status": "brief_generated", "timestamp": dashboard.get_all_logs()}
 
 # Export endpoint (JSON/CSV)
 import csv

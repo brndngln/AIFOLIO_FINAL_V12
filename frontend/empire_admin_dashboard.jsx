@@ -1,6 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import './dashboard.css';
 
+// --- V80 Components ---
+function EmpireControlHUD({ stats }) {
+  // stats: { automations, income, errors, efficiency }
+  return (
+    <div className="empire-hud">
+      <div className="hud-block green">Automations: <b>{stats.automations}</b></div>
+      <div className="hud-block blue">Income: <b>${stats.income}</b></div>
+      <div className="hud-block red">Errors: <b>{stats.errors}</b></div>
+      <div className="hud-block yellow">Efficiency: <b>{stats.efficiency}%</b></div>
+    </div>
+  );
+}
+
+function SmartButtonLayer({ onChoose }) {
+  // onChoose: (mode) => void
+  return (
+    <div className="smart-btn-layer">
+      <span>Choose:</span>
+      <button onClick={() => onChoose('once')}>Accept Once</button>
+      <button onClick={() => onChoose('always')}>Always</button>
+      <button onClick={() => onChoose('queue')}>Safe Queue</button>
+    </div>
+  );
+}
+
+function OwnerIntentToggle({ intentMode, setIntentMode }) {
+  return (
+    <div className="intent-toggle">
+      <span>Owner Intent:</span>
+      <button className={intentMode === 'auto' ? 'active' : ''} onClick={() => setIntentMode('auto')}>Fully Automate</button>
+      <button className={intentMode === 'oversight' ? 'active' : ''} onClick={() => setIntentMode('oversight')}>Oversight</button>
+      <button className={intentMode === 'override' ? 'active' : ''} onClick={() => setIntentMode('override')}>Override</button>
+    </div>
+  );
+}
+
+function PreferencePane({ title, children, open, onToggle }) {
+  return (
+    <div className="pref-pane">
+      <div className="pref-pane-header" onClick={onToggle}>
+        <span>{open ? '▼' : '►'}</span> <b>{title}</b>
+      </div>
+      {open && <div className="pref-pane-content">{children}</div>}
+    </div>
+  );
+}
+
 function EmpireAdminDashboard() {
   const [logs, setLogs] = useState({});
   const [activeSection, setActiveSection] = useState('Vaults');
@@ -10,47 +57,66 @@ function EmpireAdminDashboard() {
   const [undoStack, setUndoStack] = useState([]);
   const [lastAction, setLastAction] = useState(null);
 
+  // V80 state
+  const [hudStats, setHudStats] = useState({ automations: 0, income: 0, errors: 0, efficiency: 100 });
+  const [automationQueue, setAutomationQueue] = useState([]);
+  const [automationTags, setAutomationTags] = useState({});
+  const [automationGrouping, setAutomationGrouping] = useState({});
+  const [auditTrail, setAuditTrail] = useState([]);
+  const [snapshots, setSnapshots] = useState([]);
+  const [outliers, setOutliers] = useState([]);
+  const [intentMode, setIntentMode] = useState('oversight');
+  const [openPanes, setOpenPanes] = useState({ Vaults: true, AI: false, Automation: false, Branding: false, Security: false });
+  const [notificationMsg, setNotificationMsg] = useState('');
+  const [notificationChannel, setNotificationChannel] = useState('slack');
+  const [efficiency, setEfficiency] = useState(100);
+
+  // Fetch V80 HUD stats
   useEffect(() => {
-    fetch('/api/dashboard/logs')
-      .then(res => res.json())
-      .then(data => setLogs(data));
+    fetch('/api/v80/hud_stats').then(res => res.json()).then(setHudStats);
+    fetch('/api/v80/automation_queue').then(res => res.json()).then(data => {
+      setAutomationQueue(data.queue || []);
+      setAutomationTags(data.tags || {});
+      setAutomationGrouping(data.grouping || {});
+    });
+    fetch('/api/v80/audit_trail').then(res => res.json()).then(data => setAuditTrail(data.audit_trail || []));
+    fetch('/api/v80/snapshots').then(res => res.json()).then(data => setSnapshots(data.snapshots || []));
+    fetch('/api/v80/intent_mode').then(res => res.json()).then(data => setIntentMode(data.mode));
+    fetch('/api/v80/outliers').then(res => res.json()).then(data => setOutliers(data.outliers || []));
+    fetch('/api/v80/efficiency').then(res => res.json()).then(data => setEfficiency(data.efficiency));
+    fetch('/api/dashboard/logs').then(res => res.json()).then(data => setLogs(data));
   }, []);
 
-  const sections = [
-    'Vaults', 'Revenue', 'Partners', 'Compliance', 'Capital', 'Crisis',
-    'Empire Value', 'Security', 'Multi-Platform', 'Prestige Brand', 'Global Risk', 'Dynasty',
-    // V70 Phases:
-    'Zero-Click Queue', 'Smart Suggest', 'Risk Tiering', 'Night Mode', 'Ultra-Safe Auto', 'Legacy Auto-Safe', 'Intent Engine', 'Simulator', 'Scaling Mode', 'Empire Companion'
-  ];
-
-  const sectionIcons = {
-    'Vaults': '🗄️', 'Revenue': '💰', 'Partners': '🤝', 'Compliance': '📋', 'Capital': '🏦',
-    'Crisis': '🚨', 'Empire Value': '🏆', 'Security': '🛡️', 'Multi-Platform': '🌐',
-    'Prestige Brand': '✨', 'Global Risk': '🌎', 'Dynasty': '👑',
-    'Zero-Click Queue': '⚡', 'Smart Suggest': '💡', 'Risk Tiering': '📊', 'Night Mode': '🌙', 'Ultra-Safe Auto': '🟢',
-    'Legacy Auto-Safe': '🕰️', 'Intent Engine': '🎯', 'Simulator': '🧪', 'Scaling Mode': '📈', 'Empire Companion': '🤖'
+  // Tag/group automation task
+  const tagTask = (id, tag) => {
+    fetch('/api/v80/tag_task', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, tag }) })
+      .then(() => fetch('/api/v80/automation_queue').then(res => res.json()).then(data => {
+        setAutomationTags(data.tags || {});
+      }));
+  };
+  const groupTask = (id, group) => {
+    fetch('/api/v80/group_task', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, group }) })
+      .then(() => fetch('/api/v80/automation_queue').then(res => res.json()).then(data => {
+        setAutomationGrouping(data.grouping || {});
+      }));
   };
 
-
-  const handleAction = (action, details) => {
-    setShowConfirm(true);
-    setPendingAction({ action, details });
+  // Set owner intent mode
+  const handleSetIntentMode = (mode) => {
+    fetch('/api/v80/intent_mode/set', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode }) })
+      .then(() => setIntentMode(mode));
   };
 
-  const confirmAction = () => {
-    setUndoStack([...undoStack, lastAction]);
-    setLastAction(pendingAction);
-    setShowConfirm(false);
-    setPendingAction(null);
-    // Here you would call the backend API to perform the action
+  // Notify
+  const sendNotification = () => {
+    fetch('/api/v80/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channel: notificationChannel, message: notificationMsg }) })
+      .then(() => setNotificationMsg(''));
   };
 
-  const undoAction = () => {
-    if (undoStack.length === 0) return;
-    const prev = undoStack[undoStack.length - 1];
-    setUndoStack(undoStack.slice(0, -1));
-    setLastAction(prev);
-    // Here you would call the backend API to undo
+  // Rollback
+  const handleRollback = (idx) => {
+    fetch('/api/v80/rollback', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ snapshot_index: idx }) })
+      .then(() => fetch('/api/v80/snapshots').then(res => res.json()).then(data => setSnapshots(data.snapshots || [])));
   };
 
   // Color code helper
@@ -58,6 +124,9 @@ function EmpireAdminDashboard() {
     if (status === 'safe' || status === 'good' || status === 'green') return '#27ae60';
     if (status === 'warning' || status === 'yellow' || status === 'review') return '#f4d03f';
     if (status === 'red' || status === 'danger' || status === 'needs owner action') return '#e74c3c';
+    if (status === 'critical') return '#e74c3c';
+    if (status === 'experimental') return '#f4d03f';
+    if (status === 'safe') return '#27ae60';
     return '#2980b9';
   };
 
@@ -74,7 +143,82 @@ function EmpireAdminDashboard() {
             <button className="big-btn green" onClick={() => handleAction('createVault', {})}>New Vault</button>
             <button className="big-btn yellow" onClick={() => handleAction('qaVault', {})}>QA Check</button>
             <button className="big-btn blue" onClick={() => handleAction('bundleVault', {})}>Bundle Builder</button>
-            {/* Visual previews, status bars, etc. */}
+            {/* V80 Automation Queue View */}
+            <h3>Automation Queue</h3>
+            <table className="automation-queue-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Task</th>
+                  <th>Tag</th>
+                  <th>Group</th>
+                  <th>Controls</th>
+                </tr>
+              </thead>
+              <tbody>
+                {automationQueue.map((item, idx) => (
+                  <tr key={idx}>
+                    <td>{item.id || idx}</td>
+                    <td>{item.task ? JSON.stringify(item.task) : ''}</td>
+                    <td>
+                      <select value={automationTags[item.id] || ''} onChange={e => tagTask(item.id, e.target.value)}>
+                        <option value="">-</option>
+                        <option value="safe">Safe</option>
+                        <option value="critical">Critical</option>
+                        <option value="experimental">Experimental</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select value={automationGrouping[item.id] || ''} onChange={e => groupTask(item.id, e.target.value)}>
+                        <option value="">-</option>
+                        <option value="Growth">Growth</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Cleanup">Cleanup</option>
+                        <option value="Emergency">Emergency</option>
+                      </select>
+                    </td>
+                    <td>
+                      <button onClick={() => handleAction('cancelAutomation', { id: item.id })}>Cancel</button>
+                      <button onClick={() => handleAction('pauseAutomation', { id: item.id })}>Pause</button>
+                      <button onClick={() => handleAction('retryAutomation', { id: item.id })}>Retry</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div style={{marginTop: '1rem'}}>
+              <b>Efficiency Score:</b> <span style={{color: getStatusColor(efficiency > 90 ? 'safe' : (efficiency > 70 ? 'yellow' : 'red'))}}>{efficiency}%</span>
+            </div>
+            <div style={{marginTop: '1rem'}}>
+              <b>Audit Trail:</b>
+              <pre style={{maxHeight: 120, overflow: 'auto', background: '#f8f8f8'}}>{JSON.stringify(auditTrail.slice(-10), null, 2)}</pre>
+              <b>Rollback Snapshots:</b>
+              <ul>
+                {snapshots.map((snap, idx) => (
+                  <li key={idx}>
+                    <button onClick={() => handleRollback(idx)}>Rollback to {snap.timestamp}</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{marginTop: '1rem'}}>
+              <b>Outliers:</b>
+              <ul>
+                {outliers.map((o, idx) => (
+                  <li key={idx}>{o.metric}: {o.value} <span style={{color: getStatusColor('red')}}>OUTLIER</span></li>
+                ))}
+              </ul>
+            </div>
+            <div style={{marginTop: '1rem'}}>
+              <b>Send Notification:</b>
+              <select value={notificationChannel} onChange={e => setNotificationChannel(e.target.value)}>
+                <option value="slack">Slack</option>
+                <option value="email">Email</option>
+                <option value="telegram">Telegram</option>
+              </select>
+              <input value={notificationMsg} onChange={e => setNotificationMsg(e.target.value)} placeholder="Message..." />
+              <button onClick={sendNotification}>Send</button>
+            </div>
           </div>
         );
       case 'Revenue':
@@ -321,6 +465,26 @@ function EmpireAdminDashboard() {
       </nav>
       {/* Main Panel */}
       <main className="dashboard-main">
+        {/* V80 Empire Control HUD */}
+        <EmpireControlHUD stats={hudStats} />
+        {/* V80 Owner Intent Toggle */}
+        <OwnerIntentToggle intentMode={intentMode} setIntentMode={setIntentMode} />
+        {/* V80 Collapsible Preference Panes */}
+        <div className="pref-panes">
+          {['Vaults','AI','Automation','Branding','Security'].map(pane => (
+            <PreferencePane
+              key={pane}
+              title={pane}
+              open={openPanes[pane]}
+              onToggle={() => setOpenPanes({...openPanes, [pane]: !openPanes[pane]})}
+            >
+              {/* Example: SmartButtonLayer inside each pane */}
+              <SmartButtonLayer onChoose={mode => alert(`Chosen: ${mode} for ${pane}`)} />
+              {/* Add more controls per pane as needed */}
+            </PreferencePane>
+          ))}
+        </div>
+        {/* Existing Section Render */}
         {renderSection()}
         {/* Memory Audit & Last AI Action Log */}
         <div className="dashboard-memory-audit">
