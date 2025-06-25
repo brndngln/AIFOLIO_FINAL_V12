@@ -71,6 +71,19 @@ function EmpireAdminDashboard() {
   const [notificationChannel, setNotificationChannel] = useState('slack');
   const [efficiency, setEfficiency] = useState(100);
 
+  // PHASE 91–110 state
+  const [licensingVaults, setLicensingVaults] = useState([]);
+  const [licensingVariants, setLicensingVariants] = useState([]);
+  const [licensees, setLicensees] = useState([]);
+  const [roiRanks, setRoiRanks] = useState([]);
+  const [revenueFunnels, setRevenueFunnels] = useState([]);
+  const [combatVaults, setCombatVaults] = useState([]);
+  const [strategistReport, setStrategistReport] = useState({});
+  const [vaultAuditLog, setVaultAuditLog] = useState([]);
+  const [vaultAuditSnapshots, setVaultAuditSnapshots] = useState([]);
+  const [fractalHeatmap, setFractalHeatmap] = useState([]);
+  const [activeTab, setActiveTab] = useState('Vaults');
+
   // Fetch V80 HUD stats
   useEffect(() => {
     fetch('/api/v80/hud_stats').then(res => res.json()).then(setHudStats);
@@ -85,6 +98,13 @@ function EmpireAdminDashboard() {
     fetch('/api/v80/outliers').then(res => res.json()).then(data => setOutliers(data.outliers || []));
     fetch('/api/v80/efficiency').then(res => res.json()).then(data => setEfficiency(data.efficiency));
     fetch('/api/dashboard/logs').then(res => res.json()).then(data => setLogs(data));
+    // PHASE 91–110: Load licensing, revenue, intelligence, audit
+    fetch('/api/v110/licensing/scan', {method:'POST',headers:{'Content-Type':'application/json'},body:'[]'}).then(res=>res.json()).then(data=>setLicensingVaults(data.vaults||[]));
+    fetch('/api/v110/licensing/licensees').then(res=>res.json()).then(data=>setLicensees(data.licensees||[]));
+    fetch('/api/v110/intel/combat_ai', {method:'POST',headers:{'Content-Type':'application/json'},body:'[]'}).then(res=>res.json()).then(data=>setCombatVaults(data.vaults||[]));
+    fetch('/api/v110/intel/strategist', {method:'POST',headers:{'Content-Type':'application/json'},body:'[]'}).then(res=>res.json()).then(data=>setStrategistReport(data.report||{}));
+    fetch('/api/v110/audit/log').then(res=>res.json()).then(data=>setVaultAuditLog(data.vault_audit_log||[]));
+    fetch('/api/v110/audit/snapshots').then(res=>res.json()).then(data=>setVaultAuditSnapshots(data.snapshots||[]));
   }, []);
 
   // Tag/group automation task
@@ -134,8 +154,117 @@ function EmpireAdminDashboard() {
   // Helper: fetch V70 logs (stub)
   const getV70Log = (engine) => logs[engine] || [];
 
+  // --- PHASE 91–110: Licensing, Revenue, Intelligence, Audit Panels ---
+  const renderLicensingPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Licensing Control Panel</h2>
+      <button className="big-btn blue" onClick={()=>setActiveTab('Licensee Manager')}>Licensee Manager</button>
+      <button className="big-btn green" onClick={()=>setActiveTab('ROI Analyzer')}>ROI Analyzer</button>
+      <button className="big-btn yellow" onClick={()=>setActiveTab('Fractal Revenue Heatmap')}>Fractal Revenue Heatmap</button>
+      <h3>All Vaults</h3>
+      <table className="automation-queue-table">
+        <thead><tr><th>ID</th><th>Title</th><th>Niche</th><th>Value</th><th>Potential</th><th>Actions</th></tr></thead>
+        <tbody>
+          {licensingVaults.map((v, idx)=>(
+            <tr key={idx}>
+              <td>{v.id}</td><td>{v.title}</td><td>{v.niche}</td><td>{v.value}</td><td>{v.licensing_potential}</td>
+              <td>
+                <button onClick={()=>{
+                  fetch('/api/v110/licensing/variant', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vault_id:v.id})})
+                    .then(()=>alert('Variant generated!'));
+                }}>Gen Variant</button>
+                <button onClick={()=>{
+                  fetch('/api/v110/licensing/license', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vault_id:v.id,user:'owner',mode:'public'})})
+                    .then(()=>alert('Licensed Publicly!'));
+                }}>License Publicly</button>
+                <button onClick={()=>{
+                  fetch('/api/v110/licensing/license', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vault_id:v.id,user:'owner',mode:'whitelist'})})
+                    .then(()=>alert('Whitelisted!'));
+                }}>Whitelist</button>
+                <button onClick={()=>{
+                  fetch('/api/v110/licensing/license', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vault_id:v.id,user:'owner',mode:'private_clone_only'})})
+                    .then(()=>alert('Private Clone Only!'));
+                }}>Private Clone Only</button>
+                <button onClick={()=>{
+                  fetch('/api/v110/licensing/partner', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vault_id:v.id,user:'partner'})})
+                    .then(()=>alert('PartnerVault Mode!'));
+                }}>PartnerVault</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+  const renderLicenseeManagerPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Licensee Manager</h2>
+      <table className="automation-queue-table">
+        <thead><tr><th>Vault ID</th><th>User</th><th>Variant</th><th>Region</th><th>Earnings</th><th>Status</th></tr></thead>
+        <tbody>
+          {licensees.map((l, idx)=>(
+            <tr key={idx}>
+              <td>{l.vault_id}</td><td>{l.user}</td><td>{l.variant_id}</td><td>{l.region}</td><td>{l.earnings}</td><td>{l.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+  const renderROIAnalyzerPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Vault ROI Analyzer</h2>
+      <table className="automation-queue-table">
+        <thead><tr><th>Vault ID</th><th>Profit</th><th>Threat Level</th></tr></thead>
+        <tbody>
+          {combatVaults.map((v, idx)=>(
+            <tr key={idx}>
+              <td>{v.id}</td><td>{v.profit}</td><td>{v.threat_level}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+  const renderFractalHeatmapPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Fractal Revenue Heatmap</h2>
+      <pre>{JSON.stringify(fractalHeatmap,null,2)}</pre>
+    </div>
+  );
+  const renderStrategistPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Empire Vault Strategist</h2>
+      <pre>{JSON.stringify(strategistReport,null,2)}</pre>
+    </div>
+  );
+  const renderVaultAuditPanel = () => (
+    <div className="dashboard-panel">
+      <h2>Vault Audit Log</h2>
+      <pre style={{maxHeight:200,overflow:'auto',background:'#f8f8f8'}}>{JSON.stringify(vaultAuditLog.slice(-30),null,2)}</pre>
+      <h3>Snapshots</h3>
+      <ul>
+        {vaultAuditSnapshots.map((snap,idx)=>(
+          <li key={idx}><button onClick={()=>alert('Rollback not implemented in UI yet')}>Rollback to {snap.timestamp}</button></li>
+        ))}
+      </ul>
+    </div>
+  );
+
   const renderSection = () => {
-    switch (activeSection) {
+    switch (activeTab) {
+      case 'Licensing':
+        return renderLicensingPanel();
+      case 'Licensee Manager':
+        return renderLicenseeManagerPanel();
+      case 'ROI Analyzer':
+        return renderROIAnalyzerPanel();
+      case 'Fractal Revenue Heatmap':
+        return renderFractalHeatmapPanel();
+      case 'Strategist':
+        return renderStrategistPanel();
+      case 'Vault Audit':
+        return renderVaultAuditPanel();
       case 'Vaults':
         return (
           <div className="dashboard-panel">
@@ -251,75 +380,15 @@ function EmpireAdminDashboard() {
           <div className="dashboard-panel">
             <h2>Capital Dashboard</h2>
             <button className="big-btn green" onClick={() => handleAction('cashflow', {})}>View Cashflow</button>
-            <button className="big-btn blue" onClick={() => handleAction('wealthFunnel', {})}>Wealth Funnel</button>
-          </div>
-        );
-      case 'Crisis':
-        return (
-          <div className="dashboard-panel">
-            <h2>Crisis Center</h2>
-            <button className="big-btn red" onClick={() => handleAction('crisisMode', {})}>Activate Crisis Mode</button>
-          </div>
-        );
-      case 'Empire Value':
-        return (
-          <div className="dashboard-panel">
-            <h2>Empire Value Center</h2>
-            <button className="big-btn green" onClick={() => handleAction('valuation', {})}>Current Valuation</button>
-            <button className="big-btn blue" onClick={() => handleAction('improveValue', {})}>Improve Value</button>
-          </div>
-        );
-      case 'Security':
-        return (
-          <div className="dashboard-panel">
-            <h2>Security Center</h2>
-            <button className="big-btn yellow" onClick={() => handleAction('antiFraud', {})}>Anti-Fraud</button>
-            <button className="big-btn blue" onClick={() => handleAction('antiPiracy', {})}>Anti-Piracy</button>
-            <button className="big-btn red" onClick={() => handleAction('shieldStatus', {})}>Shield Status</button>
-          </div>
-        );
-      case 'Multi-Platform':
-        return (
-          <div className="dashboard-panel">
-            <h2>Multi-Platform Dashboard</h2>
-            <button className="big-btn blue" onClick={() => handleAction('syncAll', {})}>Sync All</button>
-          </div>
-        );
-      case 'Prestige Brand':
-        return (
-          <div className="dashboard-panel">
-            <h2>Prestige Brand Dashboard</h2>
-            <button className="big-btn green" onClick={() => handleAction('brandSuggestions', {})}>Brand Suggestions</button>
-            <button className="big-btn yellow" onClick={() => handleAction('approveStyle', {})}>Approve Style Changes</button>
-          </div>
-        );
-      case 'Global Risk':
-        return (
-          <div className="dashboard-panel">
-            <h2>Global Risk Center</h2>
-            <div className="status-indicator" style={{background: getStatusColor('green')}}>Macro Risks: Safe</div>
-            <div className="status-indicator" style={{background: getStatusColor('yellow')}}>Platform Risks: Review</div>
-            <div className="status-indicator" style={{background: getStatusColor('red')}}>AI Regulation: Owner Action Needed</div>
-          </div>
-        );
-      case 'Dynasty':
-        return (
-          <div className="dashboard-panel">
-            <h2>Dynasty Center</h2>
-            <button className="big-btn green" onClick={() => handleAction('trustStatus', {})}>Family Trust Status</button>
-            <button className="big-btn blue" onClick={() => handleAction('exportPlaybook', {})}>Export Dynasty Playbook</button>
-          </div>
-        );
-      case 'Zero-Click Queue':
-        return (
-          <div className="dashboard-panel">
-            <h2>Zero-Click Automation Queue</h2>
-            <button className="big-btn blue" onClick={() => handleAction('approveAllZeroClick', {})}>Approve All Batches</button>
-            <ul>
-              {getV70Log('ai_zero_click_automation_queue').map((entry, idx) => (
-                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
-              ))}
-            </ul>
+            <div className="dashboard-panel">
+              <h2>Zero-Click Automation Queue</h2>
+              <button className="big-btn blue" onClick={() => handleAction('approveAllZeroClick', {})}>Approve All Batches</button>
+              <ul>
+                {getV70Log('ai_zero_click_automation_queue').map((entry, idx) => (
+                  <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+                ))}
+              </ul>
+            </div>
           </div>
         );
       case 'Smart Suggest':
@@ -431,6 +500,15 @@ function EmpireAdminDashboard() {
             </ul>
           </div>
         );
+      // Fallback for unknown tabs: show Vaults panel
+      // This must be the last case before default
+      case undefined:
+        return (
+          <div className="dashboard-panel">
+            <h2>Vault Dashboard</h2>
+            <p>Unknown tab selected. Showing Vaults panel by default.</p>
+          </div>
+        );
       default:
         return null;
     }
@@ -515,3 +593,4 @@ function EmpireAdminDashboard() {
 
 
 export default EmpireAdminDashboard;
+

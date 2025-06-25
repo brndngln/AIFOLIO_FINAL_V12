@@ -19,9 +19,139 @@ def get_dashboard_logs():
 
 # V70 ACTION ENDPOINTS (SAFE AI, deterministic, owner-controlled)
 
+# --- PHASE 91–110: FRACTAL LICENSING EMPIRE & REVENUE WEAPONIZATION ---
+
+# Licensing: Scan, classify, and generate variants
+@router.post("/api/v110/licensing/scan")
+def scan_and_classify(request: Request):
+    vaults = request.json() if hasattr(request, 'json') else []
+    result = FractalLicensingEngine.scan_and_classify(vaults)
+    VaultAuditTracker.record('licensing_scan', {'count': len(result)})
+    return JSONResponse(content={'vaults': result})
+
+@router.post("/api/v110/licensing/variant")
+def generate_variant(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    variant = FractalLicensingEngine.generate_licensing_variant(
+        data.get('vault_id'), data.get('region'), data.get('language'), data.get('audience'))
+    VaultAuditTracker.record('licensing_variant', data)
+    return JSONResponse(content={'variant': variant})
+
+@router.post("/api/v110/licensing/license")
+def license_vault(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    ok = FractalLicensingEngine.license_vault(data.get('vault_id'), data.get('user'), data.get('mode'))
+    VaultAuditTracker.record('license_vault', data)
+    return {"status": "licensed", "ok": ok}
+
+@router.post("/api/v110/licensing/partner")
+def partner_vault(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    ok = FractalLicensingEngine.partner_vault(data.get('vault_id'), data.get('user'))
+    VaultAuditTracker.record('partner_vault', data)
+    return {"status": "partnered", "ok": ok}
+
+@router.post("/api/v110/licensing/earnings")
+def track_earnings(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    ok = FractalLicensingEngine.track_earnings(data.get('vault_id'), data.get('user'), data.get('amount'), data.get('region'), data.get('variant_id'))
+    VaultAuditTracker.record('track_earnings', data)
+    return {"status": "tracked", "ok": ok}
+
+@router.post("/api/v110/licensing/abuse")
+def detect_abuse(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    ok = FractalLicensingEngine.detect_abuse(data.get('vault_id'), data.get('user'), data.get('fingerprint'))
+    VaultAuditTracker.record('detect_abuse', data)
+    return {"status": "abuse_logged", "ok": ok}
+
+@router.get("/api/v110/licensing/licensees")
+def get_licensees():
+    licensees = LicenseeManager.get_licensees()
+    VaultAuditTracker.record('get_licensees', {"count": len(licensees)})
+    return JSONResponse(content={'licensees': licensees})
+
+# Revenue Weaponization
+@router.post("/api/v110/revenue/optimize")
+def optimize_revenue_path(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.optimize_revenue_path(data.get('vault_id'), data.get('path'))
+    VaultAuditTracker.record('optimize_revenue_path', data)
+    return {"status": "optimized"}
+
+@router.post("/api/v110/revenue/viral")
+def viral_trigger(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.viral_trigger(data.get('vault_id'), data.get('viral_score'))
+    VaultAuditTracker.record('viral_trigger', data)
+    return {"status": "viral_triggered"}
+
+@router.post("/api/v110/revenue/referral")
+def add_referral(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.add_referral(data.get('vault_id'), data.get('ref_code'), data.get('user'))
+    VaultAuditTracker.record('add_referral', data)
+    return {"status": "referral_added"}
+
+@router.post("/api/v110/revenue/autopilot")
+def autopilot_upsell(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.autopilot_upsell(data.get('vault_id'), data.get('upsell'))
+    VaultAuditTracker.record('autopilot_upsell', data)
+    return {"status": "autopilot_upsell_added"}
+
+@router.post("/api/v110/revenue/compound")
+def compound_vault(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.compound_vault(data.get('parent_vault'), data.get('spin_off_id'))
+    VaultAuditTracker.record('compound_vault', data)
+    return {"status": "compounded"}
+
+@router.post("/api/v110/revenue/funnel")
+def add_funnel(request: Request):
+    data = request.json() if hasattr(request, 'json') else {}
+    RevenueWeaponizationEngine.add_funnel(data.get('vault_id'), data.get('funnel'))
+    VaultAuditTracker.record('add_funnel', data)
+    return {"status": "funnel_added"}
+
+# Intelligence
+@router.post("/api/v110/intel/combat_ai")
+def rank_vaults(request: Request):
+    vaults = request.json() if hasattr(request, 'json') else []
+    result = VaultCombatAI.rank_vaults(vaults)
+    VaultAuditTracker.record('combat_ai_rank', {'count': len(result)})
+    return JSONResponse(content={'vaults': result})
+
+@router.post("/api/v110/intel/strategist")
+def generate_weekly_report(request: Request):
+    vaults = request.json() if hasattr(request, 'json') else []
+    report = EmpireVaultStrategist.generate_weekly_report(vaults)
+    VaultAuditTracker.record('strategist_report', report)
+    return JSONResponse(content={'report': report})
+
+# Audit
+@router.get("/api/v110/audit/log")
+def get_vault_audit_log():
+    log = VaultAuditTracker.get_log()
+    return JSONResponse(content={'vault_audit_log': log})
+
+@router.get("/api/v110/audit/snapshots")
+def get_vault_audit_snapshots():
+    snaps = VaultAuditTracker.get_snapshots()
+    return JSONResponse(content={'snapshots': snaps})
+
 # V80 API ENDPOINTS (SAFE AI, deterministic, owner-controlled)
 from fastapi.responses import JSONResponse
 from autonomy.automation.automation_enhancements import AutomationEnhancements
+
+# PHASE 91–110: Fractal Licensing, Revenue Weaponization, Intelligence, Audit
+from licensing.fractal_licensing_engine import FractalLicensingEngine
+from licensing.license_variant_generator import generate_license_variant
+from licensing.licensee_manager import LicenseeManager
+from revenue.weaponization_engine import RevenueWeaponizationEngine
+from intelligence.vault_combat_ai import VaultCombatAI
+from intelligence.empire_vault_strategist import EmpireVaultStrategist
+from audit.vault_audit_tracker import VaultAuditTracker
 
 @router.get("/api/v80/hud_stats")
 def get_hud_stats():
