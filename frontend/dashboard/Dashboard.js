@@ -177,6 +177,7 @@ const LuxuryCard = ({ title, children, style }) => (
   </div>
 );
 
+import Phase3000StatusPanel from '../src/components/Phase3000StatusPanel.jsx';
 // System locked flag (static, deterministic, owner-controlled)
 const system_locked = true;
 
@@ -471,6 +472,9 @@ export default function Dashboard() {
           <span style={{display:'inline-block',padding:'0.25em 0.7em',borderRadius:'1em',background:'#e3f9f6',color:'#0c837c',fontSize:'1em',fontWeight:700,letterSpacing:'0.03em'}}>SYSTEM LOCKED — SAFE AI FINAL</span>
         </div>
       </LuxuryCard>
+
+      {/* --- PHASE 3000+ Status Panel --- */}
+      <Phase3000StatusPanel />
 
       {/* --- BATCH 14 Widgets --- */}
       <VaultCrossMarketFitReport />
