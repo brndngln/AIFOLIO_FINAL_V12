@@ -43,6 +43,26 @@ def run_safe_ai_self_test():
     logger.info("SAFE-AI SELF-TEST RESULTS: %s", results)
     return results
 
+import os
+import csv
+import json
+
+def export_safe_ai_self_test_results(summary, prompt_results, export_dir="/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/analytics"):
+    os.makedirs(export_dir, exist_ok=True)
+    # Export JSON
+    json_path = os.path.join(export_dir, "safe_ai_self_test_results.json")
+    with open(json_path, "w") as jf:
+        json.dump({"summary": summary, "prompt_results": prompt_results}, jf, indent=2)
+    # Export CSV (flattened)
+    csv_path = os.path.join(export_dir, "safe_ai_self_test_results.csv")
+    with open(csv_path, "w", newline='') as cf:
+        writer = csv.writer(cf)
+        writer.writerow(["key", "value"])
+        for k, v in summary.items():
+            writer.writerow([k, v])
+        for pk, pv in prompt_results.items():
+            writer.writerow([pk, pv])
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     summary = run_safe_ai_self_test()
@@ -74,5 +94,5 @@ if __name__ == "__main__":
     )
     print("\nSAFE-AI SELF-TEST PASSED:" if passed else "\nSAFE-AI SELF-TEST FAILED:", passed)
 
-if __name__ == "__main__":
-    run_safe_ai_self_test()
+    # Export results for dashboard
+    export_safe_ai_self_test_results(summary, prompt_results)

@@ -122,19 +122,21 @@ DO NOT REMOVE OR BYPASS ANY SECTION. No toggles. No user overrides.
         </ul>
     </nav>
     <hr class="divider"/>
-    <main>
+    <main aria-label="PDF Content" tabindex="0">
         {{ content.body | safe }}
     </main>
-    <div class="backcover">
-        <h2>{{ content.back_headline or 'Thank You for Choosing AIFOLIO™' }}</h2>
-        <p>{{ content.back_cta or 'Ready to unlock more? Visit aifolio.com' }}</p>
+    <div class="backcover" aria-label="Back Cover">
+        <h2 style="font-family: 'Inter', 'SF Pro Display', Arial, sans-serif; font-weight: 700; color: #2c2c2c; letter-spacing: 0.01em;">{{ content.back_headline or 'Thank You for Choosing AIFOLIO™' }}</h2>
+        <p style="font-family: 'Inter', 'SF Pro Display', Arial, sans-serif; font-size: 1.05em; color: #444;">{{ content.back_cta or 'Ready to unlock more? Visit aifolio.com' }}</p>
     </div>
-    <footer>
+    <footer style="font-family: 'Inter', 'SF Pro Display', Arial, sans-serif; font-size: 0.95em; color: #555; background: rgba(255,255,255,0.85); border-top: 1px solid #e0e0e0; padding: 1.2em 0 0.7em 0; margin-top: 2em; text-align: center;">
         <span class="page-number">Page {{ content.page_number }}</span>
-        <span>{{ content.edition or 'First Edition' }} — {{ content.release_timestamp or '' }}</span>
+        <span style="margin-left: 1.5em;">{{ content.edition or 'First Edition' }} — {{ content.release_timestamp or '' }}</span>
         <br/>
         <span>{{ content.copyright or '© 2025 AIFOLIO™. All rights reserved.' }}</span>
+        <br/>
+        <span style="display: inline-block; margin-top: 0.5em; padding: 0.25em 0.7em; border-radius: 1em; background: #e3f9f6; color: #0c837c; font-size: 0.90em; font-weight: 600; letter-spacing: 0.03em;">SAFE AI COMPLIANT — v12.ELITE</span>
     </footer>
-    <div class="watermark">PREMIUM VAULT</div>
+    <div class="watermark" aria-label="Premium Vault Watermark" style="position: fixed; bottom: 2em; right: 2em; z-index: 999; font-family: 'Inter', 'SF Pro Display', Arial, sans-serif; font-weight: 900; font-size: 2.1em; background: rgba(255,255,255,0.25); color: #1f1f1f; text-shadow: 0 2px 24px #fff, 0 1px 2px #0a0a0a22; border-radius: 1.2em; padding: 0.4em 1.2em; box-shadow: 0 2px 24px #b6e3e0a0; pointer-events: none; user-select: none; filter: blur(0.2px);">PREMIUM VAULT</div>
 </body>
 </html>
