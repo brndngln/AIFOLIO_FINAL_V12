@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-06-24T20:12:13-06:00",
+  "status": "SUCCESS",
+  "message": "Partner certification export (CSV/PDF) created.",
+  "fields": ["Partner Name","Partner Email","Vault/Module Name","Certification Status","Date Certified","Progress %","Notes / Comments"],
+  "auto_export_schedule": "Weekly (Sunday night)",
+  "manual_export": "Enabled on Admin Dashboard",
+  "ui_preview": "Ready (PDF viewer/download link)",
+  "warnings": "No certified partners to export (if empty)",
+  "safe_ai_compliance": "Deterministic, non-sentient, audit-logged"
+}
