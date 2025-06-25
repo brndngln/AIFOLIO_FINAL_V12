@@ -178,6 +178,7 @@ const LuxuryCard = ({ title, children, style }) => (
 );
 
 import Phase3000StatusPanel from '../src/components/Phase3000StatusPanel.jsx';
+import Phase4000SelectedStatusPanel from '../src/components/Phase4000SelectedStatusPanel.jsx';
 // System locked flag (static, deterministic, owner-controlled)
 const system_locked = true;
 
@@ -475,6 +476,9 @@ export default function Dashboard() {
 
       {/* --- PHASE 3000+ Status Panel --- */}
       <Phase3000StatusPanel />
+
+      {/* --- PHASE 4000+ Selected Status Panel --- */}
+      <Phase4000SelectedStatusPanel />
 
       {/* --- BATCH 14 Widgets --- */}
       <VaultCrossMarketFitReport />
