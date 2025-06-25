@@ -18,14 +18,19 @@ function EmpireAdminDashboard() {
 
   const sections = [
     'Vaults', 'Revenue', 'Partners', 'Compliance', 'Capital', 'Crisis',
-    'Empire Value', 'Security', 'Multi-Platform', 'Prestige Brand', 'Global Risk', 'Dynasty'
+    'Empire Value', 'Security', 'Multi-Platform', 'Prestige Brand', 'Global Risk', 'Dynasty',
+    // V70 Phases:
+    'Zero-Click Queue', 'Smart Suggest', 'Risk Tiering', 'Night Mode', 'Ultra-Safe Auto', 'Legacy Auto-Safe', 'Intent Engine', 'Simulator', 'Scaling Mode', 'Empire Companion'
   ];
 
   const sectionIcons = {
     'Vaults': '🗄️', 'Revenue': '💰', 'Partners': '🤝', 'Compliance': '📋', 'Capital': '🏦',
     'Crisis': '🚨', 'Empire Value': '🏆', 'Security': '🛡️', 'Multi-Platform': '🌐',
-    'Prestige Brand': '✨', 'Global Risk': '🌎', 'Dynasty': '👑'
+    'Prestige Brand': '✨', 'Global Risk': '🌎', 'Dynasty': '👑',
+    'Zero-Click Queue': '⚡', 'Smart Suggest': '💡', 'Risk Tiering': '📊', 'Night Mode': '🌙', 'Ultra-Safe Auto': '🟢',
+    'Legacy Auto-Safe': '🕰️', 'Intent Engine': '🎯', 'Simulator': '🧪', 'Scaling Mode': '📈', 'Empire Companion': '🤖'
   };
+
 
   const handleAction = (action, details) => {
     setShowConfirm(true);
@@ -57,6 +62,9 @@ function EmpireAdminDashboard() {
   };
 
   // Example panel renderers (expand for each section)
+  // Helper: fetch V70 logs (stub)
+  const getV70Log = (engine) => logs[engine] || [];
+
   const renderSection = () => {
     switch (activeSection) {
       case 'Vaults':
@@ -158,10 +166,132 @@ function EmpireAdminDashboard() {
             <button className="big-btn blue" onClick={() => handleAction('exportPlaybook', {})}>Export Dynasty Playbook</button>
           </div>
         );
+      case 'Zero-Click Queue':
+        return (
+          <div className="dashboard-panel">
+            <h2>Zero-Click Automation Queue</h2>
+            <button className="big-btn blue" onClick={() => handleAction('approveAllZeroClick', {})}>Approve All Batches</button>
+            <ul>
+              {getV70Log('ai_zero_click_automation_queue').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Smart Suggest':
+        return (
+          <div className="dashboard-panel">
+            <h2>Smart Suggest Mode</h2>
+            <button className="big-btn green" onClick={() => handleAction('acceptAllSmartSuggest', {})}>Accept All Suggestions</button>
+            <ul>
+              {getV70Log('ai_smart_suggest_mode').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Risk Tiering':
+        return (
+          <div className="dashboard-panel">
+            <h2>Dynamic Risk Tiering</h2>
+            <button className="big-btn yellow" onClick={() => handleAction('autoApproveLowRisk', {})}>Auto-Approve Low Risk</button>
+            <ul>
+              {getV70Log('ai_dynamic_risk_tiering').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Night Mode':
+        return (
+          <div className="dashboard-panel">
+            <h2>Night-Mode Automations</h2>
+            <button className="big-btn blue" onClick={() => handleAction('scheduleNightRun', {})}>Schedule Overnight Run</button>
+            <ul>
+              {getV70Log('ai_night_mode_automations').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Ultra-Safe Auto':
+        return (
+          <div className="dashboard-panel">
+            <h2>Ultra-Safe Auto Mode</h2>
+            <button className="big-btn green" onClick={() => handleAction('runUltraSafe', {})}>Run Ultra-Safe Automations</button>
+            <ul>
+              {getV70Log('ai_ultra_safe_auto_mode').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Legacy Auto-Safe':
+        return (
+          <div className="dashboard-panel">
+            <h2>Legacy Auto-Safe Mode</h2>
+            <button className="big-btn blue" onClick={() => handleAction('activateLegacyAuto', {})}>Activate Legacy Auto-Safe</button>
+            <ul>
+              {getV70Log('ai_legacy_auto_safe_mode').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Intent Engine':
+        return (
+          <div className="dashboard-panel">
+            <h2>Owner Intent Engine</h2>
+            <button className="big-btn green" onClick={() => handleAction('autoAcceptIntent', {})}>Auto-Accept Common Actions</button>
+            <ul>
+              {getV70Log('ai_owner_intent_engine').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Simulator':
+        return (
+          <div className="dashboard-panel">
+            <h2>Full Business Simulator</h2>
+            <button className="big-btn yellow" onClick={() => handleAction('simulateAll', {})}>Preview All Automations</button>
+            <ul>
+              {getV70Log('ai_full_business_simulator').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Scaling Mode':
+        return (
+          <div className="dashboard-panel">
+            <h2>Scheduled Scaling Mode</h2>
+            <button className="big-btn blue" onClick={() => handleAction('setScalingTarget', {})}>Set Scaling Target</button>
+            <button className="big-btn green" onClick={() => handleAction('approveCheckpoint', {})}>Approve Checkpoint</button>
+            <ul>
+              {getV70Log('ai_scheduled_scaling_mode').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Empire Companion':
+        return (
+          <div className="dashboard-panel">
+            <h2>Personal Empire Companion</h2>
+            <button className="big-btn green" onClick={() => handleAction('generateBrief', {})}>Generate Daily Brief</button>
+            <ul>
+              {getV70Log('ai_personal_empire_companion').map((entry, idx) => (
+                <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
+              ))}
+            </ul>
+          </div>
+        );
       default:
         return null;
     }
   };
+
 
   return (
     <div className="dashboard-flex">
