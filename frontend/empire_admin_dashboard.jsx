@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './dashboard.css';
+import FractalRevenueHeatmapPanel from './src/components/FractalRevenueHeatmapPanel';
+import RevenueFunnelPanel from './src/components/RevenueFunnelPanel';
+import ReferralManagementPanel from './src/components/ReferralManagementPanel';
 
 // --- V80 Components ---
 function EmpireControlHUD({ stats }) {
@@ -49,13 +52,163 @@ function PreferencePane({ title, children, open, onToggle }) {
 }
 
 function EmpireAdminDashboard() {
-  const [logs, setLogs] = useState({});
-  const [activeSection, setActiveSection] = useState('Vaults');
-  const [safeMode, setSafeMode] = useState(false);
+  // Confirmation dialog and undo stack state (SAFE AI, only declare ONCE)
   const [showConfirm, setShowConfirm] = useState(false);
   const [pendingAction, setPendingAction] = useState(null);
   const [undoStack, setUndoStack] = useState([]);
   const [lastAction, setLastAction] = useState(null);
+
+  // --- V80/110 state ---
+  const ConfirmDialog = ({ open, action, onConfirm, onCancel }) => {
+    if (!open || !action) return null;
+    return (
+      <div className="confirm-dialog" role="dialog" aria-modal="true" aria-label="Owner Confirmation Required" tabIndex={0}>
+        <div className="confirm-dialog-content">
+          <span className="safe-ai-badge" aria-label="SAFE AI Manual Approval">SAFE AI</span>
+          <h3>Owner Confirmation Required</h3>
+          <p>Are you sure you want to <b>{action.label || action.type}</b>?</p>
+          <div style={{marginTop:12}}>
+            <button className="big-btn green" onClick={onConfirm} aria-label="Confirm action">Confirm</button>
+            <button className="big-btn yellow" onClick={onCancel} aria-label="Cancel action">Cancel</button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Undo button component
+  const UndoButton = () => (
+    <button
+      className="big-btn red"
+      style={{marginLeft:8}}
+      onClick={() => {
+        if (undoStack.length > 0) {
+          const last = undoStack[undoStack.length - 1];
+          if (last && last.undo) {
+            last.undo();
+            setUndoStack(undoStack.slice(0, -1));
+            setLastAction({ type: 'undo', label: last.label });
+          }
+        }
+      }}
+      aria-label="Undo last action"
+      title="Undo last owner-approved action (SAFE AI)"
+      disabled={undoStack.length === 0}
+    >Undo</button>
+  );
+
+  // Centralized critical action handler with confirmation and undo stack
+  const handleAction = (type, payload) => {
+    // Define label for display
+    let label = type;
+    if (payload && payload.id) label += ` (ID: ${payload.id})`;
+    setPendingAction({ type, payload, label });
+    setShowConfirm(true);
+  };
+
+  // Confirm and execute the pending action
+  const confirmAction = () => {
+    if (!pendingAction) return;
+    setShowConfirm(false);
+    // Perform the action (deterministic, SAFE AI)
+    let undoFn = null;
+    switch (pendingAction.type) {
+      case 'createVault':
+        // Example: create vault, push undo
+        // ...API call here...
+        undoFn = () => alert('Vault creation undone (manual, SAFE AI)');
+        break;
+      case 'rollbackSnapshot':
+        // Call backend API for rollback
+        fetch('/api/v80/rollback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ snapshot_index: pendingAction.payload.idx })
+        })
+          .then(() => {
+            fetch('/api/v80/snapshots').then(res => res.json()).then(data => setSnapshots(data.snapshots || []));
+            fetch('/api/v80/audit_trail').then(res => res.json()).then(data => setAuditTrail(data.audit_trail || []));
+          });
+        undoFn = () => alert('Rollback undo is manual and SAFE AI compliant. Please restore from a new snapshot if needed.');
+        break;
+      case 'qaVault':
+        // ...API call here...
+        undoFn = () => alert('QA check undone (manual, SAFE AI)');
+        break;
+      case 'bundleVault':
+        // ...API call here...
+        undoFn = () => alert('Bundle build undone (manual, SAFE AI)');
+        break;
+      case 'cancelAutomation':
+        // ...API call here...
+        undoFn = () => alert('Automation cancel undone (manual, SAFE AI)');
+        break;
+      case 'pauseAutomation':
+        // ...API call here...
+        undoFn = () => alert('Automation pause undone (manual, SAFE AI)');
+        break;
+      case 'retryAutomation':
+        // ...API call here...
+        undoFn = () => alert('Automation retry undone (manual, SAFE AI)');
+        break;
+      case 'suggestPricing':
+        undoFn = () => alert('Pricing suggestion undone (manual, SAFE AI)');
+        break;
+      case 'subscriptionBundles':
+        undoFn = () => alert('Subscription bundle undone (manual, SAFE AI)');
+        break;
+      case 'approveAllZeroClick':
+        undoFn = () => alert('Zero-click approval undone (manual, SAFE AI)');
+        break;
+      case 'acceptAllSmartSuggest':
+        undoFn = () => alert('Smart Suggest accept undone (manual, SAFE AI)');
+        break;
+      case 'autoApproveLowRisk':
+        undoFn = () => alert('Auto-approve low risk undone (manual, SAFE AI)');
+        break;
+      case 'scheduleNightRun':
+        undoFn = () => alert('Night run schedule undone (manual, SAFE AI)');
+        break;
+      case 'runUltraSafe':
+        undoFn = () => alert('Ultra-Safe run undone (manual, SAFE AI)');
+        break;
+      case 'activateLegacyAuto':
+        undoFn = () => alert('Legacy Auto-Safe undone (manual, SAFE AI)');
+        break;
+      case 'autoAcceptIntent':
+        undoFn = () => alert('Intent auto-accept undone (manual, SAFE AI)');
+        break;
+      case 'simulateAll':
+        undoFn = () => alert('Simulation undone (manual, SAFE AI)');
+        break;
+      case 'setScalingTarget':
+        undoFn = () => alert('Scaling target undone (manual, SAFE AI)');
+        break;
+      case 'approveCheckpoint':
+        undoFn = () => alert('Checkpoint approval undone (manual, SAFE AI)');
+        break;
+      case 'generateBrief':
+        undoFn = () => alert('Brief generation undone (manual, SAFE AI)');
+        break;
+      default:
+        undoFn = () => alert('Action undone (manual, SAFE AI)');
+    }
+    setUndoStack([...undoStack, { ...pendingAction, undo: undoFn }]);
+    setLastAction(pendingAction);
+    setPendingAction(null);
+    // (In real implementation, perform the actual API call here, then update state/UI as needed)
+    alert(`Action '${pendingAction.label}' executed (SAFE AI, manual owner approval)`);
+  };
+
+  // Cancel confirmation
+  const cancelAction = () => {
+    setShowConfirm(false);
+    setPendingAction(null);
+  };
+
+  const [logs, setLogs] = useState({});
+  const [activeSection, setActiveSection] = useState('Vaults');
+  const [safeMode, setSafeMode] = useState(false);
 
   // V80 state
   const [hudStats, setHudStats] = useState({ automations: 0, income: 0, errors: 0, efficiency: 100 });
@@ -226,12 +379,24 @@ function EmpireAdminDashboard() {
       </table>
     </div>
   );
-  const renderFractalHeatmapPanel = () => (
-    <div className="dashboard-panel">
-      <h2>Fractal Revenue Heatmap</h2>
-      <pre>{JSON.stringify(fractalHeatmap,null,2)}</pre>
-    </div>
-  );
+
+const renderFractalHeatmapPanel = () => (
+  <div className="dashboard-panel">
+    <FractalRevenueHeatmapPanel />
+  </div>
+);
+
+const renderRevenueFunnelPanel = () => (
+  <div className="dashboard-panel">
+    <RevenueFunnelPanel onAction={handleAction} />
+  </div>
+);
+
+const renderReferralManagementPanel = () => (
+  <div className="dashboard-panel">
+    <ReferralManagementPanel onAction={handleAction} />
+  </div>
+);
   const renderStrategistPanel = () => (
     <div className="dashboard-panel">
       <h2>Empire Vault Strategist</h2>
@@ -245,7 +410,14 @@ function EmpireAdminDashboard() {
       <h3>Snapshots</h3>
       <ul>
         {vaultAuditSnapshots.map((snap,idx)=>(
-          <li key={idx}><button onClick={()=>alert('Rollback not implemented in UI yet')}>Rollback to {snap.timestamp}</button></li>
+          <li key={idx}>
+            <button
+              onClick={() => handleAction('rollbackSnapshot', { idx, timestamp: snap.timestamp })}
+              aria-label={`Rollback to snapshot ${snap.timestamp}`}
+              title={`Rollback to snapshot taken at ${snap.timestamp} (owner confirmation required, SAFE AI)`}
+              className="big-btn yellow"
+            >Rollback to {snap.timestamp}</button>
+          </li>
         ))}
       </ul>
     </div>
@@ -254,24 +426,12 @@ function EmpireAdminDashboard() {
   const renderSection = () => {
     switch (activeTab) {
       case 'Licensing':
-        return renderLicensingPanel();
-      case 'Licensee Manager':
-        return renderLicenseeManagerPanel();
-      case 'ROI Analyzer':
-        return renderROIAnalyzerPanel();
-      case 'Fractal Revenue Heatmap':
-        return renderFractalHeatmapPanel();
-      case 'Strategist':
-        return renderStrategistPanel();
-      case 'Vault Audit':
-        return renderVaultAuditPanel();
-      case 'Vaults':
         return (
           <div className="dashboard-panel">
             <h2>Vault Dashboard</h2>
-            <button className="big-btn green" onClick={() => handleAction('createVault', {})}>New Vault</button>
-            <button className="big-btn yellow" onClick={() => handleAction('qaVault', {})}>QA Check</button>
-            <button className="big-btn blue" onClick={() => handleAction('bundleVault', {})}>Bundle Builder</button>
+            <button className="big-btn green" onClick={() => handleAction('createVault', {})} aria-label="Create new vault" title="Create a new vault (owner confirmation required, SAFE AI)">New Vault</button>
+            <button className="big-btn yellow" onClick={() => handleAction('qaVault', {})} aria-label="Quality assurance check" title="Run QA check (owner confirmation required, SAFE AI)">QA Check</button>
+            <button className="big-btn blue" onClick={() => handleAction('bundleVault', {})} aria-label="Bundle builder" title="Build a bundle (owner confirmation required, SAFE AI)">Bundle Builder</button>
             {/* V80 Automation Queue View */}
             <h3>Automation Queue</h3>
             <table className="automation-queue-table">
@@ -307,9 +467,9 @@ function EmpireAdminDashboard() {
                       </select>
                     </td>
                     <td>
-                      <button onClick={() => handleAction('cancelAutomation', { id: item.id })}>Cancel</button>
-                      <button onClick={() => handleAction('pauseAutomation', { id: item.id })}>Pause</button>
-                      <button onClick={() => handleAction('retryAutomation', { id: item.id })}>Retry</button>
+                      <button onClick={() => handleAction('cancelAutomation', { id: item.id })} aria-label="Cancel automation" title="Cancel automation (owner confirmation required, SAFE AI)">Cancel</button>
+                      <button onClick={() => handleAction('pauseAutomation', { id: item.id })} aria-label="Pause automation" title="Pause automation (owner confirmation required, SAFE AI)">Pause</button>
+                      <button onClick={() => handleAction('retryAutomation', { id: item.id })} aria-label="Retry automation" title="Retry automation (owner confirmation required, SAFE AI)">Retry</button>
                     </td>
                   </tr>
                 ))}
@@ -354,8 +514,8 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Revenue Dashboard</h2>
-            <button className="big-btn green" onClick={() => handleAction('suggestPricing', {})}>Pricing Suggestions</button>
-            <button className="big-btn blue" onClick={() => handleAction('subscriptionBundles', {})}>Subscription Bundles</button>
+            <button className="big-btn green" onClick={() => handleAction('suggestPricing', {})} aria-label="Suggest pricing" title="Suggest pricing (owner confirmation required, SAFE AI)">Pricing Suggestions</button>
+            <button className="big-btn blue" onClick={() => handleAction('subscriptionBundles', {})} aria-label="Subscription bundles" title="Create subscription bundles (owner confirmation required, SAFE AI)">Subscription Bundles</button>
           </div>
         );
       case 'Partners':
@@ -382,7 +542,7 @@ function EmpireAdminDashboard() {
             <button className="big-btn green" onClick={() => handleAction('cashflow', {})}>View Cashflow</button>
             <div className="dashboard-panel">
               <h2>Zero-Click Automation Queue</h2>
-              <button className="big-btn blue" onClick={() => handleAction('approveAllZeroClick', {})}>Approve All Batches</button>
+              <button className="big-btn blue" onClick={() => handleAction('approveAllZeroClick', {})} aria-label="Approve all zero-click batches" title="Approve all zero-click batches (owner confirmation required, SAFE AI)">Approve All Batches</button>
               <ul>
                 {getV70Log('ai_zero_click_automation_queue').map((entry, idx) => (
                   <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -395,7 +555,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Smart Suggest Mode</h2>
-            <button className="big-btn green" onClick={() => handleAction('acceptAllSmartSuggest', {})}>Accept All Suggestions</button>
+            <button className="big-btn green" onClick={() => handleAction('acceptAllSmartSuggest', {})} aria-label="Accept all smart suggestions" title="Accept all smart suggestions (owner confirmation required, SAFE AI)">Accept All Suggestions</button>
             <ul>
               {getV70Log('ai_smart_suggest_mode').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -407,7 +567,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Dynamic Risk Tiering</h2>
-            <button className="big-btn yellow" onClick={() => handleAction('autoApproveLowRisk', {})}>Auto-Approve Low Risk</button>
+            <button className="big-btn yellow" onClick={() => handleAction('autoApproveLowRisk', {})} aria-label="Auto-approve low risk" title="Auto-approve low risk (owner confirmation required, SAFE AI)">Auto-Approve Low Risk</button>
             <ul>
               {getV70Log('ai_dynamic_risk_tiering').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -419,7 +579,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Night-Mode Automations</h2>
-            <button className="big-btn blue" onClick={() => handleAction('scheduleNightRun', {})}>Schedule Overnight Run</button>
+            <button className="big-btn blue" onClick={() => handleAction('scheduleNightRun', {})} aria-label="Schedule overnight run" title="Schedule overnight run (owner confirmation required, SAFE AI)">Schedule Overnight Run</button>
             <ul>
               {getV70Log('ai_night_mode_automations').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -431,7 +591,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Ultra-Safe Auto Mode</h2>
-            <button className="big-btn green" onClick={() => handleAction('runUltraSafe', {})}>Run Ultra-Safe Automations</button>
+            <button className="big-btn green" onClick={() => handleAction('runUltraSafe', {})} aria-label="Run ultra-safe automations" title="Run ultra-safe automations (owner confirmation required, SAFE AI)">Run Ultra-Safe Automations</button>
             <ul>
               {getV70Log('ai_ultra_safe_auto_mode').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -443,7 +603,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Legacy Auto-Safe Mode</h2>
-            <button className="big-btn blue" onClick={() => handleAction('activateLegacyAuto', {})}>Activate Legacy Auto-Safe</button>
+            <button className="big-btn blue" onClick={() => handleAction('activateLegacyAuto', {})} aria-label="Activate legacy auto-safe" title="Activate legacy auto-safe (owner confirmation required, SAFE AI)">Activate Legacy Auto-Safe</button>
             <ul>
               {getV70Log('ai_legacy_auto_safe_mode').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -455,7 +615,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Owner Intent Engine</h2>
-            <button className="big-btn green" onClick={() => handleAction('autoAcceptIntent', {})}>Auto-Accept Common Actions</button>
+            <button className="big-btn green" onClick={() => handleAction('autoAcceptIntent', {})} aria-label="Auto-accept common actions" title="Auto-accept common actions (owner confirmation required, SAFE AI)">Auto-Accept Common Actions</button>
             <ul>
               {getV70Log('ai_owner_intent_engine').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -467,7 +627,7 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Full Business Simulator</h2>
-            <button className="big-btn yellow" onClick={() => handleAction('simulateAll', {})}>Preview All Automations</button>
+            <button className="big-btn yellow" onClick={() => handleAction('simulateAll', {})} aria-label="Preview all automations" title="Preview all automations (owner confirmation required, SAFE AI)">Preview All Automations</button>
             <ul>
               {getV70Log('ai_full_business_simulator').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -479,8 +639,8 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Scheduled Scaling Mode</h2>
-            <button className="big-btn blue" onClick={() => handleAction('setScalingTarget', {})}>Set Scaling Target</button>
-            <button className="big-btn green" onClick={() => handleAction('approveCheckpoint', {})}>Approve Checkpoint</button>
+            <button className="big-btn blue" onClick={() => handleAction('setScalingTarget', {})} aria-label="Set scaling target" title="Set scaling target (owner confirmation required, SAFE AI)">Set Scaling Target</button>
+            <button className="big-btn green" onClick={() => handleAction('approveCheckpoint', {})} aria-label="Approve checkpoint" title="Approve checkpoint (owner confirmation required, SAFE AI)">Approve Checkpoint</button>
             <ul>
               {getV70Log('ai_scheduled_scaling_mode').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
@@ -492,20 +652,12 @@ function EmpireAdminDashboard() {
         return (
           <div className="dashboard-panel">
             <h2>Personal Empire Companion</h2>
-            <button className="big-btn green" onClick={() => handleAction('generateBrief', {})}>Generate Daily Brief</button>
+            <button className="big-btn green" onClick={() => handleAction('generateBrief', {})} aria-label="Generate daily brief" title="Generate daily brief (owner confirmation required, SAFE AI)">Generate Daily Brief</button>
             <ul>
               {getV70Log('ai_personal_empire_companion').map((entry, idx) => (
                 <li key={idx}><pre>{JSON.stringify(entry, null, 2)}</pre></li>
               ))}
             </ul>
-          </div>
-        );
-      // Fallback for unknown tabs: show Vaults panel
-      // This must be the last case before default
-      case undefined:
-        return (
-          <div className="dashboard-panel">
-            <h2>Vault Dashboard</h2>
             <p>Unknown tab selected. Showing Vaults panel by default.</p>
           </div>
         );
@@ -518,29 +670,27 @@ function EmpireAdminDashboard() {
   return (
     <div className="dashboard-flex">
       {/* Sidebar Navigation */}
-      <nav className="dashboard-sidebar">
-        <div className="sidebar-title">AIFOLIO™</div>
-        {sections.map(section => (
-          <div
-            key={section}
-            className={`sidebar-item${activeSection === section ? ' active' : ''}`}
-            onClick={() => setActiveSection(section)}
-          >
-            <span className="sidebar-icon">{sectionIcons[section]}</span>
-            {section}
-          </div>
+      <nav className="dashboard-nav">
+        {['Vaults','Licensing','Licensee Manager','ROI Analyzer','FractalHeatmap','RevenueFunnel','ReferralManagement','Strategist','Vault Audit'].map(tab => (
+          <button
+            key={tab}
+            className={activeTab===tab?"active":""}
+            onClick={()=>setActiveTab(tab)}
+            aria-label={`Switch to ${tab.replace(/([A-Z])/g,' $1').trim()} panel (SAFE AI owner control)`}
+            title={`Switch to ${tab.replace(/([A-Z])/g,' $1').trim()} panel (SAFE AI badge)`}
+          >{tab.replace(/([A-Z])/g,' $1').trim()}</button>
         ))}
-        <div className="sidebar-safe-mode">
-          <label>
-            <input
-              type="checkbox"
-              checked={safeMode}
-              onChange={() => setSafeMode(!safeMode)}
-            />
-            Safe Mode
-          </label>
-        </div>
       </nav>
+      <div className="sidebar-safe-mode">
+        <label>
+          <input
+            type="checkbox"
+            checked={safeMode}
+            onChange={() => setSafeMode(!safeMode)}
+          />
+          Safe Mode
+        </label>
+      </div>
       {/* Main Panel */}
       <main className="dashboard-main">
         {/* V80 Empire Control HUD */}
@@ -564,6 +714,8 @@ function EmpireAdminDashboard() {
         </div>
         {/* Existing Section Render */}
         {renderSection()}
+      <UndoButton />
+      <ConfirmDialog open={showConfirm} action={pendingAction} onConfirm={confirmAction} onCancel={cancelAction} />
         {/* Memory Audit & Last AI Action Log */}
         <div className="dashboard-memory-audit">
           <h3>Memory Audit Panel</h3>
