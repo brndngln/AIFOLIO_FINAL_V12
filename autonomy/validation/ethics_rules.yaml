@@ -1,0 +1,12 @@
+# YAML config for ethics_bot.py
+unethical_keywords:
+  - scam
+  - guarantee
+  - miracle
+  - secret loophole
+  - get rich quick
+  - no risk
+  - exclusive trick
+  - limited time only
+  - hidden fees
+  - fake testimonials

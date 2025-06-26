@@ -1,0 +1,10 @@
+{
+  "provider": "GoHighLevel",
+  "actions": [
+    "push_lead",
+    "add_tag",
+    "update_status"
+  ],
+  "fields": ["name", "email", "tag", "status"],
+  "token_required": true
+}

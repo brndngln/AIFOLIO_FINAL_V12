@@ -3,6 +3,8 @@ import './dashboard.css';
 import FractalRevenueHeatmapPanel from './src/components/FractalRevenueHeatmapPanel';
 import RevenueFunnelPanel from './src/components/RevenueFunnelPanel';
 import ReferralManagementPanel from './src/components/ReferralManagementPanel';
+import AutopilotUpsellPanel from './src/components/AutopilotUpsellPanel';
+import CompoundingVaultPanel from './src/components/CompoundingVaultPanel';
 
 // --- V80 Components ---
 function EmpireControlHUD({ stats }) {
@@ -397,6 +399,18 @@ const renderReferralManagementPanel = () => (
     <ReferralManagementPanel onAction={handleAction} />
   </div>
 );
+
+const renderAutopilotUpsellPanel = () => (
+  <div className="dashboard-panel">
+    <AutopilotUpsellPanel onAction={handleAction} />
+  </div>
+);
+
+const renderCompoundingVaultPanel = () => (
+  <div className="dashboard-panel">
+    <CompoundingVaultPanel onAction={handleAction} />
+  </div>
+);
   const renderStrategistPanel = () => (
     <div className="dashboard-panel">
       <h2>Empire Vault Strategist</h2>
@@ -671,7 +685,7 @@ const renderReferralManagementPanel = () => (
     <div className="dashboard-flex">
       {/* Sidebar Navigation */}
       <nav className="dashboard-nav">
-        {['Vaults','Licensing','Licensee Manager','ROI Analyzer','FractalHeatmap','RevenueFunnel','ReferralManagement','Strategist','Vault Audit'].map(tab => (
+        {['Vaults','Licensing','Licensee Manager','ROI Analyzer','FractalHeatmap','RevenueFunnel','ReferralManagement','AutopilotUpsell','CompoundingVaults','Strategist','Vault Audit'].map(tab => (
           <button
             key={tab}
             className={activeTab===tab?"active":""}
