@@ -1,0 +1,9 @@
+{
+  "PDF_CREATED": ["webhook", "slack", "n8n", {"if": {"field": "downloads", "op": ">", "value": 100}, "then": "log"}],
+  "VAULT_UPDATED": ["vault", "webhook"],
+  "REVENUE_THRESHOLD_REACHED": ["webhook", "slack", {"if": {"field": "revenue", "op": ">=", "value": 100}, "then": "n8n"}],
+  "COMPLIANCE_FLAG": ["compliance", "webhook", "slack", {"if": {"field": "severity", "op": "==", "value": "critical"}, "then": "log"}],
+  "USER_SUBSCRIBED": ["webhook", "n8n"],
+  "TAG_MATCHED": ["webhook", "slack"],
+  "AI_GENERATION_COMPLETE": ["webhook", "n8n", "log"]
+}

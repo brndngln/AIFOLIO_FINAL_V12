@@ -1,0 +1,20 @@
+[build]
+  command = "echo Build not required for static compliance engine"
+  publish = "frontend"
+
+[functions]
+  directory = "backend/api"
+
+[dev]
+  command = "uvicorn backend.main:app --reload --port 8888"
+  port = 8888
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
