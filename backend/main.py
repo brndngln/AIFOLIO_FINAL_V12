@@ -29,6 +29,13 @@ app.include_router(pdf_builder_router)
 from backend.batch_scaling.batch16_20_api import router as batch_scaling_router
 app.include_router(batch_scaling_router)
 
+# --- Mount Elite Business API router (SAFE AI, deterministic, owner-controlled) ---
+from backend.api.elite_business_api import router as elite_business_router
+from api import elite_analytics_automation_router, elite_security_performance_router
+app.include_router(elite_business_router, prefix="/api")
+app.include_router(elite_analytics_automation_router, prefix="/api")
+app.include_router(elite_security_performance_router, prefix="/api")
+
 # Enable CORS for local frontend dev
 app.add_middleware(
     CORSMiddleware,
