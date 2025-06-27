@@ -52,19 +52,36 @@ class EventRouter:
             self.fallback.handle(event_type, payload, error=str(e))
 
     def execute_action(self, action, payload):
-        if action == 'webhook':
-            send_webhook(payload)
-        elif action == 'slack':
-            send_slack_alert(payload)
-        elif action == 'n8n':
-            send_n8n_event(payload)
-        elif action == 'compliance':
-            self.compliance.process(payload)
-        elif action == 'vault':
-            self.vault.process(payload)
-        elif action == 'log':
-            self.log_event({'event': 'custom_log', 'payload': payload, 'timestamp': datetime.utcnow().isoformat()})
-        # Add more integrations as needed
+        """
+        Execute a single logic trigger for an event. All integrations and automations are routed here.
+        Supports: webhook, slack, n8n, notion, airtable, sms, compliance, vault, log, and future extensions.
+        """
+        try:
+            if action == 'webhook':
+                send_webhook(payload)
+            elif action == 'slack':
+                send_slack_alert(payload)
+            elif action == 'n8n':
+                send_n8n_event(payload)
+            elif action == 'notion':
+                from integrations.notion_bridge import send_notion_task
+                send_notion_task(payload)
+            elif action == 'airtable':
+                from integrations.airtable_bridge import send_airtable_record
+                send_airtable_record(payload)
+            elif action == 'sms':
+                from integrations.sms_bridge import send_sms_alert
+                send_sms_alert(payload)
+            elif action == 'compliance':
+                self.compliance.process(payload)
+            elif action == 'vault':
+                self.vault.process(payload)
+            elif action == 'log':
+                self.log_event({'event': 'custom_log', 'payload': payload, 'timestamp': datetime.utcnow().isoformat()})
+            else:
+                logging.warning(f"Unknown action: {action}")
+        except Exception as e:
+            logging.error(f"Action {action} failed: {e}")
 
     def evaluate_condition(self, condition, payload):
         # Example: {'field': 'revenue', 'op': '>', 'value': 100}
