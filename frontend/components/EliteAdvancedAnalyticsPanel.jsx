@@ -2,24 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Paper, Grid, Divider, Chip, CircularProgress, Button } from '@mui/material';
 
 const analyticsEndpoints = [
-  { label: 'Refund Risk', path: '/api/analytics/refund_risk', sample: { vault_id: 'vault_001', sales: [{id:1}], refunds: [{vault_id:'vault_001'}] } },
-  { label: 'Churn & Retention', path: '/api/analytics/churn_retention', sample: { vault_id: 'vault_001', user_events: [{user_id:'u1',vault_id:'vault_001',event:'churn'}] } },
-  { label: 'Asset Health', path: '/api/analytics/asset_health', sample: { vault_id: 'vault_001', assets: [{status:'ok',weight:2}] } },
-  { label: 'Tone/Voice', path: '/api/analytics/tone_voice', sample: { text: 'Brand match text', brand_profile: 'Brand' } },
-  { label: 'Reviewer Heatmap', path: '/api/analytics/reviewer_heatmap', sample: { reviewer_events: [{reviewer:'r1',event:'streak'}] } },
-  { label: 'Funnel Analytics', path: '/api/analytics/funnel', sample: { vault_id: 'vault_001', funnel_events: [{type:'launch'}] } },
-  { label: 'High-Ticket Leaderboard', path: '/api/analytics/high_ticket_leaderboard', sample: { vaults: [{profit:100,engagement:10,trend:5}] } },
+  { label: 'Refund Risk', path: '/api/analytics/refund_risk', method: 'POST', sample: { vault_id: 'vault_001', sales: [{id:1}], refunds: [{vault_id:'vault_001'}] } },
+  { label: 'Asset Health', path: '/api/analytics/asset_health', method: 'POST', sample: { vault_id: 'vault_001', assets: [{status:'ok',weight:2}] } },
+  { label: 'Tone/Voice', path: '/api/analytics/tone_voice', method: 'POST', sample: { text: 'Brand match text', brand_profile: 'Brand' } },
+  { label: 'Typo/Grammar', path: '/api/analytics/typo_grammar', method: 'POST', sample: { text: 'This is teh elite recieve test.' } },
+  { label: 'Anomaly Detection', path: '/api/analytics/anomaly_detection', method: 'POST', sample: { vault_id: 'vault_001', sales: [{timestamp: new Date().toISOString()}] } },
+  { label: 'Marketplace Trends', path: '/api/analytics/marketplace_trends', method: 'GET', sample: null },
+  // --- Extension Point: Add future static SAFE AI modules here ---
 ];
 
 export default function EliteAdvancedAnalyticsPanel() {
   const [results, setResults] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const runAnalytics = async (endpoint, sample) => {
+  const runAnalytics = async (endpoint, method, sample) => {
     setLoading(true);
     try {
-      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sample) });
-      const data = await res.json();
+      let res, data;
+      if (method === 'GET') {
+        res = await fetch(endpoint);
+      } else {
+        res = await fetch(endpoint, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sample) });
+      }
+      data = await res.json();
       setResults(r => ({ ...r, [endpoint]: data }));
     } catch {
       setResults(r => ({ ...r, [endpoint]: { error: true } }));
@@ -28,7 +33,7 @@ export default function EliteAdvancedAnalyticsPanel() {
   };
 
   useEffect(() => {
-    analyticsEndpoints.forEach(a => runAnalytics(a.path, a.sample));
+    analyticsEndpoints.forEach(a => runAnalytics(a.path, a.method, a.sample));
   }, []);
 
   return (
@@ -40,9 +45,14 @@ export default function EliteAdvancedAnalyticsPanel() {
           <Grid item xs={12} md={6} key={a.label}>
             <Paper sx={{ p: 2, mb: 2 }}>
               <Typography variant="subtitle1">{a.label}</Typography>
-              <Button variant="outlined" size="small" sx={{ mb: 1 }} onClick={() => runAnalytics(a.path, a.sample)}>Run</Button>
+              <Button variant="outlined" size="small" sx={{ mb: 1 }} onClick={() => runAnalytics(a.path, a.method, a.sample)}>Run</Button>
               {loading ? <CircularProgress size={20} /> : (
-                <pre style={{ background: '#f9f9f9', padding: 8, borderRadius: 4, fontSize: 13 }}>{JSON.stringify(results[a.path], null, 2)}</pre>
+                <>
+                  <pre style={{ background: '#f9f9f9', padding: 8, borderRadius: 4, fontSize: 13 }}>{JSON.stringify(results[a.path], null, 2)}</pre>
+                  {results[a.path] && (results[a.path].SAFE_AI_COMPLIANT || results[a.path].SAFE_AI_COMPLIANT === true) && (
+                    <Chip label="SAFE AI" color="success" size="small" sx={{ mt: 1 }} />
+                  )}
+                </>
               )}
             </Paper>
           </Grid>

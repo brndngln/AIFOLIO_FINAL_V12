@@ -22,7 +22,10 @@ import EliteAuditSimulationPanel from './EliteAuditSimulationPanel';
 import EliteSAFEAIScorePanel from './EliteSAFEAIScorePanel';
 import EliteBusinessIntegrationsPanel from './EliteBusinessIntegrationsPanel';
 import EliteAdvancedAnalyticsPanel from './EliteAdvancedAnalyticsPanel';
+// --- Extension Point: Import future elite analytics panels here ---
 import EliteSecurityPerformancePanel from './EliteSecurityPerformancePanel';
+import EliteComplianceExportsPanel from './EliteComplianceExportsPanel';
+import EliteHeartbeatPanel from './EliteHeartbeatPanel';
 
 const API_URL = '/api/compliance'; // Backend endpoint for compliance events
 
@@ -44,6 +47,7 @@ function maskReviewer(id) {
 
 const EliteComplianceDashboard = () => {
   const [tab, setTab] = useState(0);
+  // --- Extension Point: Add state for future analytics modules here ---
   const [drilldownOpen, setDrilldownOpen] = useState(false);
   const [drilldownEvent, setDrilldownEvent] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
@@ -164,17 +168,15 @@ const EliteComplianceDashboard = () => {
         <Typography variant="h4" mb={3}>AIFOLIO Elite Compliance & Business Dashboard</Typography>
         <EliteThemeToggle darkMode={darkMode} onToggle={()=>setDarkMode(!darkMode)} />
       </Box>
-      <Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 2 }}>
-        <Tab label="Compliance Events" />
-        <Tab label={<span><TrendingUpIcon sx={{ verticalAlign: 'middle', mr: 1 }} />Analytics</span>} />
-        <Tab label={<span>KPI Dashboard</span>} />
-        <Tab label={<span>Rule Editor</span>} />
-        <Tab label={<span>Alert Routing</span>} />
-        <Tab label={<span>Drilldown</span>} />
-        <Tab label={<span>Gamification</span>} />
-        <Tab label={<span>Export</span>} />
-        <Tab label={<span>Audit Simulation</span>} />
-        <Tab label={<span>SAFE AI Score</span>} />
+      <Tabs value={tab} onChange={(e, v) => setTab(v)} sx={{ mb: 3 }}>
+        <Tab label="Compliance Feed" />
+        <Tab label="Reviewer Leaderboard" />
+        <Tab label="Security & Performance" />
+        <Tab label="Exports" />
+        <Tab label="SAFE AI Score" />
+        <Tab label="Heartbeat" />
+        <Tab label="Advanced Analytics" />
+        {/* --- Extension Point: Add future elite analytics tabs here --- */}
       </Tabs>
       {tab === 0 && (
         <Box>
@@ -253,65 +255,23 @@ const EliteComplianceDashboard = () => {
       {tab === 2 && <EliteAIAnalyticsPanel />}
       {tab === 3 && <EliteRuleEditor />}
       {tab === 4 && <EliteAlertRoutingPanel />}
-      {tab === 5 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Drilldown</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{drilldownEvent ? JSON.stringify(drilldownEvent, null, 2) : 'Loading...'}</pre>
-        </Paper>
+      {tab === 6 && (
+        <EliteAdvancedAnalyticsPanel />
       )}
-      {tab === 6 && <EliteGamificationPanel />}
-      {tab === 7 && <EliteExportPanel />}
-      {tab === 8 && <EliteAuditSimulationPanel />}
-      {tab === 9 && <EliteSAFEAIScorePanel />}
-      {tab === 10 && <EliteAdvancedAnalyticsPanel />}
-      {tab === 11 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Marketplace Trends</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{marketTrends ? JSON.stringify(marketTrends, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 12 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Vault Engagement</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{engagement ? JSON.stringify(engagement, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 13 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Vault Lifecycle</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{lifecycle ? JSON.stringify(lifecycle, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 14 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Profitability Score</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{profitability ? JSON.stringify(profitability, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 15 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Bundle Recommendations</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{bundles ? JSON.stringify(bundles, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 16 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">Sales Anomaly Detection</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{anomaly ? JSON.stringify(anomaly, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 17 && (
-        <Paper sx={{ p: 3, mb: 2 }}>
-          <Typography variant="h6">AI Quality & Audit</Typography>
-          <pre style={{background:'#f9f9f9',padding:16,borderRadius:8}}>{aiQuality ? JSON.stringify(aiQuality, null, 2) : 'Loading...'}</pre>
-        </Paper>
-      )}
-      {tab === 18 && <EliteBusinessIntegrationsPanel />}
-      {tab === 19 && <EliteSecurityPerformancePanel />}
+      {/* --- Extension Point: Render future analytics panels here --- */}
+      {tab === 7 && <EliteGamificationPanel />}
+      {tab === 8 && <EliteExportPanel />}
+      {tab === 9 && <EliteAuditSimulationPanel />}
+      {tab === 10 && <EliteSAFEAIScorePanel />}
+      {tab === 11 && <EliteBusinessIntegrationsPanel />}
+      {tab === 12 && <EliteSecurityPerformancePanel />}
+      {tab === 13 && <EliteComplianceExportsPanel />}
+      {tab === 14 && <EliteHeartbeatPanel />}
+
       <EliteDrilldownModal open={drilldownOpen} onClose={()=>setDrilldownOpen(false)} event={drilldownEvent} />
       <Snackbar open={!!snackbar} autoHideDuration={3000} onClose={()=>setSnackbar('')} message={snackbar} />
     </Box>
-  );
-};
+  </Box>
+);
 
 export default EliteComplianceDashboard;
