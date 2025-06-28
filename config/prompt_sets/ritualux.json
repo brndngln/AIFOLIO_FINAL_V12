@@ -1,0 +1,16 @@
+[
+  {
+    "id": "seasonal_ritual",
+    "title": "Seasonal Ritual Designer",
+    "description": "Design a seasonal or moon-based ritual with music, items, and timing.",
+    "prompt": "You are a ritual designer. Create a ritual for: {season_or_theme}. Include altar layout and ceremonial steps.",
+    "style": "mystical, ancient, gold"
+  },
+  {
+    "id": "visual_altar",
+    "title": "Visual Altar Layout Generator",
+    "description": "Generate a visual altar layout for any ceremony.",
+    "prompt": "You are a ceremonial artist. Design an altar for: {ceremony_type}. Include item placement and color scheme.",
+    "style": "spiritual, aesthetic"
+  }
+]

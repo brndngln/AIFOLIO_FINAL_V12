@@ -1,0 +1,9 @@
+[
+  { "id": "templiq_templates", "label": "TEMPLIQ™", "icon": "🧾", "component": "TEMPLIQ" },
+  { "id": "therapiq_therapy", "label": "THERAPIQ™", "icon": "🧠", "component": "THERAPIQ" },
+  { "id": "ritualux_rituals", "label": "RITUALUX™", "icon": "🔮", "component": "RITUALUX" },
+  { "id": "talentvault_explorer", "label": "TALENTVAULT™", "icon": "🎯", "component": "TALENTVAULT" },
+  { "id": "rebelremedy_recipes", "label": "REBELREMEDY™", "icon": "🌿", "component": "REBELREMEDY" },
+  { "id": "contentdrop_network", "label": "CONTENTDROP™", "icon": "📦", "component": "CONTENTDROP" },
+  { "id": "templatevault_hub", "label": "TEMPLATEHUB™", "icon": "📁", "component": "TEMPLATEHUB" }
+]
