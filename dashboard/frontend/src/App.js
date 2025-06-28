@@ -44,6 +44,22 @@ function Phase9AuditLogPreview() {
   );
 }
 
+// Import all elite modules
+import EliteAuditComplianceDashboard from './components/EliteAuditComplianceDashboard';
+import PromptMarketplace from './components/PromptMarketplace';
+import WorkflowBuilder from './components/WorkflowBuilder';
+import ExportPanel from './components/ExportPanel';
+import BillingDashboard from './components/BillingDashboard';
+import PartnerProgram from './components/PartnerProgram';
+import Leaderboard from './components/Leaderboard';
+import AutomationBuilder from './components/AutomationBuilder';
+import OnboardingTour from './components/OnboardingTour';
+import AIOverridePanel from './components/AIOverridePanel';
+import RedactionPanel from './components/RedactionPanel';
+import SAFEAISelfTestPanel from './components/SAFEAISelfTestPanel';
+import BackupManager from './components/BackupManager';
+import OwnerGuide from './components/OwnerGuide';
+
 function App() {
   const [events, setEvents] = useState([]);
   const [logType, setLogType] = useState('fulfillment_log.json');
@@ -58,13 +74,26 @@ function App() {
   return (
     <div style={{padding: 20}}>
       <h1>AIFOLIO Event Dashboard <Phase9ApiStatus /></h1>
-      <div style={{marginBottom: 16}}>
-        <button onClick={() => setView('main')} style={{marginRight: 12}}>Event Dashboard</button>
-        <button onClick={() => setView('phase8')} style={{marginRight: 12}}>SAFE AI Phase 8 Modules</button>
+      <div style={{marginBottom: 16, display: 'flex', flexWrap: 'wrap', gap: 8}}>
+        <button onClick={() => setView('main')}>Event Dashboard</button>
+        <button onClick={() => setView('audit')}>Audit & Compliance</button>
+        <button onClick={() => setView('marketplace')}>Prompt Marketplace</button>
+        <button onClick={() => setView('workflow')}>Workflow Builder</button>
+        <button onClick={() => setView('export')}>Export Panel</button>
+        <button onClick={() => setView('billing')}>Billing</button>
+        <button onClick={() => setView('partner')}>Partner Program</button>
+        <button onClick={() => setView('leaderboard')}>Leaderboard</button>
+        <button onClick={() => setView('automation')}>Automation</button>
+        <button onClick={() => setView('onboarding')}>Onboarding Tour</button>
+        <button onClick={() => setView('override')}>AI Override</button>
+        <button onClick={() => setView('redaction')}>Redaction</button>
+        <button onClick={() => setView('safeai')}>SAFE AI Self-Test</button>
+        <button onClick={() => setView('backup')}>Backup</button>
+        <button onClick={() => setView('guide')}>Owner Guide</button>
+        <button onClick={() => setView('phase8')}>SAFE AI Phase 8 Modules</button>
         <button onClick={() => setView('phase9')}>SAFE AI Phase 9+ Empire Modules</button>
       </div>
       {view === 'main' && <Phase9AuditLogPreview />}
-
       {view === 'main' && (
         <>
           <select value={logType} onChange={e => setLogType(e.target.value)}>
@@ -90,32 +119,6 @@ function App() {
           <table border="1" cellPadding="8" style={{marginTop: 20, width: '100%'}}>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Timestamp</th>
-                <th>Type</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((event, i) => (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{event.timestamp}</td>
-                  <td>{event.type}</td>
-                  <td>{event.details}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
-      )}
-      {view === 'phase8' && (
-        <Phase8ModulesDashboard />
-      )}
-      {view === 'phase9' && (
-        <Phase9ModulesDashboard />
-      )}
-
                 <th>#</th>
                 <th>Timestamp</th>
                 <th>Event</th>
