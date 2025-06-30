@@ -61,3 +61,6 @@ distribution/
 build/
 dist/
 *.egg-info/
+.backups/
+.backups/
+.backups/

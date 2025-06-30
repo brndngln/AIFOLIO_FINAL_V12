@@ -47,4 +47,3 @@ export function exportAuditLog(format = 'json') {
   }
   return JSON.stringify(AUDIT_LOG, null, 2);
 }
-

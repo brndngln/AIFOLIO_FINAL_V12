@@ -1,0 +1,11 @@
+{
+  "mode": "private",
+  "gift_keys": [],
+  "paid_licenses": [],
+  "subscription": {
+    "active": false,
+    "price_monthly": null,
+    "price_yearly": null
+  },
+  "auto_mode": false
+}
