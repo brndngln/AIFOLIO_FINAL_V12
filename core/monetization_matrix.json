@@ -1,0 +1,12 @@
+{
+  "tiers": [
+    { "name": "Free", "price": 0, "features": ["Basic Access", "Community Vaults"] },
+    { "name": "$9", "price": 9, "features": ["Pro Vaults", "Analytics"] },
+    { "name": "$39", "price": 39, "features": ["Premium Vaults", "NFT Certificates", "Priority Support"] },
+    { "name": "$299+ Concierge", "price": 299, "features": ["All Access", "White-Label", "Concierge Onboarding", "Founder Calls"] }
+  ],
+  "currency": ["USD", "EUR", "GBP", "CNY", "INR", "BRL"],
+  "affiliate": true,
+  "white_label": true,
+  "multi_region": true
+}
