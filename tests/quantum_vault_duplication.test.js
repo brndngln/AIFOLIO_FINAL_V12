@@ -1,4 +1,5 @@
 // Post-integration test: Quantum Vault Duplication & AI Clone Expansion
+import { describe, it, expect } from 'vitest';
 import QuantumVaultDuplicator from '../core/quantum_vault_duplicator.js';
 import AICloneEngine from '../core/ai_clone_engine.js';
 

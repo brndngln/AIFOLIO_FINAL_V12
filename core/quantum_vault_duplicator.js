@@ -3,7 +3,7 @@ export class QuantumVaultDuplicator {
   cloneVault(vaultConfig, options = {}) {
     // Deep clone and customize vaultConfig for new business instance
     const clone = JSON.parse(JSON.stringify(vaultConfig));
-    clone.id = `${vaultConfig.id}_clone_${Date.now()}`;
+    clone.id = `${vaultConfig.id}_clone_${Date.now()}_${Math.random().toString(36).slice(2,8)}`;
     clone.label = `${vaultConfig.label} (Clone)`;
     clone.createdAt = new Date().toISOString();
     if(options.customizations) {
