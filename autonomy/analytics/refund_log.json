@@ -33,5 +33,19 @@
     "vault_id": "testvault2",
     "buyer_email": "buyer2@example.com",
     "reason": "N/A"
+  },
+  {
+    "event": "vault_refunded",
+    "timestamp": "2025-07-02T23:50:38.062090",
+    "vault_id": "testvault2",
+    "buyer_email": "buyer2@example.com",
+    "reason": "N/A"
+  },
+  {
+    "event": "vault_refunded",
+    "timestamp": "2025-07-02T23:51:07.863848",
+    "vault_id": "testvault2",
+    "buyer_email": "buyer2@example.com",
+    "reason": "N/A"
   }
 ]

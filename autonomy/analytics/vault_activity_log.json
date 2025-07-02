@@ -62,5 +62,21 @@
     "user_id": "user3",
     "ip": "127.0.0.1",
     "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-07-02T23:50:38.051343",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
+  },
+  {
+    "event": "vault_downloaded",
+    "timestamp": "2025-07-02T23:51:07.862268",
+    "vault_id": "testvault3",
+    "user_id": "user3",
+    "ip": "127.0.0.1",
+    "region": "US"
   }
 ]

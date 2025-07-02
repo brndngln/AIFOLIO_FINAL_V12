@@ -68,5 +68,65 @@
       "alert_email_opt_in": true
     },
     "event_id": "03acad53-cede-4449-9d1a-03451794d043"
+  },
+  {
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "38b10ee6-bf11-476b-bc0d-429768c81a65"
+  },
+  {
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "1e47ce1a-9091-417a-9e55-b3f518a2d965"
+  },
+  {
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "7d68dfbf-df05-4946-9048-d1928c42aeb0"
+  },
+  {
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "24d3054b-36ab-488e-b215-127f22f69460"
+  },
+  {
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "9fbcc202-4431-4891-9042-b092321d3e91"
+  },
+  {
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "2dcf4300-5a7e-4b8e-9709-e950456524ea"
   }
 ]

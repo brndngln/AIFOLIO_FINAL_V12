@@ -69,13 +69,13 @@ class InputValidator:
     
     @staticmethod
     def validate_prompt(prompt: str) -> bool:
-        """Validate prompt content."""
+        """Validate prompt format. Returns True for valid prompt, False otherwise."""
         if not isinstance(prompt, str):
             return False
-        if len(prompt) > 4000:  # Maximum token limit for most models
+        if not prompt.strip():
             return False
-            raise ValueError("Prompt is too long")
-            
+        if len(prompt) > 4000:
+            return False
         return True
 
 def api_error_handler(func: Callable) -> Callable:

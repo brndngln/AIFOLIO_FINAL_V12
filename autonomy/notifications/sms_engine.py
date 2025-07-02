@@ -1,6 +1,15 @@
 import os
 import json
-from twilio.rest import Client
+try:
+    from twilio.rest import Client
+    TWILIO_AVAILABLE = True
+except ImportError:
+    TWILIO_AVAILABLE = False
+
+if not TWILIO_AVAILABLE:
+    import logging
+    def send_sms(*args, **kwargs):
+        logging.warning('[OMNIELITE] send_sms stub called: twilio not installed')
 
 ALERT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'alert_log.json'))
 os.makedirs(os.path.dirname(ALERT_LOG), exist_ok=True)

@@ -124,5 +124,41 @@
     "event_type": "refund_issued",
     "timestamp": "2025-07-02T17:48:07.365125",
     "flags": []
+  },
+  {
+    "event_id": "38b10ee6-bf11-476b-bc0d-429768c81a65",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T17:50:38.001285",
+    "flags": []
+  },
+  {
+    "event_id": "1e47ce1a-9091-417a-9e55-b3f518a2d965",
+    "event_type": "policy_violated",
+    "timestamp": "2025-07-02T17:50:38.025471",
+    "flags": []
+  },
+  {
+    "event_id": "7d68dfbf-df05-4946-9048-d1928c42aeb0",
+    "event_type": "refund_issued",
+    "timestamp": "2025-07-02T17:50:38.036044",
+    "flags": []
+  },
+  {
+    "event_id": "24d3054b-36ab-488e-b215-127f22f69460",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T17:51:07.829658",
+    "flags": []
+  },
+  {
+    "event_id": "9fbcc202-4431-4891-9042-b092321d3e91",
+    "event_type": "policy_violated",
+    "timestamp": "2025-07-02T17:51:07.845478",
+    "flags": []
+  },
+  {
+    "event_id": "2dcf4300-5a7e-4b8e-9709-e950456524ea",
+    "event_type": "refund_issued",
+    "timestamp": "2025-07-02T17:51:07.859103",
+    "flags": []
   }
 ]

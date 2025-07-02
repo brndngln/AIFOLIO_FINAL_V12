@@ -2,9 +2,18 @@ import os
 import json
 import time
 from typing import List
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+try:
+    from sendgrid import SendGridAPIClient
+    from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+    SENDGRID_AVAILABLE = True
+except ImportError:
+    SENDGRID_AVAILABLE = False
 from .sms_engine import send_sms
+
+if not SENDGRID_AVAILABLE:
+    import logging
+    def send_vault_email(*args, **kwargs):
+        logging.warning('[OMNIELITE] send_vault_email stub called: sendgrid not installed')
 
 EMAIL_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'email_log.json'))
 ALERT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'alert_log.json'))
