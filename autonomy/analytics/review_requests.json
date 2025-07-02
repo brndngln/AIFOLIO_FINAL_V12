@@ -26,5 +26,9 @@
   {
     "buyer_email": "user2@example.com",
     "delay_hours": 1
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "delay_hours": 1
   }
 ]
