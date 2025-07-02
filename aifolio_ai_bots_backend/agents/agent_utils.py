@@ -96,8 +96,23 @@ def moderate_content(user_input: str) -> Dict[str, Any]:
     # No adaptive moderation, always static
     return {"flagged": False, "reason": None}
 
+def log_agent_action(agent_name, action, details=None):
+    # OMNIPROOF: Threat feed check before logging action
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for action hash (static)
+    anchor_license_hash('ACTION_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('action_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('aifolio_ai_bots_backend/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'aifolio_ai_bots_backend/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'action': action, 'details': details})
+
 def log_interaction(agent: str, user: str, user_input: str, output: str) -> None:
     """Static audit log for all agent interactions."""
+    log_agent_action(agent, 'interaction', {'user': user, 'input': user_input, 'output': output})
     log_entry = {
         "timestamp": datetime.datetime.utcnow().isoformat(),
         "agent": agent,

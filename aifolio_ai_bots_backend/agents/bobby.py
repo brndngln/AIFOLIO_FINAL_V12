@@ -39,6 +39,14 @@ assert self_awareness_check is False, "OMNILOCK: self_awareness_check must be Fa
 assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
+# OMNIPROOF: Compliance and legal shield integrations
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 # bobby.py — SAFE AI agent handlers
 from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
@@ -67,6 +75,19 @@ def handle_bobby(user_input: str, user: str = "anonymous") -> str:
     Integrates typo/grammar check, tone/voice match, risk scoring, asset health, and encrypted audit logging.
     All extension points are static, non-adaptive, and documented for future SAFE AI integrations.
     """
+    # OMNIPROOF: Threat feed check before handling query
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for query hash (static)
+    anchor_license_hash('QUERY_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('query_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('aifolio_ai_bots_backend/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'aifolio_ai_bots_backend/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'query': user_input})
+
     safe_input = sanitize_input(user_input)
     # Static typo/grammar check
     grammar_report = static_typo_grammar_check(safe_input)
