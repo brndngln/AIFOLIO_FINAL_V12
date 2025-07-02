@@ -1,0 +1,13 @@
+[
+  {"name": "Charlie Munger", "traits": ["rationality", "long-term thinking"], "archetype": "Investor", "risk_profile": "conservative", "ethics": "high", "scaling_logic": "compound interest, mental models"},
+  {"name": "Ray Dalio", "traits": ["macro analysis", "radical transparency"], "archetype": "Hedge Fund Founder", "risk_profile": "balanced", "ethics": "high", "scaling_logic": "diversification, principles"},
+  {"name": "Steve Jobs", "traits": ["innovation", "design obsession"], "archetype": "Product Visionary", "risk_profile": "high", "ethics": "medium", "scaling_logic": "iconic branding, user experience"},
+  {"name": "Estée Lauder", "traits": ["brand building", "resilience"], "archetype": "Beauty Pioneer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "luxury marketing, global expansion"},
+  {"name": "Elon Musk", "traits": ["moonshot thinking", "engineering"], "archetype": "Tech Industrialist", "risk_profile": "very high", "ethics": "medium", "scaling_logic": "vertical integration, disruption"},
+  {"name": "Akio Morita", "traits": ["globalization", "product quality"], "archetype": "Electronics Innovator", "risk_profile": "medium", "ethics": "high", "scaling_logic": "international markets, design"},
+  {"name": "Mo Ibrahim", "traits": ["telecom vision", "governance"], "archetype": "African Tycoon", "risk_profile": "medium", "ethics": "high", "scaling_logic": "infrastructure, ethical business"},
+  {"name": "Rihanna", "traits": ["branding", "cultural impact"], "archetype": "Cultural Mogul", "risk_profile": "high", "ethics": "medium", "scaling_logic": "celebrity leverage, product lines"},
+  {"name": "Andrew Carnegie", "traits": ["philanthropy", "steel empire"], "archetype": "Industrialist", "risk_profile": "high", "ethics": "medium", "scaling_logic": "vertical integration, scale"},
+  {"name": "Zhang Xin", "traits": ["real estate", "urbanization"], "archetype": "Property Developer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "urban growth, partnerships"}
+  // ...expand to 100+ diverse, global, cross-domain profiles
+]
