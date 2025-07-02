@@ -7,6 +7,31 @@ class RateLimiter:
     def allow(self, *args, **kwargs):
         return True
 
+class RedisCache:
+    def __init__(self, *args, **kwargs):
+        pass
+    def get(self, *args, **kwargs):
+        return None
+    def set(self, *args, **kwargs):
+        return True
+
+class VaultMetrics:
+    def __init__(self, *args, **kwargs):
+        pass
+    def record(self, *args, **kwargs):
+        return True
+
+class APIErrorHandler:
+    def __init__(self, *args, **kwargs):
+        pass
+    def handle(self, *args, **kwargs):
+        return {"error": "static_stub"}
+
+    def __init__(self, *args, **kwargs):
+        pass
+    def allow(self, *args, **kwargs):
+        return True
+
 def placeholder_function():
     """Static compatibility function for SAFE AI compliance. Extension: real compatibility logic."""
     import logging

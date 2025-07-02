@@ -12,6 +12,33 @@ class ConsentManager:
     def check_consent(self, *args, **kwargs):
         return True
 
+def generate_compliance_report(agent, user, user_input, output, moderation, context):
+    """Static SAFE AI-compliant compliance report stub."""
+    return {
+        "agent": agent,
+        "user": user,
+        "input": user_input,
+        "output": output,
+        "moderation": moderation,
+        "context": context,
+        "status": "static_stub"
+    }
+
+def calculate_risk_score(moderation):
+    """Static SAFE AI-compliant risk score stub."""
+    return 0
+
+    """Static SAFE AI-compliant compliance report stub."""
+    return {
+        "agent": agent,
+        "user": user,
+        "input": user_input,
+        "output": output,
+        "moderation": moderation,
+        "context": context,
+        "status": "static_stub"
+    }
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 AUDIT_LOG_PATH = os.getenv("AI_BOTS_AUDIT_LOG", "ai_bots_audit.log")

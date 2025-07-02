@@ -4,7 +4,7 @@ import json
 import time
 from datetime import datetime
 from secrets import token_urlsafe
-from audit_logger import log_rotation_event
+from .audit_logger import log_rotation_event
 
 # --- CONFIG ---
 VAULT_PROVIDER = os.environ.get('VAULT_PROVIDER', 'doppler')
