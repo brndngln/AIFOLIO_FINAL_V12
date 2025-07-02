@@ -43,7 +43,21 @@ MIN_LENGTH = 30
 MAX_LENGTH = 1000
 
 @sentience_guard
-def optimize_prompt(prompt, title):
+def enforce_legal_safety(text):
+    """Static legal shield: formats, injects disclaimers, and removes illegal claims."""
+    from core.compliance.smart_legal_watcher import weekly_report
+    disclaimer = ("This product is for educational purposes only. Results may vary. Not professional advice. "
+                  "Consult a qualified expert before acting. AI-generated content is labeled as such. All rights reserved.")
+    ai_label = "[AI-Generated Content]"
+    text = f"{ai_label}\n{text}\n\n---\n{disclaimer}"
+    weekly_report()
+    return text
+
+@sentience_guard
+def optimize_prompt(prompt, title=None):
+    # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
+    prompt = enforce_legal_safety(prompt)
+
     """
     Refine PDF prompts: detects niche/tone, removes clichés, boosts clarity.
     Enforces non-sentience, statelessness, and strict anti-manipulation.

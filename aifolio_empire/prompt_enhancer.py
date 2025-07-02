@@ -55,7 +55,16 @@ class PromptEnhancer:
                         del self._enhanced_prompts[key]
                         keys.remove(key)
         
-    def enhance_prompt(self, prompt: str) -> Optional[str]:
+    def enforce_legal_safety(self, text: str) -> str:
+        from core.compliance.smart_legal_watcher import weekly_report
+        disclaimer = ("This product is for educational purposes only. Results may vary. Not professional advice. "
+                      "Consult a qualified expert before acting. AI-generated content is labeled as such. All rights reserved.")
+        ai_label = "[AI-Generated Content]"
+        text = f"{ai_label}\n{text}\n\n---\n{disclaimer}"
+        weekly_report()
+        return text
+
+    def enhance_prompt(self, prompt: str, context=None) -> Optional[str]:
         """
         Enhance a user prompt with anti-sentience measures.
         
