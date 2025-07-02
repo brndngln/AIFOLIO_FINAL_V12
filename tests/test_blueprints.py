@@ -64,6 +64,10 @@ def test_product_gen_route(client):
     rv = client.get('/generate')
     assert rv.status_code == 200
     # Simulate POST with minimal required fields
+    import os
+    os.makedirs('../analytics', exist_ok=True)
+    with open('../analytics/audit_trail.log', 'a'):
+        pass
     rv = client.post('/generate', data={
         'csrf_token': get_csrf(client) or 'test',
         'title': 'Test Product',

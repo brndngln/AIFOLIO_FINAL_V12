@@ -11,6 +11,10 @@ class TestSendConfirmationEmail(unittest.TestCase):
     def test_sendgrid_invalid(self):
         os.environ['SENDGRID_API_KEY'] = 'invalid_key'
         os.environ['SENDGRID_FROM_EMAIL'] = 'noreply@aifolio.com'
+        import os
+        os.makedirs('logs', exist_ok=True)
+        with open('logs/failed_hooks.log', 'a'):
+            pass
         send_confirmation_email('test@example.com', 'TestVault')
         # Should log error, not raise
 

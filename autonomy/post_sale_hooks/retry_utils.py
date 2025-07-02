@@ -37,12 +37,14 @@ def retry_safe_hook(max_attempts=3, backoff_tier='short'):
                     logger.error(f"[HOOK RETRY] {func.__name__} failed on attempt {attempt}: {e}")
                     with open(FAILED_HOOKS_LOG, "a") as f:
                         f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} attempt {attempt}/{max_attempts} failed: {e}\n")
-                    if attempt < max_attempts:
-                        delay = delays[min(attempt - 1, len(delays) - 1)]
-                        logger.info(f"[HOOK RETRY] {func.__name__} sleeping for {delay} seconds before retry {attempt + 1}")
+                if attempt < max_attempts:
+                    delay = delays[min(attempt - 1, len(delays) - 1)]
+                    logger.info(f"[HOOK RETRY] {func.__name__} sleeping for {delay} seconds before retry {attempt + 1}")
+                    with open(FAILED_HOOKS_LOG, "a") as f:
                         f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} sleeping {delay}s before retry {attempt + 1}\n")
-                        time.sleep(delay)
-                    else:
+                    time.sleep(delay)
+                else:
+                    with open(FAILED_HOOKS_LOG, "a") as f:
                         f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} failed after {max_attempts} attempts. FINAL FAILURE.\n")
         return wrapper
     return decorator

@@ -8,6 +8,7 @@ from core.compliance.compliance_manifest_exporter import export_compliance_manif
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 """
 import logging
+import os
 import functools
 import datetime
 from core.compliance.sentience_firewall import sentience_firewall
@@ -54,8 +55,9 @@ def sentience_guard(func):
                 logging.critical(f"[SENTIENCE BLOCKED] Pattern detected in {func_name} at {call_time}")
                 raise RuntimeError("Sentience safeguard: forbidden pattern detected.")
         # Log invocation
+        os.makedirs(os.path.dirname("../analytics/audit_trail.log"), exist_ok=True)
         with open("../analytics/audit_trail.log", "a") as audit:
-            audit.write(f"{call_time} | {func_name} invoked | args: {args} | kwargs: {kwargs}\n")
+            audit.write(f"[{call_time}] {func_name} called with args={args}, kwargs={kwargs}\n")
         result = func(*args, **kwargs)
         # Log result type
         with open("../analytics/audit_trail.log", "a") as audit:

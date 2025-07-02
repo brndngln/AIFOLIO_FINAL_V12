@@ -3,5 +3,20 @@
     "buyer_email": "user2@example.com",
     "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
     "current_vault": "vault2"
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
+    "current_vault": "vault2"
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
+    "current_vault": "vault2"
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
+    "current_vault": "vault2"
   }
 ]

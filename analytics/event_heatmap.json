@@ -82,5 +82,47 @@
     "event_type": "refund_issued",
     "timestamp": "2025-06-19T17:09:41.329207",
     "flags": []
+  },
+  {
+    "event_id": "bfec2ca7-2ecf-4f5f-a5d3-688825c48b75",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T17:46:35.406552",
+    "flags": []
+  },
+  {
+    "event_id": "2aa1ebd4-f2b7-463a-aba2-9aaaf6a81fcb",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T17:47:26.409732",
+    "flags": []
+  },
+  {
+    "event_id": "5b05743b-1f61-46cc-8730-e5a4ebcdfb11",
+    "event_type": "policy_violated",
+    "timestamp": "2025-07-02T17:47:26.429761",
+    "flags": []
+  },
+  {
+    "event_id": "f018df54-bb5d-4e67-aef0-6e555a7d155d",
+    "event_type": "refund_issued",
+    "timestamp": "2025-07-02T17:47:26.439934",
+    "flags": []
+  },
+  {
+    "event_id": "5c1f306e-1d19-4f84-8e3c-a41fcebb26dd",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T17:48:07.336622",
+    "flags": []
+  },
+  {
+    "event_id": "47937b35-051e-436d-b122-77d05b375f1c",
+    "event_type": "policy_violated",
+    "timestamp": "2025-07-02T17:48:07.355325",
+    "flags": []
+  },
+  {
+    "event_id": "03acad53-cede-4449-9d1a-03451794d043",
+    "event_type": "refund_issued",
+    "timestamp": "2025-07-02T17:48:07.365125",
+    "flags": []
   }
 ]

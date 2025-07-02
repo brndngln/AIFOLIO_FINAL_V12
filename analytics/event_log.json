@@ -9998,5 +9998,82 @@
     "delivery_success": true,
     "funnel_stage": "refund",
     "visit_id": "visit_478"
+  },
+  {
+    "event_id": "bfec2ca7-2ecf-4f5f-a5d3-688825c48b75",
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:46:35.396889"
+  },
+  {
+    "event_id": "2aa1ebd4-f2b7-463a-aba2-9aaaf6a81fcb",
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:47:26.400805"
+  },
+  {
+    "event_id": "5b05743b-1f61-46cc-8730-e5a4ebcdfb11",
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:47:26.421109"
+  },
+  {
+    "event_id": "f018df54-bb5d-4e67-aef0-6e555a7d155d",
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:47:26.431008"
+  },
+  {
+    "event_id": "5c1f306e-1d19-4f84-8e3c-a41fcebb26dd",
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:48:07.327644"
+  },
+  {
+    "event_id": "47937b35-051e-436d-b122-77d05b375f1c",
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:48:07.346701"
+  },
+  {
+    "event_id": "03acad53-cede-4449-9d1a-03451794d043",
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T17:48:07.356485"
   }
 ]
