@@ -1,6 +1,7 @@
 import unittest
 from fastapi.testclient import TestClient
 from backend.main import app
+import aifolio_secrets.rotate_secret
 
 class TestReloadInjection(unittest.TestCase):
     def setUp(self):

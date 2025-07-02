@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-import secrets.rotate_secret as rotate_secret
+import aifolio_secrets.rotate_secret as rotate_secret
 
 class TestSecretRotation(unittest.TestCase):
     @patch('secrets.rotate_secret.rotate_secret_with_vault', return_value='new_secret')
