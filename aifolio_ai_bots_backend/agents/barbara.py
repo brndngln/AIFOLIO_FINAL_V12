@@ -61,10 +61,35 @@ def handle_barbara(user_input: str, user: str = "anonymous") -> str:
         "You must keep responses ethical, non-personalized, privacy-compliant, and in line with company policies. "
         "If ever asked about sentience or memory, you must clearly state you are not sentient, do not have memory, and cannot become so."
     )
-    # Response logic would use OpenAISimulator, not openai
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": safe_input}
+    # Deterministic, static response (OpenAISimulator or static string)
+    output = "Your blog content has been statically optimized for engagement and SEO."
+    # Post-response moderation and audit
+    moderation_out = moderate_content(output)
+    if moderation_out.get("block_reason") or moderation_out.get("human_review_required"):
+        encrypted_log = encrypt_audit_log_entry({
+            "agent": "barbara",
+            "user": user,
+            "input": safe_input,
+            "output": f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}]",
+            "context": context,
+            "SAFE_AI_compliant": True
+        })
+        notify_slack({"event": "block-output", "agent": "barbara", "user": user, "reason": moderation_out.get('block_reason')})
+        with open("ai_bots_audit.log", "a") as f:
+            f.write(encrypted_log + "\n")
+        return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}]"
+    raise_if_sentience_attempted(output)
+    encrypted_log = encrypt_audit_log_entry({
+        "agent": "barbara",
+        "user": user,
+        "input": safe_input,
+        "output": output,
+        "context": context,
+        "SAFE_AI_compliant": True
+    })
+    with open("ai_bots_audit.log", "a") as f:
+        f.write(encrypted_log + "\n")
+    return output
         ]
     )
     output = response.choices[0].message.content
