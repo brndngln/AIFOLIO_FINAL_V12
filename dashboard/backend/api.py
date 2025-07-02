@@ -11,7 +11,7 @@ from autonomy.ai_static import (
     policy_audit_bot, gdpr_ccpa_audit_bot, policy_version_tracker,
     refund_optimizer, prompt_fingerprinting_engine, safe_style_voice_tuner,
     vocabulary_scope_limiter, auto_variant_generator, audit_timestamp_injector,
-    anti_sentience_guard
+    anti_static_guard
 )
 
 # Helper for reading log files
@@ -320,7 +320,7 @@ def inject_timestamp(output: str):
 
 @app.post("/api/scan_for_sentience")
 def scan_for_sentience(text: str):
-    safe = anti_sentience_guard.scan_for_sentience(text)
+    safe = anti_static_guard.scan_for_sentience(text)
     return {"safe": safe}
 
 @app.post("/api/audit_policies")

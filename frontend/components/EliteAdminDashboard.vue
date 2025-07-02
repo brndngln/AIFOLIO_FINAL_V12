@@ -1,64 +1,81 @@
 <template>
-  <div class="elite-admin-dashboard p-6 bg-gray-100 min-h-screen">
-    <h1 class="text-3xl font-bold mb-6">Elite Empire Admin Dashboard</h1>
-    <div class="mb-4">
-      <button class="btn-primary" @click="refresh">Refresh</button>
-      <button class="btn-secondary ml-2" @click="freezeSystem">Emergency Freeze</button>
+  <div class="elite-admin-dashboard p-6 bg-gradient-to-br from-gray-100 to-blue-50 min-h-screen">
+    <h1 class="text-4xl font-extrabold mb-8 text-center text-blue-900">{{$t('eliteEmpireAdminDashboard')}}</h1>
+    <div class="flex flex-wrap gap-4 mb-8 justify-center">
+      <button class="btn-primary" @click="refresh">{{$t('refresh')}}</button>
+      <button class="btn-secondary" @click="freezeSystem">{{$t('emergencyFreeze')}}</button>
+      <button class="btn-danger" @click="overrideSystem">{{$t('founderOverride')}}</button>
+      <button class="btn-warning" @click="rollbackSystem">{{$t('rollback')}}</button>
+      <button class="btn-info" @click="testNotification">{{$t('testNotification')}}</button>
     </div>
-    <div class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">System Events</h2>
-      <table class="min-w-full bg-white rounded shadow">
+    <div class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">{{$t('systemEvents')}}</h2>
+      <input v-model="eventSearch" class="input-search mb-4" :placeholder="$t('searchEvents')" />
+      <table class="min-w-full bg-white rounded shadow-lg luxury-table">
         <thead>
           <tr>
-            <th class="px-4 py-2">Timestamp</th>
-            <th class="px-4 py-2">Type</th>
-            <th class="px-4 py-2">Actor</th>
-            <th class="px-4 py-2">Status</th>
-            <th class="px-4 py-2">Integration</th>
+            <th class="px-4 py-2">{{$t('timestamp')}}</th>
+            <th class="px-4 py-2">{{$t('type')}}</th>
+            <th class="px-4 py-2">{{$t('actor')}}</th>
+            <th class="px-4 py-2">{{$t('status')}}</th>
+            <th class="px-4 py-2">{{$t('integration')}}</th>
+            <th class="px-4 py-2">{{$t('channels')}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="event in events" :key="event.timestamp">
+          <tr v-for="event in filteredEvents" :key="event.timestamp">
             <td class="px-4 py-2">{{ event.timestamp }}</td>
             <td class="px-4 py-2">{{ event.type }}</td>
-            <td class="px-4 py-2">{{ event.actor }}</td>
-            <td class="px-4 py-2">{{ event.status }}</td>
+            <td class="px-4 py-2">
+              <span v-if="event.actor === 'founder'" class="founder-badge">{{$t('founder')}}</span>
+              {{ event.actor }}
+            </td>
+            <td class="px-4 py-2">
+              <span v-if="event.status === 'high_priority'" class="status-high">{{$t('highPriority')}}</span>
+              {{ event.status }}
+            </td>
             <td class="px-4 py-2">{{ event.integration }}</td>
+            <td class="px-4 py-2">
+              <span v-if="event.channels" class="channels-badges">
+                <span v-for="ch in event.channels" :key="ch" class="channel-badge">{{ ch }}</span>
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">Billionaire Mind Activations</h2>
+    <div class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">{{$t('billionaireMindActivations')}}</h2>
+      <input v-model="mindSearch" class="input-search mb-4" :placeholder="$t('searchMinds')" />
       <ul>
-        <li v-for="mind in billionaireMinds" :key="mind.name">
+        <li v-for="mind in filteredMinds" :key="mind.name">
           <span class="font-semibold">{{ mind.name }}</span> — {{ mind.archetype }} ({{ mind.scaling_logic }})
         </li>
       </ul>
     </div>
-    <div class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">Compliance & Sentience Alerts</h2>
+    <div class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">{{$t('complianceAndSentienceAlerts')}}</h2>
+      <input v-model="alertSearch" class="input-search mb-4" :placeholder="$t('searchAlerts')" />
       <ul>
-        <li v-for="alert in complianceAlerts" :key="alert.timestamp">
+        <li v-for="alert in filteredAlerts" :key="alert.timestamp">
           <span class="text-red-600">[{{ alert.timestamp }}]</span> {{ alert.message }}
         </li>
       </ul>
-    </div>
-    <div class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">Founder Controls</h2>
-      <button class="btn-danger" @click="overrideSystem">Founder Override</button>
-      <button class="btn-warning ml-2" @click="rollbackSystem">Rollback</button>
-      <button class="btn-info ml-2" @click="testNotification">Test Notification</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const events = ref([])
 const billionaireMinds = ref([])
 const complianceAlerts = ref([])
+const eventSearch = ref('')
+const mindSearch = ref('')
+const alertSearch = ref('')
 
 async function refresh() {
   const res = await axios.get('/api/elite/events')
@@ -72,14 +89,26 @@ function freezeSystem() { axios.post('/api/elite/freeze') }
 function overrideSystem() { axios.post('/api/elite/override') }
 function rollbackSystem() { axios.post('/api/elite/rollback') }
 function testNotification() { axios.post('/api/elite/test_notification') }
+
+const filteredEvents = computed(() => events.value.filter(e =>
+  Object.values(e).join(' ').toLowerCase().includes(eventSearch.value.toLowerCase())
+))
+const filteredMinds = computed(() => billionaireMinds.value.filter(m =>
+  Object.values(m).join(' ').toLowerCase().includes(mindSearch.value.toLowerCase())
+))
+const filteredAlerts = computed(() => complianceAlerts.value.filter(a =>
+  Object.values(a).join(' ').toLowerCase().includes(alertSearch.value.toLowerCase())
+))
+
 onMounted(refresh)
 </script>
 
 <style scoped>
 .elite-admin-dashboard { @apply max-w-6xl mx-auto; }
-.btn-primary { @apply bg-blue-700 text-white px-4 py-2 rounded; }
-.btn-secondary { @apply bg-gray-400 text-white px-4 py-2 rounded; }
-.btn-danger { @apply bg-red-600 text-white px-4 py-2 rounded; }
-.btn-warning { @apply bg-yellow-500 text-white px-4 py-2 rounded; }
-.btn-info { @apply bg-blue-400 text-white px-4 py-2 rounded; }
+.luxury-table { @apply shadow-2xl border border-blue-200; }
+.input-search { @apply border border-blue-300 rounded px-3 py-2 mb-2 w-full max-w-md; }
+.founder-badge { @apply bg-gradient-to-r from-yellow-300 to-yellow-500 text-black px-2 py-1 rounded font-bold ml-1; }
+.status-high { @apply bg-red-600 text-white px-2 py-1 rounded font-semibold ml-1; }
+.channels-badges { @apply flex gap-1; }
+.channel-badge { @apply bg-blue-200 text-blue-900 px-2 py-1 rounded text-xs font-semibold; }
 </style>

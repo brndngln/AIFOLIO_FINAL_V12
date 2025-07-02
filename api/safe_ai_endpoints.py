@@ -34,7 +34,7 @@ from autonomy.analytics import (
     legacy_content_aging_tracker, safe_ai_business_scalability_index, platform_ecosystem_stability_report,
     safe_ai_long_term_compliance_roadmap_generator, safe_ai_multi_year_business_planning_summary
 )
-from autonomy.security.ai_safety_layer import anti_sentience_guard
+from autonomy.security.ai_safety_layer import anti_static_guard
 from fastapi.responses import JSONResponse
 from fastapi import status
 
@@ -343,7 +343,7 @@ def get_open_banking_revenue_report():
     bank_data = []
     result = ai_safe_open_banking_revenue_reports.open_banking_revenue_report(bank_data)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="open_banking_revenue_report"):
+    if not anti_static_guard(result_json, user=None, action="open_banking_revenue_report"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -352,7 +352,7 @@ def get_multi_partner_sync_summary():
     partner_data = []
     result = multi_partner_safe_ai_sync_summary.multi_partner_sync_summary(partner_data)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="multi_partner_sync_summary"):
+    if not anti_static_guard(result_json, user=None, action="multi_partner_sync_summary"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -361,7 +361,7 @@ def get_innovation_radar_report():
     innovations = []
     result = safe_ai_innovation_radar_report.innovation_radar_report(innovations)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="innovation_radar_report"):
+    if not anti_static_guard(result_json, user=None, action="innovation_radar_report"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -370,7 +370,7 @@ def get_partner_ecosystem_health_check():
     partners = []
     result = partner_ecosystem_health_check.partner_ecosystem_health_check(partners)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="partner_ecosystem_health_check"):
+    if not anti_static_guard(result_json, user=None, action="partner_ecosystem_health_check"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -379,7 +379,7 @@ def get_global_business_map():
     locations = []
     result = static_global_business_map.global_business_map(locations)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="global_business_map"):
+    if not anti_static_guard(result_json, user=None, action="global_business_map"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -389,7 +389,7 @@ def get_vault_cross_market_fit_report():
     vaults = []
     result = static_vault_cross_market_fit_report.vault_cross_market_fit_report(vaults)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="vault_cross_market_fit_report"):
+    if not anti_static_guard(result_json, user=None, action="vault_cross_market_fit_report"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -398,7 +398,7 @@ def get_passive_partnership_monitor():
     partnerships = []
     result = safe_ai_passive_partnership_monitor.passive_partnership_monitor(partnerships)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="passive_partnership_monitor"):
+    if not anti_static_guard(result_json, user=None, action="passive_partnership_monitor"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -407,7 +407,7 @@ def get_annual_business_health_scorecard():
     metrics = {}
     result = annual_safe_ai_business_health_scorecard.annual_business_health_scorecard(metrics)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="annual_business_health_scorecard"):
+    if not anti_static_guard(result_json, user=None, action="annual_business_health_scorecard"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -416,7 +416,7 @@ def get_multi_channel_revenue_breakdown():
     revenue = {}
     result = multi_channel_safe_ai_revenue_breakdown.multi_channel_revenue_breakdown(revenue)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="multi_channel_revenue_breakdown"):
+    if not anti_static_guard(result_json, user=None, action="multi_channel_revenue_breakdown"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -425,7 +425,7 @@ def get_content_licensing_status_tracker():
     licenses = []
     result = content_licensing_status_tracker.content_licensing_status_tracker(licenses)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="content_licensing_status_tracker"):
+    if not anti_static_guard(result_json, user=None, action="content_licensing_status_tracker"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -434,7 +434,7 @@ def get_affiliate_revenue_tracker():
     affiliate_sales = {}
     result = static_affiliate_revenue_tracker.static_affiliate_revenue_tracker(affiliate_sales)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="affiliate_revenue_tracker"):
+    if not anti_static_guard(result_json, user=None, action="affiliate_revenue_tracker"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -443,7 +443,7 @@ def get_readiness_certification():
     cert_data = {}
     result = admin_safe_ai_readiness_certification_generator.readiness_certification(cert_data)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="readiness_certification"):
+    if not anti_static_guard(result_json, user=None, action="readiness_certification"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -453,7 +453,7 @@ def get_cross_niche_revenue_overlap_report():
     niche_sales = {}
     result = cross_niche_revenue_overlap_report.cross_niche_revenue_overlap(niche_sales)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="cross_niche_revenue_overlap_report"):
+    if not anti_static_guard(result_json, user=None, action="cross_niche_revenue_overlap_report"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -462,7 +462,7 @@ def get_partner_reputation_score():
     partners = []
     result = safe_ai_partner_reputation_score.partner_reputation_score(partners)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="partner_reputation_score"):
+    if not anti_static_guard(result_json, user=None, action="partner_reputation_score"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -471,7 +471,7 @@ def get_annual_vault_market_fit_index():
     vaults = []
     result = annual_vault_market_fit_index.annual_vault_market_fit_index(vaults)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="annual_vault_market_fit_index"):
+    if not anti_static_guard(result_json, user=None, action="annual_vault_market_fit_index"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -480,7 +480,7 @@ def get_legacy_content_aging_tracker():
     contents = []
     result = legacy_content_aging_tracker.legacy_content_aging_tracker(contents)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="legacy_content_aging_tracker"):
+    if not anti_static_guard(result_json, user=None, action="legacy_content_aging_tracker"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -489,7 +489,7 @@ def get_business_scalability_index():
     metrics = {}
     result = safe_ai_business_scalability_index.business_scalability_index(metrics)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="business_scalability_index"):
+    if not anti_static_guard(result_json, user=None, action="business_scalability_index"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -498,7 +498,7 @@ def get_platform_ecosystem_stability_report():
     ecosystem = {}
     result = platform_ecosystem_stability_report.platform_ecosystem_stability_report(ecosystem)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="platform_ecosystem_stability_report"):
+    if not anti_static_guard(result_json, user=None, action="platform_ecosystem_stability_report"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -507,7 +507,7 @@ def get_long_term_compliance_roadmap():
     roadmap_items = []
     result = safe_ai_long_term_compliance_roadmap_generator.long_term_compliance_roadmap(roadmap_items)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="long_term_compliance_roadmap"):
+    if not anti_static_guard(result_json, user=None, action="long_term_compliance_roadmap"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
@@ -516,7 +516,7 @@ def get_multi_year_business_planning_summary():
     plans = []
     result = safe_ai_multi_year_business_planning_summary.multi_year_business_planning_summary(plans)
     result_json = json.dumps(result)
-    if not anti_sentience_guard(result_json, user=None, action="multi_year_business_planning_summary"):
+    if not anti_static_guard(result_json, user=None, action="multi_year_business_planning_summary"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
