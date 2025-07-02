@@ -1,7 +1,7 @@
 # backend/agents/bobby.py
 
 from .agent_utils import sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted
-import openai
+from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
 
 def handle_bobby(user_input: str, user: str = "anonymous") -> str:
     """
