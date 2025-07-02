@@ -38,6 +38,11 @@ def expire_old_secret(key, old_secret):
 def rotate_all_secrets():
     results = []
     for key in SECRETS_LIST:
+        old_secret = None
+        new_secret = rotate_secret_with_vault(key)
+        expire_old_secret(key, old_secret)
+        log_rotation_event(key, new_secret)
+        results.append({'key': key, 'status': 'SUCCESS'})
         old_secret = os.environ.get(key, None)
         try:
             new_secret = rotate_secret_with_vault(key)
