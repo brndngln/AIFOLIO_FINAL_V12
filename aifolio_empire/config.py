@@ -22,6 +22,12 @@ class Config:
     SIM_COUNTDOWN_RECALCULATING_CHANCE = 0.02 # Chance to show 'recalculating' message
     SIM_COUNTDOWN_GLITCH_CHANCE = 0.005     # Chance of a minor display glitch message
 
+    def __getattr__(self, item):
+        # Allow instance to fall back to class attribute if missing (for Pydantic or dynamic configs)
+        if hasattr(self.__class__, item):
+            return getattr(self.__class__, item)
+        raise AttributeError(f"{type(self).__name__!r} object has no attribute {item!r}")
+
     def __init__(self):
         """Initialize configuration with anti-sentience measures."""
         self._load_env()
