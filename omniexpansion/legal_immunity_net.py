@@ -14,14 +14,18 @@ class LegalImmunityNet:
         legal_file = f"{legal_dir}/{vault.get('id', 'vault')}_legal.txt"
         with open(legal_file, 'w') as f:
             f.write(f"Legal file for {vault.get('title', 'Vault')} in {country}\n")
+        emma.log_event('legal_file_generated', {'vault': vault.get('id'), 'country': country, 'file': legal_file}, critical=False)
         return legal_file
 
     def suggest_entity(self, vault: Dict[str, Any], country: str) -> str:
         # Suggest correct entity type
-        if country == 'US': return 'LLC'
-        if country == 'UK': return 'Ltd'
-        if country == 'DE': return 'GmbH'
-        if country == 'AU': return 'Trust'
-        if country == 'SG': return 'Pte Ltd'
-        return 'Intl Entity'
+        if country == 'US': entity = 'LLC'
+        elif country == 'UK': entity = 'Ltd'
+        elif country == 'DE': entity = 'GmbH'
+        elif country == 'AU': entity = 'Trust'
+        elif country == 'SG': entity = 'Pte Ltd'
+        else: entity = 'Intl Entity'
+        emma.log_event('entity_suggested', {'vault': vault.get('id'), 'country': country, 'entity': entity}, critical=False)
+        return entity
+
 

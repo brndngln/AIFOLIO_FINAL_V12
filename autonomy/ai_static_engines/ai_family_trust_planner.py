@@ -6,10 +6,21 @@ All actions require explicit owner approval. No adaptive or sentient logic.
 """
 from typing import List, Dict
 import datetime
+from core.compliance.emma_guardian import emma
+from omniexpansion.legal_immunity_net import TrustAlignmentSystem
 
 FAMILY_TRUST_LOG = []
 
 class FamilyTrustPlanner:
+    @staticmethod
+    def suggest_trust_plan(family_data: Dict) -> Dict:
+        # OMNIELITE: Multi-Jurisdictional Trust Alignment
+        country = family_data.get('country', 'US')
+        entity = TrustAlignmentSystem.align_entity(family_data, country)
+        plan = {'type': entity, 'jurisdiction': country}
+        emma.log_event('trust_plan_suggested', {'family_data': family_data, 'plan': plan}, critical=False)
+        return plan
+
     @staticmethod
     def suggest_trust_actions(current_status: str) -> List[str]:
         """
