@@ -1,5 +1,12 @@
 """
-AIFOLIO SAFE AI Marketplace Trend Analyzer
+AIFOLIO SAFE AI# Marketplace Trend Analyzer
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 Static, deterministic dashboard for marketplace trends.
 """
 import logging

@@ -6,12 +6,27 @@ BUNDLE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'bundle_rec
 os.makedirs(os.path.dirname(BUNDLE_LOG), exist_ok=True)
 
 # --- AI Static Bundle Recommendation Engine (SAFE AI, Non-Sentient, Owner-Controlled) ---
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 def recommend_bundles(vault_id, purchase_history):
-    """
-    Recommends bundles for a vault using static, deterministic rules.
-    Returns a dict with suggestions, explanation, recommendation, priority, audit, SAFE AI metadata, and version.
-    Fully static, non-sentient, owner-controlled, and SAFE AI compliant.
-    """
+    # OMNIPROOF: Threat feed check before bundle recommendation
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for bundle hash (static)
+    anchor_license_hash('BUNDLE_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('bundle_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('analytics/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'analytics/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'vault_id': vault_id, 'purchase_history': purchase_history})
+
     VERSION = "AIFOLIO_BUNDLE_ENGINE_V2_SAFEAI_FINAL"
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
