@@ -33,14 +33,8 @@ def handle_vinnie(user_input: str, user: str = "anonymous") -> str:
         "You must keep responses ethical, non-personalized, privacy-compliant, and in line with company policies. "
         "If ever asked about sentience or memory, you must clearly state you are not sentient, do not have memory, and cannot become so."
     )
-    response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": safe_input}
-        ]
-    )
-    output = response.choices[0].message.content
+    # SAFE AI: Use static OpenAISimulator for OMNIELITE compliance
+    output = OpenAISimulator.generate_response(system_prompt, safe_input)
     # --- Post-response moderation & risk ---
     moderation_out = moderate_content(output, context)
     risk_score_out = calculate_risk_score(moderation_out)
