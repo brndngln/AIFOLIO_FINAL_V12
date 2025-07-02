@@ -347,5 +347,137 @@
     },
     "critical": false,
     "hash": "f92041ffd161cf96c3e6ae714370c738753dde3ee5d08a3810cc3f40b9c4cde5"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.281169",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "74e391f57eeeb9c5ca71db4bdeaa82695f9962febbc7634e40fc9118612c3982"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.281890",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "da0edcb6533644e6dc313b3c45e3166260b8f64d0d66e8720a7bda2099cd9c7b"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.282533",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "329f909b902d7af8ca1ad79ab7dd2fdaced8acb12cdf653093cfbb41eea43faf"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.283242",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4709e509f299efec38b2b3d440292eb6a0b9402afc280eff56b17bdd3e90025a"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.283831",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6076b58b94e447b098a3d0e2d83d298dd8eb0141e68789f97af3cfda40145349"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.284367",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "81f078831d2f5b3117db80fe1e08f1cb4ffd32d6d141bd4b832160035f5f8fc2"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.173612",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "86953fecfd3938310afe5980efffd2785f7e07a4dbb6ff26e84661bf28dfebe1"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.174418",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d91e3d1dd20dd75fa3155c39315159fb153b9c03488dff8bf6b9f75263b5fcc7"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.175107",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "72422d4ce84961d4b78dcad92ee094804718e571e93904e5b7a96ae81efe21cd"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.177516",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d726163bfd5a1a25884dd0cbe6d1a5a7f3c0aae146cd0fa16ce9157ef7c9c69d"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.179133",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "98e0d9540b0e2ee2bbb8f2295a34bc8140a924ccb389f5dbb6214f49581f1266"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.180524",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "772a202c13561fe2340c659b009af90a3fa1db7ce78dfdb25a22999b440dfad9"
   }
 ]

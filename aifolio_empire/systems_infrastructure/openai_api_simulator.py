@@ -32,6 +32,17 @@ MAX_SIMULATED_RESPONSE_CHUNKS = 5
 class OpenAISimulator:
     """Simulates OpenAI API functionalities with anti-sentience safeguards."""
 
+    @staticmethod
+    def generate_response(prompt, user_input):
+        """
+        OMNIELITE SAFE AI static response stub. Returns a canned, deterministic response for compliance.
+        """
+        canned_response = (
+            "[SAFE AI STATIC RESPONSE] This is a simulated, stateless, non-adaptive response generated for OMNIELITE compliance. "
+            "Your input has been processed according to strict SAFE AI and legal guidelines."
+        )
+        return canned_response
+
     def __init__(self, api_key_simulated: Optional[str] = None):
         """Initialize the simulator. All operations are stateless.
         Args:
