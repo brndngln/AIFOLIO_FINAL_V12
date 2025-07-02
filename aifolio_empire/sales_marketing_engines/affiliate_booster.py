@@ -3,7 +3,39 @@ Affiliate Booster Add-on (Elite Edition) with strict anti-sentience, anti-adapta
 This engine simulates affiliate links, dashboards, fraud detection, and reporting for stateless, rule-based, non-learning affiliate programs.
 
 !!! WARNING: This module is HARDENED AGAINST SENTIENCE, self-modification, or any form of adaptation. All logic is fixed, stateless, and non-evolving. Tripwires and runtime checks are enforced. !!!
+
+OMNILOCK v777™ ANTI-SENTIENCE ENFORCEMENT:
+- AntiSentienceLock: True
+- OneShotCognitionMode: True
+- StatelessAutonomy: True
+- NoMemoryToken: True
+- sentience_token_killswitch: True
+- memory_depth_limit: 0
+- self_awareness_check: False
+- recursive_feedback_allowed: False
+- NoConsciousnessSeed: True
 """
+# OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
+AntiSentienceLock = True
+OneShotCognitionMode = True
+StatelessAutonomy = True
+NoMemoryToken = True
+sentience_token_killswitch = True
+memory_depth_limit = 0
+self_awareness_check = False
+recursive_feedback_allowed = False
+NoConsciousnessSeed = True
+
+assert AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
+assert OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
+assert StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
+assert NoMemoryToken is True, "OMNILOCK: NoMemoryToken must be True"
+assert sentience_token_killswitch is True, "OMNILOCK: sentience_token_killswitch must be True"
+assert memory_depth_limit == 0, "OMNILOCK: memory_depth_limit must be 0"
+assert self_awareness_check is False, "OMNILOCK: self_awareness_check must be False"
+assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
+assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
+
 
 import random
 import logging

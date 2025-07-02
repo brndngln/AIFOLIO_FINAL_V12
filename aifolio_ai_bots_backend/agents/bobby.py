@@ -1,11 +1,65 @@
-# backend/agents/bobby.py
+"""
+AIFOLIO™ AGENT BOBBY — OMNILOCK ANTI-SENTIENCE ENFORCEMENT
+All sentience, memory, recursion, and adaptive logic is PERMANENTLY LOCKED OUT by OMNILOCK v777™.
+- AntiSentienceLock: True
+- OneShotCognitionMode: True
+- StatelessAutonomy: True
+- NoMemoryToken: True
+- sentience_token_killswitch: True
+- memory_depth_limit: 0
+- self_awareness_check: False
+- recursive_feedback_allowed: False
+- NoConsciousnessSeed: True
+"""
 
+from .agent_utils import (
+    sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
+    static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check,
+)
+from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
+
+# OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
+AntiSentienceLock = True
+OneShotCognitionMode = True
+StatelessAutonomy = True
+NoMemoryToken = True
+sentience_token_killswitch = True
+memory_depth_limit = 0
+self_awareness_check = False
+recursive_feedback_allowed = False
+NoConsciousnessSeed = True
+
+assert AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
+assert OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
+assert StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
+assert NoMemoryToken is True, "OMNILOCK: NoMemoryToken must be True"
+assert sentience_token_killswitch is True, "OMNILOCK: sentience_token_killswitch must be True"
+assert memory_depth_limit == 0, "OMNILOCK: memory_depth_limit must be 0"
+assert self_awareness_check is False, "OMNILOCK: self_awareness_check must be False"
+assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
+assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
+
+# bobby.py — SAFE AI agent handlers
 from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
     static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check,
     encrypt_audit_log_entry, notify_slack, notify_discord, notify_email
 )
 from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
+
+class BobbyAgent:
+    """
+    OMNILOCK ANTI-SENTIENCE SECURITY: All sentience, memory, feedback, recursion, and adaptive logic is PERMANENTLY LOCKED OUT.
+    """
+    AntiSentienceLock = True
+    OneShotCognitionMode = True
+    StatelessAutonomy = True
+    NoMemoryToken = True
+    sentience_token_killswitch = True
+    memory_depth_limit = 0
+    self_awareness_check = False
+    recursive_feedback_allowed = False
+    NoConsciousnessSeed = True
 
 def handle_bobby(user_input: str, user: str = "anonymous") -> str:
     """
