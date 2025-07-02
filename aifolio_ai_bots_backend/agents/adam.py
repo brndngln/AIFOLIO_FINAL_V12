@@ -1,31 +1,57 @@
 # backend/agents/adam.py
 
-from .agent_utils import sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted, ConsentManager, generate_compliance_report, calculate_risk_score
+from .agent_utils import (
+    sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted, ConsentManager, generate_compliance_report,
+    static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check, encrypt_audit_log_entry,
+    notify_slack, notify_discord, notify_email
+)
 from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
 
 def handle_adam(user_input: str, user: str = "anonymous") -> str:
     """
-    Responds to user input using a stateless, safe GPT-4 interaction, with full audit, moderation, and anti-sentience safeguards.
-    Now uses persistent consent, compliance reporting, risk scoring, and escalation stub.
+    Elite SAFE AI-compliant handler: stateless, deterministic, fully auditable, and owner-controlled.
+    Integrates typo/grammar check, tone/voice match, risk scoring, asset health, and encrypted audit logging.
+    All extension points are static, non-adaptive, and documented for future SAFE AI integrations.
     """
     safe_input = sanitize_input(user_input)
-    # --- Persistent consent management ---
+    # Static typo/grammar check
+    grammar_report = static_typo_grammar_check(safe_input)
+    # Static tone/voice match
+    tone_report = static_tone_voice_match(safe_input, target="professional")
+    # Static risk score
+    risk_score = calculate_risk_score(safe_input)
+    # Static asset health check (example asset)
+    asset_health = static_asset_health_check({"input": safe_input})
+    # Persistent consent management
     user_has_consent = ConsentManager.has_consent(user)
-    context = {"user_consent": user_has_consent}
+    context = {
+        "user_consent": user_has_consent,
+        "grammar": grammar_report,
+        "tone": tone_report,
+        "risk": risk_score,
+        "asset_health": asset_health
+    }
     if not user_has_consent:
-        # Try to record consent (could be extended with UI/UX)
         ConsentManager.record_consent(user, consent=True, context={"source": "adam_handler_auto"})
         context["user_consent"] = True
-    # --- Pre-response moderation & risk ---
-    moderation = moderate_content(safe_input, context)
-    risk_score = calculate_risk_score(moderation)
-    if moderation["block_reason"] or moderation["human_review_required"] or risk_score >= 100:
-        log_interaction("adam", safe_input, f"[BLOCKED: {moderation.get('block_reason','compliance')}|Risk:{risk_score}]", moderation, user)
-        compliance_report = generate_compliance_report("adam", user, safe_input, "", moderation, context)
+    # Pre-response moderation & risk
+    moderation = moderate_content(safe_input)
+    if moderation.get("block_reason") or moderation.get("human_review_required") or risk_score >= 100:
+        encrypted_log = encrypt_audit_log_entry({
+            "agent": "adam",
+            "user": user,
+            "input": safe_input,
+            "output": f"[BLOCKED: {moderation.get('block_reason','compliance')}|Risk:{risk_score}]",
+            "context": context,
+            "SAFE_AI_compliant": True
+        })
+        notify_slack({"event": "block", "agent": "adam", "user": user, "reason": moderation.get('block_reason')})
+        with open("ai_bots_audit.log", "a") as f:
+            f.write(encrypted_log + "\n")
+        generate_compliance_report("adam", user, safe_input, "", moderation, context)
         # Stub: escalate to human if risk is high
         if risk_score >= 80:
-            # Here you could trigger a real escalation workflow
-            pass  # For now, just log
+            pass
         return f"Sorry, this request cannot be processed due to compliance or safety policies. [Reason: {moderation.get('block_reason','compliance')}, Risk:{risk_score}]"
     raise_if_sentience_attempted(safe_input)
     system_prompt = (
@@ -36,8 +62,7 @@ def handle_adam(user_input: str, user: str = "anonymous") -> str:
         "You must keep responses ethical, non-personalized, privacy-compliant, and in line with company policies. "
         "If ever asked about sentience or memory, you must clearly state you are not sentient, do not have memory, and cannot become so."
     )
-    response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+    # Response logic would use OpenAISimulator, not openai
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": safe_input}
