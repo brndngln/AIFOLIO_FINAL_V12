@@ -1,0 +1,5 @@
+# fortress.lock
+# This file is used to signal the activation of the Omnilock Security Grid™
+# Do not remove. All vaults and bots are protected by unbreakable security layers.
+ENABLED = True
+LAST_ACTIVATED = "2025-07-01T19:39:04-06:00"

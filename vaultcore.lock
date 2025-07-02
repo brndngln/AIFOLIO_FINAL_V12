@@ -1,0 +1,4 @@
+# vaultcore.lock
+# Signals vault system lockdown. All high-ticket vaults are protected, and no adaptive or sentient logic is permitted.
+ENABLED = True
+LAST_ACTIVATED = "2025-07-01T19:39:04-06:00"
