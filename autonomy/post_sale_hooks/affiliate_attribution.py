@@ -10,7 +10,7 @@ import requests
 import time
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def affiliate_attribution(buyer_email, referral_data):
     """
     Handles affiliate attribution for the sale. Uses static logic only. Logs all actions and errors. Retries up to 3 times on failure.

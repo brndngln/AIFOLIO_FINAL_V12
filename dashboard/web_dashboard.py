@@ -177,7 +177,6 @@ app.register_blueprint(product_gen_bp)
 # TODO: Accessibility audit endpoints are now in accessibility.py (accessibility_bp Blueprint)
 # Import and register accessibility_bp below.
 from dashboard.accessibility import accessibility_bp
-app.register_blueprint(accessibility_bp)
 from dashboard.payments import payments_bp
 app.register_blueprint(payments_bp)
 

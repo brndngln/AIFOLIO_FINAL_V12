@@ -11,7 +11,7 @@ def get_webhook_urls():
     urls = os.environ.get('POST_SALE_WEBHOOK_URLS', '')
     return [u.strip() for u in urls.split(',') if u.strip()]
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def post_sale_event_to_webhooks(event_name, payload):
     """
     Posts the given event payload to all configured outbound webhooks. Retries on failure, logs all outcomes.

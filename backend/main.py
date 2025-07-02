@@ -9,7 +9,7 @@ import os
 from typing import Optional
 
 # --- Security Setup ---
-SECRET_USERNAME = os.getenv("AIFOLIO_USER", "aifolio_owner")
+from backend.config.settings import SECRET_KEY, ALGORITHM, SECRET_USERNAME
 SECRET_PASSWORD_HASH = os.getenv("AIFOLIO_PASSWORD_HASH", "$2b$12$Vwz5n5dYk7vYw3kz8p6e0uKj2fQe5l9d0eJrT3f8n8w2w5q6f7q6e")  # bcrypt hash for 'change_this_password'
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -61,8 +61,7 @@ def authenticate_user(username: str, password: str):
 from jose import jwt
 from datetime import datetime, timedelta
 
-SECRET_KEY = os.getenv("AIFOLIO_JWT_SECRET", "supersecretjwtkey")
-ALGORITHM = "HS256"
+
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):

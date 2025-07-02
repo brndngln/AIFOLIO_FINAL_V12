@@ -4,7 +4,7 @@ from .retry_utils import retry_safe_hook
 
 class track_analytics:
     @staticmethod
-    @retry_safe_hook(max_attempts=3, backoff_factor=1)
+    @retry_safe_hook(max_attempts=3, backoff_tier='short')
     def record_sale(vault_id, buyer_metadata):
         """
         Records the sale in analytics. Runs static anomaly checks (e.g., price outliers, velocity spikes).

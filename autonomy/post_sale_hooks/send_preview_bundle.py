@@ -8,7 +8,7 @@ import requests
 import time
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def send_preview_bundle(buyer_email, vault_preview_data):
     """
     Sends a preview bundle email using SendGrid if configured, otherwise logs to file.

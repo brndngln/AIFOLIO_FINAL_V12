@@ -10,7 +10,7 @@ import json
 import time
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def fraud_check(buyer_data, sale_metadata):
     """
     Runs a static fraud check on the sale. Flags if 'suspicious' in metadata, logs to file, and POSTs to FRAUD_API_URL if set.

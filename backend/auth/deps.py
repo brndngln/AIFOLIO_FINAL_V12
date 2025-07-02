@@ -1,6 +1,7 @@
 from fastapi import Depends, HTTPException
 from jose import jwt, JWTError
-from backend.main import oauth2_scheme, SECRET_KEY, ALGORITHM, SECRET_USERNAME
+from backend.main import oauth2_scheme
+from backend.config.settings import SECRET_KEY, ALGORITHM, SECRET_USERNAME
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
     try:

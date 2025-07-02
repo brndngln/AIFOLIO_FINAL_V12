@@ -6,7 +6,7 @@ from .retry_utils import retry_safe_hook
 
 class request_review:
     @staticmethod
-    @retry_safe_hook(max_attempts=3, backoff_factor=1)
+    @retry_safe_hook(max_attempts=3, backoff_tier='short')
     def schedule_email(buyer_email, delay_hours=24):
         """
         Schedules a review request email to the buyer after a vault sale. Retries up to 3 times on failure, logs all exceptions.

@@ -3,7 +3,7 @@ import logging
 import requests
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def send_confirmation_email(buyer_email, vault_name):
     """
     Sends a confirmation email to the buyer using SendGrid if configured, otherwise prints a stub message.

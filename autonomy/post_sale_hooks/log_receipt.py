@@ -3,7 +3,7 @@ import json
 import logging
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_factor=1)
+@retry_safe_hook(max_attempts=3, backoff_tier='short')
 def log_receipt_to_db(receipt_data):
     """
     Logs the sale receipt to the database. Retries up to 3 times on failure, logs all exceptions.

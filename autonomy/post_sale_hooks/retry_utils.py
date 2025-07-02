@@ -18,6 +18,8 @@ def retry_safe_hook(max_attempts=3, backoff_tier='short'):
     Args:
         max_attempts: int, number of attempts
         backoff_tier: str, one of 'short', 'medium', 'long'
+    Note:
+        Only 'max_attempts' and 'backoff_tier' are valid arguments. 'backoff_factor' is not supported.
     """
     tier_map = {
         'short': [60, 300, 900],
