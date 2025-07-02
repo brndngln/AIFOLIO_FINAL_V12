@@ -63,7 +63,7 @@ class TestAuditCompliance(unittest.TestCase):
         self.assertFalse(out3['compliant'])
 
     def test_check_vault_metadata_compliant(self):
-        meta = {'vault_id': 'v1', 'title': 'T', 'description': 'D', 'creator_email': 'a@b.com', 'created_at': '2025-01-01'}
+        meta = {'vault_id': 'v1', 'title': 'T', 'description': 'D', 'creator_email': 'a@b.com', 'created_at': '2025-01-01', 'niche': 'test-niche'}
         out = audit_compliance.check_vault_metadata(meta)
         self.assertTrue(out['compliant'])
     def test_check_vault_metadata_missing(self):

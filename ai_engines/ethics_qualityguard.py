@@ -41,6 +41,10 @@ def enforce_ethics(module_name, state, text):
     weekly_report()
     return text
 
+from ai_engines.prompt_optimizer import enforce_legal_safety
+
+from ai_engines.prompt_optimizer import enforce_legal_safety
+
 def ethics_quality_check(output):
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     output = enforce_legal_safety(output)

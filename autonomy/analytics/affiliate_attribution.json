@@ -142,5 +142,29 @@
     "referral_data": {
       "ref": "none"
     }
+  },
+  {
+    "buyer_email": "user@example.com",
+    "referral_data": {
+      "ref": "abc"
+    }
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "referral_data": {
+      "ref": "none"
+    }
+  },
+  {
+    "buyer_email": "user@example.com",
+    "referral_data": {
+      "ref": "abc"
+    }
+  },
+  {
+    "buyer_email": "user2@example.com",
+    "referral_data": {
+      "ref": "none"
+    }
   }
 ]

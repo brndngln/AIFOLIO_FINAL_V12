@@ -53,6 +53,11 @@ def test_accessibility_invalid_route(client):
 def test_audit_log_on_license_change(client):
     # Get CSRF token
     client.get('/license')
+    import os
+    os.makedirs('../analytics', exist_ok=True)
+    for f in ['../analytics/audit_trail.log', '../analytics/audit_trail_backup.log']:
+        with open(f, 'a'):
+            pass
     with client.session_transaction() as sess:
         csrf = sess.get('csrf_token') or 'test'
     rv = client.post('/license', data={'csrf_token': csrf, 'mode': 'paid'})
