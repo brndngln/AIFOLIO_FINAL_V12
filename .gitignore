@@ -52,7 +52,7 @@ coverage/
 *.pyd
 *.db
 *.sqlite3
-*.lock
+# *.lock
 *.pkl
 *.pickle
 
