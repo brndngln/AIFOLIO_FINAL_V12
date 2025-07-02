@@ -1,0 +1,8 @@
+{
+  "founder": "YOUR FULL NAME",
+  "uid": "INSERT_HASH_OF_DEVICE_OR_YUBIKEY",
+  "device_id": "INSERT_DEVICE_UUID",
+  "biometric_required": true,
+  "emergency_backup": "INSERT_BACKUP_OPTION",
+  "signed_at": "2025-06-30T00:00:00Z"
+}
