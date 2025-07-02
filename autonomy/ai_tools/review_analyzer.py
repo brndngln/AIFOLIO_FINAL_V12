@@ -1,5 +1,8 @@
 import re
 
+import datetime
+import json
+
 def analyze_review(text):
     """
     SAFE AI-compliant: Flags misspellings, banned words, PII, financial data, and basic sentiment (static rule-based, non-AI).

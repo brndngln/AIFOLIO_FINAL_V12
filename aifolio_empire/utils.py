@@ -56,25 +56,24 @@ class InputValidator:
     
     @staticmethod
     def validate_api_key(api_key: str, provider: str) -> bool:
-        """Validate API key format."""
+        """Validate API key format. Returns False for any invalid key or provider."""
         if not isinstance(api_key, str):
-            raise ValueError("API key must be a string")
-            
+            return False
         if provider.lower() == 'openai' and not api_key.startswith('sk-'):
-            raise ValueError("Invalid OpenAI API key format")
-            
+            return False
         if provider.lower() == 'huggingface' and not api_key.startswith('hf_'):
-            raise ValueError("Invalid Hugging Face API key format")
-            
+            return False
+        if provider.lower() not in ('openai', 'huggingface'):
+            return False
         return True
     
     @staticmethod
     def validate_prompt(prompt: str) -> bool:
         """Validate prompt content."""
         if not isinstance(prompt, str):
-            raise ValueError("Prompt must be a string")
-            
+            return False
         if len(prompt) > 4000:  # Maximum token limit for most models
+            return False
             raise ValueError("Prompt is too long")
             
         return True

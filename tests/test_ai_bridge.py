@@ -197,8 +197,7 @@ class TestInputValidator(unittest.TestCase):
         ]
         
         for key, provider in invalid_keys:
-            with self.assertRaises(ValueError):
-                InputValidator.validate_api_key(key, provider)
+            self.assertFalse(InputValidator.validate_api_key(key, provider))
 
 if __name__ == '__main__':
     unittest.main()
