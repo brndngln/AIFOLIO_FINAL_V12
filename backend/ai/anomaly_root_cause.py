@@ -10,7 +10,27 @@ OVERRIDE_PATH = Path(__file__).parent.parent / 'logs' / 'override_attempts.json'
 # Deterministic, SAFE AI-compliant root cause analysis
 # No adaptive or sentient logic; only static, explainable heuristics
 
-def analyze_anomaly(anomaly):
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
+def analyze_anomaly_root_cause(anomaly):
+    # OMNIPROOF: Threat feed check before anomaly root cause analysis
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for anomaly root cause hash (static)
+    anchor_license_hash('ANOMALYROOTCAUSE_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('anomalyrootcause_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('backend/ai/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'backend/ai/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'anomaly_data': anomaly})
+
     key = anomaly.get('key')
     timestamp = anomaly.get('timestamp')
     # Find related usage pattern

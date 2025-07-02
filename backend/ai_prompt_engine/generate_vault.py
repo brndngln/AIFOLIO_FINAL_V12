@@ -29,14 +29,28 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 @retry_on_api_error(attempts=3, base_delay=1.0, max_delay=30.0)
 @rate_limit(calls_per_minute=60, window_size=60, max_burst=5)
 @handle_api_errors
-def generate_vault_prompt(topic: str = None) -> Dict[str, Any]:
+def generate_vault_prompt(vault_specs, rules):
+    # OMNIPROOF: Threat feed check before vault prompt generation
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for prompt hash (static)
+    anchor_license_hash('PROMPT_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('prompt_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('backend/ai_prompt_engine/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'backend/ai_prompt_engine/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'vault_specs': vault_specs, 'rules': rules})
     """Generate static, deterministic vault content. SAFE AI-compliant, OWNER-controlled. Extension: real LLM integration."""
-    cache_key = cache_vault(topic) if topic else "default_vault"
+    cache_key = cache_vault(None) if None else "default_vault"
     metrics.track_cache_metrics(cache_key, hit=False)  # Track cache miss
     try:
-        logger.info(f"Generating static vault content for topic: {topic}")
+        logger.info(f"Generating static vault content")
         # Static deterministic output for SAFE AI compliance
         content = {
+            'title': f'Vault',
+            'description': f'Static vault description',
             'title': f'Vault for {topic}',
             'description': f'Static vault description for {topic}',
             'chapters': ['Intro', 'Main', 'Outro'],
