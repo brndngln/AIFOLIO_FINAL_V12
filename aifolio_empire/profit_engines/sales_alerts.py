@@ -11,6 +11,8 @@ TELEGRAM_WEBHOOK = os.getenv('TELEGRAM_WEBHOOK_URL')
 DISCORD_WEBHOOK = os.getenv('DISCORD_WEBHOOK_URL')
 
 
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 def send_sales_alert(message: str) -> None:
     if TELEGRAM_WEBHOOK:
         try:
@@ -24,3 +26,6 @@ def send_sales_alert(message: str) -> None:
             logger.info(f"Sent Discord sales alert: {message}")
         except Exception as e:
             logger.error(f"Discord alert failed: {e}")
+    # OMNIPROOF: Adaptive monetization signal scan (static)
+    detect_signals({'message': message})
+
