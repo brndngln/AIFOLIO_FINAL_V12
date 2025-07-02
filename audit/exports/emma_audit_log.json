@@ -1,0 +1,153 @@
+[
+  {
+    "timestamp": "2025-07-02T23:28:45.947851",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:28:45.947823Z",
+      "violation_pattern": "sentience",
+      "context": "sentience_guard",
+      "hash": "abfab92e0668b4808cd3353ce87060156bac427aa3578e5ef6e752cc643fe70e"
+    },
+    "critical": true,
+    "hash": "b5e0e3830131c7de0d6c7ec559ab110dc4b0d7367936da53f726247204c6e46c"
+  },
+  {
+    "timestamp": "2025-07-02T23:28:46.130897",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:28:46.130876Z",
+      "violation_pattern": "sentience",
+      "context": "sentience_guard",
+      "hash": "a5b0ff2b59b2f4c9696671e748a0269090e4a01d7da2ae5699de90f1395a13f6"
+    },
+    "critical": true,
+    "hash": "754b9785856fff41e97429a4c81c534678b5d563c726f6cdb719b7e897bf91a7"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:09.514078",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:09.514050Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "c9d15558e99e94070c0822455ba34050fd4bedbd99275ca928dc1145cd941b9f"
+    },
+    "critical": true,
+    "hash": "5484a23d66d78e492e981369bd06103a00aa42b5fec742632fb29f7d8b9771d3"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:09.677738",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:09.677717Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "bda132bdf708a4b3d80259d0e7f0a2d85c87f94e95f321ec4cf8c9e8e09d6ea2"
+    },
+    "critical": true,
+    "hash": "ef51be6482648eb23c282a01cb507c7be98af7eef58512b02b708d8184c56990"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:35.094662",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:35.094636Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "7d8cee6a47de18b7716535af770a78dc1380c93d950cd5765b327bdd86b3e472"
+    },
+    "critical": true,
+    "hash": "f75b567cd16ae083d2ff05cc80c1121fd8c234443d84d6d2b26e6086a5b06c58"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:35.258977",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:35.258955Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "4c85c2e2698bea0a839501f535aa2e5d9c0c353f7c77948ec08c141614b1f1ab"
+    },
+    "critical": true,
+    "hash": "266b055547f2199c17edcae23038b9c9d73cd922fc00187b88a3c4aa9d00547e"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:52.073671",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:52.073644Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "9974e013230e6c6a0ef785158b141cc39fc03d8fa37d619f21c91f9c0d2e4f3f"
+    },
+    "critical": true,
+    "hash": "fc720272fdc066584010ddf86861f9db6f9ccb34413a070f0389f9e18e59d6fd"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:52.216425",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:52.216401Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "4e1efcded3cac0ef4385bb4cf500695e43d0591e9afa0f89cb99c1c4e95c2ba0"
+    },
+    "critical": true,
+    "hash": "ae22785746f8eb5a997a026e84474c5666928334af9b36ed96e8e58868bbc34c"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.446596",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "24e54cfb18871d29de937969706c16b5b3893067ef5f98bdcc577c950c41f342"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447030",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "879963275a4857b01ecc29cbcfb471cd39d05e16e28b2d42139e0478c31cefbd"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447432",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "41fea3c2001c850b8a7bf009bf5fb56d79b05cb02b2893a1633306c664d46393"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447823",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "befffe666e6378fad6a0679aeeb232b154eb7ebf2c51d77cc0c4bfa0c6a18581"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.448186",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4d29647a78285a5bf97d876b1746ab8b190024344e0dfc9321a4a5542e12b605"
+  }
+]

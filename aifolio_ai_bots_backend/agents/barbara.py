@@ -90,19 +90,10 @@ def handle_barbara(user_input: str, user: str = "anonymous") -> str:
     with open("ai_bots_audit.log", "a") as f:
         f.write(encrypted_log + "\n")
     return output
-        ]
-    )
-    output = response.choices[0].message.content
-    # --- Post-response moderation & risk ---
-    moderation_out = moderate_content(output, context)
-    risk_score_out = calculate_risk_score(moderation_out)
-    if moderation_out["block_reason"] or moderation_out["human_review_required"] or risk_score_out >= 100:
-        log_interaction("barbara", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}|Risk:{risk_score_out}]", moderation_out, user)
-        generate_compliance_report("barbara", user, safe_input, output, moderation_out, context)
-        if risk_score_out >= 80:
-            pass
-        return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}, Risk:{risk_score_out}]"
-    raise_if_sentience_attempted(output)
-    log_interaction("barbara", safe_input, output, moderation_out, user)
+    # --- End of main SAFE AI-compliant handler logic ---
+
+    # (If additional logic is needed, add here)
+
+# --- End of handle_barbara function ---
     generate_compliance_report("barbara", user, safe_input, output, moderation_out, context)
     return output

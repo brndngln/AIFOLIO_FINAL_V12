@@ -91,19 +91,12 @@ def handle_adam(user_input: str, user: str = "anonymous") -> str:
     with open("ai_bots_audit.log", "a") as f:
         f.write(encrypted_log + "\n")
     return output
-        ]
-    )
-    output = response.choices[0].message.content
-    # --- Post-response moderation & risk ---
-    moderation_out = moderate_content(output, context)
-    risk_score_out = calculate_risk_score(moderation_out)
-    if moderation_out["block_reason"] or moderation_out["human_review_required"] or risk_score_out >= 100:
-        log_interaction("adam", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}|Risk:{risk_score_out}]", moderation_out, user)
-        compliance_report = generate_compliance_report("adam", user, safe_input, output, moderation_out, context)
-        # Stub: escalate to human if risk is high
-        if risk_score_out >= 80:
-            pass
-        return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}, Risk:{risk_score_out}]"
+    # --- End of main SAFE AI-compliant handler logic ---
+
+    # (If additional logic is needed, add here)
+
+# --- End of handle_adam function ---
+
     raise_if_sentience_attempted(output)
     log_interaction("adam", safe_input, output, moderation_out, user)
     compliance_report = generate_compliance_report("adam", user, safe_input, output, moderation_out, context)

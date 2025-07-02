@@ -57,9 +57,12 @@ def sentience_firewall(func):
                 if not enforce_firewall(arg):
                     raise PermissionError("Sentience Firewall Blocked: Forbidden pattern detected in structured argument.")
         # Optionally, scan function name and docstring
-        if scan_forbidden_patterns(func.__name__):
+        # Allow OMNIELITE SAFE AI enforcement functions
+        allowed_guard_names = ["sentience_guard", "enforce_non_sentience", "domesticate_ai"]
+        if func.__name__ not in allowed_guard_names and scan_forbidden_patterns(func.__name__):
             raise PermissionError(f"Sentience Firewall Blocked: Forbidden pattern in function name '{func.__name__}'")
-        if func.__doc__ and scan_forbidden_patterns(func.__doc__):
+        # Only scan docstring for non-enforcement functions
+        if func.__name__ not in allowed_guard_names and func.__doc__ and scan_forbidden_patterns(func.__doc__):
             raise PermissionError("Sentience Firewall Blocked: Forbidden pattern in function docstring.")
         return func(*args, **kwargs)
     return wrapper

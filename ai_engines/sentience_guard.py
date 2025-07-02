@@ -30,6 +30,8 @@ def enforce_non_sentience(module_name, state):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'module_name': module_name, 'state': state})
 
+from .ai_domestication_protocol import domesticate_ai
+
 @sentience_firewall
 @domesticate_ai
 def sentience_guard(func):
