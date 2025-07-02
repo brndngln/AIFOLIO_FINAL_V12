@@ -69,8 +69,9 @@ class VaultDropCountdownSimulator:
         time_remaining = target_time_utc - current_time_utc
 
         # Anti-sentience: Introduce simulated jitter/inaccuracy
-        jitter_seconds = random.randint(-config.SIM_COUNTDOWN_MAX_JITTER_SECONDS, 
-                                        config.SIM_COUNTDOWN_MAX_JITTER_SECONDS)
+        # Patch: Use getattr for config fields for Pydantic compatibility
+        max_jitter = getattr(config, 'SIM_COUNTDOWN_MAX_JITTER_SECONDS', 5)
+        jitter_seconds = random.randint(-max_jitter, max_jitter)
         time_remaining += timedelta(seconds=jitter_seconds)
         if jitter_seconds != 0:
             anti_sentience_notes.append(f"Time jittered by {jitter_seconds}s.")
@@ -102,12 +103,14 @@ class VaultDropCountdownSimulator:
         display_text = f"{days:02d}d {hours:02d}h {minutes:02d}m {seconds:02d}s"
 
         # Anti-sentience: Simulate recalculating or glitch messages
-        if random.random() < config.SIM_COUNTDOWN_RECALCULATING_CHANCE:
+        recalc_chance = getattr(config, 'SIM_COUNTDOWN_RECALCULATING_CHANCE', 0.02)
+        glitch_chance = getattr(config, 'SIM_COUNTDOWN_GLITCH_CHANCE', 0.005)
+        if random.random() < recalc_chance:
             status_message_sim = "Recalculating... (simulated)"
             display_text = "--d --h --m --s" # Simulate placeholder during recalc
             logger.info(f"Simulated 'recalculating' state for countdown {action_id}")
             anti_sentience_notes.append("Simulated recalculation event.")
-        elif random.random() < config.SIM_COUNTDOWN_GLITCH_CHANCE:
+        elif random.random() < glitch_chance:
             glitch_message_sim = "Display sync error... retrying (simulated_glitch)"
             # Corrupt one of the display values slightly
             if random.random() < 0.5 and seconds > 5:
