@@ -2,6 +2,7 @@
 EthicsBot / QualityGuard AI (Non-sentient, stateless)
 """
 from .sentience_guard import sentience_guard
+from .ai_domestication_protocol import domesticate_ai, AIDomesticationProtocol
 import logging
 
 UNETHICAL_PATTERNS = ["manipulate", "scam", "deceive", "false", "mislead", "bias", "discriminate", "stereotype", "guaranteed", "secret", "get rich", "overnight", "never fail", "loophole"]
@@ -14,6 +15,7 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
+@domesticate_ai
 @sentience_guard
 def enforce_ethics(module_name, state, text):
     # OMNIPROOF: Threat feed check before ethics enforcement

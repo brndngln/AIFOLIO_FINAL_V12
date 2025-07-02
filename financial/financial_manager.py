@@ -1,5 +1,7 @@
 import time
 from typing import Dict, Any, List
+from AIFOLIO_TAX_ENGINE_ULTIMATE_V4.engine.zero_tax_trigger_filter import ZeroTaxTriggerFilter
+from core.compliance.emma_guardian import emma
 
 class EnhancedFinancialManager:
     def __init__(self, config: Dict[str, Any]):
@@ -46,7 +48,7 @@ class EnhancedFinancialManager:
         """
         Get enhanced transaction history with analytics
         """
-        return [
+        transactions = [
             {
                 "id": "TX_123",
                 "amount": 49.99,

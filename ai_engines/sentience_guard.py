@@ -29,6 +29,7 @@ def enforce_non_sentience(module_name, state):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'module_name': module_name, 'state': state})
 
+@domesticate_ai
 def sentience_guard(func):
     """SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic."""
     import logging
