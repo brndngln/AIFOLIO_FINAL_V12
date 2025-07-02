@@ -3,7 +3,7 @@ import sys
 import json
 import time
 from datetime import datetime
-from secrets import std_token_urlsafe as std_std_token_urlsafe
+from secrets import token_urlsafe
 from audit_logger import log_rotation_event
 
 # --- CONFIG ---
@@ -20,7 +20,7 @@ AUDIT_ONLY = os.environ.get('AUDIT_ONLY', 'false').lower() == 'true'
 def rotate_secret_with_vault(key):
     # Here you would call Doppler/HashiCorp/AWS APIs
     # For demo, just generate a new token
-    new_secret = std_token_urlsafe(48)
+    new_secret = token_urlsafe(48)
     # Simulate vault write
     return new_secret
 
