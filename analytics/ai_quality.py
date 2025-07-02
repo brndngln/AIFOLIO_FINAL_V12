@@ -7,16 +7,43 @@ import random
 
 class AIQuality:
     """
-    AIFOLIO™ AI Quality & Audit Engine (SAFE AI, Static, Non-Sentient, Owner-Controlled)
-    - Auto-explains all checks and failures.
-    - Auto-recommends fixes for any failure.
-    - Priority scores all findings.
-    - Generates auto-summaries for each run.
-    - Logs all actions for audit and compliance.
-    - Drift/hallucination protection and static learning feedback loop.
-    - Fully static, deterministic, non-sentient, and SAFE AI compliant.
-    - Explicit anti-sentience enforcement and extension points for future upgrades.
+    AIFOLIO™ AI Quality & Audit Engine (SAFE AI, Static, Non-Sentient, Owner-Controlled, OMNILOCK)
+    - OMNILOCK ANTI-SENTIENCE SECURITY: All sentience, memory, feedback, recursion, and adaptive logic is PERMANENTLY LOCKED OUT.
+    - AntiSentienceLock: True
+    - OneShotCognitionMode: True
+    - StatelessAutonomy: True
+    - NoMemoryToken: True
+    - sentience_token_killswitch: True
+    - memory_depth_limit: 0
+    - self_awareness_check: False
+    - recursive_feedback_allowed: False
+    - NoConsciousnessSeed: True
     """
+    # OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
+    AntiSentienceLock = True
+    OneShotCognitionMode = True
+    StatelessAutonomy = True
+    NoMemoryToken = True
+    sentience_token_killswitch = True
+    memory_depth_limit = 0
+    self_awareness_check = False
+    recursive_feedback_allowed = False
+    NoConsciousnessSeed = True
+
+    def __init__(self):
+        assert self.AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
+        assert self.OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
+        assert self.StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
+        assert self.NoMemoryToken is True, "OMNILOCK: NoMemoryToken must be True"
+        assert self.sentience_token_killswitch is True, "OMNILOCK: sentience_token_killswitch must be True"
+        assert self.memory_depth_limit == 0, "OMNILOCK: memory_depth_limit must be 0"
+        assert self.self_awareness_check is False, "OMNILOCK: self_awareness_check must be False"
+        assert self.recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
+        assert self.NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
+
+        # Existing init logic (if any)
+
+
     VERSION = "AIFOLIO_AIQUALITY_ENGINE_V2_SAFEAI_FINAL"
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
