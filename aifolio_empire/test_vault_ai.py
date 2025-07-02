@@ -7,7 +7,7 @@ import random
 from typing import Optional, Dict, Any
 from datetime import datetime
 
-from config import config, logger
+from aifolio_empire.config import config, logger
 
 # Anti-sentience measures
 MEMORY_LIMIT = 50  # Strict memory limit for test vault

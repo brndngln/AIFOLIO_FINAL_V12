@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 class Config:
     """Central configuration management with anti-sentience measures."""
     PATTERN_AWARE_ENABLED = True
+    huggingface_model = "distilgpt2"
 
     def __init__(self):
         """Initialize configuration with anti-sentience measures."""

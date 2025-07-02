@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 from .batch16_20_models import *
 from backend.utils.safe_ai_utils import safe_ai_guarded
-from backend.main import get_current_user
+from backend.auth.deps import get_current_user
 import datetime
 
 router = APIRouter(prefix="/batch-scaling", tags=["SAFE AI Batches 16-20"])
