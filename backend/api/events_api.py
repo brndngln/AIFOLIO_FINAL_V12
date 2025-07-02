@@ -2,6 +2,9 @@ from fastapi import APIRouter, Request
 from core.event_router import EventRouter
 from datetime import datetime
 from fastapi.responses import JSONResponse
+import logging
+import json
+from integrations.webhooks import verify_webhook_signature
 
 router = APIRouter()
 event_router = EventRouter()
@@ -46,13 +49,29 @@ def get_event_log():
 
 @router.post('/api/events/retrigger')
 def retrigger_event(req: Request):
-    data = req.json()
+    payload_bytes = req.body() if hasattr(req, 'body') else b''
+    sig = req.headers.get('x-hub-signature')
+    if not verify_webhook_signature(payload_bytes, sig):
+        logging.warning(f"HMAC validation failed for /api/events/retrigger from {req.client.host if hasattr(req, 'client') else 'unknown'}")
+        return JSONResponse({"detail": "Invalid or missing signature."}, status_code=403)
+    try:
+        data = req.json()
+    except Exception:
+        return JSONResponse({"detail": "Malformed JSON."}, status_code=400)
     event_router.manual_retrigger(data['event_type'], data['payload'])
     return {'status': 'ok'}
 
 @router.post('/api/events/edit')
 def edit_event(req: Request):
-    data = req.json()
+    payload_bytes = req.body() if hasattr(req, 'body') else b''
+    sig = req.headers.get('x-hub-signature')
+    if not verify_webhook_signature(payload_bytes, sig):
+        logging.warning(f"HMAC validation failed for /api/events/edit from {req.client.host if hasattr(req, 'client') else 'unknown'}")
+        return JSONResponse({"detail": "Invalid or missing signature."}, status_code=403)
+    try:
+        data = req.json()
+    except Exception:
+        return JSONResponse({"detail": "Malformed JSON."}, status_code=400)
     event_router.manual_retrigger(data['event_type'], data['payload'])
     return {'status': 'ok'}
 

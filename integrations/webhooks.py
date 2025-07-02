@@ -24,3 +24,14 @@ def send_webhook(payload, endpoint=None):
 def split_signal(event_type, payload, endpoints):
     for ep in endpoints:
         send_webhook(payload, endpoint=ep)
+
+def verify_webhook_signature(payload_bytes, signature_header):
+    """
+    Static HMAC-SHA256 signature validator for incoming webhook/event payloads.
+    Returns True if signature is valid, False otherwise.
+    """
+    secret = os.getenv('WEBHOOK_SECRET')
+    if not secret or not signature_header:
+        return False
+    expected_sig = hmac.new(secret.encode(), payload_bytes, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected_sig, signature_header)
