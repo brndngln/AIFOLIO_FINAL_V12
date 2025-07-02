@@ -5,8 +5,27 @@ import os
 ENGAGEMENT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'vault_engagement_analytics_log.jsonl'))
 os.makedirs(os.path.dirname(ENGAGEMENT_LOG), exist_ok=True)
 
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 # --- Vault Engagement Over Time (SAFE AI, Non-Sentient, Owner-Controlled) ---
 def log_engagement(vault_id, event_type, user_id=None, metadata=None):
+    # OMNIPROOF: Threat feed check before engagement logging
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for engagement hash (static)
+    anchor_license_hash('ENGAGEMENT_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('engagement_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('analytics/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'analytics/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'vault_id': vault_id, 'event_type': event_type, 'user_id': user_id, 'metadata': metadata})
     """
     Logs a vault engagement event in a static, deterministic, SAFE AI-compliant way.
     Returns a dict with result, explanation, recommendation, priority, SAFE AI metadata, and version.

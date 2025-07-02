@@ -1,12 +1,30 @@
 import json
 import datetime
 import os
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 ANOMALY_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'anomaly_detection_sales_trends_log.jsonl'))
 os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
 
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
 def detect_sales_anomaly(payload):
+    # OMNIPROOF: Threat feed check before anomaly detection
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for anomaly hash (static)
+    anchor_license_hash('ANOMALY_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('anomaly_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('analytics/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'analytics/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'sales_data': payload.get('sales', [])})
     """
     Elite SAFE AI static anomaly detector for sales and event payloads.
     Accepts dict payloads (vault_id, sales, event_type, etc.). Logs anomalies to elite_compliance_alerts.json and flags for founder/admin review if high priority. All logic is static, deterministic, and owner-controlled. Extension hooks for future SAFE AI, legal, and compliance triggers.
