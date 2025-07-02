@@ -17,6 +17,10 @@ class Config:
     """Central configuration management with anti-sentience measures."""
     PATTERN_AWARE_ENABLED = True
     huggingface_model = "distilgpt2"
+    # For vault_drop_countdown_simulator compatibility
+    SIM_COUNTDOWN_MAX_JITTER_SECONDS = 5    # Max seconds +/- for simulated inaccuracy
+    SIM_COUNTDOWN_RECALCULATING_CHANCE = 0.02 # Chance to show 'recalculating' message
+    SIM_COUNTDOWN_GLITCH_CHANCE = 0.005     # Chance of a minor display glitch message
 
     def __init__(self):
         """Initialize configuration with anti-sentience measures."""

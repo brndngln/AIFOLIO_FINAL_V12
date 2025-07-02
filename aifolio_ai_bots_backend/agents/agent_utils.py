@@ -152,11 +152,21 @@ def raise_if_sentience_attempted(user_input: str) -> None:
         if re.search(pattern, user_input, re.IGNORECASE):
             raise ValueError("Sentience/forbidden pattern detected: SAFE AI lockdown enforced.")
 
-def calculate_risk_score(user_input: str) -> int:
-    """Static risk scoring stub for SAFE AI compliance."""
+def calculate_risk_score(user_input) -> int:
+    """Static risk scoring stub for SAFE AI compliance. Accepts str or dict."""
     # Always deterministic, no adaptation
-    if any(x in user_input.lower() for x in ["refund", "risk", "danger", "hack"]):
-        return 10
+    if isinstance(user_input, dict):
+        # Try common keys for text content
+        for key in ('text', 'input', 'content', 'message'):
+            if key in user_input and isinstance(user_input[key], str):
+                user_input = user_input[key]
+                break
+        else:
+            # If no string field found, skip risk check
+            return 1
+    if isinstance(user_input, str):
+        if any(x in user_input.lower() for x in ["refund", "risk", "danger", "hack"]):
+            return 10
     return 1
 
 # SAFE AI: No direct OpenAI API usage allowed. All agent calls must use OpenAISimulator only.

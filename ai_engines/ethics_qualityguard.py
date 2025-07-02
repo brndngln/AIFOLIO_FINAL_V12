@@ -44,7 +44,6 @@ def enforce_ethics(module_name, state, text):
 def ethics_quality_check(output):
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     output = enforce_legal_safety(output)
-
     """
     Scan for unethical/manipulative language, suggest inline rewrites.
     Checks readability, layout, visual integrity. Enforces non-sentience and audit logging.
@@ -52,11 +51,21 @@ def ethics_quality_check(output):
     fixes = output
     report = []
     for pattern in UNETHICAL_PATTERNS:
-        if pattern in content.lower():
+        if pattern in output.lower():
             fixes = fixes.replace(pattern, "[REDACTED]")
             report.append(f"FLAG: Unethical pattern '{pattern}' removed. Manual review required.")
     # Simulated readability check
-    readability = 60 if len(content) > 100 else 40
+    readability = 60 if len(output) > 100 else 40
     if readability < MIN_READABILITY:
         report.append("FLAG: Low readability score. Manual review required.")
     return fixes, report
+
+
+def scan_and_fix(text):
+    """
+    Static SAFE AI scan for unethical/manipulative language and readability.
+    Returns (fixed_text, report_list). No sentient, adaptive, or learning logic.
+    """
+    fixed, report = ethics_quality_check(text)
+    return fixed, report
+
