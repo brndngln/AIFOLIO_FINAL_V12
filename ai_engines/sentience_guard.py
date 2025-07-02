@@ -10,6 +10,7 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 import logging
 import functools
 import datetime
+from core.compliance.sentience_firewall import sentience_firewall
 
 FORBIDDEN_PATTERNS = [
     "self-improve", "loop", "remember", "learn from experience", "memory", "recursive", "autonomous update", "train itself"
@@ -29,6 +30,7 @@ def enforce_non_sentience(module_name, state):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'module_name': module_name, 'state': state})
 
+@sentience_firewall
 @domesticate_ai
 def sentience_guard(func):
     """SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic."""
