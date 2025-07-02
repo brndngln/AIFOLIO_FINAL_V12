@@ -7,8 +7,11 @@ from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
+from core.compliance.sentience_firewall import sentience_firewall
 
+@sentience_firewall
 def analyze_elite_funnel(funnel_data):
+    """Analyzes elite funnel data for OMNIELITE compliance. SAFE AI, static."""
     # OMNIPROOF: Threat feed check before elite funnel analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for funnel hash (static)

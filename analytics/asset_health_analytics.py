@@ -1,7 +1,11 @@
 """
 Static asset health and visual balance analytics for AIFOLIO™. SAFE AI, owner-controlled, fully auditable.
 """
+from core.compliance.sentience_firewall import sentience_firewall
+
+@sentience_firewall
 def analyze_asset_health(vaults):
+    """Analyzes asset health for OMNIELITE compliance. SAFE AI, static."""
     # OMNIPROOF: Threat feed check before asset health analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for vaults hash (static)

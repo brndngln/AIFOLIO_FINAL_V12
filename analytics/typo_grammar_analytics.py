@@ -6,6 +6,7 @@ from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
+from core.compliance.sentience_firewall import sentience_firewall
  for AIFOLIO™. SAFE AI, owner-controlled, fully auditable.
 """
 from core.compliance.threat_feed_parser import parse_threat_feed
@@ -14,6 +15,8 @@ from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
+from core.compliance.sentience_firewall import sentience_firewall
 
 def analyze_typo_grammar(vaults):
     # OMNIPROOF: Threat feed check before typo/grammar analysis
@@ -42,6 +45,7 @@ def analyze_typo_grammar(vaults):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'vaults': vaults})
 
+@sentience_firewall
 def check_typo_grammar(text: str) -> dict:
     """
     Returns static typo/grammar check results.

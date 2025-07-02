@@ -1,5 +1,6 @@
 """
 AIFOLIO SAFE AI# Marketplace Trend Analyzer
+from core.compliance.sentience_firewall import sentience_firewall
 from core.compliance.threat_feed_parser import parse_threat_feed
 from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.zero_knowledge_export_filter import zero_knowledge_export

@@ -8,6 +8,8 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
+from core.compliance.sentience_firewall import sentience_firewall
+
 def analyze_tone_voice(vaults):
     # OMNIPROOF: Threat feed check before tone/voice analysis
     parse_threat_feed({})
@@ -35,6 +37,7 @@ def analyze_tone_voice(vaults):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'vaults': vaults})
 
+@sentience_firewall
 def check_tone_voice(text, brand_profile):
     """Return static analysis of tone and brand match."""
     if brand_profile.lower() in text.lower():

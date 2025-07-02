@@ -5,6 +5,8 @@ Features: Anomaly Detector, Output Quality Gatekeeper, Spellcheck/Grammar, Meta-
 from typing import Dict, Any
 import random
 
+from core.compliance.sentience_firewall import sentience_firewall
+
 class AIQuality:
     """
     AIFOLIO™ AI Quality & Audit Engine (SAFE AI, Static, Non-Sentient, Owner-Controlled, OMNILOCK)
@@ -53,6 +55,7 @@ class AIQuality:
     static_feedback = []  # Static feedback loop (not user learned)
 
     @staticmethod
+    @sentience_firewall
     def anomaly_detector(text: str) -> Dict[str, Any]:
         # Static: flags if text is empty or has forbidden words
         result = bool(text and "forbidden" not in text)

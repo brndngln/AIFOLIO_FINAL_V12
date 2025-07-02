@@ -7,11 +7,13 @@ from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
+from core.compliance.sentience_firewall import sentience_firewall
 
 ANOMALY_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'anomaly_detection_sales_trends_log.jsonl'))
 os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
 
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
+@sentience_firewall
 def detect_sales_anomaly(payload):
     # OMNIPROOF: Threat feed check before anomaly detection
     parse_threat_feed({})

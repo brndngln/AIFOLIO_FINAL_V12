@@ -8,6 +8,8 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
+from core.compliance.sentience_firewall import sentience_firewall
+
 def analyze_refund_risk(vaults, sales_data):
     # OMNIPROOF: Threat feed check before refund risk analysis
     parse_threat_feed({})
@@ -35,6 +37,7 @@ def analyze_refund_risk(vaults, sales_data):
     # OMNIPROOF: Monetization signal detection
     detect_signals({'vaults': vaults, 'sales_data': sales_data})
 
+@sentience_firewall
 def calculate_refund_risk(vault_id, sales, refunds, period_days=30):
     """Return static refund risk score and summary for a vault."""
     if not sales:
