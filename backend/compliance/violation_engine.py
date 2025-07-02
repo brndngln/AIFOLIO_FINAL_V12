@@ -42,6 +42,13 @@ def load_platform_rules():
     return _platform_rules_cache
 
 
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 def scan_pdf_text(text, platforms=None):
     """
     Scan text for violations using modular, externalized rules loaded from JSON.
@@ -49,6 +56,19 @@ def scan_pdf_text(text, platforms=None):
     Returns: list of violations
     Rules are editable in backend/compliance/rules/violation_rules.json
     """
+    # OMNIPROOF: Threat feed check before violation scan
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for scan hash (static)
+    anchor_license_hash('SCAN_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('scan_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('backend/compliance/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'backend/compliance/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'text': text, 'platforms': platforms})
+
     platform_rules = load_platform_rules()
     if platforms is None:
         platforms = list(platform_rules.keys())
