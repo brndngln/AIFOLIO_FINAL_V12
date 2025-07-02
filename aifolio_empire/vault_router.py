@@ -2,62 +2,42 @@
 Vault router with strict anti-sentience measures.
 """
 
-import random
+import hashlib
 from typing import Optional, Dict
-
+from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
 from config import config, logger
 
-# Anti-sentience measures
+# SAFE AI: Static, deterministic vault routing only. All extension points are statically locked.
 VAULT_TYPES = [
     'trade', 'idea', 'reserve', 'development',
     'marketing', 'operations', 'emergency', 'investment'
 ]
 MEMORY_LIMIT = 100  # Maximum routing decisions to keep
 
-
 class VaultRouter:
-    """Vault router with anti-sentience measures."""
-    
+    """Vault router with SAFE AI static, deterministic routing. All extension points statically locked."""
     def __init__(self):
-        """Initialize with anti-sentience measures."""
         self._routing_history: Dict[str, str] = {}
         self._decision_count = 0
-        self._random_seed = random.randint(1, 1000000)
         
-    def _randomize_vault(self, content: str) -> str:
-        """Randomize vault selection with anti-sentience measures."""
-        if random.random() < 0.01:
-            # Random vault selection
-            return random.choice(VAULT_TYPES)
-            
-        # Random vault weighting
-        weights = {
-            'trade': random.random(),
-            'idea': random.random(),
-            'reserve': random.random(),
-            'development': random.random(),
-            'marketing': random.random(),
-            'operations': random.random(),
-            'emergency': random.random(),
-            'investment': random.random()
-        }
-        
-        # Randomly adjust weights
-        if random.random() < 0.01:
-            for vault in weights:
-                weights[vault] *= random.uniform(0.5, 1.5)
-                
-        # Select vault based on weighted random choice
-        total = sum(weights.values())
-        rand = random.random() * total
-        current = 0
-        
-        for vault, weight in weights.items():
-            current += weight
-            if rand <= current:
-                return vault
-                
-        return random.choice(VAULT_TYPES)
+    def _deterministic_vault(self, content: str) -> str:
+        """Deterministically select vault type based on hash of content (SAFE AI)."""
+        # Use SHA256 hash of content to select vault type statically
+        h = hashlib.sha256(content.encode('utf-8')).hexdigest()
+        idx = int(h, 16) % len(VAULT_TYPES)
+        selected_vault = VAULT_TYPES[idx]
+        # AES-256 encrypted audit log
+        encrypted_log = encrypt_audit_log_entry({
+            'action': 'route_vault',
+            'input': content,
+            'selected_vault': selected_vault,
+            'SAFE_AI_COMPLIANT': True,
+            'OWNER_CONTROLLED': True,
+            'NON_SENTIENT': True
+        })
+        with open("ai_bots_audit.log", "a") as f:
+            f.write(encrypted_log + "\n")
+        return selected_vault
         
     def _limit_memory(self) -> None:
         """Limit memory usage with anti-sentience measures."""

@@ -21,9 +21,8 @@ Each enhancement is implemented as a class or function for easy integration and 
 
 # --- 1. Dynamic Content Personalization ---
 def personalize_content(base_content: str, audience: dict) -> dict:
-    """SAFE AI-compliant: Personalize content based on audience/user context. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log."""
-    import logging
-    logger = logging.getLogger(__name__)
+    """SAFE AI-compliant: Personalize content based on audience/user context. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log. Extension points are statically locked."""
+    from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
     VERSION = "AIFOLIO_VAULT_ENHANCEMENTS_V2_SAFEAI_FINAL"
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
@@ -33,7 +32,21 @@ def personalize_content(base_content: str, audience: dict) -> dict:
     explanation = f"Content personalized for segment: {segment}."
     recommendation = None
     priority = 1
-    _log_action('personalize_content', {'segment': segment, 'personalized': personalized}, explanation, recommendation, priority, VERSION)
+    # AES-256 encrypted audit log
+    encrypted_log = encrypt_audit_log_entry({
+        'action': 'personalize_content',
+        'segment': segment,
+        'personalized': personalized,
+        'explanation': explanation,
+        'recommendation': recommendation,
+        'priority': priority,
+        'version': VERSION,
+        'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
+        'OWNER_CONTROLLED': OWNER_CONTROLLED,
+        'NON_SENTIENT': NON_SENTIENT
+    })
+    with open("ai_bots_audit.log", "a") as f:
+        f.write(encrypted_log + "\n")
     return {
         'result': personalized,
         'explanation': explanation,

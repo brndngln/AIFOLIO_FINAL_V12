@@ -6,6 +6,7 @@ It is designed to be stateless, rule-based, and without learning capabilities.
 
 import random
 import logging
+from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry  # SAFE AI: Use AES-256 encrypted audit logs
 import json
 import os
 import hashlib
@@ -98,6 +99,13 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+def audit_log_static(event: str, details: dict):
+    """SAFE AI: AES-256 encrypted audit log for all vault generator actions."""
+    encrypted_log = encrypt_audit_log_entry({'event': event, 'details': details})
+    with open("ai_bots_audit.log", "a") as f:
+        f.write(encrypted_log + "\n")
+# All extension points below are statically locked for SAFE AI compliance.
 
 # Operational limits with validation
 class VaultConfig:
