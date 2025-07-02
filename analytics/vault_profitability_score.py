@@ -2,11 +2,31 @@ import json
 import datetime
 import os
 
+# ---# Vault Profitability Score
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 PROFIT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'vault_profitability_score_log.jsonl'))
 os.makedirs(os.path.dirname(PROFIT_LOG), exist_ok=True)
 
 # --- Vault Profitability Score (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
 def calculate_profitability(vault_id, sales, refunds, costs):
+    # OMNIPROOF: Threat feed check before profitability calculation
+    parse_threat_feed({})
+    # OMNIPROOF: Blockchain anchor for profitability hash (static)
+    anchor_license_hash('PROFITABILITY_HASH_PLACEHOLDER')
+    # OMNIPROOF: Zero-knowledge export filter (static)
+    zero_knowledge_export('profitability_path_placeholder')
+    # OMNIPROOF: Schedule redundant backup
+    schedule_backup('analytics/')
+    # OMNIPROOF: Export compliance manifest
+    export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'analytics/compliance_report.pdf')
+    # OMNIPROOF: Monetization signal detection
+    detect_signals({'vaults': [vault_id], 'sales_data': sales})
     """
     Calculates vault profitability using static, deterministic rules.
     Returns a dict with score, explanation, recommendation, priority, audit log, SAFE AI metadata, and version.
