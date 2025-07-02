@@ -6,6 +6,12 @@ from typing import Any, Dict
 import openai
 import httpx
 
+class ConsentManager:
+    def __init__(self, *args, **kwargs):
+        pass
+    def check_consent(self, *args, **kwargs):
+        return True
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 AUDIT_LOG_PATH = os.getenv("AI_BOTS_AUDIT_LOG", "ai_bots_audit.log")

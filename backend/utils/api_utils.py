@@ -1,6 +1,12 @@
 # backend/utils/api_utils.py
 # Placeholder regenerated file for compatibility
 
+class RateLimiter:
+    def __init__(self, *args, **kwargs):
+        pass
+    def allow(self, *args, **kwargs):
+        return True
+
 def placeholder_function():
     """Static compatibility function for SAFE AI compliance. Extension: real compatibility logic."""
     import logging
