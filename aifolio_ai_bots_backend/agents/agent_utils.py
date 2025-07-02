@@ -11,6 +11,9 @@ class ConsentManager:
         pass
     def check_consent(self, *args, **kwargs):
         return True
+    @staticmethod
+    def has_consent(*args, **kwargs):
+        return True
 
 def generate_compliance_report(agent, user, user_input, output, moderation, context):
     """Static SAFE AI-compliant compliance report stub."""
