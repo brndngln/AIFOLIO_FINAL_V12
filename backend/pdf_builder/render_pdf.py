@@ -13,6 +13,29 @@ logger = logging.getLogger(__name__)
 
 @safe_ai_guarded
 def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> str:
+    # --- SAFE AI Legal Shield: Compliance Enforcement ---
+    from core.compliance.smart_legal_watcher import weekly_report
+    from autonomy.ai_tools.review_analyzer import analyze_review
+    
+    # Enforce COMPLIANCE_PASS
+    if not compliance_report.get('legal_review_passed') or not compliance_report.get('ethical_compliance_check_passed'):
+        raise Exception("COMPLIANCE_PASS required: legal_review and ethical_compliance_check must pass before export.")
+    
+    # Scrub for banned terms, PII, financial data
+    content = vault_data.get('content', '')
+    analysis = analyze_review(content)
+    if analysis['banned'] or 'pii' in analysis['flags'] or 'financial' in analysis['flags']:
+        raise Exception(f"Export blocked: Banned/PII/financial content detected: {analysis}")
+    
+    # Inject static legal disclaimer and AI-involvement label
+    disclaimer = ("This product is for educational purposes only. Results may vary. Not professional advice. "
+                  "Consult a qualified expert before acting. AI-generated content is labeled as such. All rights reserved.")
+    ai_label = "[AI-Generated Content]"
+    vault_data['content'] = f"{ai_label}\n{content}\n\n---\n{disclaimer}"
+    
+    # Log compliance action
+    weekly_report()
+
     """Build a PDF from vault data and compliance report using Jinja2 and vault_template.html.
     Upgraded: auto-generates branded cover art, inserts 3–5 inline visuals, uses dark army green + desert sand palette, injects Quick Tips/callouts, stores visuals, mobile/retina/compression optimized. All logic is static, deterministic, and SAFE AI compliant."""
     try:
@@ -85,7 +108,7 @@ def build_pdf(vault_data: Dict[str, Any], compliance_report: Dict[str, Any]) -> 
         # Render the template with compliance_report and content
         html_content = template.render(
             compliance_report=compliance_report,
-            content=content
+            content=vault_data['content']
         )
 
         # Generate PDF (optimized for mobile/retina, compressed)
