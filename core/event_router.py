@@ -155,6 +155,14 @@ class EventRouter:
                 from integrations.sms_bridge import send_sms_alert
                 await asyncio.to_thread(send_sms_alert, payload)
                 log_entry['integrations'].append('sms')
+            elif action == 'discord':
+                from core.integrations.discord_notifier import send_discord_alert
+                await asyncio.to_thread(send_discord_alert, payload.get('webhook_url'), payload.get('message'))
+                log_entry['integrations'].append('discord')
+            elif action == 'telegram':
+                from core.integrations.telegram_notifier import send_telegram_alert
+                await asyncio.to_thread(send_telegram_alert, payload.get('bot_token'), payload.get('chat_id'), payload.get('message'))
+                log_entry['integrations'].append('telegram')
             elif action == 'compliance':
                 await asyncio.to_thread(self.compliance.process, payload)
                 log_entry['integrations'].append('compliance')
@@ -164,6 +172,50 @@ class EventRouter:
             elif action == 'log':
                 await asyncio.to_thread(self.log_event, {'event': 'custom_log', 'payload': payload, 'timestamp': datetime.utcnow().isoformat()})
                 log_entry['integrations'].append('log')
+            elif action == 'billionaire_mind':
+                # Activate billionaire mind overlay and log
+                from core.logic.billionaire_fusion_engine import activate_billionaire_profile
+                await asyncio.to_thread(activate_billionaire_profile, payload.get('profile_name'))
+                log_entry['integrations'].append('billionaire_mind')
+            elif action == 'compliance_sentience':
+                from core.compliance.sentience_firewall import enforce_firewall
+                from core.compliance.elite_compliance_engine import scan_compliance, log_audit
+                sentience_ok = await asyncio.to_thread(enforce_firewall, payload)
+                compliance_result = await asyncio.to_thread(scan_compliance, payload)
+                await asyncio.to_thread(log_audit, payload, compliance_result)
+                log_entry['integrations'].append('compliance_sentience')
+            elif action == 'admin_dashboard':
+                # Push event to elite admin dashboard
+                try:
+                    with open('../../logs/elite_events.json', 'r+') as f:
+                        events = json.load(f)
+                        events.append({'timestamp': datetime.utcnow().isoformat(), 'type': payload.get('event_type'), 'actor': payload.get('actor', 'system'), 'status': payload.get('status', 'ok'), 'integration': payload.get('integration', 'core')})
+                        f.seek(0)
+                        json.dump(events, f)
+                        f.truncate()
+                except Exception as dash_e:
+                    logging.warning(f"Admin dashboard log failed: {dash_e}")
+                log_entry['integrations'].append('admin_dashboard')
+            elif action == 'founder_override':
+                # Founder override logic
+                # Placeholder: escalate to founder for approval
+                log_entry['integrations'].append('founder_override')
+            elif action == 'anomaly_detection':
+                # AI-powered anomaly detection
+                from analytics.anomaly_detection_sales_trends import detect_sales_anomaly
+                anomaly = await asyncio.to_thread(detect_sales_anomaly, payload)
+                if anomaly:
+                    # Log and alert
+                    await asyncio.to_thread(self.log_event, {'event': 'anomaly', 'payload': payload, 'timestamp': datetime.utcnow().isoformat()})
+                log_entry['integrations'].append('anomaly_detection')
+            elif action == 'shadow_mode':
+                # Founder Shadow Mode logic (monitor, inject, block)
+                # Placeholder for founder manual review/injection
+                log_entry['integrations'].append('shadow_mode')
+            elif action == 'sandbox':
+                # Empire Expansion Sandbox (safe test mode)
+                # Placeholder for sandbox execution
+                log_entry['integrations'].append('sandbox')
             else:
                 logging.warning(f"Unknown action: {action}")
                 log_entry['status'][action] = 'unknown'

@@ -6,17 +6,17 @@ ANOMALY_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'anomaly_d
 os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
 
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
-def detect_sales_anomaly(vault_id, sales):
+def detect_sales_anomaly(payload):
     """
-    Detects sales anomalies for a vault using static, deterministic rules.
-    Returns a dict with result, explanation, recommendation, priority, audit, SAFE AI metadata, and version.
-    Fully static, non-sentient, owner-controlled, and SAFE AI compliant.
+    Elite SAFE AI static anomaly detector for sales and event payloads.
+    Accepts dict payloads (vault_id, sales, event_type, etc.). Logs anomalies to elite_compliance_alerts.json and flags for founder/admin review if high priority. All logic is static, deterministic, and owner-controlled. Extension hooks for future SAFE AI, legal, and compliance triggers.
     """
-    VERSION = "AIFOLIO_ANOMALY_ENGINE_V2_SAFEAI_FINAL"
+    VERSION = "AIFOLIO_ANOMALY_ENGINE_V3_SAFEAI_ELITE"
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
     NON_SENTIENT = True
-
+    vault_id = payload.get('vault_id')
+    sales = payload.get('sales', [])
     sales_by_week = {}
     for s in sales:
         dt = datetime.datetime.fromisoformat(s['timestamp'].replace('Z',''))
