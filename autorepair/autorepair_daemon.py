@@ -19,6 +19,9 @@ import time
 import logging
 import traceback
 from datetime import datetime
+from core.compliance.emma_guardian import emma
+import hashlib
+import json
 
 REPAIR_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'autorepair_audit_log.jsonl'))
 MAX_ATTEMPTS = 3
@@ -28,7 +31,7 @@ ESCALATION_EMAIL = os.environ.get('AIFOLIO_ADMIN_EMAIL', 'admin@aifolio.com')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger('AIFOLIO-AUTOREPAIR')
 
-# --- MONITORED SERVICES (Add/extend as needed) ---
+# --- MODULAR MONITORED SERVICES REGISTRY ---
 MONITORED_SERVICES = [
     {'name': 'Backend API', 'cmd': ['python', '-m', 'backend.api_server'], 'healthcheck': 'backend/health/api_healthcheck.py'},
     {'name': 'PDF Engine', 'cmd': ['python', '-m', 'backend.pdf_engine'], 'healthcheck': 'backend/health/pdf_healthcheck.py'},
@@ -36,20 +39,34 @@ MONITORED_SERVICES = [
     {'name': 'AI Bot Engine', 'cmd': ['python', '-m', 'backend.ai_bots'], 'healthcheck': 'backend/health/ai_healthcheck.py'},
 ]
 
+FAILOVER_REGISTRY = []
+
+def register_failover_service(service_dict):
+    """
+    Register a new service/component for failover/self-repair monitoring.
+    """
+    MONITORED_SERVICES.append(service_dict)
+    emma.log_event('failover_registration', service_dict, critical=True)
+    FAILOVER_REGISTRY.append(service_dict['name'])
+
 # --- REPAIR LOGGING ---
 def log_repair(action, service, status, explanation, attempts, escalation=False):
     entry = {
-        'timestamp': datetime.utcnow().isoformat() + 'Z',
+        'timestamp': datetime.utcnow().isoformat(),
         'action': action,
-        'service': service,
+        'service': service['name'],
         'status': status,
         'explanation': explanation,
         'attempts': attempts,
         'escalation': escalation
     }
+    # Add hash for EMMA verification
+    entry['hash'] = hashlib.sha256(json.dumps(entry, sort_keys=True).encode()).hexdigest()
     with open(REPAIR_LOG, 'a') as f:
-        f.write(str(entry) + '\n')
-    logger.info(f"AutoRepair: {entry}")
+        f.write(json.dumps(entry) + '\n')
+    logger.info(f"[REPAIR] {action} | {service['name']} | {status} | Attempts: {attempts}")
+    # EMMA audit hook
+    emma.log_event('autorepair_action', entry, critical=(status != 'OK' or escalation))
 
 # --- HEALTH CHECK ---
 def run_healthcheck(script_path):
@@ -68,13 +85,13 @@ def repair_service(service):
             os.system(' '.join(service['cmd']))
             time.sleep(2)
             if run_healthcheck(service['healthcheck']):
-                log_repair('repair', service['name'], 'success', 'Service repaired and running.', attempts+1)
+                log_repair('repair', service, 'OK', 'Service repaired and running.', attempts+1)
                 return True
             else:
-                log_repair('repair', service['name'], 'retry', 'Repair attempt failed. Retrying.', attempts+1)
+                log_repair('repair', service, 'RETRY', 'Repair attempt failed. Retrying.', attempts+1)
         except Exception as e:
             logger.error(f"Repair failed for {service['name']}: {e}\n{traceback.format_exc()}")
-            log_repair('repair', service['name'], 'error', str(e), attempts+1)
+            log_repair('repair', service, 'ERROR', str(e), attempts+1)
         attempts += 1
         time.sleep(RETRY_INTERVAL)
     # Escalate if unrecoverable
@@ -83,14 +100,17 @@ def repair_service(service):
 
 # --- ESCALATION ---
 def escalate_issue(service, attempts):
-    explanation = f"Service {service['name']} unrecoverable after {attempts} attempts. Escalating to admin."
-    log_repair('escalate', service['name'], 'unrecoverable', explanation, attempts, escalation=True)
+    log_repair('escalate', service, 'UNRECOVERABLE', f'Max attempts reached ({attempts})', attempts, escalation=True)
+    # EMMA audit hook for escalation
+    emma.log_event('failover_escalation', {'service': service['name'], 'attempts': attempts}, critical=True)
+    # TODO: Send escalation email/alert
+    logger.error(f"ESCALATION: {service['name']} is unrecoverable after {attempts} attempts. Admin notified.")
     # Simulate email/notification (extend as needed)
-    logger.warning(f"ESCALATION: {explanation} (Notify: {ESCALATION_EMAIL})")
+    logger.warning(f"ESCALATION: {service['name']} is unrecoverable after {attempts} attempts. (Notify: {ESCALATION_EMAIL})")
 
 # --- MAIN DAEMON LOOP ---
 def main_loop():
-    logger.info("AIFOLIO™ Auto-Repair Daemon started (SAFE AI, static, non-sentient, owner-controlled)")
+    logger.info("AIFOLIO Auto-Repair Daemon started (SAFE AI, static, non-sentient, owner-controlled)")
     while True:
         for service in MONITORED_SERVICES:
             if not run_healthcheck(service['healthcheck']):
@@ -102,6 +122,8 @@ def main_loop():
 
 if __name__ == '__main__':
     try:
+        emma.log_event('autorepair_daemon_start', {'status': 'started'}, critical=False)
         main_loop()
     except KeyboardInterrupt:
-        logger.info("Auto-Repair Daemon stopped by user.")
+        emma.log_event('autorepair_daemon_stop', {'status': 'stopped'}, critical=False)
+        print('AutoRepair Daemon stopped.')
