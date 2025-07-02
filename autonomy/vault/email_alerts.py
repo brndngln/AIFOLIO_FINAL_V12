@@ -17,6 +17,24 @@ FROM_NAME = os.getenv('FROM_NAME', 'AIFOLIO Vaults')
 
 # --- Opt-in Email Alerts for Vault Builds ---
 def send_vault_email_alert(to_email, subject, body):
+    # --- SAFE AI Legal Shield: Compliance Enforcement ---
+    from core.compliance.smart_legal_watcher import weekly_report
+    from autonomy.ai_tools.review_analyzer import analyze_review
+    
+    # Scrub subject/body for banned terms/PII/financial data
+    analysis = analyze_review(subject + ' ' + body)
+    if analysis['banned'] or 'pii' in analysis['flags'] or 'financial' in analysis['flags']:
+        raise Exception(f"Vault email blocked: Banned/PII/financial content detected: {analysis}")
+    
+    # Inject legal disclaimer and AI-involvement label
+    disclaimer = ("This product is for educational purposes only. Results may vary. Not professional advice. "
+                  "Consult a qualified expert before acting. AI-generated content is labeled as such. All rights reserved.")
+    ai_label = "[AI-Generated Content]"
+    body = f"{ai_label}\n{body}\n\n---\n{disclaimer}"
+    
+    # Log compliance action
+    weekly_report()
+
     msg = MIMEText(body, 'plain')
     msg['Subject'] = subject
     msg['From'] = formataddr((FROM_NAME, FROM_EMAIL))
