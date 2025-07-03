@@ -40,5 +40,5 @@ requests>=2.31.0
 pkcs11>=0.7.0
 fido2>=1.1.1
 secretsharing==0.2.6
-pqcrypto>=1.2.2
+pqcrypto==0.3.1
 streamlit>=1.33.0
