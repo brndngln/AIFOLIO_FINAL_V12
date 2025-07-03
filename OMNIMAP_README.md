@@ -14,6 +14,17 @@ AIFOLIO™ OMNIELITE is now transformed into the Billionaire Mind Engine™: a f
 - EMMA™ enforces triple-redundant anti-sentience, ethics, and owner validation on every agent action.
 - All agent logic is fully auditable, rollbackable, and cannot simulate emotion, store memory, or bypass OWNER/EMMA rules.
 
+---
+
+### 🔒 OMNIELITE ETHICS ENGINE & AI CONDUCT LAYER
+
+- **ethics_engine.py:** Core codex logic and runtime enforcement
+- **ethics_policy.json:** Structured OMNIELITE ethical codex
+- **middlewares/ethics_validator.py:** Output/logic filter for all flows
+- **ai_behavior_profiles/naughty_safe_friendly.yaml:** Tone/character/simulation boundaries for playful/mature output
+- **emma_ethics_guard.py:** EMMA’s audit, override, and violation log
+- All vaults, workflows, dashboards, exports, and agents are now permanently governed by this system for SAFE AI compliance, owner control, and full auditability.
+
 #### OMNIELITE CODE LEGION AGENTS
 - **Brett:** Omni-Security Commander
 - **Kennedy:** AI Logic Mesh Architect

@@ -54,4 +54,17 @@ _Timestamp: 2025-07-02T18:25:36-06:00_
 
 ---
 
-_Last updated: 2025-07-02T18:25:36-06:00_
+## Batch 3: OMNIELITE ETHICS ENGINE & AI CONDUCT LAYER
+- `/ethics_engine.py` — Core codex logic and runtime enforcement
+- `/ethics_policy.json` — Structured OMNIELITE ethical codex
+- `/middlewares/ethics_validator.py` — Output/logic filter for all flows
+- `/ai_behavior_profiles/naughty_safe_friendly.yaml` — Tone/character/simulation boundaries
+- `/emma_ethics_guard.py` — EMMA’s audit, override, and violation log
+- All workflows, vaults, dashboards, exports, and agents are now permanently governed by this system for SAFE AI compliance, owner control, and full auditability.
+
+_Timestamp: 2025-07-02T18:32:36-06:00_
+
+---
+
+_Last updated: 2025-07-02T18:32:36-06:00_
+
