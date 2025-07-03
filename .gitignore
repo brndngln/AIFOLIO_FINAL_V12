@@ -37,6 +37,7 @@ venv/
 /AIFOLIO_FINAL_V12_RESTORED/
 /sync_to_veracrypt.sh
 /restore_from_veracrypt.sh
+/EmmaVolumeMonitor.py
 /vaults/
 /backups/
 /mount/

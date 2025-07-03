@@ -19,5 +19,6 @@ rsync -av --progress "$BACKUP_SOURCE/" "$RESTORE_TARGET/"
 # === UNMOUNT VOLUME ===
 echo "[🔒] Unmounting VeraCrypt volume..."
 veracrypt -d "$VC_MOUNT"
+python3 EmmaVolumeMonitor.py --log_unmount
 
 echo "[✅] Restore complete. Codebase recovered securely."

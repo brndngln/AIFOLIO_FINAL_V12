@@ -18,5 +18,6 @@ rsync -av --progress --exclude=".git" --exclude-from="$SOURCE_DIR/.gitignore" "$
 # === UNMOUNT VOLUME ===
 echo "[🔒] Unmounting VeraCrypt volume..."
 veracrypt -d "$VC_MOUNT"
+python3 EmmaVolumeMonitor.py --log_unmount
 
 echo "[✅] Backup complete and securely stored in VeraCrypt volume."
