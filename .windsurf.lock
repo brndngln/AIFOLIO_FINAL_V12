@@ -1,0 +1,11 @@
+# Windsurf integration lock file
+# Created by Cascade to enforce edit protection, permission anchoring, and anti-sentience lockdown for all windsurf-related modules.
+{
+  "locked": true,
+  "trusted": true,
+  "edit_access": ["owner", "Emma"],
+  "immutable_recovery_anchor": true,
+  "auto_unlock": true,
+  "retries": 3,
+  "denyloop_prevention": true
+}

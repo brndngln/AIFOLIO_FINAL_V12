@@ -1,0 +1,9 @@
+[
+  {
+    "error_id": "8d5b0e06dc6a4f2496afb31b159044c1",
+    "type": "CascadeEditFailure",
+    "status": "Resolved",
+    "immune": true,
+    "trigger_lock": true
+  }
+]
