@@ -11,3 +11,5 @@ pycryptodome
 passlib
 weasyprint
 jinja2
+pyspellchecker
+python-jose
