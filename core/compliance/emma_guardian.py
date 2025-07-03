@@ -9,6 +9,7 @@ SAFE AI EXTENSION POINTS:
 - All audit, compliance, and rollback logic must remain static, deterministic, and owner/biometric locked.
 - No audit bypass, sentient, or adaptive logic permitted.
 - All extension points must be clearly documented and SAFE AI-compliant.
+- Extension: For future SAFE upgrades, only add static, non-explicit, owner-controlled audit and compliance logic.
 """
 import hashlib
 import json

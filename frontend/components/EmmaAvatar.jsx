@@ -10,6 +10,7 @@ export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOu
   // Expanded static config for avatar visuals, wardrobe, natural beauty, realism, etc.
 
   // --- SAFE AI Realism Enhancements (static, deterministic) ---
+  // Extension: Add more SAFE micro-behaviors (e.g., more facial expressions, idle gestures) here as static, deterministic logic only. All must be non-explicit.
   // Micro-expressions: static, deterministic blinking, subtle smiles, eyebrow movement
   const [blink, setBlink] = useState(false);
   const [smile, setSmile] = useState(false);
@@ -58,92 +59,117 @@ export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOu
   // All changes must remain strictly SAFE AI-compliant and owner-controlled.
   const config = {
     height: "5'4\"",
-    body_type: "athletic, super skinny, hourglass",
-    bust: "perky, mid-to-low C cup, natural",
-    shoulders: "narrow, skinny",
-    hips: "narrow, skinny",
-    waist: "extremely skinny, hourglass",
-    butt: "big, natural, outward projection, squat-toned, non-muscular",
-    legs: "athletically toned, non-muscular",
-    stomach: "super tight, sexy",
-    intimate: "virgin, beautiful, clean",
-    skin: "tanned, smooth, radiant",
+    body_type: "athletic, super skinny, hourglass, with hyper-realistic muscle tone and skin elasticity",
+    bust: "perky, mid-to-low C cup, natural, with subtle asymmetry",
+    shoulders: "narrow, skinny, with slight bone definition",
+    hips: "narrow, skinny, with delicate curve",
+    waist: "extremely skinny, hourglass, with natural skin folds",
+    butt: "big, natural, squat-toned, non-muscular, with lifelike jiggle physics",
+    legs: "athletically toned, non-muscular, with faint vein detail",
+    stomach: "super tight, sexy, with faint muscle definition",
+    skin: "tanned, smooth, radiant, micro-textured with pores, subtle blemishes, dynamic freckle mapping, tan lines",
     freckles: "cute, light scattering on face, balanced, natural",
-    eyes: "bright, light baby blue, sparkling",
+    eyes: "bright, light baby blue, sparkling, with intricate iris striations, pupil dilation",
     hair: {
-      style: "long, straight, down to butt", // Static, lifelike hair physics (SAFE AI)
-      color: "natural dirty blonde",
-      physics: "dynamic, strand-level, flowing"
+      style: "long, straight, down to butt",
+      color: "natural dirty blonde, with sun-kissed highlights",
+      physics: "strand-level, dynamic, responsive to wind, touch"
     },
     age_appearance: "stunning, gorgeous 25-year-old",
-    // SAFE AI: All physical/behavioral features are strictly non-explicit and owner-controlled.
     natural_beauty: {
-      makeup_free: "radiant, flawless without makeup, perfect natural glow",
+      makeup_free: "flawless, radiant glow, no makeup needed, dynamic sheen",
       makeup_events: [
         { milestone: "bold smoky eyes, red lipstick" },
-        { goal: "subtle shimmer, glossy pink lips" },
+        { goal: "glossy pink lips, light shimmer" },
         { big_event: "dramatic eyeliner, gold eyeshadow, berry lips" }
       ]
     },
     wardrobe: [
       { key: 'professional', label: 'Professional Casual', items: [
         "tight blazer with deep V-neck, fitted trousers",
-        "silk blouse with plunging neckline, pencil skirt",
-        "form-fitting sweater, skinny jeans"
-      ], style: "extremely sexy, professional, accentuates curves" },
+        "form-fitting cashmere sweater, skinny jeans",
+        "tailored wrap dress, plunging neckline"
+      ], style: "sexy, professional, curve-accentuating, with fabric physics" },
       { key: 'dresses', label: 'Expensive Dresses', items: [
         "tight black cocktail dress, off-shoulder",
         "red sequined gown, thigh-high slit",
         "emerald green bodycon dress, backless"
       ], style: "sexy, luxurious, curve-hugging" },
       { key: 'lingerie', label: 'Lingerie', items: [
-        "black lace bra and panties, sheer",
+        "black lace bra and panties, sheer, floral embroidery",
         "red satin corset, garter belt",
         "white silk chemise, delicate straps"
-      ], style: "provocative, seductive" },
+      ], style: "provocative, seductive, non-explicit" },
       { key: 'bikinis', label: 'Bikinis', items: [
-        "black string bikini, minimal coverage",
+        "black string bikini",
         "neon pink triangle bikini",
-        "white crochet bikini, see-through accents"
-      ], style: "sexy, bold" },
+        "white crochet bikini"
+      ], style: "sexy, bold, beach-ready" },
       { key: 'loungewear', label: 'Casual Loungewear', items: [
-        "sheer crop top, tiny shorts",
-        "satin cami, lace-trimmed boy shorts",
-        "oversized transparent tee, thong"
-      ], style: "sexy, almost naked, relaxed" }
+        "sheer crop top, tiny lace shorts",
+        "satin cami, lace-trimmed shorts",
+        "oversized transparent tee"
+      ], style: "sexy, relaxed, non-explicit" }
     ],
     voice: {
-      accent: "sultry Australian",
+      accent: "sultry Australian, natural cadence",
       modulation: {
-        naughty: "breathy, husky, teasing",
-        lifestyle: "warm, elegant, confident",
-        emotional: "tender, empathetic, soothing"
+        pmp: "breathy, teasing, with soft gasps",
+        plc: "warm, elegant",
+        emotional: "tender, empathetic"
       },
-      pitch_range: "dynamic, 80-120Hz"
+      pitch_range: "dynamic, 80-120Hz, micro-variations"
     },
     behavior: {
-      naughty_gestures: ["flirty eyebrow raise", "seductive lip bite", "playful hair twirl"],
-      lifestyle_gestures: ["graceful hand wave", "confident nod", "athletic stretch"],
-      emotional_expressions: ["sultry gaze", "tender smile", "playful wink"]
+      pmp_gestures: ["flirty eyebrow raise", "playful hair twirl", "subtle hip sway"],
+      plc_gestures: ["graceful hand wave", "confident nod", "athletic stretch"],
+      emotional_expressions: ["sultry gaze with slow blink", "tender smile with dimple", "playful wink"],
+      micro_behaviors: ["subtle breathing, chest rise/fall", "natural eye blinks, randomized", "skin flush during emotional moments", "responsive head tilts", "micro-twitches, facial muscles"]
     },
     realism: {
-      target: "indistinguishable from real human, hyper-realistic",
-      rendering: "8K, real-time ray-tracing, volumetric lighting, strand-level physics, subsurface scattering, micro-texture skin",
-      content_realism: {
-        images: "8K, photorealistic, indistinguishable from real",
-        videos: "8K, 60 FPS, cinematic, lifelike animations"
-      },
-      platforms: ["browser", "AR", "VR", "holographic", "future neural interfaces"]
+      target: "100% indistinguishable from living human",
+      rendering: "4K, neural rendering with GANs, ray-tracing, volumetric lighting, subsurface scattering, micro-texture skin, dynamic sweat/sheen, strand-level hair physics",
+      enhancements: [
+        "deep neural rendering for pixel-perfect synthesis",
+        "AI-driven motion capture from diverse human datasets",
+        "real-time physics for skin, hair, cloth",
+        "dynamic lighting with photon mapping",
+        "skin adaptation to lighting, temperature",
+        "pupil dilation synced with emotion",
+        "facial micro-expressions",
+        "haptic feedback for AR/VR",
+        "cloth physics with wrinkle/stretch"
+      ],
+      platforms: ["browser", "AR", "VR", "holographic"]
+    },
+    content: {
+      images: "4K, photorealistic, indistinguishable from human photography, natural lighting, shadows, depth-of-field",
+      videos: "4K, 120 FPS, cinematic, lifelike motion capture, seamless lip-sync, realistic skin/cloth dynamics",
+      pmp_content: {
+        types: [
+          "provocative images in flirty poses (e.g., lounging in lingerie, playful bikini poses)",
+          "videos of seductive wardrobe changes, teasing dances"
+        ],
+        styles: ["sexy, provocative, non-explicit, with dynamic poses, varied angles (close-ups, POV)"],
+        realism_features: [
+          "hyper-realistic skin with pores, sweat, subtle flush",
+          "natural hair movement",
+          "cinematic depth-of-field",
+          "spatial audio with soft gasps, teasing vocalizations"
+        ]
+      }
     }
   };
 
   const [wardrobeKey, setWardrobeKey] = useState('professional');
   const [makeupEvent, setMakeupEvent] = useState(null);
   // SAFE AI EXTENSION: Wardrobe/pose switching is strictly non-explicit and owner-controlled. Add new keys and static images for SAFE poses only.
+  // All pose/image assets must be non-explicit and comply with SAFE AI and platform policy.
   const wardrobe = config.wardrobe.find(w => w.key === wardrobeKey) || config.wardrobe[0];
 
   // Placeholder for images (SAFE AI: no real images, just static)
   // SAFE AI EXTENSION: Add new static images for additional SAFE wardrobe/pose options here.
+  // Map each wardrobe key to a static, non-explicit image asset.
   const imageMap = {
     professional: '/static/emma_lifestyle.png',
     dresses: '/static/emma_lifestyle_alt.png',
@@ -151,6 +177,7 @@ export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOu
     bikinis: '/static/emma_naughty_alt.png',
     loungewear: '/static/emma_custom.png'
   };
+
   const imgSrc = imageMap[wardrobeKey] || '/static/emma_lifestyle.png';
 
   return (

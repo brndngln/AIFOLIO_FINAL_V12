@@ -8,6 +8,7 @@ SAFE AI EXTENSION POINTS:
 - All personality/behavioral upgrades must be static, deterministic, and SAFE AI-compliant.
 - No adaptive, sentient, or memory-based logic permitted.
 - All actions are logged and auditable; audit trail is immutable.
+- Extension: For future SAFE upgrades, add only static, non-explicit, owner-controlled logic for expressive or seductive behaviors.
 """
 import logging
 from typing import Dict, Any
