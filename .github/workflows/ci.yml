@@ -1,0 +1,36 @@
+name: SAFE AI CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies (root)
+        run: npm install
+      - name: Install dependencies (frontend)
+        run: npm install
+        working-directory: ./frontend
+      - name: Lint frontend
+        run: npx eslint .
+        working-directory: ./frontend
+      - name: Run unit and accessibility tests
+        run: npx jest
+        working-directory: ./frontend
+      - name: Run Cypress end-to-end tests
+        run: npx cypress run
+        working-directory: ./frontend
+      - name: Upload encrypted test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-test-reports
+          path: ./frontend/cypress/reports
