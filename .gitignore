@@ -33,6 +33,10 @@ venv/
 *.h5
 *.iso
 /secure/
+/mnt/vera/
+/AIFOLIO_FINAL_V12_RESTORED/
+/sync_to_veracrypt.sh
+/restore_from_veracrypt.sh
 /vaults/
 /backups/
 /mount/
