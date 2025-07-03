@@ -3,8 +3,17 @@ Unit and integration tests for PMP Backend (SAFE AI, stateless, and owner-contro
 """
 from fastapi.testclient import TestClient
 from pmp_service import app
-
+import starlette
+import starlette.testclient
+import inspect
+print('DIAG: starlette version:', getattr(starlette, '__version__', 'unknown'))
+print('DIAG: TestClient type:', type(TestClient))
+print('DIAG: TestClient module:', TestClient.__module__)
+print('DIAG: starlette.testclient file:', inspect.getfile(starlette.testclient))
+print('DIAG: TestClient file:', inspect.getfile(TestClient))
 client = TestClient(app)
+print('DIAG: client type:', type(client))
+print('DIAG: client module:', type(client).__module__)
 
 def test_authenticate_success():
     resp = client.post("/auth/verify", json={
