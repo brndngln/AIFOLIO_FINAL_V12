@@ -99,13 +99,25 @@ export default function IntegrationControls({ notificationPrefs, onPrefsChange, 
   return (
     <div style={{padding:20}}>
       <h3>Integrations, Security & EMMA</h3>
-      {/* Biometric Auth */}
-      <div style={{marginBottom:12}}>
-        <b>Biometric Authentication:</b>
-        {biometricTypes.map(type => (
-          <Tooltip key={type} title={`Simulate ${type} scan`}><Button aria-label={`Biometric ${type}`} style={{marginLeft:8}} onClick={()=>handleBiometric(type)}>{type.charAt(0).toUpperCase()+type.slice(1)}</Button></Tooltip>
-        ))}
-        <span style={{marginLeft:12, color:'#4cafef'}}>{biometricStatus}</span>
+      {/* EmmaAvatar Mode Selection & Onboarding */}
+      <div style={{marginBottom:24}}>
+        <div style={{fontWeight:600,marginBottom:8}}>Emma Avatar Mode</div>
+        <div style={{display:'flex',gap:12}}>
+          <Button aria-label="Lifestyle Mode" variant="contained" color="primary" onClick={()=>onPrefsChange && onPrefsChange({avatarMode:'lifestyle'})}>Lifestyle</Button>
+          <Button aria-label="Naughty Mode" variant="outlined" color="secondary" onClick={()=>onPrefsChange && onPrefsChange({avatarMode:'naughty'})}>Naughty</Button>
+          <Button aria-label="Custom Mode" variant="outlined" color="default" onClick={()=>onPrefsChange && onPrefsChange({avatarMode:'custom'})}>Custom</Button>
+        </div>
+        <Button aria-label="Avatar Onboarding" style={{marginTop:12}} variant="outlined" color="primary" onClick={()=>alert('Starting Emma Avatar, PMP, and PLC onboarding tutorial...')}>Avatar & Muse Haven Tutorial</Button>
+      </div>
+      {/* Biometric Multi-Factor Authentication */}
+      <div style={{marginBottom:24}}>
+        <div style={{fontWeight:600,marginBottom:8}}>Biometric Authentication</div>
+        <div style={{display:'flex',gap:12}}>
+          <Button aria-label="Face Scan" variant="outlined" onClick={()=>handleBiometric('face')}>Face</Button>
+          <Button aria-label="Retina Scan" variant="outlined" onClick={()=>handleBiometric('retina')}>Retina</Button>
+          <Button aria-label="Fingerprint Scan" variant="outlined" onClick={()=>handleBiometric('fingerprint')}>Fingerprint</Button>
+          <Button aria-label="Voiceprint Scan" variant="outlined" onClick={()=>handleBiometric('voice')}>Voice</Button>
+        </div>
       </div>
       {/* Approval Mode */}
       <div style={{marginBottom:12}}>
