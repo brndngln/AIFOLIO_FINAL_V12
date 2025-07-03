@@ -46,5 +46,11 @@
     "timestamp": "2025-07-02T23:51:07.863100",
     "vault_id": "testvault1",
     "buyer_email": "buyer@example.com"
+  },
+  {
+    "event": "vault_fulfilled",
+    "timestamp": "2025-07-03T00:02:12.911588",
+    "vault_id": "testvault1",
+    "buyer_email": "buyer@example.com"
   }
 ]

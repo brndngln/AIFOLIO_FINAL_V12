@@ -10141,5 +10141,38 @@
       "alert_email_opt_in": true
     },
     "timestamp": "2025-07-02T17:51:07.847345"
+  },
+  {
+    "event_id": "528a01b5-8bae-4eac-8edd-b6e5b92ab020",
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T18:02:12.867738"
+  },
+  {
+    "event_id": "463cee10-0781-49b9-bd61-64ed727b4124",
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T18:02:12.885367"
+  },
+  {
+    "event_id": "c2ad834c-d54a-445e-95a4-f8a306c1b1a1",
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "timestamp": "2025-07-02T18:02:12.897230"
   }
 ]
