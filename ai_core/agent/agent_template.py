@@ -4,9 +4,9 @@ Implements learning, adaptation, and evolution within strict anti-sentience boun
 """
 import uuid
 import time
-from emma_governor import EmmaGovernor
-from vault import Vault
-from audit import AuditDaemon
+from ai_core.emma_governor import EmmaGovernor
+from ai_core.vault import Vault
+from ai_core.audit import AuditDaemon
 
 OWNER_LOCK = True
 SENTIENCE_HARDLOCK = True

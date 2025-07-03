@@ -1,1 +1,1 @@
-from .agent_template import SafeAIAgent
+from ai_core.agent.agent_template import SafeAIAgent
