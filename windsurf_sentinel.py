@@ -19,9 +19,28 @@ def is_forbidden(filename):
             return True
     return False
 
-def get_staged_files():
-    result = subprocess.run(['git', 'diff', '--cached', '--name-only'], capture_output=True, text=True)
-    return result.stdout.strip().split('\n') if result.returncode == 0 else []
+def get_staged_files(timeout_sec=60):
+    try:
+        result = subprocess.run(['git', 'diff', '--cached', '--name-only'], capture_output=True, text=True, timeout=timeout_sec)
+        return result.stdout.strip().split('\n') if result.returncode == 0 else []
+    except subprocess.TimeoutExpired:
+        print('[Sentinel] git diff timed out.')
+        try:
+            with open('emma_volume_audit.json', 'a') as f:
+                f.write(json.dumps({'event': 'git_diff_timeout', 'timestamp': __import__('datetime').datetime.utcnow().isoformat()}) + '\n')
+        except Exception:
+            pass
+        # CEO alert logic (if available)
+        return []
+    except Exception as e:
+        print(f'[Sentinel] git diff error: {e}')
+        try:
+            with open('emma_volume_audit.json', 'a') as f:
+                f.write(json.dumps({'event': 'git_diff_error', 'error': str(e), 'timestamp': __import__('datetime').datetime.utcnow().isoformat()}) + '\n')
+        except Exception:
+            pass
+        # CEO alert logic (if available)
+        return []
 
 def log_event(event):
     try:

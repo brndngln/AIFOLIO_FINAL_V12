@@ -80,6 +80,21 @@ def is_ceo():
     log_event("[SECURITY] CEO-only access denied.")
     sys.exit("CEO-only access required.")
 
+def get_staged_files(timeout_sec=60):
+    try:
+        result = subprocess.run(['git', 'diff', '--cached', '--name-only'], capture_output=True, text=True, timeout=timeout_sec)
+        return result.stdout.strip().split('\n') if result.returncode == 0 else []
+    except subprocess.TimeoutExpired:
+        log_event('[Sentinel] git diff timed out.')
+        immutable_log('[Sentinel] git diff timed out.')
+        alert_ceo('[Sentinel] git diff timed out.')
+        return []
+    except Exception as e:
+        log_event(f'[Sentinel] git diff error: {e}')
+        immutable_log(f'[Sentinel] git diff error: {e}')
+        alert_ceo(f'[Sentinel] git diff error: {e}')
+        return []
+
 # --- 4. READ-ONLY VAULT MODE ---
 def enforce_vault_read_only():
     # This is a runtime flag; actual enforcement must be in all vault logic.
@@ -105,10 +120,35 @@ def restrict_network_calls():
     log_event("External network calls restricted.")
 
 # --- 6. CEO MFA ---
-def require_ceo_mfa():
-    code = getpass.getpass("Enter CEO MFA code: ")
+import threading
+import signal
+
+class TimeoutException(Exception):
+    pass
+
+def timeout_handler(signum, frame):
+    raise TimeoutException("Operation timed out.")
+
+def require_ceo_mfa(timeout_sec=60):
+    try:
+        signal.signal(signal.SIGALRM, timeout_handler)
+        signal.alarm(timeout_sec)
+        code = getpass.getpass("Enter CEO MFA code: ")
+        signal.alarm(0)
+    except TimeoutException:
+        log_event("[SECURITY] CEO MFA prompt timed out.")
+        immutable_log("[SECURITY] CEO MFA prompt timed out.")
+        alert_ceo("[SECURITY] CEO MFA prompt timed out. Lockdown aborted.")
+        sys.exit("CEO MFA timed out. Lockdown aborted.")
+    except Exception as e:
+        log_event(f"[SECURITY] CEO MFA error: {e}")
+        immutable_log(f"[SECURITY] CEO MFA error: {e}")
+        alert_ceo(f"[SECURITY] CEO MFA error: {e}")
+        sys.exit("CEO MFA failed. Lockdown aborted.")
     if code != MFA_CODE:
         log_event("[SECURITY] CEO MFA failed.")
+        immutable_log("[SECURITY] CEO MFA failed.")
+        alert_ceo("[SECURITY] CEO MFA failed. Lockdown aborted.")
         sys.exit("CEO MFA failed. Lockdown aborted.")
     log_event("CEO MFA passed.")
 
