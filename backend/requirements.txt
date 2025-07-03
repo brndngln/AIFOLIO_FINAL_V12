@@ -5,7 +5,7 @@ pytest
 requests
 httpx
 python-dotenv
-openai
+openai==0.28
 transformers
 pycryptodome
 passlib
