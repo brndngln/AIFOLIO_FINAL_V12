@@ -232,7 +232,7 @@ def api_monitor_activity(user: str = Depends(get_current_user)):
 # --- API: Compliance/Ethics Metrics (JWT-protected) ---
 
 # --- API: SAFE AI-compliant API Key Status (JWT-protected) ---
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 
 @app.get("/api/api-keys", tags=["SAFE AI", "Owner Control"], summary="SAFE AI-compliant API key status", response_model=dict)
 def api_key_status(current_user: dict = Depends(get_current_user)):
