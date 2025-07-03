@@ -252,4 +252,18 @@ def main():
     print("[WINDSURF] OMNISECURE RUNTIME LOCKDOWN ACTIVE.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        try:
+            from windsurf.error_logger import log_error
+            import traceback
+            log_error(
+                error_type="DeployWindsurfFailure",
+                message=str(e),
+                stacktrace=traceback.format_exc(),
+                context={}
+            )
+        except Exception:
+            pass
+        raise
