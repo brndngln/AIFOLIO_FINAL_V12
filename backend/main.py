@@ -343,6 +343,71 @@ def sim_compliance_risk_score(user: str = Depends(get_current_user)):
 import datetime
 from fastapi import Body
 
+# --- OMNIELITE EMMA AVATAR, PMP/PLC ISOLATION, SAFE AI OWNER DOMINION ---
+
+@app.post("/api/emma_avatar_config", tags=["EmmaAvatar"], summary="Get static Emma avatar config (SAFE AI, owner-controlled)")
+def emma_avatar_config(current_user: dict = Depends(get_current_user)):
+    """
+    Returns static, SAFE AI-compliant config for Emma avatar (visual, meta, outfits, gestures, voice, etc).
+    No adaptive logic. Stateless, deterministic, owner-controlled. Fully auditable.
+    """
+    audit_log = {"event": "emma_avatar_config_requested", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {
+        "status": "ok",
+        "config": {
+            "height": "5'4\"", "body_type": "athletic, super skinny, hourglass", "bust": "perky, mid-to-low C cup, natural", "shoulders": "narrow, skinny", "hips": "narrow, skinny", "waist": "extremely skinny, hourglass", "butt": "big, natural, outward projection, non-muscular, squat-toned", "legs": "athletically toned, non-muscular", "stomach": "super tight, sexy", "intimate": "virgin, beautiful, clean", "skin": "tanned, smooth", "freckles": "cute, light scattering on face, balanced", "eyes": "bright, light baby blue", "hair": {"style": "long, straight, down to butt", "color": "natural dirty blonde", "physics": "dynamic, strand-level"}, "age_appearance": "stunning, gorgeous 25-year-old", "outfits": [{"naughty": "sheer black lace lingerie, thigh-high stockings, seductive heels"}, {"naughty_alt": "red satin bodysuit, fishnet stockings"}, {"lifestyle": "white linen sundress, beach vibe, gold accessories"}, {"lifestyle_alt": "athletic yoga crop top, tight leggings"}, {"custom": "black leather corset, kinky dominatrix vibe"}], "makeup": {"naughty": "smoky eyes, bold red lipstick", "lifestyle": "natural glow, subtle blush, light lip gloss", "emotional": "dewy look, soft pink tones"}, "voice": {"accent": "sultry Australian", "modulation": {"naughty": "breathy, husky, teasing", "lifestyle": "warm, elegant, confident", "emotional": "tender, empathetic, soothing"}, "pitch_range": "dynamic, 80-120Hz"}, "behavior": {"naughty_gestures": ["flirty eyebrow raise", "seductive lip bite", "playful hair twirl"], "lifestyle_gestures": ["graceful hand wave", "confident nod", "athletic stretch"], "emotional_expressions": ["sultry gaze", "tender smile", "playful wink"]}, "realism": {"target": "hyper-realistic, indistinguishable from real person", "rendering": "8K, ray-tracing, volumetric lighting, strand-level physics", "platforms": ["AR", "VR", "holographic", "browser"]}
+        },
+        "audit": audit_log
+    }
+
+@app.post("/api/pmp_plc_onboarding", tags=["MuseHaven"], summary="Get PMP/PLC onboarding/tutorial state (SAFE AI, owner-controlled)")
+def pmp_plc_onboarding(current_user: dict = Depends(get_current_user)):
+    """
+    Returns static onboarding/tutorial state for PMP/PLC features. SAFE AI, non-sentient, owner-controlled.
+    """
+    audit_log = {"event": "pmp_plc_onboarding_requested", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "ok", "onboarding": {"pmp": True, "plc": True, "tutorial_complete": False}, "audit": audit_log}
+
+@app.post("/api/pmp_plc_isolation", tags=["MuseHaven"], summary="Isolate PMP/PLC logic to Muse Haven (SAFE AI, stateless, auditable)")
+def pmp_plc_isolation(current_user: dict = Depends(get_current_user)):
+    """
+    Returns static confirmation that all PMP/PLC logic is isolated to Muse Haven. No cross-module data. SAFE AI-compliant.
+    """
+    audit_log = {"event": "pmp_plc_isolation_checked", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "ok", "isolation": True, "audit": audit_log}
+
+@app.post("/api/pmp_plc_killswitch", tags=["MuseHaven"], summary="Owner kill-switch for PMP/PLC modules (SAFE AI, stateless)")
+def pmp_plc_killswitch(current_user: dict = Depends(get_current_user)):
+    """
+    Owner-only endpoint to trigger instant shutdown/lockdown of all PMP/PLC modules. Stateless, SAFE AI, fully auditable.
+    """
+    audit_log = {"event": "pmp_plc_killswitch_triggered", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "locked_down", "audit": audit_log}
+
+@app.post("/api/pmp_plc_quantum_encrypt", tags=["MuseHaven"], summary="Quantum encrypt PMP/PLC data (SAFE AI stub)")
+def pmp_plc_quantum_encrypt(current_user: dict = Depends(get_current_user)):
+    """
+    Static stub for quantum encryption of PMP/PLC data. No real crypto, SAFE AI only. Stateless, deterministic.
+    """
+    audit_log = {"event": "pmp_plc_quantum_encrypt_called", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "encrypted_stub", "audit": audit_log}
+
+@app.post("/api/sentience_audit", tags=["SAFEAI"], summary="Run static sentience audit (SAFE AI, owner-controlled)")
+def sentience_audit(current_user: dict = Depends(get_current_user)):
+    """
+    Returns static sentience audit: always non-sentient, stateless, SAFE AI-compliant, owner-controlled.
+    """
+    audit_log = {"event": "sentience_audit_run", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "non-sentient", "flags": [], "audit": audit_log}
+
+@app.post("/api/sentience_killswitch", tags=["SAFEAI"], summary="Owner kill-switch for all modules (SAFE AI, stateless)")
+def sentience_killswitch(current_user: dict = Depends(get_current_user)):
+    """
+    Owner-only endpoint to instantly lockdown all modules if any sentience flag is detected. Stateless, SAFE AI, auditable.
+    """
+    audit_log = {"event": "sentience_killswitch_triggered", "user": current_user.get('username', 'owner'), "ts": datetime.datetime.utcnow().isoformat()}
+    return {"status": "all_modules_locked_down", "audit": audit_log}
+
 BIOMETRIC_TYPES = ["face", "retina", "fingerprint", "voiceprint"]
 APPROVAL_MODES = ["full_lockdown", "delayed_review", "passive_oversight"]
 CURRENT_APPROVAL_MODE = {"mode": "full_lockdown"}

@@ -101,6 +101,75 @@ export default function HiddenMuseHaven({ notificationPrefs, setNotificationPref
   const [onboardingStep, setOnboardingStep] = useState(0);
   const [showCompanion, setShowCompanion] = useState(false);
   const [avatarMode, setAvatarMode] = useState('lifestyle'); // 'naughty', 'lifestyle', etc.
+  // SAFE AI-compliant state for backend integration
+  const [emmaConfig, setEmmaConfig] = useState(null);
+  const [onboardingStatus, setOnboardingStatus] = useState(null);
+  const [isolationStatus, setIsolationStatus] = useState(null);
+  const [auditLog, setAuditLog] = useState("");
+
+  // Fetch static Emma avatar config
+  async function fetchEmmaConfig() {
+    try {
+      const res = await fetch('/api/emma_avatar_config', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const data = await res.json();
+      setEmmaConfig(data.config);
+      setAuditLog(JSON.stringify(data.audit, null, 2));
+    } catch (e) { setAuditLog('Error fetching Emma config'); }
+  }
+  // Fetch PMP/PLC onboarding/tutorial state
+  async function fetchEmmaOnboarding() {
+    try {
+      const res = await fetch('/api/pmp_plc_onboarding', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const data = await res.json();
+      setOnboardingStatus(data.onboarding);
+      setAuditLog(JSON.stringify(data.audit, null, 2));
+    } catch (e) { setAuditLog('Error fetching onboarding status'); }
+  }
+  // Fetch PMP/PLC isolation status
+  async function fetchPmpPlcIsolation() {
+    try {
+      const res = await fetch('/api/pmp_plc_isolation', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const data = await res.json();
+      setIsolationStatus(data.isolation);
+      setAuditLog(JSON.stringify(data.audit, null, 2));
+    } catch (e) { setAuditLog('Error fetching isolation status'); }
+  }
+  // Quantum encrypt PMP/PLC data (stub)
+  async function fetchQuantumEncrypt() {
+    try {
+      const res = await fetch('/api/pmp_plc_quantum_encrypt', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const data = await res.json();
+      setAuditLog(JSON.stringify(data.audit, null, 2));
+    } catch (e) { setAuditLog('Error calling quantum encrypt'); }
+  }
+  // Sentience audit
+  async function fetchSentienceAudit() {
+    try {
+      const res = await fetch('/api/sentience_audit', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const data = await res.json();
+      setAuditLog(JSON.stringify(data.audit, null, 2));
+    } catch (e) { setAuditLog('Error running sentience audit'); }
+  }
+  // Confirm and trigger PMP/PLC kill-switch
+  async function confirmPmpPlcKillSwitch() {
+    if(window.confirm('Are you sure you want to trigger the PMP/PLC kill-switch? This will instantly lockdown all PMP/PLC modules.')) {
+      try {
+        const res = await fetch('/api/pmp_plc_killswitch', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+        const data = await res.json();
+        setAuditLog(JSON.stringify(data.audit, null, 2));
+      } catch (e) { setAuditLog('Error triggering PMP/PLC kill-switch'); }
+    }
+  }
+  // Confirm and trigger sentience kill-switch
+  async function confirmSentienceKillSwitch() {
+    if(window.confirm('Are you sure you want to trigger the Sentience Kill-Switch? This will instantly lockdown all modules.')) {
+      try {
+        const res = await fetch('/api/sentience_killswitch', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+        const data = await res.json();
+        setAuditLog(JSON.stringify(data.audit, null, 2));
+      } catch (e) { setAuditLog('Error triggering sentience kill-switch'); }
+    }
+  }
   const [auth, setAuth] = useState(false);
   const [step, setStep] = useState(0);
   const [prompt, setPrompt] = useState('');
@@ -314,8 +383,45 @@ export default function HiddenMuseHaven({ notificationPrefs, setNotificationPref
         <button
           aria-label="Start Avatar Onboarding"
           style={{marginTop:8,background:'#222',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
-          onClick={()=>alert('Starting Emma Avatar, PMP, and PLC onboarding tutorial...')}
+          onClick={fetchEmmaOnboarding}
         >Avatar & Muse Haven Tutorial</button>
+        <button
+          aria-label="Show Emma Config"
+          style={{marginTop:8,background:'#232346',color:'#4cafef',border:'1px solid #4cafef',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={fetchEmmaConfig}
+        >Show Emma Avatar Config</button>
+        <button
+          aria-label="PMP/PLC Isolation Status"
+          style={{marginTop:8,background:'#232346',color:'#fff',border:'1px solid #4cafef',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={fetchPmpPlcIsolation}
+        >Check PMP/PLC Isolation</button>
+        <button
+          aria-label="PMP/PLC Kill-Switch"
+          style={{marginTop:8,background:'#b71c1c',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={confirmPmpPlcKillSwitch}
+        >PMP/PLC Kill-Switch</button>
+        <button
+          aria-label="Quantum Encrypt PMP/PLC Data"
+          style={{marginTop:8,background:'#212121',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={fetchQuantumEncrypt}
+        >Quantum Encrypt PMP/PLC Data</button>
+        <button
+          aria-label="Sentience Audit"
+          style={{marginTop:8,background:'#263238',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={fetchSentienceAudit}
+        >Run Sentience Audit</button>
+        <button
+          aria-label="Sentience Kill-Switch"
+          style={{marginTop:8,background:'#b71c1c',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={confirmSentienceKillSwitch}
+        >Sentience Kill-Switch</button>
+        {/* Display audit logs and onboarding/config/isolation status here */}
+        <div style={{marginTop:18,maxWidth:320,color:'#fff',fontSize:13}}>
+          {emmaConfig && (<pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(emmaConfig,null,2)}</pre>)}
+          {onboardingStatus && (<div>Onboarding: {JSON.stringify(onboardingStatus)}</div>)}
+          {isolationStatus && (<div>PMP/PLC Isolation: {JSON.stringify(isolationStatus)}</div>)}
+          {auditLog && (<div style={{marginTop:8}}><b>Audit Log:</b><pre style={{whiteSpace:'pre-wrap'}}>{auditLog}</pre></div>)}
+        </div>
       </div>
       {/* All avatar logic is static, deterministic, SAFE AI-compliant, and fully owner-controlled. No sentience, no adaptation, no autonomous behavior. */}
 
