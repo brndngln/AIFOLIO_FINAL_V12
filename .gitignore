@@ -91,3 +91,4 @@ dist/
 .backups/
 .backups/
 .backups/
+node_modules
