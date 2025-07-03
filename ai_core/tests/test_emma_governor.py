@@ -10,6 +10,10 @@ class TestEmmaGovernor(unittest.TestCase):
     def setUp(self):
         self.governor = EmmaGovernor()
         self.agent = DummyAgent()
+        # Register agent with EmmaGovernor to avoid kill-switch
+        self.agent.fingerprint = str(id(self.agent))
+        self.governor.registered_agents = {self.agent.fingerprint}
+
 
     def test_verify_behavior_safe(self):
         self.assertTrue(self.governor.verify_behavior(self.agent))
