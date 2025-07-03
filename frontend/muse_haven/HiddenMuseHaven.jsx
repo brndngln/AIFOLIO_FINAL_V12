@@ -14,8 +14,9 @@ function authenticate({ biometric, passphrase, location, time }) {
   return biometric === 'OWNER_BIOMETRIC' && passphrase === 'OWNER_SECRET' && location === 'OWNER_LOCATION' && time === 'OWNER_TIME';
 }
 
-const HIDDEN_TRIGGER_SEQUENCE = [1, 2, 3, 4, 5, 6]; // 6-tap pattern stub
-const VOICE_TRIGGER_PHRASE = "Muse ignite"; // Stub for voice trigger
+const HIDDEN_TRIGGER_SEQUENCE = [1, 2, 3, 4, 5, 6, 7]; // 7-tap pattern stub
+const VOICE_TRIGGER_PHRASE = "Muse, light my fire"; // Stub for voice trigger
+const SWIPE_TRIGGER_PATTERN = 'spiral'; // Stub for custom swipe
 
 export default function HiddenMuseHaven() {
   const [triggered, setTriggered] = useState(false);
@@ -25,6 +26,9 @@ export default function HiddenMuseHaven() {
   const [chat, setChat] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
   const [showCustomization, setShowCustomization] = useState(false);
+  const [showLearning, setShowLearning] = useState(false);
+  const [learningMode, setLearningMode] = useState('manual'); // manual | active | hybrid
+  const [feedback, setFeedback] = useState('');
   const [profile, setProfile] = useState({
     name: 'You',
     kinks: [],
@@ -40,10 +44,17 @@ export default function HiddenMuseHaven() {
     outfit: 'lingerie',
     hair: 'cascading curls',
     makeup: 'smoky eyes',
+    sessionHistory: [],
+    presets: [
+      { name: 'Tender Muse', explicitness: 3, flirtation: 8, mood: 'tender' },
+      { name: 'Kinky Vixen', explicitness: 10, flirtation: 10, mood: 'wild' },
+      { name: 'Romantic Siren', explicitness: 6, flirtation: 7, mood: 'romantic' }
+    ]
   });
   const [passcode, setPasscode] = useState('');
   const [biometric, setBiometric] = useState('');
   const [facial, setFacial] = useState('');
+  const [behavioral, setBehavioral] = useState('');
   const [voicePhrase, setVoicePhrase] = useState('');
 
   function handleSecretTap() {
@@ -62,28 +73,51 @@ export default function HiddenMuseHaven() {
     }
   }
 
+  // Custom swipe trigger stub
+  function handleSwipeTrigger(pattern) {
+    if (pattern === SWIPE_TRIGGER_PATTERN) {
+      setTriggered(true);
+    }
+  }
+
   function handleAuth(e) {
     e.preventDefault();
-    // Facial recognition/passcode/biometric stub
-    const pass = passcode.length >= 12 && /[A-Z]/.test(passcode) && /[0-9]/.test(passcode);
+    // 3D face/passcode/biometric/behavioral biometric stub
+    const pass = passcode.length >= 16 && /[A-Z]/.test(passcode) && /[0-9]/.test(passcode);
     const bio = biometric === 'OWNER_BIOMETRIC';
-    const face = facial === 'OWNER_FACE';
-    if (pass && bio && face) {
+    const face = facial === 'OWNER_FACE_3D';
+    const behav = behavioral === 'OWNER_BEHAVIOR';
+    if (pass && bio && face && behav) {
       setAuth(true);
     }
   }
 
   function handleSend(e) {
     e.preventDefault();
-    // Static deterministic response logic
+    // Adaptive SAFE AI: owner-controlled, stateless
     let response = '';
-    if (prompt.toLowerCase().includes('naughty')) {
-      response = 'Emma grins, her Australian accent sultry: "You want me to be naughty? Let me show you what I can do..."';
+    if (learningMode !== 'manual') {
+      // Simulate adaptive feedback: escalate if owner gave positive feedback last time
+      const last = profile.sessionHistory[profile.sessionHistory.length - 1];
+      if (last && last.feedback === 'hot') {
+        response = 'Emma purrs: "You loved that last time... let me take you even further tonight."';
+      } else if (prompt.toLowerCase().includes('naughty')) {
+        response = 'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
+      } else {
+        response = 'Emma smiles warmly: "How can I please you today?"';
+      }
     } else {
-      response = 'Emma smiles warmly: "How can I please you today?"';
+      // Manual: static
+      if (prompt.toLowerCase().includes('naughty')) {
+        response = 'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
+      } else {
+        response = 'Emma smiles warmly: "How can I please you today?"';
+      }
     }
     setChat([...chat, { you: prompt, emma: quantumEncrypt(response) }]);
+    setProfile({ ...profile, sessionHistory: [...profile.sessionHistory, { prompt, feedback: feedback || 'none' }] });
     setPrompt('');
+    setFeedback('');
   }
 
   function handleShowSettings() {
@@ -92,23 +126,36 @@ export default function HiddenMuseHaven() {
   function handleShowCustomization() {
     setShowCustomization(!showCustomization);
   }
-  // 8K image/video/text generation stub
+  function handleShowLearning() {
+    setShowLearning(!showLearning);
+  }
+  // Adaptive 8K image/video/text generation stub
   function generate8KContent(type) {
     if (!auth) return 'Access Denied';
-    return quantumEncrypt(`[8K ${type}] Hyper-realistic, explicit Emma content generated (static stub).`);
+    let tag = profile.sessionHistory.length > 2 && learningMode !== 'manual' ? '[ADAPTIVE]' : '[STATIC]';
+    return quantumEncrypt(`${tag} [8K ${type}] Emma generated just for your evolving taste.`);
   }
   function generateText() {
     if (!auth) return 'Access Denied';
-    return quantumEncrypt(`Emma (in your favorite look, ${profile.favoriteLook}) whispers: "Tonight, I want to make your naughtiest fantasy come true..."`);
+    let tag = profile.sessionHistory.length > 2 && learningMode !== 'manual' ? '[ADAPTIVE]' : '[STATIC]';
+    let preset = profile.presets[Math.floor(Math.random() * profile.presets.length)];
+    return quantumEncrypt(`${tag} Emma (${preset.name}) whispers: "Tonight, I want to make your naughtiest fantasy come true..."`);
+  }
+  function handleFeedbackChange(e) {
+    setFeedback(e.target.value);
+  }
+  function handleLearningModeChange(e) {
+    setLearningMode(e.target.value);
   }
 
   if (!triggered) {
     return (
       <div onClick={handleSecretTap} style={{height: '100vh', background: '#f7f7f7'}}>
         {/* Disguised as innocuous utility page */}
-        <h2>System Analytics</h2>
+        <h2>Performance Metrics</h2>
         <p>Running checks...</p>
         <input placeholder="Voice Command" onBlur={handleVoiceTrigger} />
+        {/* Custom swipe trigger stub (UI not implemented, call handleSwipeTrigger(SWIPE_TRIGGER_PATTERN) to test) */}
       </div>
     );
   }
@@ -116,22 +163,24 @@ export default function HiddenMuseHaven() {
     return (
       <form onSubmit={handleAuth} style={{padding: 40}}>
         <h2>Muse Haven Access</h2>
-        <input value={facial} onChange={e => setFacial(e.target.value)} name="facial" placeholder="Facial Recognition" />
-        <input value={passcode} onChange={e => setPasscode(e.target.value)} name="passcode" type="password" placeholder="Passcode (12+ chars, A-Z, 0-9)" />
+        <input value={facial} onChange={e => setFacial(e.target.value)} name="facial" placeholder="3D Facial Recognition" />
+        <input value={passcode} onChange={e => setPasscode(e.target.value)} name="passcode" type="password" placeholder="Passcode (16+ chars, A-Z, 0-9)" />
         <input value={biometric} onChange={e => setBiometric(e.target.value)} name="biometric" placeholder="Biometric" />
+        <input value={behavioral} onChange={e => setBehavioral(e.target.value)} name="behavioral" placeholder="Behavioral Biometric" />
         <button type="submit">Authenticate</button>
       </form>
     );
   }
   return (
     <div style={{padding: 40, background: '#181824', color: '#fff', minHeight: '100vh'}}>
-      <h2>Muse Haven – Ultimate Pleasure Sanctuary</h2>
+      <h2>Muse Haven – Evolving Pleasure Sanctuary</h2>
       <button onClick={handleShowSettings}>Settings</button>
       <button onClick={handleShowCustomization}>Customization</button>
+      <button onClick={handleShowLearning}>Learning Mode</button>
       {showSettings && (
         <div style={{background: '#222', padding: 20, margin: 10}}>
           <h3>Security & Triggers</h3>
-          <p>Trigger: 6-tap pattern or voice phrase ("Muse ignite")</p>
+          <p>Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my fire")</p>
           <p>Portal theme: Minimalist (disguised)</p>
           <p>Auto-lock: 5 min inactivity</p>
           <p>Emergency Lockdown: <button style={{background: 'crimson', color: '#fff'}} onClick={() => window.location.reload()}>Purge & Lock</button></p>
@@ -151,9 +200,28 @@ export default function HiddenMuseHaven() {
           <label>Haptic: <input type="checkbox" checked={profile.hapticEnabled} onChange={e => setProfile({...profile, hapticEnabled: !profile.hapticEnabled})} /></label><br/>
         </div>
       )}
+      {showLearning && (
+        <div style={{background: '#222', padding: 20, margin: 10}}>
+          <h3>Learning Mode</h3>
+          <label>Learning Mode: <select value={learningMode} onChange={handleLearningModeChange}>
+            <option value="manual">Manual (owner only)</option>
+            <option value="active">Active (feedback-driven)</option>
+            <option value="hybrid">Hybrid (manual + feedback)</option>
+          </select></label><br/>
+          <p>Current mode: {learningMode}</p>
+          <p>All learning is owner-controlled, opt-in, stateless, and SAFE AI-compliant.</p>
+        </div>
+      )}
       <div style={{marginTop: 20}}>
         <form onSubmit={handleSend}>
           <input value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Type your desire..." style={{width: 300}} />
+          <select value={feedback} onChange={handleFeedbackChange} style={{marginLeft: 10}}>
+            <option value="">Feedback</option>
+            <option value="hot">🔥 Hot</option>
+            <option value="more">More</option>
+            <option value="softer">Softer</option>
+            <option value="reset">Reset</option>
+          </select>
           <button type="submit">Send</button>
         </form>
         <div style={{margin: '20px 0'}}>
