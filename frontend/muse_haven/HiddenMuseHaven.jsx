@@ -27,7 +27,11 @@ function OnboardingOverlay({ step, onNext, onClose }) {
     'Adjust learning mode and feedback for fully owner-controlled, SAFE AI-compliant adaptation.',
     'All chats, content, and preferences are stored in a quantum-encrypted, owner-only vault.',
     'Trigger emergency lockdown at any time for instant purge and lockout.',
-    'Access contextual help via the (?) buttons throughout the portal.'
+    'Access contextual help via the (?) buttons throughout the portal.',
+    'Use the ⚙️ Owner Control Center (top left) to trigger lockdown, export logs, and check API key status.',
+    'API Key Status: Instantly see if required integrations are set up—no secrets ever shown.',
+    'Accessibility: Full keyboard navigation, ARIA labels, high-contrast, and large touch targets.',
+    'Need help? Launch this onboarding anytime (bottom left ?) or click any "?" for contextual help. FAQ and troubleshooting are in the README.'
   ];
   return (
     <div style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',background:'rgba(0,0,0,0.8)',zIndex:9999,color:'#fff',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}} aria-modal="true" role="dialog">

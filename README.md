@@ -1,6 +1,67 @@
 # AIFOLIO™ — FINAL V12
 
+---
+
+## 🍏 Apple-Like Owner Experience & SAFE AI Controls
+
+AIFOLIO FINAL V12 delivers an ultra-intuitive, owner-first experience modeled after Apple’s legendary user-friendliness. Every control is just one click away, fully auditable, and SAFE AI-compliant.
+
+### 🚦 Owner Control Center (Frontend SPA)
+- Access via the ⚙️ button (top left) in the Muse Haven dashboard.
+- Instantly:
+  - **Trigger Emergency Lockdown** (irreversible, SAFE AI-compliant)
+  - **Export Audit Log** (full owner action history)
+  - **Export Compliance Log** (SAFE AI/ethics logs)
+  - **Check API Key Status** (never exposes secrets; shows presence only)
+- All controls have tooltips and confirmation dialogs for clarity and safety.
+
+### 🛡️ SAFE AI Compliance
+- 100% static, deterministic SAFE AI modules
+- No sentient, adaptive, or autonomous logic
+- All actions are owner-controlled and logged
+- Immutable audit trails and compliance logs
+- Permanent ethics lock enforced (`ethics.lock`)
+
+### 🧭 Onboarding & Help
+- Launch onboarding anytime via the persistent "?" button (bottom left)
+- Every major screen and action has contextual help ("?" tooltips)
+- Accessibility: Keyboard navigation, ARIA labels, high-contrast, large touch targets
+
+### 🔑 API Key Status
+- View at a glance in the Owner Control Center
+- `/api/api-keys` endpoint (backend) provides SAFE AI-compliant status for all required keys
+
+### 📖 Troubleshooting & FAQ
+- See the end of this README for troubleshooting, FAQ, and support
+
+---
+
 A fully autonomous, non-sentient, ZENTARA-compatible PDF farming empire designed for scalable monetization of PDF content through AI-powered processing and distribution.
+
+---
+
+## 🛠️ Troubleshooting & FAQ
+
+**Q: API Key status shows 'missing'. What should I do?**
+- Add the required key to your `.env` file and restart the backend. No secrets are ever shown—only presence is checked.
+
+**Q: How do I relaunch onboarding/help?**
+- Click the persistent "?" button (bottom left) in the dashboard to relaunch onboarding. Every major action also has a "?" tooltip for instant help.
+
+**Q: How do I trigger lockdown or export audit/compliance logs?**
+- Open the ⚙️ Owner Control Center (top left). All controls are one click away, with tooltips and confirmations.
+
+**Q: Where can I find audit/compliance logs?**
+- Use the Owner Control Center to export logs. They will download as files or open in a new tab for review.
+
+**Q: Accessibility tips?**
+- All controls are keyboard-accessible, have ARIA labels, and use high-contrast, large touch targets. Use Tab/Shift+Tab to navigate.
+
+**Q: I don’t see the Owner Control Center or controls are missing.**
+- Make sure you are authenticated as the owner. If issues persist, clear your browser cache and restart the app.
+
+**Q: How do I verify SAFE AI compliance?**
+- All modules are static, deterministic, and owner-controlled. The permanent `ethics.lock` and audit logs prove compliance. See the README and exported logs for details.
 
 ## 🚀 Overview
 
