@@ -158,5 +158,35 @@
       "alert_email_opt_in": true
     },
     "event_id": "c2ad834c-d54a-445e-95a4-f8a306c1b1a1"
+  },
+  {
+    "event_type": "download_initiated",
+    "payload": {
+      "vault_id": "V456",
+      "download_url": "https://example.com/file.pdf",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "d947efd9-4e7a-47df-bfcd-f4f49624f766"
+  },
+  {
+    "event_type": "policy_violated",
+    "payload": {
+      "vault_id": "V789",
+      "policy_name": "No Export",
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "e75dc292-89b1-4c78-aee3-ff02c02cfe9d"
+  },
+  {
+    "event_type": "refund_issued",
+    "payload": {
+      "vault_id": "V123",
+      "refund_amount": 10.0,
+      "owner_email": "user@example.com",
+      "alert_email_opt_in": true
+    },
+    "event_id": "5b779c53-aac0-4006-8b6d-7289f47d9b94"
   }
 ]
