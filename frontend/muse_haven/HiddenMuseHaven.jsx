@@ -30,17 +30,27 @@ function OnboardingOverlay({ step, onNext, onClose }) {
     'Access contextual help via the (?) buttons throughout the portal.'
   ];
   return (
-    <div style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',background:'rgba(0,0,0,0.8)',zIndex:9999,color:'#fff',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-      <div style={{maxWidth:500,padding:30,background:'#222',borderRadius:12}}>
-        <h3>Onboarding</h3>
-        <p>{steps[step]}</p>
-        <div style={{marginTop:20}}>
-          {step < steps.length-1 ? <button onClick={onNext}>Next</button> : <button onClick={onClose}>Finish</button>}
+    <div style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',background:'rgba(0,0,0,0.8)',zIndex:9999,color:'#fff',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}} aria-modal="true" role="dialog">
+      <div style={{maxWidth:500,padding:30,background:'#222',borderRadius:18,boxShadow:'0 8px 32px rgba(0,0,0,0.25)'}}>
+        <h3 style={{marginBottom:8}}>Onboarding</h3>
+        <div style={{display:'flex',justifyContent:'center',marginBottom:16}} aria-label="Onboarding Progress">
+          {steps.map((_,i)=>(
+            <div key={i} style={{width:12,height:12,borderRadius:'50%',margin:'0 4px',background:i===step?'#fff':'#555',border:i===step?'2px solid #4cafef':'2px solid #222'}}></div>
+          ))}
+        </div>
+        <p style={{fontSize:18,lineHeight:1.5}}>{steps[step]}</p>
+        <div style={{marginTop:24,display:'flex',justifyContent:'center'}}>
+          {step < steps.length-1 ? (
+            <button onClick={onNext} style={{fontSize:18,padding:'12px 32px',borderRadius:8,background:'#4cafef',color:'#fff',border:'none',boxShadow:'0 2px 8px #222',cursor:'pointer'}}>Next</button>
+          ) : (
+            <button onClick={onClose} style={{fontSize:18,padding:'12px 32px',borderRadius:8,background:'#4cafef',color:'#fff',border:'none',boxShadow:'0 2px 8px #222',cursor:'pointer'}}>Finish</button>
+          )}
         </div>
       </div>
     </div>
   );
 }
+
 
 // Contextual help component
 function HelpTooltip({ text, onClose }) {
@@ -217,6 +227,21 @@ export default function HiddenMuseHaven() {
           onClose={()=>setShowOnboarding(false)}
         />
       )}
+      {/* Persistent onboarding relaunch button */}
+      <button
+        aria-label="Show onboarding tutorial"
+        style={{position:'fixed',bottom:32,left:32,zIndex:10000,background:'#222',color:'#fff',border:'none',borderRadius:24,padding:'12px 18px',fontSize:22,boxShadow:'0 2px 8px #222',cursor:'pointer'}}
+        onClick={()=>{setShowOnboarding(true);setOnboardingStep(0);}}
+        title="Show onboarding tutorial"
+      >?</button>
+      {/* Owner Control Center button */}
+      <button
+        aria-label="Owner Control Center"
+        style={{position:'fixed',top:32,left:32,zIndex:10000,background:'#4cafef',color:'#fff',border:'none',borderRadius:24,padding:'12px 18px',fontSize:20,boxShadow:'0 2px 8px #222',cursor:'pointer'}}
+        onClick={()=>setShowSettings(true)}
+        title="Owner Control Center"
+      >⚙️</button>
+
       {helpText && <HelpTooltip text={helpText} onClose={()=>setHelpText('')} />}
       {/* In-portal backend API/endpoint documentation for owner guidance */}
       <div style={{position:'absolute',top:10,right:10,background:'#232336',padding:16,borderRadius:8,maxWidth:350,fontSize:13,opacity:0.85}}>
