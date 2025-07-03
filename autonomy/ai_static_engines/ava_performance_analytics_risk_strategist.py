@@ -9,10 +9,45 @@ from typing import Dict, List
 
 PERFORMANCE_ANALYTICS_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class AvaPerformanceAnalyticsRiskStrategist:
     @staticmethod
     def monitor_performance(metric: str, value: float, details: Dict) -> Dict:
-        """Statically monitor a performance metric."""
+        context = {
+            'metric': metric,
+            'value': value,
+            'details': details
+        }
+        if not OmnieliteEthicsEngine.enforce('monitor_performance', context):
+            PERFORMANCE_ANALYTICS_LOG.append({
+                'error': 'Ethics violation',
+                'timestamp': datetime.datetime.utcnow().isoformat(),
+                'owner_approved': False
+            })
+            return {
+                'metric': metric,
+                'value': value,
+                'details': details,
+                'timestamp': datetime.datetime.utcnow().isoformat(),
+                'owner_approved': False
+            }
+        if not ethics_validator('monitor_performance', context):
+            PERFORMANCE_ANALYTICS_LOG.append({
+                'error': 'Ethics validation failed',
+                'timestamp': datetime.datetime.utcnow().isoformat(),
+                'owner_approved': False
+            })
+            return {
+                'metric': metric,
+                'value': value,
+                'details': details,
+                'timestamp': datetime.datetime.utcnow().isoformat(),
+                'owner_approved': False
+            }
+        EMMAEthicsGuard.audit_action('monitor_performance', context)
         result = {
             'metric': metric,
             'value': value,

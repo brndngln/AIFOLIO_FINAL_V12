@@ -17,11 +17,20 @@ from autonomy.ai_static_engines.zoe_neural_growth_behavioral_trend_strategist im
 from autonomy.ai_static_engines.nova_code_refactor_maintenance_overseer import NovaCodeRefactorMaintenanceOverseer
 from autonomy.ai_static_engines.justice_ethics_execution_lawful_ai_arbitration import JusticeEthicsExecutionLawfulAIArbitration
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class EMMA:
     """
     Elite Multidomain Matrix Attorney (EMMA):
     - Legal surveillance, contract generator, risk oracle, pre-litigation defense, and contract optimizer
     - All actions require OWNER approval and signature
+    """
+    """
+    EMMA Supreme AI Commander
+    Now permanently governs and enforces the OMNIELITE Ethics Engine across all agent actions, workflows, vaults, PDF logic, and monetization flows.
+    All agent calls are filtered through OmnieliteEthicsEngine and ethics_validator, with audit/override by EMMAEthicsGuard.
     """
     def __init__(self, owner_signature: str):
         never_without_you(owner_signature)

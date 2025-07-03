@@ -9,6 +9,10 @@ from typing import Dict, List
 
 DEVOPS_ACTION_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class EthanDevOpsInfraSupremeCommander:
     @staticmethod
     def inject_file(file_path: str, action_details: Dict) -> Dict:
@@ -20,20 +24,28 @@ class EthanDevOpsInfraSupremeCommander:
             'timestamp': datetime.datetime.utcnow().isoformat(),
             'owner_approved': True
         }
-        DEVOPS_ACTION_LOG.append(result)
-        return result
+        OmnieliteEthicsEngine.enforce('inject_file', context)
+        if not ethics_validator('inject_file', context):
+            return {'error': 'Ethics validation failed'}
+        EMMAEthicsGuard.audit_action('inject_file', context)
+        DEVOPS_ACTION_LOG.append(context)
+        return context
 
     @staticmethod
     def rollback_file(file_path: str) -> Dict:
         """Statically rollback a file injection (audit only)."""
-        result = {
+        context = {
             'file_path': file_path,
             'action': 'rollback',
             'timestamp': datetime.datetime.utcnow().isoformat(),
             'owner_approved': True
         }
-        DEVOPS_ACTION_LOG.append(result)
-        return result
+        OmnieliteEthicsEngine.enforce('rollback_file', context)
+        if not ethics_validator('rollback_file', context):
+            return {'error': 'Ethics validation failed'}
+        EMMAEthicsGuard.audit_action('rollback_file', context)
+        DEVOPS_ACTION_LOG.append(context)
+        return context
 
     @staticmethod
     def automate_workflow(workflow_name: str, details: Dict) -> Dict:

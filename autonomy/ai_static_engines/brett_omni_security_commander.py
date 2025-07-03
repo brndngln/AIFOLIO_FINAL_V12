@@ -10,6 +10,10 @@ from typing import Dict, List
 
 SECURITY_PATCH_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class BrettOmniSecurityCommander:
     @staticmethod
     def patch_attack_vector(vector_type: str, details: Dict) -> Dict:
@@ -25,16 +29,15 @@ class BrettOmniSecurityCommander:
         return result
 
     @staticmethod
-    def block_jailbreak(attempt_details: Dict) -> Dict:
-        """Block LLM jailbreak attempt (static rules only)."""
-        result = {
-            'attempt': attempt_details,
-            'blocked': True,
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'owner_approved': True
-        }
-        SECURITY_PATCH_LOG.append(result)
-        return result
+    def block_jailbreak(prompt: str, context: dict) -> bool:
+        OmnieliteEthicsEngine.enforce('block_jailbreak', context)
+        if not ethics_validator('block_jailbreak', context):
+            SECURITY_PATCH_LOG.append({'error': 'Ethics violation', 'timestamp': datetime.datetime.utcnow().isoformat()})
+            return False
+        if 'jailbreak' in prompt.lower():
+            EMMAEthicsGuard.audit_action('block_jailbreak', context)
+            return False
+        return True
 
     @staticmethod
     def get_patch_log() -> List[Dict]:

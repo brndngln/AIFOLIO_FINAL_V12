@@ -9,10 +9,20 @@ from typing import Dict, List
 
 AGENT_ACTIVITY_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class RayEmbeddedAIAgentMastermind:
     @staticmethod
-    def program_pdf_agent(agent_id: str, pdf_type: str, safeguards: Dict) -> Dict:
-        """Statically program agent logic for interactive PDFs."""
+    def program_pdf_agent(context: dict) -> bool:
+        OmnieliteEthicsEngine.enforce('program_pdf_agent', context)
+        if not ethics_validator('program_pdf_agent', context):
+            return False
+        EMMAEthicsGuard.audit_action('program_pdf_agent', context)
+        agent_id = context['agent_id']
+        pdf_type = context['pdf_type']
+        safeguards = context['safeguards']
         result = {
             'agent_id': agent_id,
             'pdf_type': pdf_type,

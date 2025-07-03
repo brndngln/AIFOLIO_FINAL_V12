@@ -9,10 +9,19 @@ from typing import Dict, List
 
 GROWTH_TREND_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class ZoeNeuralGrowthBehavioralTrendStrategist:
     @staticmethod
-    def map_product_performance(product_id: str, metrics: Dict) -> Dict:
-        """Statically map product performance (no learning)."""
+    def map_product_performance(context: dict) -> bool:
+        OmnieliteEthicsEngine.enforce('map_product_performance', context)
+        if not ethics_validator('map_product_performance', context):
+            return False
+        EMMAEthicsGuard.audit_action('map_product_performance', context)
+        product_id = context.get('product_id')
+        metrics = context.get('metrics')
         result = {
             'product_id': product_id,
             'metrics': metrics,
@@ -20,7 +29,7 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
             'owner_approved': True
         }
         GROWTH_TREND_LOG.append(result)
-        return result
+        return True
 
     @staticmethod
     def suggest_evolution(target: str, suggestion_type: str, details: Dict) -> Dict:

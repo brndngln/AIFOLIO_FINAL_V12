@@ -9,10 +9,21 @@ from typing import Dict, List
 
 UX_VISUAL_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class BrooklynUXVisualDominionEngineer:
     @staticmethod
     def update_grid_logic(component: str, details: Dict) -> Dict:
-        """Statically update frontend grid logic."""
+        context = {'component': component, 'details': details}
+        if not OmnieliteEthicsEngine.enforce('update_grid_logic', context):
+            UX_VISUAL_LOG.append({'error': 'Ethics violation', 'timestamp': datetime.datetime.utcnow().isoformat()})
+            return {'error': 'Ethics violation'}
+        if not ethics_validator('update_grid_logic', context):
+            UX_VISUAL_LOG.append({'error': 'Ethics validation failed', 'timestamp': datetime.datetime.utcnow().isoformat()})
+            return {'error': 'Ethics validation failed'}
+        EMMAEthicsGuard.audit_action('update_grid_logic', context)
         result = {
             'component': component,
             'update': 'grid_logic',

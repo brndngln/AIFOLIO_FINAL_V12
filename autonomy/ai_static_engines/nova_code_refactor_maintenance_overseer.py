@@ -9,14 +9,22 @@ from typing import Dict, List
 
 REFACTOR_MAINTENANCE_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class NovaCodeRefactorMaintenanceOverseer:
     @staticmethod
-    def clean_legacy_code(module_name: str, details: Dict) -> Dict:
+    def clean_legacy_code(context: dict) -> Dict:
         """Statically clean legacy code in a module."""
+        OmnieliteEthicsEngine.enforce('clean_legacy_code', context)
+        if not ethics_validator('clean_legacy_code', context):
+            return {'error': 'Ethics validation failed'}
+        EMMAEthicsGuard.audit_action('clean_legacy_code', context)
         result = {
-            'module_name': module_name,
+            'module_name': context['module_name'],
             'action': 'clean_legacy_code',
-            'details': details,
+            'details': context['details'],
             'timestamp': datetime.datetime.utcnow().isoformat(),
             'owner_approved': True
         }

@@ -9,10 +9,16 @@ from typing import Dict, List
 
 ETHICS_ARBITRATION_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class JusticeEthicsExecutionLawfulAIArbitration:
     @staticmethod
     def monitor_violation(event_type: str, details: Dict) -> Dict:
-        """Statically monitor for platform violations and AI risk indicators."""
+        context = {'event_type': event_type, 'details': details}
+        if not JusticeEthicsExecutionLawfulAIArbitration.monitor_violations(context):
+            return {'violation_detected': False, 'timestamp': datetime.datetime.utcnow().isoformat(), 'owner_approved': False}
         result = {
             'event_type': event_type,
             'details': details,

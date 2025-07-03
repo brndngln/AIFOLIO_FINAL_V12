@@ -9,14 +9,24 @@ from typing import Dict, List
 
 LOGIC_MESH_LOG = []
 
+from ethics_engine import OmnieliteEthicsEngine
+from middlewares.ethics_validator import ethics_validator
+from emma_ethics_guard import EMMAEthicsGuard
+
 class KennedyAILogicMeshArchitect:
     @staticmethod
-    def reinforce_pdf_pipeline(pipeline_name: str, details: Dict) -> Dict:
-        """Statically reinforce a PDF generation pipeline."""
+    def reinforce_pdf_pipeline(context: dict) -> Dict:
+        if not OmnieliteEthicsEngine.enforce('reinforce_pdf_pipeline', context):
+            LOGIC_MESH_LOG.append({'error': 'Ethics violation', 'timestamp': datetime.datetime.utcnow().isoformat()})
+            return {'pipeline': None, 'reinforced': False, 'details': None, 'timestamp': datetime.datetime.utcnow().isoformat(), 'owner_approved': False}
+        if not ethics_validator('reinforce_pdf_pipeline', context):
+            LOGIC_MESH_LOG.append({'error': 'Ethics validation failed', 'timestamp': datetime.datetime.utcnow().isoformat()})
+            return {'pipeline': None, 'reinforced': False, 'details': None, 'timestamp': datetime.datetime.utcnow().isoformat(), 'owner_approved': False}
+        EMMAEthicsGuard.audit_action('reinforce_pdf_pipeline', context)
         result = {
-            'pipeline': pipeline_name,
+            'pipeline': context.get('pipeline_name'),
             'reinforced': True,
-            'details': details,
+            'details': context.get('details'),
             'timestamp': datetime.datetime.utcnow().isoformat(),
             'owner_approved': True
         }

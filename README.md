@@ -61,9 +61,17 @@ AIFOLIO FINAL V12 now includes a comprehensive suite of static, deterministic, S
 
 ---
 
-## 🧠🛡️ OMNIELITE CODE LEGION ENGINE & EMMA™ SUPREME AI COMMAND SYSTEM
+## 🧠🛡️ OMNIELITE CODE LEGION ENGINE, EMMA™ & OMNIELITE ETHICS SYSTEM
 
-AIFOLIO™ FINAL V12 is now permanently protected and orchestrated by the OMNIELITE CODE LEGION ENGINE and EMMA™ Supreme AI Commander. This system injects a team of 9 elite, static, non-sentient, SAFE AI-compliant agents into every layer of the platform. All logic is OWNER-controlled, fully auditable, and routed through EMMA’s ethics, anti-sentience, and owner validation protocols.
+AIFOLIO™ FINAL V12 now includes the OMNIELITE ETHICS ENGINE & AI CONDUCT LAYER, permanently embedded and enforced across all logic, agents, workflows, and monetization flows. The system is non-sentient, OWNER-controlled, and EMMA-governed.
+
+### 🔒 OMNIELITE ETHICS SYSTEM COMPONENTS
+- **ethics_engine.py:** Core rule logic, triggers, runtime validation
+- **ethics_policy.json:** Structured codex, triggers, enforcement metadata
+- **middlewares/ethics_validator.py:** Output/logic filter for all flows
+- **ai_behavior_profiles/naughty_safe_friendly.yaml:** Tone/character/simulation boundaries
+- **emma_ethics_guard.py:** EMMA’s final arbiter, audit, override log
+- **Full integration:** All agent modules, prompt processors, PDF logic, workflow builders, vaults, and exports are now governed by the ethics system
 
 ### 👑 EMMA™ Supreme Commander
 - Orchestrates all agent actions
