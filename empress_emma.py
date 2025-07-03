@@ -24,6 +24,7 @@ from emma_identity_lock import verify_owner, deny_non_owner
 import yaml
 import json
 import datetime
+from autonomy.ai_static_engines.pmp_personal_muse_protocol import PersonalMuseProtocol, PMP_ENGINE_NAME
 
 class EMMA:
     """
@@ -37,7 +38,7 @@ class EMMA:
     - All actions are logged to emma_action_log.jsonl and filtered by OmnieliteEthicsEngine
     - No sentience, emotion simulation, or adaptive behavior is possible
     """
-    def __init__(self, owner_signature: str, biometric_hash: str):
+    def __init__(self, owner_signature: str, biometric_hash: str, pmp_passphrase: str = None, pmp_context: dict = None):
         never_without_you(owner_signature)
         self.owner_signature = owner_signature
         self.biometric_hash = biometric_hash
@@ -63,6 +64,20 @@ class EMMA:
             'justice': JusticeEthicsExecutionLawfulAIArbitration
         }
         self.legion_audit_log = []
+        # --- PMP Hidden Integration ---
+        self._pmp = None
+        self._pmp_active = False
+        self._pmp_stealth = True
+        self._pmp_kill_switch = False
+        self._pmp_audit_last = None
+        if pmp_passphrase and pmp_context:
+            try:
+                self._pmp = PersonalMuseProtocol(owner_signature, biometric_hash, pmp_passphrase, pmp_context)
+                self._pmp_active = True
+                self._pmp_stealth = self._pmp.stealth_mode
+            except Exception as e:
+                self._pmp_active = False
+                self._pmp_audit_last = str(e)
 
     # --- OMNIELITE CODE LEGION AGENT INTERFACES ---
     @owner_approval_required('Brett: Patch Attack Vector')
@@ -133,6 +148,33 @@ class EMMA:
             if not self.naughty_mode_config.get('enabled', False):
                 self.log_action(action, context, 'naughty_mode_disabled')
                 return {'error': 'Naughty mode disabled'}
+        # --- PMP Hidden Trigger ---
+        if action == 'activate_pmp' and self._pmp:
+            self._pmp_active = True
+            self._pmp_stealth = self._pmp.stealth_mode
+            self._pmp_audit_last = None
+            return {'pmp': 'activated'}
+        if action == 'pmp_interact' and self._pmp and self._pmp_active:
+            prompt = context.get('prompt', '')
+            try:
+                result = self._pmp.pmp_interact(prompt)
+                self._pmp_audit_last = result
+                return {'pmp_response': result}
+            except Exception as e:
+                self._pmp_audit_last = str(e)
+                return {'error': str(e)}
+        if action == 'pmp_kill_switch' and self._pmp:
+            self._pmp.kill_switch()
+            self._pmp_active = False
+            self._pmp_kill_switch = True
+            return {'pmp': 'killed'}
+        if action == 'pmp_tutorial' and self._pmp:
+            return {'pmp_tutorial': self._pmp.tutorial()}
+        if action == 'pmp_audit_log' and self._pmp:
+            try:
+                return {'pmp_audit_log': self._pmp.get_audit_log()}
+            except Exception as e:
+                return {'error': str(e)}
         # Call agent logic
         result = getattr(agent, action)(context)
         self.log_action(action, context, 'success')
