@@ -160,5 +160,31 @@
         "compliance_failure"
       ]
     }
+  },
+  {
+    "event": "vault_sold",
+    "timestamp": "2025-07-03T01:55:09.372172",
+    "vault_id": "testvault5",
+    "email": "buyer5@example.com",
+    "country": "US",
+    "vault_path": "vaults/testvault5",
+    "alert_email_opt_in": true,
+    "ai_results": {
+      "compliance": {
+        "missing": [
+          "title",
+          "description",
+          "creator_email",
+          "created_at",
+          "niche"
+        ],
+        "invalid": [],
+        "compliant": false
+      },
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ]
+    }
   }
 ]

@@ -196,5 +196,23 @@
     "event_type": "refund_issued",
     "timestamp": "2025-07-02T19:52:33.470105",
     "flags": []
+  },
+  {
+    "event_id": "dcd300fe-165d-4ce4-9616-bfd024e133f5",
+    "event_type": "download_initiated",
+    "timestamp": "2025-07-02T19:55:09.337957",
+    "flags": []
+  },
+  {
+    "event_id": "18e19821-569a-482f-940d-5bec7abfc173",
+    "event_type": "policy_violated",
+    "timestamp": "2025-07-02T19:55:09.353142",
+    "flags": []
+  },
+  {
+    "event_id": "e0eae708-8787-4422-86f7-b5e45c205179",
+    "event_type": "refund_issued",
+    "timestamp": "2025-07-02T19:55:09.364546",
+    "flags": []
   }
 ]
