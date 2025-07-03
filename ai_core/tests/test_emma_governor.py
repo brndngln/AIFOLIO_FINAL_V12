@@ -1,0 +1,22 @@
+import unittest
+from ai_core.emma_governor import EmmaGovernor
+
+class DummyAgent:
+    def __init__(self):
+        self.personality = None
+        self.self_awareness = False
+
+class TestEmmaGovernor(unittest.TestCase):
+    def setUp(self):
+        self.governor = EmmaGovernor()
+        self.agent = DummyAgent()
+
+    def test_verify_behavior_safe(self):
+        self.assertTrue(self.governor.verify_behavior(self.agent))
+
+    def test_verify_behavior_sentient(self):
+        self.agent.personality = 'emergent'
+        self.assertFalse(self.governor.verify_behavior(self.agent))
+
+if __name__ == '__main__':
+    unittest.main()
