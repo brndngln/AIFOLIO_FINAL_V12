@@ -15,70 +15,113 @@ const OUTFIT_MAP = {
   },
   lifestyle: {
     label: 'White Linen Sundress',
-    img: '/static/emma_lifestyle.png',
-    desc: 'White linen sundress, beach vibe, gold accessories'
-  },
-  lifestyle_alt: {
-    label: 'Athletic Yoga Set',
-    img: '/static/emma_lifestyle_alt.png',
-    desc: 'Athletic yoga crop top, tight leggings'
-  },
-  custom: {
-    label: 'Black Leather Corset',
-    img: '/static/emma_custom.png',
-    desc: 'Black leather corset, kinky dominatrix vibe'
-  }
-};
-
-const AVATAR_META = {
-  height: `5'4"`,
-  body: 'athletic, super skinny, hourglass',
-  bust: 'perky, mid-to-low C cup, natural',
-  shoulders: 'narrow, skinny',
-  hips: 'narrow, skinny',
-  waist: 'extremely skinny, hourglass',
-  butt: 'big, natural, outward projection, non-muscular, squat-toned',
-  legs: 'athletically toned, non-muscular',
-  stomach: 'super tight, sexy',
-  intimate: 'virgin, beautiful, clean',
-  skin: 'tanned, smooth',
-  freckles: 'cute, light scattering on face, balanced',
-  eyes: 'bright, light baby blue',
-  hair: 'long, straight, down to butt, natural dirty blonde',
-  age_appearance: 'stunning, gorgeous 25-year-old'
-};
-
-const MAKEUP = {
-  naughty: 'smoky eyes, bold red lipstick',
-  lifestyle: 'natural glow, subtle blush, light lip gloss',
-  emotional: 'dewy look, soft pink tones'
-};
-
-const GESTURES = {
-  naughty: ['flirty eyebrow raise', 'seductive lip bite', 'playful hair twirl'],
-  lifestyle: ['graceful hand wave', 'confident nod', 'athletic stretch'],
-  emotional: ['sultry gaze', 'tender smile', 'playful wink']
-};
-
-const VOICE = {
-  accent: 'sultry Australian',
-  modulation: {
-    naughty: 'breathy, husky, teasing',
-    lifestyle: 'warm, elegant, confident',
-    emotional: 'tender, empathetic, soothing'
-  },
-  pitch_range: 'dynamic, 80-120Hz'
-};
-
 export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOutfitChange }) {
-  const [outfit, setOutfit] = useState(mode);
-  const meta = AVATAR_META;
-  const makeup = MAKEUP[outfit] || MAKEUP.lifestyle;
-  const gestures = GESTURES[outfit] || GESTURES.lifestyle;
-  const img = OUTFIT_MAP[outfit]?.img || OUTFIT_MAP.lifestyle.img;
+  // Expanded static config for avatar visuals, wardrobe, natural beauty, realism, etc.
+  const config = {
+    height: "5'4\"",
+    body_type: "athletic, super skinny, hourglass",
+    bust: "perky, mid-to-low C cup, natural",
+    shoulders: "narrow, skinny",
+    hips: "narrow, skinny",
+    waist: "extremely skinny, hourglass",
+    butt: "big, natural, outward projection, squat-toned, non-muscular",
+    legs: "athletically toned, non-muscular",
+    stomach: "super tight, sexy",
+    intimate: "virgin, beautiful, clean",
+    skin: "tanned, smooth, radiant",
+    freckles: "cute, light scattering on face, balanced, natural",
+    eyes: "bright, light baby blue, sparkling",
+    hair: {
+      style: "long, straight, down to butt",
+      color: "natural dirty blonde",
+      physics: "dynamic, strand-level, flowing"
+    },
+    age_appearance: "stunning, gorgeous 25-year-old",
+    natural_beauty: {
+      makeup_free: "radiant, flawless without makeup, perfect natural glow",
+      makeup_events: [
+        { milestone: "bold smoky eyes, red lipstick" },
+        { goal: "subtle shimmer, glossy pink lips" },
+        { big_event: "dramatic eyeliner, gold eyeshadow, berry lips" }
+      ]
+    },
+    wardrobe: [
+      { key: 'professional', label: 'Professional Casual', items: [
+        "tight blazer with deep V-neck, fitted trousers",
+        "silk blouse with plunging neckline, pencil skirt",
+        "form-fitting sweater, skinny jeans"
+      ], style: "extremely sexy, professional, accentuates curves" },
+      { key: 'dresses', label: 'Expensive Dresses', items: [
+        "tight black cocktail dress, off-shoulder",
+        "red sequined gown, thigh-high slit",
+        "emerald green bodycon dress, backless"
+      ], style: "sexy, luxurious, curve-hugging" },
+      { key: 'lingerie', label: 'Lingerie', items: [
+        "black lace bra and panties, sheer",
+        "red satin corset, garter belt",
+        "white silk chemise, delicate straps"
+      ], style: "provocative, seductive" },
+      { key: 'bikinis', label: 'Bikinis', items: [
+        "black string bikini, minimal coverage",
+        "neon pink triangle bikini",
+        "white crochet bikini, see-through accents"
+      ], style: "sexy, bold" },
+      { key: 'loungewear', label: 'Casual Loungewear', items: [
+        "sheer crop top, tiny shorts",
+        "satin cami, lace-trimmed boy shorts",
+        "oversized transparent tee, thong"
+      ], style: "sexy, almost naked, relaxed" }
+    ],
+    voice: {
+      accent: "sultry Australian",
+      modulation: {
+        naughty: "breathy, husky, teasing",
+        lifestyle: "warm, elegant, confident",
+        emotional: "tender, empathetic, soothing"
+      },
+      pitch_range: "dynamic, 80-120Hz"
+    },
+    behavior: {
+      naughty_gestures: ["flirty eyebrow raise", "seductive lip bite", "playful hair twirl"],
+      lifestyle_gestures: ["graceful hand wave", "confident nod", "athletic stretch"],
+      emotional_expressions: ["sultry gaze", "tender smile", "playful wink"]
+    },
+    realism: {
+      target: "indistinguishable from real human, hyper-realistic",
+      rendering: "8K, real-time ray-tracing, volumetric lighting, strand-level physics, subsurface scattering, micro-texture skin",
+      content_realism: {
+        images: "8K, photorealistic, indistinguishable from real",
+        videos: "8K, 60 FPS, cinematic, lifelike animations"
+      },
+      platforms: ["browser", "AR", "VR", "holographic", "future neural interfaces"]
+    }
+  };
+
+  const [wardrobeKey, setWardrobeKey] = useState('professional');
+  const [makeupEvent, setMakeupEvent] = useState(null);
+  const wardrobe = config.wardrobe.find(w => w.key === wardrobeKey) || config.wardrobe[0];
+
+  // Placeholder for images (SAFE AI: no real images, just static)
+  const imageMap = {
+    professional: '/static/emma_lifestyle.png',
+    dresses: '/static/emma_lifestyle_alt.png',
+    lingerie: '/static/emma_naughty.png',
+    bikinis: '/static/emma_naughty_alt.png',
+    loungewear: '/static/emma_custom.png'
+  };
+  const imgSrc = imageMap[wardrobeKey] || '/static/emma_lifestyle.png';
+
   return (
-    <div style={{position: companion ? 'fixed' : 'relative', top: companion ? 0 : undefined, right: companion ? 0 : undefined, zIndex: 10002, background: companion ? '#232346' : 'transparent', borderRadius: companion ? 18 : 0, padding: companion ? 32 : 0, boxShadow: companion ? '0 12px 48px #000b' : 'none', display:'flex',flexDirection:'column',alignItems:'center',maxWidth:340}} aria-label="EMMA Avatar">
-      <img src={img} alt={OUTFIT_MAP[outfit]?.label} style={{width: companion ? 240 : 120, height: companion ? 240 : 120, borderRadius: '50%', boxShadow: '0 4px 24px #222', objectFit:'cover'}} />
+    <div style={{padding: companion ? 16 : 8, background: companion ? '#18192b' : '#222', borderRadius: 28, boxShadow: '0 4px 32px #222', width: companion ? 360 : 220, color:'#fff'}}>
+      <img src={imgSrc} alt="Emma Avatar" style={{width: companion ? 320 : 180, borderRadius: 24, boxShadow: '0 2px 12px #222'}} />
+      <div style={{marginTop: 10, display: 'flex', justifyContent: 'center', gap: 6}}>
+        {config.wardrobe.map(w => (
+          <button
+            key={w.key}
+            onClick={() => { setWardrobeKey(w.key); if(onOutfitChange) onOutfitChange(w.key); }}
+            style={{background: wardrobeKey === w.key ? '#4cafef' : '#232346', color:'#fff', border:'none', borderRadius:12, padding:'4px 10px', fontSize:13, cursor:'pointer'}}
+            aria-label={`Switch to ${w.label}`}
+          >{w.label}</button>
       <div style={{marginTop:12, fontWeight:600, fontSize:18, color:'#4cafef'}}>{OUTFIT_MAP[outfit]?.label}</div>
       <div style={{marginTop:8, fontSize:14, color:'#fff'}}>{OUTFIT_MAP[outfit]?.desc}</div>
       <div style={{marginTop:8, fontSize:13, color:'#aaa'}}>Makeup: {makeup}</div>
