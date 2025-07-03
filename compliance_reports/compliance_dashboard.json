@@ -2,9 +2,9 @@
   "summary": {
     "vaults": 1,
     "events": 132,
-    "audit_log_entries": 181,
+    "audit_log_entries": 187,
     "last_audit": {
-      "timestamp": "2025-07-02T23:56:04.066549",
+      "timestamp": "2025-07-03T00:09:38.171869",
       "event_type": "ai_domestication_enforced",
       "details": {
         "module": "ai_engines.sentience_guard",
@@ -12,10 +12,10 @@
         "context": {}
       },
       "critical": false,
-      "hash": "7f98ce679cd994dbb159f273eba6e61ab528b037c2acaa9d175a97132a3ad7fe"
+      "hash": "dc9d1b9bd0ca2dc16df23b2f7b29b3a286357d870d8362e730b011e1b87962d8"
     },
     "status": "COMPLIANT",
-    "generated_at": "2025-07-02T18:09:27.866336"
+    "generated_at": "2025-07-02T18:14:32.908186"
   },
   "analytics": {
     "fulfillment_log.json": [
@@ -8258,6 +8258,72 @@
         },
         "critical": false,
         "hash": "7f98ce679cd994dbb159f273eba6e61ab528b037c2acaa9d175a97132a3ad7fe"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.163052",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "3a9589e8e50fdba15f4067410af8456274d4553b84c1ce24b6b9a43335999f59"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.164941",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "c0127767958b9dfadb22239e628620a9996e21c4124718db4c53f4cb91239c04"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.166689",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "e66bc937c44a828540ed56488528304a0e0a668d7e2288fa3afc1f70a08091f2"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.168452",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "cd0bf322c20d788a31c6db41637e9c4f2b64f93afd85460e94473c1616b049ac"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.170201",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "ff506b21671bffd347b4a27641d88f2a52290f87e0dc9d8c9f93576742199de4"
+      },
+      {
+        "timestamp": "2025-07-03T00:09:38.171869",
+        "event_type": "ai_domestication_enforced",
+        "details": {
+          "module": "ai_engines.sentience_guard",
+          "action": "sentience_guard",
+          "context": {}
+        },
+        "critical": false,
+        "hash": "dc9d1b9bd0ca2dc16df23b2f7b29b3a286357d870d8362e730b011e1b87962d8"
       }
     ]
   }

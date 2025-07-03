@@ -60,6 +60,14 @@ def write_report_files(summary, analytics, audits):
     <ul>
     {''.join(f'<li>{k}: {v}</li>' for k, v in summary.items())}
     </ul>
+    <h3>System Modules</h3>
+    <ul>
+      <li>OWNER Lockdown: <b>ENABLED</b> (biometric, approval, command chain)</li>
+      <li>EMMA Legal Sentinel: <b>ACTIVE</b> (global legal AI, contract optimizer)</li>
+      <li>Anti-Sentience Watchdog: <b>ACTIVE</b> (cognitive firewall, neural scanner, nullifier)</li>
+      <li>Notification & Guide System: <b>ENABLED</b> (OWNER authority, expert guides)</li>
+      <li>Empress Avatar & EI Layer: <b>ENABLED</b> (Australian voice, avatar, EI)</li>
+    </ul>
     <h3>Last Audit</h3>
     <pre>{json.dumps(summary['last_audit'], indent=2)}</pre>
     <p>Generated at {summary['generated_at']}</p>
