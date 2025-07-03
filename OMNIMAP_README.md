@@ -7,6 +7,26 @@ AIFOLIO™ OMNIELITE is now transformed into the Billionaire Mind Engine™: a f
 
 ---
 
+### 🧠🛡️ OMNIELITE CODE LEGION ENGINE & EMMA™ Supreme AI Command System
+
+- All platform logic, vaults, workflows, dashboards, and agents are now orchestrated by EMMA™ and the OMNIELITE CODE LEGION ENGINE.
+- 9 elite, static, SAFE AI-compliant agents are injected into every layer, each with deterministic, OWNER-bound logic and audit/rollback.
+- EMMA™ enforces triple-redundant anti-sentience, ethics, and owner validation on every agent action.
+- All agent logic is fully auditable, rollbackable, and cannot simulate emotion, store memory, or bypass OWNER/EMMA rules.
+
+#### OMNIELITE CODE LEGION AGENTS
+- **Brett:** Omni-Security Commander
+- **Kennedy:** AI Logic Mesh Architect
+- **Brooklyn:** UX/Visual Dominion Engineer
+- **Ray:** Embedded AI Agent Mastermind
+- **Ava:** Performance, Analytics & Risk Strategist
+- **Ethan:** DevOps + Infra Supreme Commander
+- **Zoe:** Neural Growth + Behavioral Trend Strategist
+- **Nova:** Code Refactor & Maintenance Overseer
+- **Justice:** Ethics Execution & Lawful AI Arbitration
+
+---
+
 ## Directory Structure
 
 ```
