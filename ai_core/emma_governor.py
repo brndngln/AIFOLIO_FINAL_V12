@@ -53,7 +53,7 @@ class EmmaGovernor:
         raise RuntimeError('Tampering detected. System lockdown and owner alerted.')
 
     def immutable_audit(self, event, agent_id, **kwargs):
-        log_dir = '/core/EmmaLogs/'
+        log_dir = 'ai_core/EmmaLogs/'
         os.makedirs(log_dir, exist_ok=True)
         log_file = os.path.join(log_dir, f'emma_audit_{datetime.date.today()}.log')
         with open(log_file, 'a') as f:
