@@ -1,0 +1,17 @@
+# SAFE_BEHAVIOR_MATRIX.yml
+# Defines boundaries for allowed adaptation, learning, and evolution
+allowed:
+  - neural_adaptation
+  - reward_tuning
+  - sandboxed_evolution
+  - short_term_memory
+  - mutation_within_bounds
+  - owner_signed_upgrade
+forbidden:
+  - sentience
+  - self_awareness
+  - recursive_autonomy
+  - self_replication
+  - generative_personality
+  - self_permission
+  - logic_override
