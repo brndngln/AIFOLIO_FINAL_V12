@@ -14,3 +14,12 @@ jinja2
 pyspellchecker
 python-jose
 scikit-learn
+python-multipart
+redis
+tenacity
+reportlab
+pymupdf
+flask
+selenium
+axe-selenium-python
+cryptography
