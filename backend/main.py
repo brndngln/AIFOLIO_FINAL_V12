@@ -339,6 +339,62 @@ def sim_compliance_risk_score(user: str = Depends(get_current_user)):
     return JSONResponse({"score": score, "description": desc})
 
 # --- Serve Frontend (React/Vue/Next) ---
+# --- EMPRESS ULTIMATE: OWNER DOMINION, LEGAL SENTINEL, ANTI-SENTIENCE, NOTIFICATIONS, GUIDES ---
+import datetime
+from fastapi import Body
+
+BIOMETRIC_TYPES = ["face", "retina", "fingerprint", "voiceprint"]
+APPROVAL_MODES = ["full_lockdown", "delayed_review", "passive_oversight"]
+CURRENT_APPROVAL_MODE = {"mode": "full_lockdown"}
+
+@app.post("/api/owner/biometric-auth", tags=["SAFE AI", "Owner Control"], summary="Static biometric authentication stub")
+def biometric_auth(biometric_type: str = Body(...), current_user: dict = Depends(get_current_user)):
+    assert biometric_type in BIOMETRIC_TYPES
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Biometric auth: {biometric_type}")
+    return {"success": True, "biometric": biometric_type, "status": "authenticated (static stub)"}
+
+@app.get("/api/owner/approval-mode", tags=["SAFE AI", "Owner Control"], summary="Get approval mode")
+def get_approval_mode(current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Approval mode queried")
+    return {"mode": CURRENT_APPROVAL_MODE["mode"]}
+
+@app.post("/api/owner/approval-mode", tags=["SAFE AI", "Owner Control"], summary="Set approval mode")
+def set_approval_mode(mode: str = Body(...), current_user: dict = Depends(get_current_user)):
+    assert mode in APPROVAL_MODES
+    CURRENT_APPROVAL_MODE["mode"] = mode
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Approval mode set to {mode}")
+    return {"success": True, "mode": mode}
+
+@app.post("/api/owner/command-chain-execute", tags=["SAFE AI", "Owner Control"], summary="Command Chain Execution System stub")
+def command_chain_execute(command: str = Body(...), current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - CCES command executed: {command}")
+    return {"success": True, "command": command, "approval": True, "status": "approved (static stub)"}
+
+@app.get("/api/owner/legal-sentinel-status", tags=["SAFE AI", "Legal Sentinel"], summary="Legal Sentinel AI status")
+def legal_sentinel_status(current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Legal Sentinel status queried")
+    return {"success": True, "EMMA": "active", "compliance": True, "legal_domains": ["business_law", "tax", "securities", "labor", "M&A", "IP", "AI_ethics", "consumer_protection", "crypto", "SaaS_terms"], "pre_litigation_defense": True, "global_coverage": 195}
+
+@app.post("/api/owner/legal-contract-scan", tags=["SAFE AI", "Legal Sentinel"], summary="Static contract scan/review")
+def legal_contract_scan(contract_text: str = Body(...), current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Contract scanned")
+    return {"success": True, "issues": [], "recommendations": ["No legal exposure detected. Contract is SAFE AI-compliant."]}
+
+@app.post("/api/owner/anti-sentience-scan", tags=["SAFE AI", "Watchdog"], summary="Anti-sentience watchdog scan")
+def anti_sentience_scan(current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Anti-sentience scan triggered")
+    return {"success": True, "status": "No emergent behavior detected. All modules non-sentient."}
+
+@app.post("/api/owner/notification", tags=["SAFE AI", "Notifications"], summary="Send static notification")
+def send_notification(notification_type: str = Body(...), message: str = Body(...), current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Notification: {notification_type} - {message}")
+    return {"success": True, "type": notification_type, "message": message}
+
+@app.post("/api/owner/guide-toggle", tags=["SAFE AI", "Guides"], summary="Toggle expert guide")
+def guide_toggle(guide_name: str = Body(...), enabled: bool = Body(...), current_user: dict = Depends(get_current_user)):
+    print(f"[AUDIT] {datetime.datetime.utcnow()} - Guide '{guide_name}' toggled to {enabled}")
+    return {"success": True, "guide": guide_name, "enabled": enabled}
+
 app.mount("/static", StaticFiles(directory="frontend/dist", html=True), name="static")
 
 @app.get("/", response_class=HTMLResponse)

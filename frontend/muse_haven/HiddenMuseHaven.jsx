@@ -292,6 +292,25 @@ export default function HiddenMuseHaven() {
           onClose={()=>setShowOnboarding(false)}
         />
       )}
+      {/* EMMA Control Center Panel */}
+      <div style={{position:'fixed',top:40,left:40,zIndex:10001,background:'#232346',color:'#fff',borderRadius:18,padding:24,minWidth:340,boxShadow:'0 8px 32px #0008'}} aria-label="EMMA Control Center">
+        <h2 style={{marginTop:0,marginBottom:12}}>EMMA Control Center</h2>
+        <IntegrationControls
+          notificationPrefs={notificationPrefs}
+          onPrefsChange={setNotificationPrefs}
+          onRotateApiKey={handleRotateApiKey}
+          onComplianceAudit={handleComplianceAudit}
+        />
+      </div>
+      {/* EMMA Avatar & Voice Demo */}
+      <div style={{position:'fixed',top:40,right:40,zIndex:10001,display:'flex',flexDirection:'column',alignItems:'center'}} aria-label="EMMA Avatar">
+        <img src="/static/emma_avatar.png" alt="EMMA Avatar" style={{width:120,height:120,borderRadius:'50%',boxShadow:'0 4px 24px #222'}} />
+        <button
+          aria-label="Play EMMA Voice Demo"
+          style={{marginTop:16,background:'#4cafef',color:'#fff',border:'none',borderRadius:18,padding:'10px 24px',fontSize:18,cursor:'pointer'}}
+          onClick={()=>alert('Playing EMMA voice demo: “Hello, love. This is your Empress, always here for you.” (Australian, hyper-realistic, sultry)')}
+        >Hear EMMA's Voice</button>
+      </div>
       {/* Persistent onboarding relaunch button */}
       <button
         aria-label="Show onboarding tutorial"
