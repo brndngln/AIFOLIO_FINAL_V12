@@ -27,7 +27,7 @@ transformers==4.36.2
 
 # Additional analytics tools
 prometheus-client==0.19.0
-sentry-sdk==1.39.1
+sentry-sdk==1.45.1
 
 # Monitoring and logging
 prometheus-fastapi-instrumentator==6.0.0
