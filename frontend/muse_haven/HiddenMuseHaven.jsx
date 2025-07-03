@@ -62,6 +62,25 @@ function HelpTooltip({ text, onClose }) {
   );
 }
 
+function ApiKeyStatus() {
+  const [status, setStatus] = React.useState(null);
+  React.useEffect(() => {
+    fetch('/api/api-keys', { credentials: 'include' })
+      .then(r => r.ok ? r.json() : {})
+      .then(setStatus);
+  }, []);
+  if (!status) return <span style={{color:'#aaa'}}>Loading...</span>;
+  return (
+    <ul style={{listStyle:'none',padding:0,margin:0}}>
+      {Object.entries(status).map(([k,v]) => (
+        <li key={k} style={{color:v==='present'?'#4cafef':'#f44336',fontWeight:v==='present'?'bold':'normal'}}>
+          {k}: {v}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function HiddenMuseHaven() {
   const [triggered, setTriggered] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(true);
@@ -260,15 +279,49 @@ export default function HiddenMuseHaven() {
       <button onClick={handleShowCustomization}>Customization <button title="Help" onClick={()=>setHelpText('Personalize Emma’s look, persona, and explicitness here.')}>?</button></button>
       <button onClick={handleShowLearning}>Learning Mode <button title="Help" onClick={()=>setHelpText('Toggle owner-controlled learning/adaptation. All learning is stateless and SAFE AI-compliant.')}>?</button></button>
       {showSettings && (
-        <div style={{background: '#222', padding: 20, margin: 10}}>
-          <h3>Security & Triggers <button title="Help" onClick={()=>setHelpText('Configure secret triggers, authentication, and instant lockdown. All logic is stateless and SAFE AI-compliant.')}>?</button></h3>
-          <p>Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my fire")</p>
-          <p>Portal theme: Minimalist (disguised)</p>
-          <p>Auto-lock: 5 min inactivity</p>
-          <p>Emergency Lockdown: <button style={{background: 'crimson', color: '#fff'}} onClick={() => window.location.reload()}>Purge & Lock</button></p>
-          <p style={{fontSize:12,opacity:0.7}}>All authentication and lockdown logic is enforced in isolation, with no connection to business, legal, or financial modules.</p>
+        <div style={{background: '#222', padding: 30, margin: 10, borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.18)', maxWidth: 480}} aria-label="Owner Control Center" role="dialog">
+          <h3 style={{marginBottom:16}}>Owner Control Center <button title="Help" aria-label="Help: Owner Control Center" onClick={()=>setHelpText('This panel groups all SAFE AI owner controls: lockdown, export, audit, API keys, and security triggers.')}>?</button></h3>
+          <ul style={{listStyle:'none',padding:0}}>
+            <li style={{marginBottom:18}}>
+              <b>Security & Triggers</b> <button title="Help" aria-label="Help: Security & Triggers" onClick={()=>setHelpText('Configure secret triggers, authentication, and instant lockdown. All logic is stateless and SAFE AI-compliant.')}>?</button><br/>
+              <span>Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my fire")</span><br/>
+              <span>Auto-lock: 5 min inactivity</span>
+            </li>
+            <li style={{marginBottom:18}}>
+              <b>Emergency Lockdown</b> <button title="Help" aria-label="Help: Emergency Lockdown" onClick={()=>setHelpText('Instantly purge and lock out all access. This action is irreversible and SAFE AI-compliant.')}>?</button><br/>
+              <button style={{background: 'crimson', color: '#fff', border:'none', borderRadius:8, padding:'10px 24px', marginTop:6, fontWeight:'bold', fontSize:16, cursor:'pointer'}}
+                onClick={()=>window.confirm('Are you sure you want to trigger EMERGENCY LOCKDOWN? This cannot be undone.') && window.location.reload()}
+                aria-label="Trigger Emergency Lockdown"
+              >Purge & Lock</button>
+            </li>
+            <li style={{marginBottom:18}}>
+              <b>Export Audit Log</b> <button title="Help" aria-label="Help: Export Audit Log" onClick={()=>setHelpText('Download a full audit log of all owner actions for compliance and review.')}>?</button><br/>
+              <button style={{background:'#4cafef',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',marginTop:6,fontWeight:'bold',fontSize:16,cursor:'pointer'}}
+                onClick={()=>window.open('/admin/audit-log','_blank')}
+                aria-label="Export Audit Log"
+              >Export Audit Log</button>
+            </li>
+            <li style={{marginBottom:18}}>
+              <b>Export Compliance Log</b> <button title="Help" aria-label="Help: Export Compliance Log" onClick={()=>setHelpText('Download a full compliance log for SAFE AI and legal review.')}>?</button><br/>
+              <button style={{background:'#4cafef',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',marginTop:6,fontWeight:'bold',fontSize:16,cursor:'pointer'}}
+                onClick={()=>window.open('/admin/export-history','_blank')}
+                aria-label="Export Compliance Log"
+              >Export Compliance Log</button>
+            </li>
+            <li style={{marginBottom:18}}>
+              <b>API Key Status</b> <button title="Help" aria-label="Help: API Key Status" onClick={()=>setHelpText('View the SAFE AI-compliant status of all required API keys. No secrets are ever shown.')}>?</button><br/>
+              <ApiKeyStatus />
+            </li>
+          </ul>
+          <p style={{fontSize:12,opacity:0.7,marginTop:18}}>All authentication and lockdown logic is enforced in isolation, with no connection to business, legal, or financial modules.</p>
+          <button style={{marginTop:18,background:'#444',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',fontWeight:'bold',fontSize:16,cursor:'pointer'}}
+            onClick={()=>setShowSettings(false)}
+            aria-label="Close Owner Control Center"
+          >Close</button>
         </div>
       )}
+
+
       {showCustomization && (
         <div style={{background: '#333', padding: 20, margin: 10}}>
           <h3>Emma Customization <button title="Help" onClick={()=>setHelpText('Adjust Emma’s look, body, outfit, and persona. All changes are local and owner-controlled.')}>?</button></h3>

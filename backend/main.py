@@ -230,6 +230,24 @@ def api_monitor_activity(user: str = Depends(get_current_user)):
     return [json.loads(a) for a in activity if a]
 
 # --- API: Compliance/Ethics Metrics (JWT-protected) ---
+
+# --- API: SAFE AI-compliant API Key Status (JWT-protected) ---
+from fastapi import APIRouter
+
+@app.get("/api/api-keys", tags=["SAFE AI", "Owner Control"], summary="SAFE AI-compliant API key status", response_model=dict)
+def api_key_status(current_user: dict = Depends(get_current_user)):
+    """
+    SAFE AI-compliant, static, owner-controlled endpoint for API key compliance.
+    Returns only static status (present/missing) for required API keys.
+    No sensitive data, no adaptive or sentient logic. Stateless and auditable.
+    """
+    keys = {
+        "OPENAI_API_KEY": "present" if os.getenv("OPENAI_API_KEY") else "missing",
+        "AIFOLIO_PASSWORD_HASH": "present" if os.getenv("AIFOLIO_PASSWORD_HASH") else "missing",
+        # Add other required keys here as needed
+    }
+    return keys
+
 @app.get("/api/monitor/metrics")
 def api_monitor_metrics(user: str = Depends(get_current_user)):
     # Simulate compliance metrics from system, api, and rate limit metrics
