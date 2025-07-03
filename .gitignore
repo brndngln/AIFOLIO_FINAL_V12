@@ -68,7 +68,8 @@ Thumbs.db
 # Project specific
 .env
 .env.*
-*.log
+# *.log (ALLOW ai_core/EmmaLogs/*.log for Emma audit)
+!/ai_core/EmmaLogs/*.log
 __tests__/
 node_modules/
 coverage/
