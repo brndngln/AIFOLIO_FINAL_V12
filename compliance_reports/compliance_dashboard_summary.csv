@@ -1,0 +1,6 @@
+vaults,1
+events,132
+audit_log_entries,181
+last_audit,"{'timestamp': '2025-07-02T23:56:04.066549', 'event_type': 'ai_domestication_enforced', 'details': {'module': 'ai_engines.sentience_guard', 'action': 'sentience_guard', 'context': {}}, 'critical': False, 'hash': '7f98ce679cd994dbb159f273eba6e61ab528b037c2acaa9d175a97132a3ad7fe'}"
+status,COMPLIANT
+generated_at,2025-07-02T18:09:27.866336
