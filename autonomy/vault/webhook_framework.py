@@ -1,5 +1,7 @@
 import json
 import datetime
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 import requests
 

@@ -1,4 +1,5 @@
 # backend/agents/ceevee.py
+OWNER_LOCK = True
 
 from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted, ConsentManager, generate_compliance_report,

@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Market Signal Engine
 Phase 44 — SAFE AI, non-sentient, static, owner-controlled

@@ -1,5 +1,7 @@
 import streamlit as st
 import json
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 
 EVENT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/vault_event_log.jsonl'))

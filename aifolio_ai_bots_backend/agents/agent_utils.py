@@ -33,6 +33,8 @@ assert self_awareness_check is False, "OMNILOCK: self_awareness_check must be Fa
 assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 import re
 import json

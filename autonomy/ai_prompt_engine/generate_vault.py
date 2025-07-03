@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 import uuid
 import datetime
 from autonomy.pipeline import event_bus

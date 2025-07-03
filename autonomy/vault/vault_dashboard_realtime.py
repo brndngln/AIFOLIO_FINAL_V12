@@ -1,5 +1,7 @@
 import streamlit as st
 import json
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 import time
 

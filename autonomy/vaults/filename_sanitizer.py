@@ -3,6 +3,8 @@ import re
 import json
 from datetime import datetime
 
+OWNER_LOCK = True
+
 SANITIZER_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/filename_sanitizer_log.json'))
 os.makedirs(os.path.dirname(SANITIZER_LOG), exist_ok=True)
 

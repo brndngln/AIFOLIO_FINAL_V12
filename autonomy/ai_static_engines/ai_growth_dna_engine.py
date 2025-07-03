@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Growth DNA Engine
 Phase 49 — SAFE AI, non-sentient, static, owner-controlled

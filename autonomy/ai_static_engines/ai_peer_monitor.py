@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Peer Monitor
 Phase 57 — SAFE AI, non-sentient, static, owner-controlled

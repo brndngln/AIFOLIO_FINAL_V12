@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Legacy Auto-Safe Mode
 Phase 66 — SAFE AI, non-sentient, static, owner-controlled

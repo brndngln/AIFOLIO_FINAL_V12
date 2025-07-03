@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Empire Capital Engine
 Phase 53 — SAFE AI, non-sentient, static, owner-controlled

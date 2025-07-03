@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Partner Ecosystem Builder
 Phase 41 — SAFE AI, non-sentient, static, owner-controlled

@@ -1,5 +1,7 @@
 import json
 import datetime
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 
 TEMPLATE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/template_version_log.jsonl'))

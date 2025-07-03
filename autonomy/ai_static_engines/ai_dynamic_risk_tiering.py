@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Dynamic Risk Tiering
 Phase 63 — SAFE AI, non-sentient, static, owner-controlled

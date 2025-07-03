@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 import json
 import datetime
 import os

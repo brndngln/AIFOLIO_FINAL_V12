@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Scheduled Scaling Mode
 Phase 69 — SAFE AI, non-sentient, static, owner-controlled

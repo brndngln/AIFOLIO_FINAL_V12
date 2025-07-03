@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Global Vault Router
 Phase 56 — SAFE AI, non-sentient, static, owner-controlled

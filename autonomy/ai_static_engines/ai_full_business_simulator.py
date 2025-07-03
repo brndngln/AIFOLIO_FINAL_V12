@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Full Business Simulator
 Phase 68 — SAFE AI, non-sentient, static, owner-controlled

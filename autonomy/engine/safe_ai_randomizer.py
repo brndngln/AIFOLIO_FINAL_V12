@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+OWNER_LOCK = True
 import random
 
 RANDOMIZER_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/safe_ai_randomizer_log.jsonl'))

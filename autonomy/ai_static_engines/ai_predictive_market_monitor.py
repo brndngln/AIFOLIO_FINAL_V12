@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Predictive Market Monitor
 Phase 51 — SAFE AI, non-sentient, static, owner-controlled

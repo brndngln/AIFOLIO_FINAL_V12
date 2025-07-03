@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Crisis Mode Protocols
 Phase 58 — SAFE AI, non-sentient, static, owner-controlled

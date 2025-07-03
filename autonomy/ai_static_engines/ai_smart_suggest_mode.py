@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Smart Suggest Mode
 Phase 62 — SAFE AI, non-sentient, static, owner-controlled

@@ -1,3 +1,5 @@
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 import json
 import datetime

@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Royalty Engine
 Phase 46 — SAFE AI, non-sentient, static, owner-controlled

@@ -1,6 +1,7 @@
 import pytest
 import sys
 import os
+OWNER_LOCK = True
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from agent_utils import sanitize_input, check_forbidden_patterns, check_pii, moderate_content, raise_if_sentience_attempted
 

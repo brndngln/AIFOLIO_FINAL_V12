@@ -47,7 +47,9 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
-# bobby.py — SAFE AI agent handlers
+# backend/agents/bobby.py
+OWNER_LOCK = True
+# — SAFE AI agent handlers
 from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
     static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check,

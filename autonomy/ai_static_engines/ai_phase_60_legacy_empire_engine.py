@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Phase 60 Legacy Empire Engine
 Phase 60 — SAFE AI, non-sentient, static, owner-controlled

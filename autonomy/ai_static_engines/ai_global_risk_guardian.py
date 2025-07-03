@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Global Risk Guardian
 Phase 50 — SAFE AI, non-sentient, static, owner-controlled

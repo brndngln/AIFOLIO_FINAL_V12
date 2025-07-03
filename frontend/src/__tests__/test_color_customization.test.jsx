@@ -1,0 +1,119 @@
+import React from 'react';
+import { render, fireEvent, act } from '@testing-library/react';
+import { ThemeProvider } from '../../theme/ThemeProvider';
+import ColorCustomization from '../components/ColorCustomization';
+
+describe('ColorCustomization', () => {
+  let container;
+  
+  beforeEach(() => {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    document.body.removeChild(container);
+    container = null;
+  });
+
+  test('undo/redo functionality works correctly', async () => {
+    const { getByText, getByRole } = render(
+      <ThemeProvider>
+        <ColorCustomization />
+      </ThemeProvider>
+    );
+
+    // Find and change a color
+    const colorPicker = getByRole('colorpicker');
+    const originalColor = colorPicker.value;
+    
+    // Change color
+    fireEvent.change(colorPicker, { target: { value: '#FF0000' } });
+    await act(() => Promise.resolve());
+
+    // Verify color changed
+    expect(colorPicker.value).not.toBe(originalColor);
+
+    // Test undo
+    const undoButton = getByText('Undo Last Change');
+    fireEvent.click(undoButton);
+    await act(() => Promise.resolve());
+
+    // Verify color reverted
+    expect(colorPicker.value).toBe(originalColor);
+
+    // Test redo
+    const redoButton = getByText('Redo Last Change');
+    fireEvent.click(redoButton);
+    await act(() => Promise.resolve());
+
+    // Verify color changed back
+    expect(colorPicker.value).not.toBe(originalColor);
+  });
+
+  test('all color properties are properly applied', async () => {
+    const { getByText, getByRole } = render(
+      <ThemeProvider>
+        <ColorCustomization />
+      </ThemeProvider>
+    );
+
+    const components = [
+      'app', 'card', 'button', 'input', 'link', 
+      'alert', 'tooltip', 'modal', 'header', 'navigation'
+    ];
+
+    const properties = [
+      'background', 'text', 'accent', 'secondary', 'cta',
+      'border', 'shadow', 'hover', 'active', 'focus',
+      'link', 'link-hover', 'link-visited', 'error',
+      'success', 'warning', 'info', 'disabled', 'placeholder',
+      'underline', 'title', 'subtitle', 'divider', 'icon'
+    ];
+
+    // Test each component and property
+    for (const component of components) {
+      for (const prop of properties) {
+        const picker = getByRole(`colorpicker-${component}-${prop}`);
+        if (picker) {
+          const originalColor = picker.value;
+          fireEvent.change(picker, { target: { value: '#FF0000' } });
+          await act(() => Promise.resolve());
+          expect(picker.value).toBe('#FF0000');
+          fireEvent.change(picker, { target: { value: originalColor } });
+          await act(() => Promise.resolve());
+        }
+      }
+    }
+  });
+
+  test('preview components update correctly', async () => {
+    const { getByText, getByRole } = render(
+      <ThemeProvider>
+        <ColorCustomization />
+      </ThemeProvider>
+    );
+
+    // Enable preview
+    const previewButton = getByText('Show Preview');
+    fireEvent.click(previewButton);
+    await act(() => Promise.resolve());
+
+    // Find preview components
+    const colorPreview = getByRole('color-preview');
+    const buttonPreview = getByRole('button-preview');
+
+    // Change a color and verify preview updates
+    const colorPicker = getByRole('colorpicker');
+    fireEvent.change(colorPicker, { target: { value: '#FF0000' } });
+    await act(() => Promise.resolve());
+
+    // Verify previews have updated
+    expect(colorPreview).toHaveStyle({
+      backgroundColor: '#FF0000'
+    });
+    expect(buttonPreview).toHaveStyle({
+      backgroundColor: '#FF0000'
+    });
+  });
+});

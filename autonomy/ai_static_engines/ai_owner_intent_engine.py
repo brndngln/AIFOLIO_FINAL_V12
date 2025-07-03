@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Owner Intent Engine
 Phase 67 — SAFE AI, non-sentient, static, owner-controlled

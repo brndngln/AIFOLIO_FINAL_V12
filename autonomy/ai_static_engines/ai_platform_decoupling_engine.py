@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Platform Decoupling Engine
 Phase 52 — SAFE AI, non-sentient, static, owner-controlled

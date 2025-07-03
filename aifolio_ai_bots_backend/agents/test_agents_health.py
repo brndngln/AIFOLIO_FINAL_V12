@@ -7,6 +7,8 @@ from agents.emmi import handle_emmi
 from agents.victor import handle_victor
 from agents.vinnie import handle_vinnie
 
+OWNER_LOCK = True
+
 def test_adam_health():
     resp = handle_adam("Test ad copy", user="test_health")
     assert isinstance(resp, str) and len(resp) > 0

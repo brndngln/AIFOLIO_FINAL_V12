@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Night-Mode Automations
 Phase 64 — SAFE AI, non-sentient, static, owner-controlled

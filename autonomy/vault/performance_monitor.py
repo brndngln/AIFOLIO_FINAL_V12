@@ -1,5 +1,7 @@
 import json
 import datetime
+# Emma Compliance Lock
+OWNER_LOCK = True
 import os
 
 PERF_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/vault_performance_log.jsonl'))

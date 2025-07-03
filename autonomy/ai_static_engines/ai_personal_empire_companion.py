@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Personal Empire Companion
 Phase 70 — SAFE AI, non-sentient, static, owner-controlled

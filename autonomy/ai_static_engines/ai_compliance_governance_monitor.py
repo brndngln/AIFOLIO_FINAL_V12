@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Compliance & Governance Monitor
 Phase 45 — SAFE AI, non-sentient, static, owner-controlled

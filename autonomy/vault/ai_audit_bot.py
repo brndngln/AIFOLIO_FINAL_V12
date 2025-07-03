@@ -2,6 +2,7 @@ import json
 import datetime
 import os
 
+OWNER_LOCK = True
 AUDIT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/ai_audit_bot_log.jsonl'))
 os.makedirs(os.path.dirname(AUDIT_LOG), exist_ok=True)
 

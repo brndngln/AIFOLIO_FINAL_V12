@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI License-to-Enter Engine
 Phase 43 — SAFE AI, non-sentient, static, owner-controlled

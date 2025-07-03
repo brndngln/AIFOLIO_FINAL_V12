@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 AIFOLIO™ AI Family Trust Planner
 Phase 54 — SAFE AI, non-sentient, static, owner-controlled

@@ -1,3 +1,4 @@
+OWNER_LOCK = True
 """
 SAFE AI static access location mismatch detector
 - Flags access from unexpected locations (SAFE)
