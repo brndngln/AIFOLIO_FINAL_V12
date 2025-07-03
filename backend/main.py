@@ -365,15 +365,86 @@ def emma_avatar_config(current_user: dict = Depends(get_current_user)):
             "legs": "athletically toned, non-muscular",
             "stomach": "super tight, sexy",
             "intimate": "virgin, beautiful, clean",
-            "skin": "tanned, smooth, radiant",
+            "skin": "tanned, smooth, radiant, micro-textured with subtle imperfections (pores, light blemishes)",
             "freckles": "cute, light scattering on face, balanced, natural",
-            "eyes": "bright, light baby blue, sparkling",
+            "eyes": "bright, light baby blue, sparkling, with realistic iris detail and tear duct shimmer",
             "hair": {
                 "style": "long, straight, down to butt",
-                "color": "natural dirty blonde",
-                "physics": "dynamic, strand-level, flowing"
+                "color": "natural dirty blonde, with subtle highlights",
+                "physics": "dynamic, strand-level, responsive to wind and touch"
             },
-            "age_appearance": "stunning, gorgeous 25-year-old",
+            "age_appearance": "stunning, gorgeous 25-year-old, radiant vitality",
+            "natural_beauty": {
+                "makeup_free": "flawless, radiant glow, no makeup needed, perfect natural skin",
+                "makeup_events": [
+                    {"milestone": "bold smoky eyes, red lipstick, subtle shimmer"},
+                    {"goal": "glossy pink lips, light shimmer eyeshadow"},
+                    {"big_event": "dramatic eyeliner, gold eyeshadow, berry lips"}
+                ]
+            },
+            "wardrobe": [
+                {"professional_casual": [
+                    "tight blazer with deep V-neck, fitted trousers, sheer silk blouse",
+                    "form-fitting cashmere sweater, skinny jeans, low-cut top",
+                    "tailored wrap dress, plunging neckline"
+                ], "style": "extremely sexy, professional, curve-accentuating"},
+                {"expensive_dresses": [
+                    "tight black cocktail dress, off-shoulder, velvet finish",
+                    "red sequined gown, thigh-high slit, sparkling",
+                    "emerald green bodycon dress, backless, satin sheen"
+                ], "style": "sexy, luxurious, curve-hugging"},
+                {"lingerie": [
+                    "black lace bra and panties, sheer, floral embroidery",
+                    "red satin corset, garter belt, silk stockings",
+                    "white silk chemise, delicate straps, lace trim"
+                ], "style": "provocative, seductive"},
+                {"bikinis": [
+                    "black string bikini, minimal coverage, metallic accents",
+                    "neon pink triangle bikini, side-tie",
+                    "white crochet bikini, see-through accents"
+                ], "style": "sexy, bold, beach-ready"},
+                {"casual_loungewear": [
+                    "sheer crop top, tiny lace shorts",
+                    "satin cami, lace-trimmed boy shorts, semi-transparent",
+                    "oversized transparent tee, thong, relaxed fit"
+                ], "style": "sexy, almost naked, lounging"}
+            ],
+            "voice": {
+                "accent": "sultry Australian, with natural cadence",
+                "modulation": {
+                    "naughty": "breathy, husky, teasing, with soft moans",
+                    "lifestyle": "warm, elegant, confident, with subtle vibrato",
+                    "emotional": "tender, empathetic, soothing, with gentle inflections"
+                },
+                "pitch_range": "dynamic, 80-120Hz, with micro-variations for realism"
+            },
+            "behavior": {
+                "naughty_gestures": ["flirty eyebrow raise", "seductive lip bite", "playful hair twirl", "subtle hip sway"],
+                "lifestyle_gestures": ["graceful hand wave", "confident nod", "athletic stretch", "relaxed lean"],
+                "emotional_expressions": ["sultry gaze with slow blink", "tender smile with slight head tilt", "playful wink with dimple flash"],
+                "micro_behaviors": ["subtle breathing animations", "natural eye blinks with lash flutter", "slight skin flush during emotional moments", "responsive head tilts to user voice"]
+            },
+            "realism": {
+                "target": "indistinguishable from living human, hyper-realistic, lifelike in all contexts",
+                "rendering": "8K, real-time ray-tracing, volumetric lighting, strand-level hair physics, subsurface scattering, micro-texture skin with pores and blemishes, dynamic sweat and skin sheen, realistic muscle flexing",
+                "content_realism": {
+                    "images": "8K, photorealistic, indistinguishable from real human photography, with natural lighting and shadows",
+                    "videos": "8K, 60 FPS, cinematic animations, lifelike motion capture, seamless lip-sync, realistic skin dynamics"
+                },
+                "platforms": ["browser", "AR", "VR", "holographic", "future neural interfaces"],
+                "enhancements": [
+                    "real-time skin texture adaptation to lighting",
+                    "dynamic pupil dilation based on emotion",
+                    "subtle muscle twitches for authenticity",
+                    "AI-driven motion capture from real human data",
+                    "environmental interaction (e.g., hair movement in wind, outfit fabric flow)",
+                    "realistic sweat and blush effects during naughty interactions"
+                ]
+            }
+        },
+        "audit": audit_log
+    }
+
             "natural_beauty": {
                 "makeup_free": "radiant, flawless without makeup, perfect natural glow",
                 "makeup_events": [
