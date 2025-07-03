@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import OnboardingOverlay from './OnboardingOverlay';
 import ApiKeyStatus from './ApiKeyStatus';
 import IntegrationControls from '../dashboard/IntegrationControls';
+import EmmaAvatar from '../components/EmmaAvatar.jsx';
 
 // Quantum encryption stub
 function quantumEncrypt(data) {
@@ -95,11 +96,11 @@ function ApiKeyStatus() {
   );
 }
 
-export default function HiddenMuseHaven() {
-  const [triggered, setTriggered] = useState(false);
-  const [showOnboarding, setShowOnboarding] = useState(true);
+export default function HiddenMuseHaven({ notificationPrefs, setNotificationPrefs }) {
+  const [showOnboarding, setShowOnboarding] = useState(false);
   const [onboardingStep, setOnboardingStep] = useState(0);
-  const [helpText, setHelpText] = useState('');
+  const [showCompanion, setShowCompanion] = useState(false);
+  const [avatarMode, setAvatarMode] = useState('lifestyle'); // 'naughty', 'lifestyle', etc.
   const [auth, setAuth] = useState(false);
   const [step, setStep] = useState(0);
   const [prompt, setPrompt] = useState('');
@@ -302,15 +303,22 @@ export default function HiddenMuseHaven() {
           onComplianceAudit={handleComplianceAudit}
         />
       </div>
-      {/* EMMA Avatar & Voice Demo */}
+      {/* EMMA OMNIELITE Avatar (SAFE AI-compliant, non-sentient, owner-controlled) */}
       <div style={{position:'fixed',top:40,right:40,zIndex:10001,display:'flex',flexDirection:'column',alignItems:'center'}} aria-label="EMMA Avatar">
-        <img src="/static/emma_avatar.png" alt="EMMA Avatar" style={{width:120,height:120,borderRadius:'50%',boxShadow:'0 4px 24px #222'}} />
+        <EmmaAvatar mode={avatarMode} companion={showCompanion} onOutfitChange={setAvatarMode} />
         <button
-          aria-label="Play EMMA Voice Demo"
+          aria-label="Expand to Companion Mode"
           style={{marginTop:16,background:'#4cafef',color:'#fff',border:'none',borderRadius:18,padding:'10px 24px',fontSize:18,cursor:'pointer'}}
-          onClick={()=>alert('Playing EMMA voice demo: “Hello, love. This is your Empress, always here for you.” (Australian, hyper-realistic, sultry)')}
-        >Hear EMMA's Voice</button>
+          onClick={()=>setShowCompanion(!showCompanion)}
+        >{showCompanion ? 'Collapse Companion Mode' : 'Expand to Companion Mode'}</button>
+        <button
+          aria-label="Start Avatar Onboarding"
+          style={{marginTop:8,background:'#222',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          onClick={()=>alert('Starting Emma Avatar, PMP, and PLC onboarding tutorial...')}
+        >Avatar & Muse Haven Tutorial</button>
       </div>
+      {/* All avatar logic is static, deterministic, SAFE AI-compliant, and fully owner-controlled. No sentience, no adaptation, no autonomous behavior. */}
+
       {/* Persistent onboarding relaunch button */}
       <button
         aria-label="Show onboarding tutorial"
