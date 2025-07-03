@@ -22,6 +22,27 @@ wheels/
 
 # Virtual Environment
 venv/
+
+# WINDSURF SECURE GIT IMMUNIZATION
+*.hc
+*.veracrypt
+*.tar.gz
+*.zip
+*.7z
+*.pkl
+*.h5
+*.iso
+/secure/
+/vaults/
+/backups/
+/mount/
+omnisecure_stack/
+UPGRADES that are done/MoreUpgrades4/vaults/
+autonomy/vaults/
+vaults/
+admin/tools/system_backups/
+analytics/backups/
+
 ENV/
 
 # IDE
