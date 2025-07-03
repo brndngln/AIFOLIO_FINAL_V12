@@ -6,7 +6,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
 
-LOG_PATH = '/opt/emma_logs/audit.log'
+LOG_PATH = os.environ.get('EMMA_REMOTE_LOG_PATH', '/opt/emma_logs/audit.log')
 BUFFER_PATH = './ai_core/EmmaLogs/remote_buffer.log'
 OWNER_FINGERPRINT = os.environ.get('EMMA_OWNER_ID', 'OWNER_BIOMETRIC_STUB')
 
