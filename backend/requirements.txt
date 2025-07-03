@@ -4,3 +4,10 @@ pydantic
 pytest
 requests
 httpx
+python-dotenv
+openai
+transformers
+pycryptodome
+passlib
+weasyprint
+jinja2
