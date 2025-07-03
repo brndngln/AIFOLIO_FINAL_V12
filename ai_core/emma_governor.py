@@ -7,6 +7,8 @@ import json
 import hashlib
 import os
 import datetime
+import traceback
+from ai_core.emma_crypto import encrypt_log_data
 
 class EmmaGovernor:
     def __init__(self):
@@ -32,7 +34,8 @@ class EmmaGovernor:
 
     def AUTO_KILL_UNREGISTERED_AGENT(self, agent_id):
         if agent_id not in self.registered_agents:
-            self.immutable_audit('AUTO_KILL', agent_id, reason='Unregistered agent execution')
+            # Log kill switch event with required format
+            self.immutable_audit('TERMINATION_EVENT', agent_id, reason='Unregistered agent execution | status=SUCCESS')
             raise RuntimeError(f'Agent {agent_id} is not registered. Execution terminated.')
 
     def require_vault_fingerprint(self, agent_id, vault_fingerprint):
@@ -56,14 +59,28 @@ class EmmaGovernor:
         log_dir = 'ai_core/EmmaLogs/'
         os.makedirs(log_dir, exist_ok=True)
         log_file = os.path.join(log_dir, f'emma_audit_{datetime.date.today()}.log')
+        log_file_enc = log_file + '.enc'
+        # Compose entry with ISO 8601 UTC timestamp, stack trace, fingerprint, summary
+        stack = traceback.format_stack()
+        entry = {
+            'timestamp': datetime.datetime.utcnow().isoformat(),
+            'event': event,
+            'agent_id': agent_id,
+            'action_summary': kwargs.get('reason', event),
+            'stack_trace': stack,
+            'fingerprint': agent_id,
+            'kwargs': kwargs
+        }
+        line = json.dumps(entry) + '\n'
+        # Write plaintext, then encrypt and remove plaintext
         with open(log_file, 'a') as f:
-            entry = {
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'event': event,
-                'agent_id': agent_id,
-                'kwargs': kwargs
-            }
-            f.write(json.dumps(entry) + '\n')
+            f.write(line)
+        with open(log_file, 'rb') as f:
+            enc = encrypt_log_data(f.read())
+        with open(log_file_enc, 'wb') as f:
+            f.write(enc)
+        os.remove(log_file)
+
 
     def _load_safe_matrix(self):
         try:
