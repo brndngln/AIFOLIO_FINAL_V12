@@ -2,7 +2,9 @@
 Unit and integration tests for PMP Backend (SAFE AI, stateless, and owner-controlled)
 """
 from fastapi.testclient import TestClient
-from .pmp_service import app
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+from pmp_service import app
 import starlette
 import starlette.testclient
 import inspect
