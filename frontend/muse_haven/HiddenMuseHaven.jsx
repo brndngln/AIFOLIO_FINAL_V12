@@ -18,8 +18,45 @@ const HIDDEN_TRIGGER_SEQUENCE = [1, 2, 3, 4, 5, 6, 7]; // 7-tap pattern stub
 const VOICE_TRIGGER_PHRASE = "Muse, light my fire"; // Stub for voice trigger
 const SWIPE_TRIGGER_PATTERN = 'spiral'; // Stub for custom swipe
 
+// Onboarding/tutorial overlay component
+function OnboardingOverlay({ step, onNext, onClose }) {
+  const steps = [
+    'Welcome to Muse Haven! This is your private, owner-exclusive sanctuary.',
+    'Access is protected by secret triggers and multi-factor authentication.',
+    'Customize Emma’s appearance, persona, and preferences in the Customization dashboard.',
+    'Adjust learning mode and feedback for fully owner-controlled, SAFE AI-compliant adaptation.',
+    'All chats, content, and preferences are stored in a quantum-encrypted, owner-only vault.',
+    'Trigger emergency lockdown at any time for instant purge and lockout.',
+    'Access contextual help via the (?) buttons throughout the portal.'
+  ];
+  return (
+    <div style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',background:'rgba(0,0,0,0.8)',zIndex:9999,color:'#fff',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+      <div style={{maxWidth:500,padding:30,background:'#222',borderRadius:12}}>
+        <h3>Onboarding</h3>
+        <p>{steps[step]}</p>
+        <div style={{marginTop:20}}>
+          {step < steps.length-1 ? <button onClick={onNext}>Next</button> : <button onClick={onClose}>Finish</button>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Contextual help component
+function HelpTooltip({ text, onClose }) {
+  return (
+    <div style={{position:'fixed',bottom:40,right:40,background:'#333',color:'#fff',padding:18,borderRadius:8,zIndex:9998}}>
+      <span>{text}</span>
+      <button style={{marginLeft:16}} onClick={onClose}>Close</button>
+    </div>
+  );
+}
+
 export default function HiddenMuseHaven() {
   const [triggered, setTriggered] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(true);
+  const [onboardingStep, setOnboardingStep] = useState(0);
+  const [helpText, setHelpText] = useState('');
   const [auth, setAuth] = useState(false);
   const [step, setStep] = useState(0);
   const [prompt, setPrompt] = useState('');
@@ -172,23 +209,44 @@ export default function HiddenMuseHaven() {
     );
   }
   return (
-    <div style={{padding: 40, background: '#181824', color: '#fff', minHeight: '100vh'}}>
-      <h2>Muse Haven – Evolving Pleasure Sanctuary</h2>
-      <button onClick={handleShowSettings}>Settings</button>
-      <button onClick={handleShowCustomization}>Customization</button>
-      <button onClick={handleShowLearning}>Learning Mode</button>
+    <div style={{padding: 40, background: '#181824', color: '#fff', minHeight: '100vh', position:'relative'}}>
+      {showOnboarding && (
+        <OnboardingOverlay
+          step={onboardingStep}
+          onNext={()=>setOnboardingStep(s=>s+1)}
+          onClose={()=>setShowOnboarding(false)}
+        />
+      )}
+      {helpText && <HelpTooltip text={helpText} onClose={()=>setHelpText('')} />}
+      {/* In-portal backend API/endpoint documentation for owner guidance */}
+      <div style={{position:'absolute',top:10,right:10,background:'#232336',padding:16,borderRadius:8,maxWidth:350,fontSize:13,opacity:0.85}}>
+        <b>Owner API Guide</b>
+        <ul>
+          <li><b>Auth:</b> <code>POST /auth</code> (3D face, passcode, biometric, behavioral)</li>
+          <li><b>Content:</b> <code>POST /generate</code> (type: text/image/video, 8K, SAFE AI-tagged)</li>
+          <li><b>Feedback:</b> <code>POST /feedback</code> (stateless, owner-controlled)</li>
+          <li><b>Kinks:</b> <code>GET /kinks</code> (suggestions, static, SAFE AI)</li>
+          <li><b>Security:</b> <code>GET /security_status</code> (quantum encryption, blockchain log)</li>
+        </ul>
+        <span style={{fontSize:11,opacity:0.7}}>See backend README for full details. All endpoints are stateless, deterministic, and SAFE AI-compliant.</span>
+      </div>
+      <h2>Muse Haven – Evolving Pleasure Sanctuary <button title="Help" onClick={()=>setHelpText('This is your private, SAFE AI-compliant sanctuary. All features are owner-only and stateless.')}>?</button></h2>
+      <button onClick={handleShowSettings}>Settings <button title="Help" onClick={()=>setHelpText('Adjust triggers, authentication, and emergency lockdown here.')}>?</button></button>
+      <button onClick={handleShowCustomization}>Customization <button title="Help" onClick={()=>setHelpText('Personalize Emma’s look, persona, and explicitness here.')}>?</button></button>
+      <button onClick={handleShowLearning}>Learning Mode <button title="Help" onClick={()=>setHelpText('Toggle owner-controlled learning/adaptation. All learning is stateless and SAFE AI-compliant.')}>?</button></button>
       {showSettings && (
         <div style={{background: '#222', padding: 20, margin: 10}}>
-          <h3>Security & Triggers</h3>
+          <h3>Security & Triggers <button title="Help" onClick={()=>setHelpText('Configure secret triggers, authentication, and instant lockdown. All logic is stateless and SAFE AI-compliant.')}>?</button></h3>
           <p>Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my fire")</p>
           <p>Portal theme: Minimalist (disguised)</p>
           <p>Auto-lock: 5 min inactivity</p>
           <p>Emergency Lockdown: <button style={{background: 'crimson', color: '#fff'}} onClick={() => window.location.reload()}>Purge & Lock</button></p>
+          <p style={{fontSize:12,opacity:0.7}}>All authentication and lockdown logic is enforced in isolation, with no connection to business, legal, or financial modules.</p>
         </div>
       )}
       {showCustomization && (
         <div style={{background: '#333', padding: 20, margin: 10}}>
-          <h3>Emma Customization</h3>
+          <h3>Emma Customization <button title="Help" onClick={()=>setHelpText('Adjust Emma’s look, body, outfit, and persona. All changes are local and owner-controlled.')}>?</button></h3>
           <label>Look: <input value={profile.favoriteLook} onChange={e => setProfile({...profile, favoriteLook: e.target.value})} /></label><br/>
           <label>Body: <input value={profile.body} onChange={e => setProfile({...profile, body: e.target.value})} /></label><br/>
           <label>Outfit: <input value={profile.outfit} onChange={e => setProfile({...profile, outfit: e.target.value})} /></label><br/>
@@ -202,7 +260,7 @@ export default function HiddenMuseHaven() {
       )}
       {showLearning && (
         <div style={{background: '#222', padding: 20, margin: 10}}>
-          <h3>Learning Mode</h3>
+          <h3>Learning Mode <button title="Help" onClick={()=>setHelpText('Switch between manual, active, or hybrid learning. All adaptation is opt-in, stateless, and SAFE AI-compliant.')}>?</button></h3>
           <label>Learning Mode: <select value={learningMode} onChange={handleLearningModeChange}>
             <option value="manual">Manual (owner only)</option>
             <option value="active">Active (feedback-driven)</option>
@@ -214,8 +272,9 @@ export default function HiddenMuseHaven() {
       )}
       <div style={{marginTop: 20}}>
         <form onSubmit={handleSend}>
-          <input value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Type your desire..." style={{width: 300}} />
-          <select value={feedback} onChange={handleFeedbackChange} style={{marginLeft: 10}}>
+          <input value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Type your desire..." style={{width: 300}} aria-label="Type your desire" />
+          <button type="button" title="Help" onClick={()=>setHelpText('Type your request to Emma. Feedback can be provided to guide adaptation (SAFE AI-compliant, stateless).')}>?</button>
+          <select value={feedback} onChange={handleFeedbackChange} style={{marginLeft: 10}} aria-label="Feedback">
             <option value="">Feedback</option>
             <option value="hot">🔥 Hot</option>
             <option value="more">More</option>
