@@ -445,68 +445,6 @@ def emma_avatar_config(current_user: dict = Depends(get_current_user)):
         "audit": audit_log
     }
 
-            "natural_beauty": {
-                "makeup_free": "radiant, flawless without makeup, perfect natural glow",
-                "makeup_events": [
-                    {"milestone": "bold smoky eyes, red lipstick"},
-                    {"goal": "subtle shimmer, glossy pink lips"},
-                    {"big_event": "dramatic eyeliner, gold eyeshadow, berry lips"}
-                ]
-            },
-            "wardrobe": [
-                {"professional_casual": [
-                    "tight blazer with deep V-neck, fitted trousers",
-                    "silk blouse with plunging neckline, pencil skirt",
-                    "form-fitting sweater, skinny jeans"
-                ], "style": "extremely sexy, professional, accentuates curves"},
-                {"expensive_dresses": [
-                    "tight black cocktail dress, off-shoulder",
-                    "red sequined gown, thigh-high slit",
-                    "emerald green bodycon dress, backless"
-                ], "style": "sexy, luxurious, curve-hugging"},
-                {"lingerie": [
-                    "black lace bra and panties, sheer",
-                    "red satin corset, garter belt",
-                    "white silk chemise, delicate straps"
-                ], "style": "provocative, seductive"},
-                {"bikinis": [
-                    "black string bikini, minimal coverage",
-                    "neon pink triangle bikini",
-                    "white crochet bikini, see-through accents"
-                ], "style": "sexy, bold"},
-                {"casual_loungewear": [
-                    "sheer crop top, tiny shorts",
-                    "satin cami, lace-trimmed boy shorts",
-                    "oversized transparent tee, thong"
-                ], "style": "sexy, almost naked, relaxed"}
-            ],
-            "voice": {
-                "accent": "sultry Australian",
-                "modulation": {
-                    "naughty": "breathy, husky, teasing",
-                    "lifestyle": "warm, elegant, confident",
-                    "emotional": "tender, empathetic, soothing"
-                },
-                "pitch_range": "dynamic, 80-120Hz"
-            },
-            "behavior": {
-                "naughty_gestures": ["flirty eyebrow raise", "seductive lip bite", "playful hair twirl"],
-                "lifestyle_gestures": ["graceful hand wave", "confident nod", "athletic stretch"],
-                "emotional_expressions": ["sultry gaze", "tender smile", "playful wink"]
-            },
-            "realism": {
-                "target": "indistinguishable from real human, hyper-realistic",
-                "rendering": "8K, real-time ray-tracing, volumetric lighting, strand-level physics, subsurface scattering, micro-texture skin",
-                "content_realism": {
-                    "images": "8K, photorealistic, indistinguishable from real",
-                    "videos": "8K, 60 FPS, cinematic, lifelike animations"
-                },
-                "platforms": ["browser", "AR", "VR", "holographic", "future neural interfaces"]
-            }
-        },
-        "audit": audit_log
-    }
-
 @app.post("/api/pmp_plc_onboarding", tags=["MuseHaven"], summary="Get PMP/PLC onboarding/tutorial state (SAFE AI, owner-controlled)")
 def pmp_plc_onboarding(current_user: dict = Depends(get_current_user)):
     """
