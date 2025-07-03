@@ -2,6 +2,12 @@
 AIFOLIO™ EMPRESS EMMA: Elite Legal Sentinel AI (SAFE AI, Static, OWNER-locked)
 Australian-accented, emotionally intelligent, global legal strategist and business law guardian.
 All logic is static, deterministic, and OWNER-controlled. No sentience or adaptation.
+
+SAFE AI EXTENSION POINTS:
+- All flirty, seductive, or "naughty" features must remain non-explicit and are strictly locked to biometric-verified owner.
+- All personality/behavioral upgrades must be static, deterministic, and SAFE AI-compliant.
+- No adaptive, sentient, or memory-based logic permitted.
+- All actions are logged and auditable; audit trail is immutable.
 """
 import logging
 from typing import Dict, Any

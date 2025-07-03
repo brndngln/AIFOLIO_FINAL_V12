@@ -53,6 +53,9 @@ export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOu
   // Extension points: To add more SAFE micro-behaviors, use static, deterministic intervals or owner-triggered actions only.
 
   // Avatar realism: static config (SAFE, non-explicit)
+  // --- SAFE AI EXTENSION POINT ---
+  // To add new seductive but non-explicit poses or wardrobe options, update the config and static assets only.
+  // All changes must remain strictly SAFE AI-compliant and owner-controlled.
   const config = {
     height: "5'4\"",
     body_type: "athletic, super skinny, hourglass",
@@ -136,9 +139,11 @@ export default function EmmaAvatar({ mode = 'lifestyle', companion = false, onOu
 
   const [wardrobeKey, setWardrobeKey] = useState('professional');
   const [makeupEvent, setMakeupEvent] = useState(null);
+  // SAFE AI EXTENSION: Wardrobe/pose switching is strictly non-explicit and owner-controlled. Add new keys and static images for SAFE poses only.
   const wardrobe = config.wardrobe.find(w => w.key === wardrobeKey) || config.wardrobe[0];
 
   // Placeholder for images (SAFE AI: no real images, just static)
+  // SAFE AI EXTENSION: Add new static images for additional SAFE wardrobe/pose options here.
   const imageMap = {
     professional: '/static/emma_lifestyle.png',
     dresses: '/static/emma_lifestyle_alt.png',

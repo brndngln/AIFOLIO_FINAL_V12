@@ -4,6 +4,11 @@ EMMA™: Owner’s Legal/Logic Guardian — OMNIELITE SYSTEM
 - Provides owner-verifiable, immutable audit trails
 - Enforces code injection and commit protocols
 - Integrates with all compliance, audit, and rollback layers
+
+SAFE AI EXTENSION POINTS:
+- All audit, compliance, and rollback logic must remain static, deterministic, and owner/biometric locked.
+- No audit bypass, sentient, or adaptive logic permitted.
+- All extension points must be clearly documented and SAFE AI-compliant.
 """
 import hashlib
 import json
