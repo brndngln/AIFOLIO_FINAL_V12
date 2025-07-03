@@ -1,0 +1,35 @@
+# Kubernetes deployment for SAFE AI PMP Backend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pmp-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pmp-backend
+  template:
+    metadata:
+      labels:
+        app: pmp-backend
+    spec:
+      containers:
+      - name: pmp-backend
+        image: pmp-backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SAFE_AI_MODE
+          value: "true"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pmp-backend-service
+spec:
+  selector:
+    app: pmp-backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000

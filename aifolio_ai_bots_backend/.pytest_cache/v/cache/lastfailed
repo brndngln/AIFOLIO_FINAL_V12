@@ -1,0 +1,4 @@
+{
+  "agents/test_agents_health.py::test_adam_health": true,
+  "agents/test_agents_health.py::test_barbara_health": true
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-06-24T20:09:08-06:00",
+  "metrics": {
+    "wealth_capture_percent": "SURFACED",
+    "tax_saved_usd": "SURFACED",
+    "cash_flow_gain_usd": "SURFACED",
+    "active_tax_credits_percent": "SURFACED",
+    "active_compliance_percent": "SURFACED"
+  },
+  "status": "All dashboard metrics surfaced for audit and compliance."
+}

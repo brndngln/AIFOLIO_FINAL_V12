@@ -1,0 +1,3 @@
+__sentience_block__ = True
+__self_expand__ = False
+OWNER_LOCK = True

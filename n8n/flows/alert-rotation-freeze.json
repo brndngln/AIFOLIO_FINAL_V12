@@ -1,0 +1,34 @@
+{
+  "name": "Rotation Freeze Alert",
+  "nodes": [
+    {
+      "parameters": {
+        "cronExpression": "*/5 * * * *",
+        "timezone": "UTC"
+      },
+      "name": "Check Freeze Flag",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "parameters": {
+        "functionCode": "const redis = require('redis');\nconst client = redis.createClient({ url: process.env.REDIS_URL });\nreturn new Promise((resolve, reject) => {\n  client.get('aifolio:rotations_enabled', (err, val) => {\n    if (err) return reject(err);\n    let enabled = true;\n    try { enabled = JSON.parse(val).enabled; } catch (e) {}\n    resolve([{ enabled }]);\n  });\n});"
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "@AIFOLIO_ALERTS",
+        "message": "[AIFOLIO OMNILOCK] Rotation Freeze is ACTIVE. No secrets will rotate until resumed.",
+        "options": {}
+      },
+      "name": "Send Telegram Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [400, 300]
+    }
+  ],
+  "connections": {
+    "Check Freeze Flag": {
+      "main": [[{"node": "Send Telegram Alert", "type": "main", "index": 0}]]
+    }
+  }
+}

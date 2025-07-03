@@ -1,0 +1,501 @@
+ai_prompt_version,country,sale_amount,customer_type,niche,ai_version,ai_generation_success,sale_datetime,delivery_success,visit_id,ai_style,product_name,vault_id,refund_reason,ai_latency,funnel_stage,language,refund
+v1,CA,33.82,first_time,Marketing,gpt-4,True,2025-05-23T11:51:07.475717,True,visit_462,friendly,Marketing Course,vault_11,,0.94,visit,en,False
+v3,FR,33.06,first_time,Education,gpt-4,True,2025-06-17T20:14:07.475717,True,visit_198,luxury,Education Template,vault_13,,1.23,cart,en,False
+v3,DE,37.64,first_time,Finance,custom-1,True,2025-06-17T04:46:07.475717,True,visit_174,casual,Finance Course,vault_12,,2.91,refund,de,False
+v1,FR,62.79,first_time,AI Tools,gpt-3.5,True,2025-05-25T14:27:07.475717,True,visit_79,corporate,AI Tools Course,vault_14,Description unclear,1.86,purchase,de,True
+v1,CA,64.81,first_time,Health,custom-1,True,2025-05-30T21:45:07.475717,True,visit_73,friendly,Health PDF Guide,vault_11,,1.95,visit,en,False
+v3,FR,99.15,first_time,Education,gpt-3.5,True,2025-05-24T13:55:07.475717,True,visit_391,friendly,Education Report,vault_20,Price dissatisfaction,3.06,refund,es,True
+v3,FR,41.92,first_time,Finance,gpt-3.5,True,2025-05-21T06:23:07.475717,True,visit_183,friendly,Finance Template,vault_12,,2.39,refund,es,False
+v1,US,59.27,first_time,Health,gpt-4,True,2025-05-29T15:21:07.475717,True,visit_393,corporate,Health Report,vault_5,,2.91,purchase,es,False
+v1,MX,54.09,repeat,AI Tools,gpt-3.5,True,2025-06-08T19:33:07.475717,True,visit_461,casual,AI Tools Course,vault_9,,2.19,visit,es,False
+v3,FR,51.33,first_time,AI Tools,custom-1,True,2025-06-19T02:26:07.475717,True,visit_195,corporate,AI Tools PDF Guide,vault_2,,3.25,cart,de,False
+v3,MX,49.31,repeat,Education,gpt-4,True,2025-05-24T03:01:07.475717,True,visit_307,luxury,Education Report,vault_15,,2.29,cart,es,False
+v1,IN,95.41,first_time,AI Tools,custom-1,True,2025-05-28T05:51:07.475717,True,visit_202,casual,AI Tools PDF Guide,vault_14,,2.3,purchase,fr,False
+v2,IN,51.05,first_time,Education,gpt-3.5,True,2025-06-17T06:40:07.475717,True,visit_101,friendly,Education Report,vault_17,,3.09,visit,fr,False
+v2,CA,66.77,repeat,AI Tools,gpt-4,True,2025-06-11T13:00:07.475717,True,visit_375,friendly,AI Tools Template,vault_16,,3.18,cart,es,False
+v2,DE,77.52,first_time,Marketing,gpt-4,True,2025-05-22T08:15:07.475717,True,visit_109,luxury,Marketing PDF Guide,vault_13,,1.81,cart,de,False
+v3,DE,62.26,first_time,Health,gpt-3.5,True,2025-06-06T08:28:07.475717,True,visit_495,luxury,Health Template,vault_13,,2.59,visit,es,False
+v2,CA,51.75,first_time,Education,gpt-4,True,2025-06-15T14:25:07.475717,True,visit_78,luxury,Education Report,vault_15,,1.64,purchase,fr,False
+v2,CA,53.12,first_time,Health,gpt-4,True,2025-06-09T00:07:07.475717,True,visit_75,luxury,Health Template,vault_11,,1.29,purchase,de,False
+v2,CA,99.08,first_time,Health,gpt-4,True,2025-06-19T11:49:07.475717,True,visit_244,casual,Health Report,vault_16,,1.43,purchase,en,False
+v2,US,88.8,first_time,AI Tools,gpt-4,True,2025-06-12T08:09:07.475717,True,visit_310,corporate,AI Tools Template,vault_8,,2.71,visit,fr,False
+v3,US,91.15,repeat,AI Tools,gpt-4,True,2025-05-28T21:16:07.475717,True,visit_75,corporate,AI Tools Toolkit,vault_19,,1.53,refund,en,False
+v1,MX,42.48,first_time,Marketing,custom-1,True,2025-06-04T22:55:07.475717,True,visit_373,friendly,Marketing Report,vault_13,,0.54,refund,de,False
+v2,US,64.86,repeat,AI Tools,custom-1,False,2025-05-20T15:34:07.475717,True,visit_314,friendly,AI Tools Course,vault_15,,1.37,cart,en,False
+v3,DE,95.26,first_time,AI Tools,custom-1,True,2025-06-01T11:47:07.475717,True,visit_431,friendly,AI Tools Toolkit,vault_16,,1.59,visit,es,False
+v3,FR,75.32,first_time,Education,gpt-4,True,2025-05-30T12:50:07.475717,True,visit_61,casual,Education Toolkit,vault_12,,3.39,visit,en,False
+v2,US,97.99,first_time,Marketing,gpt-4,True,2025-06-04T16:37:07.475717,True,visit_22,luxury,Marketing PDF Guide,vault_9,,1.64,visit,fr,False
+v2,DE,93.18,first_time,Education,gpt-4,True,2025-06-14T18:50:07.475717,True,visit_33,casual,Education Course,vault_9,,2.77,cart,en,False
+v3,US,92.54,first_time,AI Tools,custom-1,True,2025-05-28T08:54:07.475717,True,visit_111,luxury,AI Tools Course,vault_1,,2.04,purchase,en,False
+v3,MX,29.86,repeat,AI Tools,gpt-4,True,2025-06-10T08:10:07.475717,True,visit_431,casual,AI Tools Toolkit,vault_14,,1.56,cart,de,False
+v2,FR,15.0,first_time,AI Tools,gpt-4,True,2025-06-10T04:22:07.475717,True,visit_422,corporate,AI Tools PDF Guide,vault_9,,2.99,cart,en,False
+v2,FR,35.84,repeat,AI Tools,gpt-3.5,True,2025-06-19T16:48:07.475717,True,visit_3,casual,AI Tools Template,vault_6,,2.49,purchase,de,False
+v3,IN,47.73,first_time,Marketing,custom-1,True,2025-06-01T03:01:07.475717,True,visit_138,casual,Marketing PDF Guide,vault_20,Product mismatch,0.7,visit,de,True
+v2,MX,86.89,first_time,Finance,gpt-3.5,True,2025-06-13T02:31:07.475717,True,visit_265,casual,Finance PDF Guide,vault_18,,1.96,visit,de,False
+v2,DE,29.28,first_time,Health,custom-1,True,2025-05-24T02:33:07.475717,True,visit_1,casual,Health PDF Guide,vault_5,,1.66,purchase,fr,False
+v2,DE,48.67,first_time,AI Tools,custom-1,True,2025-06-07T03:44:07.475717,True,visit_353,luxury,AI Tools Report,vault_16,,1.26,refund,es,False
+v3,IN,12.89,repeat,Finance,gpt-4,True,2025-05-29T00:41:07.475717,True,visit_417,casual,Finance PDF Guide,vault_13,,2.95,refund,en,False
+v3,IN,33.34,repeat,Education,gpt-3.5,True,2025-06-01T07:46:07.475717,True,visit_118,casual,Education Report,vault_10,,2.17,cart,en,False
+v1,IN,89.67,repeat,Health,gpt-3.5,True,2025-05-21T09:06:07.475717,True,visit_420,friendly,Health Course,vault_11,,3.36,refund,es,False
+v2,US,54.83,first_time,Marketing,gpt-3.5,True,2025-06-11T03:49:07.475717,True,visit_182,casual,Marketing Course,vault_9,,1.5,cart,en,False
+v1,CA,56.51,repeat,Marketing,gpt-4,True,2025-05-31T18:57:07.475717,True,visit_176,friendly,Marketing Course,vault_11,,1.89,cart,es,False
+v2,FR,11.09,first_time,Finance,gpt-3.5,True,2025-05-27T12:20:07.475717,True,visit_459,friendly,Finance Report,vault_13,,2.92,purchase,fr,False
+v3,US,76.22,first_time,Education,custom-1,True,2025-05-27T11:14:07.475717,True,visit_272,corporate,Education Course,vault_14,,0.93,purchase,es,False
+v1,IN,32.37,first_time,Health,gpt-3.5,True,2025-05-20T23:06:07.475717,True,visit_22,friendly,Health Toolkit,vault_11,,1.08,cart,es,False
+v3,IN,72.12,repeat,Marketing,gpt-4,True,2025-06-05T11:12:07.475717,True,visit_290,luxury,Marketing Report,vault_13,,1.22,cart,es,False
+v2,DE,64.6,first_time,Health,gpt-3.5,True,2025-05-24T14:47:07.475717,True,visit_442,friendly,Health Course,vault_11,,1.5,visit,de,False
+v1,FR,38.19,first_time,AI Tools,gpt-3.5,False,2025-06-08T00:05:07.475717,True,visit_346,luxury,AI Tools Template,vault_11,Description unclear,1.27,visit,de,True
+v1,FR,53.5,repeat,Marketing,custom-1,True,2025-06-10T12:30:07.475717,True,visit_405,luxury,Marketing PDF Guide,vault_11,,1.0,visit,de,False
+v1,FR,39.35,first_time,Health,gpt-3.5,True,2025-06-14T10:00:07.475717,True,visit_401,corporate,Health Template,vault_6,,1.81,cart,de,False
+v3,DE,48.12,first_time,Finance,gpt-3.5,True,2025-05-24T10:32:07.475717,True,visit_380,luxury,Finance Toolkit,vault_8,,1.84,refund,es,False
+v2,MX,28.46,first_time,AI Tools,custom-1,True,2025-06-18T06:22:07.475717,True,visit_338,friendly,AI Tools Report,vault_10,,3.14,purchase,en,False
+v1,FR,89.6,first_time,Education,gpt-3.5,True,2025-06-14T07:27:07.475717,True,visit_64,corporate,Education Toolkit,vault_1,,2.87,visit,en,False
+v2,MX,62.78,repeat,Education,gpt-4,True,2025-05-22T16:14:07.475717,True,visit_4,luxury,Education Course,vault_19,,1.56,visit,es,False
+v2,FR,50.94,first_time,Health,custom-1,True,2025-06-13T08:21:07.475717,True,visit_489,casual,Health Course,vault_2,Description unclear,1.42,visit,en,True
+v1,US,91.23,repeat,Education,gpt-4,True,2025-05-30T14:14:07.475717,True,visit_483,luxury,Education Template,vault_5,,1.58,purchase,en,False
+v2,IN,28.18,repeat,Marketing,gpt-4,True,2025-06-06T12:22:07.475717,True,visit_396,casual,Marketing Template,vault_10,,2.79,visit,es,False
+v1,US,21.23,first_time,Marketing,gpt-4,True,2025-06-10T10:57:07.475717,True,visit_290,corporate,Marketing Toolkit,vault_18,,2.76,cart,fr,False
+v1,IN,27.17,first_time,Health,gpt-3.5,True,2025-06-19T15:59:07.475717,True,visit_499,casual,Health Toolkit,vault_4,,2.85,refund,fr,False
+v3,CA,55.77,first_time,Education,gpt-3.5,False,2025-05-20T17:20:07.475717,True,visit_464,luxury,Education PDF Guide,vault_17,,2.18,refund,fr,False
+v2,CA,80.08,first_time,Finance,gpt-4,True,2025-06-19T01:15:07.475717,True,visit_113,corporate,Finance Template,vault_1,,3.34,visit,de,True
+v1,FR,81.69,repeat,AI Tools,custom-1,True,2025-06-01T05:15:07.475717,True,visit_109,friendly,AI Tools Report,vault_13,,0.66,visit,fr,False
+v3,DE,88.24,first_time,Finance,gpt-4,True,2025-06-15T04:17:07.475717,True,visit_474,casual,Finance Template,vault_5,,2.76,visit,fr,False
+v2,US,37.37,first_time,AI Tools,custom-1,True,2025-05-23T23:29:07.475717,True,visit_252,friendly,AI Tools Toolkit,vault_17,,2.55,visit,fr,False
+v2,DE,53.68,first_time,Finance,gpt-4,True,2025-05-27T18:36:07.475717,True,visit_316,corporate,Finance Report,vault_19,,1.71,refund,fr,False
+v2,FR,11.17,repeat,AI Tools,gpt-4,True,2025-06-08T16:50:07.475717,True,visit_195,casual,AI Tools Template,vault_16,,2.56,visit,de,False
+v1,IN,71.94,repeat,Health,gpt-4,True,2025-05-29T11:11:07.475717,True,visit_379,corporate,Health Report,vault_3,,2.19,purchase,fr,False
+v1,IN,60.09,repeat,Health,custom-1,True,2025-06-18T17:36:07.475717,True,visit_264,friendly,Health Report,vault_10,,3.2,visit,es,False
+v1,FR,85.24,repeat,Finance,gpt-3.5,True,2025-06-09T16:24:07.475717,True,visit_77,luxury,Finance Template,vault_20,,1.11,visit,de,False
+v3,US,11.19,repeat,Marketing,custom-1,True,2025-06-03T16:33:07.475717,True,visit_239,corporate,Marketing PDF Guide,vault_7,,2.87,refund,de,False
+v1,CA,28.29,first_time,AI Tools,gpt-4,True,2025-05-31T02:45:07.475717,True,visit_223,casual,AI Tools Course,vault_18,,1.25,visit,es,False
+v1,MX,66.16,repeat,Education,custom-1,True,2025-05-27T19:08:07.475717,True,visit_54,friendly,Education Template,vault_16,,2.61,purchase,fr,False
+v1,FR,71.64,repeat,Health,gpt-3.5,True,2025-06-05T06:04:07.475717,False,visit_466,luxury,Health Template,vault_5,,2.05,visit,de,False
+v1,FR,40.98,first_time,Education,gpt-4,True,2025-06-19T01:54:07.475717,True,visit_98,friendly,Education PDF Guide,vault_5,,1.82,refund,fr,False
+v2,US,88.88,first_time,Health,custom-1,True,2025-05-20T06:07:07.475717,True,visit_223,friendly,Health Report,vault_18,,1.19,purchase,fr,False
+v1,MX,28.64,first_time,Education,gpt-3.5,True,2025-05-23T11:14:07.475717,True,visit_177,corporate,Education Toolkit,vault_4,,0.92,refund,es,False
+v1,IN,90.77,first_time,Finance,custom-1,True,2025-05-24T20:27:07.475717,True,visit_440,luxury,Finance PDF Guide,vault_7,,1.24,cart,en,False
+v1,FR,92.7,first_time,Finance,gpt-3.5,True,2025-05-31T00:25:07.475717,True,visit_402,casual,Finance Report,vault_20,,1.62,cart,de,False
+v1,CA,39.08,first_time,AI Tools,gpt-4,True,2025-06-02T18:06:07.475717,True,visit_369,casual,AI Tools Course,vault_3,,3.31,cart,de,False
+v3,DE,67.76,repeat,AI Tools,gpt-4,True,2025-06-17T18:27:07.475717,True,visit_394,luxury,AI Tools PDF Guide,vault_15,,1.16,refund,fr,False
+v1,DE,87.02,first_time,Education,gpt-4,True,2025-06-17T19:37:07.475717,True,visit_114,luxury,Education Template,vault_9,,1.01,purchase,fr,False
+v2,MX,72.96,repeat,Marketing,gpt-3.5,True,2025-05-24T21:51:07.475717,True,visit_466,friendly,Marketing Template,vault_13,,2.02,visit,es,False
+v1,DE,39.4,first_time,Finance,custom-1,True,2025-06-10T13:12:07.475717,True,visit_299,casual,Finance Report,vault_4,,0.57,visit,en,False
+v1,IN,92.89,first_time,Marketing,gpt-3.5,True,2025-06-18T11:08:07.475717,True,visit_353,corporate,Marketing Toolkit,vault_10,,3.06,cart,en,False
+v2,DE,95.43,first_time,AI Tools,custom-1,True,2025-05-29T12:04:07.475717,True,visit_15,corporate,AI Tools Course,vault_20,,0.73,visit,es,False
+v2,US,56.05,repeat,Education,gpt-3.5,True,2025-06-05T03:19:07.475717,True,visit_77,casual,Education Course,vault_6,,2.97,refund,fr,False
+v3,DE,91.82,first_time,Education,gpt-4,True,2025-05-23T13:38:07.475717,True,visit_64,luxury,Education Report,vault_9,Description unclear,1.54,purchase,de,True
+v3,CA,58.03,repeat,Finance,custom-1,True,2025-05-25T04:12:07.475717,True,visit_371,casual,Finance Toolkit,vault_13,,2.94,cart,de,False
+v1,CA,56.24,first_time,Marketing,custom-1,True,2025-05-28T16:30:07.475717,True,visit_285,corporate,Marketing Toolkit,vault_9,,3.25,purchase,fr,False
+v2,FR,78.88,first_time,Education,gpt-3.5,True,2025-05-24T16:49:07.475717,True,visit_204,corporate,Education Toolkit,vault_9,,3.0,purchase,fr,False
+v1,IN,76.77,first_time,Education,gpt-3.5,True,2025-06-16T19:39:07.475717,True,visit_124,luxury,Education Template,vault_20,,0.67,visit,de,False
+v2,MX,80.93,first_time,Education,gpt-3.5,True,2025-06-17T09:08:07.475717,True,visit_492,luxury,Education Course,vault_17,,1.45,refund,en,False
+v2,IN,79.16,repeat,Finance,gpt-4,True,2025-06-17T17:48:07.475717,True,visit_498,corporate,Finance PDF Guide,vault_7,,0.71,refund,es,True
+v3,MX,36.59,repeat,AI Tools,gpt-3.5,True,2025-05-22T06:00:07.475717,True,visit_97,casual,AI Tools Toolkit,vault_3,,2.22,purchase,en,False
+v3,US,89.09,first_time,Marketing,custom-1,True,2025-06-15T05:17:07.475717,True,visit_354,luxury,Marketing Course,vault_2,,2.68,cart,es,False
+v2,MX,96.64,repeat,Education,custom-1,False,2025-06-02T01:09:07.475717,True,visit_382,friendly,Education Course,vault_9,,2.37,purchase,de,False
+v3,CA,47.63,first_time,Marketing,custom-1,True,2025-05-26T03:18:07.475717,True,visit_182,luxury,Marketing Course,vault_6,,3.09,purchase,en,False
+v1,DE,22.43,first_time,Health,gpt-4,True,2025-05-21T00:10:07.475717,True,visit_106,luxury,Health Report,vault_6,Product mismatch,0.58,purchase,en,True
+v1,FR,47.65,first_time,Health,gpt-4,True,2025-06-16T11:20:07.475717,True,visit_90,luxury,Health Toolkit,vault_2,,2.43,purchase,en,True
+v1,IN,28.62,repeat,Education,gpt-4,True,2025-05-23T21:34:07.475717,True,visit_397,corporate,Education Toolkit,vault_4,,0.81,visit,fr,False
+v2,CA,73.57,repeat,Marketing,gpt-3.5,True,2025-05-31T21:20:07.475717,True,visit_76,friendly,Marketing Toolkit,vault_15,,1.5,purchase,fr,False
+v3,CA,45.23,repeat,Health,gpt-3.5,True,2025-06-05T21:45:07.475717,True,visit_387,luxury,Health PDF Guide,vault_20,,1.65,refund,fr,False
+v2,CA,53.84,first_time,Marketing,gpt-3.5,True,2025-05-29T05:34:07.475717,True,visit_500,corporate,Marketing Report,vault_19,,2.22,purchase,es,False
+v3,US,68.46,repeat,AI Tools,gpt-4,True,2025-06-03T17:02:07.475717,True,visit_139,corporate,AI Tools Template,vault_14,,1.38,purchase,en,False
+v2,DE,60.9,first_time,Education,gpt-4,True,2025-06-09T20:26:07.475717,True,visit_479,corporate,Education Report,vault_12,,1.89,purchase,en,False
+v1,IN,63.17,first_time,Marketing,custom-1,True,2025-05-20T05:11:07.475717,True,visit_215,casual,Marketing Toolkit,vault_19,,2.91,refund,de,False
+v2,MX,58.71,repeat,Health,gpt-4,True,2025-05-26T15:44:07.475717,True,visit_73,corporate,Health Toolkit,vault_2,,2.77,refund,fr,False
+v2,MX,33.07,first_time,AI Tools,custom-1,True,2025-06-17T06:51:07.475717,True,visit_80,friendly,AI Tools Course,vault_13,,0.65,visit,de,False
+v3,IN,96.97,repeat,Marketing,gpt-3.5,True,2025-05-29T21:35:07.475717,True,visit_150,casual,Marketing Report,vault_14,,2.6,visit,de,False
+v1,MX,65.3,first_time,Marketing,gpt-4,True,2025-06-07T18:54:07.475717,True,visit_335,luxury,Marketing Template,vault_14,,2.05,purchase,fr,False
+v1,IN,52.06,first_time,Health,custom-1,True,2025-06-16T08:00:07.475717,True,visit_290,corporate,Health PDF Guide,vault_19,,1.92,cart,de,False
+v3,US,65.27,first_time,Health,gpt-3.5,True,2025-05-19T23:54:07.475717,True,visit_187,friendly,Health Report,vault_2,,2.02,cart,en,False
+v1,MX,51.8,first_time,AI Tools,gpt-3.5,True,2025-06-07T16:10:07.475717,True,visit_425,casual,AI Tools PDF Guide,vault_1,,3.22,purchase,fr,False
+v3,CA,43.02,first_time,Marketing,gpt-3.5,True,2025-06-10T16:19:07.475717,True,visit_183,corporate,Marketing Report,vault_6,,2.26,cart,de,False
+v1,DE,32.01,first_time,AI Tools,gpt-4,False,2025-06-18T09:27:07.475717,True,visit_89,friendly,AI Tools PDF Guide,vault_20,,2.18,purchase,de,False
+v3,MX,86.32,repeat,Health,gpt-3.5,True,2025-06-01T05:25:07.475717,True,visit_215,friendly,Health Template,vault_9,,0.74,purchase,en,False
+v2,US,26.57,repeat,AI Tools,gpt-3.5,True,2025-05-27T15:57:07.475717,True,visit_477,casual,AI Tools Template,vault_16,,3.2,visit,en,False
+v1,IN,46.41,first_time,AI Tools,gpt-4,True,2025-06-14T14:55:07.475717,True,visit_19,friendly,AI Tools Template,vault_14,Description unclear,2.59,visit,en,True
+v1,MX,82.63,repeat,AI Tools,custom-1,True,2025-05-20T04:06:07.475717,True,visit_253,friendly,AI Tools Template,vault_15,,1.48,visit,en,False
+v3,CA,98.43,first_time,Health,gpt-4,True,2025-05-26T03:20:07.475717,True,visit_149,casual,Health Template,vault_12,,1.21,refund,de,False
+v2,MX,27.56,first_time,Health,gpt-3.5,True,2025-06-12T06:24:07.475717,True,visit_264,luxury,Health Toolkit,vault_6,,1.63,refund,de,False
+v3,MX,51.05,first_time,Health,gpt-4,True,2025-06-11T21:55:07.475717,True,visit_498,friendly,Health PDF Guide,vault_15,,0.96,visit,en,False
+v2,US,69.66,repeat,Marketing,custom-1,True,2025-05-21T17:56:07.475717,True,visit_236,friendly,Marketing Template,vault_11,,0.71,visit,es,False
+v3,MX,51.19,first_time,Health,custom-1,True,2025-06-01T09:38:07.475717,True,visit_460,casual,Health Course,vault_4,,1.87,cart,de,False
+v1,DE,94.16,repeat,Education,gpt-3.5,True,2025-06-06T04:56:07.475717,True,visit_8,friendly,Education Course,vault_14,,1.67,cart,es,True
+v1,MX,98.43,first_time,Education,custom-1,True,2025-06-14T15:49:07.475717,True,visit_484,corporate,Education Template,vault_5,,2.71,visit,de,False
+v1,IN,20.88,repeat,Marketing,gpt-3.5,True,2025-06-10T21:39:07.475717,True,visit_4,casual,Marketing Template,vault_19,,1.74,purchase,de,False
+v1,MX,71.6,first_time,Health,custom-1,True,2025-05-31T05:35:07.475717,True,visit_433,casual,Health Template,vault_5,,2.37,visit,fr,False
+v1,FR,39.0,first_time,Health,gpt-4,True,2025-05-26T04:52:07.475717,True,visit_367,corporate,Health Toolkit,vault_4,,2.16,visit,en,False
+v3,DE,70.95,first_time,AI Tools,gpt-4,True,2025-06-10T21:07:07.475717,True,visit_426,luxury,AI Tools Template,vault_7,,1.46,cart,en,False
+v1,CA,93.11,repeat,Marketing,custom-1,True,2025-05-28T13:29:07.475717,True,visit_422,casual,Marketing Toolkit,vault_11,,1.38,visit,en,False
+v1,US,59.31,repeat,Finance,custom-1,True,2025-05-22T05:51:07.475717,True,visit_133,friendly,Finance Template,vault_13,,1.06,visit,en,False
+v3,MX,81.13,first_time,Finance,gpt-3.5,True,2025-06-01T00:28:07.475717,True,visit_315,casual,Finance PDF Guide,vault_4,,2.82,purchase,en,False
+v3,IN,58.54,repeat,Education,gpt-4,True,2025-06-07T03:53:07.475717,True,visit_86,casual,Education Course,vault_18,,2.77,visit,es,False
+v2,IN,72.91,first_time,AI Tools,gpt-4,True,2025-06-06T10:08:07.475717,True,visit_43,luxury,AI Tools Course,vault_6,,1.81,purchase,de,False
+v2,US,38.36,repeat,AI Tools,custom-1,True,2025-05-27T06:51:07.475717,True,visit_213,casual,AI Tools Template,vault_20,,2.98,refund,es,False
+v2,DE,53.84,repeat,Finance,custom-1,True,2025-05-28T10:16:07.475717,True,visit_157,friendly,Finance Course,vault_6,,1.35,visit,fr,False
+v2,CA,23.6,first_time,AI Tools,custom-1,True,2025-05-28T22:58:07.475717,True,visit_209,luxury,AI Tools Template,vault_6,,1.79,refund,fr,False
+v3,DE,79.62,first_time,AI Tools,custom-1,True,2025-06-11T03:02:07.475717,True,visit_145,luxury,AI Tools Course,vault_16,Product mismatch,2.58,visit,fr,True
+v2,MX,89.63,first_time,Education,gpt-3.5,True,2025-05-31T15:30:07.475717,True,visit_294,friendly,Education Toolkit,vault_2,,1.76,visit,fr,False
+v2,CA,92.61,first_time,Health,gpt-4,True,2025-06-10T13:22:07.475717,True,visit_177,friendly,Health PDF Guide,vault_8,,2.6,visit,fr,False
+v1,US,85.29,repeat,Health,gpt-3.5,True,2025-06-08T08:13:07.475717,False,visit_355,friendly,Health Report,vault_15,,0.57,refund,fr,True
+v1,CA,93.13,first_time,Education,gpt-4,True,2025-05-25T05:28:07.475717,True,visit_60,friendly,Education Report,vault_20,,1.88,cart,es,False
+v3,DE,10.18,first_time,Health,custom-1,True,2025-06-16T06:02:07.475717,True,visit_41,luxury,Health Toolkit,vault_8,,2.67,refund,es,False
+v2,IN,58.95,repeat,Health,gpt-4,True,2025-05-25T02:16:07.475717,True,visit_324,luxury,Health Template,vault_8,,1.93,cart,es,False
+v3,CA,51.52,first_time,Marketing,gpt-4,True,2025-06-01T22:31:07.475717,True,visit_203,friendly,Marketing Toolkit,vault_12,,2.74,refund,de,False
+v3,IN,43.6,repeat,Health,gpt-4,True,2025-06-03T09:52:07.475717,True,visit_204,luxury,Health PDF Guide,vault_10,,2.97,cart,de,False
+v1,MX,20.28,first_time,Marketing,gpt-4,True,2025-05-21T09:28:07.475717,True,visit_424,friendly,Marketing Report,vault_9,,0.9,refund,fr,False
+v3,CA,66.63,first_time,Health,gpt-4,True,2025-05-20T13:11:07.475717,True,visit_300,friendly,Health Report,vault_6,,0.8,purchase,es,False
+v2,DE,24.46,first_time,Finance,custom-1,True,2025-06-09T05:49:07.475717,True,visit_74,friendly,Finance Course,vault_7,Description unclear,2.97,purchase,en,True
+v3,MX,58.67,first_time,Health,gpt-4,True,2025-06-06T02:30:07.475717,True,visit_167,corporate,Health Course,vault_16,,1.83,visit,es,False
+v1,MX,59.23,repeat,Education,gpt-3.5,True,2025-06-06T19:35:07.475717,True,visit_407,casual,Education PDF Guide,vault_20,,2.03,visit,de,False
+v1,DE,20.34,repeat,Health,gpt-3.5,True,2025-06-17T14:08:07.475717,True,visit_285,casual,Health Course,vault_9,,0.53,visit,de,False
+v2,MX,22.62,first_time,AI Tools,custom-1,True,2025-05-27T00:17:07.475717,True,visit_179,casual,AI Tools Template,vault_2,,0.85,refund,de,False
+v2,US,15.35,first_time,Finance,custom-1,True,2025-05-25T06:42:07.475717,True,visit_420,corporate,Finance Toolkit,vault_18,,1.28,refund,en,False
+v2,FR,83.03,first_time,Health,gpt-4,True,2025-06-03T21:37:07.475717,True,visit_172,casual,Health Course,vault_1,,1.76,visit,fr,False
+v3,US,12.97,first_time,AI Tools,custom-1,True,2025-06-11T04:30:07.475717,True,visit_419,friendly,AI Tools PDF Guide,vault_18,,0.78,purchase,es,False
+v3,US,61.72,first_time,Finance,gpt-4,True,2025-06-14T01:47:07.475717,True,visit_177,friendly,Finance PDF Guide,vault_11,,0.8,refund,de,False
+v2,FR,29.85,first_time,AI Tools,custom-1,True,2025-05-28T10:46:07.475717,True,visit_387,friendly,AI Tools Toolkit,vault_19,,1.36,refund,fr,False
+v3,CA,47.52,first_time,Education,gpt-3.5,True,2025-05-30T07:41:07.475717,True,visit_102,friendly,Education Toolkit,vault_3,,2.64,cart,es,False
+v1,CA,83.12,first_time,Health,gpt-3.5,True,2025-05-23T23:18:07.475717,True,visit_156,casual,Health Template,vault_15,,3.36,cart,es,False
+v2,FR,95.2,first_time,Education,custom-1,True,2025-06-11T01:33:07.475717,True,visit_349,luxury,Education Report,vault_13,,2.46,cart,en,False
+v1,FR,17.35,first_time,AI Tools,gpt-4,True,2025-05-30T23:06:07.475717,True,visit_112,corporate,AI Tools Report,vault_2,,3.32,cart,en,False
+v1,DE,67.83,repeat,Education,gpt-3.5,True,2025-06-04T14:27:07.475717,True,visit_487,corporate,Education Course,vault_6,,0.52,cart,es,False
+v2,DE,52.65,repeat,Finance,gpt-3.5,True,2025-06-18T04:56:07.475717,True,visit_339,luxury,Finance Template,vault_18,,0.8,visit,en,False
+v1,FR,36.95,first_time,Finance,custom-1,False,2025-05-24T23:30:07.475717,True,visit_330,corporate,Finance PDF Guide,vault_1,,1.79,visit,en,False
+v3,CA,36.53,first_time,Health,custom-1,True,2025-05-31T10:34:07.475717,True,visit_388,friendly,Health Report,vault_7,,1.98,refund,en,False
+v1,MX,76.89,first_time,Health,custom-1,True,2025-06-16T14:40:07.475717,True,visit_288,friendly,Health Course,vault_18,,0.98,cart,de,False
+v1,IN,63.03,first_time,AI Tools,gpt-3.5,True,2025-05-27T01:03:07.475717,True,visit_209,corporate,AI Tools Course,vault_5,,2.06,visit,en,False
+v2,FR,38.38,repeat,AI Tools,custom-1,True,2025-06-10T21:46:07.475717,True,visit_285,friendly,AI Tools Template,vault_5,,2.65,visit,fr,False
+v2,FR,59.37,first_time,Marketing,custom-1,True,2025-06-13T10:17:07.475717,True,visit_326,casual,Marketing Toolkit,vault_10,,2.94,visit,en,False
+v1,US,58.61,first_time,Marketing,gpt-3.5,True,2025-06-03T23:10:07.475717,True,visit_240,corporate,Marketing Report,vault_9,,1.45,purchase,es,False
+v2,CA,71.06,first_time,Finance,gpt-4,True,2025-05-22T22:31:07.475717,True,visit_152,friendly,Finance Toolkit,vault_17,,1.01,refund,en,False
+v1,MX,54.65,first_time,Health,gpt-3.5,True,2025-05-20T08:25:07.475717,True,visit_117,casual,Health Template,vault_6,,1.13,refund,de,False
+v3,DE,36.27,first_time,Finance,gpt-3.5,True,2025-05-22T02:37:07.475717,True,visit_299,luxury,Finance Template,vault_17,,2.66,cart,en,False
+v3,IN,87.87,first_time,AI Tools,gpt-4,True,2025-05-20T15:12:07.475717,True,visit_80,corporate,AI Tools Template,vault_20,,2.65,purchase,fr,False
+v2,IN,72.83,first_time,Marketing,gpt-3.5,True,2025-06-04T11:59:07.475717,True,visit_131,casual,Marketing Course,vault_19,,1.81,purchase,en,False
+v1,DE,68.51,first_time,Finance,custom-1,True,2025-06-06T00:34:07.475717,True,visit_458,corporate,Finance Toolkit,vault_7,,2.18,refund,fr,True
+v3,CA,55.25,repeat,Education,gpt-3.5,True,2025-06-15T11:44:07.475717,True,visit_122,friendly,Education Report,vault_16,,1.0,refund,de,False
+v1,FR,53.77,repeat,AI Tools,gpt-4,True,2025-06-06T19:39:07.475717,True,visit_403,casual,AI Tools Toolkit,vault_13,,2.12,cart,fr,False
+v1,US,56.71,first_time,Education,gpt-3.5,True,2025-06-09T16:12:07.475717,True,visit_464,casual,Education Toolkit,vault_11,,1.05,refund,fr,False
+v3,DE,29.18,first_time,Finance,custom-1,True,2025-05-21T07:52:07.475717,True,visit_162,friendly,Finance Template,vault_16,,2.51,purchase,de,False
+v1,IN,89.94,first_time,AI Tools,custom-1,True,2025-05-26T23:26:07.475717,True,visit_378,casual,AI Tools Template,vault_14,,0.99,cart,es,False
+v2,MX,36.81,repeat,Finance,custom-1,True,2025-06-09T00:31:07.475717,True,visit_2,friendly,Finance Report,vault_7,,1.62,refund,es,False
+v1,US,49.11,first_time,Health,gpt-3.5,True,2025-05-31T18:12:07.475717,True,visit_352,luxury,Health Toolkit,vault_8,,2.89,purchase,es,False
+v1,DE,80.55,repeat,Marketing,custom-1,True,2025-06-15T01:40:07.475717,True,visit_76,friendly,Marketing Template,vault_16,Product mismatch,1.82,cart,es,True
+v1,FR,17.57,first_time,Education,custom-1,True,2025-06-15T11:28:07.475717,True,visit_201,corporate,Education Toolkit,vault_12,,1.13,cart,es,False
+v3,US,72.67,first_time,Finance,gpt-3.5,True,2025-06-18T18:35:07.475717,True,visit_92,luxury,Finance PDF Guide,vault_1,,2.08,visit,es,False
+v3,CA,16.11,first_time,Finance,gpt-4,True,2025-06-18T06:12:07.475717,True,visit_100,luxury,Finance Toolkit,vault_4,,0.97,refund,de,False
+v2,FR,87.01,first_time,AI Tools,custom-1,True,2025-06-16T12:25:07.475717,True,visit_139,casual,AI Tools PDF Guide,vault_17,,2.33,visit,es,False
+v2,MX,48.47,first_time,Finance,gpt-4,True,2025-06-03T00:57:07.475717,True,visit_304,casual,Finance Report,vault_8,,0.7,purchase,es,False
+v1,CA,75.19,first_time,Finance,custom-1,True,2025-06-07T17:24:07.475717,True,visit_396,friendly,Finance Report,vault_4,,1.0,cart,fr,False
+v3,MX,70.69,first_time,Marketing,custom-1,True,2025-06-14T15:06:07.475717,True,visit_301,friendly,Marketing Toolkit,vault_4,,2.44,cart,fr,False
+v3,US,16.05,first_time,Education,gpt-3.5,True,2025-05-25T23:50:07.475717,True,visit_270,casual,Education Report,vault_7,,3.05,refund,de,False
+v3,US,99.38,first_time,Health,gpt-3.5,True,2025-06-05T03:30:07.475717,True,visit_303,friendly,Health Toolkit,vault_6,Description unclear,1.7,purchase,fr,True
+v2,FR,43.71,first_time,Marketing,gpt-4,True,2025-06-12T08:14:07.475717,True,visit_445,corporate,Marketing Course,vault_20,,2.83,refund,es,False
+v1,US,24.89,first_time,Finance,gpt-4,True,2025-06-09T01:13:07.475717,True,visit_1,luxury,Finance PDF Guide,vault_8,,3.01,cart,en,False
+v2,IN,64.33,first_time,Education,custom-1,True,2025-05-30T02:05:07.475717,True,visit_44,casual,Education Report,vault_9,,1.66,cart,fr,False
+v1,IN,64.23,first_time,AI Tools,gpt-3.5,True,2025-06-18T00:12:07.475717,True,visit_190,luxury,AI Tools Toolkit,vault_8,,3.4,visit,fr,False
+v3,CA,58.27,first_time,Education,gpt-3.5,True,2025-06-09T06:24:07.475717,True,visit_136,friendly,Education Course,vault_18,,0.54,purchase,fr,False
+v3,FR,35.32,first_time,Education,custom-1,True,2025-05-22T20:15:07.475717,True,visit_404,casual,Education Toolkit,vault_11,,2.67,visit,de,False
+v2,DE,44.38,first_time,Finance,custom-1,True,2025-06-07T11:13:07.475717,True,visit_2,casual,Finance Template,vault_9,,1.72,cart,fr,False
+v3,IN,84.7,first_time,Marketing,gpt-3.5,True,2025-06-08T20:17:07.475717,True,visit_146,friendly,Marketing Report,vault_2,,1.29,purchase,de,False
+v2,CA,36.72,repeat,Health,gpt-3.5,True,2025-05-26T19:49:07.475717,True,visit_301,luxury,Health Template,vault_6,,1.82,cart,fr,False
+v3,DE,25.05,repeat,Health,gpt-4,True,2025-05-25T17:00:07.475717,True,visit_200,luxury,Health Toolkit,vault_1,,0.66,cart,en,False
+v1,IN,94.71,first_time,AI Tools,gpt-3.5,True,2025-05-27T20:59:07.475717,True,visit_60,casual,AI Tools Toolkit,vault_5,,1.67,visit,de,False
+v1,MX,99.3,first_time,Health,gpt-4,True,2025-06-07T18:40:07.475717,True,visit_102,luxury,Health Report,vault_8,,2.08,purchase,en,False
+v1,US,95.18,first_time,AI Tools,gpt-4,True,2025-06-08T16:49:07.475717,True,visit_360,corporate,AI Tools PDF Guide,vault_15,,1.93,refund,fr,False
+v2,IN,49.33,first_time,Health,gpt-4,True,2025-05-30T23:30:07.475717,True,visit_235,casual,Health PDF Guide,vault_4,,0.94,purchase,de,False
+v3,IN,18.1,repeat,Health,gpt-3.5,True,2025-06-15T17:56:07.475717,True,visit_405,friendly,Health Toolkit,vault_6,,2.55,cart,en,False
+v1,US,58.25,first_time,Education,gpt-4,True,2025-06-10T13:19:07.475717,True,visit_63,corporate,Education Template,vault_12,,3.34,cart,de,False
+v2,CA,35.23,repeat,AI Tools,gpt-4,True,2025-06-16T14:12:07.475717,True,visit_340,casual,AI Tools Template,vault_9,,2.13,cart,en,False
+v2,FR,19.61,first_time,Education,gpt-3.5,True,2025-06-05T15:36:07.475717,True,visit_416,friendly,Education Template,vault_9,,0.67,visit,de,False
+v3,FR,81.45,first_time,Marketing,gpt-4,True,2025-06-06T09:57:07.475717,True,visit_51,luxury,Marketing Toolkit,vault_17,,3.02,visit,fr,False
+v1,DE,63.88,repeat,Marketing,custom-1,True,2025-05-28T15:21:07.475717,True,visit_27,luxury,Marketing Course,vault_15,,1.88,purchase,de,False
+v2,CA,39.31,first_time,Health,custom-1,False,2025-05-30T21:43:07.475717,True,visit_270,friendly,Health Course,vault_13,,1.36,refund,de,False
+v1,CA,36.25,first_time,Health,gpt-3.5,True,2025-05-24T18:06:07.475717,True,visit_420,luxury,Health Course,vault_2,,2.32,visit,de,False
+v1,DE,47.04,first_time,Health,custom-1,True,2025-06-02T07:15:07.475717,True,visit_321,luxury,Health Template,vault_3,,2.17,purchase,en,False
+v3,US,91.12,repeat,Marketing,gpt-3.5,True,2025-05-27T21:44:07.475717,True,visit_453,luxury,Marketing Report,vault_5,,3.03,visit,de,False
+v3,US,82.12,first_time,Health,gpt-3.5,True,2025-06-18T06:00:07.475717,True,visit_71,casual,Health Report,vault_3,Price dissatisfaction,1.74,cart,de,True
+v2,CA,21.54,repeat,Finance,gpt-3.5,True,2025-06-16T02:37:07.475717,True,visit_167,corporate,Finance Toolkit,vault_20,,2.5,purchase,es,False
+v1,US,18.85,first_time,AI Tools,gpt-4,True,2025-05-20T20:10:07.475717,True,visit_282,casual,AI Tools PDF Guide,vault_15,,2.65,refund,es,False
+v2,FR,46.33,first_time,Finance,custom-1,True,2025-05-26T04:48:07.475717,True,visit_189,luxury,Finance Toolkit,vault_13,,0.92,cart,fr,False
+v3,FR,55.31,first_time,Education,custom-1,True,2025-06-02T03:04:07.475717,True,visit_84,friendly,Education Toolkit,vault_4,,0.71,visit,fr,False
+v1,IN,26.7,first_time,Marketing,gpt-4,True,2025-05-23T18:53:07.475717,True,visit_424,corporate,Marketing Template,vault_11,,0.98,purchase,es,False
+v2,CA,89.74,repeat,AI Tools,gpt-3.5,True,2025-06-04T10:11:07.475717,True,visit_155,casual,AI Tools Toolkit,vault_15,,2.35,visit,de,False
+v1,MX,79.47,first_time,Education,gpt-4,True,2025-05-22T18:09:07.475717,True,visit_16,casual,Education Course,vault_3,,2.06,purchase,en,False
+v2,IN,33.79,first_time,Health,gpt-4,True,2025-06-05T22:15:07.475717,True,visit_456,corporate,Health PDF Guide,vault_8,,0.69,purchase,de,False
+v2,FR,47.95,first_time,Health,custom-1,True,2025-06-08T08:55:07.475717,True,visit_279,casual,Health Course,vault_6,,2.9,refund,es,False
+v3,IN,78.49,repeat,Finance,gpt-3.5,True,2025-05-19T22:50:07.475717,True,visit_412,casual,Finance Course,vault_6,,1.62,refund,es,False
+v3,FR,59.85,first_time,Marketing,gpt-4,True,2025-06-12T02:48:07.475717,True,visit_414,luxury,Marketing Template,vault_12,,0.89,visit,en,False
+v3,CA,54.96,repeat,Education,gpt-4,True,2025-06-16T21:05:07.475717,True,visit_393,casual,Education Template,vault_1,,2.13,visit,en,False
+v3,IN,52.64,first_time,Education,gpt-4,True,2025-06-05T12:44:07.475717,True,visit_380,luxury,Education Report,vault_17,,1.95,purchase,de,False
+v3,MX,46.94,first_time,Marketing,gpt-3.5,True,2025-06-16T20:25:07.475717,True,visit_438,corporate,Marketing Report,vault_7,,1.25,visit,fr,False
+v2,MX,83.1,repeat,Education,gpt-3.5,True,2025-05-27T16:21:07.475717,True,visit_472,friendly,Education Template,vault_17,,0.94,refund,fr,False
+v3,FR,81.11,first_time,Finance,gpt-3.5,True,2025-06-12T06:09:07.475717,True,visit_340,friendly,Finance Toolkit,vault_1,,2.14,purchase,de,False
+v2,DE,89.99,first_time,AI Tools,gpt-3.5,True,2025-05-31T14:59:07.475717,True,visit_229,casual,AI Tools Toolkit,vault_7,,2.3,purchase,de,False
+v1,US,41.25,first_time,Health,gpt-3.5,True,2025-06-13T02:45:07.475717,True,visit_76,friendly,Health Toolkit,vault_1,,1.3,visit,de,False
+v3,US,92.08,repeat,Education,gpt-3.5,True,2025-06-17T15:10:07.475717,True,visit_357,friendly,Education Report,vault_13,,0.62,refund,es,False
+v3,FR,93.67,first_time,AI Tools,gpt-4,True,2025-06-15T02:57:07.475717,True,visit_17,corporate,AI Tools Course,vault_17,,0.5,cart,en,False
+v1,DE,72.4,first_time,AI Tools,gpt-4,True,2025-05-27T10:03:07.475717,True,visit_259,corporate,AI Tools Template,vault_17,Price dissatisfaction,0.59,purchase,en,True
+v3,IN,64.25,first_time,Education,gpt-3.5,True,2025-05-29T05:15:07.475717,True,visit_458,casual,Education Course,vault_7,,1.93,cart,es,False
+v2,DE,37.69,repeat,Marketing,custom-1,True,2025-06-18T21:33:07.475717,True,visit_362,casual,Marketing Toolkit,vault_15,,2.37,cart,de,False
+v2,US,72.08,first_time,Education,gpt-4,True,2025-05-20T20:42:07.475717,True,visit_156,friendly,Education Toolkit,vault_9,,2.93,visit,en,False
+v1,DE,92.15,repeat,Education,custom-1,True,2025-06-14T13:39:07.475717,True,visit_26,corporate,Education Report,vault_5,,0.91,cart,fr,False
+v1,US,15.75,first_time,AI Tools,custom-1,True,2025-06-12T14:23:07.475717,True,visit_75,luxury,AI Tools Template,vault_18,,1.04,refund,es,False
+v1,DE,15.32,first_time,Finance,gpt-4,True,2025-06-10T12:07:07.475717,True,visit_325,friendly,Finance Toolkit,vault_16,,1.08,visit,es,False
+v1,MX,29.24,repeat,Education,gpt-3.5,True,2025-05-24T07:09:07.475717,True,visit_278,luxury,Education Toolkit,vault_10,,3.1,visit,en,False
+v2,FR,74.31,first_time,AI Tools,gpt-3.5,True,2025-05-26T10:51:07.475717,True,visit_457,luxury,AI Tools Template,vault_10,,0.99,visit,en,False
+v3,US,16.97,first_time,Health,gpt-4,True,2025-05-22T12:53:07.475717,True,visit_148,luxury,Health Course,vault_16,Price dissatisfaction,2.24,purchase,de,True
+v3,MX,70.22,first_time,Marketing,gpt-3.5,True,2025-05-27T09:01:07.475717,True,visit_225,luxury,Marketing Course,vault_15,,3.39,refund,es,False
+v1,IN,29.29,first_time,Education,custom-1,True,2025-05-29T17:05:07.475717,True,visit_222,luxury,Education PDF Guide,vault_14,,3.29,refund,en,False
+v3,IN,89.46,repeat,Marketing,gpt-3.5,True,2025-06-16T06:04:07.475717,True,visit_406,friendly,Marketing Course,vault_8,,2.15,refund,fr,False
+v3,US,66.68,repeat,Finance,custom-1,True,2025-05-27T02:53:07.475717,True,visit_55,corporate,Finance Report,vault_11,Price dissatisfaction,1.85,cart,en,True
+v1,DE,17.11,first_time,Marketing,custom-1,True,2025-05-20T01:34:07.475717,True,visit_179,luxury,Marketing Template,vault_6,,3.03,purchase,de,False
+v2,CA,53.19,first_time,Finance,gpt-3.5,True,2025-05-19T21:08:07.475717,True,visit_345,casual,Finance PDF Guide,vault_1,,1.17,cart,en,False
+v3,FR,27.47,first_time,Education,gpt-4,True,2025-06-03T10:45:07.475717,True,visit_92,friendly,Education Toolkit,vault_12,,2.03,refund,fr,False
+v1,MX,28.54,first_time,Education,gpt-4,True,2025-06-08T03:55:07.475717,True,visit_42,casual,Education Toolkit,vault_19,,2.3,purchase,de,False
+v3,US,89.1,first_time,Education,custom-1,True,2025-06-12T14:22:07.475717,True,visit_114,luxury,Education Template,vault_10,,3.2,visit,en,False
+v3,US,76.49,repeat,Education,gpt-4,True,2025-05-21T14:50:07.475717,True,visit_135,casual,Education Template,vault_4,,1.2,purchase,es,False
+v1,IN,42.01,first_time,Education,custom-1,True,2025-05-26T22:03:07.475717,False,visit_354,luxury,Education Course,vault_8,,0.76,refund,fr,False
+v1,US,45.11,first_time,Finance,custom-1,True,2025-06-01T22:15:07.475717,True,visit_434,friendly,Finance Report,vault_13,,2.92,purchase,de,False
+v1,MX,54.66,repeat,Marketing,gpt-4,True,2025-05-20T06:58:07.475717,True,visit_7,friendly,Marketing Course,vault_8,,1.88,purchase,de,False
+v3,MX,39.37,first_time,Finance,gpt-3.5,True,2025-06-15T12:42:07.475717,True,visit_475,friendly,Finance Toolkit,vault_8,,2.3,purchase,fr,False
+v3,CA,62.44,first_time,Health,gpt-4,True,2025-06-16T08:13:07.475717,True,visit_441,casual,Health Report,vault_1,,2.94,cart,fr,True
+v3,US,88.03,first_time,Finance,custom-1,False,2025-06-12T06:16:07.475717,True,visit_247,corporate,Finance PDF Guide,vault_8,,2.76,cart,en,False
+v1,MX,38.5,first_time,AI Tools,gpt-3.5,True,2025-05-20T14:45:07.475717,True,visit_372,casual,AI Tools Course,vault_7,,3.17,visit,de,False
+v3,MX,14.69,repeat,Education,gpt-3.5,True,2025-05-21T03:20:07.475717,True,visit_51,casual,Education Template,vault_1,,3.24,visit,es,False
+v3,IN,53.07,first_time,Education,gpt-4,True,2025-06-02T01:42:07.475717,True,visit_364,luxury,Education Toolkit,vault_15,Description unclear,2.52,cart,es,True
+v2,FR,64.21,first_time,AI Tools,custom-1,True,2025-06-16T11:03:07.475717,True,visit_50,corporate,AI Tools Course,vault_19,,2.6,cart,fr,False
+v3,FR,95.46,first_time,Education,gpt-4,True,2025-06-09T20:39:07.475717,True,visit_248,casual,Education Report,vault_10,,1.35,cart,en,False
+v3,CA,46.36,repeat,Education,gpt-3.5,True,2025-05-29T03:47:07.475717,True,visit_407,friendly,Education Toolkit,vault_7,Product mismatch,0.74,purchase,es,True
+v2,US,61.08,first_time,Health,custom-1,True,2025-05-30T19:19:07.475717,True,visit_54,casual,Health Template,vault_10,,2.63,visit,fr,False
+v2,FR,59.52,first_time,Education,gpt-3.5,True,2025-05-20T13:24:07.475717,True,visit_125,luxury,Education Toolkit,vault_1,,0.69,visit,de,False
+v1,DE,34.15,first_time,Health,gpt-4,True,2025-06-10T14:31:07.475717,True,visit_265,casual,Health Report,vault_10,,1.95,purchase,de,False
+v1,DE,24.43,first_time,Finance,gpt-4,True,2025-05-22T06:07:07.475717,True,visit_285,corporate,Finance Toolkit,vault_9,,2.21,purchase,en,False
+v2,MX,39.59,first_time,Education,gpt-4,True,2025-06-16T03:25:07.475717,True,visit_351,luxury,Education PDF Guide,vault_16,,0.96,visit,es,True
+v3,DE,79.38,repeat,AI Tools,gpt-4,True,2025-05-30T08:06:07.475717,True,visit_184,corporate,AI Tools Report,vault_11,,1.33,visit,fr,False
+v3,MX,90.28,first_time,AI Tools,gpt-4,True,2025-06-05T23:29:07.475717,True,visit_237,friendly,AI Tools Template,vault_9,,2.59,visit,es,False
+v2,DE,36.39,first_time,Marketing,gpt-3.5,True,2025-06-04T20:31:07.475717,True,visit_475,corporate,Marketing Report,vault_20,,1.89,purchase,de,False
+v2,IN,59.81,first_time,Marketing,gpt-4,True,2025-06-19T11:32:07.475717,True,visit_421,casual,Marketing Toolkit,vault_9,,0.51,refund,es,False
+v2,US,11.23,repeat,Marketing,gpt-4,True,2025-06-12T17:30:07.475717,True,visit_69,luxury,Marketing Template,vault_18,Product mismatch,3.27,purchase,de,True
+v3,IN,71.54,first_time,Health,gpt-3.5,True,2025-05-30T21:47:07.475717,True,visit_107,corporate,Health PDF Guide,vault_2,,2.87,refund,fr,False
+v2,US,54.12,repeat,AI Tools,gpt-4,True,2025-06-18T03:02:07.475717,True,visit_28,luxury,AI Tools Course,vault_10,,2.24,visit,de,False
+v1,DE,80.66,repeat,Education,gpt-4,True,2025-06-09T06:12:07.475717,True,visit_463,casual,Education Template,vault_3,,2.73,refund,es,False
+v3,US,11.83,first_time,Marketing,gpt-3.5,True,2025-05-21T16:06:07.475717,True,visit_97,luxury,Marketing Report,vault_6,,0.55,cart,en,False
+v3,US,70.17,repeat,Marketing,gpt-4,True,2025-05-28T15:57:07.475717,True,visit_152,friendly,Marketing Course,vault_6,,2.22,purchase,fr,True
+v1,IN,42.53,first_time,AI Tools,gpt-3.5,True,2025-06-12T23:21:07.475717,True,visit_116,casual,AI Tools Toolkit,vault_10,,2.64,purchase,en,False
+v2,US,97.48,repeat,Marketing,custom-1,True,2025-06-11T15:31:07.475717,True,visit_469,casual,Marketing PDF Guide,vault_2,,1.26,refund,de,True
+v2,CA,91.11,repeat,Health,gpt-4,True,2025-06-12T05:20:07.475717,True,visit_91,casual,Health PDF Guide,vault_1,,3.19,refund,de,False
+v2,IN,33.9,first_time,AI Tools,custom-1,False,2025-06-03T07:49:07.475717,True,visit_417,casual,AI Tools Course,vault_18,,2.58,cart,de,False
+v3,US,34.69,repeat,Finance,custom-1,True,2025-06-09T03:24:07.475717,True,visit_1,friendly,Finance PDF Guide,vault_8,,2.95,purchase,en,False
+v3,CA,65.53,repeat,Education,custom-1,True,2025-06-17T13:51:07.475717,True,visit_405,luxury,Education Toolkit,vault_19,,2.06,purchase,en,False
+v2,IN,60.71,first_time,Finance,gpt-3.5,True,2025-05-28T12:39:07.475717,True,visit_384,casual,Finance Report,vault_6,,1.07,refund,es,False
+v2,US,59.63,first_time,Health,gpt-4,True,2025-05-20T00:13:07.475717,True,visit_208,luxury,Health PDF Guide,vault_8,,2.26,visit,en,False
+v3,MX,50.7,repeat,Education,gpt-3.5,True,2025-06-10T19:31:07.475717,True,visit_456,corporate,Education Report,vault_14,,1.63,refund,es,False
+v1,US,29.92,repeat,Finance,custom-1,True,2025-06-04T15:22:07.475717,True,visit_373,corporate,Finance Course,vault_10,,2.59,cart,es,False
+v3,IN,56.82,first_time,Health,gpt-3.5,True,2025-05-31T13:53:07.475717,True,visit_430,casual,Health Course,vault_5,,3.14,cart,de,False
+v3,MX,54.89,repeat,Health,gpt-3.5,True,2025-06-04T13:14:07.475717,True,visit_292,casual,Health Template,vault_19,,3.37,purchase,en,False
+v2,IN,64.36,first_time,Marketing,gpt-3.5,True,2025-05-20T19:19:07.475717,True,visit_490,casual,Marketing Template,vault_3,,2.1,cart,fr,False
+v1,FR,49.26,first_time,Finance,custom-1,True,2025-05-31T07:57:07.475717,True,visit_275,friendly,Finance Template,vault_3,,0.95,purchase,fr,False
+v2,IN,86.46,first_time,AI Tools,gpt-4,True,2025-06-04T20:51:07.475717,True,visit_93,luxury,AI Tools PDF Guide,vault_16,,0.97,visit,de,False
+v1,CA,32.08,first_time,Finance,gpt-4,True,2025-06-12T01:22:07.475717,True,visit_452,corporate,Finance Course,vault_20,,1.85,visit,fr,False
+v2,MX,94.17,repeat,Health,gpt-4,True,2025-06-14T21:18:07.475717,True,visit_206,corporate,Health Template,vault_13,,1.38,refund,de,False
+v1,US,68.53,first_time,Finance,custom-1,True,2025-06-03T20:14:07.475717,True,visit_149,casual,Finance Course,vault_9,,0.73,purchase,es,False
+v1,FR,28.77,first_time,Finance,gpt-3.5,True,2025-06-07T20:34:07.475717,True,visit_122,luxury,Finance Course,vault_20,,3.18,refund,es,False
+v3,CA,51.8,first_time,AI Tools,custom-1,True,2025-05-23T00:08:07.475717,True,visit_122,corporate,AI Tools Course,vault_1,,2.54,cart,es,False
+v3,US,40.84,first_time,Health,gpt-3.5,True,2025-06-13T02:04:07.475717,True,visit_276,casual,Health Template,vault_12,,1.51,cart,en,False
+v2,US,64.65,first_time,Health,gpt-3.5,True,2025-06-19T11:50:07.475717,True,visit_392,friendly,Health Report,vault_2,,2.63,visit,fr,False
+v2,FR,21.5,first_time,AI Tools,gpt-4,True,2025-06-04T08:32:07.475717,True,visit_103,corporate,AI Tools Report,vault_3,,0.67,cart,es,False
+v3,DE,35.09,first_time,Health,gpt-4,True,2025-06-03T17:43:07.475717,True,visit_365,corporate,Health Toolkit,vault_9,,3.17,purchase,de,False
+v2,CA,62.72,first_time,Health,gpt-3.5,True,2025-06-02T13:53:07.475717,True,visit_47,corporate,Health Toolkit,vault_14,,0.92,refund,de,False
+v2,DE,34.89,first_time,Finance,gpt-3.5,True,2025-06-17T16:36:07.475717,True,visit_345,corporate,Finance PDF Guide,vault_20,,1.9,refund,es,False
+v3,CA,61.88,first_time,Finance,gpt-3.5,True,2025-06-02T22:36:07.475717,True,visit_221,casual,Finance Toolkit,vault_19,,0.97,purchase,es,False
+v1,IN,18.98,repeat,Education,gpt-3.5,True,2025-05-22T09:57:07.475717,True,visit_448,friendly,Education Report,vault_4,,3.5,refund,en,False
+v2,CA,21.74,first_time,AI Tools,custom-1,True,2025-06-07T07:15:07.475717,True,visit_98,friendly,AI Tools Template,vault_20,,2.08,purchase,en,False
+v3,CA,43.71,repeat,Health,gpt-3.5,True,2025-06-11T17:57:07.475717,True,visit_331,casual,Health Report,vault_20,,3.46,cart,fr,False
+v2,CA,76.49,first_time,Marketing,gpt-4,True,2025-06-03T12:57:07.475717,True,visit_302,luxury,Marketing Template,vault_18,,1.19,refund,de,False
+v3,DE,25.29,first_time,Marketing,gpt-3.5,True,2025-05-30T21:51:07.475717,True,visit_168,luxury,Marketing PDF Guide,vault_19,,2.75,cart,es,False
+v2,DE,59.28,repeat,Education,custom-1,True,2025-05-20T17:32:07.475717,True,visit_412,corporate,Education PDF Guide,vault_20,,3.22,cart,en,False
+v1,CA,23.15,repeat,AI Tools,gpt-3.5,True,2025-06-13T10:40:07.475717,True,visit_147,casual,AI Tools Report,vault_9,,3.28,purchase,en,False
+v2,IN,18.66,repeat,Finance,gpt-3.5,False,2025-06-02T01:19:07.475717,True,visit_339,luxury,Finance PDF Guide,vault_10,,2.11,visit,fr,False
+v2,US,60.31,repeat,AI Tools,custom-1,True,2025-06-08T07:18:07.475717,True,visit_364,luxury,AI Tools Report,vault_15,,2.3,purchase,en,False
+v2,CA,44.96,first_time,Marketing,custom-1,True,2025-05-31T21:21:07.475717,True,visit_403,casual,Marketing Toolkit,vault_18,,3.35,purchase,fr,False
+v2,DE,51.75,first_time,AI Tools,custom-1,True,2025-05-23T14:23:07.475717,True,visit_302,luxury,AI Tools Template,vault_15,,0.52,cart,de,False
+v2,FR,58.33,first_time,AI Tools,custom-1,True,2025-05-23T07:37:07.475717,True,visit_31,friendly,AI Tools Course,vault_9,,1.22,visit,en,False
+v3,DE,83.44,first_time,AI Tools,gpt-4,True,2025-06-05T06:52:07.475717,True,visit_496,corporate,AI Tools PDF Guide,vault_15,,2.05,visit,de,False
+v3,US,26.98,first_time,Finance,gpt-4,True,2025-05-27T18:07:07.475717,True,visit_259,corporate,Finance PDF Guide,vault_4,,3.26,refund,es,False
+v1,CA,58.3,first_time,AI Tools,gpt-4,True,2025-06-02T19:11:07.475717,True,visit_43,corporate,AI Tools Report,vault_17,,2.18,visit,es,False
+v1,DE,94.96,repeat,Education,gpt-3.5,True,2025-06-09T00:16:07.475717,True,visit_25,luxury,Education Report,vault_5,,1.17,purchase,de,False
+v3,MX,30.76,repeat,Health,custom-1,True,2025-05-21T05:33:07.475717,True,visit_436,luxury,Health Course,vault_9,,1.81,cart,es,False
+v1,IN,54.06,first_time,Finance,gpt-3.5,True,2025-05-31T16:09:07.475717,True,visit_337,casual,Finance Course,vault_10,,2.44,refund,en,True
+v1,US,97.18,repeat,Health,gpt-3.5,True,2025-05-24T01:35:07.475717,True,visit_71,friendly,Health Course,vault_18,Price dissatisfaction,2.65,visit,es,True
+v1,DE,59.08,repeat,Education,custom-1,True,2025-05-23T19:48:07.475717,True,visit_401,corporate,Education Course,vault_9,,1.47,cart,fr,False
+v2,MX,69.22,first_time,Health,custom-1,True,2025-05-23T06:41:07.475717,True,visit_304,luxury,Health Report,vault_19,,1.64,visit,de,False
+v3,IN,41.64,first_time,Finance,gpt-3.5,True,2025-05-31T23:22:07.475717,True,visit_63,corporate,Finance Toolkit,vault_19,,1.4,visit,de,False
+v1,MX,82.64,repeat,Finance,custom-1,True,2025-05-28T17:52:07.475717,True,visit_153,casual,Finance Report,vault_11,,2.04,purchase,en,False
+v1,US,45.35,first_time,Health,gpt-4,True,2025-06-19T02:04:07.475717,True,visit_105,friendly,Health Course,vault_15,,1.34,visit,de,False
+v2,US,84.01,first_time,Finance,custom-1,True,2025-06-14T08:59:07.475717,True,visit_404,corporate,Finance Course,vault_17,,2.31,visit,fr,False
+v1,FR,89.82,first_time,Health,gpt-4,True,2025-06-03T15:17:07.475717,True,visit_453,corporate,Health Course,vault_19,,1.03,purchase,es,False
+v1,FR,26.16,first_time,Education,custom-1,True,2025-05-29T01:55:07.475717,True,visit_276,luxury,Education Toolkit,vault_20,,2.87,cart,fr,False
+v1,US,95.35,first_time,Marketing,custom-1,True,2025-06-13T01:59:07.475717,True,visit_479,luxury,Marketing Template,vault_17,,1.66,visit,fr,False
+v2,IN,50.29,repeat,Finance,gpt-3.5,True,2025-06-19T08:32:07.475717,True,visit_191,corporate,Finance Toolkit,vault_19,,3.42,cart,fr,False
+v2,MX,59.82,first_time,AI Tools,custom-1,True,2025-06-01T01:44:07.475717,True,visit_132,friendly,AI Tools Course,vault_10,Description unclear,1.7,visit,en,True
+v3,DE,85.02,first_time,AI Tools,custom-1,True,2025-06-04T17:36:07.475717,True,visit_453,corporate,AI Tools Toolkit,vault_20,,2.8,visit,en,False
+v1,DE,39.46,first_time,AI Tools,gpt-4,False,2025-06-08T17:09:07.475717,True,visit_288,corporate,AI Tools Template,vault_18,,2.56,visit,es,False
+v1,DE,77.96,first_time,Marketing,gpt-3.5,True,2025-06-09T09:22:07.475717,True,visit_292,friendly,Marketing Report,vault_14,,1.57,cart,de,False
+v1,DE,30.99,first_time,Education,gpt-3.5,True,2025-05-24T08:32:07.475717,True,visit_321,luxury,Education Template,vault_16,,0.71,cart,fr,False
+v2,US,90.48,repeat,AI Tools,gpt-3.5,True,2025-05-21T16:35:07.475717,True,visit_104,casual,AI Tools PDF Guide,vault_13,Description unclear,2.15,visit,fr,True
+v3,US,55.6,first_time,Finance,gpt-4,True,2025-05-20T08:05:07.475717,True,visit_454,luxury,Finance PDF Guide,vault_13,,2.28,cart,en,False
+v1,FR,30.28,first_time,Finance,custom-1,True,2025-06-16T15:27:07.475717,True,visit_120,friendly,Finance Report,vault_14,Price dissatisfaction,2.57,visit,de,True
+v3,DE,86.18,repeat,Health,custom-1,True,2025-06-04T00:27:07.475717,True,visit_274,friendly,Health Toolkit,vault_15,,3.27,visit,de,False
+v1,MX,85.35,first_time,Education,gpt-3.5,True,2025-06-15T05:48:07.475717,True,visit_187,luxury,Education Template,vault_5,,2.68,visit,fr,False
+v2,CA,24.91,first_time,AI Tools,custom-1,False,2025-06-02T21:28:07.475717,True,visit_309,luxury,AI Tools PDF Guide,vault_8,,2.3,visit,de,False
+v1,MX,18.44,first_time,Finance,custom-1,True,2025-05-23T10:29:07.475717,True,visit_114,casual,Finance Report,vault_13,,1.84,visit,de,False
+v2,DE,19.96,first_time,Education,gpt-4,True,2025-06-09T20:50:07.475717,True,visit_290,luxury,Education PDF Guide,vault_20,,2.32,cart,de,False
+v1,US,30.38,repeat,Finance,custom-1,True,2025-06-18T17:48:07.475717,True,visit_49,friendly,Finance PDF Guide,vault_18,Product mismatch,1.21,visit,de,True
+v1,MX,91.63,first_time,AI Tools,gpt-3.5,True,2025-05-20T03:12:07.475717,True,visit_36,luxury,AI Tools Report,vault_2,,2.71,refund,en,False
+v2,IN,84.25,first_time,Marketing,custom-1,True,2025-06-07T18:18:07.475717,True,visit_157,casual,Marketing PDF Guide,vault_2,,1.63,purchase,es,False
+v1,US,25.33,first_time,Health,custom-1,True,2025-05-30T22:45:07.475717,True,visit_117,friendly,Health Report,vault_9,,0.89,visit,de,False
+v1,US,82.7,first_time,Finance,gpt-4,False,2025-06-04T14:35:07.475717,True,visit_239,corporate,Finance Template,vault_14,,1.93,refund,de,False
+v3,MX,45.08,first_time,Finance,custom-1,True,2025-06-06T21:58:07.475717,True,visit_265,corporate,Finance PDF Guide,vault_20,,0.78,visit,en,False
+v2,IN,65.43,first_time,AI Tools,custom-1,True,2025-06-05T10:58:07.475717,True,visit_69,corporate,AI Tools Template,vault_17,,2.62,purchase,es,False
+v1,CA,18.97,first_time,Health,gpt-3.5,True,2025-06-11T07:07:07.475717,True,visit_316,friendly,Health Course,vault_4,,2.97,cart,de,False
+v1,MX,59.76,repeat,AI Tools,gpt-4,False,2025-06-13T17:33:07.475717,True,visit_245,corporate,AI Tools Course,vault_14,,2.64,purchase,es,False
+v1,DE,21.12,first_time,Health,gpt-3.5,True,2025-06-15T08:26:07.475717,True,visit_2,luxury,Health Toolkit,vault_15,,1.53,cart,de,False
+v2,US,79.82,first_time,AI Tools,gpt-3.5,True,2025-06-02T01:54:07.475717,True,visit_345,luxury,AI Tools Toolkit,vault_20,,1.41,refund,en,False
+v3,DE,79.08,first_time,Education,custom-1,True,2025-06-17T02:23:07.475717,True,visit_106,casual,Education Toolkit,vault_17,,2.77,refund,en,False
+v1,MX,28.62,first_time,AI Tools,gpt-3.5,True,2025-05-24T22:07:07.475717,True,visit_96,friendly,AI Tools Report,vault_4,,2.64,refund,es,False
+v3,DE,43.83,first_time,AI Tools,custom-1,True,2025-05-28T05:11:07.475717,True,visit_284,corporate,AI Tools PDF Guide,vault_8,,1.97,visit,es,False
+v3,US,34.26,first_time,Marketing,gpt-4,True,2025-05-26T15:48:07.475717,True,visit_110,luxury,Marketing Template,vault_18,,1.07,purchase,en,False
+v2,CA,62.56,first_time,Marketing,custom-1,True,2025-06-12T01:52:07.475717,True,visit_264,casual,Marketing Template,vault_20,,2.23,cart,fr,False
+v1,DE,92.63,repeat,Education,gpt-4,True,2025-06-15T19:14:07.475717,True,visit_312,corporate,Education Report,vault_13,,0.91,refund,fr,False
+v3,FR,58.38,first_time,AI Tools,gpt-4,True,2025-05-24T21:42:07.475717,True,visit_31,luxury,AI Tools Report,vault_20,,0.95,cart,fr,False
+v1,FR,98.84,first_time,Marketing,custom-1,True,2025-06-19T15:13:07.475717,True,visit_348,casual,Marketing Course,vault_10,,2.58,purchase,de,False
+v1,CA,58.4,first_time,Marketing,gpt-3.5,True,2025-05-30T15:16:07.475717,True,visit_416,friendly,Marketing PDF Guide,vault_8,,2.86,cart,de,False
+v3,FR,61.78,first_time,Marketing,gpt-4,True,2025-05-24T23:14:07.475717,True,visit_42,corporate,Marketing PDF Guide,vault_8,,3.11,visit,en,False
+v2,FR,15.26,first_time,Marketing,custom-1,True,2025-06-04T16:52:07.475717,True,visit_210,corporate,Marketing PDF Guide,vault_8,,3.36,cart,fr,False
+v2,DE,68.45,repeat,Finance,gpt-4,True,2025-06-01T21:07:07.475717,True,visit_136,friendly,Finance Course,vault_16,,2.14,purchase,es,False
+v1,MX,90.07,repeat,Health,custom-1,True,2025-06-01T23:04:07.475717,True,visit_139,corporate,Health Template,vault_5,,0.89,refund,fr,False
+v1,DE,84.52,first_time,Education,custom-1,True,2025-06-01T10:09:07.475717,True,visit_336,friendly,Education Report,vault_1,Product mismatch,1.44,refund,en,True
+v3,CA,88.8,repeat,Marketing,custom-1,True,2025-06-11T00:55:07.475717,True,visit_129,casual,Marketing Course,vault_6,,1.0,cart,en,False
+v3,IN,53.2,first_time,Health,gpt-4,True,2025-05-25T05:11:07.475717,True,visit_350,casual,Health Toolkit,vault_6,,3.33,visit,de,False
+v3,DE,82.77,repeat,Finance,gpt-3.5,True,2025-06-04T08:44:07.475717,True,visit_398,luxury,Finance Toolkit,vault_15,,3.06,visit,en,False
+v1,MX,35.44,first_time,Finance,gpt-3.5,True,2025-06-13T09:43:07.475717,True,visit_357,casual,Finance PDF Guide,vault_17,,3.05,cart,es,False
+v1,CA,22.65,first_time,Finance,custom-1,True,2025-06-12T02:31:07.475717,True,visit_411,friendly,Finance Toolkit,vault_11,,1.27,cart,en,False
+v2,CA,22.31,repeat,Health,custom-1,True,2025-05-28T01:58:07.475717,True,visit_409,corporate,Health Template,vault_20,,0.51,visit,en,False
+v2,US,72.45,first_time,Health,custom-1,True,2025-05-24T01:09:07.475717,True,visit_393,friendly,Health Template,vault_20,,1.26,cart,fr,False
+v1,MX,25.3,repeat,Education,gpt-3.5,True,2025-05-22T04:29:07.475717,True,visit_399,casual,Education Toolkit,vault_2,,1.24,cart,fr,False
+v1,US,22.38,first_time,Education,gpt-4,True,2025-06-08T19:16:07.475717,True,visit_405,casual,Education PDF Guide,vault_7,,1.19,purchase,de,False
+v2,US,92.1,first_time,Marketing,custom-1,True,2025-06-15T23:24:07.475717,True,visit_82,corporate,Marketing Template,vault_9,,1.08,refund,es,False
+v2,CA,13.37,first_time,Education,custom-1,True,2025-06-01T13:42:07.475717,True,visit_329,friendly,Education Report,vault_15,,0.74,purchase,de,False
+v1,CA,17.46,repeat,Education,gpt-4,True,2025-06-09T06:03:07.475717,True,visit_476,luxury,Education PDF Guide,vault_4,,2.9,visit,de,False
+v1,IN,10.25,first_time,AI Tools,custom-1,True,2025-05-25T01:23:07.475717,True,visit_333,friendly,AI Tools Report,vault_4,,1.61,cart,es,False
+v1,DE,82.79,first_time,Marketing,custom-1,True,2025-05-31T20:31:07.475717,True,visit_416,casual,Marketing PDF Guide,vault_9,,0.64,visit,es,False
+v2,US,59.08,first_time,Marketing,gpt-3.5,True,2025-06-06T03:22:07.475717,True,visit_193,luxury,Marketing Course,vault_18,,1.75,refund,fr,False
+v2,CA,86.18,first_time,AI Tools,custom-1,True,2025-06-03T14:33:07.475717,True,visit_143,corporate,AI Tools Toolkit,vault_3,,2.76,cart,en,False
+v2,FR,10.09,first_time,Education,gpt-3.5,True,2025-05-21T16:25:07.475717,True,visit_382,luxury,Education Toolkit,vault_18,,1.37,visit,en,False
+v2,MX,58.59,first_time,Finance,gpt-3.5,True,2025-05-21T17:25:07.475717,True,visit_334,friendly,Finance Course,vault_17,,2.35,refund,en,False
+v3,DE,96.34,first_time,AI Tools,custom-1,True,2025-05-29T05:20:07.475717,True,visit_490,friendly,AI Tools PDF Guide,vault_19,,0.77,visit,de,False
+v3,IN,76.77,first_time,Education,custom-1,True,2025-06-05T22:12:07.475717,True,visit_80,luxury,Education Template,vault_3,,1.51,purchase,en,False
+v3,US,66.1,first_time,Health,gpt-4,True,2025-05-29T22:21:07.475717,True,visit_158,luxury,Health Template,vault_4,,1.32,cart,es,False
+v3,DE,12.3,first_time,AI Tools,gpt-3.5,True,2025-05-31T19:43:07.475717,True,visit_61,luxury,AI Tools Template,vault_16,,2.0,refund,en,False
+v1,DE,59.86,first_time,Education,custom-1,True,2025-05-20T07:37:07.475717,True,visit_68,casual,Education Report,vault_2,,1.19,visit,fr,False
+v2,CA,27.17,first_time,Marketing,custom-1,True,2025-06-02T11:08:07.475717,True,visit_60,casual,Marketing Report,vault_10,,2.7,refund,fr,False
+v3,DE,38.64,first_time,Education,custom-1,True,2025-06-16T15:06:07.475717,True,visit_80,friendly,Education Toolkit,vault_11,,2.3,purchase,en,False
+v1,CA,25.11,first_time,Health,custom-1,True,2025-05-25T09:05:07.475717,True,visit_378,luxury,Health Template,vault_10,,0.59,purchase,en,False
+v1,IN,40.63,first_time,Health,custom-1,True,2025-06-09T00:34:07.475717,True,visit_54,casual,Health Report,vault_19,,2.53,visit,de,False
+v3,US,93.35,first_time,Education,gpt-3.5,True,2025-05-21T16:10:07.475717,True,visit_475,casual,Education PDF Guide,vault_5,,0.83,refund,de,False
+v3,IN,62.42,first_time,Education,custom-1,True,2025-06-09T02:44:07.475717,True,visit_228,casual,Education Toolkit,vault_7,,2.56,refund,es,False
+v2,DE,60.19,first_time,Marketing,custom-1,True,2025-05-19T22:31:07.475717,True,visit_92,corporate,Marketing Toolkit,vault_18,,0.6,visit,es,False
+v3,MX,50.29,repeat,Education,gpt-4,True,2025-06-07T10:40:07.475717,True,visit_247,corporate,Education Template,vault_17,,1.71,visit,en,False
+v3,CA,49.34,first_time,Education,gpt-3.5,True,2025-06-15T23:14:07.475717,True,visit_216,casual,Education Template,vault_14,,2.74,cart,de,False
+v2,FR,91.35,first_time,Health,gpt-3.5,True,2025-06-16T15:12:07.475717,True,visit_234,corporate,Health PDF Guide,vault_10,,1.64,cart,en,False
+v2,US,69.46,first_time,Finance,gpt-3.5,True,2025-06-01T12:12:07.475717,True,visit_290,casual,Finance Report,vault_20,,1.2,refund,fr,False
+v2,FR,14.06,repeat,Marketing,gpt-4,False,2025-06-05T22:45:07.475717,True,visit_187,friendly,Marketing Template,vault_13,,1.21,visit,es,False
+v3,IN,11.94,first_time,Health,custom-1,True,2025-05-24T15:18:07.475717,True,visit_72,casual,Health PDF Guide,vault_16,,2.0,visit,es,False
+v3,US,38.42,repeat,Health,custom-1,True,2025-06-02T18:11:07.475717,True,visit_149,friendly,Health Toolkit,vault_3,,0.99,refund,en,False
+v1,MX,75.46,first_time,Education,gpt-3.5,True,2025-06-10T15:07:07.475717,True,visit_303,luxury,Education PDF Guide,vault_13,,1.75,cart,es,False
+v1,DE,17.38,repeat,Marketing,custom-1,True,2025-06-11T03:00:07.475717,True,visit_264,friendly,Marketing PDF Guide,vault_2,,1.38,refund,es,False
+v1,US,83.03,repeat,Marketing,gpt-3.5,True,2025-06-16T20:21:07.475717,True,visit_87,friendly,Marketing Report,vault_17,,2.88,cart,fr,False
+v3,FR,64.39,first_time,Education,custom-1,True,2025-06-12T22:37:07.475717,True,visit_260,friendly,Education Template,vault_15,,3.08,visit,es,False
+v1,CA,46.75,first_time,Finance,gpt-4,True,2025-06-08T15:31:07.475717,True,visit_190,corporate,Finance Toolkit,vault_12,,2.6,refund,de,False
+v2,IN,68.69,first_time,Health,gpt-3.5,True,2025-06-04T14:53:07.475717,True,visit_493,luxury,Health Template,vault_15,,2.6,visit,es,False
+v2,IN,29.73,repeat,Education,gpt-3.5,True,2025-06-11T11:10:07.475717,True,visit_94,friendly,Education Report,vault_16,,2.04,refund,es,False
+v1,FR,96.01,first_time,Finance,gpt-3.5,True,2025-06-14T03:58:07.475717,True,visit_456,luxury,Finance Course,vault_17,,2.31,cart,es,False
+v3,US,61.16,first_time,Health,gpt-4,True,2025-06-14T06:03:07.475717,True,visit_376,corporate,Health Course,vault_1,,0.61,cart,fr,False
+v3,CA,45.94,first_time,Education,gpt-3.5,True,2025-06-06T04:12:07.475717,True,visit_241,corporate,Education Report,vault_7,,2.06,refund,en,False
+v3,DE,20.41,repeat,AI Tools,custom-1,True,2025-06-05T07:18:07.475717,True,visit_472,friendly,AI Tools Report,vault_15,,3.06,cart,fr,False
+v3,US,73.91,repeat,Education,gpt-4,True,2025-05-29T08:34:07.475717,True,visit_119,friendly,Education Course,vault_4,,0.91,visit,en,False
+v3,CA,11.41,first_time,Marketing,custom-1,True,2025-06-05T16:24:07.475717,True,visit_176,corporate,Marketing Template,vault_11,,0.77,visit,en,False
+v2,IN,83.46,first_time,Education,custom-1,True,2025-06-07T06:06:07.475717,True,visit_220,casual,Education Report,vault_17,,0.82,visit,de,False
+v3,IN,97.04,first_time,Education,gpt-3.5,True,2025-06-01T12:35:07.475717,True,visit_275,corporate,Education Course,vault_4,,0.56,visit,de,False
+v1,US,73.35,first_time,Education,gpt-4,True,2025-05-27T15:59:07.475717,True,visit_210,corporate,Education Toolkit,vault_8,,2.93,visit,de,False
+v3,MX,70.11,first_time,Marketing,custom-1,True,2025-06-12T13:32:07.475717,True,visit_182,friendly,Marketing Course,vault_10,,1.02,cart,en,False
+v2,IN,35.54,first_time,AI Tools,gpt-3.5,True,2025-06-02T06:57:07.475717,True,visit_496,casual,AI Tools PDF Guide,vault_13,,2.9,visit,de,False
+v1,FR,87.75,repeat,Finance,gpt-3.5,True,2025-05-27T04:08:07.475717,True,visit_366,casual,Finance Template,vault_14,,1.15,refund,de,False
+v3,MX,83.77,repeat,Finance,custom-1,True,2025-06-18T01:50:07.475717,True,visit_41,casual,Finance Template,vault_9,,1.04,purchase,en,False
+v3,IN,78.62,first_time,Marketing,gpt-3.5,True,2025-06-04T02:09:07.475717,True,visit_482,corporate,Marketing Toolkit,vault_9,,2.22,cart,fr,True
+v3,MX,31.76,repeat,Health,custom-1,True,2025-05-20T20:33:07.475717,True,visit_261,corporate,Health Course,vault_3,,2.74,refund,fr,False
+v1,IN,13.81,repeat,Education,gpt-3.5,True,2025-06-05T11:13:07.475717,True,visit_364,friendly,Education Report,vault_13,,1.81,purchase,fr,False
+v1,DE,32.32,repeat,Health,gpt-3.5,True,2025-06-07T16:32:07.475717,True,visit_134,casual,Health Course,vault_12,,3.01,purchase,fr,False
+v1,FR,74.23,first_time,Education,custom-1,True,2025-06-04T18:10:07.475717,True,visit_423,casual,Education PDF Guide,vault_16,,1.25,purchase,es,False
+v2,FR,77.7,first_time,Health,gpt-4,True,2025-06-15T01:56:07.475717,True,visit_233,corporate,Health Template,vault_11,,2.73,cart,en,False
+v2,MX,96.94,first_time,Marketing,gpt-3.5,True,2025-06-09T20:27:07.475717,True,visit_396,corporate,Marketing PDF Guide,vault_5,,1.34,refund,es,False
+v3,IN,81.36,repeat,Education,gpt-4,True,2025-06-08T15:06:07.475717,True,visit_246,casual,Education Report,vault_4,Price dissatisfaction,0.67,visit,es,True
+v1,DE,50.42,first_time,Marketing,custom-1,True,2025-06-11T00:06:07.475717,True,visit_19,corporate,Marketing PDF Guide,vault_16,,0.89,purchase,fr,False
+v3,US,15.64,repeat,AI Tools,gpt-3.5,True,2025-05-20T11:29:07.475717,True,visit_400,casual,AI Tools Template,vault_16,,1.78,purchase,fr,False
+v1,CA,67.59,first_time,Finance,custom-1,True,2025-05-30T06:21:07.475717,True,visit_389,casual,Finance Toolkit,vault_3,,3.33,purchase,de,False
+v3,FR,40.88,first_time,Education,custom-1,True,2025-06-18T04:40:07.475717,True,visit_10,friendly,Education Report,vault_2,,0.92,visit,fr,False
+v1,CA,80.97,repeat,Education,custom-1,True,2025-06-05T12:41:07.475717,True,visit_340,corporate,Education Report,vault_10,,2.9,refund,en,False
+v3,FR,74.8,repeat,Marketing,gpt-4,True,2025-06-09T04:15:07.475717,True,visit_438,luxury,Marketing Course,vault_11,,2.78,purchase,de,False
+v1,IN,39.53,repeat,Education,custom-1,True,2025-05-21T05:45:07.475717,True,visit_485,luxury,Education PDF Guide,vault_3,,1.9,cart,de,False
+v1,US,86.29,repeat,Education,custom-1,True,2025-05-29T14:27:07.475717,True,visit_143,friendly,Education Course,vault_11,,1.4,cart,en,False
+v3,CA,54.01,first_time,Education,custom-1,True,2025-06-10T09:41:07.475717,True,visit_397,friendly,Education Course,vault_14,,1.76,cart,de,True
+v3,MX,20.24,repeat,AI Tools,custom-1,True,2025-06-06T11:37:07.475717,True,visit_156,friendly,AI Tools Template,vault_16,,1.11,visit,en,False
+v3,FR,26.68,first_time,Finance,custom-1,True,2025-05-27T17:55:07.475717,True,visit_171,luxury,Finance Template,vault_14,,1.93,cart,fr,False
+v1,CA,27.65,first_time,Health,gpt-3.5,True,2025-06-01T21:24:07.475717,True,visit_338,luxury,Health Course,vault_8,,2.66,cart,en,False
+v2,IN,94.46,first_time,Marketing,gpt-4,True,2025-05-27T23:32:07.475717,True,visit_28,corporate,Marketing Template,vault_3,,0.51,purchase,en,False
+v2,US,87.63,first_time,Education,custom-1,True,2025-05-26T07:42:07.475717,True,visit_16,casual,Education Course,vault_8,,0.52,visit,de,True
+v1,US,74.18,repeat,AI Tools,gpt-4,True,2025-05-26T03:02:07.475717,True,visit_291,casual,AI Tools Template,vault_11,,1.94,purchase,fr,False
+v1,US,87.4,first_time,Marketing,gpt-4,True,2025-06-17T14:41:07.475717,True,visit_43,luxury,Marketing PDF Guide,vault_18,,1.43,purchase,fr,False
+v2,IN,77.26,first_time,Education,custom-1,True,2025-06-16T18:42:07.475717,True,visit_493,luxury,Education Toolkit,vault_18,,3.31,visit,fr,False
+v2,FR,71.76,first_time,Marketing,gpt-3.5,True,2025-05-20T23:13:07.475717,True,visit_361,corporate,Marketing Template,vault_4,,3.0,cart,es,False
+v3,DE,96.72,repeat,Marketing,gpt-3.5,True,2025-05-25T15:37:07.475717,True,visit_4,luxury,Marketing PDF Guide,vault_6,,3.07,cart,es,False
+v1,DE,60.37,first_time,Health,gpt-3.5,True,2025-06-02T12:34:07.475717,True,visit_447,casual,Health Course,vault_15,,3.38,refund,fr,False
+v3,CA,75.66,first_time,Finance,gpt-3.5,True,2025-06-02T17:30:07.475717,True,visit_222,luxury,Finance Template,vault_9,,1.48,cart,es,False
+v3,FR,58.38,first_time,Finance,gpt-4,True,2025-06-01T06:35:07.475717,True,visit_325,luxury,Finance Course,vault_20,,2.74,purchase,fr,False
+v2,US,20.89,first_time,Education,custom-1,True,2025-05-23T01:54:07.475717,True,visit_143,friendly,Education PDF Guide,vault_1,,2.61,refund,de,False
+v1,US,52.3,first_time,Education,gpt-4,True,2025-05-29T13:37:07.475717,True,visit_356,luxury,Education Toolkit,vault_11,,1.22,visit,en,False
+v1,FR,79.14,first_time,Marketing,custom-1,True,2025-05-21T16:00:07.475717,True,visit_169,corporate,Marketing Course,vault_18,,2.06,cart,de,False
+v2,US,72.24,repeat,Health,custom-1,True,2025-06-17T08:08:07.475717,True,visit_168,friendly,Health PDF Guide,vault_8,,1.08,visit,es,False
+v1,CA,59.49,first_time,Finance,gpt-4,True,2025-06-17T07:04:07.475717,True,visit_489,luxury,Finance Course,vault_8,,1.3,cart,fr,False
+v2,CA,50.65,repeat,Finance,custom-1,True,2025-05-24T04:58:07.475717,True,visit_348,luxury,Finance Report,vault_5,,1.61,refund,de,False
+v3,IN,13.5,first_time,AI Tools,custom-1,True,2025-06-18T12:41:07.475717,True,visit_152,friendly,AI Tools Toolkit,vault_9,,1.46,visit,en,False
+v2,US,61.02,first_time,Health,custom-1,True,2025-06-15T05:05:07.475717,True,visit_477,corporate,Health Toolkit,vault_20,,1.94,cart,en,False
+v3,DE,35.41,first_time,Health,gpt-4,True,2025-06-15T11:19:07.475717,True,visit_265,friendly,Health PDF Guide,vault_9,,0.75,visit,fr,False
+v3,MX,89.67,first_time,Health,custom-1,True,2025-06-18T23:00:07.475717,True,visit_72,friendly,Health Course,vault_19,,3.34,cart,fr,False
+v1,MX,31.54,first_time,Education,custom-1,True,2025-05-22T13:29:07.475717,True,visit_3,luxury,Education Report,vault_19,,2.54,purchase,fr,False
+v2,IN,22.97,repeat,AI Tools,gpt-3.5,True,2025-06-09T18:15:07.475717,True,visit_28,corporate,AI Tools Course,vault_12,,2.4,cart,de,False
+v1,CA,35.43,first_time,Health,custom-1,True,2025-05-31T08:25:07.475717,True,visit_337,casual,Health PDF Guide,vault_16,,3.47,cart,fr,False
+v1,US,12.81,first_time,Health,gpt-3.5,True,2025-05-31T11:27:07.475717,True,visit_107,casual,Health Template,vault_5,,0.68,visit,en,False
+v3,CA,45.65,first_time,AI Tools,gpt-4,True,2025-06-08T11:12:07.475717,True,visit_442,friendly,AI Tools Template,vault_1,,2.76,purchase,fr,False
+v2,MX,93.41,first_time,Education,gpt-4,True,2025-06-16T09:08:07.475717,True,visit_134,luxury,Education PDF Guide,vault_9,,0.57,visit,fr,False
+v1,DE,75.72,first_time,Finance,custom-1,True,2025-06-03T04:13:07.475717,True,visit_467,luxury,Finance Report,vault_16,,2.25,visit,en,False
+v3,US,35.19,first_time,Finance,gpt-4,True,2025-05-25T10:29:07.475717,True,visit_443,friendly,Finance Course,vault_18,,3.48,visit,de,False
+v1,CA,84.73,repeat,Health,gpt-4,True,2025-06-03T04:38:07.475717,True,visit_477,casual,Health Course,vault_11,,2.62,purchase,de,False
+v3,CA,32.63,first_time,Education,gpt-3.5,True,2025-06-01T18:17:07.475717,True,visit_250,friendly,Education Toolkit,vault_20,,2.95,visit,en,False
+v2,CA,34.46,repeat,Finance,gpt-4,True,2025-06-06T07:23:07.475717,True,visit_469,casual,Finance Toolkit,vault_20,,1.13,cart,en,False
+v3,MX,57.5,repeat,Marketing,custom-1,True,2025-05-24T05:04:07.475717,True,visit_373,friendly,Marketing PDF Guide,vault_4,,2.36,purchase,fr,False
+v3,CA,59.93,first_time,AI Tools,gpt-4,True,2025-06-15T23:00:07.475717,True,visit_410,casual,AI Tools Toolkit,vault_6,Product mismatch,3.14,refund,es,True
+v3,IN,71.17,repeat,Health,custom-1,True,2025-05-24T07:18:07.475717,True,visit_436,casual,Health PDF Guide,vault_8,,1.93,visit,fr,False
+v3,MX,88.21,first_time,Finance,gpt-3.5,True,2025-06-03T20:49:07.475717,True,visit_3,casual,Finance Report,vault_8,,2.1,cart,en,False
+v2,US,73.11,first_time,Marketing,gpt-3.5,True,2025-06-05T11:12:07.475717,True,visit_376,friendly,Marketing Toolkit,vault_7,,2.18,refund,fr,False
+v1,US,50.09,first_time,Education,gpt-4,True,2025-05-24T18:57:07.475717,True,visit_105,corporate,Education Toolkit,vault_1,,1.09,cart,fr,False
+v1,IN,58.88,first_time,AI Tools,custom-1,True,2025-06-03T00:09:07.475717,True,visit_170,luxury,AI Tools Template,vault_10,,0.53,purchase,es,False
+v3,US,17.7,first_time,Finance,gpt-3.5,True,2025-06-01T13:38:07.475717,True,visit_118,friendly,Finance Template,vault_17,,2.91,purchase,fr,False
+v2,FR,77.73,first_time,Finance,custom-1,True,2025-05-31T20:55:07.475717,True,visit_13,friendly,Finance Report,vault_12,,0.78,purchase,de,False
+v2,CA,35.55,first_time,Education,gpt-3.5,True,2025-05-24T10:22:07.475717,True,visit_486,luxury,Education Template,vault_17,,1.14,cart,de,False
+v2,FR,98.49,first_time,Marketing,gpt-4,True,2025-05-26T09:28:07.475717,True,visit_484,luxury,Marketing Course,vault_17,Description unclear,1.72,cart,de,True
+v2,FR,48.98,first_time,Education,custom-1,True,2025-06-02T02:02:07.475717,True,visit_273,luxury,Education PDF Guide,vault_9,,1.51,purchase,es,False
+v3,US,29.38,first_time,Finance,custom-1,True,2025-05-19T21:47:07.475717,True,visit_478,corporate,Finance Template,vault_5,,3.49,refund,es,False

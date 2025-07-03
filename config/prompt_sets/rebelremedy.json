@@ -1,0 +1,16 @@
+[
+  {
+    "id": "wellness_kit",
+    "title": "Natural Wellness Kit Generator",
+    "description": "Build a natural remedy kit for a specific health goal.",
+    "prompt": "You are a holistic health expert. Create a remedy kit for: {user_focus}. Include ingredient sourcing and printable labels.",
+    "style": "clean, botanical"
+  },
+  {
+    "id": "herbal_blend",
+    "title": "Herbal Blend & Tincture Designer",
+    "description": "Design an herbal blend or tincture for energy, mood, or focus.",
+    "prompt": "You are an herbalist. Design a blend for: {user_need}. Include preparation instructions and sourcing tips.",
+    "style": "apothecary, soothing"
+  }
+]

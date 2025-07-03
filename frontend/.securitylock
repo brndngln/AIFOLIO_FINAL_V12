@@ -1,0 +1,4 @@
+# .securitylock
+read: OWNER_ONLY
+write: OWNER_ONLY
+execute: SYSTEM_CORE

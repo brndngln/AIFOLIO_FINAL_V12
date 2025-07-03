@@ -1,0 +1,6 @@
+{
+  "windsurf_enabled": true,
+  "auto_quarantine_if_unlinked": true,
+  "linked_modules": ["dashboard", "backend_CLI", "ai_vault_loader"],
+  "created_by": "AIFOLIO IMMUNITY PROTOCOL"
+}

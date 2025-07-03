@@ -1,0 +1,2397 @@
+[
+  {
+    "timestamp": "2025-07-02T23:28:45.947851",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:28:45.947823Z",
+      "violation_pattern": "sentience",
+      "context": "sentience_guard",
+      "hash": "abfab92e0668b4808cd3353ce87060156bac427aa3578e5ef6e752cc643fe70e"
+    },
+    "critical": true,
+    "hash": "b5e0e3830131c7de0d6c7ec559ab110dc4b0d7367936da53f726247204c6e46c"
+  },
+  {
+    "timestamp": "2025-07-02T23:28:46.130897",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:28:46.130876Z",
+      "violation_pattern": "sentience",
+      "context": "sentience_guard",
+      "hash": "a5b0ff2b59b2f4c9696671e748a0269090e4a01d7da2ae5699de90f1395a13f6"
+    },
+    "critical": true,
+    "hash": "754b9785856fff41e97429a4c81c534678b5d563c726f6cdb719b7e897bf91a7"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:09.514078",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:09.514050Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "c9d15558e99e94070c0822455ba34050fd4bedbd99275ca928dc1145cd941b9f"
+    },
+    "critical": true,
+    "hash": "5484a23d66d78e492e981369bd06103a00aa42b5fec742632fb29f7d8b9771d3"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:09.677738",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:09.677717Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "bda132bdf708a4b3d80259d0e7f0a2d85c87f94e95f321ec4cf8c9e8e09d6ea2"
+    },
+    "critical": true,
+    "hash": "ef51be6482648eb23c282a01cb507c7be98af7eef58512b02b708d8184c56990"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:35.094662",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:35.094636Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "7d8cee6a47de18b7716535af770a78dc1380c93d950cd5765b327bdd86b3e472"
+    },
+    "critical": true,
+    "hash": "f75b567cd16ae083d2ff05cc80c1121fd8c234443d84d6d2b26e6086a5b06c58"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:35.258977",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:35.258955Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "4c85c2e2698bea0a839501f535aa2e5d9c0c353f7c77948ec08c141614b1f1ab"
+    },
+    "critical": true,
+    "hash": "266b055547f2199c17edcae23038b9c9d73cd922fc00187b88a3c4aa9d00547e"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:52.073671",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:52.073644Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "9974e013230e6c6a0ef785158b141cc39fc03d8fa37d619f21c91f9c0d2e4f3f"
+    },
+    "critical": true,
+    "hash": "fc720272fdc066584010ddf86861f9db6f9ccb34413a070f0389f9e18e59d6fd"
+  },
+  {
+    "timestamp": "2025-07-02T23:29:52.216425",
+    "event_type": "sentience_firewall_violation",
+    "details": {
+      "timestamp": "2025-07-02T23:29:52.216401Z",
+      "violation_pattern": "sentience",
+      "context": "SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic.",
+      "hash": "4e1efcded3cac0ef4385bb4cf500695e43d0591e9afa0f89cb99c1c4e95c2ba0"
+    },
+    "critical": true,
+    "hash": "ae22785746f8eb5a997a026e84474c5666928334af9b36ed96e8e58868bbc34c"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.446596",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "24e54cfb18871d29de937969706c16b5b3893067ef5f98bdcc577c950c41f342"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447030",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "879963275a4857b01ecc29cbcfb471cd39d05e16e28b2d42139e0478c31cefbd"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447432",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "41fea3c2001c850b8a7bf009bf5fb56d79b05cb02b2893a1633306c664d46393"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.447823",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "befffe666e6378fad6a0679aeeb232b154eb7ebf2c51d77cc0c4bfa0c6a18581"
+  },
+  {
+    "timestamp": "2025-07-02T23:30:08.448186",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4d29647a78285a5bf97d876b1746ab8b190024344e0dfc9321a4a5542e12b605"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.533655",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "c6935a4801dbdbd9bb246a7ca671dbc408870f55303178eace3be62ac3bbae10"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.534101",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "c842f3496ec3af89df3b7059394b359662d74e9f4d9ba470371da5c6d2bcc206"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.534541",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a36fc86af58c6bc55353bb8ad414cfb780d255582af19831787388dd94e52fb7"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.535018",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f8bcfcf825e2d629351e953823f05276e92b5ae69f9bd5a81fd6a07471131fe1"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.536139",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3f8500becbcdefefa92ba29e1c3b3c319c8b296a5cdf7f6f571ddde73afe024e"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:04.536606",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "b488e6bfc996b10be3b60226a7354eedebbb65595707372e2de62cbe234213af"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.745466",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "670346160f2bdbe2b059b04b5628ef4e529ed7ac33b3d49263fd3535d53c9dc1"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.745942",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "7b7388c658ab730a02c5db1157a8f6edf0ab1eefa013eff0a4e08f631cb2f981"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.746415",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e71a724bf3ab9bf95514a11caf510dd4b3b69ee0d590b0724a1578ba2d7ce730"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.746971",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3836b5771dccaacbd8ca546a1a6d189a4e3b1d87b48dc719334623ceccff831b"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.747477",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "8f9b71bac93867bdab28c44d3aef621036be18ce9b81b4b1d373ee06bcc35271"
+  },
+  {
+    "timestamp": "2025-07-02T23:31:24.747939",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "27ab362e04b402e7e7b2aac8adf01310d1382e5d8b68b2ca2ec001d955e88144"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.119752",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "96614b3cf136c02daba03b12ce9ac236be4d18b0a6876c8b1ae8b8ec183a9d09"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.120337",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "735add41ad359f612b2530199d3b3337b642fcd34de1691b525566522caf3a3a"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.120901",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "91b3fe3c4eefc1b55476688656d3affc426971f982069ae9bf449cf1a268b585"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.121451",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4891e29a81a609a8c819f48e4ee1c7c105829b47cb2abf2c4bab9bb2b1fd6a9f"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.121984",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2e0ae15360278dbe6481698beb6a3536e9926f3f83842b732a88f6ee9ec53de1"
+  },
+  {
+    "timestamp": "2025-07-02T23:32:21.122507",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f92041ffd161cf96c3e6ae714370c738753dde3ee5d08a3810cc3f40b9c4cde5"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.281169",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "74e391f57eeeb9c5ca71db4bdeaa82695f9962febbc7634e40fc9118612c3982"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.281890",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "da0edcb6533644e6dc313b3c45e3166260b8f64d0d66e8720a7bda2099cd9c7b"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.282533",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "329f909b902d7af8ca1ad79ab7dd2fdaced8acb12cdf653093cfbb41eea43faf"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.283242",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4709e509f299efec38b2b3d440292eb6a0b9402afc280eff56b17bdd3e90025a"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.283831",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6076b58b94e447b098a3d0e2d83d298dd8eb0141e68789f97af3cfda40145349"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:11.284367",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "81f078831d2f5b3117db80fe1e08f1cb4ffd32d6d141bd4b832160035f5f8fc2"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.173612",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "86953fecfd3938310afe5980efffd2785f7e07a4dbb6ff26e84661bf28dfebe1"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.174418",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d91e3d1dd20dd75fa3155c39315159fb153b9c03488dff8bf6b9f75263b5fcc7"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.175107",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "72422d4ce84961d4b78dcad92ee094804718e571e93904e5b7a96ae81efe21cd"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.177516",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d726163bfd5a1a25884dd0cbe6d1a5a7f3c0aae146cd0fa16ce9157ef7c9c69d"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.179133",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "98e0d9540b0e2ee2bbb8f2295a34bc8140a924ccb389f5dbb6214f49581f1266"
+  },
+  {
+    "timestamp": "2025-07-02T23:33:42.180524",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "772a202c13561fe2340c659b009af90a3fa1db7ce78dfdb25a22999b440dfad9"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.518423",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5b8811d9424d69ddb4ee3c172962e7ffadefbe262f1dba419310511f6ac981a5"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.519233",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "0538613e8fb2edf2ae2ff12ff2718305ca944c24c70e59dcf4ac9d5e9d7c5006"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.519868",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "da4ee732c49bf2d2d11ad11b4cddb6ad0f5fe02b05ee313b21f77d3f00e07dcf"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.520517",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "91e3514685faea28f72118c0d2da97e3dd6b5419ac0f7e8eb60bcdc82185b32c"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.521190",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e8e3a1939272332d8725ae3a638b84da3dcbad9f64d7f8417c13fc1071be0deb"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:03.521816",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "376096fa3c9cff25fc1119908f409e8146c3b779559bdbeb7e6f2a451ffa3bfa"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.854817",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3c2d6602ac2d1205a0338367211275899580c6763b70861d88adbd82ae5aa737"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.855837",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "07bdfe668fd172886cc57231b88b45c80e0437a20f02e29904133ef24ac3e324"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.856546",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a83b9ecc1f5c7b9f645d4ed6bcc068fe26ce260b8fcb6abdadcfe238927092f3"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.857482",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "78fc2516926fbe8188c383480e10e89630036af2740479a98319f02c781715ed"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.858247",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "1dc21991dcbff44c67ba1052502d7e6bf5c4790ad6a3e79d79d6a32486531fb0"
+  },
+  {
+    "timestamp": "2025-07-02T23:34:59.858893",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f765531684e6e61573d74420ab9b42beb8745c216af2b4a56ba3c2588f34228c"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.846447",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "458d8515883786c3c8cf044440d9777ae65541f8c720f295c1ef167d1039ad10"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.847252",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4018ea0eb5aba7180b42bd500e72826f408b38c56a4c1cb7a1d8d126ade3a399"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.847974",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5b239d5e4b8cf3ee61e29c9723e87d906f817739592f2683024a700d05ecf561"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.848728",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2c7469c78f0d3ed2304e435da0a1e71014e0910ac49de4dd22c15649012f368a"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.849476",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3b2741a0fe78075d86d80f5ac433f07080e4f36f97f21195ffa6f47e419edc0e"
+  },
+  {
+    "timestamp": "2025-07-02T23:35:25.850171",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f3b7973da25f9f56d9119a1844bafc535238c882b8dd0f3c12011d51cc3743c0"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.504253",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "feccbe0d8261f7a57aca8c239fa72ebb4ce94e6c7fc1b0968475553d39511751"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.505196",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "b4e57947f804a74b64105ae58cd40448d8a69c948517fa2ce41daf0d8fb96717"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.506186",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "94dab20cdf6ae1bd7e4a8bce111418f1aaaccf00eca470a4dd659780814fe129"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.507237",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5a114efe19340631a60b9f4ade2f9bd12a906b23b31b31624b0629e3bea32bb6"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.508063",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "70d489508f1628c685597333fc60ba8367cd7d830495f57ff1ce3925bcb65a63"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:03.508789",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5678505d36917630e2c6f3a48aecc8f4c25bf8b8d94ca264a8bb953076066460"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.978530",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "01cf1eeb4099d83f8b6b01566a288a5e7777bc38049b0f31f20be771e16c6d7d"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.979403",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "85b377c40973a86b1972613835bff6671a242173d925ae62c6381ed1fff55a03"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.980398",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "c9b0e2e051ac3e5a125b778ebb768e9a6bcf0aeeda55d48e0f034910eaf01444"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.981268",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "1185614602b71213135814bb76cc67b0c850196a7d4fb34ec1129d0c3743bdff"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.982130",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4b0f790cdb1adb6dbcdbda817758694ed935b53c4a8e1a3dfe89df31b02dc4f4"
+  },
+  {
+    "timestamp": "2025-07-02T23:38:54.982961",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9a2964355a4058ce378484368bb0e7362450c9c2565719bf2114722f99169453"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.904692",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ae878df123271a45034d3b75db02904cae6c5c64e9887273d4df58e0296fb029"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.905708",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d4dd6104b000539703a22d2d3dc3d32be240bdec6ddf64732a69e72cc3390b7e"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.906636",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e8ebbc19ab463062ef90e8498d608d2c45e62f2ac80445e5d8f2c41dcac51539"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.907569",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "62ae610c6ec7ece665f5b6320fd43d593c5442d9ddc8f5b0da01449ce3bd703f"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.908478",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f336b5142f5180d91b76648c7c1f91d2f71f1bfcbae37077745d5e7a6ff9a6f8"
+  },
+  {
+    "timestamp": "2025-07-02T23:39:20.909361",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "21dd43eccce7d2a758f0268cc08d301257310c232074b142aa2e197844f07368"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.753037",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9c0246096a356b0c0c6e625d3a44fb9ff9c064c09f0692e2a3e5a2f1cf58cc0a"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.754012",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "100c6be184efbeb9b6c0b630cd2c6dbf9ffa92934ced1bb797a3e01570e040dc"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.754929",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a4ed8af2ffdc98ff8563775b5d9aeffa4b44cc4412574f4e7e1025670e4710dc"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.755901",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2ca025a86380cb406b8109bb4c58a244f47ea9af30d7b29c40b2c12277fc0e0f"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.756881",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9699fa19896b100de1fd8403e0f4f5ceed33c4707f56c4ca753d1c2aebf7312a"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:03.757969",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "65f7812cf01c4016804a1c889285a4bf8e013fe2edd389b7ee1f1cc228c0abbe"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.032354",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "8059c3c9d2698d4212f3a3eca5771dd136f4be69514c54ff7bd69c8454819d1e"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.033497",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "17a9a4d3b4720b242cca11bc3f94d29a8d9eb262a364d5b9b353dbbe55e7f416"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.034632",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2e5bec32a67b69c2711a91a03c8bc011263300b53245368d5a513a86b78bcb28"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.036055",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "db8673efd35bdd22503c5963ea9cad8c84445fba52d7fd1d2830586b72a1b996"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.037336",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "331f1c705cde52df636ce210d4b5d8ae40c5b3e7add4e2aa2509bda4f8c7e725"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:22.038807",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "8a41ba68a361c7dcaac699afeeed8707be66990b5930c27fdd902c95f567df33"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.637385",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6ce5519eeecf4487b98728523ad68dd48a6879d8594bac6f6a0d55c3f6080bc3"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.638501",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "044f8d756164b65a437fd15e67d3f757a9e0f5695e1068fb71da4f44b3010e71"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.639478",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5a0e862a745ed2728f8f55124447a9f85cc88712f7c33764760df74b822896d9"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.640539",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "bb8fc9e41f9e428ee013c5b0286a6bfe86c777cf968e15ce8a1edcc28b00e9ac"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.641594",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "20cc8c22eb9f45f3c9ea7c66950e2251941e93fe5650691d50bd6360df5f35dd"
+  },
+  {
+    "timestamp": "2025-07-02T23:40:55.642588",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "7d5075d74db4d9513d07640669b7a32f01d0f53706b39485c170b0509349cbae"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.076641",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5afad7effd0988f30681bdc15410ed73728c5daeaa3170c88f586f3721630638"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.077905",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a85fe315d21259e39d79b88243cecc0a2c4edce9cc2cd3d2c6e93e0e9ad48e68"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.079266",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6597cb33ff2f17af78eb9a1ed2e8eb026236268999cc4e3e9dfff87d8e57917f"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.080499",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9646b048f61339addf12681f086772ffa1d2565ce5f141886bd68db0539f6b9b"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.081668",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f4fc6fef771eec93fb748694a2fda4f6329ad409c8996481398e2a83f1cfc371"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:32.082794",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "47a52aa41e87ed37ee6c8466279289b2cac47fd905df63cda6cad09a783810b4"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.634870",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "63c55f11288c8c5faa488494b2449eb3048dfbb94833226bccd51ca73dcfd385"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.635991",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4857a2f70a3c586ecf9f2ac3a8f43d287be5e9a3660e8f6bcb0afba3d1c3bf35"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.637075",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "8186c55a260de4656cca4159efd2597a4270506aca68f279d6aafd4213b4ae7a"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.638209",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "527a5fdddaf7c11bba2724b7cdf72bd36ca40847ddf70935b0e088be47e6ff12"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.639291",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "76f288c3019a7e6e0b186a49927a84776a8ec7b07fe46e024d92943497170818"
+  },
+  {
+    "timestamp": "2025-07-02T23:41:57.640325",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ab32d3df945e7b981eeffe9ce122df9a94df15dbdb7cb5c35efa02fb954c3ae6"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.778508",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "31eb644076986fb3ddb806fb5c91dd324b00b99586237eac6c762e815a106fbb"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.779685",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "7308cfee8ab75d1c1a8654b11c34a6ea66b2328060da787edf9a7246deeeb50c"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.780782",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f80f80ca6d5532eafff13d9e2f3061e8ca4bc7c223d7136ecfbee7e60ac83774"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.781913",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f257db3babcd04e13ab5814ed7cf87ed09f355538fc3e97e48b817da0ddf742e"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.783003",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4dc6f1a6b8350b80e4c4edf0546122120ddb7ec1f2a9460558ed6b2f4682e5fc"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:17.784088",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "870d2fcef217e77d06d00c7f7528f903e99d492d5b9e1be2bbc402b30b918cde"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.594227",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "b17c0c25f1dbde4b8e82a6e8d5f8c9a35287aad6dc0c5ed6ef6b527a9fd30a4b"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.595431",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "dc53ba68a7892ad8355c9dd4b7ea4d37d5ce0fe3552a869b08a0aae091cafe59"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.596582",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "40a7d83b2fde8056c0cae5cb600d122eafdf05b79bee42c4b5b4d1a022b18d4c"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.597733",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5c762dd28c8dc14a3905f78a5409f7333ef8adcb0dab0a919f7ee56739e342a8"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.598852",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2ae20b622f011855945caf1350d51e510d0d2aeb042d0f529127eb9f51cc549a"
+  },
+  {
+    "timestamp": "2025-07-02T23:42:52.599988",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6d25e72bdfe40a69e88bb3fa421980523f0b78b4ee58b207316abbac504a6bc6"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.789440",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a0fc321b06d963b4530e40de1849281290db9534e3bc48b0c29694b9e9e6bbc6"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.792793",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "59a00b8a750943711d0ee64bc846da2cc790985f0ae98de452f6e3b256aa1f48"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.794478",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ee9a8faa34629948bf4eabf87f62e4bf5a1e8f1e4d471d7ab8035f379ec67a46"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.797095",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f8c5f933bf4cdbabd1ba17252563b604619c50993dfd5cad93897b2ae69c3081"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.798656",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "68ab03203095f81a3de62a752f6555649e0ab541a0303f974d939708b36299a7"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:10.800237",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "8d174f31270097984fa2be5ffecce12392fcaa9426e8fc3ebb041731ea41296e"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.949114",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "1e075764c13c8bb05dce4f9c44ea05799ea369e5a17c48a9b22fac5c9c04d803"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.950481",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "154d301abfb794fd8db849db4a9530da4fd59a845a8687dc39223168a3951977"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.951712",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "09a7e4215745c912934e448467d10f82201daf8c3380ce8ebd2a2c219e2d22f9"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.952943",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9be4a28f49e245f2d758bf4f76b34be726a5cc8413a1435feef476d9d60c9ca7"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.954169",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d976cb6b09307241f74c0ff160591a1b184185ea4a5f1c84e859c27cd80642e4"
+  },
+  {
+    "timestamp": "2025-07-02T23:44:46.955355",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fde4c4667a7a56dc70219707ddab69fe94d403bb31bfa7f41b8a87955b69b2d7"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.734371",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "544018986fffed372281c2d8fc67559b12b4fb990145ceacf5a0ef1eb4821666"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.735736",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "23c6fa202eb9640d90da44dd5eaf45c1dded557543abfdcfaa2ce43c8568a935"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.737013",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "608248aa7f5e0e031b758594bad6c9ccdf432e2cbc7461324a301c6f092a8be8"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.738277",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e897ff593443b530b208ca071d508c1be2ca9cde9958fb9f6828edb6034e7ce3"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.740136",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "454074f84831176cf9ed17a68fd07478a9fc4e51e86bc692b53d19aac85f4ee7"
+  },
+  {
+    "timestamp": "2025-07-02T23:45:35.741419",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6bbb1e4b27569bd298239c2fddf45b22c62ca5205180f336977d05f7f1734981"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.296833",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f34af2aa88ba187fdc1f45100642f44674c5f8cfb26485024112de9d751dd7cf"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.298200",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4d2ac0c39493df57b06fccbad44a7346d784c78ed0544d32f64c94383a7a04e8"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.299528",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4c5e4d940b6af117ce08ec5feac96ebb6909b3ff3bfafd827a7bc4642405781f"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.300961",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "303769545e6a0805325acb3b4f8b42341a91609ed5b41369a8f3fe3c2b33eb4e"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.302280",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "42f11bdd0b51ca10ae63aa8d1d2d680674d333451f9a896fcf1b61306189c328"
+  },
+  {
+    "timestamp": "2025-07-02T23:46:27.303553",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "369a9ca0eb07ffa053b21dc24a5b547e1defdbbe264f9f516f3e0ea96b02dfc5"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.317074",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "017027f3a76c772bf8a5c894b0248c98761c3a843f65ea62a210fd0d71b6c053"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.318499",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "606dd53f12d306ea0356e94096af7aeaa1931a54da034458aec0104c40fd77a3"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.319875",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "1817720b9ea5374341d67281688fd599d9d99b6cfa40467ee4b21db6451724e0"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.321296",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "81e87f34dfb6af3244ad9e454bfc4cf0ce39eacf3167f8110eabc91c54eb04a0"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.322654",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a55c87ed9d8b2fab6b3db0be1412acdf09d95cc3ec69669f55ac78ddd0082248"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:15.323981",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5fbfc24de263d321b695ee61b250adff620216e2aa010531d689b9891ee96bfb"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.860253",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f1006c69ee8b11251f29890736eeac91946878f29e45770695b81cdf36deabb0"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.861778",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f7bcf274396c221a143960734a36cc0855d53b9f5a30e3c224f5cff1590992ca"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.863277",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e999666e1f17b2482aa10911126fe8c83ea0155d51c0dd5a2b494bf070321732"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.864815",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3abb819b42aa106ce1a6028c951671fb583a8b58030c70492f49c12e1dec598b"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.866411",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fa01c64c0d76ee0faa6bdfd49a9d8fc16c1e7504c895ba03a7552d8f67eee8c3"
+  },
+  {
+    "timestamp": "2025-07-02T23:47:52.867838",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "419830aec70a5df867ab7d4bd3bc02d1fd9c449d716176f9111ab8b4f1871054"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.181535",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "11c7a7419a09f67f40ec0c201e17c8a2d7a7362149612a8842ff0a01b52b54b3"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.183086",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "cd8ee1520f7296123425618c4965479a6ff386beb4269d56bfed9e4adfe28b50"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.184660",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2ce6efeb9f86bfc5826e0bec1702d03e520e0c091d78008071647ce2c2e1f222"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.186247",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "933eaa49e2669875388ccf35b0bf919d13f5b4a1daa833f18c198506decd5c3f"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.187792",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fbe5aea9546f3effc4cce980f6e7938ee4f11075659c4675e1834956a69ed267"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:30.189195",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "bd596038e19d4899489a89d46a2074cc1b0ee21315b63bbc19629ea81c114bee"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.709595",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "22db4a7530a1163bea66329d98b6736c455e8ff5499a2647ae266515f97eb9ab"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.711209",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "6c5ed3d954cc9d593762434978bac4aedad0bf3c3dd58e57f0b40a850dc2cb1d"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.712738",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "940a5eb98c2be916ec67af355c05e790370faf4ba63af8b5de6eb1c21d995442"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.714206",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ea43ac48cf7a27aa998e85432e83c79886aeef8ba52bdbba5775cf7012a247da"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.715691",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fcc75a37d44e082e59bc974081900339cff8802353684a02e5c540511f902373"
+  },
+  {
+    "timestamp": "2025-07-02T23:50:59.717128",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2999eb597f962f1479d035a030a3c90deda97c75a85ce7af8e012ab55d063eaf"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.157222",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "947b5f6ae50897ab2902d1ab5688eb9fb01721c577a4254a649ce02eea769fc5"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.159037",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d9e6e5b1d8fafb039ae9cc77c57b52952ed6cd0b143e0c0440018edd3b0311b6"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.162202",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ea2fa8252e30e0224e563bb03fc923bbce27987edb39a24dc7074f78cacf248f"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.164185",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d9e1defd7ed003ff5612fe76646ce3e0a9035f53a63a2ece11cb8e8a7246038a"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.166062",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e006da2db93b3a3fd7ba0d139a814e2633189367e5e3f585fc2835d5fc1703e1"
+  },
+  {
+    "timestamp": "2025-07-02T23:51:54.167974",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f18628357fadeaf92df420581a406656d74698a6256a058d003a1762113c42fe"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.058268",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "b19a2c25b15e003c913dc076c2af42e98d4042004b732f3a17f5ea39e8d209e1"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.060007",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "04e3033d37546bfb445cdb899cb684232596ad5d4cc57ff9d1c8036b44d890e9"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.061621",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "0077e5a5bf0f185f8b73b1e35c0d33963e4ddb96401377835fc41345d9dd4d70"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.063239",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "36f814d0b160aa0d916f6047f998347a791d8e8595af82fa2298bd2f6b69859b"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.064929",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fbf9154109afeb86b372aefa2d741b90be2b61e82de5fc523f963af19c4656cc"
+  },
+  {
+    "timestamp": "2025-07-02T23:56:04.066549",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "7f98ce679cd994dbb159f273eba6e61ab528b037c2acaa9d175a97132a3ad7fe"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.163052",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "3a9589e8e50fdba15f4067410af8456274d4553b84c1ce24b6b9a43335999f59"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.164941",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "c0127767958b9dfadb22239e628620a9996e21c4124718db4c53f4cb91239c04"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.166689",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e66bc937c44a828540ed56488528304a0e0a668d7e2288fa3afc1f70a08091f2"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.168452",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "cd0bf322c20d788a31c6db41637e9c4f2b64f93afd85460e94473c1616b049ac"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.170201",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ff506b21671bffd347b4a27641d88f2a52290f87e0dc9d8c9f93576742199de4"
+  },
+  {
+    "timestamp": "2025-07-03T00:09:38.171869",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "dc9d1b9bd0ca2dc16df23b2f7b29b3a286357d870d8362e730b011e1b87962d8"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.890152",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "fe97a3ed6b5db7f54bf896b2073eb3b1b7c690bd2b04ff67b63665e9ce2d9eab"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.892069",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "ad573fb6ad88bb58794bbcb6cb02a5cf8fe67066cf76afe4598caba9e41bc1f3"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.893748",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "2fcf7b8bfbe3cbf3f05aad448203fcb3b49ee77a2dcde769c5a170d83fd1f850"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.895465",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "35265ccdeceefdb94bc1de0e9b45f33a06b5bdc6904100077e9669d2b49b54c6"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.897193",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "c8e846ed6cfd6e45d05fb5503fdb445db941b25e89e10c1d5be998671a85ec34"
+  },
+  {
+    "timestamp": "2025-07-03T01:49:45.898890",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "556acdf8a6339449c618072db416049b494447ea1e5e0cbec63b80306b4380d1"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.493752",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "30f3725012e4e44535d6c4768ebffa7e37def669b71ba20d2191ac502fe9d0d0"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.495724",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9fe4337de5d455aa1e8a54969c58ec78997d659c3354b2b7226cb95aaebe24a3"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.497571",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e07edcebde64fb207d3875303616fdbc0a8478f96a4030d2cb0815a29d1c0132"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.499436",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "31563d350238fcf191cd021daab6e88119a95ebfcb8ef84d2ded01fb6693c7e5"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.501463",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "200c73ef5d84f7a667b869e77d717ce8c43eb576ca8874c3f8ae0da72a2e190c"
+  },
+  {
+    "timestamp": "2025-07-03T01:51:11.503296",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a166ac100157a6219d5d9264b0899b5191045e5b150243fe9f14bb36aea43417"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.430084",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5c6c27de878124d69e40caba73974cdcb896a2156b643f978a48e5ed735bc2f0"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.432011",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "47adaac038e1c290a8024cf3c477bf1399d7c8d39f46bb2bdceb458bc0b4b750"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.433922",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f45d6ef1a8ecb0f7bc263c4414739c08dcb5abfd0ef866c349d4dab8c0b379fb"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.435782",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e465d1fbaccb08668132b9e1828200e13675dba0b525f92746edd46ca6667bc1"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.437663",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "57b0ea92398f935394579adfd055da9de1013a85fb8f3d2e51a606628daef640"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:14.439491",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "541613eeeffcde35aa678d62055ea0ab375b54766b831c0d2b64b626071cd8fc"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.343783",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5add5976e8a96d0ae9a75f525a9b484f859f4f30a88fa700fb79eb6bc3559180"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.345695",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "078e3cc43d4c2f49e7af9d5e7a34ddd2a359039f72044df41f690d22315614ff"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.347506",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "246f7e0048dc06a76576bb660fa79e4e3dedfc1777253a79d977e042fd805c3f"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.349282",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "9350fc6110838bb609fdeb7a7876e4864b372c9ba375e1c6d3098ba1cc531dbe"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.351207",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "0c77a96ed5a7aa49632e1c13ce25d601b30a827832dca4bd2b79af88c3ccea31"
+  },
+  {
+    "timestamp": "2025-07-03T01:52:33.353019",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f909ba733735847fa003bb0e435f5cf9e52a9fbc9c385ee1842e7d2fa284ee5b"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.225499",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "40de1d7e31589d1910b285c9864c8c4fa5044208f712b18149eb72bd78b977f6"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.228140",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "1c6b355b5d821f64dfcbb464bdbaf7e7619be6830f88a3ff9425ba5cfda7eb91"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.230260",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "335d22cea48a603175544a33bd24a8ec4d3e346025001a2c10967bc2c120728e"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.232401",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "b6746d741075a59ca1c2aaa9255922eaba7a4ef671666da9e027c4f815bee561"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.234409",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "96d22403d4a242608fd13ad6cdec096701648eadd489fe5c8243d0ade124fe70"
+  },
+  {
+    "timestamp": "2025-07-03T01:55:09.236432",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "0fbd61b7b5aa5fe5cf2f96851b3c756763a2ba1520f3823999b01007640993e9"
+  }
+]

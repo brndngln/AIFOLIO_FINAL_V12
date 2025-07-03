@@ -1,0 +1,6 @@
+{
+  "elite": {"font": "elite_sans", "textColor": "#00ffe7", "bgColor": "#181c2f"},
+  "minimal": {"font": "helvetica", "textColor": "#222", "bgColor": "#fff"},
+  "vaporwave": {"font": "vaporwave", "textColor": "#ff7afc", "bgColor": "#2d224c"},
+  "spiritual": {"font": "elite_sans", "textColor": "#ffd700", "bgColor": "#181c2f"}
+}

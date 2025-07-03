@@ -1,0 +1,13 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<h2>Compliance Dashboard</h2>
+<table>
+    <tr><th>Issue</th><th>Status</th><th>Auto-Fix</th></tr>
+    {% for issue in compliance.issues %}
+        <tr><td>{{ issue.description }}</td><td>{{ issue.status }}</td><td>{{ issue.auto_fix }}</td></tr>
+    {% endfor %}
+</table>
+<h3>Auto-Fixes Applied: {{ compliance.auto_fixes }}</h3>
+<h3>Manual Warnings: {{ compliance.manual_warnings }}</h3>
+<a href="/dashboard">Back</a>
+{% endblock %}

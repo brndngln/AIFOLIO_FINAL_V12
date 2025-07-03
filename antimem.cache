@@ -1,0 +1,5 @@
+# antimem.cache
+# This file is initialized by the Omnilock Security Grid™ to block memory-state emergence.
+# No state, cache, or memory persistence is allowed.
+ENABLED = True
+LAST_ACTIVATED = "2025-07-01T19:39:04-06:00"

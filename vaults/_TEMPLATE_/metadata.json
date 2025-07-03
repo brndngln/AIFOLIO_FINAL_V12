@@ -1,0 +1,26 @@
+{
+  "title": "TEMPLATEHUB™ Vault",
+  "branding": "Elite Resale Bundle",
+  "description": "Pluggable, SAFE AI-compliant resale bundle vault with deterministic licensing, static bundle generation, and high-ticket export logic.",
+  "licenseEnabled": true,
+  "features": [
+    "static_bundle_generator",
+    "title_formula_applier",
+    "sales_page_builder",
+    "launch_sequence",
+    "email_funnel",
+    "pricing_optimizer",
+    "security_enforcement",
+    "pdf_export",
+    "qr_export",
+    "zip_export",
+    "analytics",
+    "audit_logging"
+  ],
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail",
+    "static_logic"
+  ]
+}

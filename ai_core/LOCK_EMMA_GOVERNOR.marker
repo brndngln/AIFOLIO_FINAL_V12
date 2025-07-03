@@ -1,0 +1,3 @@
+.LOCK_EMMA_GOVERNOR=true
+EMMA_KILL_ON_UNREGISTERED_EXECUTION = True
+# Prevent rollback/overwrite without biometric override

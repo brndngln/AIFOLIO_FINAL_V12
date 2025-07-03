@@ -1,0 +1,1 @@
+# Issue, verify, and revoke licenses; toggle subscription mode

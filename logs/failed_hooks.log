@@ -1,0 +1,11 @@
+[2025-07-02 17:45:45] send_confirmation_email attempt 1/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 17:52:04] send_confirmation_email attempt 1/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 17:52:04] send_confirmation_email sleeping 60s before retry 2
+[2025-07-02 17:53:04] send_confirmation_email attempt 2/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 17:53:04] send_confirmation_email sleeping 300s before retry 3
+[2025-07-02 17:56:12] send_confirmation_email attempt 1/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 17:56:12] send_confirmation_email sleeping 60s before retry 2
+[2025-07-02 17:57:12] send_confirmation_email attempt 2/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 17:57:12] send_confirmation_email sleeping 300s before retry 3
+[2025-07-02 18:02:12] send_confirmation_email attempt 3/3 failed: SendGrid error: 401 {"errors":[{"message":"The provided authorization grant is invalid, expired, or revoked","field":null,"help":null}]}
+[2025-07-02 18:02:12] send_confirmation_email failed after 3 attempts. FINAL FAILURE.
