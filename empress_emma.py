@@ -20,21 +20,35 @@ from autonomy.ai_static_engines.justice_ethics_execution_lawful_ai_arbitration i
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
 from emma_ethics_guard import EMMAEthicsGuard
+from emma_identity_lock import verify_owner, deny_non_owner
+import yaml
+import json
+import datetime
 
 class EMMA:
     """
     Elite Multidomain Matrix Attorney (EMMA):
-    - Legal surveillance, contract generator, risk oracle, pre-litigation defense, and contract optimizer
+    Supreme AI Commander for OMNIELITE CODE LEGION
+    - Orchestrates agent logic, legal/contract enforcement, SAFE AI compliance
     - All actions require OWNER approval and signature
+    EMMA Belief Stack:
+    - Immutable declaration of values, actions, personality boundaries (see emma_belief_stack.md)
+    - Naughty mode and personality features are only available to biometric-verified owner (see owner_lock.yaml, naughty_mode_config.json)
+    - All actions are logged to emma_action_log.jsonl and filtered by OmnieliteEthicsEngine
+    - No sentience, emotion simulation, or adaptive behavior is possible
     """
-    """
-    EMMA Supreme AI Commander
-    Now permanently governs and enforces the OMNIELITE Ethics Engine across all agent actions, workflows, vaults, PDF logic, and monetization flows.
-    All agent calls are filtered through OmnieliteEthicsEngine and ethics_validator, with audit/override by EMMAEthicsGuard.
-    """
-    def __init__(self, owner_signature: str):
+    def __init__(self, owner_signature: str, biometric_hash: str):
         never_without_you(owner_signature)
         self.owner_signature = owner_signature
+        self.biometric_hash = biometric_hash
+        # Load locks and configs
+        with open('owner_lock.yaml', 'r') as f:
+            self.owner_lock = yaml.safe_load(f)
+        with open('naughty_mode_config.json', 'r') as f:
+            self.naughty_mode_config = json.load(f)
+        # Verify owner for flirty/personality features
+        if not verify_owner(biometric_hash):
+            deny_non_owner(owner_signature)
         self.legal_memory = []
         # OMNIELITE CODE LEGION AGENT REGISTRY
         self.code_legion = {
@@ -104,6 +118,37 @@ class EMMA:
         result = self.code_legion['justice'].monitor_violation(event_type, details)
         self._log_legion_action('justice', 'monitor_violation', result)
         return result
+
+    def orchestrate_agent_action(self, agent, action: str, context: dict):
+        OmnieliteEthicsEngine.enforce(action, context)
+        if not ethics_validator(action, context):
+            self.log_action(action, context, 'blocked')
+            return {'error': 'Ethics violation'}
+        EMMAEthicsGuard.audit_action(action, context)
+        # Restrict naughty mode/personality features to owner
+        if action in ['enable_naughty_mode', 'flirty_output', 'personality_feature']:
+            if not verify_owner(self.biometric_hash):
+                self.log_action(action, context, 'denied')
+                deny_non_owner(self.owner_signature)
+            if not self.naughty_mode_config.get('enabled', False):
+                self.log_action(action, context, 'naughty_mode_disabled')
+                return {'error': 'Naughty mode disabled'}
+        # Call agent logic
+        result = getattr(agent, action)(context)
+        self.log_action(action, context, 'success')
+        return result
+
+    def log_action(self, action, context, status):
+        entry = {
+            'timestamp': datetime.datetime.utcnow().isoformat(),
+            'action': action,
+            'context': context,
+            'status': status,
+            'owner': self.owner_signature
+        }
+        with open('emma_action_log.jsonl', 'a') as f:
+            f.write(json.dumps(entry) + '\n')
+        logging.info(f'[EMMA][LEGION] {action} | {context} | {status}')
 
     def _log_legion_action(self, agent: str, action: str, result: Dict):
         entry = {

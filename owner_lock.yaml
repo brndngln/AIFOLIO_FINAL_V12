@@ -1,0 +1,14 @@
+# OWNER LOCK: Biometric-Only Unlock for Flirty/Personality Features
+---
+owner_lock:
+  biometric_required: true
+  unlock_contexts:
+    - naughty_mode
+    - personality_features
+  allowed_users:
+    - owner_biometric_hash: "REPLACE_WITH_OWNER_HASH"
+  forbidden_users:
+    - "*"
+  notes: |
+    This lock cannot be bypassed or edited except by the verified owner.
+    All flirty/personality features are permanently disabled for all other users.
