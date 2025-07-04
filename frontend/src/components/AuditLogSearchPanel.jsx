@@ -23,7 +23,7 @@ const AuditLogSearchPanel = () => {
         const token = localStorage.getItem('token');
         const res = await axios.get('/api/monitor/activity', { headers: { Authorization: `Bearer ${token}` } });
         setLogs(res.data);
-      } catch {}
+      } catch {} // [WINDSURF FIXED] Empty block
       setLoading(false);
     };
     fetchLogs();
