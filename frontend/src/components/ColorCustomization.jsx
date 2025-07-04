@@ -377,13 +377,14 @@ const ColorCustomization = () => {
         throw new Error('Suspicious preset pattern detected');
       }
       
-      Object.entries(preset).forEach(([component, colors]) => {
-        Object.entries(colors).forEach(([property, color]) => {
-          const newTheme = { ...theme };
-          newTheme[component][property] = color;
-          setTheme(newTheme);
-        });
+      // Apply flat preset to 'app' component properties
+      const newTheme = { ...theme };
+      Object.entries(preset).forEach(([property, color]) => {
+        if (!newTheme.customColors) newTheme.customColors = {};
+        if (!newTheme.customColors.app) newTheme.customColors.app = {};
+        newTheme.customColors.app[property] = color;
       });
+      setTheme(newTheme);
       setHistory([]);
       setHistoryIndex(-1);
       
@@ -404,50 +405,22 @@ const ColorCustomization = () => {
   return (
     <div className="theme-panel">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold" style={{
-          color: 'var(--text)',
-          backgroundColor: 'var(--accent)',
-          padding: 'var(--spacing-md)',
-          borderRadius: 'var(--border-radius-md)'
-        }}>Color Customization</h2>
+        <h2 className="text-2xl font-bold" style={{ color: 'var(--text)' }}>
+          Color Customization
+        </h2>
         <div className="flex space-x-4">
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
             onClick={resetColors}
-            style={{
-              backgroundColor: 'var(--cta)',
-              color: 'var(--text)'
-            }}
+            style={{ backgroundColor: 'var(--cta)' }}
           >
             Reset to Default
           </button>
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
-            onClick={undoColor}
-            style={{
-              backgroundColor: 'var(--accent)',
-              color: 'var(--text)'
-            }}
-          >
-            Undo Last Change
-          </button>
-          <button
-            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
-            onClick={redoColor}
-            style={{
-              backgroundColor: 'var(--accent)',
-              color: 'var(--text)'
-            }}
-          >
-            Redo Last Change
-          </button>
-          <button
-            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
             onClick={() => setShowPreview((v) => !v)}
-            style={{
-              backgroundColor: 'var(--accent)',
-              color: 'var(--text)'
-            }}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="preview-button"
           >
             {showPreview ? 'Hide Preview' : 'Show Preview'}
           </button>

@@ -14,7 +14,7 @@ function ColorPreview() {
   const { theme } = useTheme();
 
   return (
-    <div className="theme-panel" role="color-preview" style={{
+    <div className="theme-panel" role="color-preview" data-testid="color-preview" style={{
       backgroundColor: hexToRgb(theme.customColors?.app?.background || '#000000')
     }}>
       <h2 className="text-2xl font-bold mb-4" style={{
