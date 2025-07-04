@@ -376,7 +376,6 @@ const ColorCustomization = () => {
 
   // Removed duplicate colorPresets object below. Only the top-level colorPresets is valid.
 
-    'default': {
       app: {
         background: '#000000',
         text: '#F5EAD4',
