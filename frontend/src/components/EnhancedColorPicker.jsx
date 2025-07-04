@@ -5,8 +5,10 @@ function EnhancedColorPicker({ component, property, defaultValue, onChange, ...p
   const { theme } = useTheme();
   const [showPreview, setShowPreview] = useState(false);
 
-  // Always derive color from theme
-  const color = theme?.customColors?.[component]?.[property] || defaultValue;
+  // Always derive color from theme, fallback to defaultValue, then to #000000
+  let color = theme?.customColors?.[component]?.[property];
+  if (typeof color !== 'string' || !color) color = defaultValue;
+  if (typeof color !== 'string' || !color) color = '#000000';
 
   // Update theme when color changes
   const handleColorChange = (newColor) => {
