@@ -80,7 +80,10 @@ def set_key_meta(key, meta_update):
     return True
 
 # --- MFA (TOTP) Support ---
-import base64, hmac, hashlib, time
+import base64
+import hmac
+import hashlib
+import time
 
 def set_totp_secret(key, secret):
     return set_key_meta(key, {'totp_secret': secret})

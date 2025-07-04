@@ -48,7 +48,7 @@ def retry_safe(func: Callable, max_attempts=3, backoff=1):
         for attempt in range(1, max_attempts + 1):
             try:
                 return func(*args, **kwargs)
-            except Exception as e:
+            except Exception:
                 if attempt == max_attempts:
                     raise
                 time.sleep(backoff * attempt)

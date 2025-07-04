@@ -10,7 +10,6 @@ def test_export_failed_event(monkeypatch):
         "alert_email_opt_in": False
     }
     with tempfile.TemporaryDirectory() as tmpdir:
-        analytics_log = os.path.join(tmpdir, "error_log.json")
         monkeypatch.setattr(export_failed, "push_dashboard_update", lambda *a, **kw: None)
         monkeypatch.setattr(export_failed, "send_alert", lambda *a, **kw: None)
         monkeypatch.setattr(export_failed, "send_slack_alert", lambda *a, **kw: None)

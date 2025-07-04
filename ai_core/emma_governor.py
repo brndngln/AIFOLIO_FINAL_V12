@@ -99,7 +99,7 @@ class EmmaGovernor:
             os.remove(log_file)
             # 3. File permission hardening: encrypted log is read-only, owner only
             os.chmod(log_file_enc, 0o400)
-        except Exception as e:
+        except Exception:
             log_intrusion('LOGGING_ERROR', log_file)
             raise
         # 4. Never allow logs to be read except by biometric/override (enforced in emma_crypto)

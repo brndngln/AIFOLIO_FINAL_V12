@@ -1,4 +1,3 @@
-import pytest
 from autonomy.pipeline.event_bus import dispatch_event
 
 def test_policy_violated_event(monkeypatch):
@@ -12,7 +11,6 @@ def test_policy_violated_event(monkeypatch):
         'owner_email': 'user@example.com',
         'alert_email_opt_in': True
     }
-    from autonomy.pipeline.event_bus import dispatch_event
     dispatch_event('policy_violated', payload)
     assert events, 'Event should be logged'
     assert events[0][0] == 'policy_violated'

@@ -1,7 +1,7 @@
 import React from "react";
 import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
 
-export default function VaultPreviewCompilerPanel() {
+function VaultPreviewCompilerPanel() {
   return (
     <section aria-labelledby="vault-preview-compiler-heading" style={{background:'#f8fafc',borderRadius:12,padding:32,marginBottom:32,boxShadow:'0 2px 8px #e0e7ef'}}>
       <h2 id="vault-preview-compiler-heading" style={{color:'#0ea5e9',fontWeight:800,fontSize:24,marginBottom:12,display:'flex',alignItems:'center',gap:8}}>
@@ -20,3 +20,7 @@ export default function VaultPreviewCompilerPanel() {
     </section>
   );
 }
+
+// No props for VaultPreviewCompilerPanel; PropTypes not required. [WINDSURF FIXED]
+
+export default VaultPreviewCompilerPanel; // [WINDSURF FIXED]

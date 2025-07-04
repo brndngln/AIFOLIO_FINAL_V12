@@ -4,7 +4,7 @@ AIFOLIO™ Backend API for SAFE Empire Build
 - Triggers SAFE AI automation
 - Enforces SAFE AI Charter
 """
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 import os
 import json
 from autonomy.ai_static import (
@@ -15,7 +15,6 @@ from autonomy.ai_static import (
 )
 
 # Helper for reading log files
-from fastapi.responses import JSONResponse
 
 def read_log_lines(filename):
     path = os.path.join(DATA_DIR, filename)

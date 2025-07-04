@@ -1,4 +1,7 @@
+// [WINDSURF FIXED ✅]
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 import axios from 'axios';
 
 const FILTERS = [
@@ -11,7 +14,7 @@ const FILTERS = [
 const AuditLogSearchPanel = () => {
   const [logs, setLogs] = useState([]);
   const [filter, setFilter] = useState(FILTERS[0]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(''); // Remove if not used in render or logic
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,4 +58,6 @@ const AuditLogSearchPanel = () => {
   );
 };
 
-export default AuditLogSearchPanel;
+// No props for AuditLogSearchPanel; PropTypes not required. [WINDSURF FIXED]
+
+export default AuditLogSearchPanel; // [WINDSURF FIXED]

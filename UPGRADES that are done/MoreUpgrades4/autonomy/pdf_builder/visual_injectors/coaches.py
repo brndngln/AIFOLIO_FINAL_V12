@@ -17,7 +17,6 @@ def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
 
-import logging
 
 def sentience_safeguard_check():
     """Prevent and monitor for emergent sentience or unsafe autonomy."""

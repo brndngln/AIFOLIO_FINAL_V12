@@ -1,10 +1,8 @@
 import time
-import logging
 import functools
 # Emma Compliance Lock
 OWNER_LOCK = True
 import os
-import json
 import datetime
 
 ERROR_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../logs/error.log'))

@@ -2,7 +2,6 @@
 # Serves compliance_dashboard.html, static assets, and compliance_api Blueprint
 # Security, privacy, and ethics-first; non-sentient by design
 
-import os
 from flask import Flask, render_template, send_from_directory
 from dashboard import compliance_api
 

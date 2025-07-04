@@ -23,7 +23,6 @@ def send_sms(to, message):
     """
     Send an SMS using Twilio. Auto-shortens links if present.
     """
-    from urllib.parse import urlparse
     import requests
     # Simple link shortener (replace with real API as needed)
     def shorten(url):

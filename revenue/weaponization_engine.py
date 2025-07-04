@@ -1,6 +1,5 @@
 # PHASE 101–110: Revenue Weaponization Engine — Static, SAFE AI, Owner-Controlled
 # Optimizes vaults for Recurring, Viral, High-Ticket; manages triggers, referrals, monetizer, compounding, funnel testing, marketplace prioritization
-import datetime
 
 class RevenueWeaponizationEngine:
     _vaults = []  # [{id, title, revenue_path, viral_score, ticket_type, ...}]

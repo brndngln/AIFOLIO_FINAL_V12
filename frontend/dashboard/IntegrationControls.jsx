@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import { Switch, FormControlLabel, Tooltip, Button } from '@mui/material';
-
 import React, { useState, useEffect } from 'react';
 import { Switch, FormControlLabel, Tooltip, Button, MenuItem, Select, InputLabel, TextField } from '@mui/material';
 
@@ -19,7 +16,7 @@ const authorityLevels = ['Needs Approval', 'Passive Log Only', 'Auto-Execute'];
 
 export default function IntegrationControls({ notificationPrefs, onPrefsChange, onRotateApiKey, onComplianceAudit }) {
   // Biometric
-  const [biometricStatus, setBiometricStatus] = useState('');
+  const [biometricStatus, setBiometricStatus] = useState(''); // Remove if not used in render or logic
   // Approval Mode
   const [approvalMode, setApprovalMode] = useState('full_lockdown');
   useEffect(() => {

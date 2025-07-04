@@ -1,9 +1,6 @@
 import json
 import tempfile
 import os
-import sys
-import types
-import pytest
 from autonomy.pipeline import remediation
 
 def test_replay_event(monkeypatch):

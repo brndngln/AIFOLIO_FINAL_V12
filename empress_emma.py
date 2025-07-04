@@ -31,7 +31,7 @@ from emma_identity_lock import verify_owner, deny_non_owner
 import yaml
 import json
 import datetime
-from autonomy.ai_static_engines.pmp_personal_muse_protocol import PersonalMuseProtocol, PMP_ENGINE_NAME
+from autonomy.ai_static_engines.pmp_personal_muse_protocol import PersonalMuseProtocol
 
 class EMMA:
     """

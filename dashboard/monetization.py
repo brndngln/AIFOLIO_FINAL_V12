@@ -3,7 +3,6 @@ monetization.py — Monetization Analytics Blueprint
 Elite security, ethics, and maintainability: CSRF, audit logging, modular.
 """
 from flask import Blueprint, render_template
-from datetime import datetime
 
 # --- Blueprint Setup ---
 monetization_bp = Blueprint('monetization', __name__, template_folder='templates')

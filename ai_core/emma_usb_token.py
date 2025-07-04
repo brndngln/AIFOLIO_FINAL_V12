@@ -1,5 +1,4 @@
 import os
-import shutil
 import getpass
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend

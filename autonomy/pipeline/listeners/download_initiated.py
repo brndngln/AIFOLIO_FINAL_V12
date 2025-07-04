@@ -34,6 +34,6 @@ def handle_event(payload):
     if errors:
         try:
             detect_anomaly(payload.get('vault_id', 'unknown'), errors)
-        except Exception as e:
+        except Exception:
             pass
 

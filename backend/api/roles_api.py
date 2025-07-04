@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Body
-from security.role_manager import set_admin_roles, get_admin_roles, list_admins
+from security.role_manager import set_admin_roles, list_admins
 
 router = APIRouter()
 

@@ -4,7 +4,6 @@ AIFOLIO™ SAFE AI MODULE: Webhook Triggers
 - Sends webhooks for refund issued, download started, vault version update.
 - All actions logged for auditability.
 """
-import json
 import logging
 import requests
 

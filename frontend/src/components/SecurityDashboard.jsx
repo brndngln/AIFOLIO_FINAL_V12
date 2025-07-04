@@ -1,7 +1,9 @@
+// [WINDSURF FIXED ✅]
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
-import { format } from 'date-fns';
+
 
 const SecurityDashboard = () => {
     const { theme } = useTheme();
@@ -12,7 +14,7 @@ const SecurityDashboard = () => {
         ccpa: 0,
         hipaa: 0,
         lastScan: null
-    });
+    }); // Remove if not used in render or logic
 
     useEffect(() => {
         const fetchSecurityData = async () => {
@@ -39,9 +41,7 @@ const SecurityDashboard = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const formatTimestamp = (timestamp) => {
-        return format(new Date(timestamp), 'MMM d, yyyy HH:mm:ss');
-    };
+
 
     return (
         <div className="security-dashboard" style={{
@@ -58,13 +58,7 @@ const SecurityDashboard = () => {
             }}>
                 Security Monitoring
             </h2>
-
-            <div className="security-grid" style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '1rem',
-                marginTop: '2rem'
-            }}>
+            <div style={{display:'flex',gap:'2rem',flexWrap:'wrap'}}>
                 <AlertsCard alerts={alerts} theme={theme} />
                 <VulnerabilitiesCard vulnerabilities={vulnerabilities} theme={theme} />
                 <ComplianceCard compliance={compliance} theme={theme} />
@@ -108,7 +102,7 @@ const AlertsCard = ({ alerts, theme }) => (
                         <span style={{
                             color: theme.secondary,
                             marginLeft: '0.5rem'
-                        }}>at {formatTimestamp(alert.timestamp)}</span>
+                        }}>at {String(alert.timestamp)}</span>
                     </div>
                     <div style={{
                         color: alert.status === 'resolved' ? theme.accent : theme.error
@@ -118,6 +112,11 @@ const AlertsCard = ({ alerts, theme }) => (
         </div>
     </div>
 );
+
+AlertsCard.propTypes = {
+    alerts: PropTypes.array.isRequired,
+    theme: PropTypes.object.isRequired
+};
 
 const VulnerabilitiesCard = ({ vulnerabilities, theme }) => (
     <div className="security-card" style={{
@@ -160,6 +159,11 @@ const VulnerabilitiesCard = ({ vulnerabilities, theme }) => (
         </div>
     </div>
 );
+
+VulnerabilitiesCard.propTypes = {
+    vulnerabilities: PropTypes.array.isRequired,
+    theme: PropTypes.object.isRequired
+};
 
 const ComplianceCard = ({ compliance, theme }) => (
     <div className="security-card" style={{
@@ -204,10 +208,15 @@ const ComplianceCard = ({ compliance, theme }) => (
             color: theme.secondary,
             textAlign: 'right'
         }}>
-            Last Scan: {compliance.lastScan ? formatTimestamp(compliance.lastScan) : 'Never'}
+            Last Scan: {compliance.lastScan ? String(compliance.lastScan) : 'Never'}
         </div>
     </div>
 );
+
+ComplianceCard.propTypes = {
+    compliance: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired
+};
 
 const ComplianceItem = ({ label, value, status, theme }) => (
     <div className="compliance-item" style={{
@@ -228,5 +237,12 @@ const ComplianceItem = ({ label, value, status, theme }) => (
         }}>{value}</div>
     </div>
 );
+
+ComplianceItem.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    status: PropTypes.string,
+    theme: PropTypes.object.isRequired
+};
 
 export default SecurityDashboard;

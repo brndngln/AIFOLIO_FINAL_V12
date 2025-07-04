@@ -1,8 +1,6 @@
 import requests
 import smtplib
 from email.mime.text import MIMEText
-import os
-import json
 from typing import Dict, Any, Optional
 from backend.utils.safe_ai_utils import safe_ai_guarded
 

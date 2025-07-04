@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends, Request, Response
+from fastapi import FastAPI, HTTPException, Depends, Response
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt, JWTError
 from autonomy.post_sale_hooks.monitoring import get_failed_hooks, replay_failed_hooks

@@ -1,7 +1,5 @@
 from fastapi import APIRouter, Query
-from backend.ai.anomaly_root_cause import analyze_all, analyze_anomaly
-from pathlib import Path
-import json
+from backend.ai.anomaly_root_cause import analyze_all
 
 router = APIRouter()
 

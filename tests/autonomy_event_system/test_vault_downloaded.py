@@ -13,7 +13,6 @@ def test_vault_downloaded_event(monkeypatch):
         "alert_email_opt_in": False
     }
     with tempfile.TemporaryDirectory() as tmpdir:
-        analytics_log = os.path.join(tmpdir, "vault_activity_log.json")
         monkeypatch.setattr(vault_downloaded, "logger", type("FakeLogger", (), {"error": print})())
         monkeypatch.setattr(vault_downloaded, "push_dashboard", lambda *a, **kw: None)
         monkeypatch.setattr(vault_downloaded, "send_alerts", lambda *a, **kw: None)

@@ -3,10 +3,6 @@ import logging
 import requests
 import json
 
-import os
-import logging
-import requests
-import json
 import time
 from .retry_utils import retry_safe_hook
 

@@ -5,7 +5,7 @@ import { Box, Typography, Table, TableHead, TableRow, TableCell, TableBody, Pape
 const ReviewerDashboard = () => {
   const [workflows, setWorkflows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(null); // Remove if not used in render or logic
 
   useEffect(() => {
     axios.get('/api/regulatory/list').then(res => setWorkflows(res.data)).finally(() => setLoading(false));

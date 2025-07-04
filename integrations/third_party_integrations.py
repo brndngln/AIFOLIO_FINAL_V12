@@ -14,8 +14,8 @@ This module provides stubs and ready-to-extend functions for:
 All integrations are stateless and non-adaptive. Real API keys/secrets must be provided via environment variables or config for production use.
 """
 import os
+import logging
 import requests
-import json
 
 # Email/SMS/Chat integrations
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')

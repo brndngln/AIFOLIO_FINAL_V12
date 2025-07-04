@@ -1,4 +1,3 @@
-import sys
 import json
 from autonomy.pipeline.listeners import vault_downloaded
 

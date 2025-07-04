@@ -1,10 +1,8 @@
 from autonomy.product_prep.gumroad_delivery import push_vault_to_gumroad
 
-import os
 import time
 import logging
 import traceback
-from autonomy.product_prep.gumroad_delivery import push_vault_to_gumroad
 from autonomy.integrations.analytics_reporting import report_to_analytics
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_compliance import check_vault_metadata

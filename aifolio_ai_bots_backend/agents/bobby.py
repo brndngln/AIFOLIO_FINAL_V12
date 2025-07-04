@@ -16,7 +16,6 @@ from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
     static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check,
 )
-from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
 
 # OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
 AntiSentienceLock = True
@@ -51,11 +50,8 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 OWNER_LOCK = True
 # — SAFE AI agent handlers
 from .agent_utils import (
-    sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted,
-    static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check,
-    encrypt_audit_log_entry, notify_slack, notify_discord, notify_email
+    encrypt_audit_log_entry, notify_slack
 )
-from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
 
 class BobbyAgent:
     """

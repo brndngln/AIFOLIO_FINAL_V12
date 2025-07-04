@@ -40,10 +40,9 @@ assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 import random
 import logging
 import json
-import uuid
 import secrets
 from typing import Dict, Any, Optional, List
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # Attempt to import config and logger
 try:
@@ -113,7 +112,8 @@ class AffiliateBooster:
         Tries VATLayer, then TaxJar, then Avalara, then simulated fallback.
         All actions are stateless, logged, and tamper-evident.
         """
-        import os, requests
+        import os
+        import requests
         # VATLayer
         api_key = os.getenv("VATLAYER_API_KEY")
         if api_key:
@@ -162,7 +162,6 @@ class AffiliateBooster:
             except Exception as e:
                 AffiliateBooster._audit("jurisdiction_lookup_error", {"input": address_or_ip, "error": str(e)})
         # Fallback to simulated
-        import secrets
         simulated = secrets.choice(["US", "EU", "UK", "CA", "AU", "IN", "GLOBAL"])
         AffiliateBooster._audit("jurisdiction_lookup_simulated", {"input": address_or_ip, "result": simulated})
         return simulated
@@ -178,7 +177,9 @@ class AffiliateBooster:
         - JSON: Archive/raw export or dashboard API
         """
         AffiliateBooster._audit("compliance_export", {"format": format, "count": len(data), "vault": vault})
-        import csv, tempfile, json, os
+        import csv
+        import tempfile
+        import json
         # CSV
         if format == "csv":
             with tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".csv") as f:
@@ -222,7 +223,9 @@ class AffiliateBooster:
     # --- AIFOLIO_STYLEFORGE™ + GRAMMARLENS™ Autonomous Branding, Formatting, and Content-Checking Engine ---
     # Modular, vault-aware, AI-powered, event-driven, and future-proof.
 
-    import os, json, re
+    import os
+    import json
+    import re
 
     class AIFOLIO_STYLEFORGE_GRAMMARLENS:
         """
@@ -452,7 +455,7 @@ class AffiliateBooster:
                     run_post_sale_hooks(order_id=order_id, user_email=user_email, vault_id=vault_id, metadata=metadata)
                 else:
                     import logging
-                    logging.warning(f"[AIFOLIO][Post-Sale] Missing order_id, user_email, or vault_id in payload; post-sale hooks not triggered.")
+                    logging.warning("[AIFOLIO][Post-Sale] Missing order_id, user_email, or vault_id in payload; post-sale hooks not triggered.")
             except Exception as e:
                 import logging
                 logging.error(f"[AIFOLIO][Post-Sale] Failed to run post-sale hooks: {e}")
@@ -718,7 +721,6 @@ class AffiliateBooster:
         """
         Stateless, non-adaptive anomaly scoring using cryptographic randomness and static heuristics.
         """
-        import secrets
         # Example: combine static rules with cryptographic randomness for unpredictability
         base_score = 0.0
         if tx.get('payout', 0) > 10000:
@@ -889,7 +891,7 @@ class AffiliateBooster:
         Stub: Verify that deployed code matches last approved/audited hash.
         Returns True if match, False otherwise. (Requires CI/CD integration for real use.)
         """
-        import hashlib, os
+        import hashlib
         try:
             with open(__file__, 'rb') as f:
                 code = f.read()
@@ -904,7 +906,8 @@ class AffiliateBooster:
         Stub for Zero-Knowledge Proof (ZKP) compliance.
         Returns a string that can be shared with auditors to prove compliance without revealing sensitive data.
         """
-        import hashlib, json
+        import hashlib
+        import json
         proof = hashlib.sha256(json.dumps(tx, sort_keys=True).encode()).hexdigest()
         return f"ZKP-Proof:{proof}"
 
@@ -986,7 +989,8 @@ class AffiliateBooster:
         Includes full rule explanations, escalation history, and audit log export (stub).
         Returns path to generated pack (stub).
         """
-        import tempfile, json
+        import tempfile
+        import json
         pack = {
             'transaction': tx,
             'triggered_rules': triggered_rules,
@@ -1036,7 +1040,8 @@ class AffiliateBooster:
         Send regulatory/compliance alert via SendGrid, Twilio, Slack, or Discord.
         Uses env vars for API keys/webhooks. Logs all actions.
         """
-        import os, requests
+        import os
+        import requests
         AffiliateBooster._audit("regulatory_alert", {"event": event, "details": details})
         # SendGrid Email
         sendgrid_key = os.getenv("SENDGRID_API_KEY")

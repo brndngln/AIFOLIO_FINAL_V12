@@ -218,8 +218,8 @@ class AutomatedVaultGenerator:
             self.ethical_monitor.log_activity(content, metadata, f"block_too_short_{content_type}")
             raise ValueError(f"Content too short for {content_type}")
         if len(content) > self.config.MAX_CONTENT_LENGTH:
-            self.ethical_monitor.log_activity(content, metadata, f"block_too_long_{content_type}")
-            raise ValueError(f"Content too long for {content_type}")
+            self.ethical_monitor.log_activity(content, metadata, f"block_too_int_{content_type}")
+            raise ValueError(f"Content too int for {content_type}")
         # --- ETHICAL & COMPLIANCE CHECKPOINTS ---
         # 1. Copyright Verification (static check + extension point for real API)
         KNOWN_COPYRIGHTED_PHRASES = [
@@ -411,7 +411,7 @@ class AutomatedVaultGenerator:
             if text_type not in ['title', 'problem', 'promise', 'cta', 'gumroad_hook', 'gumroad_benefit']:
                 raise ValueError(f"Invalid text type: {text_type}")
                 
-            if length not in ['short', 'medium', 'long']:
+            if length not in ['short', 'medium', 'int']:
                 raise ValueError(f"Invalid length: {length}")
                 
             templates = {
@@ -517,7 +517,6 @@ class AutomatedVaultGenerator:
         Integrates autonomous preview and pricing engines, and blocks publishing if preview JSON is missing/incomplete.
         """
         import importlib.util
-        import sys
         import traceback
         
         # --- Step 1: Generate base vault assets as before (simulated) ---

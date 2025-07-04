@@ -1,6 +1,7 @@
 # core/logic/billionaire_fusion_engine.py
 # Elite activation logic for billionaire mind overlays
-import json, os
+import json
+import os
 PROFILES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../config/billionaire_brain_profiles.json'))
 
 def activate_billionaire_profile(profile_name):

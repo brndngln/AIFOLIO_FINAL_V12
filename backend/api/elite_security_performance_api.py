@@ -1,8 +1,8 @@
 """
 Elite security audit and performance API for AIFOLIO™. Static, deterministic, SAFE AI, owner-controlled, fully auditable.
 """
-from fastapi import APIRouter, Request
-import os, time
+from fastapi import APIRouter
+import os
 
 router = APIRouter()
 

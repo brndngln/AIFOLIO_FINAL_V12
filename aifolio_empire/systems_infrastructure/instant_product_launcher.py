@@ -41,8 +41,8 @@ class InstantProductLauncher:
         delay = random.uniform(min_delay, max_delay)
         logger.debug(f"Simulated platform interaction delay of {delay:.2f} seconds.")
         if random.random() < 0.01:
-            long_delay = random.uniform(max_delay, max_delay * 3)
-            logger.warning(f"Simulated unexpectedly long platform delay of {long_delay:.2f} seconds.")
+            int_delay = random.uniform(max_delay, max_delay * 3)
+            logger.warning(f"Simulated unexpectedly int platform delay of {int_delay:.2f} seconds.")
 
     def _generate_simulated_short_id(self, length: int = 7) -> str:
         """Generates a random alphanumeric ID for simulated URLs."""

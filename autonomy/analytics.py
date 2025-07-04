@@ -138,7 +138,6 @@ def export_events_csv(events):
     return output.getvalue()
 
 def export_events_json(events):
-    import json
     return json.dumps(events, indent=2)
 
 def generate_compliance_report(events):

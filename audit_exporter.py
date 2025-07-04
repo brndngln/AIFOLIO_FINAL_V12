@@ -7,7 +7,6 @@ import os
 import json
 import hashlib
 from glob import glob
-from datetime import datetime
 
 EXPORTS_DIR = os.path.join(os.path.dirname(__file__), 'audit', 'exports')
 REPORTS_DIR = os.path.join(os.path.dirname(__file__), 'compliance_reports')

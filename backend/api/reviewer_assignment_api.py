@@ -1,8 +1,5 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter
 from pathlib import Path
-import json
-from datetime import datetime
-import random
 
 APPROVAL_PATH = Path(__file__).parent.parent.parent / 'logs' / 'policy_approvals.json'
 REVIEWERS_PATH = Path(__file__).parent.parent.parent / 'config' / 'reviewers.json'

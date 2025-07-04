@@ -4,7 +4,7 @@ import axios from 'axios';
 const SalesHeatmapPanel = () => {
   const [heatmap, setHeatmap] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // Remove if not used in render or logic
   const canvasRef = useRef(null);
 
   useEffect(() => {

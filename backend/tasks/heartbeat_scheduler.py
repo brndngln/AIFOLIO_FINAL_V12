@@ -6,8 +6,7 @@ Elite Heartbeat and Compliance Export Scheduler for AIFOLIO™
 import os
 import time
 import requests
-import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from threading import Thread
 
 ADMIN_HEARTBEAT_URL = os.getenv('ADMIN_HEARTBEAT_URL')

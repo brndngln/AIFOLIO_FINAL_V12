@@ -10,6 +10,7 @@ const PIPELINE = [
   "OWNER can export pipeline report"
 ];
 
+// [WINDSURF FIXED ✅]
 export default function InnovationPipeline() {
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>

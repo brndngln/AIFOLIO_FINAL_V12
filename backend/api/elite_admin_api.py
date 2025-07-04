@@ -1,7 +1,8 @@
 # backend/api/elite_admin_api.py
 # Elite API endpoints for dashboard integration, event streaming, founder controls
-from fastapi import APIRouter, Request
-import json, os, datetime
+from fastapi import APIRouter
+import json
+import os
 
 router = APIRouter()
 

@@ -1,7 +1,6 @@
 import os
 import json
 import logging
-import subprocess
 
 POST_SALE_HOOKS_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/post_sale_hooks.log'))
 

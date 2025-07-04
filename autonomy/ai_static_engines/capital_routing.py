@@ -2,7 +2,7 @@
 SAFE AI Capital Routing Engine — Phase 10+
 Static, Charter-Enforced
 """
-from typing import Dict, Any
+from typing import Dict
 
 class CapitalRouter:
     """Static routing of capital across brands/vaults (SAFE, no adaptive logic)"""

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 
 /**
  * GumroadIntegrationPanel
@@ -9,7 +10,7 @@ import HyperEliteVaultBadge from '../../components/HyperEliteVaultBadge';
  * - Placeholder for PayPal and future delivery integrations
  * - Reserved spots for analytics, performance, and AI/screenshot enhancements
  */
-export default function GumroadIntegrationPanel({ vault, onApprove, onOverridePrice }) {
+function GumroadIntegrationPanel({ vault, onApprove, onOverridePrice }) {
   const [approved, setApproved] = useState(false);
   const [overridePrice, setOverridePrice] = useState('');
   const [paypalComingSoon] = useState(true);
@@ -107,3 +108,33 @@ export default function GumroadIntegrationPanel({ vault, onApprove, onOverridePr
     </div>
   );
 }
+
+GumroadIntegrationPanel.propTypes = {
+  vault: PropTypes.shape({
+    metadata: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      niche: PropTypes.string,
+      price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      bundle_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }).isRequired,
+    preview: PropTypes.shape({
+      value_score: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      outline: PropTypes.arrayOf(PropTypes.string),
+      testimonials: PropTypes.arrayOf(
+        PropTypes.shape({
+          text: PropTypes.string,
+          persona: PropTypes.string
+        })
+      ),
+      benefits: PropTypes.arrayOf(PropTypes.string),
+      avg_rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      total_reviews: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      featured_review: PropTypes.string,
+      screenshots: PropTypes.arrayOf(PropTypes.string)
+    })
+  }),
+  onApprove: PropTypes.func,
+  onOverridePrice: PropTypes.func
+}; // [WINDSURF FIXED]
+
+export default GumroadIntegrationPanel; // [WINDSURF FIXED]

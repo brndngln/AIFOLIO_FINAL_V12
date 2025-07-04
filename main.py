@@ -17,9 +17,20 @@ from backend.utils.error_handler import ErrorHandler
 from backend.cache.cache_service import CacheService
 from backend.rate_limiting.rate_limiter import RateLimiter
 import logging
-from typing import Dict
+from typing import Dict, Optional
 from redis import Redis
 import os
+import datetime
+import json
+
+# Stub for metrics if not defined
+try:
+    metrics
+except NameError:
+    class metrics:
+        @staticmethod
+        def track_rate_limit_metrics(*args, **kwargs):
+            pass
 
 # Initialize Redis client
 redis_client = Redis(
@@ -60,7 +71,7 @@ from api.safe_ai_endpoints_batch16_20 import router as safe_ai_ultimate_router
 app.include_router(safe_ai_ultimate_router)
 
 # Admin audit log surfacing endpoint
-import json, os
+import os
 from fastapi import Query
 
 @app.get("/api/admin/ai_safety_audit_log")

@@ -13,18 +13,18 @@ def retry_safe_hook(max_attempts=3, backoff_tier='short'):
     Tiers:
         - short: 1m → 5m → 15m
         - medium: 1h → 2h → 4h
-        - long: 1d → 2d
+        - int: 1d → 2d
     Logs all failures and attempts to logs/failed_hooks.log.
     Args:
         max_attempts: int, number of attempts
-        backoff_tier: str, one of 'short', 'medium', 'long'
+        backoff_tier: str, one of 'short', 'medium', 'int'
     Note:
         Only 'max_attempts' and 'backoff_tier' are valid arguments. 'backoff_factor' is not supported.
     """
     tier_map = {
         'short': [60, 300, 900],
         'medium': [3600, 7200, 14400],
-        'long': [86400, 172800]
+        'int': [86400, 172800]
     }
     delays = tier_map.get(backoff_tier, [60, 300, 900])
     def decorator(func: Callable):

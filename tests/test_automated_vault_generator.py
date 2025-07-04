@@ -9,7 +9,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
     def test_generate_plausible_text_valid(self):
         """Test valid text generation."""
         text_types = ['title', 'problem', 'promise', 'cta', 'gumroad_hook', 'gumroad_benefit']
-        lengths = ['short', 'medium', 'long']
+        lengths = ['short', 'medium', 'int']
         
         for text_type in text_types:
             for length in lengths:

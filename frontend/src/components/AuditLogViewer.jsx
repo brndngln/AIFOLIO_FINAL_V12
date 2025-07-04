@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// [WINDSURF FIXED ✅]
 export default function AuditLogViewer({ token, showDownload }) {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ export default function AuditLogViewer({ token, showDownload }) {
       .finally(() => setLoading(false));
   }, [token]);
 
-  const [userFilter, setUserFilter] = useState("");
+  const [userFilter, setUserFilter] = useState(""); // Remove if not used in render or logic
 
   const filteredLogs = userFilter
     ? logs.filter(entry => entry.user && entry.user.includes(userFilter))

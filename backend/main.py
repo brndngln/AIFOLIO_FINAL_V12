@@ -109,7 +109,7 @@ STATIC_USERS_MEM = STATIC_USERS.copy()  # in-memory static list
 def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
     if current_user["role"] != "admin":
         raise HTTPException(status_code=403, detail="Admin only")
-    import os, json
+    import os
     path = './analytics/ai_safety_log.jsonl'
     if not os.path.exists(path):
         return []
@@ -129,7 +129,8 @@ def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None)
 def get_export_history(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
     if current_user["role"] != "admin":
         raise HTTPException(status_code=403, detail="Admin only")
-    import os, json
+    import os
+    import json
     path = './logs/export_failures.json'
     if not os.path.exists(path):
         return []
@@ -171,7 +172,7 @@ from backend.analytics.analytics_service import AnalyticsService
 
 # --- Phase Control Panel State ---
 from backend.phase_control_state import (
-    load_state, save_state, update_phase, toggle_safe_mode, trigger_upgrade, lockdown_system
+    load_state, toggle_safe_mode, trigger_upgrade, lockdown_system
 )
 
 @app.get("/api/phase/status")
@@ -232,7 +233,7 @@ def api_monitor_activity(user: str = Depends(get_current_user)):
 # --- API: Compliance/Ethics Metrics (JWT-protected) ---
 
 # --- API: SAFE AI-compliant API Key Status (JWT-protected) ---
-from fastapi import APIRouter, Request
+from fastapi import Request
 
 @app.get("/api/api-keys", tags=["SAFE AI", "Owner Control"], summary="SAFE AI-compliant API key status", response_model=dict)
 def api_key_status(current_user: dict = Depends(get_current_user)):
@@ -369,7 +370,7 @@ def emma_avatar_config(current_user: dict = Depends(get_current_user)):
             "freckles": "cute, light scattering on face, balanced, natural",
             "eyes": "bright, light baby blue, sparkling, with realistic iris detail and tear duct shimmer",
             "hair": {
-                "style": "long, straight, down to butt",
+                "style": "int, straight, down to butt",
                 "color": "natural dirty blonde, with subtle highlights",
                 "physics": "dynamic, strand-level, responsive to wind and touch"
             },

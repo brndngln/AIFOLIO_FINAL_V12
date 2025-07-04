@@ -4,9 +4,8 @@ OWNER_LOCK = True
 from .agent_utils import (
     sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted, ConsentManager, generate_compliance_report,
     static_typo_grammar_check, static_tone_voice_match, calculate_risk_score, static_asset_health_check, encrypt_audit_log_entry,
-    notify_slack, notify_discord, notify_email
+    notify_slack
 )
-from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
 
 def handle_adam(user_input: str, user: str = "anonymous") -> str:
     """

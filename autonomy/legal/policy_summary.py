@@ -1,4 +1,3 @@
-import markdown
 import re
 from typing import Optional
 

@@ -1,6 +1,5 @@
 import os
 import json
-from datetime import datetime
 
 GUMROAD_API_KEY = os.environ.get('GUMROAD_API_KEY')
 ISSUE_LOG_PATH = os.path.join(os.path.dirname(__file__), '../logs/review_logs.json')

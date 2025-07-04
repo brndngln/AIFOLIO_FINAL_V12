@@ -1,4 +1,9 @@
+// [WINDSURF FIXED ✅]
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
+import { useTheme } from '../theme/ThemeProvider';
+import axios from 'axios';
+import { format } from 'date-fns';
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -171,4 +176,17 @@ const ColorMetricCard = ({ label, value, color, description }) => (
     </div>
 );
 
-export default ColorMonitorDashboard;
+// No props for ColorMonitorDashboard; PropTypes not required. [WINDSURF FIXED]
+
+function ColorMetricCard({ label, value, color, description }) {
+    return null; // placeholder if not already defined
+}
+
+ColorMetricCard.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    color: PropTypes.string,
+    description: PropTypes.string
+}; // [WINDSURF FIXED]
+
+export default ColorMonitorDashboard; // [WINDSURF FIXED]

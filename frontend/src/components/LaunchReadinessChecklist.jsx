@@ -11,7 +11,7 @@ const CHECKLIST = [
   "Accessibility and onboarding reviewed"
 ];
 
-export default function LaunchReadinessChecklist() {
+export default function LaunchReadinessChecklist() { // Remove any unused variables or state
   return (
     <section aria-labelledby="launch-readiness-heading" style={{background:'#f0fdfa',borderRadius:12,padding:24,marginBottom:24,boxShadow:'0 1px 4px #bae6fd'}}>
       <h3 id="launch-readiness-heading" style={{color:'#0ea5e9',fontWeight:700,marginBottom:10}}>Launch Readiness Checklist</h3>

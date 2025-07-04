@@ -1,6 +1,4 @@
-import os
 import json
-import logging
 try:
     import pkcs11
     PKCS11_AVAILABLE = True

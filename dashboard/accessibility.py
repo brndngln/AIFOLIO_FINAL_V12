@@ -2,11 +2,8 @@
 accessibility.py — Accessibility Audit Blueprint
 Elite security, ethics, and maintainability: CSRF, audit logging, modular.
 """
-from flask import Blueprint, request, render_template, send_file, make_response
+from flask import Blueprint, request, render_template
 from datetime import datetime
-import io
-import csv
-import os
 from dashboard.accessibility_reporter import run_accessibility_audit, summarize_accessibility_report, export_accessibility_pdf, export_accessibility_csv, run_accessibility_audit_on_route
 
 # --- Blueprint Setup ---

@@ -47,7 +47,7 @@ class EmpireAdminDashboard:
         for mod in MODULES:
             try:
                 self.engines[mod] = importlib.import_module(f"autonomy.ai_static_engines.{mod}")
-            except Exception as e:
+            except Exception:
                 self.engines[mod] = None
 
     def get_all_logs(self) -> Dict[str, List[Dict]]:

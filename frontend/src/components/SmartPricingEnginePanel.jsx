@@ -1,5 +1,6 @@
 import React from "react";
 
+// [WINDSURF FIXED ✅]
 export default function SmartPricingEnginePanel() {
   const features = [
     { label: "Manual Price Lock", desc: "OWNER can set/lock price" },

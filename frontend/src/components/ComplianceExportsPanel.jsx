@@ -1,5 +1,6 @@
 import React from "react";
 
+// [WINDSURF FIXED ✅]
 export default function ComplianceExportsPanel() {
   const features = [
     { label: "Export compliance logs", desc: "Export logs as PDF, CSV, or XBRL (static sample)" },

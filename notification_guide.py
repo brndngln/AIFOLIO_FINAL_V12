@@ -3,7 +3,6 @@ AIFOLIO™ NOTIFICATION & GUIDE SYSTEM (OWNER AUTHORITY)
 Static notification and expert guide controls. All OWNER-controlled and SAFE AI compliant.
 """
 import logging
-from typing import List
 
 class NotificationSystem:
     def __init__(self):

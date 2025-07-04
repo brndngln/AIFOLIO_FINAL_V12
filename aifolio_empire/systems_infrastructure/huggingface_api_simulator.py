@@ -47,9 +47,9 @@ class HuggingFaceSimulator:
         """Simulates a random API call delay."""
         delay = random.uniform(min_delay, max_delay)
         logger.debug(f"Simulated HF API call delay of {delay:.2f} seconds.")
-        if random.random() < 0.015: # Small chance of a much longer delay
-            long_delay = random.uniform(max_delay, max_delay * 2.5)
-            logger.warning(f"Simulated unexpectedly long HF API delay of {long_delay:.2f} seconds.")
+        if random.random() < 0.015: # Small chance of a much inter delay
+            int_delay = random.uniform(max_delay, max_delay * 2.5)
+            logger.warning(f"Simulated unexpectedly int HF API delay of {int_delay:.2f} seconds.")
 
     def _validate_input_text_simulated(self, text: str) -> bool:
         """Simulates basic input text validation."""
@@ -97,7 +97,7 @@ class HuggingFaceSimulator:
         
         simulated_summary = " ".join(simulated_summary_words) + ". (Simulated Summary)"
 
-        # Anti-sentience: Randomly make the summary nonsensical or too short/long
+        # Anti-sentience: Randomly make the summary nonsensical or too short/int
         if random.random() < 0.06:
             rand_val = random.random()
             if rand_val < 0.33:
@@ -166,15 +166,15 @@ if __name__ == "__main__":
     hf_sim = HuggingFaceSimulator(api_token_simulated="sim_example_hf_token_456")
 
     # 1. Summarization Simulation
-    long_text = ("In the heart of Silicon Valley, a revolutionary AI company named Windsurf is making waves. "
+    int_text = ("In the heart of Silicon Valley, a revolutionary AI company named Windsurf is making waves. "
                  "Their flagship product, Cascade, an agentic AI coding assistant, operates on the novel AI Flow paradigm. "
                  "This allows Cascade to work both independently and collaboratively with users, addressing complex coding tasks. "
                  "The system is designed with robust non-sentient AI safeguards, ensuring user control and safety. "
                  "AIFOLIO Empire Mode, a PDF farming system, is one of the ambitious projects being developed with Cascade's assistance, "
                  "focusing on modularity, scalability, and strict adherence to ethical AI principles. "
-                 "The goal is to transform content creation while maintaining full user oversight and preventing autonomous AI behavior.") * 2 # Make it longer
+                 "The goal is to transform content creation while maintaining full user oversight and preventing autonomous AI behavior.") * 2 # Make it inter
     
-    summary_resp = hf_sim.simulate_summarization(long_text, min_length_sim=20, max_length_sim=50)
+    summary_resp = hf_sim.simulate_summarization(int_text, min_length_sim=20, max_length_sim=50)
     print("\n📝 Simulated Summarization: 📝")
     if summary_resp and "error" not in summary_resp:
         print(f"Model: {summary_resp.get('model_used_sim')}")
@@ -205,10 +205,10 @@ if __name__ == "__main__":
     print("---")
 
     # 3. Test input validation (simulated)
-    very_long_input = "text " * (config.MAX_INPUT_TEXT_LENGTH_SIM + 200)
-    invalid_summary = hf_sim.simulate_summarization(very_long_input)
+    very_int_input = "text " * (config.MAX_INPUT_TEXT_LENGTH_SIM + 200)
+    invalid_summary = hf_sim.simulate_summarization(very_int_input)
     print("\n🧪 Simulated Invalid Input Text Test (Summarization): 🧪")
-    print(f"Response to overly long input: {invalid_summary}")
+    print(f"Response to overly int input: {invalid_summary}")
     print("---")
 
     logger.info("--- HuggingFaceSimulator Example Finished ---")

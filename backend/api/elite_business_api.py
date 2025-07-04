@@ -2,18 +2,18 @@
 AIFOLIO™ Elite Business API: Unified endpoint for all elite dashboard modules and integrations
 SAFE AI, deterministic, static, owner-controlled, fully auditable, and maximally advanced
 """
-from fastapi import APIRouter, Request, Body
+from fastapi import APIRouter, Body
 from fastapi.responses import JSONResponse
 import json
 
 # --- Import all elite analytics, compliance, business logic, and integration modules ---
 from analytics.ai_analytics_engine import AIAnalyticsEngine
-from analytics.marketplace_trend_analyzer import get_static_marketplace_trends, trend_drift_protection, trend_static_feedback
-from analytics.vault_engagement_analytics import log_engagement, calculate_engagement, engagement_drift_protection
+from analytics.marketplace_trend_analyzer import get_static_marketplace_trends
+from analytics.vault_engagement_analytics import log_engagement, calculate_engagement
 from analytics.vault_lifecycle_analytics import log_vault_lifecycle_event, get_static_lifecycle_summary
-from analytics.vault_profitability_score import calculate_profitability, profit_drift_protection
-from analytics.bundle_recommendation_engine import recommend_bundles, bundle_drift_protection
-from analytics.anomaly_detection_sales_trends import detect_sales_anomaly, anomaly_drift_protection
+from analytics.vault_profitability_score import calculate_profitability
+from analytics.bundle_recommendation_engine import recommend_bundles
+from analytics.anomaly_detection_sales_trends import detect_sales_anomaly
 from analytics.ai_quality import AIQuality
 from integrations.airtable_bridge import send_airtable_record
 from integrations.notion_bridge import send_notion_task
@@ -21,8 +21,8 @@ from integrations.slack_alerts import send_slack_alert
 from integrations.sms_bridge import send_sms_alert
 from integrations.webhooks import send_webhook
 from integrations.third_party_integrations import (
-    notify_sendgrid_email, notify_twilio_sms, notify_slack, notify_discord, export_to_google_sheets,
-    export_to_airtable, trigger_zapier_webhook, fetch_gumroad_sales, fetch_shopify_orders, fetch_woocommerce_orders,
+    notify_sendgrid_email, notify_discord, export_to_google_sheets,
+    trigger_zapier_webhook, fetch_gumroad_sales, fetch_shopify_orders, fetch_woocommerce_orders,
     fetch_stripe_payouts
 )
 

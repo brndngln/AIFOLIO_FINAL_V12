@@ -2,7 +2,6 @@ import re
 import json
 import datetime
 import os
-import language_tool_python
 
 OWNER_LOCK = True
 SPELLCHECK_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/ai_spellcheck_log.jsonl'))

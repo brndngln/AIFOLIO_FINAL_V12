@@ -2,12 +2,7 @@ from autonomy.compliance.export_engine import export_to_xbrl, export_to_csv
 import os
 import json
 
-import os
-import json
 import time
-import logging
-import traceback
-from autonomy.compliance.export_engine import export_to_xbrl, export_to_csv
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
@@ -15,7 +10,6 @@ from autonomy.utils.email_alert import send_email_alert
 from autonomy.utils.vault_event_log import log_vault_event
 from autonomy.utils.performance_monitor import monitor_vault_build
 from autonomy.utils.version_tracker import track_template_version
-from autonomy.utils.retry import retry_safe
 from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_compliance import check_vault_metadata
@@ -109,12 +103,12 @@ def handle_event(payload):
     if errors:
         try:
             detect_anomaly(payload.get("vault_id", "unknown"), errors)
-        except Exception as e:
+        except Exception:
             pass
     # Track build time/performance
     try:
         build_time = time.time() - start_time
         monitor_vault_build(payload.get("vault_path", ""), {**payload, "build_time": build_time})
-    except Exception as e:
+    except Exception:
         pass
     return {"status": "success", "vault_id": payload.get("vault_id", "unknown"), "errors": errors}

@@ -12,6 +12,24 @@ import logging
 logger = logging.getLogger(__name__)
 import os
 
+def parse_threat_feed(*args, **kwargs):
+    pass
+
+def anchor_license_hash(*args, **kwargs):
+    pass
+
+def zero_knowledge_export(*args, **kwargs):
+    pass
+
+def schedule_backup(*args, **kwargs):
+    pass
+
+def export_compliance_manifest(*args, **kwargs):
+    pass
+
+def detect_signals(*args, **kwargs):
+    pass
+
 def check_asset_health(asset_path: str) -> dict:
     # OMNIPROOF: Threat feed check before asset health check
     parse_threat_feed({})

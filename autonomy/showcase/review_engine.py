@@ -39,7 +39,7 @@ def generate_review_stats(vault_title: str, vault_quality: float, owner_override
         featured_reviews = [
             "Finally a blueprint that works! This paid for itself in 2 days.",
             f"{vault_title} is the real deal. I wish I found this sooner!",
-            f"Helped me get results in a week!"
+            "Helped me get results in a week!"
         ]
         featured_review = featured_reviews[len(vault_title) % len(featured_reviews)]
         stats = {
