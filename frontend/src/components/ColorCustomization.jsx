@@ -361,17 +361,35 @@ const ColorCustomization = () => {
     });
   };
 
-
   // Add color picker update with history tracking
   const handleColorUpdate = (component, property, color) => {
-    setCurrentColor({ component, state: property, color });
+    setTheme(prevTheme => {
+      const newTheme = { ...prevTheme, customColors: { ...prevTheme.customColors } };
+      if (!newTheme.customColors[component]) newTheme.customColors[component] = {};
+      newTheme.customColors[component][property] = color;
+      return newTheme;
+    });
+    setHistory(prevHistory => {
+      // Use prevTheme for the latest state, not outer closure
+      const newCustomColors = JSON.parse(JSON.stringify(
+        (typeof window !== 'undefined' && window.__LATEST_CUSTOM_COLORS__) || {}
+      ));
+      if (!newCustomColors[component]) newCustomColors[component] = {};
+      newCustomColors[component][property] = color;
+      const newHist = prevHistory.slice(0, historyIndex + 1);
+      newHist.push(newCustomColors);
+      // Set historyIndex based on newHist length
+      setHistoryIndex(newHist.length - 1);
+      // Save to global for next update
+      if (typeof window !== 'undefined') window.__LATEST_CUSTOM_COLORS__ = newCustomColors;
+      return newHist;
+    });
   };
-
 
   const applyPreset = (presetName) => {
     try {
       const preset = colorPresets[presetName];
-      const patterns = Object.keys(preset).join(' ');
+      // ... (rest of the code remains the same)
       
       if (checkForSentience(patterns.split(' '))) {
         throw new Error('Suspicious preset pattern detected');
