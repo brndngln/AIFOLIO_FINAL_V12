@@ -39,30 +39,7 @@ const colorPresets = {
     cta: '#FFFFFF',
     border: '#808080'
   }
-};
-// Add more presets here
 
-// Add more color properties
-const additionalProperties = {
-  'app': [
-    { name: 'link', defaultValue: '#D2B48C' },
-    { name: 'link-hover', defaultValue: '#3D503D' },
-    { name: 'link-visited', defaultValue: '#516B51' },
-    { name: 'error', defaultValue: '#FF0000' },
-    { name: 'success', defaultValue: '#00FF00' },
-    { name: 'warning', defaultValue: '#FFFF00' },
-    { name: 'info', defaultValue: '#00FFFF' },
-    { name: 'disabled', defaultValue: '#404040' },
-    { name: 'placeholder', defaultValue: '#808080' },
-    { name: 'underline', defaultValue: '#D2B48C' }
-  ],
-  'card': [
-    { name: 'title', defaultValue: '#D2B48C' },
-    { name: 'subtitle', defaultValue: '#516B51' },
-    { name: 'divider', defaultValue: '#404040' },
-    { name: 'icon', defaultValue: '#D2B48C' },
-    { name: 'icon-hover', defaultValue: '#3D503D' }
-  ],
   // Add more component properties here
 };
 
@@ -220,7 +197,7 @@ const ColorCustomization = () => {
   };
 
   // Clear history
-  const clearHistory = () => {
+  // const clearHistory = () => { // removed as unused
     if (window.confirm('Are you sure you want to clear all color history?')) {
       setHistory([]);
       setHistoryIndex(0);
@@ -397,7 +374,8 @@ const ColorCustomization = () => {
     }
   ];
 
-  const colorPresets = {
+  // Removed duplicate colorPresets object below. Only the top-level colorPresets is valid.
+
     'default': {
       app: {
         background: '#000000',
