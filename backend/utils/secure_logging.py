@@ -4,7 +4,6 @@ Secure Logging Utility for AIFOLIO/OMNIELITE
 - Supports immutable, tamper-evident log storage.
 - Integration point for SIEM and alerting.
 """
-import logging
 import os
 import hashlib
 from datetime import datetime

@@ -57,7 +57,6 @@ app.add_middleware(
 from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
 from backend.utils.monitoring import VaultMetrics
 from backend.utils.safe_ai_utils import safe_ai_guarded
-from backend.utils.enhanced_api_utils import rate_limit
 from fastapi import Request
 from fastapi.responses import JSONResponse
 import logging
@@ -118,7 +117,7 @@ async def security_enforcement_middleware(request: Request, call_next):
 
 # --- Auth Logic ---
 from backend.utils.security import (
-    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, COOKIE_SETTINGS, sanitize_output, require_admin, require_mfa
+    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, sanitize_output, require_admin, require_mfa
 )
 
 def verify_password(plain_password, hashed_password):
@@ -301,7 +300,6 @@ from backend.utils.monitoring import VaultMetrics
 from backend.analytics.analytics_service import AnalyticsService
 
 # === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
-from backend.utils.safe_ai_utils import safe_ai_guarded
 
 generate_vault_prompt = safe_ai_guarded(generate_vault_prompt)
 
@@ -418,7 +416,6 @@ def health_secrets():
     }
 
 # --- Simulators for Creative Dashboard Panels (JWT-protected) ---
-from fastapi.responses import JSONResponse
 import random
 import time
 

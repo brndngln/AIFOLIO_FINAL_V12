@@ -40,7 +40,7 @@ class APIError(Exception):
         super().__init__(message)
         self.details = details or {}
 
-class RateLimitError(APIError):
+# Duplicate RateLimitError definition removed (see above for canonical definition)
     """Raised when rate limit is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -50,7 +50,7 @@ class RateLimitError(APIError):
             "suggested_wait": "60 seconds"
         }
 
-class QuotaError(APIError):
+# Duplicate QuotaError definition removed (see above for canonical definition)
     """Raised when API quota is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -61,7 +61,7 @@ class QuotaError(APIError):
             "reset_time": "24 hours"
         }
 
-class ValidationError(APIError):
+# Duplicate ValidationError definition removed (see above for canonical definition)
     """Raised when input validation fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -80,7 +80,7 @@ class ValidationError(APIError):
             }
         }
 
-class NetworkError(APIError):
+# Duplicate NetworkError definition removed (see above for canonical definition)
     """Raised when network connection fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -94,7 +94,7 @@ class NetworkError(APIError):
             ]
         }
 
-class AuthenticationError(APIError):
+# Duplicate AuthenticationError definition removed (see above for canonical definition)
     """Raised when authentication fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -196,7 +196,7 @@ class PermissionError(APIError):
         super().__init__(message)
         self.details = details or {}
 
-class RateLimitError(APIError):
+# Duplicate RateLimitError definition removed (see above for canonical definition)
     """Raised when rate limit is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -206,7 +206,7 @@ class RateLimitError(APIError):
             "suggested_wait": "60 seconds"
         }
 
-class QuotaError(APIError):
+# Duplicate QuotaError definition removed (see above for canonical definition)
     """Raised when API quota is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -217,7 +217,7 @@ class QuotaError(APIError):
             "reset_time": "24 hours"
         }
 
-class ValidationError(APIError):
+# Duplicate ValidationError definition removed (see above for canonical definition)
     """Raised when input validation fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -236,7 +236,7 @@ class ValidationError(APIError):
             }
         }
 
-class NetworkError(APIError):
+# Duplicate NetworkError definition removed (see above for canonical definition)
     """Raised when network connection fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -250,7 +250,7 @@ class NetworkError(APIError):
             ]
         }
 
-class AuthenticationError(APIError):
+# Duplicate AuthenticationError definition removed (see above for canonical definition)
     """Raised when authentication fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)

@@ -14,7 +14,7 @@ print('DIAG: TestClient type:', type(TestClient))
 print('DIAG: TestClient module:', TestClient.__module__)
 print('DIAG: starlette.testclient file:', inspect.getfile(starlette.testclient))
 print('DIAG: TestClient file:', inspect.getfile(TestClient))
-client = TestClient(app)
+client = TestClient(app)  # Correct usage: positional argument only, no keyword
 print('DIAG: client type:', type(client))
 print('DIAG: client module:', type(client).__module__)
 

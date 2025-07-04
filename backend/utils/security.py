@@ -4,11 +4,9 @@ Covers password policy, RBAC, MFA stub, device fingerprinting, API key validatio
 """
 import re
 import os
-import time
-import hmac
 import hashlib
-from typing import List, Dict, Callable
-from fastapi import HTTPException, Request, status, Depends
+from typing import List, Callable
+from fastapi import HTTPException, Request
 from functools import wraps
 
 # --- Password Policy ---
@@ -83,8 +81,10 @@ def detect_bot(request: Request):
 # --- API Versioning Helper ---
 def get_api_version(request: Request) -> str:
     path = request.url.path
-    if path.startswith("/v1/"): return "v1"
-    if path.startswith("/v2/"): return "v2"
+    if path.startswith("/v1/"):
+        return "v1"
+    if path.startswith("/v2/"):
+        return "v2"
     return "unversioned"
 
 # --- Output Sanitization ---
