@@ -207,6 +207,7 @@ const ColorCustomization = () => {
         { name: 'divider', defaultValue: '#404040' }
       ]
     }
+  ];
 
   const [activePreset, setActivePreset] = useState('default');
   const { theme, setTheme } = useTheme();
@@ -360,13 +361,6 @@ const ColorCustomization = () => {
     });
   };
 
-  // Clear history
-  // const clearHistory = () => { // removed as unused
-    if (window.confirm('Are you sure you want to clear all color history?')) {
-      setHistory([]);
-      setHistoryIndex(0);
-    }
-  };
 
   // Add color picker update with history tracking
   const handleColorUpdate = (component, property, color) => {
