@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 
 function ColorPicker({ component, property, defaultValue }) {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const [color, setColor] = useState(localStorage.getItem(`color-${component}-${property}`) || defaultValue);
 
   const handleChange = (e) => {

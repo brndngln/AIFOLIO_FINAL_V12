@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
-import axios from 'axios';
 
 class SentiencePatternRecognizer {
     constructor() {
