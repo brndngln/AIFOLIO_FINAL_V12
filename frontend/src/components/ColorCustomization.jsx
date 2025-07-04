@@ -418,6 +418,22 @@ const ColorCustomization = () => {
           </button>
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={undoColor}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="undo-button"
+          >
+            Undo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={redoColor}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="redo-button"
+          >
+            Redo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
             onClick={() => setShowPreview((v) => !v)}
             style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
             data-testid="preview-button"
