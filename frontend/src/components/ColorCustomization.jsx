@@ -375,49 +375,8 @@ const ColorCustomization = () => {
   ];
 
 
-        background: '#000000',
-        text: '#F5EAD4',
-        accent: '#2E3D2E',
-        secondary: '#516B51',
-        cta: '#D2B48C'
-      },
-      card: {
-        background: '#1A1A1A',
-        border: '#516B51'
-      },
-      button: {
-        background: '#D2B48C',
-        text: '#000000'
-      },
-      header: {
-        background: '#2E3D2E',
-        text: '#F5EAD4'
-      }
-    },
-    'cyber': {
-      app: {
-        background: '#000000',
-        text: '#00FF00',
-        accent: '#00FF00',
-        secondary: '#008000',
-        cta: '#00FFFF'
-      },
-      card: {
-        background: '#1A1A1A',
-        border: '#00FF00'
-      },
-      button: {
-        background: '#00FFFF',
-        text: '#000000'
-      },
-      header: {
-        background: '#00FF00',
-        text: '#000000'
-      }
-    },
-    'classic': {
-      app: {
-        background: '#000000',
+// All duplicate or broken colorPresets code removed below this line.
+
         text: '#FFFFFF',
         accent: '#0000FF',
         secondary: '#808080',
