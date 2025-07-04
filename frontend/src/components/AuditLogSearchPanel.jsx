@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types'; // [WINDSURF FIXED]
-import axios from 'axios';
 
 const FILTERS = [
   { label: 'All', fn: () => true },
