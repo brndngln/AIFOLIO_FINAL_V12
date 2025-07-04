@@ -84,23 +84,21 @@ describe('ColorCustomization', () => {
            // Picker does not exist for this component/property combo, skip
            continue;
          }
-         if (picker) {
-           const originalColor = picker.value;
-           console.log(`Picker [${component}.${prop}] before change:`, originalColor);
-           fireEvent.change(picker, { target: { value: '#FF0000' } });
-           await waitFor(() => {
-             picker = ('colorpicker')[pickersTestIndex - 1];
-             return picker.value.toLowerCase() === '#ff0000';
-           }, { timeout: 2000 });
-           console.log(`Picker [${component}.${prop}] after change:`, picker.value);
-           expect(picker.value.toLowerCase()).toBe('#ff0000');
-           fireEvent.change(picker, { target: { value: originalColor } });
-           await waitFor(() => {
-             picker = ('colorpicker')[pickersTestIndex - 1];
-             return picker.value.toLowerCase() === originalColor.toLowerCase();
-           }, { timeout: 2000 });
-           console.log(`Picker [${component}.${prop}] after revert:`, picker.value);
-         }
+         if (!picker) continue;
+         const originalColor = picker.value;
+         if (typeof originalColor !== 'string') continue;
+         console.log(`Picker [${component}.${prop}] before change:`, originalColor);
+         fireEvent.input(picker, { target: { value: '#FF0000' } });
+         await waitFor(() => {
+           return picker.value && picker.value.toLowerCase() === '#ff0000';
+         }, { timeout: 2000 });
+         console.log(`Picker [${component}.${prop}] after change:`, picker.value);
+         expect(picker.value.toLowerCase()).toBe('#ff0000');
+         fireEvent.input(picker, { target: { value: originalColor } });
+         await waitFor(() => {
+           return picker.value && picker.value.toLowerCase() === originalColor.toLowerCase();
+         }, { timeout: 2000 });
+         console.log(`Picker [${component}.${prop}] after revert:`, picker.value);
       }
     }
   }, 90000);
