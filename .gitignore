@@ -58,6 +58,13 @@ ENV/
 
 # OS
 .DS_Store
+
+# Node/JS
+node_modules/
+build/
+logs/
+coverage/
+.env
 .DS_Store?
 ._*
 .Spotlight-V100
