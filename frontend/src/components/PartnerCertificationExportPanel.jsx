@@ -482,3 +482,5 @@ function PartnerCertificationExportPanel() {
     </div>
   );
 }
+
+export default PartnerCertificationExportPanel;
