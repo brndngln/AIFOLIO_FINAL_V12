@@ -40,7 +40,7 @@ class APIError(Exception):
         super().__init__(message)
         self.details = details or {}
 
-# Duplicate RateLimitError definition removed (see above for canonical definition)
+class RateLimitError(APIError):
     """Raised when rate limit is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -50,7 +50,7 @@ class APIError(Exception):
             "suggested_wait": "60 seconds"
         }
 
-# Duplicate QuotaError definition removed (see above for canonical definition)
+class QuotaError(APIError):
     """Raised when API quota is exceeded"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -61,7 +61,7 @@ class APIError(Exception):
             "reset_time": "24 hours"
         }
 
-# Duplicate ValidationError definition removed (see above for canonical definition)
+class ValidationError(APIError):
     """Raised when input validation fails"""
     def __init__(self, message: str, details: Optional[Dict] = None):
         super().__init__(message, details)
@@ -80,33 +80,14 @@ class APIError(Exception):
             }
         }
 
-# Duplicate NetworkError definition removed (see above for canonical definition)
-    """Raised when network connection fails"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "connection_type": "API",
-            "retry_possible": True,
-            "suggested_actions": [
-                "Check internet connection",
-                "Verify API endpoint",
-                "Try again later"
-            ]
+            "validation_rules": {
+                "title": "10-100 characters",
+                "description": "50-500 characters",
+                "chapters": "Minimum 3 chapters",
+                "cta": "10-200 characters"
+            }
         }
 
-# Duplicate AuthenticationError definition removed (see above for canonical definition)
-    """Raised when authentication fails"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "auth_type": "API Key",
-            "required_fields": ["api_key"],
-            "suggested_actions": [
-                "Check API key validity",
-                "Verify permissions",
-                "Contact support"
-            ]
-        }
 
 class CacheError(APIError):
     """Raised when cache operations fail"""
@@ -191,78 +172,6 @@ class PermissionError(APIError):
                 "Contact administrator"
             ]
         }
-    """Base class for API-related errors"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message)
-        self.details = details or {}
-
-# Duplicate RateLimitError definition removed (see above for canonical definition)
-    """Raised when rate limit is exceeded"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "allowed_calls": 60,
-            "time_window": "1 minute",
-            "suggested_wait": "60 seconds"
-        }
-
-# Duplicate QuotaError definition removed (see above for canonical definition)
-    """Raised when API quota is exceeded"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "plan": "Standard",
-            "current_usage": 0,
-            "max_allowed": 1000,
-            "reset_time": "24 hours"
-        }
-
-# Duplicate ValidationError definition removed (see above for canonical definition)
-    """Raised when input validation fails"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "required_fields": [
-                "topic",
-                "description",
-                "chapters",
-                "cta"
-            ],
-            "validation_rules": {
-                "title": "10-100 characters",
-                "description": "50-500 characters",
-                "chapters": "Minimum 3 chapters",
-                "cta": "10-200 characters"
-            }
-        }
-
-# Duplicate NetworkError definition removed (see above for canonical definition)
-    """Raised when network connection fails"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "connection_type": "API",
-            "retry_possible": True,
-            "suggested_actions": [
-                "Check internet connection",
-                "Verify API endpoint",
-                "Try again later"
-            ]
-        }
-
-# Duplicate AuthenticationError definition removed (see above for canonical definition)
-    """Raised when authentication fails"""
-    def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__(message, details)
-        self.details = details or {
-            "auth_type": "API Key",
-            "required_fields": ["api_key"],
-            "suggested_actions": [
-                "Check API key validity",
-                "Verify permissions",
-                "Contact support"
-            ]
-        }
 
 class CacheStrategy:
     def __init__(self, name: str, ttl: int, max_size: int):
@@ -303,6 +212,14 @@ class TimeBasedStrategy(CacheStrategy):
 
 class FrequencyBasedStrategy(CacheStrategy):
     def __init__(self, min_hits: int = 5, ttl: int = 86400, max_size: int = 50):
+        """
+        Frequency-based caching strategy
+        
+        Args:
+            min_hits: Minimum number of hits before caching
+            ttl: Time-to-live in seconds (default: 1 day)
+            max_size: Maximum number of items (default: 50)
+        """
         super().__init__('frequency_based', ttl, max_size)
         self.min_hits = min_hits
         self.hit_counter = {}
@@ -405,17 +322,6 @@ class ContextualStrategy(CacheStrategy):
         
         context_key = '_'.join(f"{k}_{v}" for k, v in sorted(context.items()))
         return f"{self.name}:{context_key}:{key}"
-        """
-        Frequency-based caching strategy
-        
-        Args:
-            min_hits: Minimum number of hits to cache
-            ttl: Time-to-live in seconds (default: 24 hours)
-            max_size: Maximum number of items (default: 50)
-        """
-        super().__init__('frequency_based', ttl, max_size)
-        self.min_hits = min_hits
-        self.hit_counter = {}
 
 class RedisCache:
     def __init__(self, host: str = 'localhost', port: int = 6379, db: int = 0):
@@ -542,12 +448,12 @@ class RedisCache:
                        f"Hit rate: {hit_rate:.2f}, "
                        f"New TTL: {strategy.ttl} seconds")
 
-    def cleanup(self) -> None:
+    # Duplicate cleanup method removed. See above for canonical definition.
         """Clean up expired items and optimize cache"""
         super().cleanup()
         self.optimize_cache()
 
-    def get(self, key: str, strategy: str = 'time_based') -> Optional[Any]:
+    # Duplicate get method removed. See above for canonical definition.
         """
         Get cached item with specified strategy
         
@@ -569,7 +475,7 @@ class RedisCache:
             logger.error(f"Redis error while getting: {str(e)}")
             return None
 
-    def set(self, key: str, value: Any, strategy: str = 'time_based') -> None:
+    # Duplicate set method removed. See above for canonical definition.
         """
         Set cached item with specified strategy
         
@@ -623,7 +529,7 @@ class RedisCache:
         except redis.RedisError as e:
             logger.error(f"Redis error while clearing: {str(e)}")
 
-    def cleanup(self) -> None:
+    # Duplicate cleanup method removed. See above for canonical definition.
         """Clean up expired items for all strategies"""
         for strategy in self.strategies.values():
             strategy.cleanup()
@@ -640,7 +546,7 @@ class RedisCache:
             if ttl == -1:  # No expire set
                 self.client.expire(key, strategy.ttl)
         
-    def get(self, key: str) -> Optional[Any]:
+    # Duplicate get method removed. See above for canonical definition.
         """Get cached item from Redis"""
         try:
             data = self.client.get(key)
@@ -651,7 +557,7 @@ class RedisCache:
             logger.error(f"Redis error while getting: {str(e)}")
             return None
             
-    def set(self, key: str, value: Any, ttl: int = 3600) -> None:
+    # Duplicate set method removed. See above for canonical definition.
         """Set cached item in Redis with TTL"""
         try:
             self.client.setex(key, ttl, json.dumps(value))
@@ -659,7 +565,7 @@ class RedisCache:
         except redis.RedisError as e:
             logger.error(f"Redis error while setting: {str(e)}")
             
-    def clear(self) -> None:
+    # Duplicate clear method removed. See above for canonical definition.
         """Clear all cached items"""
         try:
             self.client.flushdb()
@@ -905,69 +811,13 @@ class RateLimitConfig:
         self._in_grace_period = True
         with self._queue_lock:
             self._queue = []
-    def __init__(
-        self,
-        calls_per_minute: int = 60,
-        window_size: int = 60,
-        max_burst: int = 5,
-        burst_window: int = 10,
-        grace_period: int = 300,
-        cooldown_period: int = 600,
-        max_retry_attempts: int = 3
-    ):
-        """
-        Rate limiting configuration
-        
-        Args:
-            calls_per_minute: Maximum calls per minute
-            window_size: Size of the time window in seconds
-            max_burst: Maximum number of calls in a burst
-            burst_window: Time window for burst calculation (seconds)
-            grace_period: Initial grace period before strict rate limiting (seconds)
-            cooldown_period: Time to wait after rate limit is hit (seconds)
-            max_retry_attempts: Maximum retry attempts before failing
-        """
-        self.calls_per_minute = calls_per_minute
-        self.window_size = window_size
-        self.max_burst = max_burst
-        self.burst_window = burst_window
-        self.grace_period = grace_period
-        self.cooldown_period = cooldown_period
-        self.max_retry_attempts = max_retry_attempts
-        self._last_reset = datetime.now()
-        self._current_calls = 0
-        self._in_grace_period = True
-
-    def check_rate_limit(self) -> bool:
-        """Check if rate limit is exceeded"""
-        current_time = datetime.now()
-        
-        # Check if we're in grace period
-        if self._in_grace_period:
-            if (current_time - self._last_reset).total_seconds() > self.grace_period:
-                self._in_grace_period = False
-                self._current_calls = 0
-            return False
-        
-        # Check burst limit
-        if self._current_calls >= self.max_burst:
-            return True
-            
-        # Check regular rate limit
-        if self._current_calls >= self.calls_per_minute:
-            return True
-            
-        return False
-
+    # Duplicate __init__ removed. See earlier definition.
+    # Duplicate check_rate_limit removed. See earlier definition.
     def increment_call(self) -> None:
         """Increment call counter"""
         self._current_calls += 1
         
-    def reset(self) -> None:
-        """Reset rate limit counters"""
-        self._current_calls = 0
-        self._last_reset = datetime.now()
-        self._in_grace_period = True
+    # Duplicate reset removed. See earlier definition.        self._in_grace_period = True
 
 def rate_limit(
     calls_per_minute: int = 60,

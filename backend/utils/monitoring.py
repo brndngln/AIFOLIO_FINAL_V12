@@ -210,40 +210,9 @@ class VaultMetrics:
             "endpoints": endpoints,
             "timestamp": datetime.now().isoformat()
         }
-    def __init__(self, host: str = 'localhost', port: int = 6379, db: int = 1):
-        """
-        Initialize metrics tracking
-        
-        Args:
-            host: Redis host
-            port: Redis port
-            db: Redis database number for metrics
-        """
-        self.client = redis.Redis(host=host, port=port, db=db)
-        self._last_cleanup = datetime.now()
-        
-    def track_cache_metrics(self, cache_key: str, hit: bool) -> None:
-        """Track cache hit/miss metrics"""
-        metrics = {
-            "cache_hits": 1 if hit else 0,
-            "cache_misses": 0 if hit else 1,
-            "timestamp": datetime.now().isoformat()
-        }
-        
-        self.client.rpush('cache_metrics', json.dumps(metrics))
-        self._cleanup_old_metrics()
-        
-    def track_rate_limit_metrics(self, success: bool, error_type: str = None) -> None:
-        """Track rate limit metrics"""
-        metrics = {
-            "success": success,
-            "error_type": error_type,
-            "timestamp": datetime.now().isoformat()
-        }
-        
-        self.client.rpush('rate_limit_metrics', json.dumps(metrics))
-        self._cleanup_old_metrics()
-        
+    # Duplicate __init__ removed. See earlier definition.        
+    # Duplicate track_cache_metrics removed. See earlier definition.        
+    # Duplicate track_rate_limit_metrics removed. See earlier definition.        
     def get_cache_metrics(self, minutes: int = 60) -> Dict[str, Any]:
         """Get detailed cache metrics for the last X minutes"""
         cutoff = datetime.now() - timedelta(minutes=minutes)
@@ -335,28 +304,7 @@ class VaultMetrics:
             return 0
         return (successful / total) * 100
         
-    def get_rate_limit_metrics(self, minutes: int = 60) -> Dict[str, Any]:
-        """Get rate limit metrics for the last X minutes"""
-        cutoff = datetime.now() - timedelta(minutes=minutes)
-        metrics = []
-        
-        for raw_metric in self.client.lrange('rate_limit_metrics', 0, -1):
-            metric = json.loads(raw_metric)
-            if datetime.fromisoformat(metric['timestamp']) >= cutoff:
-                metrics.append(metric)
-        
-        return {
-            "total_requests": len(metrics),
-            "successful_requests": sum(m['success'] for m in metrics),
-            "failed_requests": len(metrics) - sum(m['success'] for m in metrics),
-            "error_types": {
-                "rate_limit": sum(1 for m in metrics if m.get('error_type') == 'rate_limit'),
-                "quota": sum(1 for m in metrics if m.get('error_type') == 'quota'),
-                "validation": sum(1 for m in metrics if m.get('error_type') == 'validation')
-            },
-            "timestamp": datetime.now().isoformat()
-        }
-        
+    # Duplicate get_rate_limit_metrics removed. See earlier definition.        
     def _cleanup_old_metrics(self) -> None:
         """Clean up old metrics and optimize Redis memory usage"""
         if datetime.now() - self._last_cleanup > timedelta(hours=24):
