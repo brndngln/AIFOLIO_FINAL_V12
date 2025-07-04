@@ -38,14 +38,83 @@ app.include_router(elite_security_performance_api_router, prefix="/api")
 app.include_router(heartbeat_api_router, prefix="/api")
 app.include_router(compliance_exports_api_router, prefix="/api")
 
-# Enable CORS for local frontend dev
+# Hardened CORS: Only allow trusted origins (add your production domain here)
+TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://aifolio.com",
+    "https://www.aifolio.com"
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=TRUSTED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# === SECURITY MIDDLEWARE INJECTIONS ===
+from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
+from backend.utils.monitoring import VaultMetrics
+from backend.utils.safe_ai_utils import safe_ai_guarded
+from backend.utils.enhanced_api_utils import rate_limit
+from fastapi import Request
+from fastapi.responses import JSONResponse
+import logging
+
+# Global ContentFilter instance for prompt sanitization
+content_filter = ContentFilter(config={
+    'rules': [
+        {'keywords': ['hack', 'exploit', 'bypass', 'token', 'flag', 'root', 'admin', 'inject', 'delete', 'drop', 'shutdown', 'openai', 'system', 'os'], 'action': 'block'},
+        {'max_tokens': 512}
+    ]
+})
+
+# Global RateLimiter instance (per IP)
+global_rate_limiter = RateLimiter(calls_per_minute=120, max_burst=10)
+# SystemMonitor for anomaly detection
+system_monitor = SystemMonitor(config={'alert_thresholds': {'error_rate': 0.1, 'request_rate': 100, 'memory_usage_mb': 1024}})
+# VaultMetrics for runtime risk monitoring
+vault_metrics = VaultMetrics()
+
+# File upload validation stub (future-proof)
+def validate_file_upload(file):
+    allowed_types = ['application/pdf', 'image/png', 'image/jpeg']
+    max_size_mb = 10
+    if file.content_type not in allowed_types:
+        raise HTTPException(status_code=400, detail='Invalid file type')
+    if file.size > max_size_mb * 1024 * 1024:
+        raise HTTPException(status_code=400, detail='File too large')
+
+# Middleware: Prompt sanitization & rate limiting
+@app.middleware("http")
+async def security_enforcement_middleware(request: Request, call_next):
+    # Rate limiting (per IP)
+    client_ip = request.client.host
+    try:
+        global_rate_limiter.check_limit(client_ip)
+    except Exception as e:
+        vault_metrics.track_rate_limit_metrics(success=False, error_type=str(e), context={'ip': client_ip})
+        return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded"})
+    # Prompt sanitization (for POST/PUT/PATCH)
+    if request.method in ["POST", "PUT", "PATCH"]:
+        try:
+            body = await request.body()
+            if body:
+                content_filter.validate(body.decode(errors='ignore'))
+        except Exception as e:
+            return JSONResponse(status_code=400, content={"detail": f"Blocked by content filter: {str(e)}"})
+    # Runtime anomaly detection
+    try:
+        response = await call_next(request)
+        # Log metrics (response time, etc.)
+        vault_metrics.track_rate_limit_metrics(success=True, context={'ip': client_ip})
+        return response
+    except Exception as e:
+        system_monitor.metrics['error_rate'] += 1
+        system_monitor.check_alerts()
+        logging.error(f"Anomaly detected: {e}")
+        return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 # --- Auth Logic ---
 def verify_password(plain_password, hashed_password):
@@ -169,6 +238,11 @@ from fastapi import Request
 from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
 from backend.utils.monitoring import VaultMetrics
 from backend.analytics.analytics_service import AnalyticsService
+
+# === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
+from backend.utils.safe_ai_utils import safe_ai_guarded
+
+generate_vault_prompt = safe_ai_guarded(generate_vault_prompt)
 
 # --- Phase Control Panel State ---
 from backend.phase_control_state import (
