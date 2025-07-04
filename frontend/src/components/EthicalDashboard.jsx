@@ -4,9 +4,6 @@ import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
-import { useTheme } from '../theme/ThemeProvider';
-import axios from 'axios';
-import { format } from 'date-fns';
 
 const EthicalDashboard = () => {
     const { theme } = useTheme();
@@ -144,36 +141,30 @@ const EthicalDashboard = () => {
     );
 };
 
-const MetricCard = ({ label, value, color }) => (
-    <div className="metric-card" style={{
-        padding: '1rem',
-        borderRadius: '4px',
-        backgroundColor: color,
-        color: theme.text,
-        textAlign: 'center'
-    }}>
-        <h3 style={{
+const MetricCard = ({ label, value, color }) => {
+    const theme = useTheme();
+    return (
+        <div className="metric-card" style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            backgroundColor: color,
             color: theme.text,
-            marginBottom: '0.5rem'
-        }}>{label}</h3>
-        <div style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: theme.text
-        }}>{value}</div>
-    </div>
-);
+            textAlign: 'center'
+        }}>
+            <h3 style={{
+                color: theme.text,
+                marginBottom: '0.5rem'
+            }}>{label}</h3>
+            <div style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                color: theme.text
+            }}>{value}</div>
+        </div>
+    );
+};
 
 // No props for EthicalDashboard; PropTypes not required. [WINDSURF FIXED]
 
-function MetricCard({ label, value, color }) {
-    return null; // placeholder if not already defined
-}
-
-MetricCard.propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    color: PropTypes.string
-}; // [WINDSURF FIXED]
 
 export default EthicalDashboard; // [WINDSURF FIXED]

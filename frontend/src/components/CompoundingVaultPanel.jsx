@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // SAFE AI, deterministic, static, owner-controlled compounding vault controls
 function CompoundingVaultPanel({ onAction }) {

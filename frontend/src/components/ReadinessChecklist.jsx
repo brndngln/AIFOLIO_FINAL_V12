@@ -9,6 +9,14 @@ const BUSINESS = [
   "Audit-logging enabled",
   "No adaptive or marketing features"
 ];
+const AIFOLIO = [
+  "Vault structure validated",
+  "All AI modules locked non-sentient",
+  "Owner override on all exports",
+  "PDF automation pipelines tested",
+  "Compliance audit complete"
+];
+
 const PUBLIC = [
   "Public trust badge system present",
   "Public/partner exports OWNER-controlled",

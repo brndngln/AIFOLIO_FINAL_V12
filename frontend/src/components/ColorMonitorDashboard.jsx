@@ -4,9 +4,6 @@ import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
-import { useTheme } from '../theme/ThemeProvider';
-import axios from 'axios';
-import { format } from 'date-fns';
 
 const ColorMonitorDashboard = () => {
     const { theme } = useTheme();
@@ -151,42 +148,35 @@ const ColorMonitorDashboard = () => {
     );
 };
 
-const ColorMetricCard = ({ label, value, color, description }) => (
-    <div className="metric-card" style={{
-        padding: '1rem',
-        borderRadius: '4px',
-        backgroundColor: color,
-        color: theme.text,
-        textAlign: 'center'
-    }}>
-        <h3 style={{
+const ColorMetricCard = ({ label, value, color, description }) => {
+    const theme = useTheme();
+    return (
+        <div className="metric-card" style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            backgroundColor: color,
             color: theme.text,
-            marginBottom: '0.5rem'
-        }}>{label}</h3>
-        <div style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: theme.text
-        }}>{value}</div>
-        <div style={{
-            color: theme.secondary,
-            marginTop: '0.5rem',
-            fontSize: '0.8rem'
-        }}>{description}</div>
-    </div>
-);
+            textAlign: 'center'
+        }}>
+            <h3 style={{
+                color: theme.text,
+                marginBottom: '0.5rem'
+            }}>{label}</h3>
+            <div style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                color: theme.text
+            }}>{value}</div>
+            <div style={{
+                color: theme.secondary,
+                marginTop: '0.5rem',
+                fontSize: '0.8rem'
+            }}>{description}</div>
+        </div>
+    );
+};
 
 // No props for ColorMonitorDashboard; PropTypes not required. [WINDSURF FIXED]
 
-function ColorMetricCard({ label, value, color, description }) {
-    return null; // placeholder if not already defined
-}
-
-ColorMetricCard.propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    color: PropTypes.string,
-    description: PropTypes.string
-}; // [WINDSURF FIXED]
 
 export default ColorMonitorDashboard; // [WINDSURF FIXED]
