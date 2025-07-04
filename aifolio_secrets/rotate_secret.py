@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import time
 from datetime import datetime
 from secrets import token_urlsafe
 from .audit_logger import log_rotation_event

@@ -1,6 +1,5 @@
 import os
 import time
-import logging
 import getpass
 
 INTRUSION_LOG = 'ai_core/EmmaLogs/intrusion_alerts.log'

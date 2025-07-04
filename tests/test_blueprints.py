@@ -28,7 +28,8 @@ def get_csrf(client):
 def test_reviewer_routes(client):
     rv = client.get('/reviewer/analytics')
     if rv.status_code == 404:
-        import pytest; pytest.skip('reviewer/analytics route not implemented')
+        import pytest
+        pytest.skip('reviewer/analytics route not implemented')
     assert rv.status_code == 200
     rv = client.post('/reviewer/escalate', data={'csrf_token': get_csrf(client) or 'test'})
     assert rv.status_code in (200, 400)
@@ -37,7 +38,8 @@ def test_reviewer_routes(client):
 def test_accessibility_routes(client):
     rv = client.get('/accessibility/audit')
     if rv.status_code == 404:
-        import pytest; pytest.skip('accessibility/audit route not implemented')
+        import pytest
+        pytest.skip('accessibility/audit route not implemented')
     assert rv.status_code == 200
     rv = client.post('/accessibility/run', data={'csrf_token': get_csrf(client) or 'test'})
     assert rv.status_code in (200, 400)

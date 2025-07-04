@@ -1,7 +1,5 @@
 import requests
-import json
 import os
-from datetime import datetime
 
 WEBHOOK_URLS = [
     os.getenv("NOTION_WEBHOOK_URL"),

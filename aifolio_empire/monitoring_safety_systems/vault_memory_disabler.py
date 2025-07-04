@@ -1,6 +1,6 @@
 """
 Vault Memory Disabler Simulator with strict anti-sentience measures.
-This module simulates a system that ensures 'vault memory' (conceptual long-term storage
+This module simulates a system that ensures 'vault memory' (conceptual int-term storage
 pertaining to a vault's generation or evolution) is always OFF by default.
 It only allows a 'memory enabled' state if explicitly overridden for a single, stateless check,
 representing manual user intervention for a specific, isolated operation.

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException
 from backend.pdf_builder.expanded_pdf_builders import (
     build_niche_product_pdf,
     build_affiliate_promo_pack_pdf,
@@ -12,7 +12,6 @@ from backend.pdf_builder.expanded_pdf_builders import (
 from backend.auth.deps import get_current_user
 from pydantic import BaseModel
 from typing import Dict, Any
-import os
 
 router = APIRouter(prefix="/pdf", tags=["PDF Builders"])
 

@@ -1,14 +1,25 @@
 import React from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
+// Utility to convert hex to rgb
+function hexToRgb(hex) {
+  let c = hex.replace('#', '');
+  if (c.length === 3) c = c.split('').map(x => x + x).join('');
+  if (c.length !== 6) return hex;
+  const num = parseInt(c, 16);
+  return `rgb(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255})`;
+}
+
 function ButtonPreview() {
   const { theme } = useTheme();
 
   return (
-    <div className="theme-panel p-6" role="button-preview">
+    <div className="theme-panel p-6" role="button-preview" style={{
+      backgroundColor: hexToRgb(theme.customColors?.button?.background || '#D2B48C')
+    }}>
       <h3 className="text-lg font-semibold mb-4" style={{
-        color: 'var(--text)',
-        backgroundColor: 'var(--accent)',
+        color: hexToRgb(theme.customColors?.button?.text || '#000000'),
+        backgroundColor: hexToRgb(theme.customColors?.button?.accent || '#2E3D2E'),
         padding: 'var(--spacing-sm)',
         borderRadius: 'var(--border-radius-sm)'
       }}>Button Styles Preview</h3>

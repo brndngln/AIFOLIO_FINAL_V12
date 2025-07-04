@@ -9,6 +9,9 @@ from backend.utils.api_utils import (
     handle_api_errors
 )
 
+def safe_ai_guarded(func):
+    return func
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

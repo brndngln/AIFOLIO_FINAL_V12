@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
-function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
+function EnhancedColorPicker({ component, property, defaultValue, onChange, ...props }) {
   const { theme } = useTheme();
-  const [color, setColor] = useState(defaultValue);
   const [showPreview, setShowPreview] = useState(false);
 
-  // Get current color from theme
-  useEffect(() => {
-    const currentColor = theme.customColors?.[component]?.[property] || defaultValue;
-    setColor(currentColor);
-  }, [component, property, defaultValue, theme.customColors]);
+  // Always derive color from theme
+  const color = theme?.customColors?.[component]?.[property] || defaultValue;
 
   // Update theme when color changes
   const handleColorChange = (newColor) => {
-    setColor(newColor);
-    onChange(newColor);
+    onChange(component, property, newColor);
   };
+
 
   // Generate random color
   const generateRandomColor = () => {
@@ -97,7 +93,9 @@ function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
               handleColorChange(e.target.value);
             }}
             className="w-full h-10 rounded"
-            role={`colorpicker-${component}-${property}`}
+            role="colorpicker"
+            {...props}
+            data-testid={typeof props['data-testid'] !== 'undefined' ? props['data-testid'] : 'colorpicker'}
           />
           <input
             type="text"

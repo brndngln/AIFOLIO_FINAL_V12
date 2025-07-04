@@ -9,9 +9,9 @@ SAFE AI-compliant, stateless, and fully isolated. Handles:
 - Quantum-resistant encryption and blockchain ledger stubs
 """
 
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import Optional
 import uuid
 
 app = FastAPI(title="Personal Muse Protocol Service", docs_url="/docs")

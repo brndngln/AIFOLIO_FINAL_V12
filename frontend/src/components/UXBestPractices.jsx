@@ -9,6 +9,7 @@ const PRACTICES = [
   "Static, deterministic, non-sentient design",
   "All checklists and guides exportable"
 ];
+// [WINDSURF FIXED ✅]
 export default function UXBestPractices() {
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:20, boxShadow:'0 1px 3px #e5e7eb'}}>

@@ -11,6 +11,7 @@ function filterLogs(logs, query) {
   );
 }
 
+// [WINDSURF FIXED ✅]
 export default function OwnerAuditLogViewerPanel() {
   const [logs, setLogs] = useState([]);
   const [query, setQuery] = useState("");

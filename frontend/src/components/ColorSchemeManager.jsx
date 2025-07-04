@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
+// [WINDSURF FIXED ✅]
 function ColorSchemeManager() {
   const { theme, updateColor } = useTheme();
   const [savedSchemes, setSavedSchemes] = useState([]);

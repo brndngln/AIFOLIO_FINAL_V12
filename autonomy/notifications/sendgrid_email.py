@@ -7,7 +7,7 @@ AIFOLIO™ SAFE Notification: SendGrid Email Integration
 import os
 import logging
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+from sendgrid.helpers.mail import Mail
 
 LOG_PATH = "../../distribution/legal_exports/email_send_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)

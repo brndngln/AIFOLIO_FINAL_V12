@@ -4,8 +4,6 @@ Elite security, ethics, and maintainability: CSRF, audit logging, modular, priva
 """
 from flask import Blueprint, request, jsonify
 from datetime import datetime
-import os
-import json
 from dashboard.payment_utils import process_stripe_payment, process_gumroad_payment
 
 # --- Blueprint Setup ---

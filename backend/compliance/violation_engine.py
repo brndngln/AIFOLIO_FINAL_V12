@@ -110,7 +110,7 @@ def log_violations(doc_id, violations, detected_by):
                     'detected_at': v.get('detected_at'),
                     'detected_by': detected_by
                 })
-            except Exception as e:
+            except Exception:
                 pass  # Optionally log error
     logs.extend(violations)
     with open(VIOLATION_LOG, 'w') as f:
@@ -130,7 +130,7 @@ def send_sla_breach_webhook(violation):
                 'sla_status': violation.get('sla_status'),
                 'breached_at': datetime.utcnow().isoformat()
             })
-        except Exception as e:
+        except Exception:
             pass
 
 # --- Helper for remediation applied webhook ---
@@ -144,7 +144,7 @@ def send_remediation_webhook(violation, admin_id):
                 'fixed_by': admin_id,
                 'fixed_at': datetime.utcnow().isoformat()
             })
-        except Exception as e:
+        except Exception:
             pass
 
 def get_violations(doc_id=None, status=None):

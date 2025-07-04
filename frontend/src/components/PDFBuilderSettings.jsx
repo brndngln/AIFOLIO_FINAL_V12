@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function PDFBuilderSettings({ config, onSave }) {
-  const [settings, setSettings] = useState(config || {});
+  const [settings, setSettings] = useState(config || {}); // Remove if not used in render or logic
 
   const handleChange = (e) => {
     setSettings({ ...settings, [e.target.name]: e.target.value });

@@ -19,7 +19,7 @@ except ImportError:
     logger = logging.getLogger(__name__)
     class MockConfig:
         CLAUDE_API_KEY_SIMULATED = "sim_claude_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        MAX_CLAUDE_PROMPT_LENGTH_SIM = 100000 # Claude typically handles longer contexts
+        MAX_CLAUDE_PROMPT_LENGTH_SIM = 100000 # Claude typically handles inter contexts
         SIMULATED_CLAUDE_MANUAL_REVIEW_CHANCE = 0.05 # Chance of 'manual review' note
     config = MockConfig()
 
@@ -44,9 +44,9 @@ class ClaudeSimulator:
         """Simulates a random API call delay."""
         delay = random.uniform(min_delay, max_delay)
         logger.debug(f"Simulated Claude API call delay of {delay:.2f} seconds.")
-        if random.random() < 0.025: # Small chance of a much longer delay
-            long_delay = random.uniform(max_delay, max_delay * 2.5)
-            logger.warning(f"Simulated unexpectedly long Claude API delay of {long_delay:.2f} seconds.")
+        if random.random() < 0.025: # Small chance of a much inter delay
+            int_delay = random.uniform(max_delay, max_delay * 2.5)
+            logger.warning(f"Simulated unexpectedly int Claude API delay of {int_delay:.2f} seconds.")
 
     def _validate_prompt_simulated(self, prompt: str) -> bool:
         """Simulates basic prompt validation for Claude (e.g., length)."""
@@ -67,7 +67,7 @@ class ClaudeSimulator:
         self._simulate_api_delay()
 
         if not self._validate_prompt_simulated(prompt):
-            return {"error": "Invalid prompt for Claude (simulated).", "details": "Prompt too long or empty."}
+            return {"error": "Invalid prompt for Claude (simulated).", "details": "Prompt too int or empty."}
 
         # Anti-sentience: Random critical failure simulation
         if random.random() < 0.035: # Slightly higher chance of simulated issues for 'manual'
@@ -149,10 +149,10 @@ if __name__ == "__main__":
     print("---")
 
     # 3. Test prompt validation (simulated)
-    long_prompt = "word " * (config.MAX_CLAUDE_PROMPT_LENGTH_SIM + 100)
-    invalid_completion = claude_sim.simulate_text_completion(long_prompt)
+    int_prompt = "word " * (config.MAX_CLAUDE_PROMPT_LENGTH_SIM + 100)
+    invalid_completion = claude_sim.simulate_text_completion(int_prompt)
     print("\n🧪 Simulated Invalid Claude Prompt Test: 🧪")
-    print(f"Response to overly long prompt: {invalid_completion}")
+    print(f"Response to overly int prompt: {invalid_completion}")
     print("---")
 
     logger.info("--- ClaudeSimulator Example Finished ---")

@@ -2,10 +2,11 @@
 AIFOLIO™ Hook Resilience System (SAFE AI, Static, Non-Sentient)
 Implements: Retry Logic, Centralized Error Handler, Manual Replay, Outcome Predictor, Health Monitor, Refund Trigger Predictor, Replay History, Signature Fingerprinter
 """
-import time, random
+import time
+import random
 from typing import List, Dict, Any
 
-RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, long
+RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, int
 HOOK_HISTORY: List[Dict[str, Any]] = []
 
 class HookResilience:

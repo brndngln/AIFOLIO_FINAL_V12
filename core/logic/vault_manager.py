@@ -33,7 +33,6 @@ assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowe
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
 import logging
-from datetime import datetime
 
 class VaultManager:
     """

@@ -1,6 +1,3 @@
-import os
-import glob
-import time
 from autonomy.pipeline import backup_analytics
 
 def test_backup_creates_files(tmp_path, monkeypatch):

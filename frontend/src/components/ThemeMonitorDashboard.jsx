@@ -1,4 +1,6 @@
+// [WINDSURF FIXED ✅]
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -156,29 +158,25 @@ const ThemeMonitorDashboard = () => {
     );
 };
 
-const ThemeMetricCard = ({ label, value, color, description }) => (
+const ThemeMetricCard = ({ label, value, color, description, theme }) => (
     <div className="metric-card" style={{
         padding: '1rem',
         borderRadius: '4px',
-        backgroundColor: color,
+        background: color || theme.secondary,
         color: theme.text,
-        textAlign: 'center'
+        marginBottom: '1rem'
     }}>
-        <h3 style={{
-            color: theme.text,
-            marginBottom: '0.5rem'
-        }}>{label}</h3>
-        <div style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: theme.text
-        }}>{value}</div>
-        <div style={{
-            color: theme.secondary,
-            marginTop: '0.5rem',
-            fontSize: '0.8rem'
-        }}>{description}</div>
+        <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{label}</div>
+        <div style={{ fontSize: '1.5rem' }}>{value}</div>
+        {description && <div style={{ marginTop: '0.5rem', fontSize: '0.9rem' }}>{description}</div>}
     </div>
 );
+ThemeMetricCard.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    color: PropTypes.string,
+    description: PropTypes.string,
+    theme: PropTypes.object.isRequired
+};
 
 export default ThemeMonitorDashboard;

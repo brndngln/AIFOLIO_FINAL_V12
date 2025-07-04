@@ -4,10 +4,10 @@ import hashlib
 import json
 import logging
 import getpass
-import base64
 import socket
 from cryptography.fernet import Fernet
 from datetime import datetime
+import subprocess
 
 # --- CONFIGURABLE ---
 CORE_FILES = ["main.py", "ai_core.py", "vault_engine.py"]
@@ -103,7 +103,6 @@ def enforce_vault_read_only():
 
 # --- 5. DISABLE UNVERIFIED EXTERNAL NETWORK CALLS ---
 def restrict_network_calls():
-    import builtins
     orig_socket = socket.socket
     def guarded_socket(*args, **kwargs):
         s = orig_socket(*args, **kwargs)
@@ -120,11 +119,9 @@ def restrict_network_calls():
     log_event("External network calls restricted.")
 
 # --- 6. CEO MFA ---
-import threading
 import signal
 import functools
 import os
-import sys
 
 class TimeoutException(Exception):
     pass

@@ -14,6 +14,7 @@ const features = [
   { label: "No adaptive/agentic/treaty logic", desc: "No adaptive, agentic, or treaty logic" },
   { label: "OWNER-controlled and static", desc: "All partnership flows are OWNER-controlled and static" }
 ];
+// [WINDSURF FIXED ✅]
 export default function GlobalPartnershipPlaybook() {
   return (
     <section aria-labelledby="partnership-playbook-heading" style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>

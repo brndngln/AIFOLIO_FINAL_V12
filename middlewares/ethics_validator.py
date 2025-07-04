@@ -11,6 +11,6 @@ def ethics_validator(action, context):
     try:
         OmnieliteEthicsEngine.enforce(action, context)
         return True
-    except EthicsViolation as e:
+    except EthicsViolation:
         # Output is blocked, EMMA will handle
         return False

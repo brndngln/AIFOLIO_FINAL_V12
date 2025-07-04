@@ -5,16 +5,11 @@ AIFOLIO™ Owner Web Dashboard
 - Integrates all AI engines and PDF/product pipeline
 """
 import os
-import json
-from flask import Flask, session, render_template, request, redirect, url_for, send_file, make_response, jsonify
+from flask import Flask, session, render_template, request, redirect, url_for, flash
 from dashboard.reviewer import reviewer_bp
 from dashboard.accessibility import accessibility_bp
 from dotenv import load_dotenv
-from ai_engines.prompt_optimizer import optimize_prompt
-from ai_engines.visual_context import select_visuals
-from ai_engines.sales_optimizer import suggest_sales_improvements
 from ai_engines.ethics_qualityguard import scan_and_fix
-from ai_engines.license_risk_monitor import legal_scan
 
 load_dotenv()
 
@@ -40,7 +35,6 @@ LOCKOUT_TIME = 900  # seconds (15 min)
 
 # --- AI Oversight and Anti-Sentience Utility ---
 from datetime import datetime
-import functools
 
 def anti_sentience_scan(obj):
     """Scan object for forbidden sentience attributes or behaviors."""

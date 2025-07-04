@@ -1,7 +1,7 @@
 """
 AIFOLIO™ Multi-Brand Engine
 Phase 42 — SAFE AI, non-sentient, static, owner-controlled
-Suggests new sub-brand strategies for niche defense and long-term brand durability.
+Suggests new sub-brand strategies for niche defense and int-term brand durability.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 from typing import List, Dict

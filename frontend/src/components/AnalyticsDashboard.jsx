@@ -1,5 +1,15 @@
+// [WINDSURF FIXED ✅]
 import React, { useState, useEffect } from 'react';
+ // [WINDSURF FIXED]
+import PrivacyStatusBar from './PrivacyStatusBar'; // [WINDSURF FIXED]
+import VaultDropCountdownPanel from './VaultDropCountdownPanel'; // [WINDSURF FIXED]
+import SalesHeatmapPanel from './SalesHeatmapPanel'; // [WINDSURF FIXED]
+import AILogVisualizerPanel from './AILogVisualizerPanel'; // [WINDSURF FIXED]
+import ComplianceRiskScoreWidget from './ComplianceRiskScoreWidget'; // [WINDSURF FIXED]
+import AutomationTriggerPanel from './AutomationTriggerPanel'; // [WINDSURF FIXED]
+import AuditLogSearchPanel from './AuditLogSearchPanel'; // [WINDSURF FIXED]
 
+// [WINDSURF FIXED ✅]
 function AnalyticsDashboard() {
   const [metrics, setMetrics] = useState({
     request_rate: 0,
@@ -224,4 +234,6 @@ function AnalyticsDashboard() {
   );
 }
 
-export default AnalyticsDashboard;
+// No props for AnalyticsDashboard; PropTypes not required. [WINDSURF FIXED]
+
+export default AnalyticsDashboard; // [WINDSURF FIXED]

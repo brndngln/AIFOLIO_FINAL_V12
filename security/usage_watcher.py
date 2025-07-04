@@ -1,6 +1,6 @@
 import os
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 
 LOG_PATH = os.path.join(os.path.dirname(__file__), '../logs/usage_anomalies.json')
 USAGE_PATH = os.path.join(os.path.dirname(__file__), '../logs/usage_metrics.json')

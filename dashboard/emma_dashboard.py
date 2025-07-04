@@ -2,7 +2,6 @@ import streamlit as st
 import json
 import os
 from pathlib import Path
-from datetime import datetime
 
 def load_audit_logs(log_dir='./ai_core/EmmaLogs/'):
     logs = []

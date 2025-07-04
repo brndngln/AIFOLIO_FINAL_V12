@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
+// [WINDSURF FIXED ✅]
 // SAFE AI, deterministic, static, owner-controlled visualization
 export default function FractalRevenueHeatmapPanel() {
   const [heatmap, setHeatmap] = useState(null);

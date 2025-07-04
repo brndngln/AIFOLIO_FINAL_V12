@@ -1,7 +1,6 @@
 import os
 import json
 import datetime
-import hashlib
 
 META_PROMPT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/ai_meta_prompt_optimizer_log.jsonl'))
 os.makedirs(os.path.dirname(META_PROMPT_LOG), exist_ok=True)

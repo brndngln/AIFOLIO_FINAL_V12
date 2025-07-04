@@ -1,4 +1,7 @@
+// [WINDSURF FIXED ✅]
+// [WINDSURF FIXED ✅]
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -6,20 +9,9 @@ import { format } from 'date-fns';
 const PerformanceDashboard = () => {
     const { theme } = useTheme();
     const [metrics, setMetrics] = useState({
-        memory: {
-            current: 0,
-            max: 0,
-            growthRate: 0
-        },
-        cpu: {
-            usage: 0,
-            load: 0
-        },
-        network: {
-            requests: 0,
-            latency: 0,
-            errors: 0
-        },
+        memory: { current: 0, max: 0 },
+        cpu: { usage: 0, load: 0 },
+        network: { requests: 0, latency: 0, errors: 0 },
         lastUpdate: null
     });
 
@@ -103,30 +95,42 @@ const PerformanceDashboard = () => {
     );
 };
 
-const MetricCard = ({ label, value, color, subvalue }) => (
-    <div className="metric-card" style={{
-        padding: '1rem',
-        borderRadius: '4px',
-        backgroundColor: color,
-        color: theme.text,
-        textAlign: 'center'
-    }}>
-        <h3 style={{
+const MetricCard = ({ label, value, color, subvalue }) => {
+    const { theme } = useTheme();
+    return (
+        <div className="metric-card" style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            backgroundColor: color,
             color: theme.text,
-            marginBottom: '0.5rem'
-        }}>{label}</h3>
-        <div style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: theme.text
-        }}>{value}</div>
-        {subvalue && (
+            textAlign: 'center'
+        }}>
+            <h3 style={{
+                color: theme.text,
+                marginBottom: '0.5rem'
+            }}>{label}</h3>
             <div style={{
-                color: theme.secondary,
-                marginTop: '0.5rem'
-            }}>{subvalue}</div>
-        )}
-    </div>
-);
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                color: theme.text
+            }}>{value}</div>
+            {subvalue && (
+                <div style={{
+                    color: theme.secondary,
+                    marginTop: '0.5rem'
+                }}>{subvalue}</div>
+            )}
+        </div>
+    );
+};
 
-export default PerformanceDashboard;
+MetricCard.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    color: PropTypes.string,
+    subvalue: PropTypes.string
+}; // [WINDSURF FIXED]
+
+// No props for PerformanceDashboard; PropTypes not required. [WINDSURF FIXED]
+
+export default PerformanceDashboard; // [WINDSURF FIXED]

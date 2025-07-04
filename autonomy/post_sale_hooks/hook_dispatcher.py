@@ -126,27 +126,27 @@ def run_all_hooks(sale_data):
     return results
     try:
         send_preview_bundle(sale_data["buyer_email"], sale_data.get("vault_preview_data", {}))
-    except Exception as e:
+    except Exception:
         logging.exception("send_preview_bundle failed")
         errors.append("send_preview_bundle")
     try:
         file_tax_compliance.trigger(sale_data)
-    except Exception as e:
+    except Exception:
         logging.exception("file_tax_compliance failed")
         errors.append("file_tax_compliance")
     try:
         tag_buyer_crm("AI_PDF_BUYER", sale_data["buyer_email"])
-    except Exception as e:
+    except Exception:
         logging.exception("tag_buyer_crm failed")
         errors.append("tag_buyer_crm")
     try:
         affiliate_attribution(sale_data["buyer_email"], sale_data.get("referral_data", {}))
-    except Exception as e:
+    except Exception:
         logging.exception("affiliate_attribution failed")
         errors.append("affiliate_attribution")
     try:
         fraud_check(sale_data.get("buyer_data", {}), sale_data.get("sale_metadata", {}))
-    except Exception as e:
+    except Exception:
         logging.exception("fraud_check failed")
         errors.append("fraud_check")
     if errors:

@@ -2,10 +2,7 @@
 analytics.py — Analytics & Compliance Blueprint
 Elite security, ethics, and maintainability: CSRF, audit logging, modular, privacy, monitoring.
 """
-from flask import Blueprint, render_template, jsonify, request
-from datetime import datetime
-import os
-import json
+from flask import Blueprint, render_template
 
 analytics_bp = Blueprint('analytics', __name__, template_folder='templates')
 

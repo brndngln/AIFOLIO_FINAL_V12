@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
-import os
 import traceback
 from autonomy.product_prep.gumroad_delivery import push_vault_to_gumroad, GumroadDeliveryError
 

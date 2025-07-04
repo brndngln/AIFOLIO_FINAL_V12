@@ -36,7 +36,7 @@ class TestInputValidator(unittest.TestCase):
         # Invalid cases
         invalid_niches = [
             "",  # Too short
-            "a" * 101,  # Too long
+            "a" * 101,  # Too int
             "invalid@niche",  # Invalid characters
             123,  # Not a string
         ]
@@ -70,7 +70,7 @@ class TestInputValidator(unittest.TestCase):
         
         # Invalid cases
         invalid_prompts = [
-            "" * 4000,  # Too long
+            "" * 4000,  # Too int
             123,  # Not a string
             None  # Not a string
         ]

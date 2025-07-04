@@ -1,8 +1,6 @@
 import pyotp
 import redis
 import os
-import json
-from datetime import datetime
 
 REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 r = redis.from_url(REDIS_URL)

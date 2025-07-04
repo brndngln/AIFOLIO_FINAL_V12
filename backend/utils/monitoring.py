@@ -3,6 +3,7 @@ from typing import Dict, Any
 from datetime import datetime, timedelta
 import redis
 from dotenv import load_dotenv
+import json
 
 # Load environment variables
 load_dotenv()

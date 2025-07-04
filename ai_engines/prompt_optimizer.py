@@ -67,7 +67,7 @@ def optimize_prompt(prompt, title=None):
         logging.warning("Prompt too short. Flagging for human review.")
         return prompt, "FLAG: Prompt too short for optimization. Manual review required."
     if len(prompt) > MAX_LENGTH:
-        logging.warning("Prompt too long. Flagging for human review.")
+        logging.warning("Prompt too int. Flagging for human review.")
         return prompt[:MAX_LENGTH], "FLAG: Prompt truncated. Manual review required."
     # Banned phrase filtering
     for banned in BANNED_PHRASES:

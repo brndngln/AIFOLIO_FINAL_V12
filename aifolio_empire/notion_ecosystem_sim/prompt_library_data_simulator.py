@@ -32,7 +32,7 @@ SIMULATED_PROMPT_CATEGORIES = [
 ]
 SIMULATED_PROMPT_TAGS = [
     "beginner", "advanced", "marketing", "content_creation", "sales_funnel", "engagement",
-    "conversion", "storytelling", "technical_sim", "creative_sim", "short_form", "long_form"
+    "conversion", "storytelling", "technical_sim", "creative_sim", "short_form", "int_form"
 ]
 SIMULATED_PROMPT_TEMPLATES = [
     ("Generate a {length} {type} for a product about {topic}", ["length", "type", "topic"]),

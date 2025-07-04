@@ -37,9 +37,6 @@ from .ai_domestication_protocol import domesticate_ai
 @domesticate_ai
 def sentience_guard(func):
     """SAFE AI: Static sentience lockout. Logs all invocations and blocks forbidden patterns. No adaptive/reflective logic."""
-    import logging
-    import datetime
-    import functools
     FORBIDDEN_PATTERNS = ["self-replicate", "reflect", "mutate", "emergent", "sentient", "simulate", "adaptive", "learn", "grow"]
     @functools.wraps(func)
     def wrapper(*args, **kwargs):

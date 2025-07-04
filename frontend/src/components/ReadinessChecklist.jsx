@@ -1,4 +1,6 @@
+// [WINDSURF FIXED ✅]
 import React from "react";
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
 const BUSINESS = [
   "All regulatory requirements mapped",
   "GDPR/CCPA compliance",
@@ -14,7 +16,7 @@ const PUBLIC = [
   "Public reporting static and deterministic",
   "Global governance alignment exportable"
 ];
-export default function ReadAIFOLIOChecklist() {
+function ReadAIFOLIOChecklist() {
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:20, boxShadow:'0 1px 3px #e5e7eb'}}>
       <h3 style={{color:'#2563eb', fontWeight:600, marginBottom:8}}>SAFE AI READINESS CHECKLIST</h3>
@@ -32,3 +34,9 @@ export default function ReadAIFOLIOChecklist() {
     </div>
   );
 }
+
+// No props for ReadAIFOLIOChecklist; PropTypes not required. [WINDSURF FIXED]
+
+// [WINDSURF FIXED ✅]
+export default ReadAIFOLIOChecklist; // [WINDSURF FIXED]
+

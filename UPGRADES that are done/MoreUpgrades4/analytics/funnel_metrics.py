@@ -1,5 +1,4 @@
 import json
-import statistics
 
 import logging
 

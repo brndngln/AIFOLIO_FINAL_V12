@@ -2,12 +2,7 @@ import os
 import json
 from datetime import datetime
 
-import os
-import json
 import time
-import logging
-import traceback
-from datetime import datetime
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
@@ -76,7 +71,7 @@ def handle_event(payload: dict):
     if errors:
         try:
             detect_anomaly(vault_id, errors)
-        except Exception as e:
+        except Exception:
             pass
     print(f"[AIFOLIO] Receipt {receipt_id} created for vault {vault_id} and buyer {buyer_email}.")
     return {"status": "success", "vault_id": vault_id, "receipt_id": receipt_id, "errors": errors}

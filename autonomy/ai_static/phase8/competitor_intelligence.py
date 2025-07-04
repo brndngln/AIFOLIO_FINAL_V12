@@ -6,7 +6,6 @@ SAFE AI Static Module: Competitor Intelligence
 """
 import logging
 from datetime import datetime
-import os
 
 LOG_PATH = "../../distribution/legal_exports/competitor_intel_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)

@@ -9,7 +9,7 @@ const ALL_ROLES = ['OWNER', 'AUDITOR', 'OPERATOR'];
 const AdminRoleManager = () => {
   const [admins, setAdmins] = useState({});
   const [editing, setEditing] = useState({});
-  const [snackbar, setSnackbar] = useState('');
+  const [snackbar, setSnackbar] = useState(''); // Remove if not used in render or logic
   const [loading, setLoading] = useState(false);
 
   const fetchAdmins = () => {

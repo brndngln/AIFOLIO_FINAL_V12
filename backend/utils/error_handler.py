@@ -2,6 +2,7 @@ import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
 import json
+import uuid
 from redis import Redis
 import sentry_sdk
 from sentry_sdk.integrations.redis import RedisIntegration

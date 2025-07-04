@@ -62,7 +62,6 @@ def audit_log(event: str, params: Dict[str, Any]):
 
 import requests
 from PIL import Image
-from io import BytesIO
 
 def run_compliance_checks(params: Dict[str, Any], standards: Optional[list] = None, compliance_api_url: Optional[str] = None) -> Dict[str, bool]:
     """
@@ -117,8 +116,6 @@ def add_digital_signature(pdf_path: str, signature_path: Optional[str], signatur
         for i, page in enumerate(reader.pages):
             if signature_image_path and i == num_pages - 1:
                 try:
-                    from PyPDF2.pdf import PageObject
-                    from PyPDF2.generic import RectangleObject
                     from reportlab.pdfgen import canvas
                     from reportlab.lib.pagesizes import letter
                     from reportlab.lib.utils import ImageReader

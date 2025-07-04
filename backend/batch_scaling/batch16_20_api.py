@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from typing import List
 from .batch16_20_models import *
 from backend.utils.safe_ai_utils import safe_ai_guarded
@@ -127,7 +127,8 @@ def export_batch(batch: str, type: str, user: str = Depends(get_current_user)):
 # --- System Health Endpoint ---
 @router.get("/system-health")
 def system_health():
-    import os, json
+    import os
+    import json
     log_path = './logs/export_failures.json'
     if not os.path.exists(log_path):
         return {"status": "ok"}

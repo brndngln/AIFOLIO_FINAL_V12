@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// [WINDSURF FIXED ✅]
 const ComplianceRiskScoreWidget = () => {
   const [risk, setRisk] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // Remove if not used in render or logic
 
   useEffect(() => {
     const fetchRisk = async () => {

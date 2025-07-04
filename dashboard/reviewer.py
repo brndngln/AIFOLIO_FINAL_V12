@@ -2,7 +2,7 @@
 reviewer.py — Reviewer Analytics, Escalation, and Training Blueprint
 Elite security, ethics, and maintainability: CSRF, audit logging, anti-sentience, modular.
 """
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for, session
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from datetime import datetime
 import threading
 import os

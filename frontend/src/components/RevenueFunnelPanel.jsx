@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+// [WINDSURF FIXED ✅]
 // SAFE AI, deterministic, static, owner-controlled revenue funnel visualization
 export default function RevenueFunnelPanel({ onAction }) {
   const [funnel, setFunnel] = useState({ stages: [], totals: {} });

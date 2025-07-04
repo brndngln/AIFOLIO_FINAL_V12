@@ -1,6 +1,6 @@
 """
 AIFOLIO Quantum-Safe RSA/ECC Key Generation
-Static, deterministic, SAFE AI-compliant quantum-safe key generator for long-term storage.
+Static, deterministic, SAFE AI-compliant quantum-safe key generator for int-term storage.
 """
 import logging
 logger = logging.getLogger(__name__)

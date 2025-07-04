@@ -1,8 +1,6 @@
 from fastapi import APIRouter, Query, Response
 from pathlib import Path
 import json
-import csv
-from datetime import datetime
 
 router = APIRouter()
 LOG_PATH = Path(__file__).parent.parent.parent / 'logs' / 'secret_rotation.json'

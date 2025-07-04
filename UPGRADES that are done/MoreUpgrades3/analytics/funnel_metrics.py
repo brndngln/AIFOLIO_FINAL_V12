@@ -1,5 +1,4 @@
 import json
-import statistics
 
 def get_funnel_metrics():
     try:

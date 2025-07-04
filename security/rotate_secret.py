@@ -1,7 +1,4 @@
 import os
-import sys
-import json
-import time
 from datetime import datetime
 from secrets import token_urlsafe
 from vault_injector import store_secret, fetch_secret

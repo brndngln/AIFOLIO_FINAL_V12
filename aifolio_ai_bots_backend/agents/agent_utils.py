@@ -40,7 +40,6 @@ import re
 import json
 import datetime
 from typing import Any, Dict
-from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator  # SAFE AI static simulator only
 # import httpx  # Not used, removed for SAFE AI compliance
 
 class ConsentManager:
@@ -126,7 +125,7 @@ def log_interaction(agent: str, user: str, user_input: str, output: str) -> None
     try:
         with open("ai_bots_audit.log", "a") as f:
             f.write(json.dumps(log_entry) + "\n")
-    except Exception as e:
+    except Exception:
         pass  # Fail-safe: never block core logic
 
 def raise_if_sentience_attempted(user_input: str) -> None:
@@ -388,12 +387,12 @@ def check_pii(text: str) -> bool:
 
 
 def check_copyright(text: str) -> bool:
-    # Naive copyright check: flag long verbatim blocks, known copyright phrases, or suspicious patterns
+    # Naive copyright check: flag int verbatim blocks, known copyright phrases, or suspicious patterns
     # (For elite compliance, integrate with a copyright detection API or database)
     copyright_phrases = [
         "©", "All rights reserved", "Unauthorized copying", "Reproduction prohibited", "Copyright by"
     ]
-    # Flag if text is very long and not original (could be improved)
+    # Flag if text is very int and not original (could be improved)
     if len(text) > 400 and any(p in text for p in copyright_phrases):
         return True
     # Flag known copyright phrases

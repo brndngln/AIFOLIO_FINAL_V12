@@ -1,7 +1,6 @@
 import os
 import json
 import datetime
-import pandas as pd
 
 PRICING_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/ai_pricing_optimizer_log.jsonl'))
 os.makedirs(os.path.dirname(PRICING_LOG), exist_ok=True)

@@ -133,46 +133,43 @@ const ColorCustomization = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Track color changes with full history
+  // Track color changes with full history (store entire customColors object)
   useEffect(() => {
-    if (currentColor) {
-      // Create new history entry
-      const handleColorChange = (component, state, color) => {
-        try {
-            // Validate color change
-            validateColorChange(color, component, state);
-            
-            // Check for sentience patterns
-            const patterns = [component, state, color];
-            if (checkForSentience(patterns)) {
-                throw new Error('Suspicious color change pattern detected');
-            }
-            
-            const newTheme = { ...theme };
-            newTheme[component][state] = color;
-            setTheme(newTheme);
-            setCurrentColor({ component, state, color });
-            
-            // Update history
-            const newHistory = history.slice(0, historyIndex + 1);
-            newHistory.push({ component, state, color });
-            setHistory(newHistory);
-            setHistoryIndex(newHistory.length - 1);
-            
-            // Log activity
-            logActivity('color_change', {
-                component,
-                state,
-                color,
-                theme: newTheme
-            });
-        } catch (error) {
-            console.error('Error changing color:', error);
-            throw error;
-        }
-      };  
+    if (currentColor && currentColor.component && currentColor.state && currentColor.color) {
+      const { component, state, color } = currentColor;
+      try {
+        validateColorChange(color, component, state);
+        const newTheme = { ...theme, customColors: JSON.parse(JSON.stringify(theme.customColors || {})) };
+        if (!newTheme.customColors[component]) newTheme.customColors[component] = {};
+        newTheme.customColors[component][state] = color;
+        setTheme(newTheme);
+        // Truncate history if not at the end before pushing new change
+        const newHistory = history.slice(0, historyIndex + 1);
+        // Push a deep copy of the new customColors object
+        newHistory.push(JSON.parse(JSON.stringify(newTheme.customColors)));
+        setHistory(newHistory);
+        setHistoryIndex(newHistory.length - 1);
+        // Debug log
+        console.log('[COLOR CHANGE] component:', component, 'state:', state, 'color:', color, 'theme:', newTheme.customColors, 'history:', newHistory, 'historyIndex:', newHistory.length - 1);
+        logActivity('color_change', {
+          component,
+          state,
+          color,
+          theme: newTheme
+        });
+      } catch (error) {
+        console.error('Error changing color:', error);
+        throw error;
+      }
     }
   }, [currentColor]);
+
+  // On mount, record the initial theme state in history for undo (store full customColors object)
+  useEffect(() => {
+    const initialCustomColors = JSON.parse(JSON.stringify(theme.customColors || {}));
+    setHistory([initialCustomColors]);
+    setHistoryIndex(0);
+  }, []);
 
   // Enhanced undo functionality
   const undoColor = () => {
@@ -182,20 +179,19 @@ const ColorCustomization = () => {
     const previousState = history[historyIndex - 1];
     if (!previousState) return;
 
-    // Update color
-    const newTheme = { ...theme };
-    newTheme[previousState.component][previousState.state] = previousState.color;
-    setTheme(newTheme);
-    
+    // Restore the entire customColors object from history
+    const restoredCustomColors = JSON.parse(JSON.stringify(previousState));
+    setTheme({ ...theme, customColors: restoredCustomColors });
+
     // Update history index
     setHistoryIndex(historyIndex - 1);
-    
+
+    // Debug log
+    console.log('[UNDO] historyIndex:', historyIndex - 1, 'restored customColors:', restoredCustomColors, 'history:', history);
     // Log activity
     logActivity('undo', {
-        component: previousState.component,
-        state: previousState.state,
-        color: previousState.color,
-        theme: newTheme
+      restoredCustomColors,
+      theme: { ...theme, customColors: restoredCustomColors }
     });
   };
 
@@ -207,20 +203,19 @@ const ColorCustomization = () => {
     const nextState = history[historyIndex + 1];
     if (!nextState) return;
 
-    // Update color
-    const newTheme = { ...theme };
-    newTheme[nextState.component][nextState.state] = nextState.color;
-    setTheme(newTheme);
-    
+    // Restore the entire customColors object from history (deep copy)
+    const restoredCustomColors = JSON.parse(JSON.stringify(nextState));
+    setTheme({ ...theme, customColors: restoredCustomColors });
+
     // Update history index
     setHistoryIndex(historyIndex + 1);
-    
+
+    // Debug log
+    console.log('[REDO] historyIndex:', historyIndex + 1, 'restored customColors:', restoredCustomColors, 'history:', history);
     // Log activity
     logActivity('redo', {
-        component: nextState.component,
-        state: nextState.state,
-        color: nextState.color,
-        theme: newTheme
+      restoredCustomColors,
+      theme: { ...theme, customColors: restoredCustomColors }
     });
   };
 
@@ -234,9 +229,9 @@ const ColorCustomization = () => {
 
   // Add color picker update with history tracking
   const handleColorUpdate = (component, property, color) => {
-    const newColor = { component, state: property, value: color };
-    setCurrentColor(newColor);
+    setCurrentColor({ component, state: property, color });
   };
+
 
   const components = [
     {
@@ -565,6 +560,26 @@ const ColorCustomization = () => {
           </button>
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={undoColor}
+            style={{
+              backgroundColor: 'var(--accent)',
+              color: 'var(--text)'
+            }}
+          >
+            Undo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={redoColor}
+            style={{
+              backgroundColor: 'var(--accent)',
+              color: 'var(--text)'
+            }}
+          >
+            Redo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
             onClick={() => setShowPreview((v) => !v)}
             style={{
               backgroundColor: 'var(--accent)',
@@ -612,11 +627,12 @@ const ColorCustomization = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {component.properties.map((prop) => (
                 <EnhancedColorPicker
-                  key={prop.name}
+                  key={`${component.name}-${prop.name}-${theme.customColors?.[component.name]?.[prop.name] || prop.defaultValue}`}
                   component={component.name}
                   property={prop.name}
                   defaultValue={prop.defaultValue}
-                  onChange={(color) => handleColorUpdate(component.name, prop.name, color)}
+                  onChange={(comp, prop, color) => handleColorUpdate(comp, prop, color)}
+                  data-testid={`colorpicker-${component.name}-${prop.name}`}
                 />
               ))}
             </div>

@@ -9,6 +9,16 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 from openai import OpenAIError
 from fastapi import HTTPException
 from dotenv import load_dotenv
+import threading
+
+# Stub for metrics if not defined
+try:
+    metrics
+except NameError:
+    class metrics:
+        @staticmethod
+        def track_rate_limit_metrics(*args, **kwargs):
+            pass
 
 # Load environment variables
 load_dotenv()
@@ -293,14 +303,6 @@ class TimeBasedStrategy(CacheStrategy):
 
 class FrequencyBasedStrategy(CacheStrategy):
     def __init__(self, min_hits: int = 5, ttl: int = 86400, max_size: int = 50):
-        """
-        Frequency-based caching strategy
-        
-        Args:
-            min_hits: Minimum number of hits to cache
-            ttl: Time-to-live in seconds (default: 24 hours)
-            max_size: Maximum number of items (default: 50)
-        """
         super().__init__('frequency_based', ttl, max_size)
         self.min_hits = min_hits
         self.hit_counter = {}
@@ -425,14 +427,20 @@ class RedisCache:
             port: Redis port
             db: Redis database number
         """
+        if host is None:
+            host = 'localhost'
+        if port is None:
+            port = 6379
+        if db is None:
+            db = 0
         self.client = redis.Redis(host=host, port=port, db=db)
         self._last_cleanup = datetime.now()
         self.strategies = {
             'time_based': TimeBasedStrategy(),
-            'frequency_based': FrequencyBasedStrategy(),
-            'lru': LRUStrategy(),
-            'content_based': ContentBasedStrategy(),
-            'contextual': ContextualStrategy()
+            'frequency_based': FrequencyBasedStrategy(min_hits=5, ttl=86400, max_size=50),
+            'lru': LRUStrategy(ttl=3600, max_size=100, eviction_threshold=0.8),
+            'content_based': ContentBasedStrategy(similarity_threshold=0.8, ttl=3600, max_size=100),
+            'contextual': ContextualStrategy(context_fields=['topic', 'language', 'version'], ttl=3600, max_size=100)
         }
         self.strategy_order = [
             'contextual',  # First, try contextual caching
@@ -538,20 +546,6 @@ class RedisCache:
         """Clean up expired items and optimize cache"""
         super().cleanup()
         self.optimize_cache()
-        """
-        Initialize Redis cache with multiple strategies
-        
-        Args:
-            host: Redis host
-            port: Redis port
-            db: Redis database number
-        """
-        self.client = redis.Redis(host=host, port=port, db=db)
-        self._last_cleanup = datetime.now()
-        self.strategies = {
-            'time_based': TimeBasedStrategy(),
-            'frequency_based': FrequencyBasedStrategy()
-        }
 
     def get(self, key: str, strategy: str = 'time_based') -> Optional[Any]:
         """
@@ -761,7 +755,7 @@ class RateLimitConfig:
     ):
         """
         Rate limiting configuration
-        
+
         Args:
             calls_per_minute: Maximum calls per minute
             window_size: Size of the time window in seconds

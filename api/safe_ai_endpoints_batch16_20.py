@@ -10,15 +10,10 @@ import json
 from autonomy.security.ai_safety_layer import anti_static_guard
 from autonomy.analytics import (
     multi_currency_safe_ai_revenue_tracking, ai_safe_tax_region_reporting, static_vault_licensing_map,
-    multi_region_compliance_status_tracker, partner_api_legal_health_map, global_vault_ecosystem_maturity_scorecard,
-    annual_safe_ai_executive_summary_report, safe_ai_ceo_dashboard, global_safe_ai_business_impact_map,
-    partner_legal_term_tracker, safe_ai_esg_score_report, cross_vault_ip_overlap_map, long_term_safe_ai_system_resilience_audit,
+    multi_region_compliance_status_tracker, annual_safe_ai_executive_summary_report, safe_ai_ceo_dashboard, global_safe_ai_business_impact_map,
+    partner_legal_term_tracker, safe_ai_esg_score_report, cross_vault_ip_overlap_map, int_term_safe_ai_system_resilience_audit,
     cross_partner_safe_ai_alignment_report, safe_ai_governance_board_report_generator, safe_ai_multi_year_compliance_tracker,
-    external_auditor_safe_ai_certification_export, safe_ai_roadmap_summary_export, safe_ai_web3_legal_compatibility_map,
-    safe_ai_cross_chain_revenue_tracker, static_nft_licensing_tracker, web3_partner_ecosystem_audit_report,
-    safe_ai_blockchain_transparency_export, safe_ai_digital_asset_ip_risk_report, safe_ai_enterprise_business_maturity_index,
-    safe_ai_future_trends_manual_input_tracker, ai_policy_cross_check_generator, global_safe_ai_partner_network_health_report,
-    safe_ai_system_renewal_planner, safe_ai_trusted_partner_public_report_generator
+    external_auditor_safe_ai_certification_export, safe_ai_roadmap_summary_export
 )
 from autonomy.partner_certification import (
     partner_certification_tracker, partner_self_certification_submission
@@ -26,7 +21,7 @@ from autonomy.partner_certification import (
 from backend.main import get_current_user
 
 # --- REAL DATA PLACEHOLDERS ---
-import json, os
+import os
 
 def get_real_multi_currency_revenue_data():
     """
@@ -152,7 +147,7 @@ def get_real_esg_score_data():
 def get_real_cross_vault_ip_overlap_data():
     # TODO: Replace with real DB/API call
     return []
-def get_real_long_term_system_resilience_data():
+def get_real_int_term_system_resilience_data():
     # TODO: Replace with real DB/API call
     return []
 def get_real_cross_partner_alignment_data():
@@ -274,15 +269,15 @@ def get_cross_vault_ip_overlap_map(user=Depends(get_current_user)):
     return JSONResponse(result)
 
 # --- BATCH 18 ---
-@router.get("/api/analytics/long_term_system_resilience_audit")
-def get_long_term_system_resilience_audit(user=Depends(get_current_user)):
-    data = get_real_long_term_system_resilience_data()
-    result = long_term_safe_ai_system_resilience_audit.long_term_system_resilience_audit(data)
-def get_long_term_system_resilience_audit():
+@router.get("/api/analytics/int_term_system_resilience_audit")
+def get_int_term_system_resilience_audit(user=Depends(get_current_user)):
+    data = get_real_int_term_system_resilience_data()
+    result = int_term_safe_ai_system_resilience_audit.int_term_system_resilience_audit(data)
+def get_int_term_system_resilience_audit():
     data = {}
-    result = long_term_safe_ai_system_resilience_audit.long_term_resilience_audit(data)
+    result = int_term_safe_ai_system_resilience_audit.int_term_resilience_audit(data)
     result_json = json.dumps(result)
-    if not anti_static_guard(result_json, user=None, action="long_term_system_resilience_audit"):
+    if not anti_static_guard(result_json, user=None, action="int_term_system_resilience_audit"):
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 

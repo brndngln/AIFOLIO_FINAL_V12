@@ -2,12 +2,7 @@ import os
 import json
 from datetime import datetime
 
-import os
-import json
 import time
-import logging
-import traceback
-from datetime import datetime
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
@@ -62,7 +57,7 @@ def handle_event(payload: dict):
             safe_path = enforce_safe_filename(payload['bonus_file_path'], payload.get('vault_title', vault_id))
             if payload.get('notify_on_bonus'):
                 email_subject = f"[AIFOLIO] Upsell Bonus Delivered: {vault_id}"
-                email_body = f"A bonus file for your upsell was delivered."
+                email_body = "A bonus file for your upsell was delivered."
                 send_status = send_vault_email(
                     payload.get('user_email'),
                     email_subject,
@@ -95,7 +90,7 @@ def handle_event(payload: dict):
     if errors:
         try:
             detect_anomaly(vault_id, errors)
-        except Exception as e:
+        except Exception:
             pass
     print(f"[AIFOLIO] Upsell triggered for vault {vault_id} by user {user_id} on page {upsell_page}. Bonus delivered: {bonus_delivered}")
     return {"status": "success", "vault_id": vault_id, "user_id": user_id, "errors": errors}

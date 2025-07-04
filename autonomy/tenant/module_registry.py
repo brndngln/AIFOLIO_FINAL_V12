@@ -1,7 +1,7 @@
 """
 Static Module Registry for Per-Tenant Customization
 """
-from typing import Dict, List
+from typing import List
 
 MODULES = {
     "vault": "SAFE AI Vault & Revenue Mesh",

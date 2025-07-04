@@ -19,8 +19,6 @@ def is_forbidden(filename):
             return True
     return False
 
-import functools
-import os
 
 def autonomous_recovery(func):
     @functools.wraps(func)

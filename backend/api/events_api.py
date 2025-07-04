@@ -3,7 +3,6 @@ from core.event_router import EventRouter
 from datetime import datetime
 from fastapi.responses import JSONResponse
 import logging
-import json
 from integrations.webhooks import verify_webhook_signature
 
 router = APIRouter()
@@ -44,7 +43,7 @@ def get_event_log():
                     'integrations': []
                 })
         return JSONResponse(events)
-    except Exception as e:
+    except Exception:
         return JSONResponse([], status_code=500)
 
 @router.post('/api/events/retrigger')

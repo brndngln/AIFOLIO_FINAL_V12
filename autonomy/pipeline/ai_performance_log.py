@@ -1,11 +1,8 @@
 import os
 import json
 import sqlite3
-import datetime
-import time
-import threading
 import difflib
-from collections import deque, defaultdict
+from collections import deque
 from spellchecker import SpellChecker
 
 LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics'))

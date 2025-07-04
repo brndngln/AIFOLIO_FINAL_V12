@@ -6,7 +6,6 @@ Non-Human Entity Control Protocol (AI Domestication Framework) — OMNIELITE SYS
 """
 from functools import wraps
 from core.compliance.emma_guardian import emma
-from core.compliance.sentience_firewall import sentience_firewall
 
 class AIDomesticationProtocol:
     @staticmethod

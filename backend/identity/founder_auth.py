@@ -1,8 +1,9 @@
 # founder_auth.py
 # FastAPI endpoints for founder-only authentication and lock enforcement
-from fastapi import APIRouter, Request, HTTPException, Depends
-from .crypto_utils import get_device_fingerprint, verify_signature, verify_otp
-import json, os
+from fastapi import APIRouter, Request, HTTPException
+from .crypto_utils import verify_signature, verify_otp
+import json
+import os
 
 router = APIRouter()
 

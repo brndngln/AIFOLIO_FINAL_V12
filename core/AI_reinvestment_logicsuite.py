@@ -1,6 +1,5 @@
 # AI_reinvestment_logicsuite.py
 # Applies billionaire filter, ROI, and priority logic to reinvestment proposals
-import json
 class AIReinvestmentLogicSuite:
     def rank_and_filter(self, proposals, brain_profiles):
         # Only allow ROI >= 6 and not saturated

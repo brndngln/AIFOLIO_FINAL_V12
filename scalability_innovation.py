@@ -3,7 +3,7 @@ AIFOLIO™ GLOBAL SCALABILITY, INNOVATION LAB, & SUSTAINABILITY
 Multi-region, innovation, and eco-efficiency modules. OWNER-controlled, SAFE AI-compliant.
 """
 import logging
-from typing import Any, Dict
+from typing import Any
 
 class GlobalScalability:
     def deploy_region(self, region: str):

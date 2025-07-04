@@ -5,7 +5,6 @@ AIFOLIO™ PROFIT WARP ENGINE: AI REVENUE LOOP LOGIC
 - Syncs to APIs, Stripe, Gumroad, Podia, bots, export schedulers
 """
 from typing import List, Dict, Any
-import random
 
 class AIRevenueLoop:
     def detect_top_performers(self, vaults: List[Dict[str, Any]], metric: str = 'revenue', top_n: int = 3) -> List[Dict[str, Any]]:

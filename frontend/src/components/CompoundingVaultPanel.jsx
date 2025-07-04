@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // SAFE AI, deterministic, static, owner-controlled compounding vault controls
-export default function CompoundingVaultPanel({ onAction }) {
+function CompoundingVaultPanel({ onAction }) {
   const [vaults, setVaults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -109,3 +109,10 @@ export default function CompoundingVaultPanel({ onAction }) {
     </section>
   );
 }
+
+CompoundingVaultPanel.propTypes = {
+  onAction: PropTypes.func
+}; // [WINDSURF FIXED]
+
+export default CompoundingVaultPanel; // [WINDSURF FIXED]
+
