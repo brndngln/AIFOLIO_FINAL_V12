@@ -2,12 +2,18 @@ import os
 import json
 from datetime import datetime
 
+<<<<<<< HEAD
 import os
 import json
 import time
 import logging
 import traceback
 from datetime import datetime
+=======
+import time
+import logging
+import traceback
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.integrations.stripe_sync import sync_to_stripe
 from autonomy.integrations.notion_sync import sync_to_notion
 from autonomy.integrations.crm_sync import sync_to_crm
@@ -15,17 +21,26 @@ from autonomy.integrations.analytics_reporting import report_to_analytics
 from autonomy.integrations.xbrl_export import export_to_xbrl
 from autonomy.ai_tools.spellcheck import spellcheck_text
 from autonomy.ai_tools.grammar_check import grammar_check_text
+<<<<<<< HEAD
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.ai_tools.audit_bot import audit_vault_compliance
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
 from autonomy.utils.email_alert import send_email_alert
+<<<<<<< HEAD
 from autonomy.utils.vault_event_log import log_vault_event
 from autonomy.utils.performance_monitor import monitor_vault_build
 from autonomy.utils.version_tracker import track_template_version
 from autonomy.utils.retry import retry_safe
 from autonomy.utils.activity_log import log_activity
+=======
+from autonomy.utils.performance_monitor import monitor_vault_build
+from autonomy.utils.version_tracker import track_template_version
+from autonomy.utils.retry import retry_safe
+>>>>>>> omni_repair_backup_20250704_1335
 
 logger = logging.getLogger("vault_metadata_updated")
 
@@ -88,8 +103,11 @@ def handle_event(payload: dict):
     analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/metadata_update_log.json'))
     start_time = time.time()
     # Spellcheck/grammar correction for changed fields
+<<<<<<< HEAD
     from autonomy.ai_tools.spellcheck import spellcheck_text
     from autonomy.ai_tools.grammar_check import grammar_check_text
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     if isinstance(changes, dict):
         for k, v in changes.items():
             if isinstance(v, str):
@@ -103,9 +121,12 @@ def handle_event(payload: dict):
         "changes": changes
     }
     import os
+<<<<<<< HEAD
     import json
     import traceback
     from datetime import datetime
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     import logging
     logger = logging.getLogger("vault_metadata_updated")
     # Log metadata change

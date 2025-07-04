@@ -2,18 +2,29 @@
 product_gen.py — Product Generation Blueprint
 Elite security, ethics, and maintainability: CSRF, audit logging, AI oversight, human-in-the-loop.
 """
+<<<<<<< HEAD
 from flask import Blueprint, render_template, request, session
 from dashboard.web_dashboard import (
     validate_csrf_token, generate_csrf_token, ai_action_with_oversight,
     optimize_prompt, select_visuals, suggest_sales_improvements, scan_and_fix, legal_scan
 )
 from datetime import datetime
+=======
+from flask import Blueprint, render_template, request
+>>>>>>> omni_repair_backup_20250704_1335
 
 product_gen_bp = Blueprint('product_gen', __name__, template_folder='templates')
 
 @product_gen_bp.route('/generate', methods=['GET', 'POST'])
 def generate():
     """Product generation with AI oversight, human-in-the-loop, CSRF, and double audit log."""
+<<<<<<< HEAD
+=======
+    from dashboard.web_dashboard import (
+        validate_csrf_token, generate_csrf_token, ai_action_with_oversight,
+        optimize_prompt, select_visuals, suggest_sales_improvements, scan_and_fix, legal_scan
+    )
+>>>>>>> omni_repair_backup_20250704_1335
     if request.method == 'POST':
         token = request.form.get('csrf_token')
         if not validate_csrf_token(token):

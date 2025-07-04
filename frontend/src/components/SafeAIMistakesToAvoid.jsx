@@ -14,6 +14,10 @@ const MISTAKES = [
   "Missing audit log entries for public-facing outputs"
 ];
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function SafeAIMistakesToAvoid() {
   return (
     <section aria-labelledby="safe-ai-mistakes-heading" style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>

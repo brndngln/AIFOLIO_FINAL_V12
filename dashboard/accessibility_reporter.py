@@ -2,7 +2,10 @@
 Automated accessibility testing and reporting for AIFOLIO™ dashboard (WCAG 2.1 AA).
 Uses axe-core via Selenium for frontend testing.
 """
+<<<<<<< HEAD
 import os
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 import json
 from selenium import webdriver
 from axe_selenium_python import Axe
@@ -66,7 +69,12 @@ def export_accessibility_pdf(report_path='../analytics/accessibility_report.json
     return buf
 
 def export_accessibility_csv(report_path='../analytics/accessibility_report.json'):
+<<<<<<< HEAD
     import io, csv
+=======
+    import io
+    import csv
+>>>>>>> omni_repair_backup_20250704_1335
     with open(report_path) as f:
         results = json.load(f)
     output = io.StringIO()

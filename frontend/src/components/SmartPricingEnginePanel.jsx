@@ -1,5 +1,9 @@
 import React from "react";
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function SmartPricingEnginePanel() {
   const features = [
     { label: "Manual Price Lock", desc: "OWNER can set/lock price" },

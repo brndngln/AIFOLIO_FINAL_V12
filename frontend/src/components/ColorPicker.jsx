@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 
 function ColorPicker({ component, property, defaultValue }) {
+<<<<<<< HEAD
   const { theme, setTheme } = useTheme();
+=======
+  const { setTheme } = useTheme();
+>>>>>>> omni_repair_backup_20250704_1335
   const [color, setColor] = useState(localStorage.getItem(`color-${component}-${property}`) || defaultValue);
 
   const handleChange = (e) => {

@@ -1,7 +1,11 @@
 """
 Static Module Registry for Per-Tenant Customization
 """
+<<<<<<< HEAD
 from typing import Dict, List
+=======
+from typing import List
+>>>>>>> omni_repair_backup_20250704_1335
 
 MODULES = {
     "vault": "SAFE AI Vault & Revenue Mesh",

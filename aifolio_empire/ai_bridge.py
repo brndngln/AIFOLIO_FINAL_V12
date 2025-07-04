@@ -175,7 +175,11 @@ class AIBridge:
             if not isinstance(prompt, str):
                 raise ValueError("Prompt must be a string")
             if len(prompt) > MAX_PROMPT_LENGTH:
+<<<<<<< HEAD
                 raise ValueError(f"Prompt too long (max {MAX_PROMPT_LENGTH} characters)")
+=======
+                raise ValueError(f"Prompt too int (max {MAX_PROMPT_LENGTH} characters)")
+>>>>>>> omni_repair_backup_20250704_1335
             if not 0 <= temperature <= 1.0:
                 raise ValueError("Temperature must be between 0 and 1")
 
@@ -199,7 +203,11 @@ class AIBridge:
 
             generated_text = response.choices[0].message.content
             if len(generated_text) > MAX_RESPONSE_LENGTH:
+<<<<<<< HEAD
                 raise ValueError(f"Response too long (max {MAX_RESPONSE_LENGTH} characters)")
+=======
+                raise ValueError(f"Response too int (max {MAX_RESPONSE_LENGTH} characters)")
+>>>>>>> omni_repair_backup_20250704_1335
 
             return {
                 'text': generated_text,

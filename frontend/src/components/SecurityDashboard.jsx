@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
+=======
+// [WINDSURF FIXED ✅]
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useTheme } from '../theme/ThemeProvider';
+import axios from 'axios';
+
+>>>>>>> omni_repair_backup_20250704_1335
 
 const SecurityDashboard = () => {
     const { theme } = useTheme();
@@ -12,7 +21,11 @@ const SecurityDashboard = () => {
         ccpa: 0,
         hipaa: 0,
         lastScan: null
+<<<<<<< HEAD
     });
+=======
+    }); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
     useEffect(() => {
         const fetchSecurityData = async () => {
@@ -39,9 +52,13 @@ const SecurityDashboard = () => {
         return () => clearInterval(interval);
     }, []);
 
+<<<<<<< HEAD
     const formatTimestamp = (timestamp) => {
         return format(new Date(timestamp), 'MMM d, yyyy HH:mm:ss');
     };
+=======
+
+>>>>>>> omni_repair_backup_20250704_1335
 
     return (
         <div className="security-dashboard" style={{
@@ -58,6 +75,7 @@ const SecurityDashboard = () => {
             }}>
                 Security Monitoring
             </h2>
+<<<<<<< HEAD
 
             <div className="security-grid" style={{
                 display: 'grid',
@@ -65,6 +83,9 @@ const SecurityDashboard = () => {
                 gap: '1rem',
                 marginTop: '2rem'
             }}>
+=======
+            <div style={{display:'flex',gap:'2rem',flexWrap:'wrap'}}>
+>>>>>>> omni_repair_backup_20250704_1335
                 <AlertsCard alerts={alerts} theme={theme} />
                 <VulnerabilitiesCard vulnerabilities={vulnerabilities} theme={theme} />
                 <ComplianceCard compliance={compliance} theme={theme} />
@@ -108,7 +129,11 @@ const AlertsCard = ({ alerts, theme }) => (
                         <span style={{
                             color: theme.secondary,
                             marginLeft: '0.5rem'
+<<<<<<< HEAD
                         }}>at {formatTimestamp(alert.timestamp)}</span>
+=======
+                        }}>at {String(alert.timestamp)}</span>
+>>>>>>> omni_repair_backup_20250704_1335
                     </div>
                     <div style={{
                         color: alert.status === 'resolved' ? theme.accent : theme.error
@@ -119,6 +144,14 @@ const AlertsCard = ({ alerts, theme }) => (
     </div>
 );
 
+<<<<<<< HEAD
+=======
+AlertsCard.propTypes = {
+    alerts: PropTypes.array.isRequired,
+    theme: PropTypes.object.isRequired
+};
+
+>>>>>>> omni_repair_backup_20250704_1335
 const VulnerabilitiesCard = ({ vulnerabilities, theme }) => (
     <div className="security-card" style={{
         padding: '1rem',
@@ -161,6 +194,14 @@ const VulnerabilitiesCard = ({ vulnerabilities, theme }) => (
     </div>
 );
 
+<<<<<<< HEAD
+=======
+VulnerabilitiesCard.propTypes = {
+    vulnerabilities: PropTypes.array.isRequired,
+    theme: PropTypes.object.isRequired
+};
+
+>>>>>>> omni_repair_backup_20250704_1335
 const ComplianceCard = ({ compliance, theme }) => (
     <div className="security-card" style={{
         padding: '1rem',
@@ -204,11 +245,23 @@ const ComplianceCard = ({ compliance, theme }) => (
             color: theme.secondary,
             textAlign: 'right'
         }}>
+<<<<<<< HEAD
             Last Scan: {compliance.lastScan ? formatTimestamp(compliance.lastScan) : 'Never'}
+=======
+            Last Scan: {compliance.lastScan ? String(compliance.lastScan) : 'Never'}
+>>>>>>> omni_repair_backup_20250704_1335
         </div>
     </div>
 );
 
+<<<<<<< HEAD
+=======
+ComplianceCard.propTypes = {
+    compliance: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired
+};
+
+>>>>>>> omni_repair_backup_20250704_1335
 const ComplianceItem = ({ label, value, status, theme }) => (
     <div className="compliance-item" style={{
         padding: '0.5rem',
@@ -229,4 +282,14 @@ const ComplianceItem = ({ label, value, status, theme }) => (
     </div>
 );
 
+<<<<<<< HEAD
+=======
+ComplianceItem.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    status: PropTypes.string,
+    theme: PropTypes.object.isRequired
+};
+
+>>>>>>> omni_repair_backup_20250704_1335
 export default SecurityDashboard;

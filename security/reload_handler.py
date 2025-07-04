@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import os
 import sys
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 def hot_reload_config():
     # For FastAPI: reload config from vault or .env

@@ -16,8 +16,14 @@ function setSettings(settings) {
   if (typeof settings.demo === "boolean") localStorage.setItem("aifolio_demo_mode", settings.demo ? "true" : "false");
 }
 
+<<<<<<< HEAD
 export default function OwnerBackupRestorePanel() {
   const inputRef = useRef();
+=======
+// [WINDSURF FIXED ✅]
+export default function OwnerBackupRestorePanel() {
+  const inputRef = useRef(); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   function handleBackup() {
     const data = JSON.stringify(getSettings(), null, 2);

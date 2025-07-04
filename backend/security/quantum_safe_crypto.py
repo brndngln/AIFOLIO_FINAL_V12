@@ -1,6 +1,10 @@
 """
 AIFOLIO Quantum-Safe RSA/ECC Key Generation
+<<<<<<< HEAD
 Static, deterministic, SAFE AI-compliant quantum-safe key generator for long-term storage.
+=======
+Static, deterministic, SAFE AI-compliant quantum-safe key generator for int-term storage.
+>>>>>>> omni_repair_backup_20250704_1335
 """
 import logging
 logger = logging.getLogger(__name__)

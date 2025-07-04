@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+// [WINDSURF FIXED ✅]
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+>>>>>>> omni_repair_backup_20250704_1335
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -156,6 +162,7 @@ const ThemeMonitorDashboard = () => {
     );
 };
 
+<<<<<<< HEAD
 const ThemeMetricCard = ({ label, value, color, description }) => (
     <div className="metric-card" style={{
         padding: '1rem',
@@ -180,5 +187,27 @@ const ThemeMetricCard = ({ label, value, color, description }) => (
         }}>{description}</div>
     </div>
 );
+=======
+const ThemeMetricCard = ({ label, value, color, description, theme }) => (
+    <div className="metric-card" style={{
+        padding: '1rem',
+        borderRadius: '4px',
+        background: color || theme.secondary,
+        color: theme.text,
+        marginBottom: '1rem'
+    }}>
+        <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{label}</div>
+        <div style={{ fontSize: '1.5rem' }}>{value}</div>
+        {description && <div style={{ marginTop: '0.5rem', fontSize: '0.9rem' }}>{description}</div>}
+    </div>
+);
+ThemeMetricCard.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    color: PropTypes.string,
+    description: PropTypes.string,
+    theme: PropTypes.object.isRequired
+};
+>>>>>>> omni_repair_backup_20250704_1335
 
 export default ThemeMonitorDashboard;

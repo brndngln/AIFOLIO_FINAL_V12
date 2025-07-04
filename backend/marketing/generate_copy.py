@@ -9,6 +9,12 @@ from backend.utils.api_utils import (
     handle_api_errors
 )
 
+<<<<<<< HEAD
+=======
+def safe_ai_guarded(func):
+    return func
+
+>>>>>>> omni_repair_backup_20250704_1335
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

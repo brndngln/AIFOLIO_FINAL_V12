@@ -2,9 +2,14 @@
 EthicsBot / QualityGuard AI (Non-sentient, stateless)
 """
 from .sentience_guard import sentience_guard
+<<<<<<< HEAD
 from .ai_domestication_protocol import domesticate_ai, AIDomesticationProtocol
 from core.compliance.sentience_firewall import sentience_firewall
 import logging
+=======
+from .ai_domestication_protocol import domesticate_ai
+from core.compliance.sentience_firewall import sentience_firewall
+>>>>>>> omni_repair_backup_20250704_1335
 
 UNETHICAL_PATTERNS = ["manipulate", "scam", "deceive", "false", "mislead", "bias", "discriminate", "stereotype", "guaranteed", "secret", "get rich", "overnight", "never fail", "loophole"]
 MIN_READABILITY = 50  # Flesch score (simulate)
@@ -43,7 +48,10 @@ def enforce_ethics(module_name, state, text):
 
 from ai_engines.prompt_optimizer import enforce_legal_safety
 
+<<<<<<< HEAD
 from ai_engines.prompt_optimizer import enforce_legal_safety
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 def ethics_quality_check(output):
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---

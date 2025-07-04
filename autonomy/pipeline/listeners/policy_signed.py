@@ -2,12 +2,16 @@ import os
 import json
 from datetime import datetime
 
+<<<<<<< HEAD
 import os
 import json
 import time
 import logging
 import traceback
 from datetime import datetime
+=======
+import time
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
@@ -74,7 +78,11 @@ def handle_event(payload: dict):
     if errors:
         try:
             detect_anomaly(user_id, errors)
+<<<<<<< HEAD
         except Exception as e:
+=======
+        except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
             pass
     print(f"[AIFOLIO] Policy version {policy_version} signed by user {user_id}.")
     return {"status": "success", "user_id": user_id, "errors": errors}

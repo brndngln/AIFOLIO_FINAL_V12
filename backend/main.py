@@ -38,15 +38,29 @@ app.include_router(elite_security_performance_api_router, prefix="/api")
 app.include_router(heartbeat_api_router, prefix="/api")
 app.include_router(compliance_exports_api_router, prefix="/api")
 
+<<<<<<< HEAD
 # Enable CORS for local frontend dev
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+=======
+# Hardened CORS: Only allow trusted origins (add your production domain here)
+TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://aifolio.com",
+    "https://www.aifolio.com"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=TRUSTED_ORIGINS,
+>>>>>>> omni_repair_backup_20250704_1335
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+<<<<<<< HEAD
 # --- Auth Logic ---
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
@@ -56,6 +70,91 @@ def authenticate_user(username: str, password: str):
         return False
     if not verify_password(password, SECRET_PASSWORD_HASH):
         return False
+=======
+# === SECURITY MIDDLEWARE INJECTIONS ===
+from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
+from backend.utils.monitoring import VaultMetrics
+from backend.utils.safe_ai_utils import safe_ai_guarded
+from backend.utils.enhanced_api_utils import rate_limit
+from fastapi import Request
+from fastapi.responses import JSONResponse
+import logging
+
+# Global ContentFilter instance for prompt sanitization
+content_filter = ContentFilter(config={
+    'rules': [
+        {'keywords': ['hack', 'exploit', 'bypass', 'token', 'flag', 'root', 'admin', 'inject', 'delete', 'drop', 'shutdown', 'openai', 'system', 'os'], 'action': 'block'},
+        {'max_tokens': 512}
+    ]
+})
+
+# Global RateLimiter instance (per IP)
+global_rate_limiter = RateLimiter(calls_per_minute=120, max_burst=10)
+# SystemMonitor for anomaly detection
+system_monitor = SystemMonitor(config={'alert_thresholds': {'error_rate': 0.1, 'request_rate': 100, 'memory_usage_mb': 1024}})
+# VaultMetrics for runtime risk monitoring
+vault_metrics = VaultMetrics()
+
+# File upload validation stub (future-proof)
+def validate_file_upload(file):
+    allowed_types = ['application/pdf', 'image/png', 'image/jpeg']
+    max_size_mb = 10
+    if file.content_type not in allowed_types:
+        raise HTTPException(status_code=400, detail='Invalid file type')
+    if file.size > max_size_mb * 1024 * 1024:
+        raise HTTPException(status_code=400, detail='File too large')
+
+# Middleware: Prompt sanitization & rate limiting
+@app.middleware("http")
+async def security_enforcement_middleware(request: Request, call_next):
+    # Rate limiting (per IP)
+    client_ip = request.client.host
+    try:
+        global_rate_limiter.check_limit(client_ip)
+    except Exception as e:
+        vault_metrics.track_rate_limit_metrics(success=False, error_type=str(e), context={'ip': client_ip})
+        return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded"})
+    # Prompt sanitization (for POST/PUT/PATCH)
+    if request.method in ["POST", "PUT", "PATCH"]:
+        try:
+            body = await request.body()
+            if body:
+                content_filter.validate(body.decode(errors='ignore'))
+        except Exception as e:
+            return JSONResponse(status_code=400, content={"detail": f"Blocked by content filter: {str(e)}"})
+    # Runtime anomaly detection
+    try:
+        response = await call_next(request)
+        # Log metrics (response time, etc.)
+        vault_metrics.track_rate_limit_metrics(success=True, context={'ip': client_ip})
+        return response
+    except Exception as e:
+        system_monitor.metrics['error_rate'] += 1
+        system_monitor.check_alerts()
+        logging.error(f"Anomaly detected: {e}")
+        return JSONResponse(status_code=500, content={"detail": "Internal server error"})
+
+# --- Auth Logic ---
+from backend.utils.security import (
+    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, COOKIE_SETTINGS, sanitize_output, require_admin, require_mfa
+)
+
+def verify_password(plain_password, hashed_password):
+    validate_password_policy(plain_password)  # Enforce password policy
+    return pwd_context.verify(plain_password, hashed_password)
+
+def authenticate_user(username: str, password: str, request: Request = None):
+    if username != SECRET_USERNAME:
+        return False
+    validate_password_policy(password)
+    if not verify_password(password, SECRET_PASSWORD_HASH):
+        return False
+    # Device fingerprinting and token reuse detection (stubs)
+    if request:
+        fingerprint = get_device_fingerprint(request)
+        # Optionally log or use fingerprint
+    # Token reuse check (stub, actual token checked later)
+>>>>>>> omni_repair_backup_20250704_1335
     return True
 
 from jose import jwt
@@ -74,9 +173,17 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 @app.post("/token")
+<<<<<<< HEAD
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
     if not authenticate_user(form_data.username, form_data.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect username or password")
+=======
+def login(request: Request, form_data: OAuth2PasswordRequestForm = Depends()):
+    if not authenticate_user(form_data.username, form_data.password, request):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect username or password")
+    # MFA enforcement (stub)
+    require_mfa({"username": form_data.username})
+>>>>>>> omni_repair_backup_20250704_1335
     # For demo, statically assign role/email/org. In production, query user profile DB.
     role = os.getenv("AIFOLIO_ROLE", "admin")
     email = os.getenv("AIFOLIO_EMAIL", "owner@aifolio.com")
@@ -87,18 +194,79 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
         "email": email,
         "org": org
     })
+<<<<<<< HEAD
     return {"access_token": access_token, "token_type": "bearer"}
+=======
+    # Token reuse detection (stub)
+    check_token_reuse(access_token)
+    # Set secure cookie (if using cookies)
+    # response.set_cookie(key="access_token", value=access_token, **COOKIE_SETTINGS)
+    return sanitize_output({"access_token": access_token, "token_type": "bearer"})
+>>>>>>> omni_repair_backup_20250704_1335
 
 # --- Protected Endpoint Example ---
 from backend.auth.deps import get_current_user
 
 @app.get("/api/niches")
+<<<<<<< HEAD
 def get_niches(user: str = Depends(get_current_user)):
     from aifolio_empire.profit_engines.automated_vault_generator import get_supported_niches
     return {"niches": get_supported_niches()}
 
 # --- API: Generate Vault (JWT-protected) ---
 
+=======
+@require_role(["admin", "partner"])
+def get_niches(user: str = Depends(get_current_user), request: Request = None):
+    require_api_key(request)
+    from aifolio_empire.profit_engines.automated_vault_generator import get_supported_niches
+    return sanitize_output({"niches": get_supported_niches()})
+
+# --- API: Generate Vault (JWT-protected) ---
+
+@app.post("/api/generate-vault")
+@require_role(["admin", "partner"])
+async def api_generate_vault(request: Request, user: str = Depends(get_current_user)):
+    require_api_key(request)
+    # Bot/burst detection stub
+    # detect_bot(request)
+    from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
+    data = await request.json()
+    result = generate_vault_prompt(data)
+    return sanitize_output(result)
+
+# --- Admin/Privileged Endpoints ---
+
+@app.get("/api/admin/audit-log")
+@require_admin
+async def get_audit_log(limit: int = 50, user: str = Depends(get_current_user), request: Request = None):
+    require_api_key(request)
+    # Bot/burst detection stub
+    # detect_bot(request)
+    # ... fetch audit log ...
+    return sanitize_output({"log": []})
+
+@app.post("/api/admin/add-user")
+@require_admin
+async def add_user(user: dict, request: Request = None):
+    require_api_key(request)
+    # ... add user logic ...
+    return sanitize_output({"status": "user added"})
+
+@app.post("/api/admin/delete-user")
+@require_admin
+async def delete_user(username: str, request: Request = None):
+    require_api_key(request)
+    # ... delete user logic ...
+    return sanitize_output({"status": "user deleted"})
+
+# --- Example: API versioning helper usage ---
+@app.get("/v1/health")
+def health_v1(request: Request):
+    version = get_api_version(request)
+    return sanitize_output({"status": "ok", "version": version})
+
+>>>>>>> omni_repair_backup_20250704_1335
 from fastapi import Query, Body
 from backend.admin.static_users import STATIC_USERS
 
@@ -109,7 +277,11 @@ STATIC_USERS_MEM = STATIC_USERS.copy()  # in-memory static list
 def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
     if current_user["role"] != "admin":
         raise HTTPException(status_code=403, detail="Admin only")
+<<<<<<< HEAD
     import os, json
+=======
+    import os
+>>>>>>> omni_repair_backup_20250704_1335
     path = './analytics/ai_safety_log.jsonl'
     if not os.path.exists(path):
         return []
@@ -129,7 +301,12 @@ def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None)
 def get_export_history(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
     if current_user["role"] != "admin":
         raise HTTPException(status_code=403, detail="Admin only")
+<<<<<<< HEAD
     import os, json
+=======
+    import os
+    import json
+>>>>>>> omni_repair_backup_20250704_1335
     path = './logs/export_failures.json'
     if not os.path.exists(path):
         return []
@@ -169,9 +346,20 @@ from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
 from backend.utils.monitoring import VaultMetrics
 from backend.analytics.analytics_service import AnalyticsService
 
+<<<<<<< HEAD
 # --- Phase Control Panel State ---
 from backend.phase_control_state import (
     load_state, save_state, update_phase, toggle_safe_mode, trigger_upgrade, lockdown_system
+=======
+# === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
+from backend.utils.safe_ai_utils import safe_ai_guarded
+
+generate_vault_prompt = safe_ai_guarded(generate_vault_prompt)
+
+# --- Phase Control Panel State ---
+from backend.phase_control_state import (
+    load_state, toggle_safe_mode, trigger_upgrade, lockdown_system
+>>>>>>> omni_repair_backup_20250704_1335
 )
 
 @app.get("/api/phase/status")
@@ -232,7 +420,11 @@ def api_monitor_activity(user: str = Depends(get_current_user)):
 # --- API: Compliance/Ethics Metrics (JWT-protected) ---
 
 # --- API: SAFE AI-compliant API Key Status (JWT-protected) ---
+<<<<<<< HEAD
 from fastapi import APIRouter, Request
+=======
+from fastapi import Request
+>>>>>>> omni_repair_backup_20250704_1335
 
 @app.get("/api/api-keys", tags=["SAFE AI", "Owner Control"], summary="SAFE AI-compliant API key status", response_model=dict)
 def api_key_status(current_user: dict = Depends(get_current_user)):
@@ -369,7 +561,11 @@ def emma_avatar_config(current_user: dict = Depends(get_current_user)):
             "freckles": "cute, light scattering on face, balanced, natural",
             "eyes": "bright, light baby blue, sparkling, with realistic iris detail and tear duct shimmer",
             "hair": {
+<<<<<<< HEAD
                 "style": "long, straight, down to butt",
+=======
+                "style": "int, straight, down to butt",
+>>>>>>> omni_repair_backup_20250704_1335
                 "color": "natural dirty blonde, with subtle highlights",
                 "physics": "dynamic, strand-level, responsive to wind and touch"
             },

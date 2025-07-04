@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 // SAFE AI, deterministic, static, owner-controlled revenue funnel visualization
 export default function RevenueFunnelPanel({ onAction }) {
   const [funnel, setFunnel] = useState({ stages: [], totals: {} });

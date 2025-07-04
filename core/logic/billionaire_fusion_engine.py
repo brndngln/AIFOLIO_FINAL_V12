@@ -1,6 +1,11 @@
 # core/logic/billionaire_fusion_engine.py
 # Elite activation logic for billionaire mind overlays
+<<<<<<< HEAD
 import json, os
+=======
+import json
+import os
+>>>>>>> omni_repair_backup_20250704_1335
 PROFILES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../config/billionaire_brain_profiles.json'))
 
 def activate_billionaire_profile(profile_name):

@@ -10,7 +10,11 @@ export default function OnboardingPanel() {
       <ol style={{fontSize:15,marginLeft:18,marginBottom:18}}>
         <li>Review all <b>Policy Documents</b> (Terms, Refund, Privacy) in the Policy panel below.</li>
         <li>Replace default icons in <code>public/</code> with your AIFOLIO™ icons for branding.</li>
+<<<<<<< HEAD
         <li>Install as a PWA ("Add to Home Screen") on Mac/phone and test offline support.</li>
+=======
+        <li>Install as a PWA (&quot;Add to Home Screen&quot;) on Mac/phone and test offline support.</li>
+>>>>>>> omni_repair_backup_20250704_1335
         <li>Review sample/test vaults in <code>src/sample-data/</code>.</li>
         <li>Complete all AIFOLIO checklists and safeguard panels.</li>
         <li>Run <code>npm run build</code> and deploy to your static host.</li>

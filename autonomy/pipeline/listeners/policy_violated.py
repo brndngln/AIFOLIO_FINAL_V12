@@ -34,6 +34,10 @@ def handle_event(payload):
     if errors:
         try:
             detect_anomaly(payload.get('vault_id', 'unknown'), errors)
+<<<<<<< HEAD
         except Exception as e:
+=======
+        except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
             pass
 

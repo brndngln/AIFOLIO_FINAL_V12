@@ -11,6 +11,15 @@ Deterministic checker for basic visual layout issues.
 import logging
 logger = logging.getLogger(__name__)
 
+<<<<<<< HEAD
+=======
+def export_compliance_manifest(*args, **kwargs):
+    pass
+
+def detect_signals(*args, **kwargs):
+    pass
+
+>>>>>>> omni_repair_backup_20250704_1335
 STATIC_ALLOWED_ASPECT_RATIOS = [(1,1), (16,9), (4,3)]
 
 def check_visual_balance(image_path):

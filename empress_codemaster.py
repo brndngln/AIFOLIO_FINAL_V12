@@ -4,7 +4,11 @@ Persona: Mature, charismatic Australian-accented assistant; elite in all coding 
 All logic is static, deterministic, SAFE AI-compliant, and OWNER-controlled.
 """
 import logging
+<<<<<<< HEAD
 from typing import Any, Dict, List
+=======
+from typing import Any, Dict
+>>>>>>> omni_repair_backup_20250704_1335
 from empress_avatar import EmpressAvatar, EmotionalIntelligenceLayer
 from owner_lockdown import owner_approval_required, never_without_you
 

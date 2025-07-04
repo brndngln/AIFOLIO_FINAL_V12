@@ -218,8 +218,13 @@ class AutomatedVaultGenerator:
             self.ethical_monitor.log_activity(content, metadata, f"block_too_short_{content_type}")
             raise ValueError(f"Content too short for {content_type}")
         if len(content) > self.config.MAX_CONTENT_LENGTH:
+<<<<<<< HEAD
             self.ethical_monitor.log_activity(content, metadata, f"block_too_long_{content_type}")
             raise ValueError(f"Content too long for {content_type}")
+=======
+            self.ethical_monitor.log_activity(content, metadata, f"block_too_int_{content_type}")
+            raise ValueError(f"Content too int for {content_type}")
+>>>>>>> omni_repair_backup_20250704_1335
         # --- ETHICAL & COMPLIANCE CHECKPOINTS ---
         # 1. Copyright Verification (static check + extension point for real API)
         KNOWN_COPYRIGHTED_PHRASES = [
@@ -411,7 +416,11 @@ class AutomatedVaultGenerator:
             if text_type not in ['title', 'problem', 'promise', 'cta', 'gumroad_hook', 'gumroad_benefit']:
                 raise ValueError(f"Invalid text type: {text_type}")
                 
+<<<<<<< HEAD
             if length not in ['short', 'medium', 'long']:
+=======
+            if length not in ['short', 'medium', 'int']:
+>>>>>>> omni_repair_backup_20250704_1335
                 raise ValueError(f"Invalid length: {length}")
                 
             templates = {
@@ -517,7 +526,10 @@ class AutomatedVaultGenerator:
         Integrates autonomous preview and pricing engines, and blocks publishing if preview JSON is missing/incomplete.
         """
         import importlib.util
+<<<<<<< HEAD
         import sys
+=======
+>>>>>>> omni_repair_backup_20250704_1335
         import traceback
         
         # --- Step 1: Generate base vault assets as before (simulated) ---

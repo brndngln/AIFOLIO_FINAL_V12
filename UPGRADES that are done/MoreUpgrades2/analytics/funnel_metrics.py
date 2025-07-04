@@ -1,5 +1,8 @@
 import json
+<<<<<<< HEAD
 import statistics
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 def get_funnel_metrics():
     try:

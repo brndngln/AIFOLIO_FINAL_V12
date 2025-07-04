@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import pytest
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.pipeline.event_bus import dispatch_event
 
 def test_download_initiated_event(monkeypatch):
@@ -12,7 +15,10 @@ def test_download_initiated_event(monkeypatch):
         'owner_email': 'user@example.com',
         'alert_email_opt_in': True
     }
+<<<<<<< HEAD
     from autonomy.pipeline.event_bus import dispatch_event
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     dispatch_event('download_initiated', payload)
     assert events, 'Event should be logged'
     assert events[0][0] == 'download_initiated'

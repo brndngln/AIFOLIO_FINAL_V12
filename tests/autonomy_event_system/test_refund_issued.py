@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import pytest
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.pipeline.event_bus import dispatch_event
 
 def test_refund_issued_event(monkeypatch):
@@ -12,7 +15,10 @@ def test_refund_issued_event(monkeypatch):
         'owner_email': 'user@example.com',
         'alert_email_opt_in': True
     }
+<<<<<<< HEAD
     from autonomy.pipeline.event_bus import dispatch_event
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     dispatch_event('refund_issued', payload)
     assert events, 'Event should be logged'
     assert events[0][0] == 'refund_issued'

@@ -58,6 +58,16 @@ ENV/
 
 # OS
 .DS_Store
+<<<<<<< HEAD
+=======
+
+# Node/JS
+node_modules/
+build/
+logs/
+coverage/
+.env
+>>>>>>> omni_repair_backup_20250704_1335
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -68,6 +78,11 @@ Thumbs.db
 # Project specific
 .env
 .env.*
+<<<<<<< HEAD
+=======
+.env.example
+
+>>>>>>> omni_repair_backup_20250704_1335
 # *.log (ALLOW ai_core/EmmaLogs/*.log for Emma audit)
 !/ai_core/EmmaLogs/*.log
 __tests__/
@@ -91,3 +106,8 @@ dist/
 .backups/
 .backups/
 .backups/
+<<<<<<< HEAD
+=======
+node_modules
+node_modules
+>>>>>>> omni_repair_backup_20250704_1335

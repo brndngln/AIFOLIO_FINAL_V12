@@ -11,7 +11,11 @@ def trigger_upsell_suggestion(buyer_email, vault_name):
     logging.info(f"[AIFOLIO] Upsell suggestion triggered for {buyer_email} on vault '{vault_name}'.")
     api_key = os.environ.get('SENDGRID_API_KEY')
     sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
+<<<<<<< HEAD
     subject = f"Special Offer: Enhance Your AIFOLIO™ Vault Experience!"
+=======
+    subject = "Special Offer: Enhance Your AIFOLIO™ Vault Experience!"
+>>>>>>> omni_repair_backup_20250704_1335
     body = f"Hi! As a thank you for purchasing '{vault_name}', we're offering you an exclusive upgrade. Click here to learn more."
     if api_key:
         try:

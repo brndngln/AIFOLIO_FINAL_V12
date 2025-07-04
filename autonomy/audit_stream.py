@@ -4,7 +4,11 @@ Phase 9+ SAFE AI Audit Log Streaming (static, SAFE AI compliant)
 - No adaptive logic; fully auditable and static
 """
 import time
+<<<<<<< HEAD
 from fastapi import APIRouter, Request, HTTPException
+=======
+from fastapi import APIRouter, Request
+>>>>>>> omni_repair_backup_20250704_1335
 from fastapi.responses import StreamingResponse
 
 audit_router = APIRouter()

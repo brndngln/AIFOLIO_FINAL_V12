@@ -3,10 +3,13 @@ import logging
 import requests
 import json
 
+<<<<<<< HEAD
 import os
 import logging
 import requests
 import json
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 import time
 from .retry_utils import retry_safe_hook
 
@@ -20,7 +23,11 @@ class cross_sell_recommender:
         Logs all actions and errors. Retries up to 3 times on failure.
         """
         start = time.time()
+<<<<<<< HEAD
         offer = f"Special offer: Get 20% off on your next AIFOLIO vault!"
+=======
+        offer = "Special offer: Get 20% off on your next AIFOLIO vault!"
+>>>>>>> omni_repair_backup_20250704_1335
         api_key = os.environ.get('SENDGRID_API_KEY')
         sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
         subject = "Unlock More Value with AIFOLIO!"

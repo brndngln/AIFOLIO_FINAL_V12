@@ -33,7 +33,10 @@ assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowe
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
 import logging
+<<<<<<< HEAD
 from datetime import datetime
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class VaultManager:
     """

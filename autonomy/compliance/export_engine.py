@@ -12,6 +12,7 @@ AIFOLIO Export Engine
 - Audit-logs all export events
 - GDPR/CCPA compliant, owner controlled
 """
+<<<<<<< HEAD
 import os
 import json
 import csv
@@ -19,6 +20,9 @@ from datetime import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import tempfile
+=======
+from datetime import datetime
+>>>>>>> omni_repair_backup_20250704_1335
 
 EXPORT_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/export_log.json')
 

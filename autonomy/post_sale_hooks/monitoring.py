@@ -1,7 +1,10 @@
 import os
 import json
 import logging
+<<<<<<< HEAD
 import subprocess
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 POST_SALE_HOOKS_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/post_sale_hooks.log'))
 

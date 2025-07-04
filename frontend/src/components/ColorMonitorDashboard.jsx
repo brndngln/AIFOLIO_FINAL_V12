@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+// [WINDSURF FIXED ✅]
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -146,6 +152,7 @@ const ColorMonitorDashboard = () => {
     );
 };
 
+<<<<<<< HEAD
 const ColorMetricCard = ({ label, value, color, description }) => (
     <div className="metric-card" style={{
         padding: '1rem',
@@ -172,3 +179,37 @@ const ColorMetricCard = ({ label, value, color, description }) => (
 );
 
 export default ColorMonitorDashboard;
+=======
+const ColorMetricCard = ({ label, value, color, description }) => {
+    const theme = useTheme();
+    return (
+        <div className="metric-card" style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            backgroundColor: color,
+            color: theme.text,
+            textAlign: 'center'
+        }}>
+            <h3 style={{
+                color: theme.text,
+                marginBottom: '0.5rem'
+            }}>{label}</h3>
+            <div style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                color: theme.text
+            }}>{value}</div>
+            <div style={{
+                color: theme.secondary,
+                marginTop: '0.5rem',
+                fontSize: '0.8rem'
+            }}>{description}</div>
+        </div>
+    );
+};
+
+// No props for ColorMonitorDashboard; PropTypes not required. [WINDSURF FIXED]
+
+
+export default ColorMonitorDashboard; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335

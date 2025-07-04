@@ -2,9 +2,12 @@ import os
 import logging
 import requests
 
+<<<<<<< HEAD
 import os
 import logging
 import requests
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 import time
 from .retry_utils import retry_safe_hook
 
@@ -17,7 +20,11 @@ def send_preview_bundle(buyer_email, vault_preview_data):
     start = time.time()
     api_key = os.environ.get('SENDGRID_API_KEY')
     sender = os.environ.get('SENDGRID_FROM_EMAIL', 'noreply@aifolio.com')
+<<<<<<< HEAD
     subject = f"Your AIFOLIO Vault Preview Bundle"
+=======
+    subject = "Your AIFOLIO Vault Preview Bundle"
+>>>>>>> omni_repair_backup_20250704_1335
     body = f"Here is your preview bundle: {vault_preview_data}"
     if api_key:
         resp = requests.post(

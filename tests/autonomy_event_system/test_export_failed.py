@@ -10,7 +10,10 @@ def test_export_failed_event(monkeypatch):
         "alert_email_opt_in": False
     }
     with tempfile.TemporaryDirectory() as tmpdir:
+<<<<<<< HEAD
         analytics_log = os.path.join(tmpdir, "error_log.json")
+=======
+>>>>>>> omni_repair_backup_20250704_1335
         monkeypatch.setattr(export_failed, "push_dashboard_update", lambda *a, **kw: None)
         monkeypatch.setattr(export_failed, "send_alert", lambda *a, **kw: None)
         monkeypatch.setattr(export_failed, "send_slack_alert", lambda *a, **kw: None)

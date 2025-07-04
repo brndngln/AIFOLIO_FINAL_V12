@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from pathlib import Path
 import json
 from datetime import datetime
+<<<<<<< HEAD
 import os
 
 from security.mfa_verifier import verify_mfa_token
@@ -11,6 +12,13 @@ from security.usage_watcher import check_for_spikes
 from security.manual_override_guard import check_manual_override
 from security.role_manager import is_admin_in_role
 import requests
+=======
+
+from security.mfa_verifier import verify_mfa_token
+from security.freeze_controller import get_rotation_enabled, set_rotation_enabled
+from security.manual_override_guard import check_manual_override
+from security.role_manager import is_admin_in_role
+>>>>>>> omni_repair_backup_20250704_1335
 
 router = APIRouter()
 LOG_PATH = Path(__file__).parent.parent.parent / 'logs' / 'secret_rotation.json'

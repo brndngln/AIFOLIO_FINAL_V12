@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
@@ -18,6 +19,26 @@ function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
     onChange(newColor);
   };
 
+=======
+import React, { useState } from 'react'; // removed useEffect as unused
+import { useTheme } from '../../theme/ThemeProvider.jsx';
+
+function EnhancedColorPicker({ component, property, defaultValue, onChange, ...props }) {
+  const { theme } = useTheme();
+  const [showPreview, setShowPreview] = useState(false);
+
+  // Always derive color from theme, fallback to defaultValue, then to #000000
+  let color = theme?.customColors?.[component]?.[property];
+  if (typeof color !== 'string' || !color) color = defaultValue;
+  if (typeof color !== 'string' || !color) color = '#000000';
+
+  // Update theme when color changes
+  const handleColorChange = (newColor) => {
+    onChange(component, property, newColor);
+  };
+
+
+>>>>>>> omni_repair_backup_20250704_1335
   // Generate random color
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -97,7 +118,13 @@ function EnhancedColorPicker({ component, property, defaultValue, onChange }) {
               handleColorChange(e.target.value);
             }}
             className="w-full h-10 rounded"
+<<<<<<< HEAD
             role={`colorpicker-${component}-${property}`}
+=======
+            role="colorpicker"
+            {...props}
+            data-testid={typeof props['data-testid'] !== 'undefined' ? props['data-testid'] : 'colorpicker'}
+>>>>>>> omni_repair_backup_20250704_1335
           />
           <input
             type="text"

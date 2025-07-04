@@ -4,7 +4,11 @@ import axios from 'axios';
 const SalesHeatmapPanel = () => {
   const [heatmap, setHeatmap] = useState(null);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
   const [error, setError] = useState(null);
+=======
+  const [error, setError] = useState(null); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   const canvasRef = useRef(null);
 
   useEffect(() => {

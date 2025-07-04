@@ -88,7 +88,11 @@ class ViralSocialGenerator:
         # Anti-sentience: Hashtags are from predefined lists or simple transformations, not learned trends.
         base_hashtags = [f"#{niche.replace(' ', '').lower()}"]
         if topic:
+<<<<<<< HEAD
             base_hashtags.append(f"#{topic.replace(' ', '').lower()[:15]}") # Truncate long topics
+=======
+            base_hashtags.append(f"#{topic.replace(' ', '').lower()[:15]}") # Truncate int topics
+>>>>>>> omni_repair_backup_20250704_1335
         
         common_suffixes = ["tips", "hacks", "guide", "community", "life", "now", "2025"]
         

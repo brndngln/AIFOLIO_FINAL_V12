@@ -2,7 +2,12 @@
 Unit and integration tests for PMP Backend (SAFE AI, stateless, and owner-controlled)
 """
 from fastapi.testclient import TestClient
+<<<<<<< HEAD
 import sys, os
+=======
+import sys
+import os
+>>>>>>> omni_repair_backup_20250704_1335
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from pmp_service import app
 import starlette

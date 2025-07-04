@@ -1,5 +1,9 @@
 import React from "react";
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function ComplianceExportsPanel() {
   const features = [
     { label: "Export compliance logs", desc: "Export logs as PDF, CSV, or XBRL (static sample)" },

@@ -19,8 +19,11 @@ def is_forbidden(filename):
             return True
     return False
 
+<<<<<<< HEAD
 import functools
 import os
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 def autonomous_recovery(func):
     @functools.wraps(func)

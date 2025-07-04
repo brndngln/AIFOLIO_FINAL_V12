@@ -2,7 +2,11 @@
 AIFOLIO™ Phase 4: Workflow Seeder Engine
 Auto-registers all global expansion modules for inheritance by future workflows, vaults, and engines.
 """
+<<<<<<< HEAD
 from typing import Dict, Any, List
+=======
+from typing import Dict, Any
+>>>>>>> omni_repair_backup_20250704_1335
 from global_expansion.global_scale_systems import MultilingualVaultSpawner, AutoTranslationMarketFormatter, GeoRestrictedPolicyCompliance, GlobalVaultDiscoveryNetwork
 from global_expansion.pipeline_optimizers import SmartFunnelSplitTesting, AutoVaultToMasterclassBot, AffiliateClonerCommission, APIPaywallizer, PDFProfitSpiderAILoop
 from global_expansion.ai_logic_expansion import LicensingNFTGenerator, FranchiseLogicInjector, RealTimeMonetizationFeedback, VaultThemeStyleRandomizer

@@ -1,14 +1,34 @@
 from fastapi import APIRouter, Query, Response
 from pathlib import Path
 import json
+<<<<<<< HEAD
 import csv
 from datetime import datetime
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 router = APIRouter()
 LOG_PATH = Path(__file__).parent.parent.parent / 'logs' / 'secret_rotation.json'
 ANOMALY_PATH = Path(__file__).parent.parent.parent / 'logs' / 'usage_anomalies.json'
 OVERRIDE_PATH = Path(__file__).parent.parent.parent / 'logs' / 'override_attempts.json'
 
+<<<<<<< HEAD
+=======
+from fastapi import Request
+from fastapi.responses import JSONResponse
+
+@router.post('/api/export')
+async def export_dashboard(request: Request):
+    data = await request.json()
+    format = data.get('format', 'pdf')
+    watermark = data.get('watermark', False)
+    signature = data.get('signature', False)
+    # TODO: Implement real export logic (PDF, DOCX, XLSX, HTML, watermark, signature)
+    return JSONResponse({
+        'message': f"Exported as {format.upper()}{' with watermark' if watermark else ''}{' with signature' if signature else ''}"
+    })
+
+>>>>>>> omni_repair_backup_20250704_1335
 @router.get('/api/export/audit', response_class=Response)
 def export_audit(format: str = Query('json', enum=['json','csv']), log: str = Query('rotation', enum=['rotation','anomaly','override'])):
     if log == 'rotation':

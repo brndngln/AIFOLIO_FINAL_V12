@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
+=======
+from pydantic import BaseModel
+from typing import List, Optional
+>>>>>>> omni_repair_backup_20250704_1335
 import datetime
 
 # --- Batch 16 Models ---

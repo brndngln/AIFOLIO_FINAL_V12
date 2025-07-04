@@ -6,6 +6,10 @@ AIFOLIO™ OMNIELITE EMPIRE ENGINE: MULTI-LIFETIME LEGAL IMMUNITY NET™
 """
 from typing import Dict, Any
 import os
+<<<<<<< HEAD
+=======
+from core.compliance.emma_guardian import emma
+>>>>>>> omni_repair_backup_20250704_1335
 
 class LegalImmunityNet:
     def generate_legal_files(self, vault: Dict[str, Any], country: str) -> str:
@@ -19,6 +23,7 @@ class LegalImmunityNet:
 
     def suggest_entity(self, vault: Dict[str, Any], country: str) -> str:
         # Suggest correct entity type
+<<<<<<< HEAD
         if country == 'US': entity = 'LLC'
         elif country == 'UK': entity = 'Ltd'
         elif country == 'DE': entity = 'GmbH'
@@ -29,3 +34,19 @@ class LegalImmunityNet:
         return entity
 
 
+=======
+        if country == 'US':
+            entity = 'LLC'
+        elif country == 'UK':
+            entity = 'Ltd'
+        elif country == 'DE':
+            entity = 'GmbH'
+        elif country == 'AU':
+            entity = 'Trust'
+        elif country == 'SG':
+            entity = 'Pte Ltd'
+        else:
+            entity = 'Intl Entity'
+        emma.log_event('entity_suggested', {'vault': vault.get('id'), 'country': country, 'entity': entity}, critical=False)
+        return entity
+>>>>>>> omni_repair_backup_20250704_1335

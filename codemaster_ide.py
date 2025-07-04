@@ -3,7 +3,10 @@ AIFOLIO™ CODEMASTER IDE: AI-Driven Development, Refactoring, Testing, CI/CD, M
 All logic is static, deterministic, SAFE AI-compliant, and OWNER-controlled.
 """
 import logging
+<<<<<<< HEAD
 from typing import Any, Dict
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class CodeMasterIDE:
     def __init__(self):

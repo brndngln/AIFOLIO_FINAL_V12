@@ -3,7 +3,10 @@ AIFOLIO™ EMPRESS CODEMASTER TUTORIALS & GUIDES
 Interactive coding tutorials, knowledge base, and expert guides. OWNER-controlled, SAFE AI-compliant.
 """
 import logging
+<<<<<<< HEAD
 from typing import Dict, Any
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class TutorialGuideSystem:
     def __init__(self):

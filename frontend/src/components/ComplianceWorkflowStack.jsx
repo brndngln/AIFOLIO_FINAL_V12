@@ -1,5 +1,9 @@
 import React from "react";
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function ComplianceWorkflowStack() {
   return (
     <div style={{marginTop:32, background:'#f9fafb', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>

@@ -3,6 +3,7 @@ from autonomy.pricing import pricing_engine
 from autonomy.compliance.tax_engine import TaxEngine
 from autonomy.compliance.workflow_engine import trigger_compliance_workflow
 
+<<<<<<< HEAD
 import os
 import json
 import time
@@ -13,6 +14,12 @@ from autonomy.pricing import pricing_engine
 from autonomy.pricing import price_test_engine
 from autonomy.compliance.tax_engine import TaxEngine
 from autonomy.compliance.workflow_engine import trigger_compliance_workflow
+=======
+import time
+import logging
+import traceback
+from autonomy.pricing import price_test_engine
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.product_prep.gumroad_delivery import push_vault_to_gumroad
 from autonomy.integrations.stripe_sync import sync_to_stripe
 from autonomy.integrations.notion_sync import sync_to_notion
@@ -26,12 +33,18 @@ from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
 from autonomy.utils.email_alert import send_email_alert
+<<<<<<< HEAD
 from autonomy.utils.vault_event_log import log_vault_event
 from autonomy.utils.performance_monitor import monitor_vault_build
 from autonomy.utils.version_tracker import track_template_version
 from autonomy.utils.retry import retry_safe
 from autonomy.utils.activity_log import log_activity
 from datetime import datetime
+=======
+from autonomy.utils.performance_monitor import monitor_vault_build
+from autonomy.utils.version_tracker import track_template_version
+from autonomy.utils.retry import retry_safe
+>>>>>>> omni_repair_backup_20250704_1335
 
 logger = logging.getLogger("vault_created")
 
@@ -117,7 +130,10 @@ def handle_event(metadata):
 
     # --- Static AI Compliance & Anomaly Checks ---
     from autonomy.ai_tools.audit_compliance import check_vault_metadata
+<<<<<<< HEAD
     from autonomy.ai_tools.anomaly_detector import detect_anomaly
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     ai_results = {}
     compliance_result = check_vault_metadata(metadata)
     ai_results['compliance'] = compliance_result

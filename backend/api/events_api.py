@@ -3,7 +3,10 @@ from core.event_router import EventRouter
 from datetime import datetime
 from fastapi.responses import JSONResponse
 import logging
+<<<<<<< HEAD
 import json
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from integrations.webhooks import verify_webhook_signature
 
 router = APIRouter()
@@ -44,7 +47,11 @@ def get_event_log():
                     'integrations': []
                 })
         return JSONResponse(events)
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         return JSONResponse([], status_code=500)
 
 @router.post('/api/events/retrigger')

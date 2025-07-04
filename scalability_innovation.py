@@ -3,7 +3,11 @@ AIFOLIO™ GLOBAL SCALABILITY, INNOVATION LAB, & SUSTAINABILITY
 Multi-region, innovation, and eco-efficiency modules. OWNER-controlled, SAFE AI-compliant.
 """
 import logging
+<<<<<<< HEAD
 from typing import Any, Dict
+=======
+from typing import Any
+>>>>>>> omni_repair_backup_20250704_1335
 
 class GlobalScalability:
     def deploy_region(self, region: str):

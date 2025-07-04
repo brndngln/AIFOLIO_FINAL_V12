@@ -103,7 +103,11 @@ def send_vault_email(recipient_email: str, subject: str, body: str, attachments:
             else:
                 log_entry["status"] = f"failed_{str(e)}"
                 # Fallback to SMS
+<<<<<<< HEAD
                 send_sms(recipient_email, f"Vault delivery failed via email. Please contact support.")
+=======
+                send_sms(recipient_email, "Vault delivery failed via email. Please contact support.")
+>>>>>>> omni_repair_backup_20250704_1335
                 with open(ALERT_LOG, 'a') as log:
                     log.write(json.dumps({"event": "email_failed_sms_fallback", "recipient": recipient_email, "timestamp": time.time(), "error": str(e)}) + '\n')
                 break

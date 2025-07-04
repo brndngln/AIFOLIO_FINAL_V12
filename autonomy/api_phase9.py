@@ -292,7 +292,10 @@ def rotate_api_key(key: str, request: Request, payload: dict = Body(None)):
 
 {{ ... }}
 from autonomy import audit_stream
+<<<<<<< HEAD
 from autonomy.analytics import custom_report_builder
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.integrations import stripe_connector, notion_connector, slack_connector, xbrl_connector
 
 @app.get("/phase10/integrations/stripe")
@@ -311,10 +314,18 @@ def send_slack_notification(tenant_id: str, message: str):
 def export_xbrl_report(tenant_id: str):
     return xbrl_connector.export_xbrl_report(tenant_id)
 
+<<<<<<< HEAD
 from autonomy import audit_stream
 from autonomy.analytics.per_admin_audit_trail import log_admin_action
 import csv
 import secrets, datetime, os, json
+=======
+from autonomy.analytics.per_admin_audit_trail import log_admin_action
+import csv
+import secrets
+import os
+import json
+>>>>>>> omni_repair_backup_20250704_1335
 
 SESSION_FILE = "distribution/legal_exports/phase9_admin_sessions.json"
 SESSION_TIMEOUT_SECONDS = 15*60
@@ -403,7 +414,11 @@ def require_admin_session(request):
 app = FastAPI(title="AIFOLIO Phase 9+ SAFE AI Empire Modules API")
 
 # --- Audit Log Search/Export Endpoints ---
+<<<<<<< HEAD
 from fastapi.responses import StreamingResponse, JSONResponse
+=======
+from fastapi.responses import StreamingResponse
+>>>>>>> omni_repair_backup_20250704_1335
 
 AUDIT_LOG_PATH = "distribution/legal_exports/phase9_empire_audit_log.txt"
 

@@ -9,9 +9,12 @@ from typing import Dict, List
 
 ETHICS_ARBITRATION_LOG = []
 
+<<<<<<< HEAD
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
 from emma_ethics_guard import EMMAEthicsGuard
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class JusticeEthicsExecutionLawfulAIArbitration:
     @staticmethod

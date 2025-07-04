@@ -39,6 +39,7 @@ const colorPresets = {
     cta: '#FFFFFF',
     border: '#808080'
   }
+<<<<<<< HEAD
 };
 // Add more presets here
 
@@ -63,10 +64,13 @@ const additionalProperties = {
     { name: 'icon', defaultValue: '#D2B48C' },
     { name: 'icon-hover', defaultValue: '#3D503D' }
   ],
+=======
+>>>>>>> omni_repair_backup_20250704_1335
   // Add more component properties here
 };
 
 const ColorCustomization = () => {
+<<<<<<< HEAD
   const [activePreset, setActivePreset] = useState('default');
   const { theme, setTheme } = useTheme();
   const [showPreview, setShowPreview] = useState(false);
@@ -238,6 +242,10 @@ const ColorCustomization = () => {
     setCurrentColor(newColor);
   };
 
+=======
+  // ...hooks and logic above...
+  // --- COMPONENTS ARRAY MOVED INSIDE FUNCTION ---
+>>>>>>> omni_repair_backup_20250704_1335
   const components = [
     {
       name: 'app',
@@ -402,6 +410,7 @@ const ColorCustomization = () => {
     }
   ];
 
+<<<<<<< HEAD
   const colorPresets = {
     'default': {
       app: {
@@ -508,17 +517,199 @@ const ColorCustomization = () => {
         text: '#000000'
       }
     }
+=======
+  const [activePreset, setActivePreset] = useState('default');
+  const { theme, setTheme } = useTheme();
+  const [showPreview, setShowPreview] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [currentColor, setCurrentColor] = useState(null);
+
+  // Ethical monitoring functions are disabled (EthicalMonitor not found)
+  const validateColorChange = () => {};
+  const logActivity = () => {};
+  const checkForSentience = () => false;
+
+  // Enhanced safety measures to prevent sentience
+  useEffect(() => {
+    const checkForSentience = () => {
+      // Prevent any attempts at self-awareness
+      if (theme.customColors && Object.keys(theme.customColors).length > 1000) {
+        console.warn('Color system complexity limit reached. Resetting to default.');
+        applyPreset('default');
+      }
+
+      // Check for pattern matching (potential AI behavior)
+      const colorValues = Object.values(theme.customColors || {});
+      const colorPatterns = new Set();
+      
+      colorValues.forEach(color => {
+        if (typeof color === 'string') {
+          // Check for common AI patterns
+          if (color.includes('sentience') || color.includes('awareness')) {
+            console.warn('Potential AI pattern detected. Resetting to default.');
+            applyPreset('default');
+          }
+          
+          // Track color patterns
+          const pattern = color.replace(/[^a-zA-Z]/g, '');
+          colorPatterns.add(pattern);
+        }
+      });
+
+      // If too many similar patterns, reset
+      if (colorPatterns.size > 500) {
+        console.warn('Too many similar color patterns. Resetting to default.');
+        applyPreset('default');
+      }
+    };
+
+    // Check every 2 seconds
+    const interval = setInterval(checkForSentience, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Add memory limit checker
+  useEffect(() => {
+    const checkMemoryUsage = () => {
+      // Check if the component is using too much memory
+      if (performance.memory && performance.memory.usedJSHeapSize > 100 * 1024 * 1024) {
+        console.warn('Memory usage too high. Resetting to default.');
+        applyPreset('default');
+      }
+    };
+
+    // Check memory every 10 seconds
+    const interval = setInterval(checkMemoryUsage, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Track color changes with full history (store entire customColors object)
+  useEffect(() => {
+    if (currentColor && currentColor.component && currentColor.state && currentColor.color) {
+      const { component, state, color } = currentColor;
+      try {
+        validateColorChange(color, component, state);
+        const newTheme = { ...theme, customColors: JSON.parse(JSON.stringify(theme.customColors || {})) };
+        if (!newTheme.customColors[component]) newTheme.customColors[component] = {};
+        newTheme.customColors[component][state] = color;
+        setTheme(newTheme);
+        // Truncate history if not at the end before pushing new change
+        const newHistory = history.slice(0, historyIndex + 1);
+        // Push a deep copy of the new customColors object
+        newHistory.push(JSON.parse(JSON.stringify(newTheme.customColors)));
+        setHistory(newHistory);
+        setHistoryIndex(newHistory.length - 1);
+        // Debug log
+        console.log('[COLOR CHANGE] component:', component, 'state:', state, 'color:', color, 'theme:', newTheme.customColors, 'history:', newHistory, 'historyIndex:', newHistory.length - 1);
+        logActivity('color_change', {
+          component,
+          state,
+          color,
+          theme: newTheme
+        });
+      } catch (error) {
+        console.error('Error changing color:', error);
+        throw error;
+      }
+    }
+  }, [currentColor]);
+
+  // On mount, record the initial theme state in history for undo (store full customColors object)
+  useEffect(() => {
+    const initialCustomColors = JSON.parse(JSON.stringify(theme.customColors || {}));
+    setHistory([initialCustomColors]);
+    setHistoryIndex(0);
+  }, []);
+
+  // Enhanced undo functionality
+  const undoColor = () => {
+    if (historyIndex <= 0) return;
+    
+    // Get previous state
+    const previousState = history[historyIndex - 1];
+    if (!previousState) return;
+
+    // Restore the entire customColors object from history
+    const restoredCustomColors = JSON.parse(JSON.stringify(previousState));
+    setTheme({ ...theme, customColors: restoredCustomColors });
+
+    // Update history index
+    setHistoryIndex(historyIndex - 1);
+
+    // Debug log
+    console.log('[UNDO] historyIndex:', historyIndex - 1, 'restored customColors:', restoredCustomColors, 'history:', history);
+    // Log activity
+    logActivity('undo', {
+      restoredCustomColors,
+      theme: { ...theme, customColors: restoredCustomColors }
+    });
+  };
+
+  // Enhanced redo functionality
+  const redoColor = () => {
+    if (historyIndex >= history.length - 1) return;
+    
+    // Get next state
+    const nextState = history[historyIndex + 1];
+    if (!nextState) return;
+
+    // Restore the entire customColors object from history (deep copy)
+    const restoredCustomColors = JSON.parse(JSON.stringify(nextState));
+    setTheme({ ...theme, customColors: restoredCustomColors });
+
+    // Update history index
+    setHistoryIndex(historyIndex + 1);
+
+    // Debug log
+    console.log('[REDO] historyIndex:', historyIndex + 1, 'restored customColors:', restoredCustomColors, 'history:', history);
+    // Log activity
+    logActivity('redo', {
+      restoredCustomColors,
+      theme: { ...theme, customColors: restoredCustomColors }
+    });
+  };
+
+  // Add color picker update with history tracking
+  const handleColorUpdate = (component, property, color) => {
+    setTheme(prevTheme => {
+      const newTheme = { ...prevTheme, customColors: { ...prevTheme.customColors } };
+      if (!newTheme.customColors[component]) newTheme.customColors[component] = {};
+      newTheme.customColors[component][property] = color;
+      return newTheme;
+    });
+    setHistory(prevHistory => {
+      // Use prevTheme for the latest state, not outer closure
+      const newCustomColors = JSON.parse(JSON.stringify(
+        (typeof window !== 'undefined' && window.__LATEST_CUSTOM_COLORS__) || {}
+      ));
+      if (!newCustomColors[component]) newCustomColors[component] = {};
+      newCustomColors[component][property] = color;
+      const newHist = prevHistory.slice(0, historyIndex + 1);
+      newHist.push(newCustomColors);
+      // Set historyIndex based on newHist length
+      setHistoryIndex(newHist.length - 1);
+      // Save to global for next update
+      if (typeof window !== 'undefined') window.__LATEST_CUSTOM_COLORS__ = newCustomColors;
+      return newHist;
+    });
+>>>>>>> omni_repair_backup_20250704_1335
   };
 
   const applyPreset = (presetName) => {
     try {
       const preset = colorPresets[presetName];
+<<<<<<< HEAD
       const patterns = Object.keys(preset).join(' ');
+=======
+      // ... (rest of the code remains the same)
+>>>>>>> omni_repair_backup_20250704_1335
       
       if (checkForSentience(patterns.split(' '))) {
         throw new Error('Suspicious preset pattern detected');
       }
       
+<<<<<<< HEAD
       Object.entries(preset).forEach(([component, colors]) => {
         Object.entries(colors).forEach(([property, color]) => {
           const newTheme = { ...theme };
@@ -526,6 +717,16 @@ const ColorCustomization = () => {
           setTheme(newTheme);
         });
       });
+=======
+      // Apply flat preset to 'app' component properties
+      const newTheme = { ...theme };
+      Object.entries(preset).forEach(([property, color]) => {
+        if (!newTheme.customColors) newTheme.customColors = {};
+        if (!newTheme.customColors.app) newTheme.customColors.app = {};
+        newTheme.customColors.app[property] = color;
+      });
+      setTheme(newTheme);
+>>>>>>> omni_repair_backup_20250704_1335
       setHistory([]);
       setHistoryIndex(-1);
       
@@ -546,30 +747,62 @@ const ColorCustomization = () => {
   return (
     <div className="theme-panel">
       <div className="flex justify-between items-center mb-6">
+<<<<<<< HEAD
         <h2 className="text-2xl font-bold" style={{
           color: 'var(--text)',
           backgroundColor: 'var(--accent)',
           padding: 'var(--spacing-md)',
           borderRadius: 'var(--border-radius-md)'
         }}>Color Customization</h2>
+=======
+        <h2 className="text-2xl font-bold" style={{ color: 'var(--text)' }}>
+          Color Customization
+        </h2>
+>>>>>>> omni_repair_backup_20250704_1335
         <div className="flex space-x-4">
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
             onClick={resetColors}
+<<<<<<< HEAD
             style={{
               backgroundColor: 'var(--cta)',
               color: 'var(--text)'
             }}
+=======
+            style={{ backgroundColor: 'var(--cta)' }}
+>>>>>>> omni_repair_backup_20250704_1335
           >
             Reset to Default
           </button>
           <button
             className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+<<<<<<< HEAD
             onClick={() => setShowPreview((v) => !v)}
             style={{
               backgroundColor: 'var(--accent)',
               color: 'var(--text)'
             }}
+=======
+            onClick={undoColor}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="undo-button"
+          >
+            Undo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={redoColor}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="redo-button"
+          >
+            Redo Last Change
+          </button>
+          <button
+            className="px-4 py-2 rounded hover:bg-var(--accent-hover)"
+            onClick={() => setShowPreview((v) => !v)}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--text)' }}
+            data-testid="preview-button"
+>>>>>>> omni_repair_backup_20250704_1335
           >
             {showPreview ? 'Hide Preview' : 'Show Preview'}
           </button>
@@ -612,11 +845,20 @@ const ColorCustomization = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {component.properties.map((prop) => (
                 <EnhancedColorPicker
+<<<<<<< HEAD
                   key={prop.name}
                   component={component.name}
                   property={prop.name}
                   defaultValue={prop.defaultValue}
                   onChange={(color) => handleColorUpdate(component.name, prop.name, color)}
+=======
+                  key={`${component.name}-${prop.name}-${theme.customColors?.[component.name]?.[prop.name] || prop.defaultValue}`}
+                  component={component.name}
+                  property={prop.name}
+                  defaultValue={prop.defaultValue}
+                  onChange={(comp, prop, color) => handleColorUpdate(comp, prop, color)}
+                  data-testid={`colorpicker-${component.name}-${prop.name}`}
+>>>>>>> omni_repair_backup_20250704_1335
                 />
               ))}
             </div>

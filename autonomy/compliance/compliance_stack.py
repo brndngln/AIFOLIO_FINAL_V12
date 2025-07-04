@@ -3,7 +3,10 @@ AIFOLIO™ Compliance Stack (SAFE AI, Static, Non-Sentient)
 Features: GDPR/CCPA/DPA tools, validation, audit/compliance verifier, GDPR dashboard, tax calendar, new tax laws watch, audit bot
 """
 from typing import Dict, Any, List
+<<<<<<< HEAD
 import datetime
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class ComplianceStack:
     @staticmethod

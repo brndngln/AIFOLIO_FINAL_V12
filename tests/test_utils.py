@@ -36,7 +36,11 @@ class TestInputValidator(unittest.TestCase):
         # Invalid cases
         invalid_niches = [
             "",  # Too short
+<<<<<<< HEAD
             "a" * 101,  # Too long
+=======
+            "a" * 101,  # Too int
+>>>>>>> omni_repair_backup_20250704_1335
             "invalid@niche",  # Invalid characters
             123,  # Not a string
         ]
@@ -70,7 +74,11 @@ class TestInputValidator(unittest.TestCase):
         
         # Invalid cases
         invalid_prompts = [
+<<<<<<< HEAD
             "" * 4000,  # Too long
+=======
+            "" * 4000,  # Too int
+>>>>>>> omni_repair_backup_20250704_1335
             123,  # Not a string
             None  # Not a string
         ]

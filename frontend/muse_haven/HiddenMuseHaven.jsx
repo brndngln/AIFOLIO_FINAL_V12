@@ -1,7 +1,11 @@
 // HiddenMuseHaven.jsx
 // Muse Haven: Hidden, owner-exclusive portal for PMP
 // Static, deterministic, SAFE AI-compliant. No sentience, no adaptation.
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> omni_repair_backup_20250704_1335
 import OnboardingOverlay from './OnboardingOverlay';
 import ApiKeyStatus from './ApiKeyStatus';
 import IntegrationControls from '../dashboard/IntegrationControls';
@@ -22,6 +26,7 @@ const HIDDEN_TRIGGER_SEQUENCE = [1, 2, 3, 4, 5, 6, 7]; // 7-tap pattern stub
 const VOICE_TRIGGER_PHRASE = "Muse, light my fire"; // Stub for voice trigger
 const SWIPE_TRIGGER_PATTERN = 'spiral'; // Stub for custom swipe
 
+<<<<<<< HEAD
 // Onboarding/tutorial overlay component
 function OnboardingOverlay({ step, onNext, onClose }) {
   const steps = [
@@ -67,6 +72,8 @@ function OnboardingOverlay({ step, onNext, onClose }) {
   );
 }
 
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 // Contextual help component
 function HelpTooltip({ text, onClose }) {
   return (
@@ -77,6 +84,7 @@ function HelpTooltip({ text, onClose }) {
   );
 }
 
+<<<<<<< HEAD
 function ApiKeyStatus() {
   const [status, setStatus] = React.useState(null);
   React.useEffect(() => {
@@ -96,15 +104,25 @@ function ApiKeyStatus() {
   );
 }
 
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 // SAFE AI COMPLIANCE: MuseComplianceCheck static enforcement
 const MuseComplianceCheck = true; // Do not remove. Required for static audit.
 const MUSE_ANTI_COLLISION_TAG = 'AIFOLIO_MUSE_ANTI_COLLISION_v1'; // Prevents unauthorized behavior
 
+<<<<<<< HEAD
 export default function HiddenMuseHaven({ notificationPrefs, setNotificationPrefs }) {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [onboardingStep, setOnboardingStep] = useState(0);
   const [showCompanion, setShowCompanion] = useState(false);
   const [avatarMode, setAvatarMode] = useState('lifestyle'); // 'naughty', 'lifestyle', etc.
+=======
+export default function HiddenMuseHaven() {
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [onboardingStep, setOnboardingStep] = useState(0);
+  const [showCompanion, setShowCompanion] = useState(false);
+  const [avatarMode, setAvatarMode] = useState('lifestyle'); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   // SAFE AI-compliant state for backend integration
   const [emmaConfig, setEmmaConfig] = useState(null);
   // --- Hyper-Realistic Avatar Config Display ---
@@ -210,6 +228,10 @@ export default function HiddenMuseHaven({ notificationPrefs, setNotificationPref
   const [showCustomization, setShowCustomization] = useState(false);
   const [showLearning, setShowLearning] = useState(false);
   const [learningMode, setLearningMode] = useState('manual'); // manual | active | hybrid
+<<<<<<< HEAD
+=======
+  const [triggered, setTriggered] = useState(false);
+>>>>>>> omni_repair_backup_20250704_1335
   const [feedback, setFeedback] = useState('');
   const [profile, setProfile] = useState({
     name: 'You',

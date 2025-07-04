@@ -9,6 +9,10 @@ const PRACTICES = [
   "Static, deterministic, non-sentient design",
   "All checklists and guides exportable"
 ];
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function UXBestPractices() {
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:20, boxShadow:'0 1px 3px #e5e7eb'}}>

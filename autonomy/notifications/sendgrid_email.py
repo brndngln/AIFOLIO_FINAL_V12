@@ -7,7 +7,11 @@ AIFOLIO™ SAFE Notification: SendGrid Email Integration
 import os
 import logging
 from sendgrid import SendGridAPIClient
+<<<<<<< HEAD
 from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+=======
+from sendgrid.helpers.mail import Mail
+>>>>>>> omni_repair_backup_20250704_1335
 
 LOG_PATH = "../../distribution/legal_exports/email_send_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)

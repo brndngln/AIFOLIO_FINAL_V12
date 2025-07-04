@@ -2393,5 +2393,140 @@
     },
     "critical": false,
     "hash": "0fbd61b7b5aa5fe5cf2f96851b3c756763a2ba1520f3823999b01007640993e9"
+<<<<<<< HEAD
+=======
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.019683",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d5640b6eb11ad54e9eec4c8d7abf78d8cc1ccc15b1c68b062706d51007e74a0a"
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.021751",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f142e3f14eac725908ef4ae1bbaa612127aaa7e59f4b444f73496632113f242d"
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.023613",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "4f8f556669966c6a46cd51f2c5a33458b7ffa217dc3e2b2ba0becffc579da8cc"
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.025739",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "58cae6eba3562d17419b08cee922bba1cb11fd44e1cc322a3e1adc10d246e038"
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.027643",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "5df50e198e0cd03116cde4c4546f97ba81b60524e852953d20fdd25f1eba9c0c"
+  },
+  {
+    "timestamp": "2025-07-04T02:05:56.029470",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "e5d7eab2141c9c5a6b0ccdfc4d21e4f1ffdd57da8c2018a214f2ca1c99c5d0df"
+  },
+  {
+    "timestamp": "2025-07-04T02:07:53.912214",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "658f5b4afe4f4a0703d54b57c19180abba02ee7beaa30ea4efe3233fffd35efa"
+  },
+  {
+    "timestamp": "2025-07-04T02:07:53.914409",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "d5b1fd086df93d752f69b66a7a0d3a72f2300cf8c8bf32ab0baa39de8988e52b"
+  },
+  {
+    "timestamp": "2025-07-04T02:07:53.916180",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "f66a7ec9f8fe42dc95affad8aa08c714c589b4833904ae0f5fb932b3fb986847"
+  },
+  {
+    "timestamp": "2025-07-04T02:27:37.181886",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "27c006ebc4c9cf923882e299cec2adfe4e8d8edf9f4f8fdd888b204d47450eb4"
+  },
+  {
+    "timestamp": "2025-07-04T02:27:37.184182",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "a2f9c1fe5f5d7fe1e522c3115e871ed68647d94b2c374fb3f96203a80d08f600"
+  },
+  {
+    "timestamp": "2025-07-04T02:27:37.185878",
+    "event_type": "ai_domestication_enforced",
+    "details": {
+      "module": "ai_engines.sentience_guard",
+      "action": "sentience_guard",
+      "context": {}
+    },
+    "critical": false,
+    "hash": "935769bbe9b2ee1f89f6d410ff5d4cd9d56ae4490542e30d77f00022a8a2895a"
+>>>>>>> omni_repair_backup_20250704_1335
   }
 ]

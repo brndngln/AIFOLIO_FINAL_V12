@@ -14,8 +14,13 @@ This module provides stubs and ready-to-extend functions for:
 All integrations are stateless and non-adaptive. Real API keys/secrets must be provided via environment variables or config for production use.
 """
 import os
+<<<<<<< HEAD
 import requests
 import json
+=======
+import logging
+import requests
+>>>>>>> omni_repair_backup_20250704_1335
 
 # Email/SMS/Chat integrations
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')

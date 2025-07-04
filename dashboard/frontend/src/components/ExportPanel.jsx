@@ -6,11 +6,31 @@ export default function ExportPanel() {
   const [signature, setSignature] = useState(false);
   const [status, setStatus] = useState("");
 
+<<<<<<< HEAD
   const handleExport = () => {
     setStatus(`Exported as ${format.toUpperCase()}${watermark ? ' with watermark' : ''}${signature ? ' with signature' : ''}`);
     // TODO: Integrate with backend export logic (PDF, DOCX, XLSX, HTML, watermark, digital signature)
   };
 
+=======
+  const handleExport = async () => {
+    setStatus('Exporting...');
+    try {
+      const res = await fetch('/api/export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ format, watermark, signature })
+      });
+      if (!res.ok) throw new Error('Export failed');
+      const data = await res.json();
+      setStatus(data.message || `Exported as ${format.toUpperCase()}${watermark ? ' with watermark' : ''}${signature ? ' with signature' : ''}`);
+    } catch (err) {
+      setStatus('Export failed: ' + (err.message || err));
+    }
+  };
+
+
+>>>>>>> omni_repair_backup_20250704_1335
   return (
     <div className="export-panel" style={{background:'#181e2b',color:'#b3e9ff',borderRadius:16,padding:32,boxShadow:'0 0 32px #00e6ff44'}}>
       <h2>Elite Export Panel</h2>

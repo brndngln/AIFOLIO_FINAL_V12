@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../theme/ThemeProvider.jsx';
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 function ColorSchemeManager() {
   const { theme, updateColor } = useTheme();
   const [savedSchemes, setSavedSchemes] = useState([]);

@@ -1,5 +1,9 @@
 // Theme configuration file
+<<<<<<< HEAD
 export const theme = {
+=======
+const theme = {
+>>>>>>> omni_repair_backup_20250704_1335
   // Color palette
   colors: {
     // Primary Colors
@@ -14,7 +18,11 @@ export const theme = {
       light: '#2dd4bf',
       dark: '#059669',
       contrastText: '#ffffff'
+<<<<<<< HEAD
     },
+=======
+    }, // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
     
     // Background Colors
     background: {
@@ -307,6 +315,7 @@ export const theme = {
     fixed: 1200,
     modal: 1300,
     popover: 1400,
+<<<<<<< HEAD
     skipLink: 1500
   }
 };
@@ -437,6 +446,15 @@ export const themes = {
     ...baseTheme,
     colors: {
       ...baseTheme.colors,
+=======
+  }, // [WINDSURF FIXED]
+};
+
+const themes = {
+  dark: {
+    ...theme,
+    colors: {
+>>>>>>> omni_repair_backup_20250704_1335
       background: {
         main: '#0f172a',
         light: '#1e293b',
@@ -444,6 +462,7 @@ export const themes = {
         surface: '#1e293b',
         surfaceVariant: '#334155'
       },
+<<<<<<< HEAD
       text: {
         primary: '#f8fafc',
         secondary: '#94a3b8',
@@ -451,6 +470,8 @@ export const themes = {
         hint: '#64748b',
         link: '#3b82f6'
       },
+=======
+>>>>>>> omni_repair_backup_20250704_1335
       primary: {
         main: '#3b82f6',
         light: '#60a5fa',
@@ -462,10 +483,17 @@ export const themes = {
         light: '#3dd3c8',
         dark: '#059669',
         contrastText: '#ffffff'
+<<<<<<< HEAD
       }
     },
     components: {
       ...baseTheme.components,
+=======
+      }, // [WINDSURF FIXED]
+    },
+    components: {
+      ...theme.components,
+>>>>>>> omni_repair_backup_20250704_1335
       input: {
         backgroundColor: '#334155',
         color: '#f8fafc',
@@ -477,37 +505,57 @@ export const themes = {
       }
     }
   },
+<<<<<<< HEAD
   
   // Light theme
   light: {
     ...baseTheme,
     colors: {
       ...baseTheme.colors,
+=======
+  light: {
+    ...theme,
+    colors: {
+      ...theme.colors,
+>>>>>>> omni_repair_backup_20250704_1335
       background: {
         main: '#ffffff',
         light: '#f3f4f6',
         dark: '#f8fafc',
         surface: '#ffffff',
         surfaceVariant: '#f3f4f6'
+<<<<<<< HEAD
       },
+=======
+      }, // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       text: {
         primary: '#1e293b',
         secondary: '#475569',
         disabled: '#94a3b8',
         hint: '#94a3b8',
         link: '#3b82f6'
+<<<<<<< HEAD
       },
+=======
+      }, // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       primary: {
         main: '#3b82f6',
         light: '#60a5fa',
         dark: '#1d4ed8',
         contrastText: '#ffffff'
+<<<<<<< HEAD
       },
+=======
+      }, // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       secondary: {
         main: '#2dd4bf',
         light: '#3dd3c8',
         dark: '#059669',
         contrastText: '#ffffff'
+<<<<<<< HEAD
       }
     },
     components: {
@@ -618,3 +666,14 @@ export const themes = {
 
 // Default theme
 export default themes.dark;
+=======
+      }, // [WINDSURF FIXED]
+    },
+    components: {
+      // Add valid component overrides here if needed
+    }, // [WINDSURF FIXED]
+  }
+}; // [WINDSURF FIXED]
+
+export default themes; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335

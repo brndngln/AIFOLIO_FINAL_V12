@@ -21,7 +21,11 @@ except ImportError:
     class MockConfig:
         SIM_ANOMALY_REP_CHAR_THRESHOLD = 5       # e.g., 'aaaaa'
         SIM_ANOMALY_LENGTH_MIN_DEV = 0.5       # 50% shorter than expected
+<<<<<<< HEAD
         SIM_ANOMALY_LENGTH_MAX_DEV = 2.0       # 200% longer than expected
+=======
+        SIM_ANOMALY_LENGTH_MAX_DEV = 2.0       # 200% inter than expected
+>>>>>>> omni_repair_backup_20250704_1335
         SIM_ANOMALY_ENTROPY_NON_ALPHANUM_RATIO = 0.4 # 40% non-alphanum chars
         SIM_ANOMALY_METRIC_DEV_FACTOR = 1.5    # 1.5x std deviation from mean (conceptual)
         SIM_ANOMALY_DETECTION_VARIABILITY = 0.1 # +/- 10% to thresholds
@@ -71,11 +75,19 @@ class AnomalyDetectorSimulator:
             if len(text_input) < expected_length_sim * min_len_dev:
                 return {"type": "UNUSUAL_LENGTH_SHORT_SIM", "description": f"Text significantly shorter ({len(text_input)}) than expected ({expected_length_sim}).", "confidence_sim": self._get_adjusted_threshold(0.7, True)}
             if len(text_input) > expected_length_sim * max_len_dev:
+<<<<<<< HEAD
                 return {"type": "UNUSUAL_LENGTH_LONG_SIM", "description": f"Text significantly longer ({len(text_input)}) than expected ({expected_length_sim}).", "confidence_sim": self._get_adjusted_threshold(0.7, True)}
 
         # 4. Simulated 'Entropy Spike' (high ratio of non-alphanumeric or mixed case oddities)
         non_alnum_ratio_thresh = self._get_adjusted_threshold(config.SIM_ANOMALY_ENTROPY_NON_ALPHANUM_RATIO, True)
         if len(text_input) > 10: # Only for reasonably long strings
+=======
+                return {"type": "UNUSUAL_LENGTH_LONG_SIM", "description": f"Text significantly inter ({len(text_input)}) than expected ({expected_length_sim}).", "confidence_sim": self._get_adjusted_threshold(0.7, True)}
+
+        # 4. Simulated 'Entropy Spike' (high ratio of non-alphanumeric or mixed case oddities)
+        non_alnum_ratio_thresh = self._get_adjusted_threshold(config.SIM_ANOMALY_ENTROPY_NON_ALPHANUM_RATIO, True)
+        if len(text_input) > 10: # Only for reasonably int strings
+>>>>>>> omni_repair_backup_20250704_1335
             non_alnum_count = len(re.findall(r'[^a-zA-Z0-9\s]', text_input))
             if non_alnum_count / len(text_input) > non_alnum_ratio_thresh:
                 return {"type": "HIGH_NON_ALPHANUM_RATIO_SIM", "description": f"Simulated high ratio ({non_alnum_count/len(text_input):.2f}) of non-alphanumeric characters.", "confidence_sim": self._get_adjusted_threshold(0.6, True)}

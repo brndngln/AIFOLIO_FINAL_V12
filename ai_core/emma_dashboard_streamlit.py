@@ -35,5 +35,11 @@ def main():
     st.subheader('System Status')
     st.write('All OMNIELITE security layers operational.')
 
+<<<<<<< HEAD
 if __name__ == '__main__':
     main()
+=======
+# Emma's Streamlit dashboard is DISABLED for non-visual mode reset.
+# if __name__ == '__main__':
+#     main()
+>>>>>>> omni_repair_backup_20250704_1335

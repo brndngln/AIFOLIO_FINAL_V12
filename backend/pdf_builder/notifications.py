@@ -1,8 +1,11 @@
 import requests
 import smtplib
 from email.mime.text import MIMEText
+<<<<<<< HEAD
 import os
 import json
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 from typing import Dict, Any, Optional
 from backend.utils.safe_ai_utils import safe_ai_guarded
 

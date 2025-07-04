@@ -126,27 +126,47 @@ def run_all_hooks(sale_data):
     return results
     try:
         send_preview_bundle(sale_data["buyer_email"], sale_data.get("vault_preview_data", {}))
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         logging.exception("send_preview_bundle failed")
         errors.append("send_preview_bundle")
     try:
         file_tax_compliance.trigger(sale_data)
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         logging.exception("file_tax_compliance failed")
         errors.append("file_tax_compliance")
     try:
         tag_buyer_crm("AI_PDF_BUYER", sale_data["buyer_email"])
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         logging.exception("tag_buyer_crm failed")
         errors.append("tag_buyer_crm")
     try:
         affiliate_attribution(sale_data["buyer_email"], sale_data.get("referral_data", {}))
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         logging.exception("affiliate_attribution failed")
         errors.append("affiliate_attribution")
     try:
         fraud_check(sale_data.get("buyer_data", {}), sale_data.get("sale_metadata", {}))
+<<<<<<< HEAD
     except Exception as e:
+=======
+    except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
         logging.exception("fraud_check failed")
         errors.append("fraud_check")
     if errors:

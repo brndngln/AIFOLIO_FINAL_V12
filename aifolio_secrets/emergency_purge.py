@@ -3,7 +3,10 @@ import sys
 import json
 import time
 from datetime import datetime
+<<<<<<< HEAD
 from audit_logger import log_rotation_event
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 LOCKDOWN_ENV = os.path.join(os.path.dirname(__file__), '.env.lockdown')
 DOTENV_PATH = os.path.join(os.path.dirname(__file__), '../.env')

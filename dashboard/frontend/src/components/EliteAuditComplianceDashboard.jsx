@@ -17,11 +17,26 @@ export default function EliteAuditComplianceDashboard({ module = "core" }) {
   }, [module]);
 
   const handleExport = async () => {
+<<<<<<< HEAD
     // Simulate API call to backend export
     const { exportAudit } = await import("../../../core/audit_trail");
     setExported(exportAudit(module, exportFormat));
   };
 
+=======
+    setExported('Exporting...');
+    try {
+      const res = await fetch(`/api/export/audit?format=${exportFormat}`);
+      if (!res.ok) throw new Error('Export failed');
+      const data = (exportFormat === 'json') ? await res.json() : await res.text();
+      setExported(exportFormat === 'json' ? JSON.stringify(data, null, 2) : data);
+    } catch (err) {
+      setExported('Export failed: ' + (err.message || err));
+    }
+  };
+
+
+>>>>>>> omni_repair_backup_20250704_1335
   return (
     <div className="elite-audit-dashboard" style={{background:'#181e2b',color:'#b3e9ff',borderRadius:16,padding:32,boxShadow:'0 0 32px #00e6ff44'}}>
       <h2>Elite Audit & Compliance Dashboard</h2>

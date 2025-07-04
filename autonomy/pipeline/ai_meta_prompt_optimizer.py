@@ -1,7 +1,10 @@
 import os
 import json
 import datetime
+<<<<<<< HEAD
 import hashlib
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 META_PROMPT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/ai_meta_prompt_optimizer_log.jsonl'))
 os.makedirs(os.path.dirname(META_PROMPT_LOG), exist_ok=True)

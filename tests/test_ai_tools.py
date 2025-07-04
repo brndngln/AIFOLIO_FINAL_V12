@@ -27,10 +27,13 @@ class TestAuditCompliance(unittest.TestCase):
         """
         Ensure all required fields are present in a vault registry entry and compliance checker flags missing/invalid fields.
         """
+<<<<<<< HEAD
         required_fields = [
             'vault_id', 'title', 'description', 'niche', 'creator_email', 'created_at',
             # registry-specific: 'icon', 'component', 'event_types', 'compliance_profile', 'notification_channels', 'founder_controlled'
         ]
+=======
+>>>>>>> omni_repair_backup_20250704_1335
         # Simulate a complete registry entry
         complete_entry = {
             'vault_id': 'v_test',

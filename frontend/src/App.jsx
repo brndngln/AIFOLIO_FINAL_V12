@@ -56,9 +56,15 @@ import GumroadIntegrationPanel from './components/GumroadIntegrationPanel';
 function loadLatestVault() {
   // In a real app, fetch from backend or API
   try {
+<<<<<<< HEAD
     // eslint-disable-next-line no-undef
     const preview = require('../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/vault_preview.json');
     // eslint-disable-next-line no-undef
+=======
+     
+    const preview = require('../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/vault_preview.json');
+     
+>>>>>>> omni_repair_backup_20250704_1335
     const metadata = require('../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/metadata.json');
     return { preview, metadata };
   } catch (e) {

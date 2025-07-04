@@ -28,7 +28,11 @@ export default function PhaseControlPanel() {
       setLastUpgrade(data.last_upgrade);
       setNextUpgrade(data.next_upgrade);
       setSystemIntegrity(data.system_integrity);
+<<<<<<< HEAD
     } catch (e) {
+=======
+    } catch (e) { // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       setError('Failed to fetch status.');
     }
     setLoading(false);
@@ -46,7 +50,11 @@ export default function PhaseControlPanel() {
     try {
       await fetch(API.triggerUpgrade, { method: 'POST' });
       fetchStatus();
+<<<<<<< HEAD
     } catch (e) {
+=======
+    } catch (e) { // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       setError('Failed to trigger upgrade.');
     }
     setLoading(false);
@@ -58,7 +66,11 @@ export default function PhaseControlPanel() {
     try {
       await fetch(API.toggleSafeMode, { method: 'POST' });
       fetchStatus();
+<<<<<<< HEAD
     } catch (e) {
+=======
+    } catch (e) { // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       setError('Failed to toggle safe mode.');
     }
     setLoading(false);
@@ -70,7 +82,11 @@ export default function PhaseControlPanel() {
     try {
       await fetch(API.lockdown, { method: 'POST' });
       fetchStatus();
+<<<<<<< HEAD
     } catch (e) {
+=======
+    } catch (e) { // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
       setError('Failed to lockdown system.');
     }
     setLoading(false);

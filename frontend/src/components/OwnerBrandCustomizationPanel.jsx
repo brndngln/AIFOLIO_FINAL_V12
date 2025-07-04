@@ -6,11 +6,19 @@ const DEFAULTS = {
   color: "#0ea5e9"
 };
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function OwnerBrandCustomizationPanel() {
   const [brand, setBrand] = useState(() => {
     const saved = localStorage.getItem("aifolio_brand");
     return saved ? JSON.parse(saved) : DEFAULTS;
+<<<<<<< HEAD
   });
+=======
+  }); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   function handleChange(e) {
     const { name, value } = e.target;

@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 
 // SAFE AI, deterministic, static, owner-controlled compounding vault controls
 export default function CompoundingVaultPanel({ onAction }) {
+=======
+import PropTypes from 'prop-types';
+
+// SAFE AI, deterministic, static, owner-controlled compounding vault controls
+function CompoundingVaultPanel({ onAction }) {
+>>>>>>> omni_repair_backup_20250704_1335
   const [vaults, setVaults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -109,3 +116,13 @@ export default function CompoundingVaultPanel({ onAction }) {
     </section>
   );
 }
+<<<<<<< HEAD
+=======
+
+CompoundingVaultPanel.propTypes = {
+  onAction: PropTypes.func
+}; // [WINDSURF FIXED]
+
+export default CompoundingVaultPanel; // [WINDSURF FIXED]
+
+>>>>>>> omni_repair_backup_20250704_1335

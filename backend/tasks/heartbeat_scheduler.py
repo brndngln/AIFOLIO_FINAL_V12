@@ -6,8 +6,12 @@ Elite Heartbeat and Compliance Export Scheduler for AIFOLIO™
 import os
 import time
 import requests
+<<<<<<< HEAD
 import json
 from datetime import datetime, timedelta
+=======
+from datetime import datetime
+>>>>>>> omni_repair_backup_20250704_1335
 from threading import Thread
 
 ADMIN_HEARTBEAT_URL = os.getenv('ADMIN_HEARTBEAT_URL')

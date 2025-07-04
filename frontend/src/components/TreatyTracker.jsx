@@ -13,6 +13,10 @@ const TREATIES = [
   "Other national/international frameworks"
 ];
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function TreatyTracker() {
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>

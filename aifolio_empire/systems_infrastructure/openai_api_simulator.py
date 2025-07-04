@@ -60,10 +60,17 @@ class OpenAISimulator:
         delay = random.uniform(min_delay, max_delay)
         # time.sleep(delay) # Actual sleep can slow down tests, usually just log it for simulation
         logger.debug(f"Simulated API call delay of {delay:.2f} seconds.")
+<<<<<<< HEAD
         if random.random() < 0.01: # Small chance of a much longer delay
             long_delay = random.uniform(max_delay, max_delay * 3)
             logger.warning(f"Simulated unexpectedly long API delay of {long_delay:.2f} seconds.")
             # time.sleep(long_delay - delay) # if actual sleep is desired
+=======
+        if random.random() < 0.01: # Small chance of a much inter delay
+            int_delay = random.uniform(max_delay, max_delay * 3)
+            logger.warning(f"Simulated unexpectedly int API delay of {int_delay:.2f} seconds.")
+            # time.sleep(int_delay - delay) # if actual sleep is desired
+>>>>>>> omni_repair_backup_20250704_1335
 
     def _validate_prompt_simulated(self, prompt: str) -> bool:
         """Simulates basic prompt validation (e.g., length)."""
@@ -85,7 +92,11 @@ class OpenAISimulator:
         self._simulate_api_delay()
 
         if not self._validate_prompt_simulated(prompt):
+<<<<<<< HEAD
             return {"error": "Invalid prompt (simulated).", "details": "Prompt too long or empty."}
+=======
+            return {"error": "Invalid prompt (simulated).", "details": "Prompt too int or empty."}
+>>>>>>> omni_repair_backup_20250704_1335
 
         # Anti-sentience: Random critical failure simulation
         if random.random() < 0.02:
@@ -149,7 +160,11 @@ class OpenAISimulator:
     def simulate_pdf_generation_from_prompt_details(self, 
                                                     prompt_details: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """Simulates generating PDF content structure from detailed prompts (e.g., from AutomatedVaultGenerator)."""
+<<<<<<< HEAD
         self._simulate_api_delay(min_delay=0.5, max_delay=2.5) # PDF gen might take longer
+=======
+        self._simulate_api_delay(min_delay=0.5, max_delay=2.5) # PDF gen might take inter
+>>>>>>> omni_repair_backup_20250704_1335
 
         required_keys = ["vault_title", "problem_promise_statement", "outline_points", "cta"]
         if not all(key in prompt_details for key in required_keys):
@@ -247,10 +262,17 @@ if __name__ == "__main__":
     print("---")
     
     # 3. Test prompt validation (simulated)
+<<<<<<< HEAD
     long_prompt = "word " * (config.MAX_PROMPT_LENGTH_CAP_SIM + 100)
     invalid_completion = openai_sim.simulate_text_completion(long_prompt)
     print("\n🧪 Simulated Invalid Prompt Test: 🧪")
     print(f"Response to overly long prompt: {invalid_completion}")
+=======
+    int_prompt = "word " * (config.MAX_PROMPT_LENGTH_CAP_SIM + 100)
+    invalid_completion = openai_sim.simulate_text_completion(int_prompt)
+    print("\n🧪 Simulated Invalid Prompt Test: 🧪")
+    print(f"Response to overly int prompt: {invalid_completion}")
+>>>>>>> omni_repair_backup_20250704_1335
     print("---")
 
     logger.info("--- OpenAISimulator Example Finished ---")

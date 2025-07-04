@@ -21,7 +21,11 @@ const policies = [
 import DownloadAllPoliciesButton from "./DownloadAllPoliciesButton";
 
 export default function PolicyDocuments() {
+<<<<<<< HEAD
   const [open, setOpen] = useState([false, false, false]);
+=======
+  const [open, setOpen] = useState([false, false, false]); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   return (
     <div style={{marginTop:32, background:'#fff', borderRadius:8, padding:24, boxShadow:'0 1px 3px #e5e7eb'}}>
       <h3 style={{color:'#0ea5e9', fontWeight:700, marginBottom:12}}>POLICY DOCUMENTS</h3>

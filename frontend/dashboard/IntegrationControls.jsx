@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Switch, FormControlLabel, Tooltip, Button } from '@mui/material';
 
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 import React, { useState, useEffect } from 'react';
 import { Switch, FormControlLabel, Tooltip, Button, MenuItem, Select, InputLabel, TextField } from '@mui/material';
 
@@ -19,7 +22,11 @@ const authorityLevels = ['Needs Approval', 'Passive Log Only', 'Auto-Execute'];
 
 export default function IntegrationControls({ notificationPrefs, onPrefsChange, onRotateApiKey, onComplianceAudit }) {
   // Biometric
+<<<<<<< HEAD
   const [biometricStatus, setBiometricStatus] = useState('');
+=======
+  const [biometricStatus, setBiometricStatus] = useState(''); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   // Approval Mode
   const [approvalMode, setApprovalMode] = useState('full_lockdown');
   useEffect(() => {

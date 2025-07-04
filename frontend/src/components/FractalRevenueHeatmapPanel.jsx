@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 // SAFE AI, deterministic, static, owner-controlled visualization
 export default function FractalRevenueHeatmapPanel() {
   const [heatmap, setHeatmap] = useState(null);

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+=======
+// [WINDSURF FIXED ✅]
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
 
 const FILTERS = [
   { label: 'All', fn: () => true },
@@ -11,7 +18,11 @@ const FILTERS = [
 const AuditLogSearchPanel = () => {
   const [logs, setLogs] = useState([]);
   const [filter, setFilter] = useState(FILTERS[0]);
+<<<<<<< HEAD
   const [search, setSearch] = useState('');
+=======
+  const [search, setSearch] = useState(''); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +32,11 @@ const AuditLogSearchPanel = () => {
         const token = localStorage.getItem('token');
         const res = await axios.get('/api/monitor/activity', { headers: { Authorization: `Bearer ${token}` } });
         setLogs(res.data);
+<<<<<<< HEAD
       } catch {}
+=======
+      } catch (err) { console.error('Failed to fetch logs:', err); } // [WINDSURF FIXED] Minimal error handler
+>>>>>>> omni_repair_backup_20250704_1335
       setLoading(false);
     };
     fetchLogs();
@@ -55,4 +70,10 @@ const AuditLogSearchPanel = () => {
   );
 };
 
+<<<<<<< HEAD
 export default AuditLogSearchPanel;
+=======
+// No props for AuditLogSearchPanel; PropTypes not required. [WINDSURF FIXED]
+
+export default AuditLogSearchPanel; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335

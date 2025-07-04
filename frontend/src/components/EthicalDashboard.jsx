@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+// [WINDSURF FIXED ✅]
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -139,6 +145,7 @@ const EthicalDashboard = () => {
     );
 };
 
+<<<<<<< HEAD
 const MetricCard = ({ label, value, color }) => (
     <div className="metric-card" style={{
         padding: '1rem',
@@ -160,3 +167,32 @@ const MetricCard = ({ label, value, color }) => (
 );
 
 export default EthicalDashboard;
+=======
+const MetricCard = ({ label, value, color }) => {
+    const theme = useTheme();
+    return (
+        <div className="metric-card" style={{
+            padding: '1rem',
+            borderRadius: '4px',
+            backgroundColor: color,
+            color: theme.text,
+            textAlign: 'center'
+        }}>
+            <h3 style={{
+                color: theme.text,
+                marginBottom: '0.5rem'
+            }}>{label}</h3>
+            <div style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                color: theme.text
+            }}>{value}</div>
+        </div>
+    );
+};
+
+// No props for EthicalDashboard; PropTypes not required. [WINDSURF FIXED]
+
+
+export default EthicalDashboard; // [WINDSURF FIXED]
+>>>>>>> omni_repair_backup_20250704_1335

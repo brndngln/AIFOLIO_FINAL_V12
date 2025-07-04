@@ -1,7 +1,10 @@
 import json
 import datetime
 import os
+<<<<<<< HEAD
 from core.compliance.sentience_firewall import sentience_firewall
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 BUNDLE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'bundle_recommendation_engine_log.jsonl'))
 os.makedirs(os.path.dirname(BUNDLE_LOG), exist_ok=True)

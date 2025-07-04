@@ -1,4 +1,5 @@
 from autonomy.compliance.alert_engine import send_alert
+<<<<<<< HEAD
 from autonomy.compliance.workflow_engine import trigger_compliance_workflow
 import os
 import json
@@ -10,6 +11,12 @@ import logging
 import traceback
 from autonomy.compliance.alert_engine import send_alert
 from autonomy.compliance.workflow_engine import trigger_compliance_workflow
+=======
+import os
+import json
+
+import time
+>>>>>>> omni_repair_backup_20250704_1335
 from autonomy.utils.dashboard_push import push_dashboard_update
 from autonomy.utils.slack_alert import send_slack_alert
 from autonomy.utils.telegram_alert import send_telegram_alert
@@ -128,6 +135,10 @@ def handle_event(payload):
     if errors:
         try:
             detect_anomaly(payload.get("vault_id", "unknown"), errors)
+<<<<<<< HEAD
         except Exception as e:
+=======
+        except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
             pass
     return {"status": "success", "vault_id": payload.get("vault_id", "unknown"), "errors": errors}

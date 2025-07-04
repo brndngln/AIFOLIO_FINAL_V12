@@ -4,10 +4,17 @@ import hashlib
 import json
 import logging
 import getpass
+<<<<<<< HEAD
 import base64
 import socket
 from cryptography.fernet import Fernet
 from datetime import datetime
+=======
+import socket
+from cryptography.fernet import Fernet
+from datetime import datetime
+import subprocess
+>>>>>>> omni_repair_backup_20250704_1335
 
 # --- CONFIGURABLE ---
 CORE_FILES = ["main.py", "ai_core.py", "vault_engine.py"]
@@ -103,7 +110,10 @@ def enforce_vault_read_only():
 
 # --- 5. DISABLE UNVERIFIED EXTERNAL NETWORK CALLS ---
 def restrict_network_calls():
+<<<<<<< HEAD
     import builtins
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     orig_socket = socket.socket
     def guarded_socket(*args, **kwargs):
         s = orig_socket(*args, **kwargs)
@@ -120,11 +130,17 @@ def restrict_network_calls():
     log_event("External network calls restricted.")
 
 # --- 6. CEO MFA ---
+<<<<<<< HEAD
 import threading
 import signal
 import functools
 import os
 import sys
+=======
+import signal
+import functools
+import os
+>>>>>>> omni_repair_backup_20250704_1335
 
 class TimeoutException(Exception):
     pass
@@ -252,4 +268,22 @@ def main():
     print("[WINDSURF] OMNISECURE RUNTIME LOCKDOWN ACTIVE.")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    try:
+        main()
+    except Exception as e:
+        try:
+            from windsurf.error_logger import log_error
+            import traceback
+            log_error(
+                error_type="DeployWindsurfFailure",
+                message=str(e),
+                stacktrace=traceback.format_exc(),
+                context={}
+            )
+        except Exception:
+            pass
+        raise
+>>>>>>> omni_repair_backup_20250704_1335

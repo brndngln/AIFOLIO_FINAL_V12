@@ -12,7 +12,10 @@ def test_vault_refunded_event(monkeypatch):
         "owner_email": "owner@example.com"
     }
     with tempfile.TemporaryDirectory() as tmpdir:
+<<<<<<< HEAD
         analytics_log = os.path.join(tmpdir, "refund_log.json")
+=======
+>>>>>>> omni_repair_backup_20250704_1335
         monkeypatch.setattr(vault_refunded, "logger", type("FakeLogger", (), {"error": print})())
         monkeypatch.setattr(vault_refunded, "push_dashboard", lambda *a, **kw: None)
         monkeypatch.setattr(vault_refunded, "send_alerts", lambda *a, **kw: None)

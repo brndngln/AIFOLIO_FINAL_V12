@@ -3,7 +3,10 @@ AIFOLIO™ AI Quality & Audit Engine (SAFE AI, Static, Non-Sentient)
 Features: Anomaly Detector, Output Quality Gatekeeper, Spellcheck/Grammar, Meta-Prompt Optimizer, Fingerprinting, Audit Bot, Cover Validator, UX Optimizer, Multi-language
 """
 from typing import Dict, Any
+<<<<<<< HEAD
 import random
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 from core.compliance.sentience_firewall import sentience_firewall
 

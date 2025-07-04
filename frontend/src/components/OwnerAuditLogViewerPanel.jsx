@@ -11,6 +11,10 @@ function filterLogs(logs, query) {
   );
 }
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function OwnerAuditLogViewerPanel() {
   const [logs, setLogs] = useState([]);
   const [query, setQuery] = useState("");

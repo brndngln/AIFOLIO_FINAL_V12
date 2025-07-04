@@ -1,5 +1,9 @@
 from fastapi import APIRouter, Body
+<<<<<<< HEAD
 from security.role_manager import set_admin_roles, get_admin_roles, list_admins
+=======
+from security.role_manager import set_admin_roles, list_admins
+>>>>>>> omni_repair_backup_20250704_1335
 
 router = APIRouter()
 

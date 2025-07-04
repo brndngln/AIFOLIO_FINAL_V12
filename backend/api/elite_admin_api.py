@@ -1,7 +1,13 @@
 # backend/api/elite_admin_api.py
 # Elite API endpoints for dashboard integration, event streaming, founder controls
+<<<<<<< HEAD
 from fastapi import APIRouter, Request
 import json, os, datetime
+=======
+from fastapi import APIRouter
+import json
+import os
+>>>>>>> omni_repair_backup_20250704_1335
 
 router = APIRouter()
 

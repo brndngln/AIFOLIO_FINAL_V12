@@ -10,9 +10,16 @@ const FILES = [
   { label: "Compliance Logs", file: "compliance_log.json", url: "/analytics/compliance_log.json" }
 ];
 
+<<<<<<< HEAD
 export default function OwnerExportAllDataPanel() {
   const [selected, setSelected] = useState(() => Array(FILES.length).fill(true));
   const [status, setStatus] = useState("");
+=======
+// [WINDSURF FIXED ✅]
+export default function OwnerExportAllDataPanel() {
+  const [selected, setSelected] = useState(() => Array(FILES.length).fill(true));
+  const [status, setStatus] = useState(""); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   async function handleExport() {
     setStatus("Preparing ZIP...");

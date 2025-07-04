@@ -28,7 +28,12 @@ def client():
 def test_reviewer_csrf_fail(client):
     rv = client.post('/reviewer/escalate', data={})
     if rv.status_code == 404:
+<<<<<<< HEAD
         import pytest; pytest.skip('reviewer/escalate route not implemented')
+=======
+        import pytest
+        pytest.skip('reviewer/escalate route not implemented')
+>>>>>>> omni_repair_backup_20250704_1335
     assert rv.status_code == 400
     assert b'CSRF' in rv.data or b'csrf' in rv.data
 
@@ -65,4 +70,8 @@ def test_audit_log_on_license_change(client):
     rv = client.post('/license', data={'csrf_token': csrf, 'mode': 'paid'})
     assert rv.status_code in (200, 302)
     lines = read_last_audit_lines(10)
+<<<<<<< HEAD
     assert any('LICENSE_MODE_SET' in l for l in lines)
+=======
+    assert any('LICENSE_MODE_SET' in line for line in lines)
+>>>>>>> omni_repair_backup_20250704_1335

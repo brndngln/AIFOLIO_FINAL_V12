@@ -138,7 +138,10 @@ def export_events_csv(events):
     return output.getvalue()
 
 def export_events_json(events):
+<<<<<<< HEAD
     import json
+=======
+>>>>>>> omni_repair_backup_20250704_1335
     return json.dumps(events, indent=2)
 
 def generate_compliance_report(events):

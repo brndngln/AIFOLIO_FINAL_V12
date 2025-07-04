@@ -1,8 +1,13 @@
 """
 Elite security audit and performance API for AIFOLIO™. Static, deterministic, SAFE AI, owner-controlled, fully auditable.
 """
+<<<<<<< HEAD
 from fastapi import APIRouter, Request
 import os, time
+=======
+from fastapi import APIRouter
+import os
+>>>>>>> omni_repair_backup_20250704_1335
 
 router = APIRouter()
 

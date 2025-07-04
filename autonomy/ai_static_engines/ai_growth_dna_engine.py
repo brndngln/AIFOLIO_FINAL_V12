@@ -2,7 +2,11 @@ OWNER_LOCK = True
 """
 AIFOLIO™ AI Growth DNA Engine
 Phase 49 — SAFE AI, non-sentient, static, owner-controlled
+<<<<<<< HEAD
 Archives "Growth DNA" — documents what works for long-term scaling and handoff.
+=======
+Archives "Growth DNA" — documents what works for int-term scaling and handoff.
+>>>>>>> omni_repair_backup_20250704_1335
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 from typing import List, Dict

@@ -10,10 +10,18 @@ const CHECKLIST = [
   "All lists and tables use semantic HTML"
 ];
 
+<<<<<<< HEAD
 export default function OwnerAccessibilityChecklistPanel() {
   const [progress, setProgress] = useState(Array(CHECKLIST.length).fill(false));
   const completeCount = progress.filter(Boolean).length;
   const percent = Math.round((completeCount / CHECKLIST.length) * 100);
+=======
+// [WINDSURF FIXED ✅]
+export default function OwnerAccessibilityChecklistPanel() {
+  const [progress, setProgress] = useState(Array(CHECKLIST.length).fill(false));
+  const completeCount = progress.filter(Boolean).length;
+  const percent = Math.round((completeCount / CHECKLIST.length) * 100); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   return (
     <section aria-labelledby="accessibility-checklist-heading" style={{background:'#f9fafb',borderRadius:12,padding:32,marginBottom:32,boxShadow:'0 2px 8px #e0e7ef'}}>

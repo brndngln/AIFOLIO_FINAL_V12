@@ -11,6 +11,10 @@ const STEPS = [
   "Set up CI/CD workflow if needed"
 ];
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function FirstStepsChecklist() {
   return (
     <section aria-labelledby="first-steps-heading" style={{background:'#fef9c3',borderRadius:12,padding:24,marginBottom:24,boxShadow:'0 1px 4px #fde68a'}}>

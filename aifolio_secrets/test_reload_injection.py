@@ -2,7 +2,10 @@ import unittest
 from fastapi.testclient import TestClient
 from backend.main import app
 # Patch: Use TestClient(app) directly, no 'app' kwarg in super().__init__
+<<<<<<< HEAD
 import aifolio_secrets.rotate_secret
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 
 class TestReloadInjection(unittest.TestCase):
     def setUp(self):

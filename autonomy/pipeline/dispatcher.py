@@ -48,7 +48,11 @@ def retry_safe(func: Callable, max_attempts=3, backoff=1):
         for attempt in range(1, max_attempts + 1):
             try:
                 return func(*args, **kwargs)
+<<<<<<< HEAD
             except Exception as e:
+=======
+            except Exception:
+>>>>>>> omni_repair_backup_20250704_1335
                 if attempt == max_attempts:
                     raise
                 time.sleep(backoff * attempt)

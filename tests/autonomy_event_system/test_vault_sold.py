@@ -12,7 +12,10 @@ def test_vault_sold_event(monkeypatch):
         "alert_email_opt_in": True
     }
     with tempfile.TemporaryDirectory() as tmpdir:
+<<<<<<< HEAD
         analytics_log = os.path.join(tmpdir, "vault_sales_log.json")
+=======
+>>>>>>> omni_repair_backup_20250704_1335
         monkeypatch.setattr(vault_sold, "logger", type("FakeLogger", (), {"error": print, "warning": print})())
         monkeypatch.setattr(vault_sold, "push_dashboard", lambda *a, **kw: None)
         monkeypatch.setattr(vault_sold, "send_alerts", lambda *a, **kw: None)

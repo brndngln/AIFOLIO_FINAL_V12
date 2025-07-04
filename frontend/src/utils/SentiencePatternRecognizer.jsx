@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 import axios from 'axios';
+=======
+import { useTheme } from '../theme/ThemeProvider';
+>>>>>>> omni_repair_backup_20250704_1335
 
 class SentiencePatternRecognizer {
     constructor() {

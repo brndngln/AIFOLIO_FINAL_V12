@@ -7,7 +7,11 @@ To use real integrations, set your API keys/environment variables in your `.env`
 """
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+<<<<<<< HEAD
 from typing import List, Optional
+=======
+from typing import List
+>>>>>>> omni_repair_backup_20250704_1335
 from aifolio_empire.sales_marketing_engines.affiliate_booster import AffiliateBooster
 from integrations.third_party_integrations import (
     export_to_google_sheets, export_to_airtable, trigger_zapier_webhook

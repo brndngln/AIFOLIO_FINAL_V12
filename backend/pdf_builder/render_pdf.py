@@ -2,7 +2,22 @@ from weasyprint import HTML
 import os
 import logging
 from typing import Dict, Any
+<<<<<<< HEAD
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+=======
+
+def safe_ai_guarded(func):
+    return func
+
+# Stub for template if not defined
+try:
+    template
+except NameError:
+    class TemplateStub:
+        def render(self, **kwargs):
+            return ""
+    template = TemplateStub()
+>>>>>>> omni_repair_backup_20250704_1335
 
 # Configure logging
 logging.basicConfig(

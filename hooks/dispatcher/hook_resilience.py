@@ -2,10 +2,18 @@
 AIFOLIO™ Hook Resilience System (SAFE AI, Static, Non-Sentient)
 Implements: Retry Logic, Centralized Error Handler, Manual Replay, Outcome Predictor, Health Monitor, Refund Trigger Predictor, Replay History, Signature Fingerprinter
 """
+<<<<<<< HEAD
 import time, random
 from typing import List, Dict, Any
 
 RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, long
+=======
+import time
+import random
+from typing import List, Dict, Any
+
+RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, int
+>>>>>>> omni_repair_backup_20250704_1335
 HOOK_HISTORY: List[Dict[str, Any]] = []
 
 class HookResilience:
@@ -18,6 +26,20 @@ class HookResilience:
                 return result
             except Exception as e:
                 HOOK_HISTORY.append({"hook": hook_fn.__name__, "error": str(e), "attempt": attempt+1, "status": "fail"})
+<<<<<<< HEAD
+=======
+                try:
+                    from windsurf.error_logger import log_error
+                    import traceback
+                    log_error(
+                        error_type="HookFailure",
+                        message=f"Hook {hook_fn.__name__} failed on attempt {attempt+1}",
+                        stacktrace=traceback.format_exc(),
+                        context={"hook": hook_fn.__name__, "args": args, "attempt": attempt+1}
+                    )
+                except Exception:
+                    pass
+>>>>>>> omni_repair_backup_20250704_1335
                 if attempt < len(RETRY_BACKOFFS):
                     time.sleep(RETRY_BACKOFFS[attempt])
         return None

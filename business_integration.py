@@ -4,7 +4,11 @@ Business modules, dashboards, billionaire mindset synergy, OWNER controls.
 All logic is static, deterministic, SAFE AI-compliant, and OWNER-controlled.
 """
 import logging
+<<<<<<< HEAD
 from typing import Any, Dict
+=======
+from typing import Any
+>>>>>>> omni_repair_backup_20250704_1335
 
 class BusinessModule:
     def __init__(self, name: str):

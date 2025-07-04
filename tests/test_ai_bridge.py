@@ -1,6 +1,10 @@
 import unittest
 from unittest.mock import patch, MagicMock
+<<<<<<< HEAD
 from datetime import datetime, timedelta
+=======
+from datetime import datetime
+>>>>>>> omni_repair_backup_20250704_1335
 from aifolio_empire.ai_bridge import AIBridge, APIKeyManager
 from aifolio_empire.utils import InputValidator
 
@@ -24,7 +28,11 @@ class TestAPIKeyManager(unittest.TestCase):
         invalid_keys = [
             "",  # Empty
             "invalid-key",  # Invalid format
+<<<<<<< HEAD
             "sk-" * 1000,  # Too long
+=======
+            "sk-" * 1000,  # Too int
+>>>>>>> omni_repair_backup_20250704_1335
             123,  # Not a string
         ]
         
@@ -71,7 +79,11 @@ class TestAIBridge(unittest.TestCase):
         except Exception as e:
             self.skipTest(f"openai.ChatCompletion.create not present or not accessible: {e}; skipping for OMNIELITE SAFE AI compliance.")
         invalid_prompts = [
+<<<<<<< HEAD
             "" * 4001,  # Too long
+=======
+            "" * 4001,  # Too int
+>>>>>>> omni_repair_backup_20250704_1335
             None,  # Not a string
             123,  # Not a string
         ]
@@ -111,7 +123,11 @@ class TestAIBridge(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.bridge._generate_with_openai("Test prompt", 100, 0.7)
                 
+<<<<<<< HEAD
             # Invalid response - too long
+=======
+            # Invalid response - too int
+>>>>>>> omni_repair_backup_20250704_1335
             mock_create.return_value = MagicMock(
                 choices=[MagicMock(message=MagicMock(content="a" * 8001))]
             )
@@ -171,7 +187,11 @@ class TestInputValidator(unittest.TestCase):
         invalid_niches = [
             "",  # Empty
             "invalid@niche",  # Invalid characters
+<<<<<<< HEAD
             "a" * 101,  # Too long
+=======
+            "a" * 101,  # Too int
+>>>>>>> omni_repair_backup_20250704_1335
             123,  # Not a string
         ]
         

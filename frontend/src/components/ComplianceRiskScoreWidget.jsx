@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+<<<<<<< HEAD
 const ComplianceRiskScoreWidget = () => {
   const [risk, setRisk] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+=======
+// [WINDSURF FIXED ✅]
+const ComplianceRiskScoreWidget = () => {
+  const [risk, setRisk] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   useEffect(() => {
     const fetchRisk = async () => {

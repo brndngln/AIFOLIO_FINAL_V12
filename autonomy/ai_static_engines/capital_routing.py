@@ -2,7 +2,11 @@
 SAFE AI Capital Routing Engine — Phase 10+
 Static, Charter-Enforced
 """
+<<<<<<< HEAD
 from typing import Dict, Any
+=======
+from typing import Dict
+>>>>>>> omni_repair_backup_20250704_1335
 
 class CapitalRouter:
     """Static routing of capital across brands/vaults (SAFE, no adaptive logic)"""

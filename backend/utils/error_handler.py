@@ -2,6 +2,10 @@ import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
 import json
+<<<<<<< HEAD
+=======
+import uuid
+>>>>>>> omni_repair_backup_20250704_1335
 from redis import Redis
 import sentry_sdk
 from sentry_sdk.integrations.redis import RedisIntegration

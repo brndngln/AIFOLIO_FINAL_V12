@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 export default function PDFBuilderSettings({ config, onSave }) {
+<<<<<<< HEAD
   const [settings, setSettings] = useState(config || {});
+=======
+  const [settings, setSettings] = useState(config || {}); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   const handleChange = (e) => {
     setSettings({ ...settings, [e.target.name]: e.target.value });

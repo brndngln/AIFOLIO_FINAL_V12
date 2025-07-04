@@ -20,9 +20,16 @@ const initialState = {
   activeBuilder: null
 };
 
+<<<<<<< HEAD
 export default function PDFBuilderDashboard({ token }) {
   const [state, setState] = useState(initialState);
   const [formData, setFormData] = useState({});
+=======
+// [WINDSURF FIXED ✅]
+export default function PDFBuilderDashboard({ token }) {
+  const [state, setState] = useState(initialState);
+  const [formData, setFormData] = useState({}); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

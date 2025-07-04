@@ -4,7 +4,10 @@ Static, deterministic, SAFE AI-compliant. No sentience, no adaptation.
 Ensures complete separation of PMP from all business/legal/other modules.
 """
 import os
+<<<<<<< HEAD
 import datetime
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 import hashlib
 
 class QuantumVault:

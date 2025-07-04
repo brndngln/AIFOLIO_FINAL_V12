@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function PDFQueueViewer({ token }) {
   const [queue, setQueue] = useState([]);
   const [loading, setLoading] = useState(false);

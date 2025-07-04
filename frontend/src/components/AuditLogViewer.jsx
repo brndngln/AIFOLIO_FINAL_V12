@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+<<<<<<< HEAD
+=======
+// [WINDSURF FIXED ✅]
+>>>>>>> omni_repair_backup_20250704_1335
 export default function AuditLogViewer({ token, showDownload }) {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,7 +19,11 @@ export default function AuditLogViewer({ token, showDownload }) {
       .finally(() => setLoading(false));
   }, [token]);
 
+<<<<<<< HEAD
   const [userFilter, setUserFilter] = useState("");
+=======
+  const [userFilter, setUserFilter] = useState(""); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
 
   const filteredLogs = userFilter
     ? logs.filter(entry => entry.user && entry.user.includes(userFilter))

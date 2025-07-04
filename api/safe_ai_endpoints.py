@@ -4,7 +4,11 @@ AIFOLIO SAFE AI Backend API Endpoints
 - All endpoints return only static, aggregate, non-personal data
 - All actions are audit-logged
 """
+<<<<<<< HEAD
 from fastapi import FastAPI, Request
+=======
+from fastapi import FastAPI
+>>>>>>> omni_repair_backup_20250704_1335
 from fastapi.responses import JSONResponse
 from autonomy.analytics import (
     revenue_tracker, vault_performance, compliance_tracker, 
@@ -25,17 +29,27 @@ from autonomy.analytics import (
     static_partner_revenue_contribution, external_data_firewall_verification, static_market_gap_report,
     partner_storefront_opportunity_map, static_cross_platform_revenue_tracker, competitive_vault_overlap_report,
     safe_ai_new_market_entry_checklist, year_end_safe_ai_business_audit_generator, safe_ai_system_uptime_tracker,
+<<<<<<< HEAD
     cross_system_compliance_log_aggregator, long_term_content_consistency_scanner, safe_ai_external_api_safety_monitor,
+=======
+    cross_system_compliance_log_aggregator, int_term_content_consistency_scanner, safe_ai_external_api_safety_monitor,
+>>>>>>> omni_repair_backup_20250704_1335
     ai_safe_open_banking_revenue_reports, multi_partner_safe_ai_sync_summary, safe_ai_innovation_radar_report,
     partner_ecosystem_health_check, static_global_business_map, static_vault_cross_market_fit_report,
     safe_ai_passive_partnership_monitor, annual_safe_ai_business_health_scorecard, multi_channel_safe_ai_revenue_breakdown,
     content_licensing_status_tracker, static_affiliate_revenue_tracker, admin_safe_ai_readiness_certification_generator,
     cross_niche_revenue_overlap_report, safe_ai_partner_reputation_score, annual_vault_market_fit_index,
     legacy_content_aging_tracker, safe_ai_business_scalability_index, platform_ecosystem_stability_report,
+<<<<<<< HEAD
     safe_ai_long_term_compliance_roadmap_generator, safe_ai_multi_year_business_planning_summary
 )
 from autonomy.security.ai_safety_layer import anti_static_guard
 from fastapi.responses import JSONResponse
+=======
+    safe_ai_int_term_compliance_roadmap_generator, safe_ai_multi_year_business_planning_summary
+)
+from autonomy.security.ai_safety_layer import anti_static_guard
+>>>>>>> omni_repair_backup_20250704_1335
 from fastapi import status
 
 
@@ -327,10 +341,17 @@ def get_cross_system_compliance_log_aggregator():
     logs = []
     return JSONResponse(cross_system_compliance_log_aggregator.cross_system_compliance_log_aggregator(logs))
 
+<<<<<<< HEAD
 @app.get("/api/analytics/long_term_content_consistency_scanner")
 def get_long_term_content_consistency_scanner():
     content_snapshots = []
     return JSONResponse(long_term_content_consistency_scanner.long_term_content_consistency_scanner(content_snapshots))
+=======
+@app.get("/api/analytics/int_term_content_consistency_scanner")
+def get_int_term_content_consistency_scanner():
+    content_snapshots = []
+    return JSONResponse(int_term_content_consistency_scanner.int_term_content_consistency_scanner(content_snapshots))
+>>>>>>> omni_repair_backup_20250704_1335
 
 @app.get("/api/analytics/external_api_safety_monitor")
 def get_external_api_safety_monitor():
@@ -502,12 +523,21 @@ def get_platform_ecosystem_stability_report():
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 
+<<<<<<< HEAD
 @app.get("/api/analytics/long_term_compliance_roadmap")
 def get_long_term_compliance_roadmap():
     roadmap_items = []
     result = safe_ai_long_term_compliance_roadmap_generator.long_term_compliance_roadmap(roadmap_items)
     result_json = json.dumps(result)
     if not anti_static_guard(result_json, user=None, action="long_term_compliance_roadmap"):
+=======
+@app.get("/api/analytics/int_term_compliance_roadmap")
+def get_int_term_compliance_roadmap():
+    roadmap_items = []
+    result = safe_ai_int_term_compliance_roadmap_generator.int_term_compliance_roadmap(roadmap_items)
+    result_json = json.dumps(result)
+    if not anti_static_guard(result_json, user=None, action="int_term_compliance_roadmap"):
+>>>>>>> omni_repair_backup_20250704_1335
         return JSONResponse({"error": "Unsafe AI pattern detected.", "patterns": [pat for pat in result_json]}, status_code=status.HTTP_400_BAD_REQUEST)
     return JSONResponse(result)
 

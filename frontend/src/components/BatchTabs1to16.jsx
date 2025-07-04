@@ -11,9 +11,16 @@ const BATCHES = Array.from({ length: 16 }, (_, i) => ({
   lastUpdated: `2025-06-22T12:00:00-06:00`
 }));
 
+<<<<<<< HEAD
 export default function BatchTabs1to16() {
   const [tab, setTab] = useState(BATCHES[0].key);
   const [status, setStatus] = useState(null);
+=======
+// [WINDSURF FIXED ✅]
+export default function BatchTabs1to16() {
+  const [tab, setTab] = useState(BATCHES[0].key);
+  const [status, setStatus] = useState(null); // Remove if not used in render or logic
+>>>>>>> omni_repair_backup_20250704_1335
   const currentBatch = BATCHES.find(b => b.key === tab);
 
   const handleExport = (file) => {

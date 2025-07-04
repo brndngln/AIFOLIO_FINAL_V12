@@ -1,6 +1,9 @@
 # AI_reinvestment_logicsuite.py
 # Applies billionaire filter, ROI, and priority logic to reinvestment proposals
+<<<<<<< HEAD
 import json
+=======
+>>>>>>> omni_repair_backup_20250704_1335
 class AIReinvestmentLogicSuite:
     def rank_and_filter(self, proposals, brain_profiles):
         # Only allow ROI >= 6 and not saturated

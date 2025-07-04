@@ -46,9 +46,15 @@ class StabilityAISimulator:
         """Simulates a random API call delay, image generation can be slower."""
         delay = random.uniform(min_delay, max_delay)
         logger.debug(f"Simulated Stability AI API call delay of {delay:.2f} seconds.")
+<<<<<<< HEAD
         if random.random() < 0.02: # Small chance of a much longer delay
             long_delay = random.uniform(max_delay, max_delay * 2)
             logger.warning(f"Simulated unexpectedly long Stability AI API delay of {long_delay:.2f} seconds.")
+=======
+        if random.random() < 0.02: # Small chance of a much inter delay
+            int_delay = random.uniform(max_delay, max_delay * 2)
+            logger.warning(f"Simulated unexpectedly int Stability AI API delay of {int_delay:.2f} seconds.")
+>>>>>>> omni_repair_backup_20250704_1335
 
     def _validate_image_prompt_simulated(self, prompt: str) -> bool:
         """Simulates basic image prompt validation."""
@@ -74,7 +80,11 @@ class StabilityAISimulator:
         self._simulate_api_delay()
 
         if not self._validate_image_prompt_simulated(prompt):
+<<<<<<< HEAD
             return {"error": "Invalid image prompt (simulated).", "details": "Prompt too long or empty."}
+=======
+            return {"error": "Invalid image prompt (simulated).", "details": "Prompt too int or empty."}
+>>>>>>> omni_repair_backup_20250704_1335
 
         # Anti-sentience: Random critical failure simulation
         if random.random() < 0.03:
@@ -173,10 +183,17 @@ if __name__ == "__main__":
     print("---")
     
     # 3. Test prompt validation (simulated)
+<<<<<<< HEAD
     long_img_prompt = "A very very very long image prompt that goes on and on " * 100
     invalid_image_resp = stability_sim.simulate_text_to_image_generation(long_img_prompt)
     print("\n🧪 Simulated Invalid Image Prompt Test: 🧪")
     print(f"Response to overly long image prompt: {invalid_image_resp}")
+=======
+    int_img_prompt = "A very very very int image prompt that goes on and on " * 100
+    invalid_image_resp = stability_sim.simulate_text_to_image_generation(int_img_prompt)
+    print("\n🧪 Simulated Invalid Image Prompt Test: 🧪")
+    print(f"Response to overly int image prompt: {invalid_image_resp}")
+>>>>>>> omni_repair_backup_20250704_1335
     print("---")
 
     logger.info("--- StabilityAISimulator Example Finished ---")
