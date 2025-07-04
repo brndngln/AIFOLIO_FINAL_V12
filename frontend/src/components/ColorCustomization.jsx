@@ -39,11 +39,175 @@ const colorPresets = {
     cta: '#FFFFFF',
     border: '#808080'
   }
-
   // Add more component properties here
 };
 
 const ColorCustomization = () => {
+  // ...hooks and logic above...
+  // --- COMPONENTS ARRAY MOVED INSIDE FUNCTION ---
+  const components = [
+    {
+      name: 'app',
+      properties: [
+        { name: 'background', defaultValue: '#000000' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'accent', defaultValue: '#2E3D2E' },
+        { name: 'secondary', defaultValue: '#516B51' },
+        { name: 'cta', defaultValue: '#D2B48C' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
+        { name: 'hover', defaultValue: '#3D503D' },
+        { name: 'active', defaultValue: '#3D503D' },
+        { name: 'focus', defaultValue: '#2E3D2E' },
+        { name: 'link', defaultValue: '#D2B48C' },
+        { name: 'link-hover', defaultValue: '#3D503D' },
+        { name: 'link-visited', defaultValue: '#516B51' },
+        { name: 'error', defaultValue: '#FF0000' },
+        { name: 'success', defaultValue: '#00FF00' },
+        { name: 'warning', defaultValue: '#FFFF00' },
+        { name: 'info', defaultValue: '#00FFFF' },
+        { name: 'disabled', defaultValue: '#404040' },
+        { name: 'placeholder', defaultValue: '#808080' },
+        { name: 'underline', defaultValue: '#D2B48C' }
+      ]
+    },
+    {
+      name: 'card',
+      properties: [
+        { name: 'background', defaultValue: '#1A1A1A' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
+        { name: 'hover', defaultValue: '#2E3D2E' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'active', defaultValue: '#3D503D' },
+        { name: 'focus', defaultValue: '#2E3D2E' },
+        { name: 'title', defaultValue: '#D2B48C' },
+        { name: 'subtitle', defaultValue: '#516B51' },
+        { name: 'divider', defaultValue: '#404040' },
+        { name: 'icon', defaultValue: '#D2B48C' },
+        { name: 'icon-hover', defaultValue: '#3D503D' }
+      ]
+    },
+    {
+      name: 'button',
+      properties: [
+        { name: 'background', defaultValue: '#D2B48C' },
+        { name: 'text', defaultValue: '#000000' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'hover', defaultValue: '#3D503D' },
+        { name: 'active', defaultValue: '#3D503D' },
+        { name: 'focus', defaultValue: '#2E3D2E' },
+        { name: 'disabled', defaultValue: '#404040' },
+        { name: 'secondary-background', defaultValue: '#516B51' },
+        { name: 'secondary-text', defaultValue: '#F5EAD4' },
+        { name: 'danger-background', defaultValue: '#FF0000' },
+        { name: 'danger-text', defaultValue: '#FFFFFF' },
+        { name: 'loading', defaultValue: '#FFFFFF' },
+        { name: 'icon', defaultValue: '#000000' },
+        { name: 'icon-hover', defaultValue: '#3D503D' },
+        { name: 'icon-active', defaultValue: '#2E3D2E' }
+      ]
+    },
+    {
+      name: 'input',
+      properties: [
+        { name: 'background', defaultValue: '#1A1A1A' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'hover', defaultValue: '#2E3D2E' },
+        { name: 'focus', defaultValue: '#D2B48C' },
+        { name: 'disabled', defaultValue: '#404040' },
+        { name: 'placeholder', defaultValue: '#808080' },
+        { name: 'error', defaultValue: '#FF0000' },
+        { name: 'success', defaultValue: '#00FF00' },
+        { name: 'warning', defaultValue: '#FFFF00' },
+        { name: 'info', defaultValue: '#00FFFF' },
+        { name: 'underline', defaultValue: '#D2B48C' },
+        { name: 'underline-hover', defaultValue: '#3D503D' },
+        { name: 'underline-focus', defaultValue: '#2E3D2E' }
+      ]
+    },
+    {
+      name: 'link',
+      properties: [
+        { name: 'text', defaultValue: '#D2B48C' },
+        { name: 'hover', defaultValue: '#3D503D' },
+        { name: 'visited', defaultValue: '#516B51' },
+        { name: 'active', defaultValue: '#2E3D2E' },
+        { name: 'underline', defaultValue: '#D2B48C' },
+        { name: 'underline-hover', defaultValue: '#3D503D' },
+        { name: 'underline-active', defaultValue: '#2E3D2E' }
+      ]
+    },
+    {
+      name: 'alert',
+      properties: [
+        { name: 'background', defaultValue: '#2E3D2E' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'icon', defaultValue: '#D2B48C' },
+        { name: 'success-background', defaultValue: '#00FF00' },
+        { name: 'success-text', defaultValue: '#000000' },
+        { name: 'error-background', defaultValue: '#FF0000' },
+        { name: 'error-text', defaultValue: '#FFFFFF' },
+        { name: 'warning-background', defaultValue: '#FFFF00' },
+        { name: 'warning-text', defaultValue: '#000000' },
+        { name: 'info-background', defaultValue: '#00FFFF' },
+        { name: 'info-text', defaultValue: '#000000' }
+      ]
+    },
+    {
+      name: 'tooltip',
+      properties: [
+        { name: 'background', defaultValue: '#000000' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'arrow', defaultValue: '#2E3D2E' },
+        { name: 'hover', defaultValue: '#3D503D' }
+      ]
+    },
+    {
+      name: 'modal',
+      properties: [
+        { name: 'overlay', defaultValue: 'rgba(0, 0, 0, 0.7)' },
+        { name: 'background', defaultValue: '#1A1A1A' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'header-background', defaultValue: '#2E3D2E' },
+        { name: 'header-text', defaultValue: '#D2B48C' },
+        { name: 'close-button', defaultValue: '#D2B48C' },
+        { name: 'close-button-hover', defaultValue: '#3D503D' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.3)' }
+      ]
+    },
+    {
+      name: 'header',
+      properties: [
+        { name: 'background', defaultValue: '#2E3D2E' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
+        { name: 'logo', defaultValue: '#D2B48C' },
+        { name: 'nav-link', defaultValue: '#F5EAD4' },
+        { name: 'nav-link-hover', defaultValue: '#3D503D' },
+        { name: 'nav-link-active', defaultValue: '#2E3D2E' }
+      ]
+    },
+    {
+      name: 'navigation',
+      properties: [
+        { name: 'background', defaultValue: '#1A1A1A' },
+        { name: 'text', defaultValue: '#F5EAD4' },
+        { name: 'border', defaultValue: '#516B51' },
+        { name: 'item-hover', defaultValue: '#2E3D2E' },
+        { name: 'item-active', defaultValue: '#3D503D' },
+        { name: 'icon', defaultValue: '#D2B48C' },
+        { name: 'icon-hover', defaultValue: '#3D503D' },
+        { name: 'icon-active', defaultValue: '#2E3D2E' },
+        { name: 'divider', defaultValue: '#404040' }
+      ]
+    }
+
   const [activePreset, setActivePreset] = useState('default');
   const { theme, setTheme } = useTheme();
   const [showPreview, setShowPreview] = useState(false);
@@ -209,170 +373,6 @@ const ColorCustomization = () => {
     setCurrentColor({ component, state: property, color });
   };
 
-
-  const components = [
-    {
-      name: 'app',
-      properties: [
-        { name: 'background', defaultValue: '#000000' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'accent', defaultValue: '#2E3D2E' },
-        { name: 'secondary', defaultValue: '#516B51' },
-        { name: 'cta', defaultValue: '#D2B48C' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'link', defaultValue: '#D2B48C' },
-        { name: 'link-hover', defaultValue: '#3D503D' },
-        { name: 'link-visited', defaultValue: '#516B51' },
-        { name: 'error', defaultValue: '#FF0000' },
-        { name: 'success', defaultValue: '#00FF00' },
-        { name: 'warning', defaultValue: '#FFFF00' },
-        { name: 'info', defaultValue: '#00FFFF' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'placeholder', defaultValue: '#808080' },
-        { name: 'underline', defaultValue: '#D2B48C' }
-      ]
-    },
-    {
-      name: 'card',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'title', defaultValue: '#D2B48C' },
-        { name: 'subtitle', defaultValue: '#516B51' },
-        { name: 'divider', defaultValue: '#404040' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'icon-hover', defaultValue: '#3D503D' }
-      ]
-    },
-    {
-      name: 'button',
-      properties: [
-        { name: 'background', defaultValue: '#D2B48C' },
-        { name: 'text', defaultValue: '#000000' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'active', defaultValue: '#3D503D' },
-        { name: 'focus', defaultValue: '#2E3D2E' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'secondary-background', defaultValue: '#516B51' },
-        { name: 'secondary-text', defaultValue: '#F5EAD4' },
-        { name: 'danger-background', defaultValue: '#FF0000' },
-        { name: 'danger-text', defaultValue: '#FFFFFF' },
-        { name: 'loading', defaultValue: '#FFFFFF' },
-        { name: 'icon', defaultValue: '#000000' },
-        { name: 'icon-hover', defaultValue: '#3D503D' },
-        { name: 'icon-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'input',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'hover', defaultValue: '#2E3D2E' },
-        { name: 'focus', defaultValue: '#D2B48C' },
-        { name: 'disabled', defaultValue: '#404040' },
-        { name: 'placeholder', defaultValue: '#808080' },
-        { name: 'error', defaultValue: '#FF0000' },
-        { name: 'success', defaultValue: '#00FF00' },
-        { name: 'warning', defaultValue: '#FFFF00' },
-        { name: 'info', defaultValue: '#00FFFF' },
-        { name: 'underline', defaultValue: '#D2B48C' },
-        { name: 'underline-hover', defaultValue: '#3D503D' },
-        { name: 'underline-focus', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'link',
-      properties: [
-        { name: 'text', defaultValue: '#D2B48C' },
-        { name: 'hover', defaultValue: '#3D503D' },
-        { name: 'visited', defaultValue: '#516B51' },
-        { name: 'active', defaultValue: '#2E3D2E' },
-        { name: 'underline', defaultValue: '#D2B48C' },
-        { name: 'underline-hover', defaultValue: '#3D503D' },
-        { name: 'underline-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'alert',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'success-background', defaultValue: '#00FF00' },
-        { name: 'success-text', defaultValue: '#000000' },
-        { name: 'error-background', defaultValue: '#FF0000' },
-        { name: 'error-text', defaultValue: '#FFFFFF' },
-        { name: 'warning-background', defaultValue: '#FFFF00' },
-        { name: 'warning-text', defaultValue: '#000000' },
-        { name: 'info-background', defaultValue: '#00FFFF' },
-        { name: 'info-text', defaultValue: '#000000' }
-      ]
-    },
-    {
-      name: 'tooltip',
-      properties: [
-        { name: 'background', defaultValue: '#000000' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'arrow', defaultValue: '#2E3D2E' },
-        { name: 'hover', defaultValue: '#3D503D' }
-      ]
-    },
-    {
-      name: 'modal',
-      properties: [
-        { name: 'overlay', defaultValue: 'rgba(0, 0, 0, 0.7)' },
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'header-background', defaultValue: '#2E3D2E' },
-        { name: 'header-text', defaultValue: '#D2B48C' },
-        { name: 'close-button', defaultValue: '#D2B48C' },
-        { name: 'close-button-hover', defaultValue: '#3D503D' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.3)' }
-      ]
-    },
-    {
-      name: 'header',
-      properties: [
-        { name: 'background', defaultValue: '#2E3D2E' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'shadow', defaultValue: 'rgba(0, 0, 0, 0.2)' },
-        { name: 'logo', defaultValue: '#D2B48C' },
-        { name: 'nav-link', defaultValue: '#F5EAD4' },
-        { name: 'nav-link-hover', defaultValue: '#3D503D' },
-        { name: 'nav-link-active', defaultValue: '#2E3D2E' }
-      ]
-    },
-    {
-      name: 'navigation',
-      properties: [
-        { name: 'background', defaultValue: '#1A1A1A' },
-        { name: 'text', defaultValue: '#F5EAD4' },
-        { name: 'border', defaultValue: '#516B51' },
-        { name: 'item-hover', defaultValue: '#2E3D2E' },
-        { name: 'item-active', defaultValue: '#3D503D' },
-        { name: 'icon', defaultValue: '#D2B48C' },
-        { name: 'icon-hover', defaultValue: '#3D503D' },
-        { name: 'icon-active', defaultValue: '#2E3D2E' },
-        { name: 'divider', defaultValue: '#404040' }
-      ]
-    }
-  ];
 
   const applyPreset = (presetName) => {
     try {
