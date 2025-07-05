@@ -430,6 +430,8 @@ class RedisCache:
         """Get statistics about cache usage per strategy"""
         stats: Dict[str, Dict[str, int]] = {}
         for name, strategy in self.strategies.items():
+            mget_result = self.client.mget(self.client.scan_iter(f"{name}:*"))
+            size_list = [v for v in mget_result if is_valid_cache_value(v)] if isinstance(mget_result, list) else []
             stats[name] = {
                 "hits": sum(
                     bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
@@ -437,9 +439,7 @@ class RedisCache:
                 "misses": sum(
                     not bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
-                "size": len([
-                    v for v in (self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(self.client.mget(self.client.scan_iter(f"{name}:*")), list) else []) if is_valid_cache_value(v)
-                ]),
+                "size": len(size_list),
                 "ttl": strategy.ttl,
             }
         return stats
