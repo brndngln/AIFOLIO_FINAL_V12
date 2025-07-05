@@ -10,10 +10,18 @@ import starlette
 import starlette.testclient
 import inspect
 print('DIAG: starlette version:', getattr(starlette, '__version__', 'unknown'))
+import inspect
 print('DIAG: TestClient type:', type(TestClient))
 print('DIAG: TestClient module:', TestClient.__module__)
 print('DIAG: starlette.testclient file:', inspect.getfile(starlette.testclient))
 print('DIAG: TestClient file:', inspect.getfile(TestClient))
+# Print constructor signatures
+print('DIAG: TestClient.__init__ signature:', inspect.signature(TestClient.__init__))
+try:
+    from starlette.testclient import Client as StarletteClient
+    print('DIAG: StarletteClient.__init__ signature:', inspect.signature(StarletteClient.__init__))
+except Exception as e:
+    print('DIAG: Could not inspect StarletteClient.__init__:', e)
 client = TestClient(app)  # Correct usage: positional argument only, no keyword
 print('DIAG: client type:', type(client))
 print('DIAG: client module:', type(client).__module__)
