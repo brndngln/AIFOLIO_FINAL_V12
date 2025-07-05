@@ -10,17 +10,17 @@ try:
 except ImportError:
     PQCRYPTO_AVAILABLE = False
 
-    def generate_keypair():
+    def generate_keypair() -> None:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
         )
 
-    def encrypt(pk, key):
+    def encrypt(pk: bytes, key: bytes) -> None:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled."
         )
 
-    def decrypt(sk, ct):
+    def decrypt(sk: bytes, ct: bytes) -> None:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled."
         )
@@ -46,7 +46,16 @@ KYBER_KEYPAIR_PATH = "ai_core/EmmaLogs/kyber.keypair"
 
 
 # --- Keypair Management ---
-def load_or_create_kyber_keypair():
+from typing import Optional, Any, Tuple, List
+
+def load_or_create_kyber_keypair() -> Tuple[bytes, bytes]:
+    """
+    Loads or creates a Kyber512 keypair for quantum-safe encryption.
+    Returns:
+        Tuple of (public_key, secret_key) as bytes.
+    Raises:
+        ImportError: If pqcrypto is not available.
+    """
     if not PQCRYPTO_AVAILABLE:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
@@ -64,25 +73,52 @@ def load_or_create_kyber_keypair():
 if PQCRYPTO_AVAILABLE:
     pk, sk = load_or_create_kyber_keypair()
 else:
-    pk, sk = None, None
+    pk = None  # type: ignore[assignment]
+    sk = None  # type: ignore[assignment]
 
 
 # --- Multi-key Sharding (Shamir's Secret Sharing) ---
-def split_key(key: bytes, threshold=3, shares=5):
-    """Split a 32-byte AES key into N shares, requiring M to reconstruct (default 3-of-5)."""
+def split_key(key: bytes, threshold: int = 3, shares: int = 5) -> List[str]:
+    """
+    Split a 32-byte AES key into N shares, requiring M to reconstruct (default 3-of-5).
+    Args:
+        key: The AES key as bytes.
+        threshold: Minimum shares required to reconstruct.
+        shares: Total number of shares to generate.
+    Returns:
+        List of hex-encoded shares as strings.
+    """
     hexkey = key.hex()
-    return PlaintextToHexSecretSharer.split_secret(hexkey, threshold, shares)
+    shares_list = PlaintextToHexSecretSharer.split_secret(hexkey, threshold, shares)
+    return list(shares_list)
 
-
-def combine_key(shares):
-    """Reconstruct AES key from shares."""
-    hexkey = PlaintextToHexSecretSharer.recover_secret(shares)
+def combine_key(shares: List[str]) -> bytes:
+    """
+    Reconstruct AES key from shares.
+    Args:
+        shares: List of hex-encoded shares.
+    Returns:
+        The reconstructed AES key as bytes.
+    """
+    hexkey_raw = PlaintextToHexSecretSharer.recover_secret(shares)
+    if isinstance(hexkey_raw, bytes):
+        hexkey = hexkey_raw.decode()
+    else:
+        hexkey = str(hexkey_raw)
     return bytes.fromhex(hexkey)
 
 
 # --- Quantum-Resistant Encryption ---
 def qr_encrypt_log_data(data: bytes) -> bytes:
-    """Encrypt log data using Kyber KEM for quantum resistance. Raises ImportError if pqcrypto unavailable."""
+    """
+    Encrypt log data using Kyber KEM for quantum resistance. Raises ImportError if pqcrypto unavailable.
+    Args:
+        data: Log data to encrypt (bytes).
+    Returns:
+        Encrypted bytes (IV + Kyber ciphertext + encrypted log).
+    Raises:
+        ImportError: If pqcrypto is not available.
+    """
     if not PQCRYPTO_AVAILABLE:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
@@ -99,11 +135,24 @@ def qr_encrypt_log_data(data: bytes) -> bytes:
     encryptor = cipher.encryptor()
     encrypted = encryptor.update(padded_data) + encryptor.finalize()
     # Store: IV + Kyber ciphertext + encrypted log
-    return iv + ct + encrypted
+    result = iv + ct + encrypted
+    from typing import cast
+    return cast(bytes, result)
 
 
-def qr_decrypt_log_data(enc_data: bytes, biometric=None, override=False) -> bytes:
-    """Decrypt log data using Kyber KEM (requires biometric/override, raises ImportError if pqcrypto unavailable)."""
+def qr_decrypt_log_data(enc_data: bytes, biometric: Optional[Any] = None, override: bool = False) -> bytes:
+    """
+    Decrypt log data using Kyber KEM (requires biometric/override, raises ImportError if pqcrypto unavailable).
+    Args:
+        enc_data: Encrypted log data (bytes).
+        biometric: Optional biometric credential.
+        override: Owner override flag.
+    Returns:
+        Decrypted log data (bytes).
+    Raises:
+        ImportError: If pqcrypto is not available.
+        PermissionError: If neither biometric nor override is provided.
+    """
     if not PQCRYPTO_AVAILABLE:
         raise ImportError(
             "pqcrypto.kem.kyber512 not available: Quantum-resistant decryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
@@ -124,11 +173,13 @@ def qr_decrypt_log_data(enc_data: bytes, biometric=None, override=False) -> byte
 
 
 # External immutable backup (write-only, append-only)
-def immutable_backup(data: bytes, ts: str, backup_dir=None):
+def immutable_backup(data: bytes, ts: str, backup_dir: Optional[str] = None) -> None:
     """
     Write quantum-encrypted log data to an immutable, append-only backup.
-    If backup_dir is None, use './ai_core/EmmaLogs/immutable_backup/'.
-    On failure, print warning and (optionally) send SIEM alert.
+    Args:
+        data: Quantum-encrypted log data (bytes).
+        ts: Timestamp string for the backup filename.
+        backup_dir: Optional backup directory path.
     """
     if backup_dir is None:
         backup_dir = "./ai_core/EmmaLogs/immutable_backup/"
