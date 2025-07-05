@@ -11,17 +11,18 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 Static, deterministic dashboard for marketplace trends.
 """
 import logging
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
-STATIC_TRENDS = [
+STATIC_TRENDS: List[Dict[str, str]] = [
     {"category": "AI Tools", "trend": "rising"},
     {"category": "Legal Templates", "trend": "stable"},
     {"category": "Fitness", "trend": "falling"},
 ]
 
 
-def get_static_marketplace_trends() -> dict:
+def get_static_marketplace_trends() -> Dict[str, Any]:
     """
     Returns static, deterministic marketplace trends with SAFE AI compliance, owner control, and audit logging.
     Returns a dict with trends, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -50,12 +51,12 @@ def get_static_marketplace_trends() -> dict:
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def trend_drift_protection():
+def trend_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def trend_static_feedback():
+def trend_static_feedback() -> List[str]:
     return ["Monitor rising trends for new vault opportunities."]
 
 

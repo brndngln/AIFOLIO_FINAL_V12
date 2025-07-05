@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import Any, Dict, List, Optional
 from core.compliance.threat_feed_parser import parse_threat_feed
 from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
@@ -16,22 +17,22 @@ os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
 
 
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
-@sentience_firewall
-def detect_sales_anomaly(payload):
+@sentience_firewall  # type: ignore
+def detect_sales_anomaly(payload: Dict[str, Any]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before anomaly detection
-    parse_threat_feed({})
+    parse_threat_feed({})  # type: ignore
     # OMNIPROOF: Blockchain anchor for anomaly hash (static)
-    anchor_license_hash("ANOMALY_HASH_PLACEHOLDER")
+    anchor_license_hash("ANOMALY_HASH_PLACEHOLDER")  # type: ignore
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("anomaly_path_placeholder")
+    zero_knowledge_export("anomaly_path_placeholder")  # type: ignore
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")
+    schedule_backup("analytics/")  # type: ignore
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )
+    )  # type: ignore
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"sales_data": payload.get("sales", [])})
+    detect_signals({"sales_data": payload.get("sales", [])})  # type: ignore
     """
     Elite SAFE AI static anomaly detector for sales and event payloads.
     Accepts dict payloads (vault_id, sales, event_type, etc.). Logs anomalies to elite_compliance_alerts.json and flags for founder/admin review if high priority. All logic is static, deterministic, and owner-controlled. Extension hooks for future SAFE AI, legal, and compliance triggers.
@@ -42,7 +43,7 @@ def detect_sales_anomaly(payload):
     NON_SENTIENT = True
     vault_id = payload.get("vault_id")
     sales = payload.get("sales", [])
-    sales_by_week = {}
+    sales_by_week: Dict[int, int] = {}
     for s in sales:
         dt = datetime.datetime.fromisoformat(s["timestamp"].replace("Z", ""))
         week = dt.isocalendar()[1]
@@ -85,12 +86,12 @@ def detect_sales_anomaly(payload):
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def anomaly_drift_protection():
+def anomaly_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def anomaly_static_feedback():
+def anomaly_static_feedback() -> List[str]:
     return ["If anomaly detected, review sales strategy for vault."]
 
 

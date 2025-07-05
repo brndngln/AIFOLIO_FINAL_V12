@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import Any, Dict, List, Optional
 
 BUNDLE_LOG = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "bundle_recommendation_engine_log.jsonl")
@@ -16,34 +17,34 @@ from core.compliance.compliance_manifest_exporter import export_compliance_manif
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 
-def recommend_bundles(vault_id, purchase_history):
+def recommend_bundles(vault_id: str, purchase_history: List[Dict[str, Any]]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before bundle recommendation
-    parse_threat_feed({})
+    parse_threat_feed({})  # type: ignore
     # OMNIPROOF: Blockchain anchor for bundle hash (static)
-    anchor_license_hash("BUNDLE_HASH_PLACEHOLDER")
+    anchor_license_hash("BUNDLE_HASH_PLACEHOLDER")  # type: ignore
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("bundle_path_placeholder")
+    zero_knowledge_export("bundle_path_placeholder")  # type: ignore
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")
+    schedule_backup("analytics/")  # type: ignore
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )
+    )  # type: ignore
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"vault_id": vault_id, "purchase_history": purchase_history})
+    detect_signals({"vault_id": vault_id, "purchase_history": purchase_history})  # type: ignore
 
     VERSION = "AIFOLIO_BUNDLE_ENGINE_V2_SAFEAI_FINAL"
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
     NON_SENTIENT = True
 
-    category_counts = {}
+    category_counts: Dict[str, int] = {}
     for p in purchase_history:
         if p["vault_id"] == vault_id:
             cat = p.get("category")
             if cat:
                 category_counts[cat] = category_counts.get(cat, 0) + 1
-    suggestions = [cat for cat, count in category_counts.items() if count > 1]
+    suggestions: List[str] = [cat for cat, count in category_counts.items() if count > 1]
     if suggestions:
         explanation = f"Recommend bundle(s) for categories: {', '.join(suggestions)}."
         recommendation = "Create or promote bundles for these categories."
@@ -70,12 +71,12 @@ def recommend_bundles(vault_id, purchase_history):
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def bundle_drift_protection():
+def bundle_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def bundle_static_feedback():
+def bundle_static_feedback() -> List[str]:
     return ["If bundles are recommended, consider cross-promoting these categories."]
 
 
