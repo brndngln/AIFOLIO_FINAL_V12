@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "eslint-plugin-react": "^7.37.5",
+    "jest": "^30.0.4",
+    "jest-axe": "^10.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv-safe": "^9.1.0",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "xss-clean": "^0.1.4"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "v12",
+  "status": "deployable",
+  "last_updated": "2025-06-03T20:03:41-06:00",
+  "error_handling": {
+    "retry_attempts": 3,
+    "timeout_seconds": 30,
+    "logging_level": "INFO"
+  },
+  "security": {
+    "non_sentient": true,
+    "max_learning_iterations": 0,
+    "self_modification": false
+  },
+  "validation": {
+    "required_fields": ["version", "status"],
+    "status_values": ["deployable", "pending", "failed"]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "retry_count": 0,
+  "fallback_channels": [],
+  "log_level": "info",
+  "critical": false
+}

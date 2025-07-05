@@ -1,0 +1,16 @@
+[
+  {
+    "id": "template_bundle",
+    "title": "Template Bundle Generator",
+    "description": "Generate a downloadable bundle of templates for any niche.",
+    "prompt": "You are a template licensing expert. Build a bundle for: {niche}. Include licensing and resale options.",
+    "style": "business, versatile"
+  },
+  {
+    "id": "drag_drop_vault",
+    "title": "Drag-and-Drop Vault Builder",
+    "description": "Enable elite users to create custom vaults via drag-and-drop.",
+    "prompt": "You are a UI/UX engineer. Design a drag-and-drop vault builder for: {user_goal}. Include export and licensing features.",
+    "style": "elite, interactive"
+  }
+]

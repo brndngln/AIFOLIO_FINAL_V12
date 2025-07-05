@@ -1,0 +1,33 @@
+.dashboard-glassmorphic {
+  /* (existing styles) */
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.dashboard-section {
+  margin-top: 2rem;
+}
+.dashboard-engine-block {
+  background: rgba(240, 248, 255, 0.35);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.dashboard-engine-block h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #2a4d69;
+}
+.dashboard-engine-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+.dashboard-engine-block pre {
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  overflow-x: auto;
+}

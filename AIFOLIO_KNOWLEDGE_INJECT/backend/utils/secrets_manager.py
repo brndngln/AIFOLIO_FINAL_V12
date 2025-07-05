@@ -1,0 +1,70 @@
+"""
+Secrets Manager Utility for AIFOLIO/OMNIELITE
+- Loads, rotates, and audits secrets from environment, .env, or vault.
+- Prevents hardcoded secrets in codebase.
+- Integration point for cloud secret managers (AWS/GCP/Azure Vault).
+"""
+import os
+import json
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class SecretsManager:
+    def __init__(self, env_path: str = ".env"):
+        self.env_path = env_path
+        self.secrets = self._load_secrets()
+
+    def _load_secrets(self):
+        secrets = {}
+        if os.path.exists(self.env_path):
+            with open(self.env_path) as f:
+                for line in f:
+                    if line.strip() and not line.startswith("#"):
+                        k, v = line.strip().split("=", 1)
+                        secrets[k] = v
+        # Load from environment as fallback
+        for k in [
+            "AIFOLIO_PASSWORD_HASH",
+            "SECRET_KEY",
+            "ALGORITHM",
+            "SECRET_USERNAME",
+            "AIFOLIO_ROLE",
+            "AIFOLIO_EMAIL",
+            "AIFOLIO_ORG",
+            "REDIS_HOST",
+            "REDIS_PORT",
+            "REDIS_DB",
+        ]:
+            if k not in secrets and os.getenv(k):
+                secrets[k] = os.getenv(k)
+        return secrets
+
+    def get(self, key, default=None):
+        return self.secrets.get(key, default)
+
+    def rotate_secret(self, key, new_value):
+        self.secrets[key] = new_value
+        # Persist to .env (stub: in production, use vault/manager API)
+        lines = []
+        if os.path.exists(self.env_path):
+            with open(self.env_path) as f:
+                lines = f.readlines()
+        found = False
+        for i, line in enumerate(lines):
+            if line.startswith(f"{key}="):
+                lines[i] = f"{key}={new_value}\n"
+                found = True
+        if not found:
+            lines.append(f"{key}={new_value}\n")
+        with open(self.env_path, "w") as f:
+            f.writelines(lines)
+
+    def audit_secrets(self):
+        # Scan for hardcoded secrets in codebase (stub)
+        pass
+
+    def export_secrets(self, path="secrets_backup.json"):
+        with open(path, "w") as f:
+            json.dump(self.secrets, f, indent=2)

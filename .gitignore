@@ -50,21 +50,6 @@ analytics/backups/
 
 ENV/
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-
-# Node/JS
-node_modules/
-build/
-logs/
-coverage/
-.env
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -73,6 +58,92 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
+
+# Python caches and build artifacts
+__pycache__/
+.mypy_cache/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+
+# Logs, temp, and backup files
+*.log
+*.tmp
+*.bak
+
+# Test and result artifacts
+frontend_test_results.json
+
+# OS-specific and system files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archives and encrypted volumes
+*.zip
+*.tar.gz
+*.7z
+*.pkl
+*.h5
+*.iso
+
+# Build and distribution folders
+/dist/
+/build/
+
+# Project-specific lockdowns
+/secure/
+/mnt/vera/
+/AIFOLIO_FINAL_V12_RESTORED/
+/sync_to_veracrypt.sh
+/restore_from_veracrypt.sh
+/EmmaVolumeMonitor.py
+/vaults/
+admin/tools/system_backups/
+analytics/backups/
+
+# WINDSURF SECURE GIT IMMUNIZATION
+*.hc
+*.veracrypt
+omnisecure_stack/
+
+# Ignore egg-info and dist-info folders anywhere
+*.egg-info/
+*.dist-info/
+
+# Ignore pdf_builder and related build folders
+**/pdf_builder/
+
+# Ignore pip build operations
+**/pip/_internal/operations/build/
+
+# Uncomment or update additional rules as needed
+
 .env
 .env.*
 .env.example
@@ -100,6 +171,23 @@ dist/
 .backups/
 .backups/
 .backups/
+node_modules
+node_modules
+node_modules
+node_modules
+
+# Ignore Python cache
+.mypy_cache/
+__pycache__/
+
+# Ignore large test results
+frontend/frontend_test_results.json
+
+# Ignore all .zip and .json files created by knowledge injection
+AIFOLIO_KNOWLEDGE_INJECT/
+*.zip
+node_modules
+node_modules
 node_modules
 node_modules
 node_modules

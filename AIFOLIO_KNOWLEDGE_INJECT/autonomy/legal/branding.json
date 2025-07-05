@@ -1,0 +1,15 @@
+{
+  "pdf_style": {
+    "font": "Helvetica",
+    "font_size": 12,
+    "primary_color": "#0ea5e9",
+    "secondary_color": "#222",
+    "header_color": "#0ea5e9",
+    "footer_color": "#64748b",
+    "logo_path": "../../branding/logo.png"
+  },
+  "legal_export": {
+    "watermark": "AIFOLIO™ LEGAL EXPORT",
+    "footer_text": "AIFOLIO™ — All Rights Reserved"
+  }
+}

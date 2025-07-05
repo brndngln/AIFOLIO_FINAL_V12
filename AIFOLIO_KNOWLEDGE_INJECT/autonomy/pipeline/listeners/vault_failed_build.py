@@ -1,0 +1,29 @@
+import json
+import datetime
+import os
+
+ACTIVITY_LOG = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/vault_activity_log.json")
+)
+FAILED_BUILD_LOG = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "../../analytics/vault_failed_build_log.json"
+    )
+)
+os.makedirs(os.path.dirname(ACTIVITY_LOG), exist_ok=True)
+os.makedirs(os.path.dirname(FAILED_BUILD_LOG), exist_ok=True)
+
+
+def handle_event(event):
+    entry = {
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "event": "vault_failed_build",
+        "vault_id": event.get("vault_id"),
+        "user_id": event.get("user_id"),
+        "metadata": event.get("metadata", {}),
+    }
+    with open(ACTIVITY_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+    with open(FAILED_BUILD_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+    return entry

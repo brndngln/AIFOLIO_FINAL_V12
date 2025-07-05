@@ -1,0 +1,28 @@
+{
+  "channels": [
+    "email",
+    "push",
+    "dashboard",
+    "telegram",
+    "discord"
+  ],
+  "email": {
+    "to": "YOUR_EMAIL_HERE",
+    "smtp_server": "smtp.example.com",
+    "smtp_port": 587,
+    "username": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD"
+  },
+  "push": {
+    "service": "pushover",
+    "user_key": "YOUR_PUSHOVER_USER_KEY",
+    "api_token": "YOUR_PUSHOVER_API_TOKEN"
+  },
+  "telegram": {
+    "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+    "chat_id": "YOUR_TELEGRAM_CHAT_ID"
+  },
+  "discord": {
+    "webhook_url": "YOUR_DISCORD_WEBHOOK_URL"
+  }
+}

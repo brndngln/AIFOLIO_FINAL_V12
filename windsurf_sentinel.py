@@ -59,7 +59,8 @@ def autonomous_recovery(func):
                     print(f"[AUTONOMOUS RECOVERY] chown error: {chown_e}")
                 if attempt == retries:
                     print(
-                        f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts: {e}"
+                        f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts:\n"
+                        f"{e}"
                     )
                     # Only abort on SAFE AI violation
                     if "sentient" in str(e).lower():

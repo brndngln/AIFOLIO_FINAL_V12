@@ -1,0 +1,13 @@
+{
+  "default": {
+    "reinvestment": 0.4,
+    "liquidity": 0.3,
+    "goals": 0.2,
+    "rnd": 0.05,
+    "emergency": 0.05
+  },
+  "tiers": {
+    "low": {"reinvestment": 0.2, "liquidity": 0.5, "goals": 0.2, "rnd": 0.05, "emergency": 0.05},
+    "high": {"reinvestment": 0.5, "liquidity": 0.2, "goals": 0.2, "rnd": 0.05, "emergency": 0.05}
+  }
+}

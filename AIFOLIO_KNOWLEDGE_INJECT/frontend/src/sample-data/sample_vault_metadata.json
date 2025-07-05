@@ -1,0 +1,16 @@
+{
+  "vault_id": "sample-001",
+  "version": "1.0",
+  "owner": "AIFOLIO Owner",
+  "status": "active",
+  "audit_log": [
+    {"event": "created", "timestamp": "2025-06-01T12:00:00Z"},
+    {"event": "previewed", "timestamp": "2025-06-01T12:10:00Z"},
+    {"event": "approved", "timestamp": "2025-06-01T12:15:00Z"}
+  ],
+  "price": 49.99,
+  "currency": "USD",
+  "delivery": "secure-pdf",
+  "compliance": ["GDPR", "CCPA", "OWNER CONTROLLED"],
+  "partner_certified": true
+}
