@@ -1,15 +1,41 @@
 # FastAPI backend for AIFOLIO: Secure, single-user, anti-sentient, autonomous vault automation
-from fastapi import FastAPI, Depends, HTTPException, status
+
+import os
+import random
+import time
+import datetime
+import redis
+import logging
+from typing import Optional
+
+from fastapi import FastAPI, Depends, HTTPException, status, Request, Body
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse
 from starlette.staticfiles import StaticFiles
 from passlib.context import CryptContext
-import os
-from typing import Optional
+from jose import jwt
+
+from backend.config.settings import SECRET_KEY, ALGORITHM, SECRET_USERNAME
+from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
+from backend.utils.monitoring import VaultMetrics
+from backend.analytics.analytics_service import AnalyticsService
+from backend.phase_control_state import (
+    load_state, toggle_safe_mode, trigger_upgrade, lockdown_system
+)
+from backend.auth.deps import get_current_user
+from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
+from backend.utils.safe_ai_utils import safe_ai_guarded
+from backend.utils.security import (
+    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, sanitize_output, require_admin, require_mfa
+)
+from api import gumroad_api
+from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
+from backend.batch_scaling.batch16_20_api import router as batch_scaling_router
+from backend.api.elite_business_api import router as elite_business_router
+from backend.api import elite_analytics_automation_api_router, elite_security_performance_api_router, heartbeat_api_router, compliance_exports_api_router
 
 # --- Security Setup ---
-from backend.config.settings import SECRET_KEY, ALGORITHM, SECRET_USERNAME
 SECRET_PASSWORD_HASH = os.getenv("AIFOLIO_PASSWORD_HASH", "$2b$12$Vwz5n5dYk7vYw3kz8p6e0uKj2fQe5l9d0eJrT3f8n8w2w5q6f7q6e")  # bcrypt hash for 'change_this_password'
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -18,20 +44,15 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 app = FastAPI(title="AIFOLIO Autonomous Backend", docs_url="/docs", redoc_url="/redoc")
 
 # --- Mount Gumroad API router ---
-from api import gumroad_api
 app.include_router(gumroad_api.router, prefix="/api")
 
 # --- Mount SAFE AI PDF Builder API router ---
-from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
 app.include_router(pdf_builder_router)
 
 # --- Mount SAFE AI Batches 16–20 + Partner Certification API router ---
-from backend.batch_scaling.batch16_20_api import router as batch_scaling_router
 app.include_router(batch_scaling_router)
 
 # --- Mount Elite Business API router (SAFE AI, deterministic, owner-controlled) ---
-from backend.api.elite_business_api import router as elite_business_router
-from backend.api import elite_analytics_automation_api_router, elite_security_performance_api_router, heartbeat_api_router, compliance_exports_api_router
 app.include_router(elite_business_router, prefix="/api")
 app.include_router(elite_analytics_automation_api_router, prefix="/api")
 app.include_router(elite_security_performance_api_router, prefix="/api")
@@ -54,12 +75,6 @@ app.add_middleware(
 )
 
 # === SECURITY MIDDLEWARE INJECTIONS ===
-from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
-from backend.utils.monitoring import VaultMetrics
-from backend.utils.safe_ai_utils import safe_ai_guarded
-from fastapi import Request
-from fastapi.responses import JSONResponse
-import logging
 
 # Global ContentFilter instance for prompt sanitization
 content_filter = ContentFilter(config={
@@ -116,9 +131,6 @@ async def security_enforcement_middleware(request: Request, call_next):
         return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 # --- Auth Logic ---
-from backend.utils.security import (
-    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, sanitize_output, require_admin, require_mfa
-)
 
 def verify_password(plain_password, hashed_password):
     validate_password_policy(plain_password)  # Enforce password policy
@@ -130,16 +142,7 @@ def authenticate_user(username: str, password: str, request: Request = None):
     validate_password_policy(password)
     if not verify_password(password, SECRET_PASSWORD_HASH):
         return False
-    # Device fingerprinting and token reuse detection (stubs)
-    if request:
-        fingerprint = get_device_fingerprint(request)
-        # Optionally log or use fingerprint
-    # Token reuse check (stub, actual token checked later)
     return True
-
-from jose import jwt
-from datetime import datetime, timedelta
-
 
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
@@ -175,7 +178,6 @@ def login(request: Request, form_data: OAuth2PasswordRequestForm = Depends()):
     return sanitize_output({"access_token": access_token, "token_type": "bearer"})
 
 # --- Protected Endpoint Example ---
-from backend.auth.deps import get_current_user
 
 @app.get("/api/niches")
 @require_role(["admin", "partner"])
@@ -228,11 +230,7 @@ def health_v1(request: Request):
     version = get_api_version(request)
     return sanitize_output({"status": "ok", "version": version})
 
-from fastapi import Query, Body
-from backend.admin.static_users import STATIC_USERS
-
 STATIC_USERS_MEM = STATIC_USERS.copy()  # in-memory static list
-
 
 @app.get("/admin/audit-log")
 def get_audit_log(limit: int = Query(50, ge=1, le=1000), user: str = Query(None), current_user: dict = Depends(get_current_user)):
@@ -295,18 +293,13 @@ def delete_user(username: str, current_user: dict = Depends(get_current_user)):
     return {"status": "ok", "users": STATIC_USERS_MEM}
 
 from fastapi import Request
-from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
 from backend.utils.monitoring import VaultMetrics
-from backend.analytics.analytics_service import AnalyticsService
 
 # === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
 
 generate_vault_prompt = safe_ai_guarded(generate_vault_prompt)
 
 # --- Phase Control Panel State ---
-from backend.phase_control_state import (
-    load_state, toggle_safe_mode, trigger_upgrade, lockdown_system
-)
 
 @app.get("/api/phase/status")
 def get_phase_status(current_user: dict = Depends(get_current_user)):
@@ -337,7 +330,6 @@ def api_lockdown(current_user: dict = Depends(get_current_user)):
     state = load_state()
     return {"success": True, "lockdown": state["lockdown"], "system_integrity": state["system_integrity"]}
 
-import redis
 
 # Setup Redis and AnalyticsService
 redis_client = redis.Redis(host="localhost", port=6379, db=1)
@@ -416,8 +408,6 @@ def health_secrets():
     }
 
 # --- Simulators for Creative Dashboard Panels (JWT-protected) ---
-import random
-import time
 
 @app.get("/api/sim/vault-drop-countdown")
 def sim_vault_drop_countdown(user: str = Depends(get_current_user)):

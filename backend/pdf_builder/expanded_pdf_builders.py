@@ -1,9 +1,14 @@
 import os
+import datetime
+import logging
 from typing import Dict, Any
 from weasyprint import HTML
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import logging
 from backend.utils.safe_ai_utils import safe_ai_guarded
+from autonomy.pipeline.ai_output_normalizer import normalize_output
+from autonomy.pipeline.ai_quality_gatekeeper import score_output
+from autonomy.pipeline.ai_style_tuning_engine import enforce_style
+from autonomy.ai_static.anti_sentience_guard import scan_for_static
 
 # Configure logging
 logging.basicConfig(
@@ -19,11 +24,6 @@ env = Environment(
 )
 
 # --- ULTRA-PREMIUM QUALITY PIPELINE (Permanent, Non-bypassable) ---
-from autonomy.pipeline.ai_output_normalizer import normalize_output
-from autonomy.pipeline.ai_quality_gatekeeper import score_output
-from autonomy.pipeline.ai_style_tuning_engine import enforce_style
-from autonomy.ai_static.anti_sentience_guard import scan_for_static
-import datetime
 
 def _render_and_save_pdf(filename: str, content: str, extra_context: Dict[str, Any] = None) -> str:
     """

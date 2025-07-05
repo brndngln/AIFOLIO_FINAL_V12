@@ -10,6 +10,8 @@ import os
 import re
 import json
 import hashlib
+import requests
+from PIL import Image
 from datetime import datetime
 from typing import Optional, Dict, Any
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
@@ -18,7 +20,6 @@ from weasyprint import HTML, CSS
 # pyHanko for cryptographic PDF signing
 try:
     from pyhanko.sign import signers
-    from pyhanko_certvalidator import ValidationContext
     PYHANKO_AVAILABLE = True
 except ImportError:
     PYHANKO_AVAILABLE = False

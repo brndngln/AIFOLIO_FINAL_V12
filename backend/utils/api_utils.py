@@ -27,8 +27,6 @@ class APIErrorHandler:
     def handle(self, *args, **kwargs):
         return {"error": "static_stub"}
 
-    def __init__(self, *args, **kwargs):
-        pass
     def allow(self, *args, **kwargs):
         return True
 
