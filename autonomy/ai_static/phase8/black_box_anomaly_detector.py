@@ -11,14 +11,11 @@ import os
 LOG_PATH = "../../distribution/legal_exports/black_box_anomaly_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-MODULE_OUTPUTS = [
-    "vault_processing_output.txt",
-    "market_analysis_output.txt"
-]
+MODULE_OUTPUTS = ["vault_processing_output.txt", "market_analysis_output.txt"]
 
 THRESHOLDS = {
     "vault_processing_output.txt": 1000,  # Example static threshold
-    "market_analysis_output.txt": 500
+    "market_analysis_output.txt": 500,
 }
 
 
@@ -39,5 +36,7 @@ def detect_anomalies(triggered_by):
                     except Exception:
                         continue
     if not anomalies:
-        logging.info(f"[{timestamp}] ANOMALY: No anomalies found. | Triggered by: {triggered_by}")
+        logging.info(
+            f"[{timestamp}] ANOMALY: No anomalies found. | Triggered by: {triggered_by}"
+        )
     return anomalies or ["No anomalies found."]

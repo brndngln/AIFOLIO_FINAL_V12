@@ -9,8 +9,11 @@ import json
 import datetime
 import os
 
-AUDIT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/ai_audit_log.json'))
+AUDIT_LOG = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../analytics/ai_audit_log.json")
+)
 os.makedirs(os.path.dirname(AUDIT_LOG), exist_ok=True)
+
 
 def run_engine(input_data):
     """
@@ -21,11 +24,11 @@ def run_engine(input_data):
     suggestions = []
     # ... static logic here ...
     result = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'engine': __name__,
-        'input': input_data,
-        'suggestions': suggestions
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "engine": __name__,
+        "input": input_data,
+        "suggestions": suggestions,
     }
-    with open(AUDIT_LOG, 'a') as f:
-        f.write(json.dumps(result) + '\n')
+    with open(AUDIT_LOG, "a") as f:
+        f.write(json.dumps(result) + "\n")
     return suggestions

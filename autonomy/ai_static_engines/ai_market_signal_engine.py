@@ -10,22 +10,31 @@ import datetime
 
 MARKET_SIGNAL_LOG = []
 
+
 class MarketSignalEngine:
     @staticmethod
     def suggest_profitable_niches(existing_niches: List[str]) -> List[str]:
         """
         Suggests new profitable niches based on static trend data.
         """
-        all_niches = ['AI Compliance', 'Remote Work', 'Digital Health', 'SaaS Security', 'EdTech']
+        all_niches = [
+            "AI Compliance",
+            "Remote Work",
+            "Digital Health",
+            "SaaS Security",
+            "EdTech",
+        ]
         return [n for n in all_niches if n not in existing_niches]
 
     @staticmethod
     def log_signal_action(action: str, details: Dict):
-        MARKET_SIGNAL_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'action': action,
-            'details': details
-        })
+        MARKET_SIGNAL_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "action": action,
+                "details": details,
+            }
+        )
 
     @staticmethod
     def export_signal_log() -> List[Dict]:

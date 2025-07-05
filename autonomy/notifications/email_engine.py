@@ -2,9 +2,18 @@ import os
 import json
 import time
 from typing import List
+
 try:
     from sendgrid import SendGridAPIClient
-    from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+    from sendgrid.helpers.mail import (
+        Mail,
+        Attachment,
+        FileContent,
+        FileName,
+        FileType,
+        Disposition,
+    )
+
     SENDGRID_AVAILABLE = True
 except ImportError:
     SENDGRID_AVAILABLE = False
@@ -12,21 +21,25 @@ from .sms_engine import send_sms
 
 if not SENDGRID_AVAILABLE:
     import logging
-    def send_vault_email(*args, **kwargs):
-        logging.warning('[OMNIELITE] send_vault_email stub called: sendgrid not installed')
 
-EMAIL_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'email_log.json'))
-ALERT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), 'alert_log.json'))
+    def send_vault_email(*args, **kwargs):
+        logging.warning(
+            "[OMNIELITE] send_vault_email stub called: sendgrid not installed"
+        )
+
+
+EMAIL_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), "email_log.json"))
+ALERT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), "alert_log.json"))
 os.makedirs(os.path.dirname(EMAIL_LOG), exist_ok=True)
 os.makedirs(os.path.dirname(ALERT_LOG), exist_ok=True)
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
 REQUIRED_ATTACHMENTS = [
-    'receipt.pdf',
-    'terms_of_service.pdf',
-    'refund_policy.pdf',
-    'vault_preview.json'
+    "receipt.pdf",
+    "terms_of_service.pdf",
+    "refund_policy.pdf",
+    "vault_preview.json",
 ]
 
 RATE_LIMIT_SLEEP = 10  # seconds
@@ -43,6 +56,7 @@ def generate_receipt_pdf(vault_id, buyer_info, output_path) -> str:
     """
     from reportlab.lib.pagesizes import letter
     from reportlab.pdfgen import canvas
+
     filename = f"{vault_id}_{buyer_info['email']}.pdf"
     full_path = os.path.join(output_path, filename)
     c = canvas.Canvas(full_path, pagesize=letter)
@@ -55,7 +69,9 @@ def generate_receipt_pdf(vault_id, buyer_info, output_path) -> str:
     return full_path
 
 
-def send_vault_email(recipient_email: str, subject: str, body: str, attachments: List[str]):
+def send_vault_email(
+    recipient_email: str, subject: str, body: str, attachments: List[str]
+):
     """
     Send an email with attachments using SendGrid. Retry on rate limit. Fallback to SMS if fails.
     """
@@ -64,49 +80,76 @@ def send_vault_email(recipient_email: str, subject: str, body: str, attachments:
         "subject": subject,
         "attachments": attachments,
         "timestamp": time.time(),
-        "status": "pending"
+        "status": "pending",
     }
     for f in attachments:
         if not file_exists(f):
             log_entry["status"] = "failed_missing_attachment"
-            with open(ALERT_LOG, 'a') as log:
-                log.write(json.dumps({"event": "missing_attachment", "file": f, "recipient": recipient_email, "timestamp": time.time()}) + '\n')
+            with open(ALERT_LOG, "a") as log:
+                log.write(
+                    json.dumps(
+                        {
+                            "event": "missing_attachment",
+                            "file": f,
+                            "recipient": recipient_email,
+                            "timestamp": time.time(),
+                        }
+                    )
+                    + "\n"
+                )
             raise FileNotFoundError(f"Attachment missing: {f}")
-    for attempt in range(1, MAX_RETRIES+1):
+    for attempt in range(1, MAX_RETRIES + 1):
         try:
             sg = SendGridAPIClient(SENDGRID_API_KEY)
             mail = Mail(
                 from_email=os.getenv("FROM_EMAIL"),
                 to_emails=recipient_email,
                 subject=subject,
-                plain_text_content=body
+                plain_text_content=body,
             )
             for filepath in attachments:
-                with open(filepath, 'rb') as f:
+                with open(filepath, "rb") as f:
                     data = f.read()
                 encoded = base64.b64encode(data).decode()
                 att = Attachment(
                     FileContent(encoded),
                     FileName(os.path.basename(filepath)),
-                    FileType("application/pdf" if filepath.endswith('.pdf') else "application/json"),
-                    Disposition('attachment')
+                    FileType(
+                        "application/pdf"
+                        if filepath.endswith(".pdf")
+                        else "application/json"
+                    ),
+                    Disposition("attachment"),
                 )
                 mail.add_attachment(att)
             sg.send(mail)
             log_entry["status"] = "sent"
             break
         except Exception as e:
-            if 'rate limit' in str(e).lower() and attempt < MAX_RETRIES:
+            if "rate limit" in str(e).lower() and attempt < MAX_RETRIES:
                 log_entry["status"] = f"retry_{attempt}_rate_limit"
                 time.sleep(RATE_LIMIT_SLEEP * attempt)
                 continue
             else:
                 log_entry["status"] = f"failed_{str(e)}"
                 # Fallback to SMS
-                send_sms(recipient_email, "Vault delivery failed via email. Please contact support.")
-                with open(ALERT_LOG, 'a') as log:
-                    log.write(json.dumps({"event": "email_failed_sms_fallback", "recipient": recipient_email, "timestamp": time.time(), "error": str(e)}) + '\n')
+                send_sms(
+                    recipient_email,
+                    "Vault delivery failed via email. Please contact support.",
+                )
+                with open(ALERT_LOG, "a") as log:
+                    log.write(
+                        json.dumps(
+                            {
+                                "event": "email_failed_sms_fallback",
+                                "recipient": recipient_email,
+                                "timestamp": time.time(),
+                                "error": str(e),
+                            }
+                        )
+                        + "\n"
+                    )
                 break
-    with open(EMAIL_LOG, 'a') as log:
-        log.write(json.dumps(log_entry) + '\n')
+    with open(EMAIL_LOG, "a") as log:
+        log.write(json.dumps(log_entry) + "\n")
     return log_entry["status"]

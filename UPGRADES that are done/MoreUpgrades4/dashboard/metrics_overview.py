@@ -6,19 +6,23 @@ st.set_page_config(page_title="📈 AIFOLIO Funnel Metrics", layout="centered")
 
 st.title("Funnel Performance Overview")
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def privacy_compliance_check(metrics):
     """Ensure metrics do not display sensitive or unauthorized data."""
     # Mask any PII in metrics if present (expand as needed)
     return metrics
+
 
 def funnel_compliance_alerts(metrics):
     """
@@ -63,7 +67,9 @@ else:
     # --- Audit Trail (for oversight) ---
     st.subheader("📝 Funnel Audit Trail")
     for product, stats in metrics["top_products"].items():
-        st.markdown(f"**{product}** — Downloads: {stats['downloads']}, Purchases: {stats['purchases']}, Upsells: {stats['upsells']}")
+        st.markdown(
+            f"**{product}** — Downloads: {stats['downloads']}, Purchases: {stats['purchases']}, Upsells: {stats['upsells']}"
+        )
 
     st.subheader("Drop-Off Points")
     for product, count in metrics["drop_off_points"].items():

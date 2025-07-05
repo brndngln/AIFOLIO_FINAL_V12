@@ -759,4 +759,3 @@ const renderCompoundingVaultPanel = () => (
 
 
 export default EmpireAdminDashboard;
-

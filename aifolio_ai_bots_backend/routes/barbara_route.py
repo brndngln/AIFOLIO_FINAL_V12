@@ -5,6 +5,7 @@ from backend.agents.barbara import handle_barbara
 
 router = APIRouter()
 
+
 @router.post("/barbara")
 async def barbara_endpoint(request: Request):
     data = await request.json()

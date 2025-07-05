@@ -17,8 +17,10 @@ GUMROAD_API_URL = "https://api.gumroad.com/v2/products"
 
 logger = logging.getLogger("gumroad_delivery")
 
+
 class GumroadDeliveryError(Exception):
     pass
+
 
 def push_vault_to_gumroad(metadata_path, preview_path, file_path=None):
     """
@@ -49,7 +51,9 @@ def push_vault_to_gumroad(metadata_path, preview_path, file_path=None):
     if file_path and os.path.exists(file_path):
         files["content"] = open(file_path, "rb")
     headers = {"Authorization": f"Bearer {GUMROAD_API_KEY}"}
-    response = requests.post(GUMROAD_API_URL, data=payload, files=files, headers=headers)
+    response = requests.post(
+        GUMROAD_API_URL, data=payload, files=files, headers=headers
+    )
     logger.info(f"Gumroad API response: {response.status_code} {response.text}")
     if files:
         files["content"].close()
@@ -58,7 +62,10 @@ def push_vault_to_gumroad(metadata_path, preview_path, file_path=None):
         logger.info(f"Vault pushed to Gumroad: {product_id}")
         return product_id
     else:
-        raise GumroadDeliveryError(f"Gumroad API error: {response.status_code} {response.text}")
+        raise GumroadDeliveryError(
+            f"Gumroad API error: {response.status_code} {response.text}"
+        )
+
 
 # Placeholder for PayPal integration
 def push_vault_to_paypal(metadata_path, preview_path, file_path=None):
@@ -67,6 +74,7 @@ def push_vault_to_paypal(metadata_path, preview_path, file_path=None):
     """
     raise NotImplementedError("PayPal integration coming soon.")
 
+
 # Audit log for delivery actions
 def log_delivery_action(platform, metadata_path, status, details=None):
     log_path = os.path.join(os.path.dirname(metadata_path), "delivery_log.json")
@@ -74,7 +82,7 @@ def log_delivery_action(platform, metadata_path, status, details=None):
         "platform": platform,
         "status": status,
         "details": details,
-        "timestamp": __import__('datetime').datetime.now().isoformat()
+        "timestamp": __import__("datetime").datetime.now().isoformat(),
     }
     try:
         if os.path.exists(log_path):

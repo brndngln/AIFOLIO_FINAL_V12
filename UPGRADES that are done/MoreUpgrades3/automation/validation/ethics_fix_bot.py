@@ -1,5 +1,6 @@
 import re
 
+
 def auto_fix_ethics_issues(text):
     issues = {
         "guaranteed": "can help improve",
@@ -7,7 +8,7 @@ def auto_fix_ethics_issues(text):
         "secret trick": "lesser-known technique",
         "100%": "highly likely",
         "instantly": "quickly",
-        "effortless": "simple to follow"
+        "effortless": "simple to follow",
     }
 
     for bad, replacement in issues.items():

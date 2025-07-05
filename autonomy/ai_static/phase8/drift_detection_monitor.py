@@ -28,5 +28,7 @@ def detect_drift(module_name, triggered_by):
                 event = f"[{timestamp}] DRIFT: {module_name} output drift detected | Triggered by: {triggered_by}"
                 logging.info(event)
     if not drift_found:
-        logging.info(f"[{timestamp}] DRIFT: No drift detected for {module_name} | Triggered by: {triggered_by}")
+        logging.info(
+            f"[{timestamp}] DRIFT: No drift detected for {module_name} | Triggered by: {triggered_by}"
+        )
     return drift_found

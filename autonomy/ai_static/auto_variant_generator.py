@@ -5,5 +5,7 @@ AIFOLIO™ SAFE AI MODULE: Auto-Variant Generator
 - All variants require human approval
 - No autonomous content creation
 """
+
+
 def generate_variants(text, templates):
     return [template.format(text=text) for template in templates]

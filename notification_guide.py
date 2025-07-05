@@ -4,28 +4,34 @@ Static notification and expert guide controls. All OWNER-controlled and SAFE AI 
 """
 import logging
 
+
 class NotificationSystem:
     def __init__(self):
         self.notifications = []
         self.settings = {
-            'type': 'Urgent',  # Urgent | Legal | Business | AI Behavior | Personal | Reminder
-            'frequency': 'Immediate',  # Immediate | Hourly Digest | Daily Digest
-            'format': 'Visual UI',  # Voice | Visual UI | Email | Telegram | PDF Summary
-            'authority': 'Needs Approval'  # Needs Approval | Passive Log Only | Auto-Execute
+            "type": "Urgent",  # Urgent | Legal | Business | AI Behavior | Personal | Reminder
+            "frequency": "Immediate",  # Immediate | Hourly Digest | Daily Digest
+            "format": "Visual UI",  # Voice | Visual UI | Email | Telegram | PDF Summary
+            "authority": "Needs Approval",  # Needs Approval | Passive Log Only | Auto-Execute
         }
 
     def send_notification(self, message: str, ntype=None):
-        ntype = ntype or self.settings['type']
-        logging.info(f'[NOTIFY] {ntype}: {message}')
+        ntype = ntype or self.settings["type"]
+        logging.info(f"[NOTIFY] {ntype}: {message}")
         self.notifications.append((ntype, message))
         return True
 
     def set_settings(self, type=None, frequency=None, format=None, authority=None):
-        if type: self.settings['type'] = type
-        if frequency: self.settings['frequency'] = frequency
-        if format: self.settings['format'] = format
-        if authority: self.settings['authority'] = authority
+        if type:
+            self.settings["type"] = type
+        if frequency:
+            self.settings["frequency"] = frequency
+        if format:
+            self.settings["format"] = format
+        if authority:
+            self.settings["authority"] = authority
         return self.settings
+
 
 class ExpertGuide:
     def __init__(self):

@@ -12,6 +12,7 @@ from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_bot import audit_vault_compliance
 
+
 def handle_event(payload: dict):
     """
     Handles the 'upsell_triggered' event with SAFE AI, retry-safe integrations, and robust logging.
@@ -22,14 +23,16 @@ def handle_event(payload: dict):
     vault_id = payload.get("vault_id")
     upsell_page = payload.get("upsell_page")
     bonus_delivered = payload.get("bonus_delivered", False)
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/upsell_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/upsell_log.json")
+    )
     entry = {
         "event": "upsell_triggered",
         "timestamp": datetime.utcnow().isoformat(),
         "user_id": user_id,
         "vault_id": vault_id,
         "upsell_page": upsell_page,
-        "bonus_delivered": bonus_delivered
+        "bonus_delivered": bonus_delivered,
     }
     # Log upsell event
     try:
@@ -52,17 +55,17 @@ def handle_event(payload: dict):
     # --- SAFE FILENAME SANITIZATION & NOTIFICATION (if applicable) ---
     from autonomy.vaults.filename_sanitizer import enforce_safe_filename
     from autonomy.notifications.email_engine import send_vault_email
+
     try:
-        if payload.get('bonus_file_path'):
-            safe_path = enforce_safe_filename(payload['bonus_file_path'], payload.get('vault_title', vault_id))
-            if payload.get('notify_on_bonus'):
+        if payload.get("bonus_file_path"):
+            safe_path = enforce_safe_filename(
+                payload["bonus_file_path"], payload.get("vault_title", vault_id)
+            )
+            if payload.get("notify_on_bonus"):
                 email_subject = f"[AIFOLIO] Upsell Bonus Delivered: {vault_id}"
                 email_body = "A bonus file for your upsell was delivered."
                 send_status = send_vault_email(
-                    payload.get('user_email'),
-                    email_subject,
-                    email_body,
-                    [safe_path]
+                    payload.get("user_email"), email_subject, email_body, [safe_path]
                 )
     except Exception as e:
         errors.append(f"Notify: {e}")
@@ -92,5 +95,12 @@ def handle_event(payload: dict):
             detect_anomaly(vault_id, errors)
         except Exception:
             pass
-    print(f"[AIFOLIO] Upsell triggered for vault {vault_id} by user {user_id} on page {upsell_page}. Bonus delivered: {bonus_delivered}")
-    return {"status": "success", "vault_id": vault_id, "user_id": user_id, "errors": errors}
+    print(
+        f"[AIFOLIO] Upsell triggered for vault {vault_id} by user {user_id} on page {upsell_page}. Bonus delivered: {bonus_delivered}"
+    )
+    return {
+        "status": "success",
+        "vault_id": vault_id,
+        "user_id": user_id,
+        "errors": errors,
+    }

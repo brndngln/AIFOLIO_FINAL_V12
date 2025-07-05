@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/external_channel_risk_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-RISK_TABLE = {
-    "twitter": "medium",
-    "reddit": "high",
-    "linkedin": "low"
-}
+RISK_TABLE = {"twitter": "medium", "reddit": "high", "linkedin": "low"}
+
 
 def monitor_external_channel(channel, triggered_by):
     timestamp = datetime.utcnow().isoformat()

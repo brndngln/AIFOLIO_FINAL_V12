@@ -9,24 +9,29 @@ import datetime
 
 BANKING_LOG = []
 
+
 class PrivateBankingInterface:
     @staticmethod
     def suggest_banking_upgrade(current_status: str) -> Dict:
         """
         Suggests when to upgrade to private banking. Deterministic logic.
         """
-        if current_status == 'standard':
-            return {'suggestion': 'Upgrade to private banking for global wealth protection.'}
+        if current_status == "standard":
+            return {
+                "suggestion": "Upgrade to private banking for global wealth protection."
+            }
         else:
-            return {'suggestion': 'Private banking already active.'}
+            return {"suggestion": "Private banking already active."}
 
     @staticmethod
     def log_banking_action(action: str, details: Dict):
-        BANKING_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'action': action,
-            'details': details
-        })
+        BANKING_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "action": action,
+                "details": details,
+            }
+        )
 
     @staticmethod
     def export_banking_log() -> List[Dict]:

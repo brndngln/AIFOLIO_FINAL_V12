@@ -10,13 +10,8 @@ import logging
 LOG_PATH = "../../distribution/legal_exports/style_tuner_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-STYLE_MAP = {
-    "default": {
-        "Hi": "Hello",
-        "Thanks": "Thank you",
-        "Sorry": "We apologize"
-    }
-}
+STYLE_MAP = {"default": {"Hi": "Hello", "Thanks": "Thank you", "Sorry": "We apologize"}}
+
 
 def tune_style(text, style="default"):
     mapping = STYLE_MAP.get(style, {})

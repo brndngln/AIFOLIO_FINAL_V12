@@ -2,14 +2,17 @@ import textstat
 
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def quality_guard(text):
     """
@@ -36,7 +39,7 @@ def quality_guard(text):
         result = {
             "readability_score": score,
             "suggestions": suggestions,
-            "int_paragraph_count": len(int_paras)
+            "int_paragraph_count": len(int_paras),
         }
         human_oversight_checkpoint("Quality guard completed", result)
         return result

@@ -2,7 +2,8 @@ import logging
 import time
 from .retry_utils import retry_safe_hook
 
-@retry_safe_hook(max_attempts=3, backoff_tier='short')
+
+@retry_safe_hook(max_attempts=3, backoff_tier="short")
 def tag_buyer_crm(tag, buyer_email):
     """
     Tags the buyer in the CRM system with the given tag. Uses static logic only. Logs all actions and errors. Retries up to 3 times on failure.

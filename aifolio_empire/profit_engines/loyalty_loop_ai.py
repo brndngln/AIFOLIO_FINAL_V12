@@ -7,6 +7,7 @@ import logging
 STATIC_TOP_BUYERS = ["alice@example.com", "bob@example.com"]
 STATIC_GIFTS = ["Free Upgrade", "Bonus PDF"]
 
+
 def get_loyalty_offer(user_email):
     if user_email in STATIC_TOP_BUYERS:
         gift = STATIC_GIFTS[0]

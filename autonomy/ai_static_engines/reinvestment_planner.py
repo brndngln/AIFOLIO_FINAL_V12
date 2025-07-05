@@ -4,6 +4,7 @@ Static, Charter-Enforced
 """
 from typing import Dict
 
+
 def plan_reinvestment(vaults: Dict[str, Dict[str, float]]) -> Dict[str, float]:
     """Static reinvestment plan (SAFE AI, admin approval required)"""
     # Example: allocate 10% of surplus to reinvestment

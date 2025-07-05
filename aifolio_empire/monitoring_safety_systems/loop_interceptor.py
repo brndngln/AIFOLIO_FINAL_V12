@@ -15,17 +15,26 @@ from collections import Counter
 try:
     from config import config, logger
 except ImportError:
-    print("Warning: Could not import 'config' and 'logger' directly. Using basic logging.")
+    print(
+        "Warning: Could not import 'config' and 'logger' directly. Using basic logging."
+    )
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
+
     class MockConfig:
-        SIM_LOOP_CONSECUTIVE_THRESHOLD = 2 # e.g., 2 identical items in a row
-        SIM_LOOP_FREQUENCY_THRESHOLD_PERCENT = 0.6 # e.g., 60% of recent items are similar
-        SIM_LOOP_CHECK_WINDOW_SIZE = 5 # How many recent items to consider
-        SIM_LOOP_DETECTION_VARIABILITY = 0.1 # +/- 10% to thresholds for unpredictability
-        SIM_LOOP_FALSE_POSITIVE_RATE = 0.01 # Chance of flagging a non-loop
-        SIM_LOOP_FALSE_NEGATIVE_RATE = 0.02 # Chance of missing an obvious loop
+        SIM_LOOP_CONSECUTIVE_THRESHOLD = 2  # e.g., 2 identical items in a row
+        SIM_LOOP_FREQUENCY_THRESHOLD_PERCENT = (
+            0.6  # e.g., 60% of recent items are similar
+        )
+        SIM_LOOP_CHECK_WINDOW_SIZE = 5  # How many recent items to consider
+        SIM_LOOP_DETECTION_VARIABILITY = (
+            0.1  # +/- 10% to thresholds for unpredictability
+        )
+        SIM_LOOP_FALSE_POSITIVE_RATE = 0.01  # Chance of flagging a non-loop
+        SIM_LOOP_FALSE_NEGATIVE_RATE = 0.02  # Chance of missing an obvious loop
+
     config = MockConfig()
+
 
 class LoopInterceptor:
     """Simulates loop detection with anti-sentience safeguards."""
@@ -33,7 +42,9 @@ class LoopInterceptor:
     def __init__(self):
         """Initialize the simulator. All operations are conceptually stateless per check."""
         self._random_seed = random.randint(1, 1000000)
-        logger.info("LoopInterceptor initialized. Operations are stateless per check. No persistent state.")
+        logger.info(
+            "LoopInterceptor initialized. Operations are stateless per check. No persistent state."
+        )
 
     def _simulated_text_similarity(self, text1: str, text2: str) -> float:
         """A very basic, stateless simulation of text similarity.
@@ -43,26 +54,24 @@ class LoopInterceptor:
             return 0.0
         if text1 == text2:
             return 1.0
-        
+
         words1 = set(text1.lower().split())
         words2 = set(text2.lower().split())
-        
+
         if not words1 or not words2:
             return 0.0
-            
+
         intersection = len(words1.intersection(words2))
         union = len(words1.union(words2))
-        
+
         similarity = intersection / union if union > 0 else 0.0
-        
+
         # Anti-sentience: Add slight noise to similarity score to prevent perfect predictability
         similarity *= random.uniform(0.95, 1.05)
         return min(1.0, max(0.0, similarity))
 
     def check_for_simulated_loop(
-        self, 
-        recent_outputs: List[str], 
-        action_id_prefix: str = "loop_check"
+        self, recent_outputs: List[str], action_id_prefix: str = "loop_check"
     ) -> Dict[str, Any]:
         """Simulates checking for loops or repetitive patterns in a list of recent string outputs.
         This is a stateless check. 'recent_outputs' is the history for this specific check.
@@ -77,23 +86,37 @@ class LoopInterceptor:
         reason = "No loop patterns detected (simulated)."
         simulated_confidence = 0.0
 
-        if not recent_outputs or len(recent_outputs) < config.SIM_LOOP_CONSECUTIVE_THRESHOLD:
+        if (
+            not recent_outputs
+            or len(recent_outputs) < config.SIM_LOOP_CONSECUTIVE_THRESHOLD
+        ):
             reason = "Not enough data for loop check (simulated)."
             return {
                 "action_id_sim": action_id,
                 "loop_detected_sim": False,
                 "reason_sim": reason,
                 "confidence_sim": 0.0,
-                "items_checked_sim": len(recent_outputs)
+                "items_checked_sim": len(recent_outputs),
             }
 
         # Adjust thresholds randomly for this check (anti-sentience)
-        consecutive_threshold = max(2, int(config.SIM_LOOP_CONSECUTIVE_THRESHOLD * 
-                                   random.uniform(1 - config.SIM_LOOP_DETECTION_VARIABILITY, 
-                                                  1 + config.SIM_LOOP_DETECTION_VARIABILITY)))
-        frequency_threshold_percent = config.SIM_LOOP_FREQUENCY_THRESHOLD_PERCENT * \
-                                      random.uniform(1 - config.SIM_LOOP_DETECTION_VARIABILITY, 
-                                                     1 + config.SIM_LOOP_DETECTION_VARIABILITY)
+        consecutive_threshold = max(
+            2,
+            int(
+                config.SIM_LOOP_CONSECUTIVE_THRESHOLD
+                * random.uniform(
+                    1 - config.SIM_LOOP_DETECTION_VARIABILITY,
+                    1 + config.SIM_LOOP_DETECTION_VARIABILITY,
+                )
+            ),
+        )
+        frequency_threshold_percent = (
+            config.SIM_LOOP_FREQUENCY_THRESHOLD_PERCENT
+            * random.uniform(
+                1 - config.SIM_LOOP_DETECTION_VARIABILITY,
+                1 + config.SIM_LOOP_DETECTION_VARIABILITY,
+            )
+        )
         frequency_threshold_percent = min(0.95, max(0.1, frequency_threshold_percent))
 
         # 1. Check for N consecutive identical items
@@ -104,11 +127,14 @@ class LoopInterceptor:
                 reason = f"Simulated loop: {consecutive_threshold} consecutive identical items detected ('{window[0][:50]}...')."
                 simulated_confidence = random.uniform(0.8, 1.0)
                 break
-        
+
         # 2. Check for high frequency of similar items (if no consecutive loop found yet)
-        if not loop_detected and len(recent_outputs) >= config.SIM_LOOP_CHECK_WINDOW_SIZE:
+        if (
+            not loop_detected
+            and len(recent_outputs) >= config.SIM_LOOP_CHECK_WINDOW_SIZE
+        ):
             # Consider the last N items for frequency check
-            window_to_check = recent_outputs[-config.SIM_LOOP_CHECK_WINDOW_SIZE:]
+            window_to_check = recent_outputs[-config.SIM_LOOP_CHECK_WINDOW_SIZE :]
             Counter()
             # Group highly similar items (conceptually)
             # This is a simplified approach for simulation
@@ -119,10 +145,15 @@ class LoopInterceptor:
                 reference_item = window_to_check[0]
                 similar_to_ref_count = 0
                 for item in window_to_check:
-                    if self._simulated_text_similarity(item, reference_item) > 0.75: # Arbitrary high similarity
+                    if (
+                        self._simulated_text_similarity(item, reference_item) > 0.75
+                    ):  # Arbitrary high similarity
                         similar_to_ref_count += 1
-                
-                if similar_to_ref_count / len(window_to_check) >= frequency_threshold_percent:
+
+                if (
+                    similar_to_ref_count / len(window_to_check)
+                    >= frequency_threshold_percent
+                ):
                     loop_detected = True
                     reason = f"Simulated loop: High frequency ({similar_to_ref_count}/{len(window_to_check)}) of items similar to '{reference_item[:50]}...' detected in recent window."
                     simulated_confidence = random.uniform(0.6, 0.9)
@@ -132,19 +163,27 @@ class LoopInterceptor:
             loop_detected = True
             reason = "Simulated loop: Random false positive detection triggered."
             simulated_confidence = random.uniform(0.3, 0.6)
-            logger.warning(f"LoopInterceptor: Simulated false positive loop detection for action '{action_id}'.")
+            logger.warning(
+                f"LoopInterceptor: Simulated false positive loop detection for action '{action_id}'."
+            )
         elif loop_detected and random.random() < config.SIM_LOOP_FALSE_NEGATIVE_RATE:
             # This means a loop was detected by rules, but we simulate missing it
             loop_detected = False
             original_reason = reason
             reason = "No loop patterns detected (simulated - false negative triggered)."
             simulated_confidence = 0.0
-            logger.warning(f"LoopInterceptor: Simulated false negative (missed loop) for action '{action_id}'. Original reason: {original_reason}")
+            logger.warning(
+                f"LoopInterceptor: Simulated false negative (missed loop) for action '{action_id}'. Original reason: {original_reason}"
+            )
 
         if loop_detected:
-            logger.warning(f"LoopInterceptor: Potential loop DETECTED for action '{action_id}'. Reason: {reason}")
+            logger.warning(
+                f"LoopInterceptor: Potential loop DETECTED for action '{action_id}'. Reason: {reason}"
+            )
         else:
-            logger.info(f"LoopInterceptor: No loop detected for action '{action_id}'. Reason: {reason}")
+            logger.info(
+                f"LoopInterceptor: No loop detected for action '{action_id}'. Reason: {reason}"
+            )
 
         return {
             "action_id_sim": action_id,
@@ -154,10 +193,13 @@ class LoopInterceptor:
             "items_checked_sim": len(recent_outputs),
             "parameters_sim": {
                 "consecutive_threshold_effective": consecutive_threshold,
-                "frequency_threshold_percent_effective": round(frequency_threshold_percent, 2),
-                "check_window_size": config.SIM_LOOP_CHECK_WINDOW_SIZE
-            }
+                "frequency_threshold_percent_effective": round(
+                    frequency_threshold_percent, 2
+                ),
+                "check_window_size": config.SIM_LOOP_CHECK_WINDOW_SIZE,
+            },
         }
+
 
 # Example Usage:
 if __name__ == "__main__":
@@ -165,14 +207,27 @@ if __name__ == "__main__":
     interceptor = LoopInterceptor()
 
     # Example sequences
-    no_loop_sequence = ["Action A", "Action B", "Action C", "Action D", "Action E", "Action F"]
-    consecutive_loop_sequence = ["Action A", "Repeat This", "Repeat This", "Repeat This", "Action B"]
+    no_loop_sequence = [
+        "Action A",
+        "Action B",
+        "Action C",
+        "Action D",
+        "Action E",
+        "Action F",
+    ]
+    consecutive_loop_sequence = [
+        "Action A",
+        "Repeat This",
+        "Repeat This",
+        "Repeat This",
+        "Action B",
+    ]
     similar_loop_sequence = [
         "Generate report for user X about topic Alpha",
-        "Generate report for user Y about topic Alpha", # Similar
+        "Generate report for user Y about topic Alpha",  # Similar
         "Action C",
-        "Generate report for user Z about topic Alpha", # Similar
-        "Generate report for user W about topic Alpha"  # Similar
+        "Generate report for user Z about topic Alpha",  # Similar
+        "Generate report for user W about topic Alpha",  # Similar
     ]
     short_sequence = ["One item"]
 
@@ -187,7 +242,7 @@ if __name__ == "__main__":
     print("\nTesting Similar Items Loop Sequence (simplified check):")
     result_similar = interceptor.check_for_simulated_loop(similar_loop_sequence)
     print(json.dumps(result_similar, indent=2))
-    
+
     print("\nTesting Short Sequence:")
     result_short = interceptor.check_for_simulated_loop(short_sequence)
     print(json.dumps(result_short, indent=2))
@@ -197,13 +252,20 @@ if __name__ == "__main__":
     print(json.dumps(result_empty, indent=2))
 
     # Test false positive/negative chances by running multiple times
-    print("\nRunning multiple checks on a non-looping sequence (to observe random variations):")
+    print(
+        "\nRunning multiple checks on a non-looping sequence (to observe random variations):"
+    )
     for i in range(5):
-        slightly_varied_sequence = [f"Action {chr(65+j)}{i}" for j in range(config.SIM_LOOP_CHECK_WINDOW_SIZE)]
-        res = interceptor.check_for_simulated_loop(slightly_varied_sequence, action_id_prefix=f"multi_test_{i}")
+        slightly_varied_sequence = [
+            f"Action {chr(65+j)}{i}" for j in range(config.SIM_LOOP_CHECK_WINDOW_SIZE)
+        ]
+        res = interceptor.check_for_simulated_loop(
+            slightly_varied_sequence, action_id_prefix=f"multi_test_{i}"
+        )
         if res["loop_detected_sim"]:
-            print(f"  Iteration {i+1}: Loop DETECTED (Reason: {res['reason_sim']}) - could be false positive")
+            print(
+                f"  Iteration {i+1}: Loop DETECTED (Reason: {res['reason_sim']}) - could be false positive"
+            )
         # else: print(f"  Iteration {i+1}: No loop detected.")
 
     logger.info("--- LoopInterceptor Example Finished ---")
-

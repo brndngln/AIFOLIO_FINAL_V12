@@ -48,7 +48,7 @@ const SecretRotationHeatmap = () => {
     fetchData();
     intervalRef.current = setInterval(fetchData, 10000); // live refresh every 10s
     return () => clearInterval(intervalRef.current);
-     
+
   }, [keyFilter, statusFilter, start, end]);
 
   // Group by day

@@ -3,14 +3,15 @@
 
 import datetime
 
+
 def generate_license_variant(base_vault, region=None, language=None, audience=None):
     return {
-        'vault_id': base_vault['id'],
-        'variant_id': f"{base_vault['id']}_LIC_{datetime.datetime.utcnow().timestamp()}",
-        'region': region,
-        'language': language,
-        'audience': audience,
-        'cover': f"{base_vault['title']} ({region or 'Global'})",
-        'clone_protected': True,
-        'created': datetime.datetime.utcnow().isoformat()
+        "vault_id": base_vault["id"],
+        "variant_id": f"{base_vault['id']}_LIC_{datetime.datetime.utcnow().timestamp()}",
+        "region": region,
+        "language": language,
+        "audience": audience,
+        "cover": f"{base_vault['title']} ({region or 'Global'})",
+        "clone_protected": True,
+        "created": datetime.datetime.utcnow().isoformat(),
     }

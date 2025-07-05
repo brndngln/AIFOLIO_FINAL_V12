@@ -24,7 +24,7 @@ const SecurityDashboard = () => {
                     axios.get('/api/monitor/security/vulnerabilities'),
                     axios.get('/api/monitor/security/compliance')
                 ]);
-                
+
                 setAlerts(alertsRes.data);
                 setVulnerabilities(vulnsRes.data);
                 setCompliance(complianceRes.data);
@@ -35,7 +35,7 @@ const SecurityDashboard = () => {
 
         // Initial fetch
         fetchSecurityData();
-        
+
         // Update every minute
         const interval = setInterval(fetchSecurityData, 60000);
         return () => clearInterval(interval);
@@ -95,7 +95,7 @@ const AlertsCard = ({ alerts, theme }) => (
                 }}>
                     <div>
                         <span style={{
-                            color: alert.severity === 'high' ? theme.error : 
+                            color: alert.severity === 'high' ? theme.error :
                                    alert.severity === 'medium' ? theme.secondary : theme.text,
                             fontWeight: 'bold'
                         }}>{alert.title}</span>

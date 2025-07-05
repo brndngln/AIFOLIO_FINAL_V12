@@ -233,7 +233,7 @@ const ColorCustomization = () => {
       // Check for pattern matching (potential AI behavior)
       const colorValues = Object.values(theme.customColors || {});
       const colorPatterns = new Set();
-      
+
       colorValues.forEach(color => {
         if (typeof color === 'string') {
           // Check for common AI patterns
@@ -241,7 +241,7 @@ const ColorCustomization = () => {
             console.warn('Potential AI pattern detected. Resetting to default.');
             applyPreset('default');
           }
-          
+
           // Track color patterns
           const pattern = color.replace(/[^a-zA-Z]/g, '');
           colorPatterns.add(pattern);
@@ -316,7 +316,7 @@ const ColorCustomization = () => {
   // Enhanced undo functionality
   const undoColor = () => {
     if (historyIndex <= 0) return;
-    
+
     // Get previous state
     const previousState = history[historyIndex - 1];
     if (!previousState) return;
@@ -340,7 +340,7 @@ const ColorCustomization = () => {
   // Enhanced redo functionality
   const redoColor = () => {
     if (historyIndex >= history.length - 1) return;
-    
+
     // Get next state
     const nextState = history[historyIndex + 1];
     if (!nextState) return;
@@ -390,11 +390,11 @@ const ColorCustomization = () => {
     try {
       const preset = colorPresets[presetName];
       // ... (rest of the code remains the same)
-      
+
       if (checkForSentience(patterns.split(' '))) {
         throw new Error('Suspicious preset pattern detected');
       }
-      
+
       // Apply flat preset to 'app' component properties
       const newTheme = { ...theme };
       Object.entries(preset).forEach(([property, color]) => {
@@ -405,7 +405,7 @@ const ColorCustomization = () => {
       setTheme(newTheme);
       setHistory([]);
       setHistoryIndex(-1);
-      
+
       logActivity('preset_select', {
         preset: presetName,
         theme: preset

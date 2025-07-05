@@ -7,6 +7,7 @@ from functools import wraps
 
 logger = logging.getLogger(__name__)
 
+
 class CacheService:
     def __init__(self, redis_client: Redis, default_ttl: int = 3600):
         self.redis = redis_client
@@ -14,14 +15,16 @@ class CacheService:
         self.cache_hits = 0
         self.cache_misses = 0
 
-    def cache(self, 
-              key: Union[str, Callable],
-              ttl: Optional[int] = None,
-              cache_by: Optional[str] = None,
-              cache_on_error: bool = False):
+    def cache(
+        self,
+        key: Union[str, Callable],
+        ttl: Optional[int] = None,
+        cache_by: Optional[str] = None,
+        cache_on_error: bool = False,
+    ):
         """
         Cache decorator that caches function results.
-        
+
         Args:
             key: Either a string key or a function that generates a key
             ttl: Time-to-live in seconds
@@ -47,37 +50,36 @@ class CacheService:
                 if cached is not None:
                     self.cache_hits += 1
                     return json.loads(cached)
-                
+
                 self.cache_misses += 1
 
                 try:
                     # Call the function
                     result = await func(*args, **kwargs)
-                    
+
                     # Cache the result
                     self.redis.set(cache_key, json.dumps(result))
                     self.redis.expire(cache_key, ttl)
-                    
+
                     return result
-                    
+
                 except Exception as e:
                     if cache_on_error:
-                        self.redis.set(cache_key, json.dumps({
-                            "error": str(e),
-                            "timestamp": time.time()
-                        }))
+                        self.redis.set(
+                            cache_key,
+                            json.dumps({"error": str(e), "timestamp": time.time()}),
+                        )
                         self.redis.expire(cache_key, ttl)
                     raise
 
             return wrapper
+
         return decorator
 
-    def cache_batch(self,
-                   key_prefix: str,
-                   ttl: Optional[int] = None):
+    def cache_batch(self, key_prefix: str, ttl: Optional[int] = None):
         """
         Cache decorator for batch operations.
-        
+
         Args:
             key_prefix: Prefix for cache keys
             ttl: Time-to-live in seconds
@@ -89,14 +91,14 @@ class CacheService:
             @wraps(func)
             async def wrapper(*args, **kwargs):
                 # Try to get all keys from cache
-                keys = kwargs.get('keys', [])
+                keys = kwargs.get("keys", [])
                 cache_keys = [f"{key_prefix}:{key}" for key in keys]
                 cached_results = self.redis.mget(cache_keys)
-                
+
                 # Separate cached and uncached results
                 cached = {}
                 uncached = []
-                
+
                 for key, result in zip(keys, cached_results):
                     if result is not None:
                         cached[key] = json.loads(result)
@@ -108,8 +110,8 @@ class CacheService:
                     return cached
 
                 # Call the function for uncached results
-                new_results = await func(*args, **{**kwargs, 'keys': uncached})
-                
+                new_results = await func(*args, **{**kwargs, "keys": uncached})
+
                 # Cache new results
                 for key, result in new_results.items():
                     cache_key = f"{key_prefix}:{key}"
@@ -120,6 +122,7 @@ class CacheService:
                 return {**cached, **new_results}
 
             return wrapper
+
         return decorator
 
     def cache_warm(self, func: Callable, *args, **kwargs):
@@ -133,16 +136,17 @@ class CacheService:
     def get_metrics(self) -> Dict[str, Any]:
         """Get cache metrics."""
         return {
-            'hits': self.cache_hits,
-            'misses': self.cache_misses,
-            'hit_rate': (self.cache_hits / (self.cache_hits + self.cache_misses))
-                        if (self.cache_hits + self.cache_misses) > 0 else 0,
-            'total_keys': len(self.redis.keys('cache:*'))
+            "hits": self.cache_hits,
+            "misses": self.cache_misses,
+            "hit_rate": (self.cache_hits / (self.cache_hits + self.cache_misses))
+            if (self.cache_hits + self.cache_misses) > 0
+            else 0,
+            "total_keys": len(self.redis.keys("cache:*")),
         }
 
-    def clear_cache(self, pattern: str = '*'):
+    def clear_cache(self, pattern: str = "*"):
         """Clear cache entries matching pattern."""
-        keys = self.redis.keys(f'cache:{pattern}')
+        keys = self.redis.keys(f"cache:{pattern}")
         if keys:
             self.redis.delete(*keys)
             return len(keys)

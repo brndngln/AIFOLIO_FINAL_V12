@@ -16,9 +16,11 @@ from autonomy.utils.retry import retry_safe
 
 logger = logging.getLogger("vault_test_run")
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(run_id, payload):
     push_dashboard_update(run_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(payload, event_type, error=None):
@@ -30,6 +32,7 @@ def send_alerts(payload, event_type, error=None):
     if payload.get("alert_email_opt_in"):
         send_email_alert(payload.get("owner_email"), alert_msg)
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_vault(payload):
     audit_vault_compliance(payload.get("vault_path", ""), payload)
@@ -39,15 +42,19 @@ def handle_event(payload: dict):
     """
     Handles the 'vault_test_run' event with SAFE AI, retry-safe integrations, and robust logging.
     """
-    test_run_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/test_runs/'))
+    test_run_dir = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/test_runs/")
+    )
     os.makedirs(test_run_dir, exist_ok=True)
-    run_id = payload.get("run_id") or f"test_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+    run_id = (
+        payload.get("run_id") or f"test_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+    )
     errors = []
     start_time = time.time()
     result = {
         "event": "vault_test_run",
         "timestamp": datetime.utcnow().isoformat(),
-        "payload": payload
+        "payload": payload,
     }
     out_file = os.path.join(test_run_dir, f"{run_id}.json")
     # Log test run output

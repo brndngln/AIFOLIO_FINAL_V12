@@ -5,6 +5,7 @@ from backend.agents.adam import handle_adam
 
 router = APIRouter()
 
+
 @router.post("/adam")
 async def adam_endpoint(request: Request):
     data = await request.json()

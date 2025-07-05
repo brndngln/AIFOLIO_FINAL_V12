@@ -6,6 +6,7 @@ All secrets/configs via environment variables. No adaptive logic.
 import os
 import logging
 import requests
+
 logger = logging.getLogger(__name__)
 
 SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL")
@@ -27,6 +28,7 @@ def notify_slack(message: str) -> bool:
         logger.error(f"Slack notification failed: {e}")
         return False
 
+
 def notify_discord(message: str) -> bool:
     """Send static notification to Discord webhook. Extension: real Discord integration."""
     if not DISCORD_WEBHOOK_URL:
@@ -40,6 +42,7 @@ def notify_discord(message: str) -> bool:
     except Exception as e:
         logger.error(f"Discord notification failed: {e}")
         return False
+
 
 def notify_email(subject: str, body: str) -> bool:
     """Static stub for email notification. Extension: real email integration."""

@@ -10,14 +10,17 @@ import datetime
 
 CRISIS_PROTOCOL_LOG = []
 
+
 class CrisisModeProtocols:
     @staticmethod
     def log_crisis_event(event_type: str, description: str) -> None:
-        CRISIS_PROTOCOL_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'event_type': event_type,
-            'description': description
-        })
+        CRISIS_PROTOCOL_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "event_type": event_type,
+                "description": description,
+            }
+        )
 
     @staticmethod
     def get_crisis_events() -> List[Dict]:

@@ -4,6 +4,7 @@ Charter-Enforced, Static Only
 """
 from typing import Dict, List
 
+
 def scan_arbitrage_opportunities(markets: Dict[str, float]) -> List[str]:
     """Static scan for arbitrage (SAFE AI only)"""
     # Example: flag price differences > 10%

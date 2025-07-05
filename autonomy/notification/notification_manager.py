@@ -1,6 +1,7 @@
 # V80 Notification Manager — Static, SAFE AI, Owner-Controlled
 # Sends notifications via Slack, Email, Telegram (stubs, no external requests)
 
+
 class NotificationManager:
     @staticmethod
     def send_slack(message):

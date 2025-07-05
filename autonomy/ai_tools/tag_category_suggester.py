@@ -2,20 +2,35 @@ import json
 import datetime
 import os
 
-TAG_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/tag_category_suggester_log.jsonl'))
+TAG_LOG = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "../../analytics/tag_category_suggester_log.jsonl"
+    )
+)
 os.makedirs(os.path.dirname(TAG_LOG), exist_ok=True)
 
 # --- AI Tag & Category Suggestion Engine (Static, No Learning) ---
-COMMON_TAGS = ['productivity', 'business', 'finance', 'design', 'marketing', 'education', 'creative', 'pdf', 'ebook']
+COMMON_TAGS = [
+    "productivity",
+    "business",
+    "finance",
+    "design",
+    "marketing",
+    "education",
+    "creative",
+    "pdf",
+    "ebook",
+]
 
 CATEGORY_MAP = {
-    'finance': 'Business',
-    'marketing': 'Business',
-    'design': 'Creative',
-    'education': 'Learning',
-    'pdf': 'Digital',
-    'ebook': 'Digital',
+    "finance": "Business",
+    "marketing": "Business",
+    "design": "Creative",
+    "education": "Learning",
+    "pdf": "Digital",
+    "ebook": "Digital",
 }
+
 
 def suggest_tags_categories(description, keywords=None):
     tags = []
@@ -33,11 +48,11 @@ def suggest_tags_categories(description, keywords=None):
                 if kw in CATEGORY_MAP:
                     categories.add(CATEGORY_MAP[kw])
     entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'description': description,
-        'tags': tags,
-        'categories': list(categories)
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "description": description,
+        "tags": tags,
+        "categories": list(categories),
     }
-    with open(TAG_LOG, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
+    with open(TAG_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
     return tags, list(categories)

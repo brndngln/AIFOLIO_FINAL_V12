@@ -7,12 +7,12 @@ AIFOLIO™ OMNIELITE EMPIRE ENGINE: EMPIRE CLONE ENGINE™
 from typing import Dict, Any
 import copy
 
+
 class EmpireCloneEngine:
     def clone_business(self, business: Dict[str, Any]) -> Dict[str, Any]:
         # Clone entire business
         clone = copy.deepcopy(business)
-        clone['is_clone'] = True
-        clone['profit_split'] = 0.5
-        clone['non_sentient_lockdown'] = True
+        clone["is_clone"] = True
+        clone["profit_split"] = 0.5
+        clone["non_sentient_lockdown"] = True
         return clone
-

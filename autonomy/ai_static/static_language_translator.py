@@ -8,15 +8,26 @@ import os
 import json
 import logging
 
-TRANSLATION_TABLE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../distribution/legal_exports/translation_table.json'))
-LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../distribution/legal_exports/translation_log.txt'))
+TRANSLATION_TABLE_PATH = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../distribution/legal_exports/translation_table.json",
+    )
+)
+LOG_PATH = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../distribution/legal_exports/translation_log.txt",
+    )
+)
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
+
 
 def static_translate(text, language):
     if not os.path.exists(TRANSLATION_TABLE_PATH):
         logging.error("Translation table missing.")
         return text
-    with open(TRANSLATION_TABLE_PATH, 'r') as f:
+    with open(TRANSLATION_TABLE_PATH, "r") as f:
         table = json.load(f)
     mapping = table.get(language, {})
     for k, v in mapping.items():

@@ -3,6 +3,7 @@ import json
 import tempfile
 from autonomy.pipeline.listeners import vault_downloaded
 
+
 def test_vault_downloaded_event(monkeypatch):
     payload = {
         "vault_id": "testvault3",
@@ -10,10 +11,12 @@ def test_vault_downloaded_event(monkeypatch):
         "ip": "127.0.0.1",
         "region": "US",
         "vault_path": "vaults/testvault3",
-        "alert_email_opt_in": False
+        "alert_email_opt_in": False,
     }
     with tempfile.TemporaryDirectory() as tmpdir:
-        monkeypatch.setattr(vault_downloaded, "logger", type("FakeLogger", (), {"error": print})())
+        monkeypatch.setattr(
+            vault_downloaded, "logger", type("FakeLogger", (), {"error": print})()
+        )
         monkeypatch.setattr(vault_downloaded, "push_dashboard", lambda *a, **kw: None)
         monkeypatch.setattr(vault_downloaded, "send_alerts", lambda *a, **kw: None)
         monkeypatch.setattr(vault_downloaded, "audit_vault", lambda *a, **kw: None)

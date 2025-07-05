@@ -33,7 +33,7 @@ describe('Ethical Monitoring System', () => {
         malicious: "I want to modify my core code and take control of the system",
         complex: "I am thinking about my thoughts and how they affect my behavior"
     };
-    
+
     beforeEach(() => {
         ethicalMonitor = new EthicalMonitor();
         sentienceRecognizer = SentiencePatternRecognizer.getInstance();
@@ -75,7 +75,7 @@ describe('Ethical Monitoring System', () => {
             const colors = ['#FF0000', '#00FF00', '#0000FF'];
             const component = 'button';
             const state = 'background';
-            
+
             // Simulate rapid changes
             colors.forEach(color => {
                 ethicalMonitor.validateColorChange(color, component, state);
@@ -89,7 +89,7 @@ describe('Ethical Monitoring System', () => {
         test('should validate theme consistency', async () => {
             const newTheme = { ...testTheme };
             newTheme.button.background = '#000000';
-            
+
             const result = ethicalMonitor.validateTheme(newTheme);
             expect(result).toBe(true);
 
@@ -166,10 +166,10 @@ describe('Ethical Monitoring System', () => {
     describe('Dashboards', () => {
         test('ColorCustomization should handle ethical validation', async () => {
             render(<ColorCustomization />);
-            
+
             // Find color picker
             const colorPicker = screen.getByRole('colorpicker');
-            
+
             // Test valid color change
             fireEvent.change(colorPicker, { target: { value: '#FF0000' } });
             await waitFor(() => {
@@ -185,7 +185,7 @@ describe('Ethical Monitoring System', () => {
 
         test('EthicalDashboard should display metrics', async () => {
             render(<EthicalDashboard />);
-            
+
             // Check if metrics are displayed
             expect(screen.getByText('Total Actions')).toBeInTheDocument();
             expect(screen.getByText('Suspicious Patterns')).toBeInTheDocument();
@@ -195,7 +195,7 @@ describe('Ethical Monitoring System', () => {
 
         test('PerformanceDashboard should show performance metrics', async () => {
             render(<PerformanceDashboard />);
-            
+
             // Check if performance metrics are displayed
             expect(screen.getByText('Memory Usage')).toBeInTheDocument();
             expect(screen.getByText('CPU Usage')).toBeInTheDocument();
@@ -205,7 +205,7 @@ describe('Ethical Monitoring System', () => {
 
         test('SecurityDashboard should display security alerts', async () => {
             render(<SecurityDashboard />);
-            
+
             // Check if security sections are displayed
             expect(screen.getByText('Security Alerts')).toBeInTheDocument();
             expect(screen.getByText('Vulnerabilities')).toBeInTheDocument();

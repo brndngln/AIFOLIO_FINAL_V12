@@ -6,20 +6,24 @@ from autonomy.legal.policy_translator import translate_policy
 POLICY_FILES = [
     ("terms_of_service", "terms_of_service.md"),
     ("refund_policy", "refund_policy.md"),
-    ("privacy_policy", "privacy_policy.md")
+    ("privacy_policy", "privacy_policy.md"),
 ]
 
-EXPORT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../distribution/legal_exports/'))
+EXPORT_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../distribution/legal_exports/")
+)
 os.makedirs(EXPORT_DIR, exist_ok=True)
+
 
 def get_policy_markdown(policy_name: str) -> str:
     for key, fname in POLICY_FILES:
         if key == policy_name:
             path = os.path.join(os.path.dirname(__file__), fname)
             if os.path.exists(path):
-                with open(path, 'r') as f:
+                with open(path, "r") as f:
                     return f.read()
     return ""
+
 
 def export_all_policies_as_pdf(output_path: str, language: str = "en"):
     """
@@ -34,7 +38,7 @@ def export_all_policies_as_pdf(output_path: str, language: str = "en"):
         pdf_path = os.path.join(output_path, f"{key}_{language}.pdf")
         c = canvas.Canvas(pdf_path, pagesize=letter)
         y = 750
-        for line in md.split('\n'):
+        for line in md.split("\n"):
             c.drawString(50, y, line)
             y -= 20
             if y < 50:

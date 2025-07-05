@@ -63,18 +63,18 @@ const AnalyticsDashboard = () => {
   const updateChartData = (newMetrics) => {
     const now = new Date();
     const data = chartData.series[0].data;
-    
+
     // Add new data point
     data.push({
       x: now,
       y: newMetrics.request_rate
     });
-    
+
     // Keep only last 30 data points
     if (data.length > 30) {
       data.shift();
     }
-    
+
     setChartData(prev => ({
       ...prev,
       series: [{
@@ -115,7 +115,7 @@ const AnalyticsDashboard = () => {
       {/* Request rate chart */}
       <div className="mb-8">
         <h3 className={`text-xl font-semibold mb-4 ${theme.text.primary}`}>Request Rate Over Time</h3>
-        <Chart 
+        <Chart
           options={chartData.options}
           series={chartData.series}
           type="line"

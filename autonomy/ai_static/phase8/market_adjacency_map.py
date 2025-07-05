@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 ADJACENCY_TABLE = {
     "legal": ["compliance", "risk management"],
     "finance": ["insurance", "fintech"],
-    "education": ["edtech", "corporate training"]
+    "education": ["edtech", "corporate training"],
 }
+
 
 def generate_market_adjacency(current_market, triggered_by):
     timestamp = datetime.utcnow().isoformat()

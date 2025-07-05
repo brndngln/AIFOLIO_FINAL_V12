@@ -10,12 +10,13 @@ from .goal_priority_matrix import GoalPriorityMatrix
 from .multi_vault_growth_sync import MultiVaultGrowthSync
 from .AI_reinvestment_logicsuite import AIReinvestmentLogicSuite
 
+
 class VaultFundingManager:
     def __init__(self, config_path):
         self.config_path = config_path
         self.load_config()
-        self.liquidity_guard = LiquidityBufferGuard(self.config['liquidity_min'])
-        self.splitter = IncomeSplitter(self.config['income_split'])
+        self.liquidity_guard = LiquidityBufferGuard(self.config["liquidity_min"])
+        self.splitter = IncomeSplitter(self.config["income_split"])
         self.auth_engine = PurchaseAuthorizationEngine()
         self.reinvest_detector = ReinvestmentDetector()
         self.brain_profiles = BillionaireBrainProfiles()
@@ -29,7 +30,7 @@ class VaultFundingManager:
 
     def process_income(self, vault_id, amount):
         split = self.splitter.split_income(amount)
-        self.liquidity_guard.update_buffer(split['liquidity'])
+        self.liquidity_guard.update_buffer(split["liquidity"])
         self.growth_sync.sync(vault_id, split)
         return split
 

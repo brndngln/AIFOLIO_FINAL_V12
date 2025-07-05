@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 REGULATORY_CHANGES = {
     "us": ["2025: New CCPA update"],
     "eu": ["2025: GDPR revision"],
-    "apac": ["2025: PDPA expansion"]
+    "apac": ["2025: PDPA expansion"],
 }
+
 
 def scan_regulatory_horizon(region, triggered_by):
     timestamp = datetime.utcnow().isoformat()

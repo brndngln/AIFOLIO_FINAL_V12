@@ -14,30 +14,37 @@ from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_compliance import check_vault_metadata
 
+
 def handle_event(payload):
     """
     Handles the 'delivery_sent' event with SAFE AI, retry-safe integrations, and robust logging.
     """
-    delivery_log_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../analytics/delivery_log.json'))
+    delivery_log_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../../analytics/delivery_log.json")
+    )
     errors = []
     start_time = time.time()
     # --- Static AI Delivery Anomaly/Compliance Checks ---
     ai_results = {}
-    compliance_result = check_vault_metadata(payload) if 'vault_id' in payload else {'compliant': True, 'missing': [], 'invalid': []}
-    ai_results['compliance'] = compliance_result
+    compliance_result = (
+        check_vault_metadata(payload)
+        if "vault_id" in payload
+        else {"compliant": True, "missing": [], "invalid": []}
+    )
+    ai_results["compliance"] = compliance_result
     anomaly_flags = []
     # Static anomaly detection: repeated delivery, suspicious IP, missing confirmation
-    if payload.get('delivery_attempts', 1) > 3:
-        anomaly_flags.append('repeated_delivery')
-    if payload.get('ip_address', '').startswith('10.'):
-        anomaly_flags.append('internal_ip_delivery')
-    if not payload.get('confirmation', False):
-        anomaly_flags.append('missing_confirmation')
-    if not compliance_result['compliant']:
-        anomaly_flags.append('compliance_failure')
-    ai_results['anomaly_flags'] = anomaly_flags
+    if payload.get("delivery_attempts", 1) > 3:
+        anomaly_flags.append("repeated_delivery")
+    if payload.get("ip_address", "").startswith("10."):
+        anomaly_flags.append("internal_ip_delivery")
+    if not payload.get("confirmation", False):
+        anomaly_flags.append("missing_confirmation")
+    if not compliance_result["compliant"]:
+        anomaly_flags.append("compliance_failure")
+    ai_results["anomaly_flags"] = anomaly_flags
     # If any anomaly or compliance failure, trigger alerts and outbound webhooks
-    if anomaly_flags or not compliance_result['compliant']:
+    if anomaly_flags or not compliance_result["compliant"]:
         alert_msg = f"[AI] Delivery anomaly/compliance issue: {anomaly_flags}, {compliance_result}"
         send_slack_alert(alert_msg)
         send_telegram_alert(alert_msg)
@@ -46,11 +53,19 @@ def handle_event(payload):
         # Outbound webhook (future-proof, e.g. Zapier)
         try:
             from autonomy.post_sale_hooks.outbound_webhook import post_outbound_webhooks
-            post_outbound_webhooks({"event":"delivery_sent","payload":payload,"ai_results":ai_results})
+
+            post_outbound_webhooks(
+                {"event": "delivery_sent", "payload": payload, "ai_results": ai_results}
+            )
         except Exception as e:
             print(f"Outbound webhook failed: {e}")
     # --- End AI Checks ---
-    entry = {"event": "delivery_sent", "payload": payload, "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), "ai_results": ai_results}
+    entry = {
+        "event": "delivery_sent",
+        "payload": payload,
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "ai_results": ai_results,
+    }
     # Log delivery event
     try:
         if os.path.exists(delivery_log_path):
@@ -95,8 +110,18 @@ def handle_event(payload):
         errors.append(f"Alert: {e}")
     # Log to vault event log/activity log (with ai_results)
     try:
-        log_vault_event(payload.get("vault_id", "unknown"), "delivery_sent", {**payload, "ai_results": ai_results}, errors)
-        log_activity(payload.get("vault_id", "unknown"), "delivery_sent", {**payload, "ai_results": ai_results}, errors)
+        log_vault_event(
+            payload.get("vault_id", "unknown"),
+            "delivery_sent",
+            {**payload, "ai_results": ai_results},
+            errors,
+        )
+        log_activity(
+            payload.get("vault_id", "unknown"),
+            "delivery_sent",
+            {**payload, "ai_results": ai_results},
+            errors,
+        )
     except Exception as e:
         errors.append(f"VaultLog: {e}")
     # AI anomaly detection on failures
@@ -108,7 +133,13 @@ def handle_event(payload):
     # Track build time/performance
     try:
         build_time = time.time() - start_time
-        monitor_vault_build(payload.get("vault_path", ""), {**payload, "build_time": build_time})
+        monitor_vault_build(
+            payload.get("vault_path", ""), {**payload, "build_time": build_time}
+        )
     except Exception:
         pass
-    return {"status": "success", "vault_id": payload.get("vault_id", "unknown"), "errors": errors}
+    return {
+        "status": "success",
+        "vault_id": payload.get("vault_id", "unknown"),
+        "errors": errors,
+    }

@@ -4,6 +4,8 @@ SAFE AI static vault engagement clustering
 - 100% static, non-sentient, suggest-only
 - Outputs data for admin dashboard
 """
+
+
 def cluster_engagement(data):
     # Static clustering logic here
     # ...

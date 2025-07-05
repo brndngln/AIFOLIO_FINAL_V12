@@ -6,9 +6,11 @@ import logging
 import hmac
 import hashlib
 import os
+
 logger = logging.getLogger(__name__)
 
-SECRET = os.getenv('AIFOLIO_WEBHOOK_SECRET', 'staticsecret')
+SECRET = os.getenv("AIFOLIO_WEBHOOK_SECRET", "staticsecret")
+
 
 def validate_signature(payload: bytes, signature: str) -> bool:
     mac = hmac.new(SECRET.encode(), msg=payload, digestmod=hashlib.sha256)

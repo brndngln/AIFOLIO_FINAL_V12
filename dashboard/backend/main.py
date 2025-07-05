@@ -15,6 +15,7 @@ app.add_middleware(
 
 ANALYTICS_DIR = Path(__file__).parent.parent.parent / "autonomy" / "analytics"
 
+
 @app.get("/api/events/{log_type}")
 def get_event_log(log_type: str):
     log_file = ANALYTICS_DIR / f"{log_type}"

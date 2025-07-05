@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 COMPLIANCE_TREE = {
     "us": ["GDPR", "CCPA", "SOX"],
     "eu": ["GDPR", "ePrivacy"],
-    "apac": ["PDPA", "APPI"]
+    "apac": ["PDPA", "APPI"],
 }
+
 
 def get_compliance_tree(region, triggered_by):
     timestamp = datetime.utcnow().isoformat()

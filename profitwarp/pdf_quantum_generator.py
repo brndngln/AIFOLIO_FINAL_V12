@@ -6,15 +6,16 @@ AIFOLIO™ PROFIT WARP ENGINE: PDF QUANTUM GENERATOR
 from typing import List, Dict, Any
 import random
 
+
 class PDFQuantumGenerator:
     def __init__(self):
         self.variants = [
-            'step_by_step_tutorial',
-            'seven_day_challenge',
-            'funnel_subscription_kit',
-            'affiliate_starter',
-            'interactive_workbook',
-            'white_label_pack'
+            "step_by_step_tutorial",
+            "seven_day_challenge",
+            "funnel_subscription_kit",
+            "affiliate_starter",
+            "interactive_workbook",
+            "white_label_pack",
         ]
 
     def spawn_pdf_variants(self, base_pdf: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -23,11 +24,10 @@ class PDFQuantumGenerator:
         variants = []
         for v in chosen:
             variant = dict(base_pdf)
-            variant['variant_type'] = v
-            variant['ai_logic_hook'] = 'non_sentient'
-            variant['monetization_callout'] = True
-            variant['disclaimer'] = 'For educational use. Not legal/financial advice.'
-            variant['policy_safe'] = True
+            variant["variant_type"] = v
+            variant["ai_logic_hook"] = "non_sentient"
+            variant["monetization_callout"] = True
+            variant["disclaimer"] = "For educational use. Not legal/financial advice."
+            variant["policy_safe"] = True
             variants.append(variant)
         return variants
-

@@ -9,24 +9,44 @@ from typing import List, Dict, Any
 RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, int
 HOOK_HISTORY: List[Dict[str, Any]] = []
 
+
 class HookResilience:
     @staticmethod
     def retry_hook(hook_fn, args, max_attempts=3):
         for attempt in range(max_attempts):
             try:
                 result = hook_fn(*args)
-                HOOK_HISTORY.append({"hook": hook_fn.__name__, "result": result, "attempt": attempt+1, "status": "success"})
+                HOOK_HISTORY.append(
+                    {
+                        "hook": hook_fn.__name__,
+                        "result": result,
+                        "attempt": attempt + 1,
+                        "status": "success",
+                    }
+                )
                 return result
             except Exception as e:
-                HOOK_HISTORY.append({"hook": hook_fn.__name__, "error": str(e), "attempt": attempt+1, "status": "fail"})
+                HOOK_HISTORY.append(
+                    {
+                        "hook": hook_fn.__name__,
+                        "error": str(e),
+                        "attempt": attempt + 1,
+                        "status": "fail",
+                    }
+                )
                 try:
                     from windsurf.error_logger import log_error
                     import traceback
+
                     log_error(
                         error_type="HookFailure",
                         message=f"Hook {hook_fn.__name__} failed on attempt {attempt+1}",
                         stacktrace=traceback.format_exc(),
-                        context={"hook": hook_fn.__name__, "args": args, "attempt": attempt+1}
+                        context={
+                            "hook": hook_fn.__name__,
+                            "args": args,
+                            "attempt": attempt + 1,
+                        },
                     )
                 except Exception:
                     pass
@@ -47,7 +67,11 @@ class HookResilience:
     @staticmethod
     def health_monitor():
         # Returns static health status
-        return {"uptime": "99.99%", "last_failure": None, "recent_hooks": HOOK_HISTORY[-5:]}
+        return {
+            "uptime": "99.99%",
+            "last_failure": None,
+            "recent_hooks": HOOK_HISTORY[-5:],
+        }
 
     @staticmethod
     def refund_trigger_predictor(hook_name, args):

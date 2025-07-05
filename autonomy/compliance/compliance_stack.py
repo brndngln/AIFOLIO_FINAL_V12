@@ -4,6 +4,7 @@ Features: GDPR/CCPA/DPA tools, validation, audit/compliance verifier, GDPR dashb
 """
 from typing import Dict, Any, List
 
+
 class ComplianceStack:
     @staticmethod
     def validate_gdpr_request(request: Dict[str, Any]) -> bool:
@@ -14,8 +15,18 @@ class ComplianceStack:
     def gdpr_dashboard() -> List[Dict[str, Any]]:
         # Static sample dashboard
         return [
-            {"user_id": "u1", "request_type": "delete", "status": "completed", "timestamp": "2024-12-01"},
-            {"user_id": "u2", "request_type": "export", "status": "pending", "timestamp": "2025-06-01"}
+            {
+                "user_id": "u1",
+                "request_type": "delete",
+                "status": "completed",
+                "timestamp": "2024-12-01",
+            },
+            {
+                "user_id": "u2",
+                "request_type": "export",
+                "status": "pending",
+                "timestamp": "2025-06-01",
+            },
         ]
 
     @staticmethod
@@ -27,7 +38,7 @@ class ComplianceStack:
     def tax_filing_calendar() -> List[Dict[str, str]]:
         return [
             {"region": "US", "due": "2025-04-15"},
-            {"region": "EU", "due": "2025-05-31"}
+            {"region": "EU", "due": "2025-05-31"},
         ]
 
     @staticmethod

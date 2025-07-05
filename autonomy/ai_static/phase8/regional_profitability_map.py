@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/regional_profitability_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-PROFITABILITY_TABLE = {
-    "us-east-1": 0.25,
-    "eu-west-1": 0.18,
-    "ap-southeast-1": 0.32
-}
+PROFITABILITY_TABLE = {"us-east-1": 0.25, "eu-west-1": 0.18, "ap-southeast-1": 0.32}
+
 
 def get_regional_profitability(region, triggered_by):
     timestamp = datetime.utcnow().isoformat()

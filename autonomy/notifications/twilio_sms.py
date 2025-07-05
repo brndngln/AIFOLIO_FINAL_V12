@@ -18,11 +18,7 @@ TWILIO_FROM = os.environ.get("TWILIO_FROM_NUMBER")
 def send_sms(to_number, message):
     try:
         client = Client(TWILIO_SID, TWILIO_TOKEN)
-        msg = client.messages.create(
-            body=message,
-            from_=TWILIO_FROM,
-            to=to_number
-        )
+        msg = client.messages.create(body=message, from_=TWILIO_FROM, to=to_number)
         logging.info(f"SMS sent to {to_number}: {msg.sid}")
         return msg.sid
     except Exception as e:

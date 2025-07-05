@@ -116,4 +116,3 @@ CompoundingVaultPanel.propTypes = {
 }; // [WINDSURF FIXED]
 
 export default CompoundingVaultPanel; // [WINDSURF FIXED]
-

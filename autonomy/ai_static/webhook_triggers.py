@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 WEBHOOK_URLS = {
     "refund_issued": "https://your.webhook.url/refund",
     "download_started": "https://your.webhook.url/download",
-    "vault_version_update": "https://your.webhook.url/vault_version"
+    "vault_version_update": "https://your.webhook.url/vault_version",
 }
+
 
 def send_webhook(event, payload):
     url = WEBHOOK_URLS.get(event)

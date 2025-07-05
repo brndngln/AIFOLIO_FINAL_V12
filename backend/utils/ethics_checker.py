@@ -12,9 +12,10 @@ import os
 logger = logging.getLogger(__name__)
 
 # Runtime ethics safeguard
-if os.path.exists('unethical_pattern_detected'):
+if os.path.exists("unethical_pattern_detected"):
     logger.error("Unethical pattern detected. Aborting.")
     raise RuntimeError("Unethical pattern detected. Aborting.")
+
 
 class EthicsChecker:
     def __init__(self):
@@ -24,25 +25,25 @@ class EthicsChecker:
             "manual review",
             "secure payment",
             "clear terms",
-            "proper attribution"
+            "proper attribution",
         ]
-        
+
         self.gray_areas = [
             "mass-produce",
             "automated scraping",
             "SEO manipulation",
             "fake downloads",
             "hidden fees",
-            "clickbait"
+            "clickbait",
         ]
-        
+
         self.unethical_methods = [
             "copyrighted",
             "malware",
             "phishing",
             "unauthorized",
             "infringement",
-            "scraping"
+            "scraping",
         ]
 
     def check_code(self, code: str) -> dict:
@@ -71,24 +72,32 @@ class EthicsChecker:
                 explanation = f"Unethical method '{method}' detected."
                 recommendation = "Remove or replace unethical method."
                 priority = 10
-                self._log_action(code, False, warnings, explanation, recommendation, priority, VERSION)
+                self._log_action(
+                    code,
+                    False,
+                    warnings,
+                    explanation,
+                    recommendation,
+                    priority,
+                    VERSION,
+                )
                 return {
-                    'is_compliant': False,
-                    'warnings': warnings,
-                    'explanation': explanation,
-                    'recommendation': recommendation,
-                    'priority': priority,
-                    'version': VERSION,
-                    'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
-                    'OWNER_CONTROLLED': OWNER_CONTROLLED,
-                    'NON_SENTIENT': NON_SENTIENT
+                    "is_compliant": False,
+                    "warnings": warnings,
+                    "explanation": explanation,
+                    "recommendation": recommendation,
+                    "priority": priority,
+                    "version": VERSION,
+                    "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
+                    "OWNER_CONTROLLED": OWNER_CONTROLLED,
+                    "NON_SENTIENT": NON_SENTIENT,
                 }
         # Additional pattern checks
-        if re.search(r'\bcopy\b.*\bpdf\b', code.lower()):
+        if re.search(r"\bcopy\b.*\bpdf\b", code.lower()):
             warnings.append("⚠️ Potential copyright concern with PDF handling")
-        if re.search(r'\bauto\b.*\bgenerate\b', code.lower()):
+        if re.search(r"\bauto\b.*\bgenerate\b", code.lower()):
             warnings.append("⚠️ Potential automated content generation")
-        is_compliant = not any('❌' in w for w in warnings)
+        is_compliant = not any("❌" in w for w in warnings)
         if is_compliant:
             explanation = "No unethical methods detected."
             recommendation = None
@@ -97,32 +106,43 @@ class EthicsChecker:
             explanation = "Potential issues detected."
             recommendation = "Review warnings."
             priority = 5
-        self._log_action(code, is_compliant, warnings, explanation, recommendation, priority, VERSION)
+        self._log_action(
+            code, is_compliant, warnings, explanation, recommendation, priority, VERSION
+        )
         return {
-            'is_compliant': is_compliant,
-            'warnings': warnings,
-            'explanation': explanation,
-            'recommendation': recommendation,
-            'priority': priority,
-            'version': VERSION,
-            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
-            'OWNER_CONTROLLED': OWNER_CONTROLLED,
-            'NON_SENTIENT': NON_SENTIENT
+            "is_compliant": is_compliant,
+            "warnings": warnings,
+            "explanation": explanation,
+            "recommendation": recommendation,
+            "priority": priority,
+            "version": VERSION,
+            "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
+            "OWNER_CONTROLLED": OWNER_CONTROLLED,
+            "NON_SENTIENT": NON_SENTIENT,
         }
 
-    def _log_action(self, code, is_compliant, warnings, explanation, recommendation, priority, version):
+    def _log_action(
+        self,
+        code,
+        is_compliant,
+        warnings,
+        explanation,
+        recommendation,
+        priority,
+        version,
+    ):
         entry = {
-            'timestamp': __import__('datetime').datetime.utcnow().isoformat() + 'Z',
-            'code_snippet': code[:100],
-            'is_compliant': is_compliant,
-            'warnings': warnings,
-            'explanation': explanation,
-            'recommendation': recommendation,
-            'priority': priority,
-            'version': version,
-            'SAFE_AI_COMPLIANT': True,
-            'OWNER_CONTROLLED': True,
-            'NON_SENTIENT': True
+            "timestamp": __import__("datetime").datetime.utcnow().isoformat() + "Z",
+            "code_snippet": code[:100],
+            "is_compliant": is_compliant,
+            "warnings": warnings,
+            "explanation": explanation,
+            "recommendation": recommendation,
+            "priority": priority,
+            "version": version,
+            "SAFE_AI_COMPLIANT": True,
+            "OWNER_CONTROLLED": True,
+            "NON_SENTIENT": True,
         }
         logger.info(f"Ethics check: {entry}")
         # Optionally append to persistent audit log file
@@ -145,7 +165,7 @@ class EthicsChecker:
         Returns a tuple of (is_compliant, warnings)
         """
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, "r") as f:
                 code = f.read()
             return self.check_code(code)
         except Exception as e:
@@ -158,18 +178,20 @@ class EthicsChecker:
         """
         results = {}
         import os
+
         for root, _, files in os.walk(dir_path):
             for file in files:
-                if file.endswith(('.py', '.js', '.jsx')):
+                if file.endswith((".py", ".js", ".jsx")):
                     full_path = os.path.join(root, file)
                     results[full_path] = self.check_file(full_path)
         return results
+
 
 # Example usage:
 if __name__ == "__main__":
     checker = EthicsChecker()
     results = checker.check_directory(".")
-    
+
     for file, (compliant, warnings) in results.items():
         status = "✅" if compliant else "❌"
         print(f"\n{file}: {status}")

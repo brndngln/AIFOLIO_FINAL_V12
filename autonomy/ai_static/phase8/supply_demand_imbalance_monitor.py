@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 IMBALANCE_TABLE = {
     "vault1": "balanced",
     "vault2": "oversupply",
-    "vault3": "undersupply"
+    "vault3": "undersupply",
 }
+
 
 def monitor_supply_demand(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()

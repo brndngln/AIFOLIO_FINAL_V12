@@ -2,90 +2,93 @@ import os
 import re
 from typing import Dict, List
 
+
 class CodebaseScanner:
     def __init__(self):
         self.ethical_patterns = {
             # Legitimate automation patterns
-            'testing': r'(test|pytest|unittest)',
-            'deployment': r'(deploy|release|update)',
-            'security': r'(security|auth|encryption)',
-            'monitoring': r'(monitor|log|audit)',
-            'optimization': r'(optimize|performance)',
-            'accessibility': r'(accessibility|a11y)',
-            'validation': r'(validate|check|verify)',
-            'backup': r'(backup|restore)',
-            'analytics': r'(analytics|metrics|stats)',
-            'documentation': r'(doc|docs|readme)',
-            'compliance': r'(compliance|regulation|audit)'
+            "testing": r"(test|pytest|unittest)",
+            "deployment": r"(deploy|release|update)",
+            "security": r"(security|auth|encryption)",
+            "monitoring": r"(monitor|log|audit)",
+            "optimization": r"(optimize|performance)",
+            "accessibility": r"(accessibility|a11y)",
+            "validation": r"(validate|check|verify)",
+            "backup": r"(backup|restore)",
+            "analytics": r"(analytics|metrics|stats)",
+            "documentation": r"(doc|docs|readme)",
+            "compliance": r"(compliance|regulation|audit)",
         }
-        
+
         self.unethical_patterns = {
             # Unethical automation patterns
-            'scraping': r'(scrape|crawl|grab)',
-            'spam': r'(spam|bulk|mass)',
-            'malware': r'(malware|virus|trojan)',
-            'infringement': r'(copy|clone|duplicate)',
-            'false_info': r'(fake|false|mislead)',
-            'privacy_violation': r'(steal|grab|take)',
-            'manipulation': r'(manipulate|cheat|fake)',
-            'violation': r'(violate|break|hack)',
-            'unauthorized': r'(unauthorized|force)',
-            'deception': r'(deceive|trick|fake)',
-            'fraud': r'(fraud|scam|phish)',
+            "scraping": r"(scrape|crawl|grab)",
+            "spam": r"(spam|bulk|mass)",
+            "malware": r"(malware|virus|trojan)",
+            "infringement": r"(copy|clone|duplicate)",
+            "false_info": r"(fake|false|mislead)",
+            "privacy_violation": r"(steal|grab|take)",
+            "manipulation": r"(manipulate|cheat|fake)",
+            "violation": r"(violate|break|hack)",
+            "unauthorized": r"(unauthorized|force)",
+            "deception": r"(deceive|trick|fake)",
+            "fraud": r"(fraud|scam|phish)",
         }
         self.logger.info("CodebaseScanner initialized with static patterns.")
 
     def scan_file(self, file_path: str) -> Dict[str, List[str]]:
         """Scan a single file for ethical automation patterns."""
-        results = {
-            'ethical': [],
-            'unethical': [],
-            'warnings': []
-        }
-        
+        results = {"ethical": [], "unethical": [], "warnings": []}
+
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, "r") as f:
                 content = f.read()
-                
+
                 # Check for ethical patterns
                 for pattern_name, pattern in self.ethical_patterns.items():
                     if re.search(pattern, content, re.IGNORECASE):
-                        results['ethical'].append(f"✅ Found ethical pattern '{pattern_name}'")
-                
+                        results["ethical"].append(
+                            f"✅ Found ethical pattern '{pattern_name}'"
+                        )
+
                 # Check for unethical patterns
                 for pattern_name, pattern in self.unethical_patterns.items():
                     if re.search(pattern, content, re.IGNORECASE):
-                        results['unethical'].append(f"❌ Found unethical pattern '{pattern_name}'")
-                
+                        results["unethical"].append(
+                            f"❌ Found unethical pattern '{pattern_name}'"
+                        )
+
                 # Additional checks
-                if 'scrape' in content.lower() and not any(
-                    x in content.lower() for x in ['test', 'unit', 'mock', 'example']
+                if "scrape" in content.lower() and not any(
+                    x in content.lower() for x in ["test", "unit", "mock", "example"]
                 ):
-                    results['warnings'].append("⚠️ Potential scraping without proper context")
-                    
-                if 'copy' in content.lower() and not any(
-                    x in content.lower() for x in ['test', 'unit', 'mock', 'example']
+                    results["warnings"].append(
+                        "⚠️ Potential scraping without proper context"
+                    )
+
+                if "copy" in content.lower() and not any(
+                    x in content.lower() for x in ["test", "unit", "mock", "example"]
                 ):
-                    results['warnings'].append("⚠️ Potential copyright concerns")
-                    
+                    results["warnings"].append("⚠️ Potential copyright concerns")
+
                 self.logger.info(f"Scanned file {file_path} with results: {results}")
                 return results
-                
+
         except Exception as e:
-            results['warnings'].append(f"❌ Error reading file: {str(e)}")
+            results["warnings"].append(f"❌ Error reading file: {str(e)}")
             self.logger.error(f"Error scanning file {file_path}: {str(e)}")
             return results
 
     def scan_directory(self, dir_path: str) -> Dict[str, Dict[str, List[str]]]:
         """Scan entire directory for ethical automation patterns."""
         results = {}
-        
+
         for root, _, files in os.walk(dir_path):
             for file in files:
-                if file.endswith(('.py', '.js', '.jsx', '.ts', '.tsx')):
+                if file.endswith((".py", ".js", ".jsx", ".ts", ".tsx")):
                     full_path = os.path.join(root, file)
                     results[full_path] = self.scan_file(full_path)
-        
+
         self.logger.info(f"Scanned directory {dir_path} with results: {results}")
         return results
 
@@ -99,20 +102,20 @@ class CodebaseScanner:
         unethical_files = 0
         warning_files = 0
         for file_path, results in scan_results.items():
-            if results.get('unethical'):
+            if results.get("unethical"):
                 unethical_files += 1
                 report += f"\n❌ Unethical Patterns Found in {file_path}:\n"
-                for issue in results['unethical']:
+                for issue in results["unethical"]:
                     report += f"  {issue}\n"
-            if results.get('warnings'):
+            if results.get("warnings"):
                 warning_files += 1
                 report += f"\n⚠️ Warnings in {file_path}:\n"
-                for warning in results['warnings']:
+                for warning in results["warnings"]:
                     report += f"  {warning}\n"
-            if results.get('ethical'):
+            if results.get("ethical"):
                 ethical_files += 1
                 report += f"\n✅ Ethical Patterns in {file_path}:\n"
-                for pattern in results['ethical']:
+                for pattern in results["ethical"]:
                     report += f"  {pattern}\n"
         report += "\nSummary:\n"
         report += f"Total files scanned: {total_files}\n"
@@ -121,6 +124,7 @@ class CodebaseScanner:
         report += f"Files with warnings: {warning_files}\n"
         self.logger.info("Static codebase scan report generated.")
         return report
+
 
 # Example usage
 if __name__ == "__main__":

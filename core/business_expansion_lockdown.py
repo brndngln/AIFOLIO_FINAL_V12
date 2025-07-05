@@ -3,5 +3,6 @@
 class BusinessExpansionLockdown:
     def __init__(self, founder_key):
         self.founder_key = founder_key
+
     def unlock(self, request, key):
         return key == self.founder_key

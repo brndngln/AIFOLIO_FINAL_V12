@@ -4,11 +4,13 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from datetime import datetime
 
+
 class AIAnalyticsEngine:
     """
     Advanced AI analytics engine for AIFOLIO: clustering, anomaly detection, trend prediction, and actionable insights.
     Integrates with event and compliance logs, and can push results to Notion, Airtable, Slack, and dashboard.
     """
+
     def __init__(self):
         self.scaler = StandardScaler()
         self.kmeans = None
@@ -19,7 +21,16 @@ class AIAnalyticsEngine:
         # event_data: list of dicts with numeric features
         if not event_data:
             return None
-        X = np.array([[float(e.get('revenue', 0)), float(e.get('downloads', 0)), float(e.get('rating', 0))] for e in event_data])
+        X = np.array(
+            [
+                [
+                    float(e.get("revenue", 0)),
+                    float(e.get("downloads", 0)),
+                    float(e.get("rating", 0)),
+                ]
+                for e in event_data
+            ]
+        )
         X_scaled = self.scaler.fit_transform(X)
         self.kmeans = KMeans(n_clusters=self.n_clusters, n_init=10)
         labels = self.kmeans.fit_predict(X_scaled)
@@ -29,7 +40,16 @@ class AIAnalyticsEngine:
         # Simple anomaly detection using z-score
         if not event_data:
             return []
-        X = np.array([[float(e.get('revenue', 0)), float(e.get('downloads', 0)), float(e.get('rating', 0))] for e in event_data])
+        X = np.array(
+            [
+                [
+                    float(e.get("revenue", 0)),
+                    float(e.get("downloads", 0)),
+                    float(e.get("rating", 0)),
+                ]
+                for e in event_data
+            ]
+        )
         X_scaled = self.scaler.fit_transform(X)
         z_scores = np.abs((X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0))
         anomalies = [i for i, row in enumerate(z_scores) if any(row > threshold)]
@@ -40,19 +60,23 @@ class AIAnalyticsEngine:
         if not event_data:
             return {}
         trends = {}
-        for key in ['revenue', 'downloads', 'rating']:
+        for key in ["revenue", "downloads", "rating"]:
             values = [float(e.get(key, 0)) for e in event_data]
             if len(values) < window:
-                trends[key] = 'insufficient data'
+                trends[key] = "insufficient data"
                 continue
             avg_now = np.mean(values[-window:])
-            avg_prev = np.mean(values[-2*window:-window]) if len(values) >= 2*window else avg_now
+            avg_prev = (
+                np.mean(values[-2 * window : -window])
+                if len(values) >= 2 * window
+                else avg_now
+            )
             if avg_now > avg_prev * 1.1:
-                trends[key] = 'rising'
+                trends[key] = "rising"
             elif avg_now < avg_prev * 0.9:
-                trends[key] = 'falling'
+                trends[key] = "falling"
             else:
-                trends[key] = 'stable'
+                trends[key] = "stable"
         return trends
 
     def actionable_insights(self, event_data):
@@ -61,10 +85,10 @@ class AIAnalyticsEngine:
         anomalies = self.detect_anomalies(event_data)
         trends = self.predict_trends(event_data)
         insights = {
-            'clusters': labels.tolist() if labels is not None else [],
-            'anomalies': anomalies,
-            'trends': trends,
-            'timestamp': datetime.utcnow().isoformat()
+            "clusters": labels.tolist() if labels is not None else [],
+            "anomalies": anomalies,
+            "trends": trends,
+            "timestamp": datetime.utcnow().isoformat(),
         }
         logging.info(f"AI Analytics Insights: {insights}")
         return insights

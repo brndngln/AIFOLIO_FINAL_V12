@@ -4,6 +4,8 @@ Historical pipeline latency tracker
 - 100% static, non-sentient
 - Outputs data for admin dashboard
 """
+
+
 def track_latency(events):
     # Static latency calculation logic here
     # ...

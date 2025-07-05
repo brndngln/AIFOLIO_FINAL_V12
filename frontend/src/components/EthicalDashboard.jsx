@@ -19,7 +19,7 @@ const EthicalDashboard = () => {
     useEffect(() => {
         // Fetch initial data
         fetchData();
-        
+
         // Update every minute
         const interval = setInterval(fetchData, 60000);
         return () => clearInterval(interval);

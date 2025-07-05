@@ -9,31 +9,38 @@ import os
 import logging
 
 REQUIRED_DISCLOSURES = [
-    "Right to Access", "Right to Erasure", "Data Portability", "Contact Information", "Purpose of Data Collection"
+    "Right to Access",
+    "Right to Erasure",
+    "Data Portability",
+    "Contact Information",
+    "Purpose of Data Collection",
 ]
-POLICIES = [
-    "privacy_policy.md",
-    "terms_of_service.md"
-]
+POLICIES = ["privacy_policy.md", "terms_of_service.md"]
 
-LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../distribution/legal_exports/gdpr_ccpa_audit_log.txt'))
+LOG_PATH = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../distribution/legal_exports/gdpr_ccpa_audit_log.txt",
+    )
+)
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
+
 
 def audit_gdpr_ccpa(policy_dir):
     results = {}
     for fname in POLICIES:
         path = os.path.join(policy_dir, fname)
         if not os.path.exists(path):
-            results[fname] = 'MISSING FILE'
+            results[fname] = "MISSING FILE"
             logging.error(f"Missing: {fname}")
             continue
-        with open(path, 'r') as f:
+        with open(path, "r") as f:
             content = f.read()
         missing = [field for field in REQUIRED_DISCLOSURES if field not in content]
         if missing:
-            results[fname] = f'Missing disclosures: {missing}'
+            results[fname] = f"Missing disclosures: {missing}"
             logging.warning(f"{fname} missing disclosures: {missing}")
         else:
-            results[fname] = 'OK'
+            results[fname] = "OK"
             logging.info(f"{fname} OK")
     return results

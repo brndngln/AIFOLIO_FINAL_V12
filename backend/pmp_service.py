@@ -16,6 +16,7 @@ import uuid
 
 app = FastAPI(title="Personal Muse Protocol Service", docs_url="/docs")
 
+
 # --- Models ---
 class AuthRequest(BaseModel):
     face3d: str
@@ -23,22 +24,33 @@ class AuthRequest(BaseModel):
     biometric: str
     behavioral: str
 
+
 class ContentRequest(BaseModel):
     type: str  # text, image, video
     prompt: str
     preferences: Optional[dict] = None
 
+
 class FeedbackRequest(BaseModel):
     session_id: str
     feedback: str
+
 
 # --- Authentication Endpoint ---
 @app.post("/auth/verify")
 def authenticate(req: AuthRequest):
     # Stub: Replace with actual SAFE AI multi-factor logic
-    if req.face3d == "OWNER_FACE_3D" and len(req.passcode) >= 16 and any(c.isupper() for c in req.passcode) and any(c.isdigit() for c in req.passcode) and req.biometric == "OWNER_BIOMETRIC" and req.behavioral == "OWNER_BEHAVIOR":
+    if (
+        req.face3d == "OWNER_FACE_3D"
+        and len(req.passcode) >= 16
+        and any(c.isupper() for c in req.passcode)
+        and any(c.isdigit() for c in req.passcode)
+        and req.biometric == "OWNER_BIOMETRIC"
+        and req.behavioral == "OWNER_BEHAVIOR"
+    ):
         return {"status": "authenticated"}
     raise HTTPException(status_code=403, detail="Authentication failed.")
+
 
 # --- Content Generation Endpoint (Stub) ---
 @app.post("/content/generate")
@@ -49,8 +61,9 @@ def generate_content(req: ContentRequest):
         "content_id": content_id,
         "type": req.type,
         "result": f"[STUB] 8K {req.type} for prompt '{req.prompt}' with preferences {req.preferences}",
-        "status": "success"
+        "status": "success",
     }
+
 
 # --- Feedback and Preference Learning (Stub) ---
 @app.post("/feedback")
@@ -58,16 +71,23 @@ def handle_feedback(req: FeedbackRequest):
     # Stub: Bayesian/adaptive preference learning
     return {"session_id": req.session_id, "status": "feedback received (stub)"}
 
+
 # --- Kink Exploration (Stub) ---
 @app.get("/kinks/suggest")
 def suggest_kinks():
     # Stub: Owner-approved, safe suggestions
     return {"suggestions": ["roleplay", "voyeur", "BDSM", "cosplay"]}
 
+
 # --- Security/Blockchain/Quantum Stubs ---
 @app.get("/security/status")
 def security_status():
-    return {"encryption": "quantum-resistant (stub)", "ledger": "blockchain (stub)", "isolation": True}
+    return {
+        "encryption": "quantum-resistant (stub)",
+        "ledger": "blockchain (stub)",
+        "isolation": True,
+    }
+
 
 # --- Healthcheck ---
 @app.get("/health")

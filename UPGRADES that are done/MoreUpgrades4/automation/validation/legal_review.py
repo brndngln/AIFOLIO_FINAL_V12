@@ -1,13 +1,16 @@
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def legal_review(text, category="general", niche=None):
     """
@@ -18,7 +21,9 @@ def legal_review(text, category="general", niche=None):
     - Returns a list of warnings. Ensures all products pass legal requirements.
     """
     sentience_safeguard_check()
-    human_oversight_checkpoint("Begin legal review", {"text": text, "category": category, "niche": niche})
+    human_oversight_checkpoint(
+        "Begin legal review", {"text": text, "category": category, "niche": niche}
+    )
     required_disclaimers = {
         "finance": "This content is for informational purposes only and does not constitute financial advice.",
         "health": "Consult a licensed medical professional before following any advice in this guide.",
@@ -26,7 +31,7 @@ def legal_review(text, category="general", niche=None):
         "business": "Earnings are not guaranteed. Your success depends on many personal factors.",
         "lgbtq": "This resource is designed to be inclusive and affirming for LGBTQ+ individuals. For medical or legal advice, consult a licensed professional.",
         "coach": "Results may vary. Coaching is not a substitute for professional advice.",
-        "freelancer": "This resource is for informational purposes only. Consult a financial or legal advisor for personalized guidance."
+        "freelancer": "This resource is for informational purposes only. Consult a financial or legal advisor for personalized guidance.",
     }
     warnings = []
     try:

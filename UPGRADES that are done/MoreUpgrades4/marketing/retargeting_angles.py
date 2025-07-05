@@ -1,5 +1,6 @@
 import logging
 
+
 def ethical_compliance_check(content):
     """
     Perform automated compliance, copyright, privacy, bias, user consent, and manipulation checks.
@@ -9,16 +10,19 @@ def ethical_compliance_check(content):
         raise ValueError("Content must be a string for compliance check.")
     violations = []
     # Copyright & privacy
-    if 'copyright' in content.lower() or 'private' in content.lower():
+    if "copyright" in content.lower() or "private" in content.lower():
         violations.append("Potential copyright or privacy violation detected.")
     # Bias/discrimination
-    if any(term in content.lower() for term in ['bias', 'discriminate', 'stereotype']):
+    if any(term in content.lower() for term in ["bias", "discriminate", "stereotype"]):
         violations.append("Potential bias/discrimination risk detected.")
     # User consent
-    if 'without consent' in content.lower() or 'no consent' in content.lower():
+    if "without consent" in content.lower() or "no consent" in content.lower():
         violations.append("User consent issue detected.")
     # Manipulation/false info
-    if any(term in content.lower() for term in ['manipulate', 'scam', 'deceive', 'false', 'mislead']):
+    if any(
+        term in content.lower()
+        for term in ["manipulate", "scam", "deceive", "false", "mislead"]
+    ):
         violations.append("Manipulation or false information risk detected.")
     # Add further pattern checks as required
     if violations:
@@ -28,15 +32,18 @@ def ethical_compliance_check(content):
     logging.info("Ethical compliance check passed.")
     return True
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
     # Optionally, integrate with dashboard/alert system
+
 
 def get_retargeting_angles(topic):
     """

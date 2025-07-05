@@ -14,20 +14,25 @@ from typing import Dict, List, Callable
 
 # Dispatcher config path
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "listener_config.json")
-AUDIT_LOG_PATH = os.path.join(os.path.dirname(__file__), "../../analytics/listener_audit_log.json")
+AUDIT_LOG_PATH = os.path.join(
+    os.path.dirname(__file__), "../../analytics/listener_audit_log.json"
+)
+
 
 class ListenerDispatchError(Exception):
     pass
+
 
 def load_config() -> Dict[str, List[Dict]]:
     with open(CONFIG_PATH, "r") as f:
         return json.load(f)
 
+
 def log_audit(event_type: str, dispatch_results: List[Dict]):
     entry = {
         "event_type": event_type,
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        "dispatch": dispatch_results
+        "dispatch": dispatch_results,
     }
     try:
         if os.path.exists(AUDIT_LOG_PATH):
@@ -42,6 +47,7 @@ def log_audit(event_type: str, dispatch_results: List[Dict]):
     except Exception as e:
         print(f"[Dispatcher] Failed to log audit: {e}")
 
+
 # Retry-safe wrapper (no static)
 def retry_safe(func: Callable, max_attempts=3, backoff=1):
     def wrapper(*args, **kwargs):
@@ -52,7 +58,9 @@ def retry_safe(func: Callable, max_attempts=3, backoff=1):
                 if attempt == max_attempts:
                     raise
                 time.sleep(backoff * attempt)
+
     return wrapper
+
 
 class EventListenerDispatcher:
     def __init__(self, config_path=CONFIG_PATH):
@@ -69,7 +77,9 @@ class EventListenerDispatcher:
                 func_name = c["function"]
                 priority = c["priority"]
                 try:
-                    mod = importlib.import_module(f"autonomy.pipeline.listeners.{mod_name}")
+                    mod = importlib.import_module(
+                        f"autonomy.pipeline.listeners.{mod_name}"
+                    )
                     func = getattr(mod, func_name)
                 except Exception as e:
                     print(f"[Dispatcher] Failed to import {mod_name}.{func_name}: {e}")
@@ -108,6 +118,7 @@ class EventListenerDispatcher:
         if event_type not in self.listeners:
             return []
         return [(priority, name) for priority, _, name in self.listeners[event_type]]
+
 
 # Example usage (for test/demo):
 if __name__ == "__main__":

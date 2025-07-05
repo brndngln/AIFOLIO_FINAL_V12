@@ -2,6 +2,7 @@ import logging
 from autonomy.ai_engines.lgbtq_engine import generate_lgbtq_prompt
 from autonomy.pdf_builder.visual_injectors.lgbtq import get_lgbtq_visuals
 
+
 # --- Ethical and Sentience Safeguards ---
 def ethical_compliance_check(content):
     """
@@ -12,16 +13,19 @@ def ethical_compliance_check(content):
         raise ValueError("Content must be a string for compliance check.")
     violations = []
     # Copyright & privacy
-    if 'copyright' in content.lower() or 'private' in content.lower():
+    if "copyright" in content.lower() or "private" in content.lower():
         violations.append("Potential copyright or privacy violation detected.")
     # Bias/discrimination
-    if any(term in content.lower() for term in ['bias', 'discriminate', 'stereotype']):
+    if any(term in content.lower() for term in ["bias", "discriminate", "stereotype"]):
         violations.append("Potential bias/discrimination risk detected.")
     # User consent
-    if 'without consent' in content.lower() or 'no consent' in content.lower():
+    if "without consent" in content.lower() or "no consent" in content.lower():
         violations.append("User consent issue detected.")
     # Manipulation/false info
-    if any(term in content.lower() for term in ['manipulate', 'scam', 'deceive', 'false', 'mislead']):
+    if any(
+        term in content.lower()
+        for term in ["manipulate", "scam", "deceive", "false", "mislead"]
+    ):
         violations.append("Manipulation or false information risk detected.")
     # Add further pattern checks as required
     if violations:
@@ -31,12 +35,14 @@ def ethical_compliance_check(content):
     logging.info("Ethical compliance check passed.")
     return True
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     # This is a placeholder for advanced monitoring
     # Log and alert if any sentience-like patterns detected
     logging.info("Sentience safeguard check passed.")
     return True
+
 
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
@@ -63,11 +69,13 @@ def create_lgbtq_pdf_bundle():
             "title": "Empowerment Toolkit for LGBTQ+ Creators",
             "prompt": prompt,
             "visuals": visuals,
-            "audience": "LGBTQ+ entrepreneurs, allies, and wellness seekers"
+            "audience": "LGBTQ+ entrepreneurs, allies, and wellness seekers",
         }
         human_oversight_checkpoint("LGBTQ+ PDF Bundle Generated", details=bundle)
         return bundle
     except Exception as e:
         logging.error(f"Ethics/Compliance failure: {e}")
-        human_oversight_checkpoint("Error in LGBTQ+ PDF Bundle Generation", details=str(e))
+        human_oversight_checkpoint(
+            "Error in LGBTQ+ PDF Bundle Generation", details=str(e)
+        )
         raise

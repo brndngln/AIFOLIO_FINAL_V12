@@ -5,6 +5,7 @@ from autonomy.security.ai_safety_layer import anti_static_guard
 # Decorator to guard any function returning user-facing AI text
 # Handles both sync and async functions
 
+
 def safe_ai_guarded(func):
     @wraps(func)
     def sync_wrapper(*args, **kwargs):
@@ -21,7 +22,9 @@ def safe_ai_guarded(func):
     def _scan_result(val):
         if isinstance(val, str):
             if not anti_static_guard(val):
-                raise Exception("AI safety violation: Unsafe sentience/agency patterns detected in output.")
+                raise Exception(
+                    "AI safety violation: Unsafe sentience/agency patterns detected in output."
+                )
         elif isinstance(val, dict):
             for v in val.values():
                 _scan_result(v)

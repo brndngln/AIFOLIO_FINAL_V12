@@ -5,6 +5,7 @@ from backend.agents.vinnie import handle_vinnie
 
 router = APIRouter()
 
+
 @router.post("/vinnie")
 async def vinnie_endpoint(request: Request):
     data = await request.json()

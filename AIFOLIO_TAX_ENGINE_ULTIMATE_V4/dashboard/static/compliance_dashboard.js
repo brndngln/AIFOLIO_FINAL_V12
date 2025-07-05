@@ -464,4 +464,3 @@ function renderRegulatoryAPIWidget(data) {
     }
     container.innerHTML = `<h3>Regulatory API Status</h3><b>Status:</b> ${data.status} <br><b>Source:</b> ${data.source||'N/A'} <br><b>Checked At:</b> ${data.checked_at||''}`;
 }
-

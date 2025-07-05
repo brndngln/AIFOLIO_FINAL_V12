@@ -3,25 +3,27 @@
 
 import datetime
 
+
 class AuditTrailVault:
     _log = []
     _snapshots = []
 
     @staticmethod
     def record(action, details=None):
-        AuditTrailVault._log.append({
-            'action': action,
-            'details': details,
-            'timestamp': datetime.datetime.utcnow().isoformat()
-        })
+        AuditTrailVault._log.append(
+            {
+                "action": action,
+                "details": details,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+            }
+        )
 
     @staticmethod
     def snapshot(state):
-        AuditTrailVault._snapshots.append({
-            'state': state,
-            'timestamp': datetime.datetime.utcnow().isoformat()
-        })
-        AuditTrailVault.record('snapshot', {'state': state})
+        AuditTrailVault._snapshots.append(
+            {"state": state, "timestamp": datetime.datetime.utcnow().isoformat()}
+        )
+        AuditTrailVault.record("snapshot", {"state": state})
 
     @staticmethod
     def get_log():
@@ -34,6 +36,6 @@ class AuditTrailVault:
     @staticmethod
     def rollback(snapshot_index):
         if 0 <= snapshot_index < len(AuditTrailVault._snapshots):
-            AuditTrailVault.record('rollback', {'to': snapshot_index})
-            return AuditTrailVault._snapshots[snapshot_index]['state']
+            AuditTrailVault.record("rollback", {"to": snapshot_index})
+            return AuditTrailVault._snapshots[snapshot_index]["state"]
         return None

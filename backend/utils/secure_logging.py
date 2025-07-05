@@ -11,6 +11,7 @@ from datetime import datetime
 LOG_FILE = os.getenv("AIFOLIO_LOG_FILE", "secure_app.log")
 LOG_KEY = os.getenv("AIFOLIO_LOG_KEY", "changeme")
 
+
 class TamperEvidentLogger:
     def __init__(self, logfile=LOG_FILE, key=LOG_KEY):
         self.logfile = logfile

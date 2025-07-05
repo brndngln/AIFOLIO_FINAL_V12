@@ -5,6 +5,7 @@ from backend.agents.victor import handle_victor
 
 router = APIRouter()
 
+
 @router.post("/victor")
 async def victor_endpoint(request: Request):
     data = await request.json()

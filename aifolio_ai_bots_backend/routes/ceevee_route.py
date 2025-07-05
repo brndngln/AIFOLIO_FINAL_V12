@@ -5,6 +5,7 @@ from backend.agents.ceevee import handle_ceevee
 
 router = APIRouter()
 
+
 @router.post("/ceevee")
 async def ceevee_endpoint(request: Request):
     data = await request.json()

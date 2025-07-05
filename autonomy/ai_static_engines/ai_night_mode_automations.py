@@ -9,15 +9,18 @@ import datetime
 
 NIGHT_MODE_QUEUE = []
 
+
 class NightModeAutomations:
     @staticmethod
     def schedule_automation(automation: Dict, run_after: str = "01:00"):
-        NIGHT_MODE_QUEUE.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'automation': automation,
-            'run_after': run_after,
-            'status': 'scheduled'
-        })
+        NIGHT_MODE_QUEUE.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "automation": automation,
+                "run_after": run_after,
+                "status": "scheduled",
+            }
+        )
 
     @staticmethod
     def get_night_queue() -> List[Dict]:

@@ -9,4 +9,4 @@ from .ai_bridge import bridge
 # Anti-sentience measures
 random_seed = random.randint(1, 1000000)
 
-__all__ = ['config', 'bridge']
+__all__ = ["config", "bridge"]

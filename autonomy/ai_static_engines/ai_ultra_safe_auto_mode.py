@@ -8,18 +8,18 @@ import datetime
 
 ULTRA_SAFE_LOG = []
 
+
 class UltraSafeAutoMode:
     @staticmethod
     def run_safe_automations(automations: List[Dict]) -> List[Dict]:
         # Only allow safe types
         allowed = []
         for a in automations:
-            if a.get('type') in ['metadata_update', 'visual_update', 'qa_check']:
+            if a.get("type") in ["metadata_update", "visual_update", "qa_check"]:
                 allowed.append(a)
-        ULTRA_SAFE_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'ran': allowed
-        })
+        ULTRA_SAFE_LOG.append(
+            {"timestamp": datetime.datetime.utcnow().isoformat(), "ran": allowed}
+        )
         return allowed
 
     @staticmethod

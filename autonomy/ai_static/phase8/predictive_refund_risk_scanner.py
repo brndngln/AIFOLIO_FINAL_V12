@@ -10,15 +10,14 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/refund_risk_scan_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-REFUND_RISK_TABLE = {
-    "vault1": "low",
-    "vault2": "high",
-    "vault3": "medium"
-}
+REFUND_RISK_TABLE = {"vault1": "low", "vault2": "high", "vault3": "medium"}
+
 
 def scan_refund_risk(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()
     risk = REFUND_RISK_TABLE.get(vault_id, "unknown")
-    event = f"[{timestamp}] REFUND RISK: {vault_id} = {risk} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] REFUND RISK: {vault_id} = {risk} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return risk

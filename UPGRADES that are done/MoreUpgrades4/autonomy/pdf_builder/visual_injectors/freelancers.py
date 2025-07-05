@@ -1,17 +1,20 @@
 import logging
 
+
 def ethical_compliance_check(content):
     """Perform automated compliance, copyright, privacy, and bias checks."""
     if not isinstance(content, str):
         raise ValueError("Content must be a string for compliance check.")
-    if 'copyright' in content.lower() or 'private' in content.lower():
+    if "copyright" in content.lower() or "private" in content.lower():
         raise PermissionError("Potential copyright or privacy violation detected.")
     return True
+
 
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
+
 
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
@@ -23,11 +26,13 @@ def sentience_safeguard_check():
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
     # Optionally, send to dashboard or require manual review
     # (Integrate with dashboard/alert system as needed)
+
 
 def privacy_compliance_check(visuals):
     """Ensure visuals do not contain sensitive or unauthorized data."""
@@ -35,6 +40,7 @@ def privacy_compliance_check(visuals):
     # For now, just log the check
     logging.info("Visuals passed privacy compliance check.")
     return visuals
+
 
 def get_freelancer_visuals():
     """
@@ -45,7 +51,10 @@ def get_freelancer_visuals():
     human_oversight_checkpoint("Begin get_freelancer_visuals", None)
     try:
         # --- Existing logic (replace this comment with actual asset generation logic) ---
-        visuals = ["contract_template.pdf", "invoice_tool_icon.svg"]  # Example visuals for demonstration
+        visuals = [
+            "contract_template.pdf",
+            "invoice_tool_icon.svg",
+        ]  # Example visuals for demonstration
         visuals = privacy_compliance_check(visuals)
         logging.info(f"Freelancer visuals generated: {visuals}")
         human_oversight_checkpoint("Freelancer visuals generated", visuals)
@@ -65,7 +74,7 @@ def get_freelancer_visuals():
         visuals = [
             "assets/visuals/freelancers/desk_setup.png",
             "assets/visuals/freelancers/project_timeline.png",
-            "assets/visuals/freelancers/invoice_template.png"
+            "assets/visuals/freelancers/invoice_template.png",
         ]
         for v in visuals:
             ethical_compliance_check(str(v))
@@ -73,5 +82,7 @@ def get_freelancer_visuals():
         return visuals
     except Exception as e:
         logging.error(f"Ethics/Compliance failure in freelancer visuals: {e}")
-        human_oversight_checkpoint("Error in freelancer visuals retrieval", details=str(e))
+        human_oversight_checkpoint(
+            "Error in freelancer visuals retrieval", details=str(e)
+        )
         raise

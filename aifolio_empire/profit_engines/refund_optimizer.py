@@ -4,13 +4,15 @@ Static, deterministic, SAFE AI-compliant refund risk flagger and copy optimizer.
 """
 import logging
 from backend.ai_tools.refund_risk_flagger import flag_refund_risk
+
 logger = logging.getLogger(__name__)
 
 STATIC_COPY_TEMPLATES = [
-    '100% Satisfaction Guarantee — No Hassle Refunds!',
-    'Trusted by 10,000+ Entrepreneurs',
-    'See why our refund rates are the lowest in the industry!'
+    "100% Satisfaction Guarantee — No Hassle Refunds!",
+    "Trusted by 10,000+ Entrepreneurs",
+    "See why our refund rates are the lowest in the industry!",
 ]
+
 
 def optimize_refund(user_id: str, region: str, refund_count: int) -> dict:
     """
@@ -26,35 +28,38 @@ def optimize_refund(user_id: str, region: str, refund_count: int) -> dict:
     recommendation = "Review refund flags and copy before issuing refund."
     priority = 1
     entry = {
-        'timestamp': __import__('datetime').datetime.utcnow().isoformat() + 'Z',
-        'action': 'optimize_refund',
-        'details': {'user_id': user_id, 'flags': flags, 'copy': copy},
-        'explanation': explanation,
-        'recommendation': recommendation,
-        'priority': priority,
-        'version': VERSION,
-        'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
-        'OWNER_CONTROLLED': OWNER_CONTROLLED,
-        'NON_SENTIENT': NON_SENTIENT
+        "timestamp": __import__("datetime").datetime.utcnow().isoformat() + "Z",
+        "action": "optimize_refund",
+        "details": {"user_id": user_id, "flags": flags, "copy": copy},
+        "explanation": explanation,
+        "recommendation": recommendation,
+        "priority": priority,
+        "version": VERSION,
+        "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
+        "OWNER_CONTROLLED": OWNER_CONTROLLED,
+        "NON_SENTIENT": NON_SENTIENT,
     }
     logger.info(f"Refund Optimizer audit: {entry}")
     return {
-        'result': {'flags': flags, 'optimized_copy': copy},
-        'explanation': explanation,
-        'recommendation': recommendation,
-        'priority': priority,
-        'version': VERSION,
-        'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
-        'OWNER_CONTROLLED': OWNER_CONTROLLED,
-        'NON_SENTIENT': NON_SENTIENT
+        "result": {"flags": flags, "optimized_copy": copy},
+        "explanation": explanation,
+        "recommendation": recommendation,
+        "priority": priority,
+        "version": VERSION,
+        "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
+        "OWNER_CONTROLLED": OWNER_CONTROLLED,
+        "NON_SENTIENT": NON_SENTIENT,
     }
+
 
 # --- Static Drift/Hallucination Protection (stub) ---
 def refund_drift_protection():
     return {"drift": False, "explanation": "No drift detected."}
 
+
 # --- Static Feedback Loop (stub, not user learned) ---
 def refund_static_feedback():
     return ["Review refund logic and copy for compliance and performance."]
+
 
 # --- Extension Point: Add future static SAFE AI features here ---

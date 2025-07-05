@@ -8,11 +8,16 @@ import os
 import json
 import logging
 
-UNHANDLED_EVENTS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/unhandled_events.json'))
-RECOVERY_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/cold_start_recovery_log.json'))
+UNHANDLED_EVENTS_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../analytics/unhandled_events.json")
+)
+RECOVERY_LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../analytics/cold_start_recovery_log.json")
+)
 
 os.makedirs(os.path.dirname(UNHANDLED_EVENTS_PATH), exist_ok=True)
 os.makedirs(os.path.dirname(RECOVERY_LOG_PATH), exist_ok=True)
+
 
 def recover_events():
     logger = logging.getLogger("cold_start_recovery")
@@ -28,6 +33,6 @@ def recover_events():
             recovered.append(event)
         except Exception as e:
             logger.error(f"Recovery failed for event {event}: {e}")
-    with open(RECOVERY_LOG_PATH, 'a') as f:
-        f.write(json.dumps({"recovered": recovered, "count": len(recovered)}) + '\n')
+    with open(RECOVERY_LOG_PATH, "a") as f:
+        f.write(json.dumps({"recovered": recovered, "count": len(recovered)}) + "\n")
     return recovered

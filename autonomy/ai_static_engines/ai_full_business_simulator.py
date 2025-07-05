@@ -9,17 +9,17 @@ import datetime
 
 SIMULATION_LOG = []
 
+
 class FullBusinessSimulator:
     @staticmethod
     def simulate(automations: List[Dict]) -> List[Dict]:
         # Statically simulate the outcome
         preview = []
         for a in automations:
-            preview.append({'action': a.get('action'), 'result': 'simulated'})
-        SIMULATION_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'preview': preview
-        })
+            preview.append({"action": a.get("action"), "result": "simulated"})
+        SIMULATION_LOG.append(
+            {"timestamp": datetime.datetime.utcnow().isoformat(), "preview": preview}
+        )
         return preview
 
     @staticmethod

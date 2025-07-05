@@ -14,6 +14,7 @@ FUSE_KILL_TRIGGER = True
 AGENT_ID = str(uuid.uuid4())
 GENERATIONAL_FINGERPRINT = f"agent-{AGENT_ID}-{int(time.time())}"
 
+
 class SafeAIAgent:
     def __init__(self):
         self.owner_lock = OWNER_LOCK
@@ -25,27 +26,32 @@ class SafeAIAgent:
         self.governor = EmmaGovernor()
         self.vault = Vault()
         self.audit = AuditDaemon()
-        self.tags = ['+emma_live_trace', '+quantum_fingerprint_lock', '+neural_vault_sandbox', '+fail_hard_on_drift']
+        self.tags = [
+            "+emma_live_trace",
+            "+quantum_fingerprint_lock",
+            "+neural_vault_sandbox",
+            "+fail_hard_on_drift",
+        ]
 
     def learn(self, data, reward):
         if not self.owner_lock:
-            raise PermissionError('Owner lock active. No learning allowed.')
+            raise PermissionError("Owner lock active. No learning allowed.")
         # Only reward-based, bounded learning
         if reward > 0:
             self.memory.append((data, reward, time.time()))
-            self.audit.log_event('learn', self.fingerprint, data, reward)
+            self.audit.log_event("learn", self.fingerprint, data, reward)
         self._expire_memory()
         self._check_fuse()
 
     def adapt(self, context):
         # Context-driven logic shift within hardcoded rules
-        self.audit.log_event('adapt', self.fingerprint, context)
+        self.audit.log_event("adapt", self.fingerprint, context)
         self._expire_memory()
         self._check_fuse()
 
     def evolve(self):
         # Controlled mutation of strategy parameters
-        self.audit.log_event('evolve', self.fingerprint)
+        self.audit.log_event("evolve", self.fingerprint)
         self._expire_memory()
         self._check_fuse()
 
@@ -56,9 +62,9 @@ class SafeAIAgent:
     def _check_fuse(self):
         # EMMA GOVERNOR FUSE
         if not self.governor.verify_behavior(self):
-            self.audit.log_event('fuse_kill_triggered', self.fingerprint)
+            self.audit.log_event("fuse_kill_triggered", self.fingerprint)
             self.rollback()
-            raise RuntimeError('Fuse kill: Behavior drift detected, rollback executed.')
+            raise RuntimeError("Fuse kill: Behavior drift detected, rollback executed.")
 
     def rollback(self):
         self.memory.clear()

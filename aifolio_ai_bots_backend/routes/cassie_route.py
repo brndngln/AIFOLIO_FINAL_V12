@@ -5,6 +5,7 @@ from backend.agents.cassie import handle_cassie
 
 router = APIRouter()
 
+
 @router.post("/cassie")
 async def cassie_endpoint(request: Request):
     data = await request.json()

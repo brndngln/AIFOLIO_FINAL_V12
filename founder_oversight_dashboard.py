@@ -5,15 +5,17 @@ Logs every AI task execution and allows real-time shutdown of any loop or bot.
 import logging
 from datetime import datetime
 
+
 def log_ai_task(task_name, user, status):
     entry = {
         "timestamp": datetime.utcnow().isoformat(),
         "task": task_name,
         "user": user,
-        "status": status
+        "status": status,
     }
     logging.info(f"Founder Oversight Log: {entry}")
     return entry
+
 
 def shutdown_bot(bot_name):
     logging.critical(f"Founder-initiated shutdown: {bot_name}")

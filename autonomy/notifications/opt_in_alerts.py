@@ -6,6 +6,7 @@ import logging
 # Simple in-memory subscription store (replace with DB or persistent store as needed)
 _subscriptions = {}
 
+
 def subscribe_user(user_id, alert_type):
     """
     Add user to the subscription list for a given alert type.
@@ -14,6 +15,7 @@ def subscribe_user(user_id, alert_type):
         _subscriptions[alert_type] = set()
     _subscriptions[alert_type].add(user_id)
     logging.info(f"User {user_id} subscribed to {alert_type}")
+
 
 def send_opt_in_alert(alert_type, message):
     """
@@ -25,4 +27,6 @@ def send_opt_in_alert(alert_type, message):
         return
     for user_id in users:
         # Replace with real notification logic (email, SMS, etc.)
-        logging.info(f"[Stub] Would send alert '{alert_type}' to user {user_id}: {message}")
+        logging.info(
+            f"[Stub] Would send alert '{alert_type}' to user {user_id}: {message}"
+        )

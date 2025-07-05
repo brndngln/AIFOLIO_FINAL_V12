@@ -159,5 +159,3 @@ export default function Phase9StaticModulesPanel() {
     </div>
   );
 }
-
-

@@ -6,23 +6,33 @@ AIFOLIO™ PROFIT WARP ENGINE: AI REVENUE LOOP LOGIC
 """
 from typing import List, Dict, Any
 
+
 class AIRevenueLoop:
-    def detect_top_performers(self, vaults: List[Dict[str, Any]], metric: str = 'revenue', top_n: int = 3) -> List[Dict[str, Any]]:
+    def detect_top_performers(
+        self, vaults: List[Dict[str, Any]], metric: str = "revenue", top_n: int = 3
+    ) -> List[Dict[str, Any]]:
         sorted_vaults = sorted(vaults, key=lambda v: v.get(metric, 0), reverse=True)
         return sorted_vaults[:top_n]
 
-    def generate_variants(self, vault: Dict[str, Any], count: int = 3) -> List[Dict[str, Any]]:
+    def generate_variants(
+        self, vault: Dict[str, Any], count: int = 3
+    ) -> List[Dict[str, Any]]:
         variants = []
         for i in range(count):
             variant = dict(vault)
-            variant['variant_id'] = f"{vault.get('id', 'vault')}_variant_{i}"
-            variant['monetization_pipeline'] = True
-            variant['recurring_tracker'] = True
-            variant['passive_growth'] = True
+            variant["variant_id"] = f"{vault.get('id', 'vault')}_variant_{i}"
+            variant["monetization_pipeline"] = True
+            variant["recurring_tracker"] = True
+            variant["passive_growth"] = True
             variants.append(variant)
         return variants
 
     def sync_to_channels(self, vault: Dict[str, Any]) -> Dict[str, Any]:
-        vault['synced_channels'] = ['stripe', 'gumroad', 'podia', 'bot', 'export_scheduler']
+        vault["synced_channels"] = [
+            "stripe",
+            "gumroad",
+            "podia",
+            "bot",
+            "export_scheduler",
+        ]
         return vault
-

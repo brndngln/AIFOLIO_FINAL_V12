@@ -21,11 +21,17 @@ OMNI_CEO = os.environ.get("OMNI_CEO", None)
 
 # --- SETUP LOGGING ---
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
-logging.basicConfig(filename=LOG_PATH, level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+logging.basicConfig(
+    filename=LOG_PATH,
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+)
+
 
 def log_event(event):
     logging.info(event)
     print(f"[OMNISECURE] {event}")
+
 
 # --- 1. ENCRYPTED SECURITY KEY ---
 def generate_security_key():
@@ -38,9 +44,11 @@ def generate_security_key():
     else:
         log_event("Security key already exists.")
 
+
 def load_security_key():
     with open(SECURITY_KEY_PATH, "rb") as f:
         return f.read()
+
 
 # --- 2. LOCKDOWN CONFIG WITH HASHES ---
 def hash_file(path):
@@ -49,6 +57,7 @@ def hash_file(path):
         while chunk := f.read(8192):
             h.update(chunk)
     return h.hexdigest()
+
 
 def generate_lockdown_config():
     hashes = {}
@@ -62,16 +71,18 @@ def generate_lockdown_config():
         "core_hashes": hashes,
         "vault_mode": "READ_ONLY",
         "network_policy": "restricted",
-        "ceo_only": True
+        "ceo_only": True,
     }
     with open(LOCKDOWN_CONFIG_PATH, "w") as f:
         json.dump(config, f, indent=2)
     log_event("Lockdown config generated.")
     return config
 
+
 def load_lockdown_config():
     with open(LOCKDOWN_CONFIG_PATH, "r") as f:
         return json.load(f)
+
 
 # --- 3. CEO-ONLY ACCESS ENFORCEMENT ---
 def is_ceo():
@@ -80,20 +91,27 @@ def is_ceo():
     log_event("[SECURITY] CEO-only access denied.")
     sys.exit("CEO-only access required.")
 
+
 def get_staged_files(timeout_sec=60):
     try:
-        result = subprocess.run(['git', 'diff', '--cached', '--name-only'], capture_output=True, text=True, timeout=timeout_sec)
-        return result.stdout.strip().split('\n') if result.returncode == 0 else []
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            capture_output=True,
+            text=True,
+            timeout=timeout_sec,
+        )
+        return result.stdout.strip().split("\n") if result.returncode == 0 else []
     except subprocess.TimeoutExpired:
-        log_event('[Sentinel] git diff timed out.')
-        immutable_log('[Sentinel] git diff timed out.')
-        alert_ceo('[Sentinel] git diff timed out.')
+        log_event("[Sentinel] git diff timed out.")
+        immutable_log("[Sentinel] git diff timed out.")
+        alert_ceo("[Sentinel] git diff timed out.")
         return []
     except Exception as e:
-        log_event(f'[Sentinel] git diff error: {e}')
-        immutable_log(f'[Sentinel] git diff error: {e}')
-        alert_ceo(f'[Sentinel] git diff error: {e}')
+        log_event(f"[Sentinel] git diff error: {e}")
+        immutable_log(f"[Sentinel] git diff error: {e}")
+        alert_ceo(f"[Sentinel] git diff error: {e}")
         return []
+
 
 # --- 4. READ-ONLY VAULT MODE ---
 def enforce_vault_read_only():
@@ -101,33 +119,44 @@ def enforce_vault_read_only():
     os.environ["AIFOLIO_VAULT_MODE"] = "READ_ONLY"
     log_event("Vault logic set to READ-ONLY mode.")
 
+
 # --- 5. DISABLE UNVERIFIED EXTERNAL NETWORK CALLS ---
 def restrict_network_calls():
     orig_socket = socket.socket
+
     def guarded_socket(*args, **kwargs):
         s = orig_socket(*args, **kwargs)
         orig_connect = s.connect
+
         def connect_guard(addr):
             host, port = addr
             if not host.endswith("aifolio.com"):
                 log_event(f"[SECURITY] Blocked external network call to {host}:{port}")
-                raise PermissionError("External network calls blocked by OMNISECURE lockdown.")
+                raise PermissionError(
+                    "External network calls blocked by OMNISECURE lockdown."
+                )
             return orig_connect(addr)
+
         s.connect = connect_guard
         return s
+
     socket.socket = guarded_socket
     log_event("External network calls restricted.")
+
 
 # --- 6. CEO MFA ---
 import signal
 import functools
 import os
 
+
 class TimeoutException(Exception):
     pass
 
+
 def timeout_handler(signum, frame):
     raise TimeoutException("Operation timed out.")
+
 
 def autonomous_recovery(func):
     @functools.wraps(func)
@@ -140,8 +169,8 @@ def autonomous_recovery(func):
                 log_event(f"[AUTONOMOUS RECOVERY] Attempt {attempt}: {e}")
                 immutable_log(f"[AUTONOMOUS RECOVERY] Attempt {attempt}: {e}")
                 try:
-                    os.chmod('.', 0o755)
-                    for root, dirs, files in os.walk('.'):
+                    os.chmod(".", 0o755)
+                    for root, dirs, files in os.walk("."):
                         for d in dirs:
                             os.chmod(os.path.join(root, d), 0o755)
                         for f in files:
@@ -149,18 +178,24 @@ def autonomous_recovery(func):
                 except Exception as perm_e:
                     log_event(f"[AUTONOMOUS RECOVERY] chmod error: {perm_e}")
                 try:
-                    os.chown('.', os.getuid(), os.getgid())
+                    os.chown(".", os.getuid(), os.getgid())
                 except Exception as chown_e:
                     log_event(f"[AUTONOMOUS RECOVERY] chown error: {chown_e}")
                 if attempt == retries:
-                    log_event(f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts: {e}")
-                    immutable_log(f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts: {e}")
+                    log_event(
+                        f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts: {e}"
+                    )
+                    immutable_log(
+                        f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts: {e}"
+                    )
                     # Only abort on SAFE AI violation
-                    if 'sentient' in str(e).lower():
+                    if "sentient" in str(e).lower():
                         sys.exit("SAFE AI violation: sentience detected.")
                     return None
         return None
+
     return wrapper
+
 
 def require_ceo_mfa(timeout_sec=60):
     try:
@@ -185,6 +220,7 @@ def require_ceo_mfa(timeout_sec=60):
         sys.exit("CEO MFA failed. Lockdown aborted.")
     log_event("CEO MFA passed.")
 
+
 # --- 7. FILE INTEGRITY VALIDATION ---
 def validate_file_integrity():
     cfg = load_lockdown_config()
@@ -198,25 +234,32 @@ def validate_file_integrity():
             sys.exit(f"File integrity check failed: {fname}")
     log_event("File integrity validated.")
 
+
 # --- 8. BLOCK UNAUTHORIZED EXEC/MOD/REPL ---
 def block_unauthorized_exec():
     import builtins
+
     orig_exec = builtins.exec
+
     def guarded_exec(*args, **kwargs):
         log_event("[SECURITY] Blocked unauthorized exec attempt.")
         raise PermissionError("Unauthorized exec blocked by OMNISECURE lockdown.")
+
     builtins.exec = guarded_exec
     log_event("Unauthorized exec/mod/replication blocked.")
+
 
 # --- 9. IMMUTABLE LOGGING ---
 def immutable_log(event):
     with open(LOG_PATH, "a") as f:
         f.write(f"{datetime.utcnow().isoformat()}Z | {event}\n")
 
+
 # --- 10. ALERT CEO ---
 def alert_ceo(event):
     # Placeholder: Email/Telegram/push integration
     log_event(f"[ALERT] CEO notified: {event}")
+
 
 # --- 11. LOCKDOWN RESPAWN ---
 def respawn_lockdown():
@@ -225,11 +268,17 @@ def respawn_lockdown():
     log_event("Lockdown config respawned.")
     alert_ceo("Lockdown config respawned.")
 
+
 # --- 12. MAIN ENTRYPOINT ---
 def main():
     import argparse
+
     parser = argparse.ArgumentParser(description="Windsurf OMNISECURE Lockdown")
-    parser.add_argument("--spawn-lockdown", action="store_true", help="Respawn lockdown config and security key")
+    parser.add_argument(
+        "--spawn-lockdown",
+        action="store_true",
+        help="Respawn lockdown config and security key",
+    )
     args = parser.parse_args()
 
     is_ceo()
@@ -248,6 +297,7 @@ def main():
     alert_ceo("OMNISECURE lockdown activated.")
     print("[WINDSURF] OMNISECURE RUNTIME LOCKDOWN ACTIVE.")
 
+
 if __name__ == "__main__":
     try:
         main()
@@ -255,11 +305,12 @@ if __name__ == "__main__":
         try:
             from windsurf.error_logger import log_error
             import traceback
+
             log_error(
                 error_type="DeployWindsurfFailure",
                 message=str(e),
                 stacktrace=traceback.format_exc(),
-                context={}
+                context={},
             )
         except Exception:
             pass

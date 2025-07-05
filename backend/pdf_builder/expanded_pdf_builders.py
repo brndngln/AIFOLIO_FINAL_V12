@@ -12,20 +12,21 @@ from autonomy.ai_static.anti_sentience_guard import scan_for_static
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
-template_dir = os.path.join(os.path.dirname(__file__), '../typesetter/templates')
+template_dir = os.path.join(os.path.dirname(__file__), "../typesetter/templates")
 env = Environment(
-    loader=FileSystemLoader(template_dir),
-    autoescape=select_autoescape(['html', 'xml'])
+    loader=FileSystemLoader(template_dir), autoescape=select_autoescape(["html", "xml"])
 )
 
 # --- ULTRA-PREMIUM QUALITY PIPELINE (Permanent, Non-bypassable) ---
 
-def _render_and_save_pdf(filename: str, content: str, extra_context: Dict[str, Any] = None) -> str:
+
+def _render_and_save_pdf(
+    filename: str, content: str, extra_context: Dict[str, Any] = None
+) -> str:
     """
     Renders and saves a PDF with full, permanent enforcement of all AIFOLIO™ Vault Quality Engine v4.0 standards.
     This function CANNOT be bypassed or downgraded. All checks are static, deterministic, SAFE AI-locked.
@@ -34,35 +35,54 @@ def _render_and_save_pdf(filename: str, content: str, extra_context: Dict[str, A
     # 1. Normalize and check all text
     norm = normalize_output(content)
     score = score_output(content)
-    style_ok = enforce_style(content, extra_context.get('brand', 'AIFOLIO')) if extra_context else True
+    style_ok = (
+        enforce_style(content, extra_context.get("brand", "AIFOLIO"))
+        if extra_context
+        else True
+    )
     anti_sent = scan_for_static(content)
     # 2. If any check fails, HALT and raise error
-    if norm['flags'] or score.get('block') or not style_ok or not anti_sent:
-        raise Exception("[VAULT ERROR]: Quality standard not met — please review vault input.")
+    if norm["flags"] or score.get("block") or not style_ok or not anti_sent:
+        raise Exception(
+            "[VAULT ERROR]: Quality standard not met — please review vault input."
+        )
     # 3. Prepare permanent metadata
     now = datetime.datetime.now().isoformat()
     meta = {
-        'version': 'AIFOLIO_VAULT_QUALITY_ENGINE_ULTRA_PREMIUM_FINAL_v4.0',
-        'changelog': extra_context.get('changelog', '') if extra_context else '',
-        'edition': extra_context.get('edition', 'First Edition') if extra_context else 'First Edition',
-        'release_timestamp': extra_context.get('release_timestamp', now) if extra_context else now,
-        'copyright': f"© {datetime.datetime.now().year} AIFOLIO™. All rights reserved.",
-        'brand': extra_context.get('brand', 'AIFOLIO™') if extra_context else 'AIFOLIO™',
-        'cover_headline': extra_context.get('cover_headline', '') if extra_context else '',
-        'cover_subheadline': extra_context.get('cover_subheadline', '') if extra_context else '',
-        'back_headline': extra_context.get('back_headline', '') if extra_context else '',
-        'back_cta': extra_context.get('back_cta', '') if extra_context else '',
-        'toc': extra_context.get('toc', []) if extra_context else [],
-        'body': content,
-        'page_number': 1  # Placeholder; real numbering handled by PDF renderer
+        "version": "AIFOLIO_VAULT_QUALITY_ENGINE_ULTRA_PREMIUM_FINAL_v4.0",
+        "changelog": extra_context.get("changelog", "") if extra_context else "",
+        "edition": extra_context.get("edition", "First Edition")
+        if extra_context
+        else "First Edition",
+        "release_timestamp": extra_context.get("release_timestamp", now)
+        if extra_context
+        else now,
+        "copyright": f"© {datetime.datetime.now().year} AIFOLIO™. All rights reserved.",
+        "brand": extra_context.get("brand", "AIFOLIO™")
+        if extra_context
+        else "AIFOLIO™",
+        "cover_headline": extra_context.get("cover_headline", "")
+        if extra_context
+        else "",
+        "cover_subheadline": extra_context.get("cover_subheadline", "")
+        if extra_context
+        else "",
+        "back_headline": extra_context.get("back_headline", "")
+        if extra_context
+        else "",
+        "back_cta": extra_context.get("back_cta", "") if extra_context else "",
+        "toc": extra_context.get("toc", []) if extra_context else [],
+        "body": content,
+        "page_number": 1,  # Placeholder; real numbering handled by PDF renderer
     }
     os.makedirs("vaults", exist_ok=True)
-    template = env.get_template('vault_template.html')
+    template = env.get_template("vault_template.html")
     html_content = template.render(content=meta)
     pdf_path = f"vaults/{filename}.pdf"
     HTML(string=html_content).write_pdf(pdf_path)
     logger.info(f"PDF generated successfully: {pdf_path}")
     return pdf_path
+
 
 # 1️⃣ Niche Product PDF Generator
 @safe_ai_guarded
@@ -75,7 +95,8 @@ def build_niche_product_pdf(data: Dict[str, Any]) -> str:
     <h2>Ingredient Sheet</h2><p>{data.get('ingredient_sheet', '')}</p>
     <h2>Printable 1-Pager</h2><p>{data.get('one_pager', '')}</p>
     """
-    return _render_and_save_pdf(data.get('catalog_title', 'Product_Catalog'), content)
+    return _render_and_save_pdf(data.get("catalog_title", "Product_Catalog"), content)
+
 
 # 2️⃣ Affiliate Promo Pack PDF
 @safe_ai_guarded
@@ -88,7 +109,10 @@ def build_affiliate_promo_pack_pdf(data: Dict[str, Any]) -> str:
     <h2>Swipe Email Templates</h2><p>{data.get('email_templates', '')}</p>
     <h2>Banner Image Previews</h2><ul>{''.join([f'<li>{b}</li>' for b in data.get('banner_images', [])])}</ul>
     """
-    return _render_and_save_pdf(f"Affiliate_Promo_{data.get('product_name', 'Pack')}", content)
+    return _render_and_save_pdf(
+        f"Affiliate_Promo_{data.get('product_name', 'Pack')}", content
+    )
+
 
 # 3️⃣ Social Media Content Pack PDF
 @safe_ai_guarded
@@ -103,6 +127,7 @@ def build_social_media_content_pdf(data: Dict[str, Any]) -> str:
     """
     return _render_and_save_pdf("Social_Media_Content_Pack", content)
 
+
 # 4️⃣ AI Market Trends Report PDF
 @safe_ai_guarded
 def build_market_trends_pdf(data: Dict[str, Any]) -> str:
@@ -114,6 +139,7 @@ def build_market_trends_pdf(data: Dict[str, Any]) -> str:
     <h2>Reporting Period</h2><p>{data.get('report_period', '')}</p>
     """
     return _render_and_save_pdf("Market_Trends_Report", content)
+
 
 # 5️⃣ AI Revenue & Conversion Report PDF
 @safe_ai_guarded
@@ -128,6 +154,7 @@ def build_revenue_conversion_pdf(data: Dict[str, Any]) -> str:
     """
     return _render_and_save_pdf("Revenue_Conversion_Report", content)
 
+
 # 6️⃣ Customer Welcome Pack PDF
 @safe_ai_guarded
 def build_customer_welcome_pdf(data: Dict[str, Any]) -> str:
@@ -140,6 +167,7 @@ def build_customer_welcome_pdf(data: Dict[str, Any]) -> str:
     """
     return _render_and_save_pdf("Customer_Welcome_Pack", content)
 
+
 # 7️⃣ Niche Authority eBook Generator
 @safe_ai_guarded
 def build_niche_authority_ebook(data: Dict[str, Any]) -> str:
@@ -150,7 +178,10 @@ def build_niche_authority_ebook(data: Dict[str, Any]) -> str:
     <h2>SEO Optimized</h2><p>{data.get('seo_notes', '')}</p>
     <h2>Lead Magnet Ready</h2><p>{data.get('lead_magnet', '')}</p>
     """
-    return _render_and_save_pdf(data.get('ebook_title', 'Niche_Authority_eBook'), content)
+    return _render_and_save_pdf(
+        data.get("ebook_title", "Niche_Authority_eBook"), content
+    )
+
 
 # 8️⃣ Email Funnel Blueprint PDF
 @safe_ai_guarded

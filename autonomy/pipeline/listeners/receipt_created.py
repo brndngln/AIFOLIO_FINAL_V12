@@ -12,6 +12,7 @@ from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_bot import audit_vault_compliance
 
+
 def handle_event(payload: dict):
     """
     Handles the 'receipt_created' event with SAFE AI, retry-safe integrations, and robust logging.
@@ -21,13 +22,15 @@ def handle_event(payload: dict):
     vault_id = payload.get("vault_id")
     buyer_email = payload.get("buyer_email")
     receipt_id = payload.get("receipt_id")
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/receipt_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/receipt_log.json")
+    )
     entry = {
         "event": "receipt_created",
         "timestamp": datetime.utcnow().isoformat(),
         "vault_id": vault_id,
         "buyer_email": buyer_email,
-        "receipt_id": receipt_id
+        "receipt_id": receipt_id,
     }
     # Log receipt creation
     try:
@@ -73,5 +76,12 @@ def handle_event(payload: dict):
             detect_anomaly(vault_id, errors)
         except Exception:
             pass
-    print(f"[AIFOLIO] Receipt {receipt_id} created for vault {vault_id} and buyer {buyer_email}.")
-    return {"status": "success", "vault_id": vault_id, "receipt_id": receipt_id, "errors": errors}
+    print(
+        f"[AIFOLIO] Receipt {receipt_id} created for vault {vault_id} and buyer {buyer_email}."
+    )
+    return {
+        "status": "success",
+        "vault_id": vault_id,
+        "receipt_id": receipt_id,
+        "errors": errors,
+    }

@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/ecosystem_health_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-HEALTH_INDICATORS = {
-    "legal": "stable",
-    "finance": "growing",
-    "education": "volatile"
-}
+HEALTH_INDICATORS = {"legal": "stable", "finance": "growing", "education": "volatile"}
+
 
 def monitor_ecosystem_health(market, triggered_by):
     timestamp = datetime.utcnow().isoformat()

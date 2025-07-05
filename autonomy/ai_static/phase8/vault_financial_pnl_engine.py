@@ -11,12 +11,15 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 PNL_TABLE = {
     "vault1": {"revenue": 2000, "cost": 500, "profit": 1500},
-    "vault2": {"revenue": 3000, "cost": 1200, "profit": 1800}
+    "vault2": {"revenue": 3000, "cost": 1200, "profit": 1800},
 }
+
 
 def calculate_vault_pnl(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()
     pnl = PNL_TABLE.get(vault_id, {})
-    event = f"[{timestamp}] VAULT PNL: {vault_id} = {pnl} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] VAULT PNL: {vault_id} = {pnl} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return pnl

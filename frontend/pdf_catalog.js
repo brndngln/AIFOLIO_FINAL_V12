@@ -31,24 +31,24 @@ class EnhancedPDFCatalog {
     renderCatalog() {
         const catalogContainer = document.createElement('div');
         catalogContainer.className = 'pdf-catalog';
-        
+
         // Enhanced filters
         const filters = this._renderEnhancedFilters();
-        
+
         // Enhanced sort options with analytics
         const sortOptions = this._renderEnhancedSortOptions();
-        
+
         // Enhanced PDF grid with analytics
         const pdfGrid = this._renderEnhancedPDFGrid();
-        
+
         // Analytics panel
         const analyticsPanel = this._renderAnalyticsPanel();
-        
+
         catalogContainer.appendChild(filters);
         catalogContainer.appendChild(sortOptions);
         catalogContainer.appendChild(pdfGrid);
         catalogContainer.appendChild(analyticsPanel);
-        
+
         return catalogContainer;
     }
 
@@ -56,20 +56,20 @@ class EnhancedPDFCatalog {
     _renderEnhancedFilters() {
         const container = document.createElement('div');
         container.className = 'enhanced-filters';
-        
+
         // Category filters
         const categoryFilters = this._renderCategoryFilters();
-        
+
         // Price range filters
         const priceFilters = this._renderPriceFilters();
-        
+
         // Tag filters
         const tagFilters = this._renderTagFilters();
-        
+
         container.appendChild(categoryFilters);
         container.appendChild(priceFilters);
         container.appendChild(tagFilters);
-        
+
         return container;
     }
 
@@ -77,7 +77,7 @@ class EnhancedPDFCatalog {
     _renderEnhancedPDFGrid() {
         const grid = document.createElement('div');
         grid.className = 'enhanced-pdf-grid';
-        
+
         // Enhanced PDF data with analytics
         const samplePDFs = [
             {
@@ -97,12 +97,12 @@ class EnhancedPDFCatalog {
             },
             // Add more enhanced PDFs
         ];
-        
+
         samplePDFs.forEach(pdf => {
             const card = this._createEnhancedPDFCard(pdf);
             grid.appendChild(card);
         });
-        
+
         return grid;
     }
 
@@ -110,26 +110,26 @@ class EnhancedPDFCatalog {
     _createEnhancedPDFCard(pdf) {
         const card = document.createElement('div');
         card.className = 'enhanced-pdf-card';
-        
+
         const preview = document.createElement('img');
         preview.src = pdf.preview;
         preview.alt = pdf.title;
-        
+
         const title = document.createElement('h3');
         title.textContent = pdf.title;
-        
+
         const price = document.createElement('p');
         price.className = 'price';
         price.textContent = `$${pdf.price}`;
-        
+
         const rating = document.createElement('div');
         rating.className = 'rating';
         rating.innerHTML = `★ ${pdf.rating.toFixed(1)}`;
-        
+
         const downloads = document.createElement('p');
         downloads.className = 'downloads';
         downloads.textContent = `${pdf.downloads.toLocaleString()} downloads`;
-        
+
         const tags = document.createElement('div');
         tags.className = 'tags';
         pdf.tags.forEach(tag => {
@@ -138,21 +138,21 @@ class EnhancedPDFCatalog {
             tagElement.textContent = tag;
             tags.appendChild(tagElement);
         });
-        
+
         const actions = document.createElement('div');
         actions.className = 'actions';
-        
+
         const viewButton = document.createElement('button');
         viewButton.textContent = 'View Details';
         viewButton.onclick = () => this._showPDFDetails(pdf);
-        
+
         const addToCart = document.createElement('button');
         addToCart.textContent = 'Add to Cart';
         addToCart.onclick = () => this._addToCart(pdf);
-        
+
         actions.appendChild(viewButton);
         actions.appendChild(addToCart);
-        
+
         card.appendChild(preview);
         card.appendChild(title);
         card.appendChild(price);
@@ -160,7 +160,7 @@ class EnhancedPDFCatalog {
         card.appendChild(downloads);
         card.appendChild(tags);
         card.appendChild(actions);
-        
+
         return card;
     }
 
@@ -168,36 +168,36 @@ class EnhancedPDFCatalog {
     _renderAnalyticsPanel() {
         const panel = document.createElement('div');
         panel.className = 'analytics-panel';
-        
+
         const metrics = [
             { label: 'Total Downloads', value: '0', trend: 'up' },
             { label: 'Average Rating', value: '0.0', trend: 'up' },
             { label: 'Conversion Rate', value: '0.0%', trend: 'up' },
             { label: 'Revenue Generated', value: '$0.00', trend: 'up' }
         ];
-        
+
         metrics.forEach(metric => {
             const metricDiv = document.createElement('div');
             metricDiv.className = 'metric';
-            
+
             const label = document.createElement('span');
             label.className = 'metric-label';
             label.textContent = metric.label;
-            
+
             const value = document.createElement('span');
             value.className = 'metric-value';
             value.textContent = metric.value;
-            
+
             const trend = document.createElement('span');
             trend.className = `trend trend-${metric.trend}`;
             trend.textContent = metric.trend;
-            
+
             metricDiv.appendChild(label);
             metricDiv.appendChild(value);
             metricDiv.appendChild(trend);
             panel.appendChild(metricDiv);
         });
-        
+
         return panel;
     }
 

@@ -4,6 +4,7 @@ Static, deterministic compliance checklist and audit runner for all modules.
 No sentient, adaptive, or non-auditable logic.
 """
 import logging
+
 logger = logging.getLogger(__name__)
 
 SAFE_AI_CHECKLIST = [
@@ -14,7 +15,7 @@ SAFE_AI_CHECKLIST = [
     "All exceptions logged; no errors swallowed",
     "All secrets/config in .env, never hardcoded",
     "All modules have static, deterministic test coverage",
-    "All audit logs OWNER-accessible and exportable"
+    "All audit logs OWNER-accessible and exportable",
 ]
 
 MODULES = [
@@ -26,8 +27,9 @@ MODULES = [
     "analytics/marketplace_trend_analyzer.py",
     "audit/export_audit_trail.py",
     "audit/webhook_notifications.py",
-    "audit/partner_api_stubs.py"
+    "audit/partner_api_stubs.py",
 ]
+
 
 def run_safe_ai_compliance_audit() -> dict:
     """Run static SAFE AI compliance audit for all modules."""
@@ -39,8 +41,10 @@ def run_safe_ai_compliance_audit() -> dict:
     logger.info(f"SAFE AI compliance audit results: {results}")
     return results
 
+
 def export_audit_report_json(results: dict, path: str) -> None:
     import json
-    with open(path, 'w') as f:
+
+    with open(path, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"SAFE AI compliance audit report exported to {path}")

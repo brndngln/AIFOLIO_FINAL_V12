@@ -125,7 +125,7 @@ export default function FinancialDashboard() {
     </main>
   );
 }
-        
+
         return container;
     }
 
@@ -133,36 +133,36 @@ export default function FinancialDashboard() {
     _renderAutoTransferSection() {
         const container = document.createElement('div');
         container.className = 'auto-transfer-section';
-        
+
         const title = document.createElement('h3');
         title.textContent = 'Auto-Transfer Settings';
-        
+
         const toggle = document.createElement('div');
         toggle.className = 'toggle-container';
-        
+
         const toggleLabel = document.createElement('label');
         toggleLabel.textContent = 'Enable Auto-Transfer';
-        
+
         const toggleButton = document.createElement('button');
         toggleButton.className = 'toggle-button';
         toggleButton.onclick = () => this._toggleAutoTransfer();
-        
+
         toggle.appendChild(toggleLabel);
         toggle.appendChild(toggleButton);
-        
+
         const rulesContainer = document.createElement('div');
         rulesContainer.className = 'transfer-rules';
-        
+
         const addRuleButton = document.createElement('button');
         addRuleButton.textContent = 'Add Transfer Rule';
         addRuleButton.onclick = () => this._showAddRuleModal();
-        
+
         rulesContainer.appendChild(addRuleButton);
-        
+
         container.appendChild(title);
         container.appendChild(toggle);
         container.appendChild(rulesContainer);
-        
+
         return container;
     }
 

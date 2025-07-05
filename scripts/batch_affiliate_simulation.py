@@ -12,7 +12,9 @@ import json
 from aifolio_empire.sales_marketing_engines.affiliate_booster import AffiliateBooster
 from datetime import datetime
 from integrations.third_party_integrations import (
-    export_to_google_sheets, export_to_airtable, trigger_zapier_webhook
+    export_to_google_sheets,
+    export_to_airtable,
+    trigger_zapier_webhook,
 )
 
 booster = AffiliateBooster()
@@ -36,19 +38,29 @@ def run_batch_simulation(batch_params, output_path=None):
         elements = booster.setup_affiliate_program_elements(**params)
         if elements:
             dashboard = elements.get("simulated_dashboard_snapshot", {})
-            report = booster.generate_affiliate_report(params['product_id'], params['affiliate_id'], dashboard, elements)
+            report = booster.generate_affiliate_report(
+                params["product_id"], params["affiliate_id"], dashboard, elements
+            )
             # --- Elite tax reporting ---
             country_code = dashboard.get("geo_distribution", {}).keys()
-            country_code = next(iter(country_code), "GLOBAL") if country_code else "GLOBAL"
+            country_code = (
+                next(iter(country_code), "GLOBAL") if country_code else "GLOBAL"
+            )
             earnings = elements.get("simulated_earnings_from_snapshot", 0.0)
             tax_report = booster.generate_tax_report(
-                product_id=params['product_id'],
-                affiliate_id=params['affiliate_id'],
+                product_id=params["product_id"],
+                affiliate_id=params["affiliate_id"],
                 country_code=country_code,
                 earnings=earnings,
-                format="audit"
+                format="audit",
             )
-            results.append({"elements": elements, "report": json.loads(report), "tax_report": tax_report})
+            results.append(
+                {
+                    "elements": elements,
+                    "report": json.loads(report),
+                    "tax_report": tax_report,
+                }
+            )
     if output_path:
         with open(output_path, "w") as f:
             json.dump(results, f, indent=2)
@@ -56,40 +68,62 @@ def run_batch_simulation(batch_params, output_path=None):
     # --- Export to Google Sheets ---
     try:
         for r in results:
-            export_to_google_sheets(GOOGLE_SHEET_ID, [
-                r['elements'].get('product_id'),
-                r['elements'].get('affiliate_id'),
-                r['elements'].get('simulated_earnings_from_snapshot'),
-                r['elements'].get('simulated_referral_percentage'),
-                r['elements'].get('setup_timestamp_simulated'),
-                r['report']['fraud_analysis']['fraud_flag'] if 'fraud_analysis' in r['report'] else None,
-                r['tax_report'].get('tax_due'),
-                r['tax_report'].get('tax_rate'),
-                r['tax_report'].get('tax_fraud_flag')
-            ])
+            export_to_google_sheets(
+                GOOGLE_SHEET_ID,
+                [
+                    r["elements"].get("product_id"),
+                    r["elements"].get("affiliate_id"),
+                    r["elements"].get("simulated_earnings_from_snapshot"),
+                    r["elements"].get("simulated_referral_percentage"),
+                    r["elements"].get("setup_timestamp_simulated"),
+                    r["report"]["fraud_analysis"]["fraud_flag"]
+                    if "fraud_analysis" in r["report"]
+                    else None,
+                    r["tax_report"].get("tax_due"),
+                    r["tax_report"].get("tax_rate"),
+                    r["tax_report"].get("tax_fraud_flag"),
+                ],
+            )
         print("Exported batch results (with tax) to Google Sheets.")
     except Exception as e:
         print(f"[Google Sheets] Export failed: {e}")
     # --- Export to Airtable ---
     try:
         for r in results:
-            export_to_airtable(AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, {**r['elements'], **{'tax_due': r['tax_report'].get('tax_due'), 'tax_rate': r['tax_report'].get('tax_rate')}})
+            export_to_airtable(
+                AIRTABLE_BASE_ID,
+                AIRTABLE_TABLE_NAME,
+                {
+                    **r["elements"],
+                    **{
+                        "tax_due": r["tax_report"].get("tax_due"),
+                        "tax_rate": r["tax_report"].get("tax_rate"),
+                    },
+                },
+            )
         print("Exported batch results (with tax) to Airtable.")
     except Exception as e:
         print(f"[Airtable] Export failed: {e}")
     # --- Trigger Zapier webhook ---
     try:
-        trigger_zapier_webhook({
-            "event": "batch_simulation_complete",
-            "batch_size": len(results),
-            "timestamp": datetime.utcnow().isoformat() + "Z",
-            "tax_due_total": sum(r['tax_report'].get('tax_due', 0.0) for r in results),
-            "tax_fraud_flags": [r['tax_report'].get('tax_fraud_flag') for r in results]
-        })
+        trigger_zapier_webhook(
+            {
+                "event": "batch_simulation_complete",
+                "batch_size": len(results),
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "tax_due_total": sum(
+                    r["tax_report"].get("tax_due", 0.0) for r in results
+                ),
+                "tax_fraud_flags": [
+                    r["tax_report"].get("tax_fraud_flag") for r in results
+                ],
+            }
+        )
         print("Triggered Zapier webhook for batch completion (with tax data).")
     except Exception as e:
         print(f"[Zapier] Trigger failed: {e}")
     return results
+
 
 if __name__ == "__main__":
     # Example batch params
@@ -99,7 +133,7 @@ if __name__ == "__main__":
             "product_name": f"Product {i}",
             "product_price": 19.99 + i,
             "affiliate_id": f"aff_{i}",
-            "affiliate_name": f"Affiliate {i}"
+            "affiliate_name": f"Affiliate {i}",
         }
         for i in range(10)
     ]

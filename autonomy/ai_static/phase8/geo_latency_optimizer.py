@@ -11,11 +11,7 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 REGIONS = ["us-east-1", "eu-west-1", "ap-southeast-1"]
 
-PRECONFIGURED_LATENCIES = {
-    "us-east-1": 45,
-    "eu-west-1": 60,
-    "ap-southeast-1": 80
-}
+PRECONFIGURED_LATENCIES = {"us-east-1": 45, "eu-west-1": 60, "ap-southeast-1": 80}
 
 
 def log_latency(region, latency, triggered_by):

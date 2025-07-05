@@ -16,9 +16,11 @@ from autonomy.utils.retry import retry_safe
 
 logger = logging.getLogger("vault_refunded")
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(vault_id, payload):
     push_dashboard_update(vault_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(payload, event_type, error=None):
@@ -29,6 +31,7 @@ def send_alerts(payload, event_type, error=None):
     send_telegram_alert(alert_msg)
     if payload.get("alert_email_opt_in"):
         send_email_alert(payload.get("owner_email"), alert_msg)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_vault(payload):
@@ -41,7 +44,9 @@ def handle_event(payload: dict):
     """
     vault_id = payload.get("vault_id")
     buyer_email = payload.get("buyer_email")
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/refund_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/refund_log.json")
+    )
     errors = []
     start_time = time.time()
     entry = {
@@ -49,7 +54,7 @@ def handle_event(payload: dict):
         "timestamp": datetime.utcnow().isoformat(),
         "vault_id": vault_id,
         "buyer_email": buyer_email,
-        "reason": payload.get("reason", "N/A")
+        "reason": payload.get("reason", "N/A"),
     }
     # Log refund event
     try:
@@ -75,23 +80,28 @@ def handle_event(payload: dict):
     # --- SAFE FILENAME SANITIZATION & EMAIL DELIVERY ---
     from autonomy.vaults.filename_sanitizer import enforce_safe_filename
     from autonomy.notifications.email_engine import send_vault_email
+
     try:
         attachments = []
-        refund_receipt = payload.get('refund_receipt_path', 'refund_receipt.pdf')
-        refund_policy = payload.get('refund_policy_path', 'refund_policy.pdf')
+        refund_receipt = payload.get("refund_receipt_path", "refund_receipt.pdf")
+        refund_policy = payload.get("refund_policy_path", "refund_policy.pdf")
         for file_path in [refund_receipt, refund_policy]:
-            safe_path = enforce_safe_filename(file_path, payload.get('vault_title', payload.get('vault_id', 'refund')))
+            safe_path = enforce_safe_filename(
+                file_path, payload.get("vault_title", payload.get("vault_id", "refund"))
+            )
             attachments.append(safe_path)
         email_subject = f"[AIFOLIO] Vault Refunded: {payload.get('vault_id', '')}"
         email_body = "Your vault refund has been processed. Your refund receipt and policy are attached."
         send_status = send_vault_email(
-            payload.get('buyer_email') or payload.get('email'),
+            payload.get("buyer_email") or payload.get("email"),
             email_subject,
             email_body,
-            attachments
+            attachments,
         )
     except Exception as e:
-        logger.error(f"Refund email/attachment delivery failed: {e}\n{traceback.format_exc()}")
+        logger.error(
+            f"Refund email/attachment delivery failed: {e}\n{traceback.format_exc()}"
+        )
         errors.append(f"Email: {e}")
     # Audit compliance
     try:
@@ -118,5 +128,12 @@ def handle_event(payload: dict):
             detect_anomaly(vault_id, errors)
         except Exception as e:
             logger.error(f"Anomaly detection failed: {e}\n{traceback.format_exc()}")
-    print(f"[AIFOLIO] Refunded vault {vault_id} for {buyer_email}. Dashboard flagged. Confirmation email sent.")
-    return {"status": "success", "vault_id": vault_id, "buyer_email": buyer_email, "errors": errors}
+    print(
+        f"[AIFOLIO] Refunded vault {vault_id} for {buyer_email}. Dashboard flagged. Confirmation email sent."
+    )
+    return {
+        "status": "success",
+        "vault_id": vault_id,
+        "buyer_email": buyer_email,
+        "errors": errors,
+    }

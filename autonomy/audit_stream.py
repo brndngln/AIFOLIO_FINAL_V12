@@ -9,6 +9,7 @@ from fastapi.responses import StreamingResponse
 
 audit_router = APIRouter()
 
+
 @audit_router.get("/phase9/audit_log/stream")
 def stream_audit_log(request: Request):
     def event_stream():
@@ -28,9 +29,11 @@ def stream_audit_log(request: Request):
             time.sleep(2)  # Poll every 2 seconds
             if await_disconnect(request):
                 break
+
     return StreamingResponse(event_stream(), media_type="text/event-stream")
 
+
 def await_disconnect(request):
-    if hasattr(request, 'is_disconnected'):
+    if hasattr(request, "is_disconnected"):
         return request.is_disconnected()
     return False

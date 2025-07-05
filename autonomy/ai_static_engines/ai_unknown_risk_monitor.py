@@ -9,14 +9,17 @@ import datetime
 
 UNKNOWN_RISK_LOG = []
 
+
 class UnknownRiskMonitor:
     @staticmethod
     def log_unknown_risk(description: str, context: Dict) -> None:
-        UNKNOWN_RISK_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'description': description,
-            'context': context
-        })
+        UNKNOWN_RISK_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "description": description,
+                "context": context,
+            }
+        )
 
     @staticmethod
     def get_unknown_risks() -> List[Dict]:

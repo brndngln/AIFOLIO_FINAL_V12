@@ -94,4 +94,3 @@ setLastUpdated(res.headers.get('X-Last-Updated') || "");
 // No props for PartnerCertificationForm; PropTypes not required. [WINDSURF FIXED]
 
 export default PartnerCertificationForm; // [WINDSURF FIXED]
-

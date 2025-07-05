@@ -30,10 +30,14 @@ assert AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
 assert OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
 assert StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
 assert NoMemoryToken is True, "OMNILOCK: NoMemoryToken must be True"
-assert sentience_token_killswitch is True, "OMNILOCK: sentience_token_killswitch must be True"
+assert (
+    sentience_token_killswitch is True
+), "OMNILOCK: sentience_token_killswitch must be True"
 assert memory_depth_limit == 0, "OMNILOCK: memory_depth_limit must be 0"
 assert self_awareness_check is False, "OMNILOCK: self_awareness_check must be False"
-assert recursive_feedback_allowed is False, "OMNILOCK: recursive_feedback_allowed must be False"
+assert (
+    recursive_feedback_allowed is False
+), "OMNILOCK: recursive_feedback_allowed must be False"
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
 
@@ -48,14 +52,18 @@ from datetime import datetime
 try:
     from config import config, logger
 except ImportError:
-    print("Warning: Could not import 'config' and 'logger' directly. Using basic logging.")
+    print(
+        "Warning: Could not import 'config' and 'logger' directly. Using basic logging."
+    )
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
+
     class MockConfig:
         PATTERN_AWARE_ENABLED = False
         AFFILIATE_LINK_EXPIRY_HOURS = 48
         ANTI_FRAUD_LEVEL = 3
         MAX_AUDIT_LOG_LENGTH = 1000
+
     config = MockConfig()
 
 # --- Elite Anti-Sentience Safeguards ---
@@ -67,15 +75,20 @@ except ImportError:
 
 SIMULATED_REFERRAL_PERCENTAGES = [0.1, 0.15, 0.20, 0.25, 0.30, 0.50]
 MAX_SIMULATED_SALES_EVENTS = 10
-ANTI_FRAUD_LEVEL = getattr(config, 'ANTI_FRAUD_LEVEL', 3)
-AFFILIATE_LINK_EXPIRY_HOURS = getattr(config, 'AFFILIATE_LINK_EXPIRY_HOURS', 48)
-MAX_AUDIT_LOG_LENGTH = getattr(config, 'MAX_AUDIT_LOG_LENGTH', 1000)
+ANTI_FRAUD_LEVEL = getattr(config, "ANTI_FRAUD_LEVEL", 3)
+AFFILIATE_LINK_EXPIRY_HOURS = getattr(config, "AFFILIATE_LINK_EXPIRY_HOURS", 48)
+MAX_AUDIT_LOG_LENGTH = getattr(config, "MAX_AUDIT_LOG_LENGTH", 1000)
+
 
 class SentienceTripwire(Exception):
     pass
 
+
 def sentience_guard(*args, **kwargs):
-    raise SentienceTripwire("Sentience, learning, or adaptation attempt detected and blocked.")
+    raise SentienceTripwire(
+        "Sentience, learning, or adaptation attempt detected and blocked."
+    )
+
 
 class AffiliateBooster:
     """
@@ -97,7 +110,7 @@ class AffiliateBooster:
         "CA": 0.13,  # 13% HST
         "AU": 0.10,  # 10% GST
         "IN": 0.18,  # 18% GST
-        "GLOBAL": 0.10  # fallback
+        "GLOBAL": 0.10,  # fallback
     }
     TAX_REPORT_FORMATS = ["summary", "detailed", "audit"]
 
@@ -114,21 +127,32 @@ class AffiliateBooster:
         """
         import os
         import requests
+
         # VATLayer
         api_key = os.getenv("VATLAYER_API_KEY")
         if api_key:
             try:
                 resp = requests.get(
                     "https://api.vatlayer.com/validate",
-                    params={"access_key": api_key, "ip": address_or_ip}
+                    params={"access_key": api_key, "ip": address_or_ip},
                 )
                 if resp.status_code == 200:
                     data = resp.json()
                     country_code = data.get("country_code", "GLOBAL")
-                    AffiliateBooster._audit("jurisdiction_lookup", {"input": address_or_ip, "result": country_code, "provider": "vatlayer"})
+                    AffiliateBooster._audit(
+                        "jurisdiction_lookup",
+                        {
+                            "input": address_or_ip,
+                            "result": country_code,
+                            "provider": "vatlayer",
+                        },
+                    )
                     return country_code
             except Exception as e:
-                AffiliateBooster._audit("jurisdiction_lookup_error", {"input": address_or_ip, "error": str(e)})
+                AffiliateBooster._audit(
+                    "jurisdiction_lookup_error",
+                    {"input": address_or_ip, "error": str(e)},
+                )
         # TaxJar
         taxjar_key = os.getenv("TAXJAR_API_KEY")
         if taxjar_key:
@@ -136,15 +160,25 @@ class AffiliateBooster:
                 resp = requests.get(
                     "https://api.taxjar.com/v2/addresses/validate",
                     headers={"Authorization": f"Bearer {taxjar_key}"},
-                    params={"ip": address_or_ip}
+                    params={"ip": address_or_ip},
                 )
                 if resp.status_code == 200:
                     data = resp.json()
                     country_code = data.get("country_code", "GLOBAL")
-                    AffiliateBooster._audit("jurisdiction_lookup", {"input": address_or_ip, "result": country_code, "provider": "taxjar"})
+                    AffiliateBooster._audit(
+                        "jurisdiction_lookup",
+                        {
+                            "input": address_or_ip,
+                            "result": country_code,
+                            "provider": "taxjar",
+                        },
+                    )
                     return country_code
             except Exception as e:
-                AffiliateBooster._audit("jurisdiction_lookup_error", {"input": address_or_ip, "error": str(e)})
+                AffiliateBooster._audit(
+                    "jurisdiction_lookup_error",
+                    {"input": address_or_ip, "error": str(e)},
+                )
         # Avalara
         avalara_id = os.getenv("AVALARA_ACCOUNT_ID")
         avalara_key = os.getenv("AVALARA_LICENSE_KEY")
@@ -152,22 +186,43 @@ class AffiliateBooster:
         if avalara_id and avalara_key and avalara_url:
             try:
                 resp = requests.get(
-                    f"{avalara_url}/addresses/resolve", auth=(avalara_id, avalara_key), params={"ip": address_or_ip}
+                    f"{avalara_url}/addresses/resolve",
+                    auth=(avalara_id, avalara_key),
+                    params={"ip": address_or_ip},
                 )
                 if resp.status_code == 200:
                     data = resp.json()
                     country_code = data.get("countryCode", "GLOBAL")
-                    AffiliateBooster._audit("jurisdiction_lookup", {"input": address_or_ip, "result": country_code, "provider": "avalara"})
+                    AffiliateBooster._audit(
+                        "jurisdiction_lookup",
+                        {
+                            "input": address_or_ip,
+                            "result": country_code,
+                            "provider": "avalara",
+                        },
+                    )
                     return country_code
             except Exception as e:
-                AffiliateBooster._audit("jurisdiction_lookup_error", {"input": address_or_ip, "error": str(e)})
+                AffiliateBooster._audit(
+                    "jurisdiction_lookup_error",
+                    {"input": address_or_ip, "error": str(e)},
+                )
         # Fallback to simulated
         simulated = secrets.choice(["US", "EU", "UK", "CA", "AU", "IN", "GLOBAL"])
-        AffiliateBooster._audit("jurisdiction_lookup_simulated", {"input": address_or_ip, "result": simulated})
+        AffiliateBooster._audit(
+            "jurisdiction_lookup_simulated",
+            {"input": address_or_ip, "result": simulated},
+        )
         return simulated
 
     @staticmethod
-    def export_compliance_report(data: list, format: str = "csv", html_template: str = None, branding: dict = None, vault: str = None) -> str:
+    def export_compliance_report(
+        data: list,
+        format: str = "csv",
+        html_template: str = None,
+        branding: dict = None,
+        vault: str = None,
+    ) -> str:
         """
         Export compliance/audit data in CSV, PDF (Typeset automation), XBRL (arelle), XLSX, or JSON.
         Returns the path to the exported file.
@@ -176,13 +231,18 @@ class AffiliateBooster:
         - XLSX: Spreadsheet for internal analysis
         - JSON: Archive/raw export or dashboard API
         """
-        AffiliateBooster._audit("compliance_export", {"format": format, "count": len(data), "vault": vault})
+        AffiliateBooster._audit(
+            "compliance_export", {"format": format, "count": len(data), "vault": vault}
+        )
         import csv
         import tempfile
         import json
+
         # CSV
         if format == "csv":
-            with tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".csv") as f:
+            with tempfile.NamedTemporaryFile(
+                delete=False, mode="w", suffix=".csv"
+            ) as f:
                 writer = csv.DictWriter(f, fieldnames=data[0].keys())
                 writer.writeheader()
                 writer.writerows(data)
@@ -190,6 +250,7 @@ class AffiliateBooster:
         # XLSX
         if format == "xlsx":
             import openpyxl
+
             wb = openpyxl.Workbook()
             ws = wb.active
             ws.append(list(data[0].keys()))
@@ -200,7 +261,9 @@ class AffiliateBooster:
             return path
         # PDF (Typeset automation)
         if format == "pdf":
-            path = AffiliateBooster.typeset_pdf_export(data, branding=branding, vault=vault)
+            path = AffiliateBooster.typeset_pdf_export(
+                data, branding=branding, vault=vault
+            )
             return path
         # XBRL (arelle, stub)
         if format == "xbrl":
@@ -209,7 +272,9 @@ class AffiliateBooster:
             # Example: arelleCmdLine.py --file data.xbrl --plugin ...
             path = tempfile.mktemp(suffix=".xbrl")
             with open(path, "w") as f:
-                f.write("<!-- XBRL export stub: integrate with arelle for real use -->\n")
+                f.write(
+                    "<!-- XBRL export stub: integrate with arelle for real use -->\n"
+                )
                 f.write(json.dumps(data, indent=2))
             return path
         # JSON
@@ -238,36 +303,54 @@ class AffiliateBooster:
         - Event-driven: runs on every content creation, vault/branding update, bundle assembly, or draft export.
         - Scales to unlimited vaults and product types.
         """
-        GLOBAL_BRAND_PATH = os.path.join(os.path.dirname(__file__), 'global_branding.json')
-        BRAND_LOG_PATH = os.path.join(os.path.dirname(__file__), 'branding_log.json')
-        CONTENT_LOG_PATH = os.path.join(os.path.dirname(__file__), 'content_corrections_log.json')
+
+        GLOBAL_BRAND_PATH = os.path.join(
+            os.path.dirname(__file__), "global_branding.json"
+        )
+        BRAND_LOG_PATH = os.path.join(os.path.dirname(__file__), "branding_log.json")
+        CONTENT_LOG_PATH = os.path.join(
+            os.path.dirname(__file__), "content_corrections_log.json"
+        )
 
         @staticmethod
         def get_branding(vault: str = None, pdf_metadata: dict = None) -> dict:
             branding = None
             vault_dir = None
             if vault:
-                vault_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../vaults', vault))
-                vault_brand_path = os.path.join(vault_dir, 'branding.json')
+                vault_dir = os.path.abspath(
+                    os.path.join(os.path.dirname(__file__), "../../vaults", vault)
+                )
+                vault_brand_path = os.path.join(vault_dir, "branding.json")
                 if os.path.exists(vault_brand_path):
-                    with open(vault_brand_path, 'r') as f:
+                    with open(vault_brand_path, "r") as f:
                         branding = json.load(f)
             if not branding:
                 if os.path.exists(AIFOLIO_STYLEFORGE_GRAMMARLENS.GLOBAL_BRAND_PATH):
-                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.GLOBAL_BRAND_PATH, 'r') as f:
+                    with open(
+                        AIFOLIO_STYLEFORGE_GRAMMARLENS.GLOBAL_BRAND_PATH, "r"
+                    ) as f:
                         branding = json.load(f)
                 else:
                     branding = {
-                        'fonts': {'primary': 'Inter', 'secondary': 'Arial'},
-                        'colors': {'primary': '#333', 'secondary': '#888', 'accent': '#009688', 'bg': '#fff'},
-                        'logo': 'aifolio_logo.png',
-                        'layout': 'modern',
-                        'header': 'AIFOLIO',
-                        'footer': 'AIFOLIO',
-                        'tone': 'corporate',
-                        'cta': 'Explore more at AIFOLIO.'
+                        "fonts": {"primary": "Inter", "secondary": "Arial"},
+                        "colors": {
+                            "primary": "#333",
+                            "secondary": "#888",
+                            "accent": "#009688",
+                            "bg": "#fff",
+                        },
+                        "logo": "aifolio_logo.png",
+                        "layout": "modern",
+                        "header": "AIFOLIO",
+                        "footer": "AIFOLIO",
+                        "tone": "corporate",
+                        "cta": "Explore more at AIFOLIO.",
                     }
-            override = pdf_metadata.get('branding') if pdf_metadata and 'branding' in pdf_metadata else None
+            override = (
+                pdf_metadata.get("branding")
+                if pdf_metadata and "branding" in pdf_metadata
+                else None
+            )
             if override:
                 branding = {**branding, **override}
             return branding
@@ -275,21 +358,24 @@ class AffiliateBooster:
         @staticmethod
         def log_branding(vault: str, branding: dict, pdf_metadata: dict = None):
             import datetime
+
             log_entry = {
-                'time': datetime.datetime.now().isoformat(),
-                'vault': vault,
-                'brand_theme': branding,
-                'pdf_override': pdf_metadata.get('branding') if pdf_metadata and 'branding' in pdf_metadata else None
+                "time": datetime.datetime.now().isoformat(),
+                "vault": vault,
+                "brand_theme": branding,
+                "pdf_override": pdf_metadata.get("branding")
+                if pdf_metadata and "branding" in pdf_metadata
+                else None,
             }
             try:
                 if os.path.exists(AIFOLIO_STYLEFORGE_GRAMMARLENS.BRAND_LOG_PATH):
-                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.BRAND_LOG_PATH, 'r+') as f:
+                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.BRAND_LOG_PATH, "r+") as f:
                         logs = json.load(f)
                         logs.append(log_entry)
                         f.seek(0)
                         json.dump(logs, f, indent=2)
                 else:
-                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.BRAND_LOG_PATH, 'w') as f:
+                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.BRAND_LOG_PATH, "w") as f:
                         json.dump([log_entry], f, indent=2)
             except Exception:
                 pass
@@ -298,74 +384,91 @@ class AffiliateBooster:
         def log_content_corrections(corrections: list):
             try:
                 if os.path.exists(AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH):
-                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH, 'r+') as f:
+                    with open(
+                        AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH, "r+"
+                    ) as f:
                         logs = json.load(f)
                         logs.extend(corrections)
                         f.seek(0)
                         json.dump(logs, f, indent=2)
                 else:
-                    with open(AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH, 'w') as f:
+                    with open(
+                        AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH, "w"
+                    ) as f:
                         json.dump(corrections, f, indent=2)
             except Exception:
                 pass
 
         @staticmethod
-        def apply_branding(data: list, vault: str = None, pdf_metadata: dict = None) -> dict:
+        def apply_branding(
+            data: list, vault: str = None, pdf_metadata: dict = None
+        ) -> dict:
             branding = AIFOLIO_STYLEFORGE_GRAMMARLENS.get_branding(vault, pdf_metadata)
             AIFOLIO_STYLEFORGE_GRAMMARLENS.log_branding(vault, branding, pdf_metadata)
             return branding
 
         @staticmethod
-        def validate_and_correct_content(data: list, branding: dict, pdf_metadata: dict = None) -> tuple:
+        def validate_and_correct_content(
+            data: list, branding: dict, pdf_metadata: dict = None
+        ) -> tuple:
             """
             AI-powered content validation and correction for spelling, grammar, clarity, tone, logo/cover/filename/metadata.
             Returns (corrected_data, corrections_log)
             """
             corrections = []
             corrected_data = []
-            tone = branding.get('tone', 'corporate')
+            tone = branding.get("tone", "corporate")
             # Simple spell/grammar check (stub: replace with advanced NLP/AI for production)
             for i, section in enumerate(data):
-                orig_content = section.get('content', '')
+                orig_content = section.get("content", "")
                 content = orig_content
                 # Basic spelling fix: replace 'teh' with 'the', etc.
-                content_new = re.sub(r'\bteh\b', 'the', content)
+                content_new = re.sub(r"\bteh\b", "the", content)
                 # Grammar: fix 'is are' -> 'are', 'a a' -> 'a'
-                content_new = re.sub(r'\bis are\b', 'are', content_new)
-                content_new = re.sub(r'\ba a\b', 'a', content_new)
+                content_new = re.sub(r"\bis are\b", "are", content_new)
+                content_new = re.sub(r"\ba a\b", "a", content_new)
                 # Tone check (stub: flag if content doesn't match expected tone)
                 flagged = False
-                if tone == 'friendly' and any(w in content_new.lower() for w in ['urgent', 'must', 'required']):
+                if tone == "friendly" and any(
+                    w in content_new.lower() for w in ["urgent", "must", "required"]
+                ):
                     flagged = True
-                if tone == 'assertive' and any(w in content_new.lower() for w in ['maybe', 'perhaps', 'consider']):
+                if tone == "assertive" and any(
+                    w in content_new.lower() for w in ["maybe", "perhaps", "consider"]
+                ):
                     flagged = True
                 # Logo/cover/filename/product metadata checks
                 meta_issues = []
-                for key in ['logo', 'cover', 'filename', 'product']:
+                for key in ["logo", "cover", "filename", "product"]:
                     val = section.get(key)
-                    if val and not re.match(r'^[\w\-. ]+$', val):
-                        meta_issues.append(f'Invalid chars in {key}')
+                    if val and not re.match(r"^[\w\-. ]+$", val):
+                        meta_issues.append(f"Invalid chars in {key}")
                 # Log corrections and flags
                 if content != content_new or flagged or meta_issues:
-                    corrections.append({
-                        'section': i,
-                        'original': orig_content,
-                        'corrected': content_new,
-                        'flags': {'tone': flagged, 'meta': meta_issues}
-                    })
+                    corrections.append(
+                        {
+                            "section": i,
+                            "original": orig_content,
+                            "corrected": content_new,
+                            "flags": {"tone": flagged, "meta": meta_issues},
+                        }
+                    )
                 corrected_section = dict(section)
-                corrected_section['content'] = content_new
+                corrected_section["content"] = content_new
                 corrected_data.append(corrected_section)
             AIFOLIO_STYLEFORGE_GRAMMARLENS.log_content_corrections(corrections)
             return corrected_data, corrections
 
         @staticmethod
-        def generate_visual_preview(html: str, branding: dict, preview_path: str) -> str:
+        def generate_visual_preview(
+            html: str, branding: dict, preview_path: str
+        ) -> str:
             """
             Generate a visual preview (PDF or HTML snapshot) for review before publishing.
             """
             try:
                 from weasyprint import HTML, CSS
+
                 css = f"""
                 body {{ background: {branding['colors']['bg']}; font-family: {branding['fonts']['primary']}, {branding['fonts'].get('secondary','sans-serif')}; }}
                 h1, h2, h3 {{ color: {branding['colors']['primary']}; }}
@@ -430,10 +533,10 @@ class AffiliateBooster:
             """
             Main event handler: triggers PDF/bundle generation on content/vault/bundle/schedule events.
             """
-            vault = payload.get('vault', 'default')
-            data = payload.get('data', [])
-            bundle = payload.get('bundle', False)
-            pdf_metadata = payload.get('pdf_metadata', {})
+            vault = payload.get("vault", "default")
+            data = payload.get("data", [])
+            bundle = payload.get("bundle", False)
+            pdf_metadata = payload.get("pdf_metadata", {})
             branding = AIFOLIO_STYLEFORGE.apply_branding(data, vault, pdf_metadata)
             pdf_path = AIFOLIO_TYPESMITH.create_pdf(data, branding, vault, bundle)
             delivery_status = AIFOLIO_TYPESMITH.deliver_pdf(pdf_path, vault, payload)
@@ -441,24 +544,42 @@ class AffiliateBooster:
 
             # --- Post-Sale Dispatcher Integration ---
             try:
-                from autonomy.post_sale_hooks.post_sale_dispatcher import run_post_sale_hooks
-                order_id = payload.get('order_id') or payload.get('sale_id') or payload.get('transaction_id')
-                user_email = payload.get('buyer_email') or payload.get('user_email')
-                vault_id = payload.get('vault_id') or vault
+                from autonomy.post_sale_hooks.post_sale_dispatcher import (
+                    run_post_sale_hooks,
+                )
+
+                order_id = (
+                    payload.get("order_id")
+                    or payload.get("sale_id")
+                    or payload.get("transaction_id")
+                )
+                user_email = payload.get("buyer_email") or payload.get("user_email")
+                vault_id = payload.get("vault_id") or vault
                 metadata = {
-                    'delivery_status': delivery_status,
-                    'pdf_path': pdf_path,
-                    'vault': vault,
-                    'payload': payload
+                    "delivery_status": delivery_status,
+                    "pdf_path": pdf_path,
+                    "vault": vault,
+                    "payload": payload,
                 }
                 if order_id and user_email and vault_id:
-                    run_post_sale_hooks(order_id=order_id, user_email=user_email, vault_id=vault_id, metadata=metadata)
+                    run_post_sale_hooks(
+                        order_id=order_id,
+                        user_email=user_email,
+                        vault_id=vault_id,
+                        metadata=metadata,
+                    )
                 else:
                     import logging
-                    logging.warning("[AIFOLIO][Post-Sale] Missing order_id, user_email, or vault_id in payload; post-sale hooks not triggered.")
+
+                    logging.warning(
+                        "[AIFOLIO][Post-Sale] Missing order_id, user_email, or vault_id in payload; post-sale hooks not triggered."
+                    )
             except Exception as e:
                 import logging
-                logging.error(f"[AIFOLIO][Post-Sale] Failed to run post-sale hooks: {e}")
+
+                logging.error(
+                    f"[AIFOLIO][Post-Sale] Failed to run post-sale hooks: {e}"
+                )
 
             # Monitoring stub for manual replay of failed hooks
             def replay_failed_post_sale_hooks():
@@ -466,23 +587,30 @@ class AffiliateBooster:
                 Stub for replaying failed post-sale hooks from log.
                 TODO: Implement logic to parse post_sale_hooks.log and re-run failed hooks.
                 """
-                print("[AIFOLIO][MONITOR] Manual replay of failed post-sale hooks not yet implemented.")
-
+                print(
+                    "[AIFOLIO][MONITOR] Manual replay of failed post-sale hooks not yet implemented."
+                )
 
         @staticmethod
-        def create_pdf(data: list, branding: dict, vault: str, bundle: bool = False) -> str:
+        def create_pdf(
+            data: list, branding: dict, vault: str, bundle: bool = False
+        ) -> str:
             """
             AI-enhanced typesetting: formats, styles, and structures content for optimal readability and professional design.
             Includes branded cover, dynamic TOC, styled sections, visuals, and vault-specific CTA.
             Returns path to generated PDF.
             """
             import tempfile
+
             # Compose HTML with all required sections
             html = AIFOLIO_TYPESMITH.compose_html(data, branding, vault, bundle)
-            path = tempfile.mktemp(suffix=f"_{vault or 'report'}{'_bundle' if bundle else ''}.pdf")
+            path = tempfile.mktemp(
+                suffix=f"_{vault or 'report'}{'_bundle' if bundle else ''}.pdf"
+            )
             # Placeholder: Replace with Typeset API/CLI call for real typesetting
             try:
                 from weasyprint import HTML, CSS
+
                 css = f"""
                 body {{ background: {branding['colors']['bg']}; font-family: {branding['fonts']['primary']}, {branding['fonts'].get('secondary','sans-serif')}; }}
                 h1, h2, h3 {{ color: {branding['colors']['primary']}; }}
@@ -498,7 +626,9 @@ class AffiliateBooster:
             return path
 
         @staticmethod
-        def compose_html(data: list, branding: dict, vault: str, bundle: bool = False) -> str:
+        def compose_html(
+            data: list, branding: dict, vault: str, bundle: bool = False
+        ) -> str:
             """
             Compose HTML for PDF: cover, TOC, sections, visuals, CTA. Modular and AI-enhanced.
             """
@@ -512,15 +642,26 @@ class AffiliateBooster:
             # Table of Contents
             toc = ""
             if bundle or len(data) > 1:
-                toc = "<h2>Table of Contents</h2><ol>" + ''.join([f"<li>Section {i+1}</li>" for i in range(len(data))]) + "</ol>"
+                toc = (
+                    "<h2>Table of Contents</h2><ol>"
+                    + "".join([f"<li>Section {i+1}</li>" for i in range(len(data))])
+                    + "</ol>"
+                )
             # Content sections (with tone)
-            tone = branding.get('tone', 'corporate')
-            sections = "".join([
-                f"<section style='margin:32px 0;'><h2>Section {i+1}</h2><div class='content' data-tone='{tone}'>{d.get('content','')}</div>" +
-                (f"<table>{d['table']}</table>" if 'table' in d else '') +
-                (f"<img class='visual' src='{d['visual']}' style='width:100%;'/>" if 'visual' in d else '') +
-                "</section>" for i, d in enumerate(data)
-            ])
+            tone = branding.get("tone", "corporate")
+            sections = "".join(
+                [
+                    f"<section style='margin:32px 0;'><h2>Section {i+1}</h2><div class='content' data-tone='{tone}'>{d.get('content','')}</div>"
+                    + (f"<table>{d['table']}</table>" if "table" in d else "")
+                    + (
+                        f"<img class='visual' src='{d['visual']}' style='width:100%;'/>"
+                        if "visual" in d
+                        else ""
+                    )
+                    + "</section>"
+                    for i, d in enumerate(data)
+                ]
+            )
             # CTA
             cta = f"<div class='cta'>{branding['cta']}</div>"
             # Footer
@@ -545,14 +686,15 @@ class AffiliateBooster:
             Log export time, file name, vault, and delivery status for audit.
             """
             import datetime
+
             log_entry = {
-                'time': datetime.datetime.now().isoformat(),
-                'file': pdf_path,
-                'vault': vault,
-                'status': delivery_status
+                "time": datetime.datetime.now().isoformat(),
+                "file": pdf_path,
+                "vault": vault,
+                "status": delivery_status,
             }
             # In-memory stateless log (extend for persistent/remote audit if needed)
-            AffiliateBooster._audit('typesmith_export', log_entry)
+            AffiliateBooster._audit("typesmith_export", log_entry)
 
     # --- End AIFOLIO_TYPESMITH™ ---
 
@@ -564,17 +706,24 @@ class AffiliateBooster:
         Returns the path to the generated PDF.
         """
         # Detect vault, branding, and route to AIFOLIO_TYPESMITH™
-        return AffiliateBooster.AIFOLIO_TYPESMITH.create_pdf(data, branding or AffiliateBooster.AIFOLIO_TYPESMITH.get_branding(vault), vault)
+        return AffiliateBooster.AIFOLIO_TYPESMITH.create_pdf(
+            data,
+            branding or AffiliateBooster.AIFOLIO_TYPESMITH.get_branding(vault),
+            vault,
+        )
 
     @staticmethod
     def _default_html_report(data, branding=None):
         """
         Generate a simple HTML report for PDF export. Extend with branding, CSS, etc.
         """
-        rows = "".join([
-            f"<tr>{''.join([f'<td>{v}</td>' for v in row.values()])}</tr>" for row in data
-        ])
-        css = branding.get('css','') if branding and 'css' in branding else ''
+        rows = "".join(
+            [
+                f"<tr>{''.join([f'<td>{v}</td>' for v in row.values()])}</tr>"
+                for row in data
+            ]
+        )
+        css = branding.get("css", "") if branding and "css" in branding else ""
         return f"""
         <html><head><style>{css}</style></head><body>
         <h1>{branding.get('title','Compliance Report') if branding else 'Compliance Report'}</h1>
@@ -588,98 +737,115 @@ class AffiliateBooster:
     # Default compliance rules (can be extended/configured)
     COMPLIANCE_RULES = [
         {
-            'id': 'high_payout_review',
-            'description': 'Flag all payouts over $10,000 for manual review.',
-            'condition': lambda tx: tx.get('payout', 0) > 10000,
-            'escalation_level': 1
+            "id": "high_payout_review",
+            "description": "Flag all payouts over $10,000 for manual review.",
+            "condition": lambda tx: tx.get("payout", 0) > 10000,
+            "escalation_level": 1,
         },
         {
-            'id': 'multi_party_fraud_approval',
-            'description': 'Require multi-party approval for flagged fraud or tax anomaly cases.',
-            'condition': lambda tx: tx.get('fraud_flag', False) or tx.get('tax_anomaly', False),
-            'escalation_level': 2
+            "id": "multi_party_fraud_approval",
+            "description": "Require multi-party approval for flagged fraud or tax anomaly cases.",
+            "condition": lambda tx: tx.get("fraud_flag", False)
+            or tx.get("tax_anomaly", False),
+            "escalation_level": 2,
         },
         {
-            'id': 'repeat_fraud_escalation',
-            'description': 'Escalate to compliance officer if fraud is detected twice for same affiliate.',
-            'condition': lambda tx: tx.get('fraud_count', 0) >= 2,
-            'escalation_level': 3
+            "id": "repeat_fraud_escalation",
+            "description": "Escalate to compliance officer if fraud is detected twice for same affiliate.",
+            "condition": lambda tx: tx.get("fraud_count", 0) >= 2,
+            "escalation_level": 3,
         },
         {
-            'id': 'block_high_risk_jurisdiction',
-            'description': 'Block payout if jurisdiction is high-risk or blacklisted.',
-            'condition': lambda tx: tx.get('jurisdiction', '') in ['IR', 'KP', 'SD', 'SY', 'CU', 'RU'],
-            'escalation_level': 4
+            "id": "block_high_risk_jurisdiction",
+            "description": "Block payout if jurisdiction is high-risk or blacklisted.",
+            "condition": lambda tx: tx.get("jurisdiction", "")
+            in ["IR", "KP", "SD", "SY", "CU", "RU"],
+            "escalation_level": 4,
         },
         {
-            'id': 'enhanced_due_diligence',
-            'description': 'Require enhanced due diligence for affiliates in certain countries.',
-            'condition': lambda tx: tx.get('jurisdiction', '') in ['NG', 'UA', 'BR', 'CN'],
-            'escalation_level': 2
+            "id": "enhanced_due_diligence",
+            "description": "Require enhanced due diligence for affiliates in certain countries.",
+            "condition": lambda tx: tx.get("jurisdiction", "")
+            in ["NG", "UA", "BR", "CN"],
+            "escalation_level": 2,
         },
         {
-            'id': 'auto_export_audit',
-            'description': 'Auto-export flagged transactions to PDF/XBRL for audit.',
-            'condition': lambda tx: tx.get('fraud_flag', False) or tx.get('tax_anomaly', False),
-            'escalation_level': 2
+            "id": "auto_export_audit",
+            "description": "Auto-export flagged transactions to PDF/XBRL for audit.",
+            "condition": lambda tx: tx.get("fraud_flag", False)
+            or tx.get("tax_anomaly", False),
+            "escalation_level": 2,
         },
         {
-            'id': 'secondary_review_anomaly',
-            'description': 'Require secondary review for any affiliate with >3 anomalies in 30 days.',
-            'condition': lambda tx: tx.get('anomaly_count', 0) > 3,
-            'escalation_level': 2
+            "id": "secondary_review_anomaly",
+            "description": "Require secondary review for any affiliate with >3 anomalies in 30 days.",
+            "condition": lambda tx: tx.get("anomaly_count", 0) > 3,
+            "escalation_level": 2,
         },
         {
-            'id': 'bank_change_lock',
-            'description': 'Alert and lock account if payout bank info changes after fraud flag.',
-            'condition': lambda tx: tx.get('bank_changed', False) and tx.get('fraud_flag', False),
-            'escalation_level': 4
+            "id": "bank_change_lock",
+            "description": "Alert and lock account if payout bank info changes after fraud flag.",
+            "condition": lambda tx: tx.get("bank_changed", False)
+            and tx.get("fraud_flag", False),
+            "escalation_level": 4,
         },
         # --- Advanced suggestions ---
         {
-            'id': 'geo_ip_mismatch',
-            'description': 'Flag if affiliate login IP and registered country mismatch.',
-            'condition': lambda tx: tx.get('login_country') and tx.get('registered_country') and tx['login_country'] != tx['registered_country'],
-            'escalation_level': 2
+            "id": "geo_ip_mismatch",
+            "description": "Flag if affiliate login IP and registered country mismatch.",
+            "condition": lambda tx: tx.get("login_country")
+            and tx.get("registered_country")
+            and tx["login_country"] != tx["registered_country"],
+            "escalation_level": 2,
         },
         {
-            'id': 'rapid_payout_increase',
-            'description': 'Escalate if payout volume increases >5x month-over-month.',
-            'condition': lambda tx: tx.get('payout_growth', 1) > 5,
-            'escalation_level': 3
+            "id": "rapid_payout_increase",
+            "description": "Escalate if payout volume increases >5x month-over-month.",
+            "condition": lambda tx: tx.get("payout_growth", 1) > 5,
+            "escalation_level": 3,
         },
         {
-            'id': 'multi_account_link',
-            'description': 'Flag for review if multiple accounts share same bank or email.',
-            'condition': lambda tx: tx.get('shared_bank_or_email', False),
-            'escalation_level': 2
+            "id": "multi_account_link",
+            "description": "Flag for review if multiple accounts share same bank or email.",
+            "condition": lambda tx: tx.get("shared_bank_or_email", False),
+            "escalation_level": 2,
         },
         {
-            'id': 'kyc_expiry',
-            'description': 'Escalate if affiliate KYC is expired or missing.',
-            'condition': lambda tx: not tx.get('kyc_valid', True),
-            'escalation_level': 3
+            "id": "kyc_expiry",
+            "description": "Escalate if affiliate KYC is expired or missing.",
+            "condition": lambda tx: not tx.get("kyc_valid", True),
+            "escalation_level": 3,
         },
         {
-            'id': 'unusual_time_access',
-            'description': 'Flag logins or payouts at unusual times (e.g., 2-5am local time).',
-            'condition': lambda tx: tx.get('unusual_time_access', False),
-            'escalation_level': 1
+            "id": "unusual_time_access",
+            "description": "Flag logins or payouts at unusual times (e.g., 2-5am local time).",
+            "condition": lambda tx: tx.get("unusual_time_access", False),
+            "escalation_level": 1,
         },
         {
-            'id': 'regulatory_watchlist',
-            'description': 'Block if affiliate is on regulatory/government watchlist.',
-            'condition': lambda tx: tx.get('on_watchlist', False),
-            'escalation_level': 4
-        }
+            "id": "regulatory_watchlist",
+            "description": "Block if affiliate is on regulatory/government watchlist.",
+            "condition": lambda tx: tx.get("on_watchlist", False),
+            "escalation_level": 4,
+        },
     ]
 
     # Escalation policy (stateless, config-driven)
     ESCALATION_POLICY = {
-        1: ['notify_affiliate_manager'],
-        2: ['notify_affiliate_manager', 'create_compliance_ticket'],
-        3: ['notify_affiliate_manager', 'create_compliance_ticket', 'escalate_to_executive'],
-        4: ['notify_affiliate_manager', 'create_compliance_ticket', 'escalate_to_executive', 'freeze_payouts', 'auto_export_audit_trail']
+        1: ["notify_affiliate_manager"],
+        2: ["notify_affiliate_manager", "create_compliance_ticket"],
+        3: [
+            "notify_affiliate_manager",
+            "create_compliance_ticket",
+            "escalate_to_executive",
+        ],
+        4: [
+            "notify_affiliate_manager",
+            "create_compliance_ticket",
+            "escalate_to_executive",
+            "freeze_payouts",
+            "auto_export_audit_trail",
+        ],
     }
 
     @staticmethod
@@ -692,11 +858,22 @@ class AffiliateBooster:
         triggered = []
         for rule in AffiliateBooster.COMPLIANCE_RULES:
             try:
-                if rule['condition'](tx):
-                    AffiliateBooster._audit('compliance_rule_triggered', {'rule': rule['id'], 'tx': tx})
-                    triggered.append({'rule': rule['id'], 'level': rule['escalation_level'], 'desc': rule['description']})
+                if rule["condition"](tx):
+                    AffiliateBooster._audit(
+                        "compliance_rule_triggered", {"rule": rule["id"], "tx": tx}
+                    )
+                    triggered.append(
+                        {
+                            "rule": rule["id"],
+                            "level": rule["escalation_level"],
+                            "desc": rule["description"],
+                        }
+                    )
             except Exception as e:
-                AffiliateBooster._audit('compliance_rule_error', {'rule': rule['id'], 'error': str(e), 'tx': tx})
+                AffiliateBooster._audit(
+                    "compliance_rule_error",
+                    {"rule": rule["id"], "error": str(e), "tx": tx},
+                )
         return triggered
 
     @staticmethod
@@ -705,9 +882,17 @@ class AffiliateBooster:
         Statelessly escalate compliance events based on triggered rules and escalation policy.
         All actions are logged and non-adaptive.
         """
-        max_level = max([r['level'] for r in triggered_rules], default=0)
+        max_level = max([r["level"] for r in triggered_rules], default=0)
         actions = AffiliateBooster.ESCALATION_POLICY.get(max_level, [])
-        AffiliateBooster._audit('compliance_escalation', {'level': max_level, 'actions': actions, 'tx': tx, 'rules': triggered_rules})
+        AffiliateBooster._audit(
+            "compliance_escalation",
+            {
+                "level": max_level,
+                "actions": actions,
+                "tx": tx,
+                "rules": triggered_rules,
+            },
+        )
         # Implement action stubs (wire up to Slack, Jira, freeze logic, etc.)
         for action in actions:
             # All actions are stateless and can be extended
@@ -723,13 +908,13 @@ class AffiliateBooster:
         """
         # Example: combine static rules with cryptographic randomness for unpredictability
         base_score = 0.0
-        if tx.get('payout', 0) > 10000:
+        if tx.get("payout", 0) > 10000:
             base_score += 0.2
-        if tx.get('fraud_flag', False):
+        if tx.get("fraud_flag", False):
             base_score += 0.4
-        if tx.get('tax_anomaly', False):
+        if tx.get("tax_anomaly", False):
             base_score += 0.2
-        if tx.get('anomaly_count', 0) > 3:
+        if tx.get("anomaly_count", 0) > 3:
             base_score += 0.1
         # Add cryptographic noise (stateless, not adaptive)
         noise = secrets.randbelow(100) / 1000.0
@@ -742,7 +927,7 @@ class AffiliateBooster:
         Returns True if passed, False if failed.
         """
         # Replace with real provider call
-        return tx.get('kyc_valid', True)
+        return tx.get("kyc_valid", True)
 
     @staticmethod
     def require_video_verification(tx: dict) -> bool:
@@ -756,42 +941,52 @@ class AffiliateBooster:
         """
         Alert if affiliate changes device/browser fingerprint after fraud flag.
         """
-        return tx.get('device_changed', False) and tx.get('fraud_flag', False)
+        return tx.get("device_changed", False) and tx.get("fraud_flag", False)
 
     @staticmethod
     def multi_database_watchlist(tx: dict) -> bool:
         """
         Escalate if affiliate is flagged in multiple compliance/sanctions databases (stub).
         """
-        return tx.get('on_watchlist', False) and tx.get('multi_db_flag', False)
+        return tx.get("on_watchlist", False) and tx.get("multi_db_flag", False)
 
     @staticmethod
     def legal_review_required(tx: dict) -> bool:
         """
         Require legal review for affiliates in new/high-risk markets.
         """
-        return tx.get('jurisdiction', '') in ['IR', 'KP', 'SD', 'SY', 'CU', 'RU', 'UA', 'BR', 'CN']
+        return tx.get("jurisdiction", "") in [
+            "IR",
+            "KP",
+            "SD",
+            "SY",
+            "CU",
+            "RU",
+            "UA",
+            "BR",
+            "CN",
+        ]
 
     @staticmethod
     def regulator_auto_notify(tx: dict) -> bool:
         """
         Auto-notify regulators if certain thresholds or patterns are breached (stub).
         """
-        return tx.get('payout', 0) > 100000 or tx.get('fraud_flag', False)
+        return tx.get("payout", 0) > 100000 or tx.get("fraud_flag", False)
 
     @staticmethod
     def cooldown_required(tx: dict) -> bool:
         """
         Add configurable cooldown period after suspicious activity (stub).
         """
-        return tx.get('recent_suspicious', False)
+        return tx.get("recent_suspicious", False)
 
     @staticmethod
     def blockchain_analytics_check(tx: dict) -> bool:
         """
         Integrate with blockchain analytics for crypto payouts (stub).
         """
-        return tx.get('crypto_payout', False) and tx.get('blockchain_flag', False)
+        return tx.get("crypto_payout", False) and tx.get("blockchain_flag", False)
 
     @staticmethod
     def check_compliance(tx: dict) -> list:
@@ -803,39 +998,123 @@ class AffiliateBooster:
         triggered = []
         for rule in AffiliateBooster.COMPLIANCE_RULES:
             try:
-                if rule['condition'](tx):
-                    AffiliateBooster._audit('compliance_rule_triggered', {'rule': rule['id'], 'tx': tx})
-                    triggered.append({'rule': rule['id'], 'level': rule['escalation_level'], 'desc': rule['description']})
+                if rule["condition"](tx):
+                    AffiliateBooster._audit(
+                        "compliance_rule_triggered", {"rule": rule["id"], "tx": tx}
+                    )
+                    triggered.append(
+                        {
+                            "rule": rule["id"],
+                            "level": rule["escalation_level"],
+                            "desc": rule["description"],
+                        }
+                    )
             except Exception as e:
-                AffiliateBooster._audit('compliance_rule_error', {'rule': rule['id'], 'error': str(e), 'tx': tx})
+                AffiliateBooster._audit(
+                    "compliance_rule_error",
+                    {"rule": rule["id"], "error": str(e), "tx": tx},
+                )
         # Advanced rules (stateless, stubbed)
         if AffiliateBooster.ai_anomaly_score(tx) > 0.7:
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'ai_anomaly_score', 'tx': tx})
-            triggered.append({'rule': 'ai_anomaly_score', 'level': 2, 'desc': 'AI-driven anomaly score above threshold.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "ai_anomaly_score", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "ai_anomaly_score",
+                    "level": 2,
+                    "desc": "AI-driven anomaly score above threshold.",
+                }
+            )
         if not AffiliateBooster.external_kyc_aml_check(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'external_kyc_aml', 'tx': tx})
-            triggered.append({'rule': 'external_kyc_aml', 'level': 3, 'desc': 'External KYC/AML check failed.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "external_kyc_aml", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "external_kyc_aml",
+                    "level": 3,
+                    "desc": "External KYC/AML check failed.",
+                }
+            )
         if AffiliateBooster.require_video_verification(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'video_verification', 'tx': tx})
-            triggered.append({'rule': 'video_verification', 'level': 3, 'desc': 'Video verification required.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "video_verification", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "video_verification",
+                    "level": 3,
+                    "desc": "Video verification required.",
+                }
+            )
         if AffiliateBooster.device_fingerprint_alert(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'device_fingerprint', 'tx': tx})
-            triggered.append({'rule': 'device_fingerprint', 'level': 2, 'desc': 'Device/browser fingerprint changed after fraud flag.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "device_fingerprint", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "device_fingerprint",
+                    "level": 2,
+                    "desc": "Device/browser fingerprint changed after fraud flag.",
+                }
+            )
         if AffiliateBooster.multi_database_watchlist(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'multi_database_watchlist', 'tx': tx})
-            triggered.append({'rule': 'multi_database_watchlist', 'level': 4, 'desc': 'Affiliate flagged in multiple compliance databases.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered",
+                {"rule": "multi_database_watchlist", "tx": tx},
+            )
+            triggered.append(
+                {
+                    "rule": "multi_database_watchlist",
+                    "level": 4,
+                    "desc": "Affiliate flagged in multiple compliance databases.",
+                }
+            )
         if AffiliateBooster.legal_review_required(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'legal_review_required', 'tx': tx})
-            triggered.append({'rule': 'legal_review_required', 'level': 3, 'desc': 'Legal review required for new/high-risk market.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "legal_review_required", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "legal_review_required",
+                    "level": 3,
+                    "desc": "Legal review required for new/high-risk market.",
+                }
+            )
         if AffiliateBooster.regulator_auto_notify(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'regulator_auto_notify', 'tx': tx})
-            triggered.append({'rule': 'regulator_auto_notify', 'level': 4, 'desc': 'Regulator auto-notification triggered.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "regulator_auto_notify", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "regulator_auto_notify",
+                    "level": 4,
+                    "desc": "Regulator auto-notification triggered.",
+                }
+            )
         if AffiliateBooster.cooldown_required(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'cooldown_required', 'tx': tx})
-            triggered.append({'rule': 'cooldown_required', 'level': 3, 'desc': 'Cooldown period required after suspicious activity.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "cooldown_required", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "cooldown_required",
+                    "level": 3,
+                    "desc": "Cooldown period required after suspicious activity.",
+                }
+            )
         if AffiliateBooster.blockchain_analytics_check(tx):
-            AffiliateBooster._audit('compliance_rule_triggered', {'rule': 'blockchain_analytics', 'tx': tx})
-            triggered.append({'rule': 'blockchain_analytics', 'level': 2, 'desc': 'Blockchain analytics flagged crypto payout.'})
+            AffiliateBooster._audit(
+                "compliance_rule_triggered", {"rule": "blockchain_analytics", "tx": tx}
+            )
+            triggered.append(
+                {
+                    "rule": "blockchain_analytics",
+                    "level": 2,
+                    "desc": "Blockchain analytics flagged crypto payout.",
+                }
+            )
         return triggered
 
     @staticmethod
@@ -844,24 +1123,32 @@ class AffiliateBooster:
         Statelessly escalate compliance events based on triggered rules and escalation policy.
         All actions are logged and non-adaptive. Implements advanced escalation actions as stubs.
         """
-        max_level = max([r['level'] for r in triggered_rules], default=0)
+        max_level = max([r["level"] for r in triggered_rules], default=0)
         actions = AffiliateBooster.ESCALATION_POLICY.get(max_level, [])
-        AffiliateBooster._audit('compliance_escalation', {'level': max_level, 'actions': actions, 'tx': tx, 'rules': triggered_rules})
+        AffiliateBooster._audit(
+            "compliance_escalation",
+            {
+                "level": max_level,
+                "actions": actions,
+                "tx": tx,
+                "rules": triggered_rules,
+            },
+        )
         # Implement action stubs (wire up to Slack, Jira, freeze logic, legal, regulator, etc.)
         for action in actions:
-            if action == 'notify_affiliate_manager':
+            if action == "notify_affiliate_manager":
                 # Wire to Slack/Email alert
                 pass
-            elif action == 'create_compliance_ticket':
+            elif action == "create_compliance_ticket":
                 # Wire to Jira/ServiceNow
                 pass
-            elif action == 'escalate_to_executive':
+            elif action == "escalate_to_executive":
                 # Wire to executive/CFO alert
                 pass
-            elif action == 'freeze_payouts':
+            elif action == "freeze_payouts":
                 # Implement stateless payout freeze stub
                 pass
-            elif action == 'auto_export_audit_trail':
+            elif action == "auto_export_audit_trail":
                 # Export audit trail to PDF/XBRL and archive
                 pass
             # Extend with legal, regulator, KYC, blockchain, etc. as needed
@@ -876,14 +1163,26 @@ class AffiliateBooster:
         Halts execution and audits if triggered. Call at start of all critical methods.
         """
         import inspect
-        forbidden = ['open', 'write', 'exec', 'eval', 'pickle', 'shelve', 'setattr', 'delattr']
+
+        forbidden = [
+            "open",
+            "write",
+            "exec",
+            "eval",
+            "pickle",
+            "shelve",
+            "setattr",
+            "delattr",
+        ]
         stack = inspect.stack()
         for frame in stack:
-            code = frame.code_context[0] if frame.code_context else ''
+            code = frame.code_context[0] if frame.code_context else ""
             if any(f in code for f in forbidden):
-                raise RuntimeError('Sentience tripwire triggered: forbidden operation detected')
+                raise RuntimeError(
+                    "Sentience tripwire triggered: forbidden operation detected"
+                )
         # Audit tripwire check
-        AffiliateBooster._audit('sentience_tripwire_check', {'ok': True})
+        AffiliateBooster._audit("sentience_tripwire_check", {"ok": True})
 
     @staticmethod
     def immutable_deployment_verification(expected_hash: str) -> bool:
@@ -892,8 +1191,9 @@ class AffiliateBooster:
         Returns True if match, False otherwise. (Requires CI/CD integration for real use.)
         """
         import hashlib
+
         try:
-            with open(__file__, 'rb') as f:
+            with open(__file__, "rb") as f:
                 code = f.read()
             code_hash = hashlib.sha256(code).hexdigest()
             return code_hash == expected_hash
@@ -908,6 +1208,7 @@ class AffiliateBooster:
         """
         import hashlib
         import json
+
         proof = hashlib.sha256(json.dumps(tx, sort_keys=True).encode()).hexdigest()
         return f"ZKP-Proof:{proof}"
 
@@ -936,14 +1237,20 @@ class AffiliateBooster:
         return []
 
     @staticmethod
-    def explain_compliance_decision(triggered_rules: list, tx: dict, lang: str = 'en') -> str:
+    def explain_compliance_decision(
+        triggered_rules: list, tx: dict, lang: str = "en"
+    ) -> str:
         """
         Generate a stateless, human-readable explanation for why a transaction was flagged or escalated.
         Supports multi-language (stub, English only by default).
         """
-        explanations = [f"Rule: {r['desc']} (Level {r['level']})" for r in triggered_rules]
-        summary = f"Transaction {tx.get('id','N/A')} flagged for: " + "; ".join(explanations)
-        if lang != 'en':
+        explanations = [
+            f"Rule: {r['desc']} (Level {r['level']})" for r in triggered_rules
+        ]
+        summary = f"Transaction {tx.get('id','N/A')} flagged for: " + "; ".join(
+            explanations
+        )
+        if lang != "en":
             summary += f" [Translation to {lang} not implemented]"
         return summary
 
@@ -957,7 +1264,7 @@ class AffiliateBooster:
             AffiliateBooster.ai_anomaly_score(tx) > 0.7,
             AffiliateBooster.external_kyc_aml_check(tx) is False,
             AffiliateBooster.device_fingerprint_alert(tx),
-            AffiliateBooster.blockchain_analytics_check(tx)
+            AffiliateBooster.blockchain_analytics_check(tx),
         ]
         return results.count(True) >= 2
 
@@ -968,17 +1275,17 @@ class AffiliateBooster:
         Weighted sum of flags, jurisdiction, payout history, etc.
         """
         score = 0.0
-        if tx.get('payout', 0) > 10000:
+        if tx.get("payout", 0) > 10000:
             score += 2.0
-        if tx.get('fraud_flag', False):
+        if tx.get("fraud_flag", False):
             score += 3.0
-        if tx.get('tax_anomaly', False):
+        if tx.get("tax_anomaly", False):
             score += 2.0
-        if tx.get('jurisdiction', '') in ['IR', 'KP', 'SD', 'SY', 'CU', 'RU']:
+        if tx.get("jurisdiction", "") in ["IR", "KP", "SD", "SY", "CU", "RU"]:
             score += 5.0
-        if tx.get('kyc_valid', True) is False:
+        if tx.get("kyc_valid", True) is False:
             score += 2.0
-        if tx.get('anomaly_count', 0) > 3:
+        if tx.get("anomaly_count", 0) > 3:
             score += 1.0
         return min(score, 10.0)
 
@@ -991,13 +1298,16 @@ class AffiliateBooster:
         """
         import tempfile
         import json
+
         pack = {
-            'transaction': tx,
-            'triggered_rules': triggered_rules,
-            'explanation': AffiliateBooster.explain_compliance_decision(triggered_rules, tx),
-            'audit_log': 'audit_log_stub',
+            "transaction": tx,
+            "triggered_rules": triggered_rules,
+            "explanation": AffiliateBooster.explain_compliance_decision(
+                triggered_rules, tx
+            ),
+            "audit_log": "audit_log_stub",
         }
-        with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.json') as f:
+        with tempfile.NamedTemporaryFile(delete=False, mode="w", suffix=".json") as f:
             json.dump(pack, f, indent=2)
             return f.name
 
@@ -1009,25 +1319,25 @@ class AffiliateBooster:
         """
         # In real use, would query stateless analytics engine or recent txs
         return {
-            'affiliate_id': affiliate_id,
-            'risk_score': 0.0,
-            'flags': [],
-            'status': 'ok'
+            "affiliate_id": affiliate_id,
+            "risk_score": 0.0,
+            "flags": [],
+            "status": "ok",
         }
 
     @staticmethod
-    def localize_report(text: str, lang: str = 'en') -> str:
+    def localize_report(text: str, lang: str = "en") -> str:
         """
         Multi-language/localization support for reports/alerts. Deterministic, static translation for supported languages.
         Returns translated text (English, Spanish, French, German, Italian supported statically). Extension point for real translation API.
         """
         translations = {
-            'es': f"[ES] {text}",
-            'fr': f"[FR] {text}",
-            'de': f"[DE] {text}",
-            'it': f"[IT] {text}",
+            "es": f"[ES] {text}",
+            "fr": f"[FR] {text}",
+            "de": f"[DE] {text}",
+            "it": f"[IT] {text}",
         }
-        if lang == 'en':
+        if lang == "en":
             return text
         elif lang in translations:
             return translations[lang]
@@ -1042,7 +1352,10 @@ class AffiliateBooster:
         """
         import os
         import requests
-        AffiliateBooster._audit("regulatory_alert", {"event": event, "details": details})
+
+        AffiliateBooster._audit(
+            "regulatory_alert", {"event": event, "details": details}
+        )
         # SendGrid Email
         sendgrid_key = os.getenv("SENDGRID_API_KEY")
         alert_email = os.getenv("ALERT_EMAIL")
@@ -1050,17 +1363,24 @@ class AffiliateBooster:
             try:
                 resp = requests.post(
                     "https://api.sendgrid.com/v3/mail/send",
-                    headers={"Authorization": f"Bearer {sendgrid_key}", "Content-Type": "application/json"},
+                    headers={
+                        "Authorization": f"Bearer {sendgrid_key}",
+                        "Content-Type": "application/json",
+                    },
                     json={
                         "personalizations": [{"to": [{"email": alert_email}]}],
                         "from": {"email": alert_email},
                         "subject": f"[ALERT] {event}",
-                        "content": [{"type": "text/plain", "value": str(details)}]
-                    }
+                        "content": [{"type": "text/plain", "value": str(details)}],
+                    },
                 )
-                AffiliateBooster._audit("regulatory_alert_email", {"status": resp.status_code})
+                AffiliateBooster._audit(
+                    "regulatory_alert_email", {"status": resp.status_code}
+                )
             except Exception as e:
-                AffiliateBooster._audit("regulatory_alert_email_error", {"error": str(e)})
+                AffiliateBooster._audit(
+                    "regulatory_alert_email_error", {"error": str(e)}
+                )
         # Twilio SMS
         twilio_sid = os.getenv("TWILIO_ACCOUNT_SID")
         twilio_token = os.getenv("TWILIO_AUTH_TOKEN")
@@ -1071,27 +1391,45 @@ class AffiliateBooster:
                 resp = requests.post(
                     f"https://api.twilio.com/2010-04-01/Accounts/{twilio_sid}/Messages.json",
                     auth=(twilio_sid, twilio_token),
-                    data={"From": twilio_from, "To": twilio_to, "Body": f"[ALERT] {event}: {details}"}
+                    data={
+                        "From": twilio_from,
+                        "To": twilio_to,
+                        "Body": f"[ALERT] {event}: {details}",
+                    },
                 )
-                AffiliateBooster._audit("regulatory_alert_sms", {"status": resp.status_code})
+                AffiliateBooster._audit(
+                    "regulatory_alert_sms", {"status": resp.status_code}
+                )
             except Exception as e:
                 AffiliateBooster._audit("regulatory_alert_sms_error", {"error": str(e)})
         # Slack
         slack_webhook = os.getenv("SLACK_WEBHOOK_URL")
         if slack_webhook:
             try:
-                resp = requests.post(slack_webhook, json={"text": f"[ALERT] {event}: {details}"})
-                AffiliateBooster._audit("regulatory_alert_slack", {"status": resp.status_code})
+                resp = requests.post(
+                    slack_webhook, json={"text": f"[ALERT] {event}: {details}"}
+                )
+                AffiliateBooster._audit(
+                    "regulatory_alert_slack", {"status": resp.status_code}
+                )
             except Exception as e:
-                AffiliateBooster._audit("regulatory_alert_slack_error", {"error": str(e)})
+                AffiliateBooster._audit(
+                    "regulatory_alert_slack_error", {"error": str(e)}
+                )
         # Discord
         discord_webhook = os.getenv("DISCORD_WEBHOOK_URL")
         if discord_webhook:
             try:
-                resp = requests.post(discord_webhook, json={"content": f"[ALERT] {event}: {details}"})
-                AffiliateBooster._audit("regulatory_alert_discord", {"status": resp.status_code})
+                resp = requests.post(
+                    discord_webhook, json={"content": f"[ALERT] {event}: {details}"}
+                )
+                AffiliateBooster._audit(
+                    "regulatory_alert_discord", {"status": resp.status_code}
+                )
             except Exception as e:
-                AffiliateBooster._audit("regulatory_alert_discord_error", {"error": str(e)})
+                AffiliateBooster._audit(
+                    "regulatory_alert_discord_error", {"error": str(e)}
+                )
         print(f"[ALERT] {event}: {details}")
 
     @staticmethod
@@ -1108,7 +1446,10 @@ class AffiliateBooster:
         """
         Integrate with workflow/ticketing system (stub for Jira, ServiceNow, Zapier).
         """
-        AffiliateBooster._audit("workflow_integration", {"system": system, "event": event, "details": details})
+        AffiliateBooster._audit(
+            "workflow_integration",
+            {"system": system, "event": event, "details": details},
+        )
         # TODO: Implement real integration
         print(f"[WORKFLOW] ({system}) {event}: {details}")
 
@@ -1117,7 +1458,9 @@ class AffiliateBooster:
         """
         Multi-level audit trail for compliance (level=1: normal, level=2: escalated, etc.).
         """
-        AffiliateBooster._audit(f"audit_level_{level}", {"event": event, "details": details})
+        AffiliateBooster._audit(
+            f"audit_level_{level}", {"event": event, "details": details}
+        )
 
     @staticmethod
     def compliance_fix_suggestions(fraud_type: str) -> str:
@@ -1129,7 +1472,7 @@ class AffiliateBooster:
             "Mismatched jurisdiction": "Initiate manual jurisdiction review and request supporting documents.",
             "Underreported earnings": "Flag transaction for compliance audit and freeze payout.",
             "Overclaimed VAT refund": "Reverse VAT refund and escalate to compliance officer.",
-            None: "Flag for manual review."
+            None: "Flag for manual review.",
         }
         return suggestions.get(fraud_type, "Flag for compliance review.")
 
@@ -1137,7 +1480,9 @@ class AffiliateBooster:
         # SAFE_AI_COMPLIANT: Initialization is static, deterministic, and non-adaptive.
         self._random_seed = 0  # Static seed for deterministic behavior
         self._statelessness_check()
-        logger.info("[AffiliateBooster] Initialized. All operations are stateless, deterministic, and non-adaptive.")
+        logger.info(
+            "[AffiliateBooster] Initialized. All operations are stateless, deterministic, and non-adaptive."
+        )
 
     @staticmethod
     def _statelessness_check():
@@ -1148,13 +1493,14 @@ class AffiliateBooster:
     def _audit(event: str, details: dict):
         # SAFE AI: AES-256 encrypted persistent audit log for all affiliate/referral/viral/upsell/compliance actions
         from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
+
         entry = {
             "event": event,
             "details": details,
             "timestamp": datetime.utcnow().isoformat(),
             "SAFE_AI_COMPLIANT": True,
             "OWNER_CONTROLLED": True,
-            "NON_SENTIENT": True
+            "NON_SENTIENT": True,
         }
         AffiliateBooster._audit_log.append(entry)
         encrypted_log = encrypt_audit_log_entry(entry)
@@ -1162,10 +1508,12 @@ class AffiliateBooster:
             f.write(encrypted_log + "\n")
         logger.info(f"[AUDIT] {event}: {details}")
 
-    # All extension points below are statically locked for SAFE AI compliance.
+        # All extension points below are statically locked for SAFE AI compliance.
 
         self._statelessness_check()
-        rate = self.DEFAULT_TAX_RATES.get(country_code.upper(), self.DEFAULT_TAX_RATES["GLOBAL"])
+        rate = self.DEFAULT_TAX_RATES.get(
+            country_code.upper(), self.DEFAULT_TAX_RATES["GLOBAL"]
+        )
         self._audit("get_tax_rate", {"country_code": country_code, "rate": rate})
         return rate
 
@@ -1178,10 +1526,15 @@ class AffiliateBooster:
             raise ValueError("Amount must be non-negative for tax calculation.")
         rate = self._get_tax_rate(country_code)
         tax = round(amount * rate, 2)
-        self._audit("calculate_tax", {"amount": amount, "country_code": country_code, "tax": tax})
+        self._audit(
+            "calculate_tax",
+            {"amount": amount, "country_code": country_code, "tax": tax},
+        )
         return tax
 
-    def _simulate_tax_fraud_scenario(self, affiliate_id: str, country_code: str) -> dict:
+    def _simulate_tax_fraud_scenario(
+        self, affiliate_id: str, country_code: str
+    ) -> dict:
         """
         SAFE_AI_COMPLIANT: Static, deterministic simulation of tax fraud/anomaly scenarios for compliance testing.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1192,16 +1545,37 @@ class AffiliateBooster:
             "Fake tax ID",
             "Mismatched jurisdiction",
             "Underreported earnings",
-            "Overclaimed VAT refund"
+            "Overclaimed VAT refund",
         ]
         hash_val = abs(hash(affiliate_id + country_code))
-        fraud_flag = (hash_val % 10 == 0)
+        fraud_flag = hash_val % 10 == 0
         fraud_type = fraud_types[hash_val % len(fraud_types)] if fraud_flag else None
         anomaly_score = 75 if fraud_flag else 0
-        self._audit("simulate_tax_fraud", {"affiliate_id": affiliate_id, "country_code": country_code, "fraud_flag": fraud_flag, "fraud_type": fraud_type, "anomaly_score": anomaly_score})
-        return {"tax_fraud_flag": fraud_flag, "tax_fraud_type": fraud_type, "tax_anomaly_score": anomaly_score}
+        self._audit(
+            "simulate_tax_fraud",
+            {
+                "affiliate_id": affiliate_id,
+                "country_code": country_code,
+                "fraud_flag": fraud_flag,
+                "fraud_type": fraud_type,
+                "anomaly_score": anomaly_score,
+            },
+        )
+        return {
+            "tax_fraud_flag": fraud_flag,
+            "tax_fraud_type": fraud_type,
+            "tax_anomaly_score": anomaly_score,
+        }
 
-    def generate_tax_report(self, product_id: str, affiliate_id: str, country_code: str, earnings: float, format: str = "summary", address_or_ip: str = None) -> dict:
+    def generate_tax_report(
+        self,
+        product_id: str,
+        affiliate_id: str,
+        country_code: str,
+        earnings: float,
+        format: str = "summary",
+        address_or_ip: str = None,
+    ) -> dict:
         """
         Generates an elite, audit-compliant tax report for affiliate earnings.
         - Uses real-time jurisdiction lookup if address_or_ip is provided.
@@ -1230,7 +1604,7 @@ class AffiliateBooster:
             "tax_fraud_flag": fraud["tax_fraud_flag"],
             "tax_fraud_type": fraud["tax_fraud_type"],
             "tax_anomaly_score": fraud["tax_anomaly_score"],
-            "fix_suggestion": fix_suggestion
+            "fix_suggestion": fix_suggestion,
         }
         if fraud["tax_fraud_flag"]:
             # Regulatory alert
@@ -1246,14 +1620,16 @@ class AffiliateBooster:
             report["calculation_details"] = {
                 "base": earnings,
                 "rate": self._get_tax_rate(country_code),
-                "tax": tax
+                "tax": tax,
             }
         if format == "audit":
             report["audit_trail"] = list(self._audit_log)[-10:]  # Last 10 audit events
         self._audit("generate_tax_report", report)
         return report
 
-    def _generate_simulated_affiliate_link(self, product_id: str, affiliate_id: str) -> str:
+    def _generate_simulated_affiliate_link(
+        self, product_id: str, affiliate_id: str
+    ) -> str:
         """
         SAFE_AI_COMPLIANT: Generates a static, deterministic affiliate link with anti-fraud and anti-tampering features.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1267,10 +1643,15 @@ class AffiliateBooster:
         expiry = "2099-12-31T23:59:59Z"  # Static expiry for determinism
         ref = f"{hash_val % 100000000:08d}"
         link = f"{base_url}{product_id[:5]}_{affiliate_id[:4]}?ref={ref}&exp={expiry}"
-        self._audit("generate_affiliate_link", {"product_id": product_id, "affiliate_id": affiliate_id, "link": link})
+        self._audit(
+            "generate_affiliate_link",
+            {"product_id": product_id, "affiliate_id": affiliate_id, "link": link},
+        )
         return link
 
-    def _simulate_dashboard_data(self, affiliate_link: str, product_name: str) -> Dict[str, Any]:
+    def _simulate_dashboard_data(
+        self, affiliate_link: str, product_name: str
+    ) -> Dict[str, Any]:
         """
         SAFE_AI_COMPLIANT: Statistically deterministic simulation of dashboard data for an affiliate.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1279,16 +1660,22 @@ class AffiliateBooster:
         # Deterministic values based on affiliate_link hash
         hash_val = abs(hash(affiliate_link + product_name))
         sim_clicks = 500 + (hash_val % 501)  # 500-1000
-        sim_conversions = (sim_clicks // 5)  # Always 20% conversion
-        sim_conversion_rate = (sim_conversions / sim_clicks) * 100 if sim_clicks > 0 else 0
-        sim_total_earnings = round(sim_conversions * 7.0, 2)  # Fixed payout per conversion
+        sim_conversions = sim_clicks // 5  # Always 20% conversion
+        sim_conversion_rate = (
+            (sim_conversions / sim_clicks) * 100 if sim_clicks > 0 else 0
+        )
+        sim_total_earnings = round(
+            sim_conversions * 7.0, 2
+        )  # Fixed payout per conversion
         hourly_clicks = [int(sim_clicks / 24)] * 24
         hourly_conversions = [int(sim_conversions / 24)] * 24
         geo_codes = ["US", "IN", "RU", "CN", "BR", "NG", "DE", "GB", "CA", "AU"]
         geo_index = hash_val % len(geo_codes)
         geo_counts = {geo_codes[geo_index]: 10}
         device_fingerprints = [f"dev{(hash_val + i) % 10000:04d}" for i in range(5)]
-        device_counts = {d: device_fingerprints.count(d) for d in set(device_fingerprints)}
+        device_counts = {
+            d: device_fingerprints.count(d) for d in set(device_fingerprints)
+        }
         # Fraud/anomaly flags
         fraud_flag = False
         anomaly_score = 0
@@ -1296,7 +1683,9 @@ class AffiliateBooster:
         if sim_clicks > 800 and sim_conversion_rate < 2:
             fraud_flag = True
             anomaly_score += 30
-            fraud_reasons.append("Click farming suspected: high clicks, low conversions.")
+            fraud_reasons.append(
+                "Click farming suspected: high clicks, low conversions."
+            )
         if any(c > 0.8 * sim_clicks for c in hourly_clicks):
             fraud_flag = True
             anomaly_score += 20
@@ -1327,12 +1716,21 @@ class AffiliateBooster:
             "hourly_clicks": hourly_clicks,
             "hourly_conversions": hourly_conversions,
             "geo_distribution": geo_counts,
-            "device_fingerprints": device_fingerprints
+            "device_fingerprints": device_fingerprints,
         }
-        self._audit("simulate_dashboard_data", {"affiliate_link": affiliate_link, "product_name": product_name, "dashboard": dashboard})
+        self._audit(
+            "simulate_dashboard_data",
+            {
+                "affiliate_link": affiliate_link,
+                "product_name": product_name,
+                "dashboard": dashboard,
+            },
+        )
         return dashboard
 
-    def _calculate_simulated_share(self, total_product_sales_value: float, referral_percentage: float) -> float:
+    def _calculate_simulated_share(
+        self, total_product_sales_value: float, referral_percentage: float
+    ) -> float:
         """
         SAFE_AI_COMPLIANT: Deterministic calculation of affiliate's share. OWNER_CONTROLLED, NON_SENTIENT.
         """
@@ -1340,32 +1738,60 @@ class AffiliateBooster:
         if total_product_sales_value < 0 or not (0.01 <= referral_percentage <= 0.99):
             raise ValueError("Invalid input for share calculation.")
         share = total_product_sales_value * referral_percentage
-        self._audit("calculate_simulated_share", {"total_value": total_product_sales_value, "referral_percentage": referral_percentage, "share": share})
+        self._audit(
+            "calculate_simulated_share",
+            {
+                "total_value": total_product_sales_value,
+                "referral_percentage": referral_percentage,
+                "share": share,
+            },
+        )
         return round(share, 2)
 
-    def setup_affiliate_program_elements(self, product_id: str, product_name: str, product_price: float, affiliate_id: str, affiliate_name: str) -> Optional[Dict[str, Any]]:
+    def setup_affiliate_program_elements(
+        self,
+        product_id: str,
+        product_name: str,
+        product_price: float,
+        affiliate_id: str,
+        affiliate_name: str,
+    ) -> Optional[Dict[str, Any]]:
         """
         SAFE_AI_COMPLIANT: Deterministic setup of affiliate program elements for a product and an affiliate.
         OWNER_CONTROLLED, NON_SENTIENT.
         Fully validated, non-adaptive, and non-learning. All extension points are statically locked.
         """
         self._statelessness_check()
-        if not all([product_id, product_name, affiliate_id, affiliate_name]) or product_price <= 0:
+        if (
+            not all([product_id, product_name, affiliate_id, affiliate_name])
+            or product_price <= 0
+        ):
             logger.error("Invalid input for affiliate program setup.")
             return None
-        logger.info(f"[AffiliateBooster] Setting up simulated affiliate elements for product '{product_name}' (ID: {product_id}) and affiliate '{affiliate_name}' (ID: {affiliate_id}).")
-        affiliate_link = self._generate_simulated_affiliate_link(product_id, affiliate_id)
+        logger.info(
+            f"[AffiliateBooster] Setting up simulated affiliate elements for product '{product_name}' (ID: {product_id}) and affiliate '{affiliate_name}' (ID: {affiliate_id})."
+        )
+        affiliate_link = self._generate_simulated_affiliate_link(
+            product_id, affiliate_id
+        )
         dashboard_data = self._simulate_dashboard_data(affiliate_link, product_name)
         simulated_referred_sales_count = dashboard_data.get("simulated_conversions", 0)
-        if not isinstance(simulated_referred_sales_count, int) or simulated_referred_sales_count < 0:
+        if (
+            not isinstance(simulated_referred_sales_count, int)
+            or simulated_referred_sales_count < 0
+        ):
             simulated_referred_sales_count = 0  # Static fallback
-            logger.warning("Corrected corrupted simulated_referred_sales_count for share calculation.")
+            logger.warning(
+                "Corrected corrupted simulated_referred_sales_count for share calculation."
+            )
         total_value_of_referred_sales = simulated_referred_sales_count * product_price
         # Deterministic referral percentage based on hash
         hash_val = abs(hash(product_id + affiliate_id))
         static_percentages = [0.10, 0.15, 0.20, 0.25, 0.30]
         referral_percentage = static_percentages[hash_val % len(static_percentages)]
-        affiliate_share_simulated = self._calculate_simulated_share(total_value_of_referred_sales, referral_percentage)
+        affiliate_share_simulated = self._calculate_simulated_share(
+            total_value_of_referred_sales, referral_percentage
+        )
         program_elements = {
             "product_id": product_id,
             "product_name": product_name,
@@ -1375,13 +1801,28 @@ class AffiliateBooster:
             "simulated_dashboard_snapshot": dashboard_data,
             "simulated_referral_percentage": f"{referral_percentage*100:.0f}%",
             "simulated_earnings_from_snapshot": affiliate_share_simulated,
-            "setup_timestamp_simulated": "2099-12-31T23:59:59Z"
+            "setup_timestamp_simulated": "2099-12-31T23:59:59Z",
         }
-        self._audit("setup_affiliate_program_elements", {"product_id": product_id, "affiliate_id": affiliate_id, "elements": program_elements})
-        logger.info(f"[AffiliateBooster] Successfully simulated affiliate program element setup for product {product_id}, affiliate {affiliate_id}.")
+        self._audit(
+            "setup_affiliate_program_elements",
+            {
+                "product_id": product_id,
+                "affiliate_id": affiliate_id,
+                "elements": program_elements,
+            },
+        )
+        logger.info(
+            f"[AffiliateBooster] Successfully simulated affiliate program element setup for product {product_id}, affiliate {affiliate_id}."
+        )
         return program_elements
 
-    def generate_affiliate_report(self, product_id: str, affiliate_id: str, dashboard_data: dict, program_elements: dict) -> str:
+    def generate_affiliate_report(
+        self,
+        product_id: str,
+        affiliate_id: str,
+        dashboard_data: dict,
+        program_elements: dict,
+    ) -> str:
         """
         Generates a comprehensive JSON report on affiliate activity, fraud, and anomalies.
         Includes summary, fraud analysis, and all simulated metrics.
@@ -1394,8 +1835,12 @@ class AffiliateBooster:
             "summary": {
                 "affiliate_name": program_elements.get("affiliate_name"),
                 "product_name": program_elements.get("product_name"),
-                "simulated_earnings": program_elements.get("simulated_earnings_from_snapshot"),
-                "referral_percentage": program_elements.get("simulated_referral_percentage"),
+                "simulated_earnings": program_elements.get(
+                    "simulated_earnings_from_snapshot"
+                ),
+                "referral_percentage": program_elements.get(
+                    "simulated_referral_percentage"
+                ),
             },
             "dashboard_snapshot": dashboard_data,
             "fraud_analysis": {
@@ -1403,11 +1848,17 @@ class AffiliateBooster:
                 "anomaly_score": dashboard_data.get("anomaly_score"),
                 "fraud_reasons": dashboard_data.get("fraud_reasons", []),
             },
-            "raw_elements": program_elements
+            "raw_elements": program_elements,
         }
-        self._audit("generate_affiliate_report", {"product_id": product_id, "affiliate_id": affiliate_id, "report": report})
-        logger.info(f"Generated affiliate report for product {product_id}, affiliate {affiliate_id}.")
+        self._audit(
+            "generate_affiliate_report",
+            {"product_id": product_id, "affiliate_id": affiliate_id, "report": report},
+        )
+        logger.info(
+            f"Generated affiliate report for product {product_id}, affiliate {affiliate_id}."
+        )
         return json.dumps(report, indent=2)
+
 
 # Example Usage
 if __name__ == "__main__":
@@ -1423,26 +1874,33 @@ if __name__ == "__main__":
     # Anti-sentience: Randomly alter input for test variation
     if random.random() < 0.2:
         sim_product_price = round(random.uniform(5.0, 99.0), 2)
-        logger.info(f"Example: Randomized product price to ${sim_product_price} for testing.")
+        logger.info(
+            f"Example: Randomized product price to ${sim_product_price} for testing."
+        )
 
     elements = affiliate_booster.setup_affiliate_program_elements(
         product_id=sim_product_id,
         product_name=sim_product_name,
         product_price=sim_product_price,
         affiliate_id=sim_affiliate_id,
-        affiliate_name=sim_affiliate_name
+        affiliate_name=sim_affiliate_name,
     )
 
     if elements:
-        print(f"\n🔗 Generated Affiliate Program Elements for '{sim_product_name}' / '{sim_affiliate_name}' 🔗")
+        print(
+            f"\n🔗 Generated Affiliate Program Elements for '{sim_product_name}' / '{sim_affiliate_name}' 🔗"
+        )
         print(json.dumps(elements, indent=2))
         # Expanded reporting example
         dashboard = elements.get("simulated_dashboard_snapshot", {})
-        report = affiliate_booster.generate_affiliate_report(sim_product_id, sim_affiliate_id, dashboard, elements)
+        report = affiliate_booster.generate_affiliate_report(
+            sim_product_id, sim_affiliate_id, dashboard, elements
+        )
         print("\n📊 Affiliate Report:")
         print(report)
     else:
-        print("\nFailed to set up affiliate program elements (simulated critical failure).")
-    
-    logger.info("--- AffiliateBooster Example Finished ---")
+        print(
+            "\nFailed to set up affiliate program elements (simulated critical failure)."
+        )
 
+    logger.info("--- AffiliateBooster Example Finished ---")

@@ -10,7 +10,8 @@ import logging
 LOG_PATH = "../../distribution/legal_exports/prompt_fingerprint_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
+
 def fingerprint_prompt(prompt_text):
-    fp = hashlib.sha256(prompt_text.encode('utf-8')).hexdigest()
+    fp = hashlib.sha256(prompt_text.encode("utf-8")).hexdigest()
     logging.info(f"Prompt fingerprint: {fp}")
     return fp

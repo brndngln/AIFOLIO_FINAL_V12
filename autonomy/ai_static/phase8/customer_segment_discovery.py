@@ -12,8 +12,11 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 SEGMENTS = ["enterprise", "smb", "consumer"]
 
+
 def discover_customer_segments(triggered_by):
     timestamp = datetime.utcnow().isoformat()
-    event = f"[{timestamp}] CUSTOMER SEGMENTS: {SEGMENTS} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] CUSTOMER SEGMENTS: {SEGMENTS} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return SEGMENTS

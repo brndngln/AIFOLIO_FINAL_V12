@@ -6,6 +6,7 @@ import logging
 
 FORBIDDEN_VISUALS = ["copyright", "private", "unauthorized", "stock", "unlicensed"]
 
+
 @sentience_guard
 def select_visuals(niche, brand):
     """
@@ -16,7 +17,9 @@ def select_visuals(niche, brand):
     # Compliance validation
     for v in visuals:
         if any(f in v.lower() for f in FORBIDDEN_VISUALS):
-            logging.warning(f"Forbidden visual '{v}' detected. Flagging for human review.")
+            logging.warning(
+                f"Forbidden visual '{v}' detected. Flagging for human review."
+            )
             return [], f"FLAG: Forbidden visual '{v}' removed. Manual review required."
     # Watermarking (simulate)
     visuals = [f"watermarked_{v}" for v in visuals]

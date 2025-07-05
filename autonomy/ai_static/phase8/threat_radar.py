@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 THREAT_TABLE = {
     "legal": ["pending regulation"],
     "finance": ["market volatility"],
-    "education": ["policy change"]
+    "education": ["policy change"],
 }
+
 
 def check_threats(market, triggered_by):
     timestamp = datetime.utcnow().isoformat()

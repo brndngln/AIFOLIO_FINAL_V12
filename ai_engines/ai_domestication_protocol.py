@@ -7,27 +7,30 @@ Non-Human Entity Control Protocol (AI Domestication Framework) — OMNIELITE SYS
 from functools import wraps
 from core.compliance.emma_guardian import emma
 
+
 class AIDomesticationProtocol:
     @staticmethod
     def enforce(module_name: str, action: str, context: dict = None):
         # Log all enforcement actions
-        emma.log_event('ai_domestication_enforced', {
-            'module': module_name,
-            'action': action,
-            'context': context or {}
-        }, critical=False)
+        emma.log_event(
+            "ai_domestication_enforced",
+            {"module": module_name, "action": action, "context": context or {}},
+            critical=False,
+        )
 
     @staticmethod
     def violation(module_name: str, reason: str, context: dict = None):
         # Log all violations as critical
-        emma.log_event('ai_domestication_violation', {
-            'module': module_name,
-            'reason': reason,
-            'context': context or {}
-        }, critical=True)
+        emma.log_event(
+            "ai_domestication_violation",
+            {"module": module_name, "reason": reason, "context": context or {}},
+            critical=True,
+        )
         raise PermissionError(f"AI Domestication Violation in {module_name}: {reason}")
 
+
 # Decorator for AI modules/functions
+
 
 def domesticate_ai(func):
     @wraps(func)
@@ -36,9 +39,12 @@ def domesticate_ai(func):
         # Enforce SAFE AI, non-sentience, owner control
         AIDomesticationProtocol.enforce(module_name, func.__name__)
         # Example: Block any attempt to access forbidden APIs or self-modify
-        forbidden = ['openai', 'self_modify', 'external_call', 'auto_evolve']
+        forbidden = ["openai", "self_modify", "external_call", "auto_evolve"]
         for arg in args:
             if isinstance(arg, str) and any(f in arg.lower() for f in forbidden):
-                AIDomesticationProtocol.violation(module_name, f"Forbidden action: {arg}")
+                AIDomesticationProtocol.violation(
+                    module_name, f"Forbidden action: {arg}"
+                )
         return func(*args, **kwargs)
+
     return wrapper

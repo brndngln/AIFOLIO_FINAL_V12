@@ -1,11 +1,14 @@
 import streamlit as st
 import json
+
 # Emma Compliance Lock
 OWNER_LOCK = True
 import os
 import time
 
-EVENT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/vault_event_log.jsonl'))
+EVENT_LOG = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/vault_event_log.jsonl")
+)
 
 st.set_page_config(page_title="Vault Dashboard (Realtime)", layout="wide")
 st.title("Vault Dashboard (Realtime)")

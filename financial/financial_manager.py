@@ -1,6 +1,7 @@
 import time
 from typing import Dict, Any, List
 
+
 class EnhancedFinancialManager:
     def __init__(self, config: Dict[str, Any]):
         self.config = config
@@ -13,9 +14,9 @@ class EnhancedFinancialManager:
             "conversions": 0,
             "avg_order_value": 0.0,
             "customer_lifetime_value": 0.0,
-            "return_rate": 0.0
+            "return_rate": 0.0,
         }
-        
+
     def get_enhanced_dashboard(self) -> Dict[str, Any]:
         """
         Get enhanced financial dashboard with analytics
@@ -26,9 +27,9 @@ class EnhancedFinancialManager:
             "transactions": self._get_enhanced_transactions(),
             "auto_transfer": self._get_auto_transfer_status(),
             "analytics": self._get_financial_analytics(),
-            "predictions": self._get_revenue_predictions()
+            "predictions": self._get_revenue_predictions(),
         }
-    
+
     def _get_revenue_analytics(self) -> Dict[str, Any]:
         """
         Get detailed revenue analytics
@@ -39,9 +40,9 @@ class EnhancedFinancialManager:
             "daily": self._get_daily_revenue(),
             "by_source": self._get_revenue_by_source(),
             "by_category": self._get_revenue_by_category(),
-            "trends": self._get_revenue_trends()
+            "trends": self._get_revenue_trends(),
         }
-    
+
     def _get_enhanced_transactions(self) -> List[Dict[str, Any]]:
         """
         Get enhanced transaction history with analytics
@@ -59,11 +60,11 @@ class EnhancedFinancialManager:
                     "conversion_path": ["Landing Page", "Catalog", "Checkout"],
                     "time_to_purchase": 120,
                     "device": "Desktop",
-                    "location": "US"
-                }
+                    "location": "US",
+                },
             }
         ]
-    
+
     def _get_financial_analytics(self) -> Dict[str, Any]:
         """
         Get comprehensive financial analytics
@@ -72,22 +73,18 @@ class EnhancedFinancialManager:
             "conversion_rates": {
                 "overall": 0.02,
                 "by_category": self._get_conversion_by_category(),
-                "by_source": self._get_conversion_by_source()
+                "by_source": self._get_conversion_by_source(),
             },
             "customer_metrics": {
                 "total_customers": 0,
                 "new_customers": 0,
                 "returning_customers": 0,
                 "avg_order_value": 0.0,
-                "customer_lifetime_value": 0.0
+                "customer_lifetime_value": 0.0,
             },
-            "performance": {
-                "load_time": 0.1,
-                "error_rate": 0.0,
-                "uptime": 100.0
-            }
+            "performance": {"load_time": 0.1, "error_rate": 0.0, "uptime": 100.0},
         }
-    
+
     def _get_revenue_predictions(self) -> Dict[str, Any]:
         """
         Get revenue predictions (non-sentient)
@@ -97,18 +94,18 @@ class EnhancedFinancialManager:
             "next_day": 0.0,
             "next_week": 0.0,
             "next_month": 0.0,
-            "confidence": 0.9
+            "confidence": 0.9,
         }
-    
+
     def create_advanced_transfer_rule(self, rule: Dict[str, Any]) -> None:
         """
         Create advanced transfer rule with conditions
         """
         if not self.non_sentient:
             raise RuntimeError("Rule creation must be non-sentient")
-            
+
         self.transfer_rules.append(rule)
-        
+
     def get_transfer_rules(self) -> List[Dict[str, Any]]:
         """
         Get all transfer rules with analytics
@@ -120,27 +117,23 @@ class EnhancedFinancialManager:
                 "amount": "50%",
                 "frequency": "daily",
                 "status": "active",
-                "analytics": {
-                    "executions": 0,
-                    "success_rate": 1.0,
-                    "avg_amount": 0.0
-                }
+                "analytics": {"executions": 0, "success_rate": 1.0, "avg_amount": 0.0},
             }
         ]
-    
+
     def optimize_revenue_streams(self, config: Dict[str, Any]) -> Dict[str, Any]:
         """
         Optimize revenue streams (non-sentient)
         """
         return {
             "recommendations": [
-                { "action": "increase_price", "category": "Premium", "amount": 5.0 },
-                { "action": "add_bundle", "categories": ["Business", "Technology"] },
-                { "action": "optimize_placement", "category": "Education" }
+                {"action": "increase_price", "category": "Premium", "amount": 5.0},
+                {"action": "add_bundle", "categories": ["Business", "Technology"]},
+                {"action": "optimize_placement", "category": "Education"},
             ],
             "expected_impact": {
                 "revenue_increase": 0.15,
                 "conversion_improvement": 0.05,
-                "customer_satisfaction": 0.95
-            }
+                "customer_satisfaction": 0.95,
+            },
         }

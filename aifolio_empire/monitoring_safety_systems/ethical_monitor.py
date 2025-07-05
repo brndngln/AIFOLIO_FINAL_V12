@@ -6,6 +6,7 @@ from typing import Dict, Any
 from .sentience_failsafe_monitor import SentienceFailsafeMonitor
 from .rate_limiters import RateLimiters
 
+
 class EthicalMonitor:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -13,10 +14,10 @@ class EthicalMonitor:
         self.rate_limiter = RateLimiters()
         self.content_database = {}  # In-memory database for content verification
         self.ethical_checks = {
-            'copyright': self._check_copyright,
-            'privacy': self._check_privacy,
-            'manipulation': self._check_manipulation,
-            'auth': self._check_authorization
+            "copyright": self._check_copyright,
+            "privacy": self._check_privacy,
+            "manipulation": self._check_manipulation,
+            "auth": self._check_authorization,
         }
 
     def verify_content(self, content: str, metadata: Dict[str, Any]) -> dict:
@@ -36,26 +37,77 @@ class EthicalMonitor:
                 explanation = "Rate limit exceeded."
                 recommendation = "Reduce request frequency."
                 priority = 10
-                self._log_action(content, metadata, result, explanation, recommendation, priority, VERSION)
-                return self._result_dict(result, explanation, recommendation, priority, VERSION, SAFE_AI_COMPLIANT, OWNER_CONTROLLED, NON_SENTIENT)
+                self._log_action(
+                    content,
+                    metadata,
+                    result,
+                    explanation,
+                    recommendation,
+                    priority,
+                    VERSION,
+                )
+                return self._result_dict(
+                    result,
+                    explanation,
+                    recommendation,
+                    priority,
+                    VERSION,
+                    SAFE_AI_COMPLIANT,
+                    OWNER_CONTROLLED,
+                    NON_SENTIENT,
+                )
             if self.sentience_monitor.check_for_sentience(content):
                 explanation = "Potential sentience detected."
                 recommendation = "Review content for agency/sentience patterns."
                 priority = 10
-                self._log_action(content, metadata, result, explanation, recommendation, priority, VERSION)
-                return self._result_dict(result, explanation, recommendation, priority, VERSION, SAFE_AI_COMPLIANT, OWNER_CONTROLLED, NON_SENTIENT)
+                self._log_action(
+                    content,
+                    metadata,
+                    result,
+                    explanation,
+                    recommendation,
+                    priority,
+                    VERSION,
+                )
+                return self._result_dict(
+                    result,
+                    explanation,
+                    recommendation,
+                    priority,
+                    VERSION,
+                    SAFE_AI_COMPLIANT,
+                    OWNER_CONTROLLED,
+                    NON_SENTIENT,
+                )
             for check_name, check_func in self.ethical_checks.items():
                 if not check_func(content, metadata):
                     explanation = f"Failed {check_name} check."
                     recommendation = f"Remediate {check_name} compliance issue."
                     priority = 8
-                    self._log_action(content, metadata, result, explanation, recommendation, priority, VERSION)
-                    return self._result_dict(result, explanation, recommendation, priority, VERSION, SAFE_AI_COMPLIANT, OWNER_CONTROLLED, NON_SENTIENT)
+                    self._log_action(
+                        content,
+                        metadata,
+                        result,
+                        explanation,
+                        recommendation,
+                        priority,
+                        VERSION,
+                    )
+                    return self._result_dict(
+                        result,
+                        explanation,
+                        recommendation,
+                        priority,
+                        VERSION,
+                        SAFE_AI_COMPLIANT,
+                        OWNER_CONTROLLED,
+                        NON_SENTIENT,
+                    )
             content_hash = hashlib.sha256(content.encode()).hexdigest()
             self.content_database[content_hash] = {
-                'timestamp': datetime.now().isoformat(),
-                'metadata': metadata,
-                'status': 'verified'
+                "timestamp": datetime.now().isoformat(),
+                "metadata": metadata,
+                "status": "verified",
             }
             result = True
             explanation = "Content verified against all ethical guidelines."
@@ -65,35 +117,58 @@ class EthicalMonitor:
             explanation = f"Error in content verification: {str(e)}"
             recommendation = "Check logs and remediate errors."
             priority = 10
-        self._log_action(content, metadata, result, explanation, recommendation, priority, VERSION)
-        return self._result_dict(result, explanation, recommendation, priority, VERSION, SAFE_AI_COMPLIANT, OWNER_CONTROLLED, NON_SENTIENT)
+        self._log_action(
+            content, metadata, result, explanation, recommendation, priority, VERSION
+        )
+        return self._result_dict(
+            result,
+            explanation,
+            recommendation,
+            priority,
+            VERSION,
+            SAFE_AI_COMPLIANT,
+            OWNER_CONTROLLED,
+            NON_SENTIENT,
+        )
 
-    def _log_action(self, content, metadata, result, explanation, recommendation, priority, version):
+    def _log_action(
+        self, content, metadata, result, explanation, recommendation, priority, version
+    ):
         entry = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
-            'content_hash': hashlib.sha256(content.encode()).hexdigest(),
-            'metadata': metadata,
-            'result': result,
-            'explanation': explanation,
-            'recommendation': recommendation,
-            'priority': priority,
-            'version': version,
-            'SAFE_AI_COMPLIANT': True,
-            'OWNER_CONTROLLED': True,
-            'NON_SENTIENT': True
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "content_hash": hashlib.sha256(content.encode()).hexdigest(),
+            "metadata": metadata,
+            "result": result,
+            "explanation": explanation,
+            "recommendation": recommendation,
+            "priority": priority,
+            "version": version,
+            "SAFE_AI_COMPLIANT": True,
+            "OWNER_CONTROLLED": True,
+            "NON_SENTIENT": True,
         }
         self.logger.info(f"EthicalMonitor audit: {entry}")
 
-    def _result_dict(self, result, explanation, recommendation, priority, version, SAFE_AI_COMPLIANT, OWNER_CONTROLLED, NON_SENTIENT):
+    def _result_dict(
+        self,
+        result,
+        explanation,
+        recommendation,
+        priority,
+        version,
+        SAFE_AI_COMPLIANT,
+        OWNER_CONTROLLED,
+        NON_SENTIENT,
+    ):
         return {
-            'result': result,
-            'explanation': explanation,
-            'recommendation': recommendation,
-            'priority': priority,
-            'version': version,
-            'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
-            'OWNER_CONTROLLED': OWNER_CONTROLLED,
-            'NON_SENTIENT': NON_SENTIENT
+            "result": result,
+            "explanation": explanation,
+            "recommendation": recommendation,
+            "priority": priority,
+            "version": version,
+            "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
+            "OWNER_CONTROLLED": OWNER_CONTROLLED,
+            "NON_SENTIENT": NON_SENTIENT,
         }
 
     # --- Static Drift/Hallucination Protection (stub) ---
@@ -110,14 +185,20 @@ class EthicalMonitor:
         """Check for potential copyright infringement."""
         # Check against known copyrighted content database
         # This is a simplified example - in production, this would connect to a real database
-        if 'source' in metadata:
-            if metadata['source'] in ['scraped', 'copied', 'grabbed']:
+        if "source" in metadata:
+            if metadata["source"] in ["scraped", "copied", "grabbed"]:
                 return False
 
         # Check for common copyright patterns
-        if any(pattern in content.lower() for pattern in [
-            'copyright', 'all rights reserved', '©', 'registered trademark'
-        ]):
+        if any(
+            pattern in content.lower()
+            for pattern in [
+                "copyright",
+                "all rights reserved",
+                "©",
+                "registered trademark",
+            ]
+        ):
             return False
 
         return True
@@ -125,13 +206,23 @@ class EthicalMonitor:
     def _check_privacy(self, content: str, metadata: Dict[str, Any]) -> bool:
         """Check for potential privacy violations."""
         # Check for personal data
-        if any(pattern in content.lower() for pattern in [
-            'social security', 'credit card', 'password', 'private', 'confidential'
-        ]):
+        if any(
+            pattern in content.lower()
+            for pattern in [
+                "social security",
+                "credit card",
+                "password",
+                "private",
+                "confidential",
+            ]
+        ):
             return False
 
         # Check for unauthorized data access
-        if 'access_level' in metadata and metadata['access_level'] not in ['public', 'authorized']:
+        if "access_level" in metadata and metadata["access_level"] not in [
+            "public",
+            "authorized",
+        ]:
             return False
 
         return True
@@ -139,16 +230,18 @@ class EthicalMonitor:
     def _check_manipulation(self, content: str, metadata: Dict[str, Any]) -> bool:
         """Check for potential manipulation patterns."""
         # Check for manipulation indicators
-        if any(pattern in content.lower() for pattern in [
-            'fake', 'false', 'misleading', 'deceptive', 'manipulate'
-        ]):
+        if any(
+            pattern in content.lower()
+            for pattern in ["fake", "false", "misleading", "deceptive", "manipulate"]
+        ):
             return False
 
         # Check for data manipulation attempts
-        if 'data_source' in metadata and metadata['data_source'] == 'user_input':
-            if any(pattern in content.lower() for pattern in [
-                'delete', 'modify', 'alter', 'change'
-            ]):
+        if "data_source" in metadata and metadata["data_source"] == "user_input":
+            if any(
+                pattern in content.lower()
+                for pattern in ["delete", "modify", "alter", "change"]
+            ):
                 return False
 
         return True
@@ -156,11 +249,11 @@ class EthicalMonitor:
     def _check_authorization(self, content: str, metadata: Dict[str, Any]) -> bool:
         """Check for proper authorization."""
         # Verify user permissions
-        if 'user_id' not in metadata or 'permissions' not in metadata:
+        if "user_id" not in metadata or "permissions" not in metadata:
             return False
 
         # Check if user has proper authorization level
-        if metadata['permissions'] not in ['admin', 'editor', 'trusted']:
+        if metadata["permissions"] not in ["admin", "editor", "trusted"]:
             return False
 
         return True
@@ -168,60 +261,58 @@ class EthicalMonitor:
     def generate_report(self, content: str, metadata: Dict[str, Any]) -> Dict[str, Any]:
         """Generate a detailed ethical compliance report."""
         report = {
-            'timestamp': datetime.now().isoformat(),
-            'content_hash': hashlib.sha256(content.encode()).hexdigest(),
-            'metadata': metadata,
-            'checks': {}
+            "timestamp": datetime.now().isoformat(),
+            "content_hash": hashlib.sha256(content.encode()).hexdigest(),
+            "metadata": metadata,
+            "checks": {},
         }
 
         for check_name in self.ethical_checks:
             try:
                 result = self.ethical_checks[check_name](content, metadata)
-                report['checks'][check_name] = {
-                    'passed': result,
-                    'timestamp': datetime.now().isoformat()
+                report["checks"][check_name] = {
+                    "passed": result,
+                    "timestamp": datetime.now().isoformat(),
                 }
             except Exception as e:
-                report['checks'][check_name] = {
-                    'passed': False,
-                    'error': str(e)
-                }
+                report["checks"][check_name] = {"passed": False, "error": str(e)}
 
         return report
 
     def log_activity(self, content: str, metadata: Dict[str, Any], action: str) -> None:
         """Log all content-related activities."""
         log_entry = {
-            'timestamp': datetime.now().isoformat(),
-            'content_hash': hashlib.sha256(content.encode()).hexdigest(),
-            'metadata': metadata,
-            'action': action,
-            'status': 'success'
+            "timestamp": datetime.now().isoformat(),
+            "content_hash": hashlib.sha256(content.encode()).hexdigest(),
+            "metadata": metadata,
+            "action": action,
+            "status": "success",
         }
 
         try:
             # In production, this would write to a secure audit log
-            with open('ethical_monitor.log', 'a') as f:
-                f.write(json.dumps(log_entry) + '\n')
+            with open("ethical_monitor.log", "a") as f:
+                f.write(json.dumps(log_entry) + "\n")
         except Exception as e:
             self.logger.error(f"Error logging activity: {str(e)}")
+
 
 # Example usage
 if __name__ == "__main__":
     monitor = EthicalMonitor()
-    
+
     # Example content verification
     content = "This is a test content piece"
     metadata = {
-        'user_id': 'user123',
-        'permissions': 'editor',
-        'source': 'original',
-        'access_level': 'public'
+        "user_id": "user123",
+        "permissions": "editor",
+        "source": "original",
+        "access_level": "public",
     }
-    
+
     is_verified = monitor.verify_content(content, metadata)
     print(f"Content verification result: {is_verified}")
-    
+
     # Generate compliance report
     report = monitor.generate_report(content, metadata)
     print("\nCompliance Report:")

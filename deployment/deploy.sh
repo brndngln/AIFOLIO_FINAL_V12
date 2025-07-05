@@ -73,21 +73,21 @@ function verify_non_sentient() {
 
 function setup_environment() {
     log "Setting up deployment environment..."
-    
+
     # Create required directories
     mkdir -p logs
     mkdir -p backups
     mkdir -p cache
-    
+
     # Set permissions
     chmod 755 -R .
-    
+
     log "Environment setup complete."
 }
 
 function deploy_core_services() {
     log "Deploying core services..."
-    
+
     # Start services in order of dependency
     services=(
         "database"
@@ -96,7 +96,7 @@ function deploy_core_services() {
         "vault"
         "api"
     )
-    
+
     for service in "${services[@]}"; do
         log "Starting $service service..."
         # Simulated service startup
@@ -107,7 +107,7 @@ function deploy_core_services() {
 
 function verify_system_health() {
     log "Verifying system health..."
-    
+
     # Check core services
     services=(
         "database"
@@ -116,7 +116,7 @@ function verify_system_health() {
         "vault"
         "api"
     )
-    
+
     for service in "${services[@]}"; do
         log "Checking $service health..."
         # Simulated health check
@@ -127,19 +127,19 @@ function verify_system_health() {
 
 function main() {
     log "Starting AIFOLIO™ deployment..."
-    
+
     # Verify non-sentient compliance first
     try_with_recovery "verify_non_sentient"
-    
+
     # Setup environment
     try_with_recovery "setup_environment"
-    
+
     # Deploy core services
     try_with_recovery "deploy_core_services"
-    
+
     # Verify system health
     try_with_recovery "verify_system_health"
-    
+
     log "Deployment complete!"
     log "System ready for production use."
 }

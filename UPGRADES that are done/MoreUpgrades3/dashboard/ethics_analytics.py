@@ -19,4 +19,8 @@ st.metric("Products With Warnings", len(df[df["status"] == "WARN"]))
 st.metric("Average Readability", round(df["readability_score"].mean(), 2))
 
 st.subheader("🚨 Warnings Overview")
-st.dataframe(df[df["status"] == "WARN"][["title", "ethics_issues", "legal_issues", "suggestions"]])
+st.dataframe(
+    df[df["status"] == "WARN"][
+        ["title", "ethics_issues", "legal_issues", "suggestions"]
+    ]
+)

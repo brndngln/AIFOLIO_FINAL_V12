@@ -4,6 +4,7 @@ Static, Charter-Enforced
 """
 from typing import Dict
 
+
 def generate_forecast() -> Dict[str, float]:
     """Static financial forecast for all brands (SAFE AI only)"""
     return {

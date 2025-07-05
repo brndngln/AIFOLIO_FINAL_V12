@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class SecretsManager:
     def __init__(self, env_path: str = ".env"):
         self.env_path = env_path
@@ -20,12 +21,21 @@ class SecretsManager:
         if os.path.exists(self.env_path):
             with open(self.env_path) as f:
                 for line in f:
-                    if line.strip() and not line.startswith('#'):
-                        k, v = line.strip().split('=', 1)
+                    if line.strip() and not line.startswith("#"):
+                        k, v = line.strip().split("=", 1)
                         secrets[k] = v
         # Load from environment as fallback
         for k in [
-            "AIFOLIO_PASSWORD_HASH", "SECRET_KEY", "ALGORITHM", "SECRET_USERNAME", "AIFOLIO_ROLE", "AIFOLIO_EMAIL", "AIFOLIO_ORG", "REDIS_HOST", "REDIS_PORT", "REDIS_DB"
+            "AIFOLIO_PASSWORD_HASH",
+            "SECRET_KEY",
+            "ALGORITHM",
+            "SECRET_USERNAME",
+            "AIFOLIO_ROLE",
+            "AIFOLIO_EMAIL",
+            "AIFOLIO_ORG",
+            "REDIS_HOST",
+            "REDIS_PORT",
+            "REDIS_DB",
         ]:
             if k not in secrets and os.getenv(k):
                 secrets[k] = os.getenv(k)

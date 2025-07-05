@@ -4,27 +4,29 @@ Static, deterministic report of test coverage for all backend and frontend modul
 """
 import logging
 import os
+
 logger = logging.getLogger(__name__)
 
 TEST_FILES = [
-    'tests/test_automated_vault_generator.py',
-    'tests/test_send_confirmation_email.py',
-    'tests/test_utils.py',
-    'tests/post_sale_hook_tests.py',
-    'tests/ui_enhancements/test_color_customization.py'
+    "tests/test_automated_vault_generator.py",
+    "tests/test_send_confirmation_email.py",
+    "tests/test_utils.py",
+    "tests/post_sale_hook_tests.py",
+    "tests/ui_enhancements/test_color_customization.py",
 ]
 
 MODULES = [
-    'backend/ai_tools/typo_grammar_checker.py',
-    'backend/ai_tools/refund_risk_flagger.py',
-    'backend/ai_tools/tone_voice_matcher.py',
-    'backend/ai_tools/asset_health_checker.py',
-    'backend/ai_tools/visual_balance_checker.py',
-    'analytics/marketplace_trend_analyzer.py',
-    'audit/export_audit_trail.py',
-    'audit/webhook_notifications.py',
-    'audit/partner_api_stubs.py'
+    "backend/ai_tools/typo_grammar_checker.py",
+    "backend/ai_tools/refund_risk_flagger.py",
+    "backend/ai_tools/tone_voice_matcher.py",
+    "backend/ai_tools/asset_health_checker.py",
+    "backend/ai_tools/visual_balance_checker.py",
+    "analytics/marketplace_trend_analyzer.py",
+    "audit/export_audit_trail.py",
+    "audit/webhook_notifications.py",
+    "audit/partner_api_stubs.py",
 ]
+
 
 def generate_static_test_coverage_report() -> dict:
     """Static, deterministic test coverage report. Extension: real coverage tool."""

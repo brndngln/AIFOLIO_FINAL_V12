@@ -3,8 +3,11 @@ import json
 import datetime
 import os
 
-VARIANT_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/auto_variant_log.jsonl'))
+VARIANT_LOG = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/auto_variant_log.jsonl")
+)
 os.makedirs(os.path.dirname(VARIANT_LOG), exist_ok=True)
+
 
 # --- AI Auto-Variant Generator (Human-Approved Only) ---
 def generate_variants(text, n=3):
@@ -13,14 +16,15 @@ def generate_variants(text, n=3):
     """
     variants = [f"{text} (variant {i+1})" for i in range(n)]
     entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'original': text,
-        'variants': variants,
-        'human_approval_required': True
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "original": text,
+        "variants": variants,
+        "human_approval_required": True,
     }
-    with open(VARIANT_LOG, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
+    with open(VARIANT_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
     return variants
 
+
 if __name__ == "__main__":
-    print(generate_variants('Thank you for your purchase!'))
+    print(generate_variants("Thank you for your purchase!"))

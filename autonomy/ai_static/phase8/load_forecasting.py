@@ -12,7 +12,7 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 PRECONFIGURED_FORECASTS = {
     "us-east-1": [100, 120, 110],
     "eu-west-1": [80, 90, 95],
-    "ap-southeast-1": [60, 70, 65]
+    "ap-southeast-1": [60, 70, 65],
 }
 
 

@@ -12,8 +12,11 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 FUTURE_VAULTS = ["AI Compliance Toolkit", "Market Expansion Pack", "GDPR 2026 Update"]
 
+
 def plan_future_vaults(triggered_by):
     timestamp = datetime.utcnow().isoformat()
-    event = f"[{timestamp}] FUTURE VAULTS: {FUTURE_VAULTS} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] FUTURE VAULTS: {FUTURE_VAULTS} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return FUTURE_VAULTS

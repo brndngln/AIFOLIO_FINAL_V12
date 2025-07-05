@@ -13,12 +13,15 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 LEGAL_EVENTS = {
     "us": ["CCPA 2026 update"],
     "eu": ["GDPR 2025 revision"],
-    "apac": ["PDPA 2025 expansion"]
+    "apac": ["PDPA 2025 expansion"],
 }
+
 
 def watch_legal_events(region, triggered_by):
     timestamp = datetime.utcnow().isoformat()
     events = LEGAL_EVENTS.get(region, [])
-    event = f"[{timestamp}] LEGAL EVENT: {region} = {events} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] LEGAL EVENT: {region} = {events} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return events

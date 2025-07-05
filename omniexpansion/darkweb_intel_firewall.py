@@ -7,6 +7,7 @@ AIFOLIO™ OMNIELITE EMPIRE ENGINE: DARKWEB INTEL FIREWALL™
 from typing import Dict, Any
 import hashlib
 
+
 class DarkwebIntelFirewall:
     def scan_for_leaks(self, vault: Dict[str, Any]) -> bool:
         # Simulate scan (always safe in this stub)
@@ -18,11 +19,10 @@ class DarkwebIntelFirewall:
 
     def obfuscate_headers(self, vault: Dict[str, Any]) -> Dict[str, Any]:
         # Obfuscate headers
-        vault['headers'] = 'obfuscated'
+        vault["headers"] = "obfuscated"
         return vault
 
     def encrypt_origin_metadata(self, vault: Dict[str, Any]) -> Dict[str, Any]:
         # Encrypt origin metadata
-        vault['origin_metadata'] = hashlib.sha256(str(vault).encode()).hexdigest()
+        vault["origin_metadata"] = hashlib.sha256(str(vault).encode()).hexdigest()
         return vault
-

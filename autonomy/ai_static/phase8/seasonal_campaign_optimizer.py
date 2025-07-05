@@ -12,6 +12,7 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 SEASONAL_CAMPAIGNS = ["spring_sale", "back_to_school", "holiday_special"]
 
+
 def optimize_seasonal_campaigns(triggered_by):
     timestamp = datetime.utcnow().isoformat()
     event = f"[{timestamp}] SEASONAL CAMPAIGN: {SEASONAL_CAMPAIGNS} | Triggered by: {triggered_by}"

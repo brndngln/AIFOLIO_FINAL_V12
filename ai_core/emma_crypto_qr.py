@@ -2,17 +2,29 @@ import os
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
+
 try:
     from pqcrypto.kem.kyber512 import generate_keypair, encrypt, decrypt
+
     PQCRYPTO_AVAILABLE = True
 except ImportError:
     PQCRYPTO_AVAILABLE = False
+
     def generate_keypair():
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
+        )
+
     def encrypt(pk, key):
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled."
+        )
+
     def decrypt(sk, ct):
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled."
+        )
+
 
 from secretsharing import PlaintextToHexSecretSharer
 
@@ -30,25 +42,30 @@ Integration notes:
 - For SIEM, send alerts on any ImportError or fallback event.
 """
 
-KYBER_KEYPAIR_PATH = 'ai_core/EmmaLogs/kyber.keypair'
+KYBER_KEYPAIR_PATH = "ai_core/EmmaLogs/kyber.keypair"
+
 
 # --- Keypair Management ---
 def load_or_create_kyber_keypair():
     if not PQCRYPTO_AVAILABLE:
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
+        )
     if not os.path.exists(KYBER_KEYPAIR_PATH):
         pk, sk = generate_keypair()
-        with open(KYBER_KEYPAIR_PATH, 'wb') as f:
-            f.write(pk + b'::' + sk)
+        with open(KYBER_KEYPAIR_PATH, "wb") as f:
+            f.write(pk + b"::" + sk)
     else:
-        with open(KYBER_KEYPAIR_PATH, 'rb') as f:
-            pk, sk = f.read().split(b'::')
+        with open(KYBER_KEYPAIR_PATH, "rb") as f:
+            pk, sk = f.read().split(b"::")
     return pk, sk
+
 
 if PQCRYPTO_AVAILABLE:
     pk, sk = load_or_create_kyber_keypair()
 else:
     pk, sk = None, None
+
 
 # --- Multi-key Sharding (Shamir's Secret Sharing) ---
 def split_key(key: bytes, threshold=3, shares=5):
@@ -56,16 +73,20 @@ def split_key(key: bytes, threshold=3, shares=5):
     hexkey = key.hex()
     return PlaintextToHexSecretSharer.split_secret(hexkey, threshold, shares)
 
+
 def combine_key(shares):
     """Reconstruct AES key from shares."""
     hexkey = PlaintextToHexSecretSharer.recover_secret(shares)
     return bytes.fromhex(hexkey)
 
+
 # --- Quantum-Resistant Encryption ---
 def qr_encrypt_log_data(data: bytes) -> bytes:
     """Encrypt log data using Kyber KEM for quantum resistance. Raises ImportError if pqcrypto unavailable."""
     if not PQCRYPTO_AVAILABLE:
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant encryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
+        )
     backend = default_backend()
     iv = os.urandom(16)
     # Generate a random AES session key
@@ -84,13 +105,15 @@ def qr_encrypt_log_data(data: bytes) -> bytes:
 def qr_decrypt_log_data(enc_data: bytes, biometric=None, override=False) -> bytes:
     """Decrypt log data using Kyber KEM (requires biometric/override, raises ImportError if pqcrypto unavailable)."""
     if not PQCRYPTO_AVAILABLE:
-        raise ImportError("pqcrypto.kem.kyber512 not available: Quantum-resistant decryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform.")
+        raise ImportError(
+            "pqcrypto.kem.kyber512 not available: Quantum-resistant decryption is disabled. Install pqcrypto and ensure Kyber512 support on your platform."
+        )
     if not (biometric or override):
-        raise PermissionError('Biometric or owner override required to decrypt logs.')
+        raise PermissionError("Biometric or owner override required to decrypt logs.")
     backend = default_backend()
     iv = enc_data[:16]
-    ct = enc_data[16:16+800]  # Kyber512 ciphertext is 800 bytes
-    encrypted = enc_data[16+800:]
+    ct = enc_data[16 : 16 + 800]  # Kyber512 ciphertext is 800 bytes
+    encrypted = enc_data[16 + 800 :]
     # Decrypt session key with Kyber secret key
     session_key = decrypt(sk, ct)
     cipher = Cipher(algorithms.AES(session_key), modes.CBC(iv), backend=backend)
@@ -98,7 +121,6 @@ def qr_decrypt_log_data(enc_data: bytes, biometric=None, override=False) -> byte
     padded = decryptor.update(encrypted) + decryptor.finalize()
     unpadder = padding.PKCS7(128).unpadder()
     return unpadder.update(padded) + unpadder.finalize()
-
 
 
 # External immutable backup (write-only, append-only)
@@ -109,11 +131,11 @@ def immutable_backup(data: bytes, ts: str, backup_dir=None):
     On failure, print warning and (optionally) send SIEM alert.
     """
     if backup_dir is None:
-        backup_dir = './ai_core/EmmaLogs/immutable_backup/'
+        backup_dir = "./ai_core/EmmaLogs/immutable_backup/"
     try:
         os.makedirs(backup_dir, exist_ok=True)
-        path = os.path.join(backup_dir, f'emma_audit_{ts}.log.qr.enc')
-        with open(path, 'ab') as f:
+        path = os.path.join(backup_dir, f"emma_audit_{ts}.log.qr.enc")
+        with open(path, "ab") as f:
             f.write(data)
     except Exception as e:
         print(f"[OMNIELITE WARNING] Immutable backup failed: {e}")

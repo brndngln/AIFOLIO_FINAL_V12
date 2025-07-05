@@ -10,14 +10,17 @@ import datetime
 
 CAPITAL_LOG = []
 
+
 class EmpireCapitalEngine:
     @staticmethod
     def log_capital_allocation(amount: float, purpose: str) -> None:
-        CAPITAL_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'amount': amount,
-            'purpose': purpose
-        })
+        CAPITAL_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "amount": amount,
+                "purpose": purpose,
+            }
+        )
 
     @staticmethod
     def get_capital_log() -> List[Dict]:

@@ -24,7 +24,7 @@ const ThemeMonitorDashboard = () => {
                     axios.get('/api/monitor/theme/metrics'),
                     axios.get('/api/monitor/theme/history')
                 ]);
-                
+
                 setThemeMetrics(metricsRes.data);
                 setThemeHistory(historyRes.data);
             } catch (error) {
@@ -34,7 +34,7 @@ const ThemeMonitorDashboard = () => {
 
         // Initial fetch
         fetchThemeData();
-        
+
         // Update every 30 seconds
         const interval = setInterval(fetchThemeData, 30000);
         return () => clearInterval(interval);
@@ -69,21 +69,21 @@ const ThemeMonitorDashboard = () => {
                 <ThemeMetricCard
                     label="Theme Consistency"
                     value={`${themeMetrics.consistency}%`}
-                    color={themeMetrics.consistency < 80 ? theme.error : 
+                    color={themeMetrics.consistency < 80 ? theme.error :
                            themeMetrics.consistency < 90 ? theme.warning : theme.accent}
                     description="Measures theme color consistency"
                 />
                 <ThemeMetricCard
                     label="Contrast Ratio"
                     value={`${themeMetrics.contrast}%`}
-                    color={themeMetrics.contrast < 70 ? theme.error : 
+                    color={themeMetrics.contrast < 70 ? theme.error :
                            themeMetrics.contrast < 80 ? theme.warning : theme.accent}
                     description="Measures text/background contrast"
                 />
                 <ThemeMetricCard
                     label="Accessibility"
                     value={`${themeMetrics.accessibility}%`}
-                    color={themeMetrics.accessibility < 70 ? theme.error : 
+                    color={themeMetrics.accessibility < 70 ? theme.error :
                            themeMetrics.accessibility < 80 ? theme.warning : theme.accent}
                     description="Measures WCAG compliance"
                 />

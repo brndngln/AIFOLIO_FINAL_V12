@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 META_MARKET_TABLE = {
     "legal": ["regulatory", "compliance"],
     "finance": ["banking", "investment"],
-    "education": ["K-12", "higher ed"]
+    "education": ["K-12", "higher ed"],
 }
+
 
 def map_vault_to_meta_market(vault_type, triggered_by):
     timestamp = datetime.utcnow().isoformat()

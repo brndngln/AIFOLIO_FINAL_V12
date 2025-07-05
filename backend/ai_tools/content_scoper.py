@@ -5,49 +5,67 @@ Implements tag-based, rule-driven content scoping for PDF/content generation.
 """
 import logging
 from typing import List, Dict
+
 logger = logging.getLogger(__name__)
 
 MASTER_CONTENT_MAP = {
-    'TAX-PATHWAY-ZERO': 'Pathway to Zero',
-    'TAX-ULTIMATE-2025': 'Ultimate 2025',
-    'TAX-PRIVATE-WEALTH': 'Private Wealth Law',
-    'TAX-300-DEDUCTIONS': '300 Deductions',
-    'TAX-DIGITAL-ECONOMY': 'Managing Tax Digital',
-    'CASHFLOW-LIVEFREE': 'Live Free Retire Wealthy',
-    'CASHFLOW-OPTIMIZATION': 'Cash Flow Optimization',
-    'INVESTOR-DNA': 'Wealth Factory',
-    'AI-NUCLEAR': 'Nuclear AI Files',
-    'ESG-PROXY': 'ESG Proxy Whitepaper',
-    'NGFW-STRATA-GUIDE': 'Strata NGFW',
-    'ZERO-TRUST-ENABLED': 'Strata NGFW',
-    'AUTONOMOUS-SOC': 'Strata NGFW',
-    'SIEM-DATA-RESILIENCE': 'SIEM Guide',
-    'VEEAM-SIEM': 'SIEM Guide',
-    'SOAR-INTEGRATION': 'SIEM Guide',
-    'PERSONAL-BRAND-SYSTEM': 'Personal Brand',
-    'IG-AUTO-FUNNEL': 'Personal Brand',
-    'PLR-MONETIZATION': 'Personal Brand',
-    'BUNDLE-STAR-PLANNER': 'Small Biz Bundle',
-    'PHASE-12-READY': 'System',
-    'SAFE-AI-LOCKED': 'System'
+    "TAX-PATHWAY-ZERO": "Pathway to Zero",
+    "TAX-ULTIMATE-2025": "Ultimate 2025",
+    "TAX-PRIVATE-WEALTH": "Private Wealth Law",
+    "TAX-300-DEDUCTIONS": "300 Deductions",
+    "TAX-DIGITAL-ECONOMY": "Managing Tax Digital",
+    "CASHFLOW-LIVEFREE": "Live Free Retire Wealthy",
+    "CASHFLOW-OPTIMIZATION": "Cash Flow Optimization",
+    "INVESTOR-DNA": "Wealth Factory",
+    "AI-NUCLEAR": "Nuclear AI Files",
+    "ESG-PROXY": "ESG Proxy Whitepaper",
+    "NGFW-STRATA-GUIDE": "Strata NGFW",
+    "ZERO-TRUST-ENABLED": "Strata NGFW",
+    "AUTONOMOUS-SOC": "Strata NGFW",
+    "SIEM-DATA-RESILIENCE": "SIEM Guide",
+    "VEEAM-SIEM": "SIEM Guide",
+    "SOAR-INTEGRATION": "SIEM Guide",
+    "PERSONAL-BRAND-SYSTEM": "Personal Brand",
+    "IG-AUTO-FUNNEL": "Personal Brand",
+    "PLR-MONETIZATION": "Personal Brand",
+    "BUNDLE-STAR-PLANNER": "Small Biz Bundle",
+    "PHASE-12-READY": "System",
+    "SAFE-AI-LOCKED": "System",
 }
 
 CATEGORY_RULES = {
-    'tax': [
-        'TAX-PATHWAY-ZERO', 'TAX-ULTIMATE-2025', 'TAX-PRIVATE-WEALTH', 'TAX-300-DEDUCTIONS', 'TAX-DIGITAL-ECONOMY'
+    "tax": [
+        "TAX-PATHWAY-ZERO",
+        "TAX-ULTIMATE-2025",
+        "TAX-PRIVATE-WEALTH",
+        "TAX-300-DEDUCTIONS",
+        "TAX-DIGITAL-ECONOMY",
     ],
-    'cashflow': ['CASHFLOW-LIVEFREE', 'CASHFLOW-OPTIMIZATION', 'INVESTOR-DNA'],
-    'ai': ['AI-NUCLEAR'],
-    'compliance': ['ESG-PROXY', 'NGFW-STRATA-GUIDE', 'ZERO-TRUST-ENABLED', 'AUTONOMOUS-SOC', 'SIEM-DATA-RESILIENCE', 'VEEAM-SIEM', 'SOAR-INTEGRATION'],
-    'brand': ['PERSONAL-BRAND-SYSTEM', 'IG-AUTO-FUNNEL', 'PLR-MONETIZATION', 'BUNDLE-STAR-PLANNER'],
-    'system': ['PHASE-12-READY', 'SAFE-AI-LOCKED']
+    "cashflow": ["CASHFLOW-LIVEFREE", "CASHFLOW-OPTIMIZATION", "INVESTOR-DNA"],
+    "ai": ["AI-NUCLEAR"],
+    "compliance": [
+        "ESG-PROXY",
+        "NGFW-STRATA-GUIDE",
+        "ZERO-TRUST-ENABLED",
+        "AUTONOMOUS-SOC",
+        "SIEM-DATA-RESILIENCE",
+        "VEEAM-SIEM",
+        "SOAR-INTEGRATION",
+    ],
+    "brand": [
+        "PERSONAL-BRAND-SYSTEM",
+        "IG-AUTO-FUNNEL",
+        "PLR-MONETIZATION",
+        "BUNDLE-STAR-PLANNER",
+    ],
+    "system": ["PHASE-12-READY", "SAFE-AI-LOCKED"],
 }
 
 SAFE_AI_PARAMETERS = {
-    'temperature': 0.4,
-    'diversity_penalty': 1.0,
-    'best_of': 3,
-    'presence_penalty': 0.6
+    "temperature": 0.4,
+    "diversity_penalty": 1.0,
+    "best_of": 3,
+    "presence_penalty": 0.6,
 }
 
 # Deterministic, non-sentient scoper
@@ -57,6 +75,7 @@ from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
+
 
 class ContentScoper:
     def __init__(self):
@@ -69,33 +88,74 @@ class ContentScoper:
         # OMNIPROOF: Threat feed check before analysis
         parse_threat_feed({})
         # OMNIPROOF: Blockchain anchor for prompt hash (static)
-        anchor_license_hash('PROMPT_HASH_PLACEHOLDER')
+        anchor_license_hash("PROMPT_HASH_PLACEHOLDER")
         # OMNIPROOF: Zero-knowledge export filter (static)
-        zero_knowledge_export('prompt_path_placeholder')
+        zero_knowledge_export("prompt_path_placeholder")
         # OMNIPROOF: Schedule redundant backup
-        schedule_backup('backend/ai_tools/')
+        schedule_backup("backend/ai_tools/")
         # OMNIPROOF: Export compliance manifest
-        export_compliance_manifest('SAFE_AI_COMPLIANCE_REPORT.md', 'backend/ai_tools/compliance_report.pdf')
+        export_compliance_manifest(
+            "SAFE_AI_COMPLIANCE_REPORT.md", "backend/ai_tools/compliance_report.pdf"
+        )
         # OMNIPROOF: Monetization signal detection
-        detect_signals({'prompt': prompt})
+        detect_signals({"prompt": prompt})
 
         """Deterministically infer content category from prompt."""
         prompt_lower = prompt.lower()
-        if any(x in prompt_lower for x in ['tax', 'deduction', 'irs', 's-corp', 'llc', 'wealth', 'retirement', 'trust']):
-            return 'tax'
-        if any(x in prompt_lower for x in ['cash flow', 'velocity', 'banking', 'investor dna', 'generational']):
-            return 'cashflow'
-        if any(x in prompt_lower for x in ['ai', 'nuclear', 'campaign', 'split test', 'seo']):
-            return 'ai'
-        if any(x in prompt_lower for x in ['esg', 'firewall', 'zero trust', 'soc', 'siem', 'soar', 'security', 'compliance']):
-            return 'compliance'
-        if any(x in prompt_lower for x in ['brand', 'instagram', 'funnel', 'plr', 'offer', 'bundle', 'canva']):
-            return 'brand'
-        return 'system'
+        if any(
+            x in prompt_lower
+            for x in [
+                "tax",
+                "deduction",
+                "irs",
+                "s-corp",
+                "llc",
+                "wealth",
+                "retirement",
+                "trust",
+            ]
+        ):
+            return "tax"
+        if any(
+            x in prompt_lower
+            for x in [
+                "cash flow",
+                "velocity",
+                "banking",
+                "investor dna",
+                "generational",
+            ]
+        ):
+            return "cashflow"
+        if any(
+            x in prompt_lower
+            for x in ["ai", "nuclear", "campaign", "split test", "seo"]
+        ):
+            return "ai"
+        if any(
+            x in prompt_lower
+            for x in [
+                "esg",
+                "firewall",
+                "zero trust",
+                "soc",
+                "siem",
+                "soar",
+                "security",
+                "compliance",
+            ]
+        ):
+            return "compliance"
+        if any(
+            x in prompt_lower
+            for x in ["brand", "instagram", "funnel", "plr", "offer", "bundle", "canva"]
+        ):
+            return "brand"
+        return "system"
 
     def match_tags(self, category: str) -> List[str]:
         """Return allowed tags for a category."""
-        return self.rules.get(category, []) + self.rules['system']
+        return self.rules.get(category, []) + self.rules["system"]
 
     def scope_content(self, prompt: str) -> List[str]:
         """Main deterministic scoping logic."""
@@ -118,6 +178,7 @@ class ContentScoper:
 
     def get_safe_ai_parameters(self) -> Dict[str, float]:
         return self.safe_params
+
 
 # Autonomous content scoper activation
 if __name__ == "__main__":

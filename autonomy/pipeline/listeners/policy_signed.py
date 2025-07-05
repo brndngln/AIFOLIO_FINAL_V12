@@ -12,6 +12,7 @@ from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_bot import audit_vault_compliance
 
+
 def handle_event(payload: dict):
     """
     Handles the 'policy_signed' event with SAFE AI, retry-safe integrations, and robust logging.
@@ -20,12 +21,14 @@ def handle_event(payload: dict):
     start_time = time.time()
     user_id = payload.get("user_id")
     policy_version = payload.get("policy_version")
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/policy_sign_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/policy_sign_log.json")
+    )
     entry = {
         "event": "policy_signed",
         "timestamp": datetime.utcnow().isoformat(),
         "user_id": user_id,
-        "policy_version": policy_version
+        "policy_version": policy_version,
     }
     # Log policy signature
     try:

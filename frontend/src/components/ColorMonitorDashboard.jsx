@@ -23,7 +23,7 @@ const ColorMonitorDashboard = () => {
                     axios.get('/api/monitor/color/history'),
                     axios.get('/api/monitor/color/patterns')
                 ]);
-                
+
                 setColorHistory(historyRes.data);
                 setColorPatterns(patternsRes.data);
             } catch (error) {
@@ -33,7 +33,7 @@ const ColorMonitorDashboard = () => {
 
         // Initial fetch
         fetchColorData();
-        
+
         // Update every 30 seconds
         const interval = setInterval(fetchColorData, 30000);
         return () => clearInterval(interval);

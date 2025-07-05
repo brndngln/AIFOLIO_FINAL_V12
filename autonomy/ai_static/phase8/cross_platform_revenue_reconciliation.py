@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/revenue_reconciliation_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-REVENUE_DATA = {
-    "platform_a": 12000,
-    "platform_b": 11800,
-    "platform_c": 12100
-}
+REVENUE_DATA = {"platform_a": 12000, "platform_b": 11800, "platform_c": 12100}
+
 
 def reconcile_revenue(triggered_by):
     timestamp = datetime.utcnow().isoformat()

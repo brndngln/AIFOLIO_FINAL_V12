@@ -3,16 +3,18 @@ AIFOLIO Encrypted Database & TLS 1.3 Strict Enforcement
 Static, deterministic, SAFE AI-compliant config for at-rest and in-transit encryption.
 """
 import logging
+
 logger = logging.getLogger(__name__)
 
 STATIC_DB_CONFIG = {
-    'engine': 'postgresql',
-    'sslmode': 'require',
-    'ssl_min_protocol_version': 'TLSv1.3',
-    'encryption': 'AES-256',
-    'host': 'localhost',
-    'port': 5432
+    "engine": "postgresql",
+    "sslmode": "require",
+    "ssl_min_protocol_version": "TLSv1.3",
+    "encryption": "AES-256",
+    "host": "localhost",
+    "port": 5432,
 }
+
 
 def get_db_tls_config() -> dict:
     logger.info(f"Database TLS config: {STATIC_DB_CONFIG}")

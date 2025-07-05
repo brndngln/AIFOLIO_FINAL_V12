@@ -10,18 +10,21 @@ import logging
 
 try:
     import sentry_sdk
-    sentry_sdk.init(dsn=os.getenv('SENTRY_DSN'))
+
+    sentry_sdk.init(dsn=os.getenv("SENTRY_DSN"))
 except ImportError:
     sentry_sdk = None
 
-AUDIT_LOG = '../audit_trail.log'
-AUDIT_BACKUP = '../audit_trail_backup.log'
+AUDIT_LOG = "../audit_trail.log"
+AUDIT_BACKUP = "../audit_trail_backup.log"
+
 
 def sentience_guard(obj):
-    forbidden = ['awareness', 'self_modify', 'persistent_memory', 'recursive_self']
+    forbidden = ["awareness", "self_modify", "persistent_memory", "recursive_self"]
     for attr in forbidden:
         if hasattr(obj, attr):
             raise RuntimeError(f"Sentience safeguard triggered: {attr} not allowed.")
+
 
 def detect_deduction_drop(deductions, prior_years, user_profile):
     """
@@ -31,33 +34,44 @@ def detect_deduction_drop(deductions, prior_years, user_profile):
     sentience_guard(detect_deduction_drop)
     flags = []
     for d in deductions:
-        prior = [y for y in prior_years if y['category'] == d['category'] and y.get('vendor') == d.get('vendor')]
+        prior = [
+            y
+            for y in prior_years
+            if y["category"] == d["category"] and y.get("vendor") == d.get("vendor")
+        ]
         if prior:
-            avg = sum(y['amount'] for y in prior) / len(prior)
-            if d['amount'] < 0.5 * avg:
-                flags.append({
-                    'type': 'VENDOR_DEDUCTION_DROP',
-                    'category': d['category'],
-                    'vendor': d.get('vendor'),
-                    'amount': d['amount'],
-                    'rationale': f"Deduction for {d['category']} (vendor: {d.get('vendor')}) fell below 50% of historical average.",
-                    'data_link': f"/deductions/{d['id']}"
-                })
+            avg = sum(y["amount"] for y in prior) / len(prior)
+            if d["amount"] < 0.5 * avg:
+                flags.append(
+                    {
+                        "type": "VENDOR_DEDUCTION_DROP",
+                        "category": d["category"],
+                        "vendor": d.get("vendor"),
+                        "amount": d["amount"],
+                        "rationale": f"Deduction for {d['category']} (vendor: {d.get('vendor')}) fell below 50% of historical average.",
+                        "data_link": f"/deductions/{d['id']}",
+                    }
+                )
     return flags
+
 
 def require_human_review(flags):
     for flag in flags:
-        flag['status'] = 'REQUIRES_HUMAN_REVIEW'
+        flag["status"] = "REQUIRES_HUMAN_REVIEW"
     return flags
 
+
 def log_flags(flags, user_id):
-    entry = f"{datetime.now()}|USER:{user_id}|DEDUCTION_DROP_FLAGS:{json.dumps(flags)}\n"
+    entry = (
+        f"{datetime.now()}|USER:{user_id}|DEDUCTION_DROP_FLAGS:{json.dumps(flags)}\n"
+    )
     for logf in [AUDIT_LOG, AUDIT_BACKUP]:
-        with open(logf, 'a') as f:
+        with open(logf, "a") as f:
             f.write(entry)
     logging.info(entry)
     if sentry_sdk:
         sentry_sdk.capture_message(entry)
+
 
 def run_deduction_drop_monitor(deductions, prior_years, user_profile, user_id):
     flags = detect_deduction_drop(deductions, prior_years, user_profile)
@@ -65,20 +79,24 @@ def run_deduction_drop_monitor(deductions, prior_years, user_profile, user_id):
     log_flags(flags, user_id)
     return flags
 
+
 def privacy_check(user_profile):
-    if not user_profile.get('consent_to_audit'):
+    if not user_profile.get("consent_to_audit"):
         raise PermissionError("User consent required for deduction drop triggers.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     deductions = [
-        {'id': 1, 'category': 'travel', 'vendor': 'Uber', 'amount': 100},
-        {'id': 2, 'category': 'travel', 'vendor': 'Lyft', 'amount': 40},
+        {"id": 1, "category": "travel", "vendor": "Uber", "amount": 100},
+        {"id": 2, "category": "travel", "vendor": "Lyft", "amount": 40},
     ]
     prior_years = [
-        {'category': 'travel', 'vendor': 'Uber', 'amount': 300},
-        {'category': 'travel', 'vendor': 'Lyft', 'amount': 200},
+        {"category": "travel", "vendor": "Uber", "amount": 300},
+        {"category": "travel", "vendor": "Lyft", "amount": 200},
     ]
-    user_profile = {'consent_to_audit': True}
+    user_profile = {"consent_to_audit": True}
     privacy_check(user_profile)
-    flags = run_deduction_drop_monitor(deductions, prior_years, user_profile, user_id='demo')
+    flags = run_deduction_drop_monitor(
+        deductions, prior_years, user_profile, user_id="demo"
+    )
     print(json.dumps(flags, indent=2))

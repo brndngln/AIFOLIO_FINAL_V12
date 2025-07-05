@@ -7,6 +7,7 @@ import logging
 STATIC_AB_GROUPS = ["A", "B"]
 STATIC_LOGS = []
 
+
 def log_funnel_event(pdf_id, event, group):
     if group not in STATIC_AB_GROUPS:
         group = "A"

@@ -16,9 +16,11 @@ from autonomy.utils.retry import retry_safe
 
 logger = logging.getLogger("vault_fulfilled")
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(vault_id, payload):
     push_dashboard_update(vault_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(payload, event_type, error=None):
@@ -29,6 +31,7 @@ def send_alerts(payload, event_type, error=None):
     send_telegram_alert(alert_msg)
     if payload.get("alert_email_opt_in"):
         send_email_alert(payload.get("owner_email"), alert_msg)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_vault(payload):
@@ -41,14 +44,16 @@ def handle_event(payload: dict):
     """
     vault_id = payload.get("vault_id")
     buyer_email = payload.get("buyer_email")
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/fulfillment_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../analytics/fulfillment_log.json")
+    )
     errors = []
     start_time = time.time()
     entry = {
         "event": "vault_fulfilled",
         "timestamp": datetime.utcnow().isoformat(),
         "vault_id": vault_id,
-        "buyer_email": buyer_email
+        "buyer_email": buyer_email,
     }
     # Log fulfillment event
     try:
@@ -97,4 +102,9 @@ def handle_event(payload: dict):
         except Exception as e:
             logger.error(f"Anomaly detection failed: {e}\n{traceback.format_exc()}")
     print(f"[AIFOLIO] Vault {vault_id} fulfilled for {buyer_email}.")
-    return {"status": "success", "vault_id": vault_id, "buyer_email": buyer_email, "errors": errors}
+    return {
+        "status": "success",
+        "vault_id": vault_id,
+        "buyer_email": buyer_email,
+        "errors": errors,
+    }

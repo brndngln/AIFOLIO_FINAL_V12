@@ -11,9 +11,20 @@ TENANTS = {
         "color": "#195080",
         "compliance_statement": "AIFOLIO is SAFE AI Charter compliant.",
         "legal_docs": ["/legal/privacy_policy.md", "/legal/terms_of_service.md"],
-        "enabled_modules": ["vault", "analytics", "compliance", "governance", "marketplace"],
-        "notification_channels": {"slack": None, "discord": None, "email": None, "webhook": None},
-        "language": "en"
+        "enabled_modules": [
+            "vault",
+            "analytics",
+            "compliance",
+            "governance",
+            "marketplace",
+        ],
+        "notification_channels": {
+            "slack": None,
+            "discord": None,
+            "email": None,
+            "webhook": None,
+        },
+        "language": "en",
     },
     "rebel_remedies": {
         "name": "REBEL REMEDIES",
@@ -22,11 +33,17 @@ TENANTS = {
         "compliance_statement": "REBEL REMEDIES is SAFE AI Charter compliant.",
         "legal_docs": ["/legal/privacy_policy.md", "/legal/terms_of_service.md"],
         "enabled_modules": ["vault", "analytics"],
-        "notification_channels": {"slack": None, "discord": None, "email": None, "webhook": None},
-        "language": "en"
+        "notification_channels": {
+            "slack": None,
+            "discord": None,
+            "email": None,
+            "webhook": None,
+        },
+        "language": "en",
     },
     # Add more tenants as needed
 }
+
 
 def get_tenant_config(tenant_id: str) -> Dict[str, Any]:
     return TENANTS.get(tenant_id, TENANTS["aifolio"])

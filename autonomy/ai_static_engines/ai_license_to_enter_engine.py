@@ -10,25 +10,34 @@ import datetime
 
 LICENSE_DEALS_LOG = []
 
+
 class LicenseToEnterEngine:
     @staticmethod
-    def suggest_licenses(existing_clients: List[str], available_engines: List[str]) -> List[Dict]:
+    def suggest_licenses(
+        existing_clients: List[str], available_engines: List[str]
+    ) -> List[Dict]:
         """
         Suggests new licensing deals for B2B clients. Deterministic, static logic.
         """
         suggestions = [
-            {'client': 'AcmeCorp', 'engine': 'Vault Engine'},
-            {'client': 'BetaEnterprises', 'engine': 'Scaling Engine'}
+            {"client": "AcmeCorp", "engine": "Vault Engine"},
+            {"client": "BetaEnterprises", "engine": "Scaling Engine"},
         ]
-        return [s for s in suggestions if s['client'] not in existing_clients and s['engine'] in available_engines]
+        return [
+            s
+            for s in suggestions
+            if s["client"] not in existing_clients and s["engine"] in available_engines
+        ]
 
     @staticmethod
     def log_license_action(action: str, details: Dict):
-        LICENSE_DEALS_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'action': action,
-            'details': details
-        })
+        LICENSE_DEALS_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "action": action,
+                "details": details,
+            }
+        )
 
     @staticmethod
     def export_license_log() -> List[Dict]:

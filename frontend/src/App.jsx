@@ -56,9 +56,9 @@ import GumroadIntegrationPanel from './components/GumroadIntegrationPanel';
 function loadLatestVault() {
   // In a real app, fetch from backend or API
   try {
-     
+
     const preview = require('../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/vault_preview.json');
-     
+
     const metadata = require('../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/metadata.json');
     return { preview, metadata };
   } catch (e) {

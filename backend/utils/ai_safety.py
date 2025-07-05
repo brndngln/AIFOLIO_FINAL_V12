@@ -17,26 +17,28 @@ import datetime
 logger = logging.getLogger(__name__)
 
 # Runtime non-sentience safeguard
-if os.path.exists('persistent_memory'):
+if os.path.exists("persistent_memory"):
     logger.error("Persistent memory detected. Aborting.")
     raise RuntimeError("Persistent memory detected. Aborting.")
-if os.path.exists('self_modification'):
+if os.path.exists("self_modification"):
     logger.error("Self-modification detected. Aborting.")
     raise RuntimeError("Self-modification detected. Aborting.")
+
 
 def periodic_self_audit():
     """Perform periodic self-audit and health check."""
     # Example: check for forbidden files, log status
     status = {
-        'persistent_memory': os.path.exists('persistent_memory'),
-        'self_modification': os.path.exists('self_modification'),
-        'timestamp': time.time()
+        "persistent_memory": os.path.exists("persistent_memory"),
+        "self_modification": os.path.exists("self_modification"),
+        "timestamp": time.time(),
     }
-    if status['persistent_memory'] or status['self_modification']:
+    if status["persistent_memory"] or status["self_modification"]:
         logger.error(f"Non-sentience violation detected: {status}")
         raise RuntimeError(f"Non-sentience violation detected: {status}")
     logger.info(f"AI safety self-audit passed: {status}")
     return status
+
 
 class AISafety:
     def __init__(self, config_path: str = "config/ai_safety.json"):
@@ -51,7 +53,7 @@ class AISafety:
             raise ValueError(f"AI safety configuration file not found at {path}")
 
         try:
-            with open(config_path, 'r') as f:
+            with open(config_path, "r") as f:
                 config = json.load(f)
             return config
         except json.JSONDecodeError as e:
@@ -59,13 +61,21 @@ class AISafety:
 
     def _initialize_safety_components(self) -> None:
         """Initialize all safety components based on configuration."""
-        self.content_filter = ContentFilter(self.config['safety_policies']['content_filtering'])
-        self.rate_limiter = RateLimiter(
-            calls_per_minute=self.config['safety_policies']['rate_limiting']['limits']['requests_per_minute'],
-            max_burst=self.config['safety_policies']['rate_limiting']['limits']['burst_limit']
+        self.content_filter = ContentFilter(
+            self.config["safety_policies"]["content_filtering"]
         )
-        self.memory_manager = MemoryManager(self.config['safety_policies']['memory_management'])
-        self.monitor = SystemMonitor(self.config['safety_policies']['monitoring'])
+        self.rate_limiter = RateLimiter(
+            calls_per_minute=self.config["safety_policies"]["rate_limiting"]["limits"][
+                "requests_per_minute"
+            ],
+            max_burst=self.config["safety_policies"]["rate_limiting"]["limits"][
+                "burst_limit"
+            ],
+        )
+        self.memory_manager = MemoryManager(
+            self.config["safety_policies"]["memory_management"]
+        )
+        self.monitor = SystemMonitor(self.config["safety_policies"]["monitoring"])
 
     def validate_content(self, content: str) -> bool:
         """Validate content against safety policies."""
@@ -83,16 +93,19 @@ class AISafety:
         """Get current system metrics and status."""
         return self.monitor.get_metrics()
 
+
 class ContentFilter:
     def __init__(self, config: Dict[str, Any]):
         self.config = config
-        self.prohibited_keywords = config['rules'][0]['keywords']
-        self.max_tokens = config['rules'][1]['max_tokens']
+        self.prohibited_keywords = config["rules"][0]["keywords"]
+        self.max_tokens = config["rules"][1]["max_tokens"]
 
     def validate(self, content: str) -> bool:
         """Validate content against safety rules."""
         if len(content.split()) > self.max_tokens:
-            logger.warning(f"Content exceeds token limit: {len(content.split())} > {self.max_tokens}")
+            logger.warning(
+                f"Content exceeds token limit: {len(content.split())} > {self.max_tokens}"
+            )
             return False
 
         if any(keyword in content.lower() for keyword in self.prohibited_keywords):
@@ -100,6 +113,7 @@ class ContentFilter:
             return False
 
         return True
+
 
 class RateLimiter:
     def __init__(self, calls_per_minute: int, max_burst: int):
@@ -110,34 +124,43 @@ class RateLimiter:
     def check_limit(self, request: Any) -> bool:
         """Check if request is within rate limits."""
         current_time = datetime.now()
-        
+
         # Remove old entries
-        self.calls = [call for call in self.calls if (current_time - call).total_seconds() < 60]
-        
+        self.calls = [
+            call for call in self.calls if (current_time - call).total_seconds() < 60
+        ]
+
         if len(self.calls) >= self.max_burst:
-            logger.warning(f"Burst limit exceeded: {len(self.calls)} >= {self.max_burst}")
+            logger.warning(
+                f"Burst limit exceeded: {len(self.calls)} >= {self.max_burst}"
+            )
             return False
 
         if len(self.calls) >= self.calls_per_minute:
-            logger.warning(f"Rate limit exceeded: {len(self.calls)} >= {self.calls_per_minute}")
+            logger.warning(
+                f"Rate limit exceeded: {len(self.calls)} >= {self.calls_per_minute}"
+            )
             return False
 
         self.calls.append(current_time)
         return True
 
+
 class MemoryManager:
     def __init__(self, config: Dict[str, Any]):
         self.config = config
-        self.max_memory_mb = config['limits']['max_memory_usage_mb']
-        self.cache_ttl = config['limits']['cache_ttl_seconds']
-        self.max_cache_items = config['limits']['max_cache_size_items']
+        self.max_memory_mb = config["limits"]["max_memory_usage_mb"]
+        self.cache_ttl = config["limits"]["cache_ttl_seconds"]
+        self.max_cache_items = config["limits"]["max_cache_size_items"]
 
     def check_operation(self, operation: str, size: int) -> bool:
         """Check if operation is within memory limits."""
         current_memory = self._get_current_memory()
-        
+
         if (current_memory + size) > self.max_memory_mb:
-            logger.warning(f"Operation would exceed memory limit: {current_memory + size} > {self.max_memory_mb}")
+            logger.warning(
+                f"Operation would exceed memory limit: {current_memory + size} > {self.max_memory_mb}"
+            )
             return False
 
         return True
@@ -145,20 +168,22 @@ class MemoryManager:
     def _get_current_memory(self) -> int:
         """Get current memory usage in MB. Deterministic, static SAFE AI-compliant. Extension: real memory usage logic."""
         import logging
+
         logger = logging.getLogger(__name__)
         logger.info("Static current memory usage reported as 0 MB (SAFE AI stub)")
         return 0
 
+
 class SystemMonitor:
     def __init__(self, config: Dict[str, Any]):
         self.config = config
-        self.alert_thresholds = config['alert_thresholds']
+        self.alert_thresholds = config["alert_thresholds"]
         self.metrics = {
-            'request_rate': 0,
-            'error_rate': 0,
-            'response_time_ms': 0,
-            'memory_usage_mb': 0,
-            'cache_hits': 0
+            "request_rate": 0,
+            "error_rate": 0,
+            "response_time_ms": 0,
+            "memory_usage_mb": 0,
+            "cache_hits": 0,
         }
 
     def get_metrics(self) -> Dict[str, Any]:

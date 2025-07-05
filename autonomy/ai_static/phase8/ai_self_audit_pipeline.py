@@ -15,7 +15,7 @@ MODULE_LOGS = [
     "policy_audit_log.txt",
     "gdpr_ccpa_audit_log.txt",
     "refund_optimizer_log.txt",
-    "vault_delivery_monitor_log.txt"
+    "vault_delivery_monitor_log.txt",
 ]
 
 
@@ -32,5 +32,7 @@ def audit_ai_logs(triggered_by):
                         findings.append(finding)
                         logging.info(finding)
     if not findings:
-        logging.info(f"[{timestamp}] AUDIT: No issues found. | Triggered by: {triggered_by}")
+        logging.info(
+            f"[{timestamp}] AUDIT: No issues found. | Triggered by: {triggered_by}"
+        )
     return findings or ["No issues found."]

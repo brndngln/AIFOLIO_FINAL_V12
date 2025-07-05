@@ -13,12 +13,15 @@ def add_event(event):
     logging.info(f"Dashboard event: {event}")
     return True
 
+
 def get_event_feed():
     return DASHBOARD_EVENTS[-50:]
+
 
 def manual_retrigger(event_id):
     logging.info(f"Manual re-trigger of event {event_id}")
     return True
+
 
 def lock_dashboard_if_sentience(signal_detected):
     global DASHBOARD_LOCKED

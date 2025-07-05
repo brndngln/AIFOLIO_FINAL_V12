@@ -60,7 +60,7 @@ describe('ColorCustomization', () => {
     );
 
     const components = [
-      'app', 'card', 'button', 'input', 'link', 
+      'app', 'card', 'button', 'input', 'link',
       'alert', 'tooltip', 'modal', 'header', 'navigation'
     ];
 
@@ -117,7 +117,7 @@ describe('ColorCustomization', () => {
 
     // Find preview components
     const colorPreview = getByTestId('color-preview');
-    
+
 
     // Select the app.background color picker directly by test id
     const backgroundPicker = getByTestId('colorpicker-app-background');

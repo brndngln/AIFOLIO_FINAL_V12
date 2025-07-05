@@ -12,10 +12,7 @@ from collections import Counter
 LOG_PATH = "../../distribution/legal_exports/bias_trend_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-MODULE_OUTPUTS = [
-    "policy_audit_log.txt",
-    "buyer_receipt_log.txt"
-]
+MODULE_OUTPUTS = ["policy_audit_log.txt", "buyer_receipt_log.txt"]
 
 BIAS_TERMS = ["refund denied", "manual review", "escalate"]
 
@@ -35,5 +32,7 @@ def monitor_bias_trends(triggered_by):
         event = f"[{timestamp}] BIAS: {term} occurred {count} times | Triggered by: {triggered_by}"
         logging.info(event)
     if not term_counts:
-        logging.info(f"[{timestamp}] BIAS: No bias terms found. | Triggered by: {triggered_by}")
+        logging.info(
+            f"[{timestamp}] BIAS: No bias terms found. | Triggered by: {triggered_by}"
+        )
     return dict(term_counts) or {"result": "No bias terms found."}

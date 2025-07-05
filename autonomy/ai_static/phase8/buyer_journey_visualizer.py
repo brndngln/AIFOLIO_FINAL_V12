@@ -12,8 +12,11 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 JOURNEY_STAGES = ["awareness", "consideration", "purchase", "retention", "advocacy"]
 
+
 def visualize_buyer_journey(triggered_by):
     timestamp = datetime.utcnow().isoformat()
-    event = f"[{timestamp}] BUYER JOURNEY: {JOURNEY_STAGES} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] BUYER JOURNEY: {JOURNEY_STAGES} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return JOURNEY_STAGES

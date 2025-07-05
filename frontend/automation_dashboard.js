@@ -12,21 +12,21 @@ class AutomationDashboard {
 
         // Overview section
         const overview = this._renderOverview();
-        
+
         // Rules management
         const rulesSection = this._renderRulesSection();
-        
+
         // Schedules management
         const schedulesSection = this._renderSchedulesSection();
-        
+
         // Performance metrics
         const performanceSection = this._renderPerformanceSection();
-        
+
         dashboard.appendChild(overview);
         dashboard.appendChild(rulesSection);
         dashboard.appendChild(schedulesSection);
         dashboard.appendChild(performanceSection);
-        
+
         return dashboard;
     }
 
@@ -34,31 +34,31 @@ class AutomationDashboard {
     _renderOverview() {
         const container = document.createElement('div');
         container.className = 'overview';
-        
+
         const metrics = [
             { label: 'Active Rules', value: '0' },
             { label: 'Active Schedules', value: '0' },
             { label: 'Success Rate', value: '0%' },
             { label: 'Error Rate', value: '0%' }
         ];
-        
+
         metrics.forEach(metric => {
             const metricDiv = document.createElement('div');
             metricDiv.className = 'metric';
-            
+
             const label = document.createElement('span');
             label.className = 'metric-label';
             label.textContent = metric.label;
-            
+
             const value = document.createElement('span');
             value.className = 'metric-value';
             value.textContent = metric.value;
-            
+
             metricDiv.appendChild(label);
             metricDiv.appendChild(value);
             container.appendChild(metricDiv);
         });
-        
+
         return container;
     }
 
@@ -66,12 +66,12 @@ class AutomationDashboard {
     _renderRulesSection() {
         const container = document.createElement('div');
         container.className = 'rules-section';
-        
+
         const title = document.createElement('h3');
         title.textContent = 'Automation Rules';
-        
+
         const table = document.createElement('table');
-        
+
         // Table headers
         const headers = ['ID', 'Type', 'Condition', 'Action', 'Status'];
         const headerRow = document.createElement('tr');
@@ -81,7 +81,7 @@ class AutomationDashboard {
             headerRow.appendChild(th);
         });
         table.appendChild(headerRow);
-        
+
         // Sample rule rows
         const sampleRules = [
             {
@@ -92,7 +92,7 @@ class AutomationDashboard {
                 status: 'active'
             }
         ];
-        
+
         sampleRules.forEach(rule => {
             const row = document.createElement('tr');
             Object.values(rule).forEach(value => {
@@ -102,15 +102,15 @@ class AutomationDashboard {
             });
             table.appendChild(row);
         });
-        
+
         const addButton = document.createElement('button');
         addButton.textContent = 'Add New Rule';
         addButton.onclick = () => this._showAddRuleModal();
-        
+
         container.appendChild(title);
         container.appendChild(table);
         container.appendChild(addButton);
-        
+
         return container;
     }
 
@@ -118,12 +118,12 @@ class AutomationDashboard {
     _renderSchedulesSection() {
         const container = document.createElement('div');
         container.className = 'schedules-section';
-        
+
         const title = document.createElement('h3');
         title.textContent = 'Automation Schedules';
-        
+
         const table = document.createElement('table');
-        
+
         // Table headers
         const headers = ['ID', 'Frequency', 'Tasks', 'Status', 'Next Run'];
         const headerRow = document.createElement('tr');
@@ -133,7 +133,7 @@ class AutomationDashboard {
             headerRow.appendChild(th);
         });
         table.appendChild(headerRow);
-        
+
         // Sample schedule rows
         const sampleSchedules = [
             {
@@ -144,7 +144,7 @@ class AutomationDashboard {
                 next_run: '2025-06-03 00:00:00'
             }
         ];
-        
+
         sampleSchedules.forEach(schedule => {
             const row = document.createElement('tr');
             Object.values(schedule).forEach(value => {
@@ -154,15 +154,15 @@ class AutomationDashboard {
             });
             table.appendChild(row);
         });
-        
+
         const addButton = document.createElement('button');
         addButton.textContent = 'Add New Schedule';
         addButton.onclick = () => this._showAddScheduleModal();
-        
+
         container.appendChild(title);
         container.appendChild(table);
         container.appendChild(addButton);
-        
+
         return container;
     }
 
@@ -170,34 +170,34 @@ class AutomationDashboard {
     _renderPerformanceSection() {
         const container = document.createElement('div');
         container.className = 'performance-section';
-        
+
         const title = document.createElement('h3');
         title.textContent = 'Performance Metrics';
-        
+
         const metrics = [
             { label: 'Total Executions', value: '0' },
             { label: 'Average Execution Time', value: '0s' },
             { label: 'Uptime', value: '100%' },
             { label: 'Error Rate', value: '0%' }
         ];
-        
+
         metrics.forEach(metric => {
             const metricDiv = document.createElement('div');
             metricDiv.className = 'metric';
-            
+
             const label = document.createElement('span');
             label.className = 'metric-label';
             label.textContent = metric.label;
-            
+
             const value = document.createElement('span');
             value.className = 'metric-value';
             value.textContent = metric.value;
-            
+
             metricDiv.appendChild(label);
             metricDiv.appendChild(value);
             container.appendChild(metricDiv);
         });
-        
+
         return container;
     }
 

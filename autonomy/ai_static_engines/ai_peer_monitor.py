@@ -10,15 +10,18 @@ import datetime
 
 PEER_MONITOR_LOG = []
 
+
 class PeerMonitor:
     @staticmethod
     def log_peer_action(peer: str, move: str, context: Dict) -> None:
-        PEER_MONITOR_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'peer': peer,
-            'move': move,
-            'context': context
-        })
+        PEER_MONITOR_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "peer": peer,
+                "move": move,
+                "context": context,
+            }
+        )
 
     @staticmethod
     def get_peer_moves() -> List[Dict]:

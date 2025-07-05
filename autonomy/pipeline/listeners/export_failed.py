@@ -12,36 +12,43 @@ from autonomy.utils.activity_log import log_activity
 from autonomy.ai_tools.anomaly_detector import detect_anomaly
 from autonomy.ai_tools.audit_compliance import check_vault_metadata
 
+
 def handle_event(payload):
     """
     Handles the 'export_failed' event with SAFE AI, retry-safe integrations, and robust logging.
     """
-    log_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../analytics/error_log.json'))
+    log_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "../../../analytics/error_log.json")
+    )
     errors = []
     # --- Static AI Root-Cause/Anomaly/Compliance Checks ---
     ai_results = {}
     # Compliance check on payload (if relevant)
-    compliance_result = check_vault_metadata(payload) if 'vault_id' in payload else {'compliant': True, 'missing': [], 'invalid': []}
-    ai_results['compliance'] = compliance_result
+    compliance_result = (
+        check_vault_metadata(payload)
+        if "vault_id" in payload
+        else {"compliant": True, "missing": [], "invalid": []}
+    )
+    ai_results["compliance"] = compliance_result
     # Root cause suggestion (static pattern matching)
     anomaly_flags = []
     root_cause = None
-    reason = payload.get('reason','').lower()
-    if 'timeout' in reason:
-        anomaly_flags.append('export_timeout')
-        root_cause = 'Export operation timed out.'
-    if 'disk' in reason or 'space' in reason:
-        anomaly_flags.append('disk_issue')
-        root_cause = 'Disk space or IO error.'
-    if 'permission' in reason:
-        anomaly_flags.append('permission_error')
-        root_cause = 'File permission error.'
-    if not compliance_result['compliant']:
-        anomaly_flags.append('compliance_failure')
-    ai_results['anomaly_flags'] = anomaly_flags
-    ai_results['root_cause'] = root_cause
+    reason = payload.get("reason", "").lower()
+    if "timeout" in reason:
+        anomaly_flags.append("export_timeout")
+        root_cause = "Export operation timed out."
+    if "disk" in reason or "space" in reason:
+        anomaly_flags.append("disk_issue")
+        root_cause = "Disk space or IO error."
+    if "permission" in reason:
+        anomaly_flags.append("permission_error")
+        root_cause = "File permission error."
+    if not compliance_result["compliant"]:
+        anomaly_flags.append("compliance_failure")
+    ai_results["anomaly_flags"] = anomaly_flags
+    ai_results["root_cause"] = root_cause
     # If any anomaly or compliance failure, trigger alerts and outbound webhooks
-    if anomaly_flags or not compliance_result['compliant']:
+    if anomaly_flags or not compliance_result["compliant"]:
         alert_msg = f"[AI] Export failed anomaly/compliance/root-cause: {anomaly_flags}, {compliance_result}, {root_cause}"
         send_slack_alert(alert_msg)
         send_telegram_alert(alert_msg)
@@ -50,25 +57,36 @@ def handle_event(payload):
         # Outbound webhook (future-proof, e.g. Zapier)
         try:
             from autonomy.post_sale_hooks.outbound_webhook import post_outbound_webhooks
-            post_outbound_webhooks({"event":"export_failed","payload":payload,"ai_results":ai_results})
+
+            post_outbound_webhooks(
+                {"event": "export_failed", "payload": payload, "ai_results": ai_results}
+            )
         except Exception as e:
             print(f"Outbound webhook failed: {e}")
     # --- End AI Checks ---
-    entry = {"event": "export_failed", "payload": payload, "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), "ai_results": ai_results}
+    entry = {
+        "event": "export_failed",
+        "payload": payload,
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "ai_results": ai_results,
+    }
     # --- SAFE FILENAME SANITIZATION & ERROR NOTIFICATION (if applicable) ---
     from autonomy.vaults.filename_sanitizer import enforce_safe_filename
     from autonomy.notifications.email_engine import send_vault_email
+
     try:
-        if payload.get('error_report_path'):
-            safe_path = enforce_safe_filename(payload['error_report_path'], payload.get('vault_title', payload.get('vault_id', 'export_error')))
-            if payload.get('notify_on_export_error'):
-                email_subject = f"[AIFOLIO] Export Error for Vault {payload.get('vault_id', '')}"
+        if payload.get("error_report_path"):
+            safe_path = enforce_safe_filename(
+                payload["error_report_path"],
+                payload.get("vault_title", payload.get("vault_id", "export_error")),
+            )
+            if payload.get("notify_on_export_error"):
+                email_subject = (
+                    f"[AIFOLIO] Export Error for Vault {payload.get('vault_id', '')}"
+                )
                 email_body = "An export error occurred. See attached error report."
                 send_status = send_vault_email(
-                    payload.get('owner_email'),
-                    email_subject,
-                    email_body,
-                    [safe_path]
+                    payload.get("owner_email"), email_subject, email_body, [safe_path]
                 )
     except Exception as e:
         errors.append(f"Notify: {e}")
@@ -109,18 +127,34 @@ def handle_event(payload):
         errors.append(f"Audit: {e}")
     # Log to vault event log/activity log (with ai_results)
     try:
-        log_vault_event(payload.get("vault_id", "unknown"), "export_failed", {**payload, "ai_results": ai_results}, errors)
-        log_activity(payload.get("vault_id", "unknown"), "export_failed", {**payload, "ai_results": ai_results}, errors)
+        log_vault_event(
+            payload.get("vault_id", "unknown"),
+            "export_failed",
+            {**payload, "ai_results": ai_results},
+            errors,
+        )
+        log_activity(
+            payload.get("vault_id", "unknown"),
+            "export_failed",
+            {**payload, "ai_results": ai_results},
+            errors,
+        )
     except Exception as e:
         errors.append(f"VaultLog: {e}")
     # --- Event Replay/Auto-Remediation Stub ---
     # (Future: implement replay or auto-remediation logic based on root_cause)
     if root_cause:
-        print(f"[AIFOLIO][REMEDIATION] Suggested action for export_failed: {root_cause}")
+        print(
+            f"[AIFOLIO][REMEDIATION] Suggested action for export_failed: {root_cause}"
+        )
     # AI anomaly detection on failures
     if errors:
         try:
             detect_anomaly(payload.get("vault_id", "unknown"), errors)
         except Exception:
             pass
-    return {"status": "success", "vault_id": payload.get("vault_id", "unknown"), "errors": errors}
+    return {
+        "status": "success",
+        "vault_id": payload.get("vault_id", "unknown"),
+        "errors": errors,
+    }

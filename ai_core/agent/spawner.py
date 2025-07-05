@@ -3,6 +3,7 @@ from ai_core.emma_governor import EmmaGovernor
 
 governor = EmmaGovernor()
 
+
 def spawn_agent():
     agent = SafeAIAgent()
     governor.register_agent(agent.fingerprint)

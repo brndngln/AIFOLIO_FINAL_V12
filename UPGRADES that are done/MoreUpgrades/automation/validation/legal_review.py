@@ -3,7 +3,7 @@ def legal_review(text, category="general"):
         "finance": "This content is for informational purposes only and does not constitute financial advice.",
         "health": "Consult a licensed medical professional before following any advice in this guide.",
         "ai": "This product uses AI-generated content. Verify all critical information independently.",
-        "business": "Earnings are not guaranteed. Your success depends on many personal factors."
+        "business": "Earnings are not guaranteed. Your success depends on many personal factors.",
     }
 
     warnings = []

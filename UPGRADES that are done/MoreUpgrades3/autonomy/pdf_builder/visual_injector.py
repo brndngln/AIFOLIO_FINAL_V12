@@ -1,5 +1,6 @@
 from reportlab.platypus import Image, Spacer
 
+
 def insert_visuals(story, image_paths):
     for image in image_paths:
         try:

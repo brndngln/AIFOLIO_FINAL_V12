@@ -11,7 +11,7 @@ import json
 import os
 from datetime import datetime
 
-SAFEGUARD_LOG = os.path.join(os.path.dirname(__file__), 'safeguard_log.json')
+SAFEGUARD_LOG = os.path.join(os.path.dirname(__file__), "safeguard_log.json")
 
 BEGINNER_MISTAKES = [
     "Skipping Preview / Outline",
@@ -23,7 +23,7 @@ BEGINNER_MISTAKES = [
     "Missing price / testimonial / screenshots",
     "Over-faking reviews (max 40)",
     "Forgetting UX Best Practices",
-    "Forgetting Final Completion Checklist"
+    "Forgetting Final Completion Checklist",
 ]
 
 CRITICAL_COMPONENTS = [
@@ -32,23 +32,25 @@ CRITICAL_COMPONENTS = [
     "vault_preview.json",
     "price",
     "testimonial",
-    "screenshots"
+    "screenshots",
 ]
+
 
 def audit_log(event, details=None):
     log_entry = {
         "timestamp": datetime.now().isoformat(),
         "event": event,
-        "details": details or {}
+        "details": details or {},
     }
     if os.path.exists(SAFEGUARD_LOG):
-        with open(SAFEGUARD_LOG, 'r') as f:
+        with open(SAFEGUARD_LOG, "r") as f:
             logs = json.load(f)
     else:
         logs = []
     logs.append(log_entry)
-    with open(SAFEGUARD_LOG, 'w') as f:
+    with open(SAFEGUARD_LOG, "w") as f:
         json.dump(logs, f, indent=2)
+
 
 def validate_vault(vault_data):
     missing = []
@@ -56,37 +58,45 @@ def validate_vault(vault_data):
         if comp not in vault_data or not vault_data[comp]:
             missing.append(comp)
     if missing:
-        audit_log('BLOCK_UPLOAD_MISSING_COMPONENTS', {'missing': missing})
+        audit_log("BLOCK_UPLOAD_MISSING_COMPONENTS", {"missing": missing})
         return False, f"Missing critical components: {', '.join(missing)}"
     return True, "All critical components present."
+
 
 def check_beginner_mistakes(vault_data):
     mistakes = []
     # Example checks
-    if not vault_data.get('outline') or not vault_data.get('preview'):
+    if not vault_data.get("outline") or not vault_data.get("preview"):
         mistakes.append(BEGINNER_MISTAKES[0])
-    if not vault_data.get('vault_preview.json'):
+    if not vault_data.get("vault_preview.json"):
         mistakes.append(BEGINNER_MISTAKES[1])
-    if 'drive.google.com' in str(vault_data.get('assets', '')):
+    if "drive.google.com" in str(vault_data.get("assets", "")):
         mistakes.append(BEGINNER_MISTAKES[2])
-    if not vault_data.get('payout_config'):
+    if not vault_data.get("payout_config"):
         mistakes.append(BEGINNER_MISTAKES[3])
-    if vault_data.get('payment_method') == 'stripe' and not vault_data.get('stripe_webhook'):
+    if vault_data.get("payment_method") == "stripe" and not vault_data.get(
+        "stripe_webhook"
+    ):
         mistakes.append(BEGINNER_MISTAKES[4])
-    if not vault_data.get('gdpr_opt_out'):
+    if not vault_data.get("gdpr_opt_out"):
         mistakes.append(BEGINNER_MISTAKES[5])
-    if not vault_data.get('price') or not vault_data.get('testimonial') or not vault_data.get('screenshots'):
+    if (
+        not vault_data.get("price")
+        or not vault_data.get("testimonial")
+        or not vault_data.get("screenshots")
+    ):
         mistakes.append(BEGINNER_MISTAKES[6])
-    if vault_data.get('num_reviews', 0) > 40:
+    if vault_data.get("num_reviews", 0) > 40:
         mistakes.append(BEGINNER_MISTAKES[7])
-    if not vault_data.get('ux_best_practices'):
+    if not vault_data.get("ux_best_practices"):
         mistakes.append(BEGINNER_MISTAKES[8])
-    if not vault_data.get('completion_checklist'):
+    if not vault_data.get("completion_checklist"):
         mistakes.append(BEGINNER_MISTAKES[9])
     if mistakes:
-        audit_log('BLOCK_UPLOAD_BEGINNER_MISTAKES', {'mistakes': mistakes})
+        audit_log("BLOCK_UPLOAD_BEGINNER_MISTAKES", {"mistakes": mistakes})
         return False, mistakes
     return True, []
+
 
 # Example main safeguard function
 def enforce_all_safeguards(vault_data):

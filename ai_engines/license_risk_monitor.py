@@ -7,13 +7,17 @@ import logging
 REGULATED_CATEGORIES = ["finance", "health", "ai", "legal", "medical"]
 GDPR_TOPICS = ["personal data", "user data", "privacy"]
 
+
 @sentience_guard
 def legal_scan(product_text, category, user_consent=False):
     # --- OMNIBLADE LEGAL SHIELD: License Risk Audit ---
     import datetime
     from core.compliance.smart_legal_watcher import weekly_report
+
     weekly_report()
-    logging.info(f"[LICENSE RISK AUDIT] {datetime.datetime.now().isoformat()} | Asset: {product_text}")
+    logging.info(
+        f"[LICENSE RISK AUDIT] {datetime.datetime.now().isoformat()} | Asset: {product_text}"
+    )
     """
     Scan for missing disclaimers, risky promises, regulated topics.
     Injects legal footer if needed. Checks for explicit consent. Enforces non-sentience and audit logging.
@@ -21,7 +25,9 @@ def legal_scan(product_text, category, user_consent=False):
     if category in REGULATED_CATEGORIES:
         product_text += "\n\n[Legal Disclaimer: For informational purposes only. Not financial, legal, or medical advice.]"
         if not user_consent:
-            logging.warning("User consent missing for regulated category. Flagging for manual review.")
+            logging.warning(
+                "User consent missing for regulated category. Flagging for manual review."
+            )
             product_text += "\n\nFLAG: User consent missing. Manual review required."
     for topic in GDPR_TOPICS:
         if topic in product_text.lower():

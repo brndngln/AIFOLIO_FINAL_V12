@@ -14,6 +14,7 @@ MODULES = {
     # Add more modules as needed
 }
 
+
 def get_enabled_modules(tenant_id: str, tenant_registry) -> List[str]:
     config = tenant_registry.get_tenant_config(tenant_id)
     return config.get("enabled_modules", list(MODULES.keys()))

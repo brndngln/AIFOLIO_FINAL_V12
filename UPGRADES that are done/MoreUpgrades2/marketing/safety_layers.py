@@ -1,8 +1,18 @@
 # Safety module for enforcing non-sentience
 def verify_no_sentient_components(module_text):
-    sentience_flags = ["self-train", "loop", "remember", "improve itself", "learn from experience", "memory", "recursive", "autonomous update"]
+    sentience_flags = [
+        "self-train",
+        "loop",
+        "remember",
+        "improve itself",
+        "learn from experience",
+        "memory",
+        "recursive",
+        "autonomous update",
+    ]
     found_flags = [flag for flag in sentience_flags if flag in module_text.lower()]
     return found_flags
+
 
 def assert_safe_module(module_text):
     violations = verify_no_sentient_components(module_text)

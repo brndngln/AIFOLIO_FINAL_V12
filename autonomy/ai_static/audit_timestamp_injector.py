@@ -5,5 +5,6 @@ AIFOLIO™ SAFE AI MODULE: Audit Timestamp Injector
 """
 from datetime import datetime
 
+
 def inject_timestamp(output):
     return f"[{datetime.utcnow().isoformat()}] {output}"

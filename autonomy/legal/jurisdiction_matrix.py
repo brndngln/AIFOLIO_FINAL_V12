@@ -4,6 +4,7 @@ Static, Charter-Enforced
 """
 from typing import Dict
 
+
 def get_jurisdiction_matrix() -> Dict[str, Dict[str, str]]:
     """Return static jurisdiction matrix per vault/currency"""
     return {

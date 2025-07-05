@@ -14,8 +14,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 ENDPOINTS = [
     "http://localhost:8000/api/policy_audit_log",
     "http://localhost:8000/api/gdpr_ccpa_audit_log",
-    "http://localhost:8000/api/webhook_events"
+    "http://localhost:8000/api/webhook_events",
 ]
+
 
 def run_synthetic_checks():
     results = {}

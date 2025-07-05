@@ -1,19 +1,23 @@
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
 
+
 def privacy_compliance_check(logs):
     """Ensure logs do not contain sensitive or unauthorized data."""
     for log in logs:
-        log['user_id'] = str(log.get('user_id', ''))[:8] + "***"
+        log["user_id"] = str(log.get("user_id", ""))[:8] + "***"
     return logs
+
 
 def suggest_profit_boosters(logs):
     """
@@ -28,11 +32,17 @@ def suggest_profit_boosters(logs):
         suggestions = []
         for log in logs:
             if log.get("conversion_rate", 0) < 10:
-                suggestions.append(f"Improve landing page CTA or title for {log.get('title', '[unknown]')}")
+                suggestions.append(
+                    f"Improve landing page CTA or title for {log.get('title', '[unknown]')}"
+                )
             if log.get("readability_score", 100) < 50:
-                suggestions.append(f"Rewrite {log.get('title', '[unknown]')} for better readability")
+                suggestions.append(
+                    f"Rewrite {log.get('title', '[unknown]')} for better readability"
+                )
             if log.get("ethics_issues"):
-                suggestions.append(f"Review ethics in {log.get('title', '[unknown]')} — can affect trust and sales")
+                suggestions.append(
+                    f"Review ethics in {log.get('title', '[unknown]')} — can affect trust and sales"
+                )
         logging.info(f"Profit suggestions generated: {suggestions}")
         human_oversight_checkpoint("Profit suggestions generated", suggestions)
         return suggestions

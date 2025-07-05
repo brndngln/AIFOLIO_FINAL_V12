@@ -5,18 +5,23 @@
 from flask import Flask, render_template, send_from_directory
 from dashboard import compliance_api
 
-app = Flask(__name__, static_folder='dashboard/static', template_folder='dashboard/templates')
+app = Flask(
+    __name__, static_folder="dashboard/static", template_folder="dashboard/templates"
+)
 
 # Register compliance API blueprint
 app.register_blueprint(compliance_api)
 
-@app.route('/')
-def root():
-    return render_template('compliance_dashboard.html')
 
-@app.route('/static/<path:filename>')
+@app.route("/")
+def root():
+    return render_template("compliance_dashboard.html")
+
+
+@app.route("/static/<path:filename>")
 def static_files(filename):
     return send_from_directory(app.static_folder, filename)
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5055)
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5055)

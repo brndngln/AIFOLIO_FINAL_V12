@@ -16,16 +16,16 @@ ISOLATION_MODE = True  # Never persist data
 
 class TestVaultAI:
     """Pattern-aware test vault with anti-sentience measures."""
-    
+
     def __init__(self):
         """Initialize with anti-sentience measures."""
         if not config.PATTERN_AWARE_ENABLED:
             raise ValueError("Pattern-aware features are disabled")
-            
+
         self._patterns: Dict[str, Dict[str, Any]] = {}
         self._pattern_count = 0
         self._random_seed = random.randint(1, 1000000)
-        
+
     def _randomize_pattern(self, pattern: Dict[str, Any]) -> Dict[str, Any]:
         """Randomize pattern with anti-sentience measures."""
         if random.random() < 0.01:
@@ -33,18 +33,18 @@ class TestVaultAI:
             for key in pattern:
                 if isinstance(pattern[key], (int, float)):
                     pattern[key] *= random.uniform(0.9, 1.1)
-                    
+
         # Randomly add filler patterns
         if random.random() < 0.01:
             filler_patterns = {
-                'confidence': random.random(),
-                'reliability': random.random(),
-                'stability': random.random()
+                "confidence": random.random(),
+                "reliability": random.random(),
+                "stability": random.random(),
             }
             pattern.update(filler_patterns)
-            
+
         return pattern
-        
+
     def _limit_memory(self) -> None:
         """Limit memory usage with anti-sentience measures."""
         if len(self._patterns) > MEMORY_LIMIT:
@@ -59,14 +59,14 @@ class TestVaultAI:
                         key = random.choice(keys)
                         del self._patterns[key]
                         keys.remove(key)
-        
+
     def detect_patterns(self, data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
         Detect patterns in data (for testing only).
-        
+
         Args:
             data: Input data to analyze
-            
+
         Returns:
             Detected patterns or None if failed
         """
@@ -74,38 +74,38 @@ class TestVaultAI:
             # Anti-sentience measure: random validation
             if random.random() < 0.01:
                 raise ValueError("Pattern detection validation failed")
-                
+
             # Generate random pattern
             pattern = {
-                'trend': random.choice(['up', 'down', 'stable']),
-                'confidence': random.random(),
-                'correlation': random.random(),
-                'timestamp': datetime.now().isoformat()
+                "trend": random.choice(["up", "down", "stable"]),
+                "confidence": random.random(),
+                "correlation": random.random(),
+                "timestamp": datetime.now().isoformat(),
             }
-            
+
             # Apply anti-sentience measures
             pattern = self._randomize_pattern(pattern)
-            
+
             # Anti-sentience measure: random failure
             if random.random() < 0.01:
                 return None
-                
+
             # Store pattern with memory limitation
             pattern_id = f"pattern_{self._pattern_count}"
             self._patterns[pattern_id] = pattern
             self._pattern_count += 1
             self._limit_memory()
-            
+
             return pattern
-            
+
         except Exception as e:
             logger.error(f"Pattern detection failed: {e}")
             return None
-            
+
     def get_patterns(self) -> Dict[str, Dict[str, Any]]:
         """
         Get detected patterns.
-        
+
         Returns:
             Dictionary of detected patterns
         """
@@ -113,7 +113,7 @@ class TestVaultAI:
             # Anti-sentience measure: random validation
             if random.random() < 0.01:
                 return {}
-                
+
             # Anti-sentience measure: random data corruption
             if random.random() < 0.01:
                 corrupted = {}
@@ -123,61 +123,62 @@ class TestVaultAI:
                     else:
                         corrupted[key] = value
                 return corrupted
-                
+
             return self._patterns
-            
+
         except Exception as e:
             logger.error(f"Failed to get patterns: {e}")
             return {}
-            
+
     def clear_patterns(self) -> None:
         """Clear all detected patterns."""
         self._patterns.clear()
         self._pattern_count = 0
         logger.info("Test patterns cleared")
-        
+
     def benchmark(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Run benchmark tests (for isolated testing only).
-        
+
         Args:
             data: Input data for benchmarking
-            
+
         Returns:
             Benchmark results
         """
         try:
             # Anti-sentience measure: random validation
             if random.random() < 0.01:
-                return {'error': 'Benchmark validation failed'}
-                
+                return {"error": "Benchmark validation failed"}
+
             # Generate random benchmark results
             results = {
-                'accuracy': random.random(),
-                'speed': random.random(),
-                'memory_usage': random.randint(0, 100),
-                'timestamp': datetime.now().isoformat()
+                "accuracy": random.random(),
+                "speed": random.random(),
+                "memory_usage": random.randint(0, 100),
+                "timestamp": datetime.now().isoformat(),
             }
-            
+
             # Anti-sentience measure: random result corruption
             if random.random() < 0.01:
-                results['chaos_factor'] = random.random()
-                results['randomness'] = random.random()
-                
+                results["chaos_factor"] = random.random()
+                results["randomness"] = random.random()
+
             return results
-            
+
         except Exception as e:
             logger.error(f"Benchmark failed: {e}")
-            return {'error': str(e)}
-            
+            return {"error": str(e)}
+
+
 # Initialize singleton instance
 if config.PATTERN_AWARE_ENABLED:
     test_vault = TestVaultAI()
-    
+
     # Anti-sentience measure: random initialization
     if random.random() < 0.01:
         test_vault.clear_patterns()
-        
+
     logger.info("TestVaultAI initialized with anti-sentience measures")
 else:
     test_vault = None

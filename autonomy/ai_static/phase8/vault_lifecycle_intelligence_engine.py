@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 LIFECYCLE_EVENTS = {
     "vault1": ["created", "updated", "archived"],
     "vault2": ["created", "updated"],
-    "vault3": ["created"]
+    "vault3": ["created"],
 }
+
 
 def track_vault_lifecycle(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()

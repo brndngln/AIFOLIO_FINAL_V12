@@ -3,8 +3,13 @@ import json
 import os
 import datetime
 
-REFUND_CAUSE_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/refund_causality_log.jsonl'))
+REFUND_CAUSE_LOG = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "../../analytics/refund_causality_log.jsonl"
+    )
+)
 os.makedirs(os.path.dirname(REFUND_CAUSE_LOG), exist_ok=True)
+
 
 # --- Refund Causality Explorer (AI-assisted, human-reviewed) ---
 def explore_refund_causality(refunds, sales, reasons):
@@ -16,20 +21,42 @@ def explore_refund_causality(refunds, sales, reasons):
     Returns: dict with counts and flagged patterns
     """
     df = pd.DataFrame(refunds)
-    counts = df['reason'].value_counts().to_dict() if not df.empty else {}
+    counts = df["reason"].value_counts().to_dict() if not df.empty else {}
     flagged = [r for r, c in counts.items() if c > 1]
     entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'counts': counts,
-        'flagged': flagged
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "counts": counts,
+        "flagged": flagged,
     }
-    with open(REFUND_CAUSE_LOG, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
-    return {'counts': counts, 'flagged': flagged}
+    with open(REFUND_CAUSE_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+    return {"counts": counts, "flagged": flagged}
+
 
 if __name__ == "__main__":
-    print(explore_refund_causality([
-        {'vault': 'v1', 'customer': 'c1', 'reason': 'download issue', 'timestamp': '2025-06-21'},
-        {'vault': 'v1', 'customer': 'c2', 'reason': 'download issue', 'timestamp': '2025-06-21'},
-        {'vault': 'v2', 'customer': 'c3', 'reason': 'content', 'timestamp': '2025-06-21'}
-    ], [], ['download issue', 'content']))
+    print(
+        explore_refund_causality(
+            [
+                {
+                    "vault": "v1",
+                    "customer": "c1",
+                    "reason": "download issue",
+                    "timestamp": "2025-06-21",
+                },
+                {
+                    "vault": "v1",
+                    "customer": "c2",
+                    "reason": "download issue",
+                    "timestamp": "2025-06-21",
+                },
+                {
+                    "vault": "v2",
+                    "customer": "c3",
+                    "reason": "content",
+                    "timestamp": "2025-06-21",
+                },
+            ],
+            [],
+            ["download issue", "content"],
+        )
+    )

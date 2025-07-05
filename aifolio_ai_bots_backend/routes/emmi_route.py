@@ -5,6 +5,7 @@ from backend.agents.emmi import handle_emmi
 
 router = APIRouter()
 
+
 @router.post("/emmi")
 async def emmi_endpoint(request: Request):
     data = await request.json()

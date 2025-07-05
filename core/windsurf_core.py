@@ -3,6 +3,7 @@ from .vault_dispatcher import VaultDispatcher
 from .ai_brainhub import AIBrainHub
 from .empire_memory_core import EmpireMemoryCore
 
+
 class WindsurfCore:
     def __init__(self):
         self.dispatcher = VaultDispatcher()

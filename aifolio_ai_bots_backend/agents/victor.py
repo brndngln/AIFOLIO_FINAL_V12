@@ -1,8 +1,17 @@
 # backend/agents/victor.py
 OWNER_LOCK = True
 
-from .agent_utils import sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted, ConsentManager, generate_compliance_report, calculate_risk_score
+from .agent_utils import (
+    sanitize_input,
+    moderate_content,
+    log_interaction,
+    raise_if_sentience_attempted,
+    ConsentManager,
+    generate_compliance_report,
+    calculate_risk_score,
+)
 from aifolio_empire.systems_infrastructure.openai_api_simulator import OpenAISimulator
+
 
 def handle_victor(user_input: str, user: str = "anonymous") -> str:
     """
@@ -14,13 +23,25 @@ def handle_victor(user_input: str, user: str = "anonymous") -> str:
     user_has_consent = ConsentManager.has_consent(user)
     context = {"user_consent": user_has_consent}
     if not user_has_consent:
-        ConsentManager.record_consent(user, consent=True, context={"source": "victor_handler_auto"})
+        ConsentManager.record_consent(
+            user, consent=True, context={"source": "victor_handler_auto"}
+        )
         context["user_consent"] = True
     # --- Pre-response moderation & risk ---
     moderation = moderate_content(safe_input, context)
     risk_score = calculate_risk_score(moderation)
-    if moderation["block_reason"] or moderation["human_review_required"] or risk_score >= 100:
-        log_interaction("victor", safe_input, f"[BLOCKED: {moderation.get('block_reason','compliance')}|Risk:{risk_score}]", moderation, user)
+    if (
+        moderation["block_reason"]
+        or moderation["human_review_required"]
+        or risk_score >= 100
+    ):
+        log_interaction(
+            "victor",
+            safe_input,
+            f"[BLOCKED: {moderation.get('block_reason','compliance')}|Risk:{risk_score}]",
+            moderation,
+            user,
+        )
         generate_compliance_report("victor", user, safe_input, "", moderation, context)
         if risk_score >= 80:
             pass
@@ -39,13 +60,27 @@ def handle_victor(user_input: str, user: str = "anonymous") -> str:
     # --- Post-response moderation & risk ---
     moderation_out = moderate_content(output, context)
     risk_score_out = calculate_risk_score(moderation_out)
-    if moderation_out["block_reason"] or moderation_out["human_review_required"] or risk_score_out >= 100:
-        log_interaction("victor", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}|Risk:{risk_score_out}]", moderation_out, user)
-        generate_compliance_report("victor", user, safe_input, output, moderation_out, context)
+    if (
+        moderation_out["block_reason"]
+        or moderation_out["human_review_required"]
+        or risk_score_out >= 100
+    ):
+        log_interaction(
+            "victor",
+            safe_input,
+            f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}|Risk:{risk_score_out}]",
+            moderation_out,
+            user,
+        )
+        generate_compliance_report(
+            "victor", user, safe_input, output, moderation_out, context
+        )
         if risk_score_out >= 80:
             pass
         return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}, Risk:{risk_score_out}]"
     raise_if_sentience_attempted(output)
     log_interaction("victor", safe_input, output, moderation_out, user)
-    generate_compliance_report("victor", user, safe_input, output, moderation_out, context)
+    generate_compliance_report(
+        "victor", user, safe_input, output, moderation_out, context
+    )
     return output

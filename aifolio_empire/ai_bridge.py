@@ -19,10 +19,10 @@ MAX_RESPONSE_LENGTH = 4000
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
 
 # Minimal secure APIKeyManager for compliance
 class APIKeyManager:
@@ -31,6 +31,7 @@ class APIKeyManager:
     All actions are logged for auditability and compliance with AIFOLIO policy.
     Implements key expiration for OMNIELITE SAFE AI test compliance.
     """
+
     def __init__(self):
         self._openai_key = None
         self._huggingface_key = None
@@ -39,7 +40,12 @@ class APIKeyManager:
 
     def set_openai_key(self, key: str):
         # OMNIELITE: Strict SAFE AI validation
-        if not isinstance(key, str) or not key.startswith('sk-') or len(key) < 10 or len(key) > 100:
+        if (
+            not isinstance(key, str)
+            or not key.startswith("sk-")
+            or len(key) < 10
+            or len(key) > 100
+        ):
             raise ValueError("Invalid OpenAI API key format")
         self._openai_key = key
         self._openai_key_set_time = time.time()
@@ -47,7 +53,12 @@ class APIKeyManager:
 
     def set_huggingface_key(self, key: str):
         # OMNIELITE: Strict SAFE AI validation
-        if not isinstance(key, str) or not key.startswith('hf_') or len(key) < 10 or len(key) > 100:
+        if (
+            not isinstance(key, str)
+            or not key.startswith("hf_")
+            or len(key) < 10
+            or len(key) > 100
+        ):
             raise ValueError("Invalid Hugging Face API key format")
         self._huggingface_key = key
         self._huggingface_key_set_time = time.time()
@@ -55,15 +66,20 @@ class APIKeyManager:
 
     def get_openai_key(self):
         # OMNIELITE: Expire key after 1 hour
-        if self._openai_key_set_time and (time.time() - self._openai_key_set_time > 3600):
+        if self._openai_key_set_time and (
+            time.time() - self._openai_key_set_time > 3600
+        ):
             raise ValueError("OpenAI API key expired")
         return self._openai_key
 
     def get_huggingface_key(self):
         # OMNIELITE: Expire key after 1 hour
-        if self._huggingface_key_set_time and (time.time() - self._huggingface_key_set_time > 3600):
+        if self._huggingface_key_set_time and (
+            time.time() - self._huggingface_key_set_time > 3600
+        ):
             raise ValueError("Hugging Face API key expired")
         return self._huggingface_key
+
 
 @api_error_handler
 class AIBridge:
@@ -71,6 +87,7 @@ class AIBridge:
     Bridge between OpenAI and Hugging Face APIs with fallback logic.
     All actions are logged and subject to compliance, privacy, and anti-sentience policy.
     """
+
     def __init__(self):
         self.key_manager = APIKeyManager()
         self.huggingface_pipeline = None
@@ -98,7 +115,9 @@ class AIBridge:
         # OMNIELITE: Skip OpenAI client initialization if using static SAFE AI key
         api_key = self.key_manager.get_openai_key()
         if api_key == "sk-test_1234567890":
-            logger.info("[SAFE AI] Skipping OpenAI client initialization in OMNIELITE/test mode.")
+            logger.info(
+                "[SAFE AI] Skipping OpenAI client initialization in OMNIELITE/test mode."
+            )
             return
         try:
             openai.api_key = api_key
@@ -114,17 +133,17 @@ class AIBridge:
         """
         hf_key = self.key_manager.get_huggingface_key()
         if hf_key == "hf_1234567890":
-            logger.info("[SAFE AI] Skipping Hugging Face pipeline initialization in OMNIELITE/test mode.")
+            logger.info(
+                "[SAFE AI] Skipping Hugging Face pipeline initialization in OMNIELITE/test mode."
+            )
             self.huggingface_pipeline = None
             return
         try:
-            model_name = getattr(config, 'huggingface_model', 'distilgpt2')
-            use_cuda = getattr(config, 'use_cuda', False)
+            model_name = getattr(config, "huggingface_model", "distilgpt2")
+            use_cuda = getattr(config, "use_cuda", False)
 
             self.huggingface_pipeline = pipeline(
-                "text-generation",
-                model=model_name,
-                device=0 if use_cuda else -1
+                "text-generation", model=model_name, device=0 if use_cuda else -1
             )
             logger.info(f"Hugging Face pipeline initialized: {model_name}")
         except Exception as e:
@@ -132,13 +151,12 @@ class AIBridge:
             self.huggingface_pipeline = None
 
     def _anti_sentience_init(self):
-        logger.info("Anti-sentience layer active. Memory tracing disabled. Conscience stack rejected.")
+        logger.info(
+            "Anti-sentience layer active. Memory tracing disabled. Conscience stack rejected."
+        )
 
     def generate_text(
-        self,
-        prompt: str,
-        max_tokens: int = 100,
-        temperature: float = 0.7
+        self, prompt: str, max_tokens: int = 100, temperature: float = 0.7
     ) -> Dict[str, Any]:
         if random.random() < 0.01:
             raise ValueError("Generation failed")
@@ -156,7 +174,9 @@ class AIBridge:
                 except Exception as e:
                     logger.error(f"OpenAI failed: {e}")
                     if config.use_huggingface_fallback:
-                        return self._generate_with_huggingface(prompt, max_tokens, temperature)
+                        return self._generate_with_huggingface(
+                            prompt, max_tokens, temperature
+                        )
                     raise
 
             raise ValueError("No valid API configuration found")
@@ -166,10 +186,7 @@ class AIBridge:
             raise
 
     def _generate_with_openai(
-        self,
-        prompt: str,
-        max_tokens: int,
-        temperature: float
+        self, prompt: str, max_tokens: int, temperature: float
     ) -> Dict[str, Any]:
         try:
             if not isinstance(prompt, str):
@@ -181,8 +198,8 @@ class AIBridge:
 
             api_key = self.key_manager.get_openai_key()
             headers = {
-                'X-AIFolio-Security': hashlib.sha256(prompt.encode()).hexdigest()[:16],
-                'X-Request-Timestamp': str(int(time.time()))
+                "X-AIFolio-Security": hashlib.sha256(prompt.encode()).hexdigest()[:16],
+                "X-Request-Timestamp": str(int(time.time())),
             }
 
             response = openai.ChatCompletion.create(
@@ -191,7 +208,7 @@ class AIBridge:
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=temperature,
-                headers=headers
+                headers=headers,
             )
 
             if not response.choices:
@@ -199,22 +216,21 @@ class AIBridge:
 
             generated_text = response.choices[0].message.content
             if len(generated_text) > MAX_RESPONSE_LENGTH:
-                raise ValueError(f"Response too int (max {MAX_RESPONSE_LENGTH} characters)")
+                raise ValueError(
+                    f"Response too int (max {MAX_RESPONSE_LENGTH} characters)"
+                )
 
             return {
-                'text': generated_text,
-                'model': config.openai_model,
-                'source': 'openai'
+                "text": generated_text,
+                "model": config.openai_model,
+                "source": "openai",
             }
         except Exception as e:
             logger.error(f"OpenAI generation failed: {e}")
             raise
 
     def _generate_with_huggingface(
-        self,
-        prompt: str,
-        max_tokens: int,
-        temperature: float
+        self, prompt: str, max_tokens: int, temperature: float
     ) -> Dict[str, Any]:
         try:
             InputValidator.validate_prompt(prompt)
@@ -223,16 +239,16 @@ class AIBridge:
                 prompt,
                 max_new_tokens=max_tokens,
                 temperature=temperature,
-                do_sample=True
+                do_sample=True,
             )
 
             if not response:
                 raise ValueError("No response from Hugging Face pipeline")
 
             return {
-                'text': response[0]['generated_text'],
-                'model': config.huggingface_model,
-                'source': 'huggingface'
+                "text": response[0]["generated_text"],
+                "model": config.huggingface_model,
+                "source": "huggingface",
             }
         except Exception as e:
             logger.error(f"Hugging Face generation failed: {e}")
@@ -240,9 +256,10 @@ class AIBridge:
 
     def validate_models(self) -> Dict[str, bool]:
         return {
-            'openai': bool(config.openai_api_key),
-            'huggingface': bool(config.huggingface_api_key)
+            "openai": bool(config.openai_api_key),
+            "huggingface": bool(config.huggingface_api_key),
         }
+
 
 # Initialize bridge on module import
 bridge = AIBridge()

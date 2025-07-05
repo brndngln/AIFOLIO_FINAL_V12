@@ -14,8 +14,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 WEBHOOKS = [
     "https://your.webhook.url/refund",
     "https://your.webhook.url/download",
-    "https://your.webhook.url/vault_version"
+    "https://your.webhook.url/vault_version",
 ]
+
 
 def check_webhook_latency():
     results = {}
@@ -25,7 +26,9 @@ def check_webhook_latency():
             resp = requests.post(url, json={"ping": True}, timeout=5)
             latency = (datetime.utcnow() - start).total_seconds()
             results[url] = latency
-            logging.info(f"{datetime.utcnow().isoformat()} {url} {latency}s {resp.status_code}")
+            logging.info(
+                f"{datetime.utcnow().isoformat()} {url} {latency}s {resp.status_code}"
+            )
         except Exception as e:
             results[url] = str(e)
             logging.warning(f"{datetime.utcnow().isoformat()} {url} ERROR {e}")

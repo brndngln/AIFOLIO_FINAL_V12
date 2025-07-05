@@ -4,6 +4,8 @@ SAFE AI static buyer migration tracker
 - 100% static, non-sentient, suggest-only
 - Outputs data for admin dashboard
 """
+
+
 def track_migration(data):
     # Static migration logic here
     # ...

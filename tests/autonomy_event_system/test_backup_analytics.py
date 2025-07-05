@@ -1,5 +1,6 @@
 from autonomy.pipeline import backup_analytics
 
+
 def test_backup_creates_files(tmp_path, monkeypatch):
     analytics_dir = tmp_path / "analytics"
     backups_dir = analytics_dir / "backups"

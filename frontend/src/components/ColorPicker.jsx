@@ -9,7 +9,7 @@ function ColorPicker({ component, property, defaultValue }) {
     const newColor = e.target.value;
     setColor(newColor);
     localStorage.setItem(`color-${component}-${property}`, newColor);
-    
+
     // Update theme object with new color
     setTheme(prev => ({
       ...prev,

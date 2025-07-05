@@ -15,6 +15,7 @@ SAFE_TONE_MAP = {
     "Contact us for support.": "If you have any questions, our support team is here to help.",
 }
 
+
 def enhance_receipt_text(text):
     """Replace phrases for tone only."""
     for k, v in SAFE_TONE_MAP.items():

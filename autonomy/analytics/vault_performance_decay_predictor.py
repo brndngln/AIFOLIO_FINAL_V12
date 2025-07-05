@@ -4,6 +4,8 @@ SAFE AI static vault performance decay predictor
 - 100% static, non-sentient, suggest-only
 - Outputs data for admin dashboard
 """
+
+
 def predict_decay(data):
     # Static decay prediction logic here
     # ...

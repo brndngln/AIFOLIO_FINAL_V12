@@ -7,43 +7,58 @@ import logging
 from typing import Dict, Any
 import datetime
 
+
 # Stubs for quantum-resistant encryption and blockchain logging
 class KyberQuantumEncryption:
     def encrypt(self, data: str) -> str:
         return f"[KYBER-ENCRYPTED]{data}"
+
     def decrypt(self, data: str) -> str:
         if data.startswith("[KYBER-ENCRYPTED]"):
-            return data[len("[KYBER-ENCRYPTED]"):]
+            return data[len("[KYBER-ENCRYPTED]") :]
         return "[DECRYPTION ERROR]"
+
 
 class BlockchainAuditLog:
     def __init__(self):
         self.ledger = []
+
     def log(self, entry: Dict[str, Any]):
         timestamp = datetime.datetime.utcnow().isoformat()
         self.ledger.append({"timestamp": timestamp, **entry})
         # In real system, would write to immutable blockchain
+
     def export(self):
         return self.ledger
 
+
 # Multi-factor authentication stub
 class MultiFactorAuth:
-    def verify(self, biometric_hash: str, passphrase: str, context: Dict[str, Any]) -> bool:
+    def verify(
+        self, biometric_hash: str, passphrase: str, context: Dict[str, Any]
+    ) -> bool:
         # Static SAFE AI: only allows exact match
         allowed_hash = "OWNER_BIOMETRIC_HASH_PLACEHOLDER"
         allowed_pass = "OWNER_SECRET_PASSPHRASE_PLACEHOLDER"
         allowed_location = "OWNER_LOCATION_PLACEHOLDER"
         allowed_time = "OWNER_TIME_PLACEHOLDER"
         return (
-            biometric_hash == allowed_hash and
-            passphrase == allowed_pass and
-            context.get("location") == allowed_location and
-            context.get("time") == allowed_time
+            biometric_hash == allowed_hash
+            and passphrase == allowed_pass
+            and context.get("location") == allowed_location
+            and context.get("time") == allowed_time
         )
+
 
 # PMP Engine
 class PersonalMuseProtocol:
-    def __init__(self, owner_signature: str, biometric_hash: str, passphrase: str, context: Dict[str, Any]):
+    def __init__(
+        self,
+        owner_signature: str,
+        biometric_hash: str,
+        passphrase: str,
+        context: Dict[str, Any],
+    ):
         self.owner_signature = owner_signature
         self.biometric_hash = biometric_hash
         self.passphrase = passphrase
@@ -73,7 +88,7 @@ class PersonalMuseProtocol:
             "event": event,
             "owner": self.owner_signature,
             "stealth": self.stealth_mode,
-            "kill_switch": self.kill_switch_engaged
+            "kill_switch": self.kill_switch_engaged,
         }
         self.audit_log.log(entry)
         if alert_owner:
@@ -148,6 +163,7 @@ class PersonalMuseProtocol:
             "All interactions are encrypted and logged to your private ledger. Use kill switch to purge session. "
             "For more, access the secure knowledge base."
         )
+
 
 # Entry point for integration with Emma/Empress
 PMP_ENGINE_NAME = "Personal Muse Protocol"

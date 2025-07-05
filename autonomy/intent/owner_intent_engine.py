@@ -4,15 +4,22 @@
 
 import datetime
 
+
 class OwnerIntentEngine:
-    _mode = 'oversight'
+    _mode = "oversight"
     _history = []
 
     @staticmethod
     def set_mode(mode):
-        assert mode in ['auto', 'oversight', 'override']
+        assert mode in ["auto", "oversight", "override"]
         OwnerIntentEngine._mode = mode
-        OwnerIntentEngine._history.append({'event': 'set_mode', 'mode': mode, 'timestamp': datetime.datetime.utcnow().isoformat()})
+        OwnerIntentEngine._history.append(
+            {
+                "event": "set_mode",
+                "mode": mode,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+            }
+        )
 
     @staticmethod
     def get_mode():
@@ -20,7 +27,13 @@ class OwnerIntentEngine:
 
     @staticmethod
     def record_action(action, approved):
-        OwnerIntentEngine._history.append({'action': action, 'approved': approved, 'timestamp': datetime.datetime.utcnow().isoformat()})
+        OwnerIntentEngine._history.append(
+            {
+                "action": action,
+                "approved": approved,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+            }
+        )
 
     @staticmethod
     def get_history():

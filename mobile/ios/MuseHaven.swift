@@ -9,7 +9,7 @@ import LocalAuthentication
 struct ContentView: View {
     @State private var isAuthenticated = false
     @State private var showLockdown = false
-    
+
     var body: some View {
         VStack {
             if isAuthenticated {

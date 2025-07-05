@@ -6,20 +6,24 @@ import logging
 st.set_page_config(page_title="Ethics + Legal + QA Review", layout="wide")
 st.title("Product Integrity Review Dashboard")
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
 
+
 def privacy_compliance_check(df):
     """Ensure DataFrame does not display sensitive or unauthorized data."""
-    if 'user_id' in df.columns:
-        df['user_id'] = df['user_id'].astype(str).str[:8] + '***'
+    if "user_id" in df.columns:
+        df["user_id"] = df["user_id"].astype(str).str[:8] + "***"
     return df
+
 
 def compliance_pattern_alerts(df):
     """
@@ -70,7 +74,15 @@ else:
 
 # --- Audit Trail (for oversight) ---
 st.subheader(" Audit Trail")
-st.dataframe(df[["title", "status", "reviewer", "timestamp", "ethics_issues", "legal_issues"]].fillna("None"))
+st.dataframe(
+    df[
+        ["title", "status", "reviewer", "timestamp", "ethics_issues", "legal_issues"]
+    ].fillna("None")
+)
 
 st.subheader(" Warnings Overview")
-st.dataframe(df[df["status"] == "WARN"][["title", "ethics_issues", "legal_issues", "suggestions"]])
+st.dataframe(
+    df[df["status"] == "WARN"][
+        ["title", "ethics_issues", "legal_issues", "suggestions"]
+    ]
+)

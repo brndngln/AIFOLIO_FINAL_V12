@@ -7,16 +7,21 @@ import os
 import json
 import datetime
 
-LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/admin_compliance_override_log.json'))
+LOG_PATH = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "../analytics/admin_compliance_override_log.json"
+    )
+)
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
+
 
 def log_override(admin_id, action, details):
     entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'admin_id': admin_id,
-        'action': action,
-        'details': details
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "admin_id": admin_id,
+        "action": action,
+        "details": details,
     }
-    with open(LOG_PATH, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
+    with open(LOG_PATH, "a") as f:
+        f.write(json.dumps(entry) + "\n")
     return entry

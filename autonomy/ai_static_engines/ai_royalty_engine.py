@@ -10,15 +10,18 @@ import datetime
 
 ROYALTY_LOG = []
 
+
 class RoyaltyEngine:
     @staticmethod
     def track_royalty_payment(partner: str, amount: float, period: str) -> None:
-        ROYALTY_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'partner': partner,
-            'amount': amount,
-            'period': period
-        })
+        ROYALTY_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "partner": partner,
+                "amount": amount,
+                "period": period,
+            }
+        )
 
     @staticmethod
     def get_royalty_history() -> List[Dict]:

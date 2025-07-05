@@ -6,7 +6,7 @@ import ColorCustomization from '../../frontend/src/components/ColorCustomization
 
 describe('ColorCustomization', () => {
   let container;
-  
+
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
@@ -28,7 +28,7 @@ describe('ColorCustomization', () => {
     // Find and change a color
     const colorPicker = getByRole('colorpicker');
     const originalColor = colorPicker.value;
-    
+
     // Change color
     fireEvent.change(colorPicker, { target: { value: '#FF0000' } });
     await act(() => Promise.resolve());
@@ -63,7 +63,7 @@ describe('ColorCustomization', () => {
     );
 
     const components = [
-      'app', 'card', 'button', 'input', 'link', 
+      'app', 'card', 'button', 'input', 'link',
       'alert', 'tooltip', 'modal', 'header', 'navigation'
     ];
 

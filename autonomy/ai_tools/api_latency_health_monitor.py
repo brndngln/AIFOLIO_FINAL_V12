@@ -3,8 +3,14 @@ import json
 import datetime
 import os
 
-HEALTH_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/api_latency_health_monitor_log.jsonl'))
+HEALTH_LOG = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../analytics/api_latency_health_monitor_log.jsonl",
+    )
+)
 os.makedirs(os.path.dirname(HEALTH_LOG), exist_ok=True)
+
 
 # --- AI API Latency/Health Monitor (Static, Non-Learning) ---
 def check_api_health(api_name, url, timeout=10):
@@ -17,16 +23,16 @@ def check_api_health(api_name, url, timeout=10):
         ok = status == 200
     except Exception as e:
         latency = None
-        status = f'error: {e}'
+        status = f"error: {e}"
         ok = False
     entry = {
-        'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-        'api_name': api_name,
-        'url': url,
-        'status': status,
-        'latency': latency,
-        'ok': ok
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "api_name": api_name,
+        "url": url,
+        "status": status,
+        "latency": latency,
+        "ok": ok,
     }
-    with open(HEALTH_LOG, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
+    with open(HEALTH_LOG, "a") as f:
+        f.write(json.dumps(entry) + "\n")
     return ok, latency, status

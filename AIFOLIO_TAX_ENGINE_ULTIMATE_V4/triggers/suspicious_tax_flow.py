@@ -11,19 +11,22 @@ import logging
 # Monitoring integration (Sentry/Prometheus ready)
 try:
     import sentry_sdk
-    sentry_sdk.init(dsn=os.getenv('SENTRY_DSN'))
+
+    sentry_sdk.init(dsn=os.getenv("SENTRY_DSN"))
 except ImportError:
     sentry_sdk = None
 
-AUDIT_LOG = '../audit_trail.log'
-AUDIT_BACKUP = '../audit_trail_backup.log'
+AUDIT_LOG = "../audit_trail.log"
+AUDIT_BACKUP = "../audit_trail_backup.log"
+
 
 # --- ANTI-SENTIENCE SAFEGUARD ---
 def sentience_guard(obj):
-    forbidden = ['awareness', 'self_modify', 'persistent_memory', 'recursive_self']
+    forbidden = ["awareness", "self_modify", "persistent_memory", "recursive_self"]
     for attr in forbidden:
         if hasattr(obj, attr):
             raise RuntimeError(f"Sentience safeguard triggered: {attr} not allowed.")
+
 
 # --- ELITE ANOMALY DETECTION LOGIC ---
 def detect_suspicious_flows(transactions, prior_years, user_profile):
@@ -35,47 +38,54 @@ def detect_suspicious_flows(transactions, prior_years, user_profile):
     flags = []
     # Example: Cross-year anomaly
     for tx in transactions:
-        prior = [y for y in prior_years if y['category'] == tx['category']]
+        prior = [y for y in prior_years if y["category"] == tx["category"]]
         if prior:
-            avg = sum(y['amount'] for y in prior) / len(prior)
-            if abs(tx['amount'] - avg) > max(1000, 0.3 * avg):
-                flags.append({
-                    'type': 'ANOMALY',
-                    'category': tx['category'],
-                    'amount': tx['amount'],
-                    'rationale': f"{tx['category']} deviates from historical average by >30% or $1000.",
-                    'data_link': f"/transactions/{tx['id']}"
-                })
+            avg = sum(y["amount"] for y in prior) / len(prior)
+            if abs(tx["amount"] - avg) > max(1000, 0.3 * avg):
+                flags.append(
+                    {
+                        "type": "ANOMALY",
+                        "category": tx["category"],
+                        "amount": tx["amount"],
+                        "rationale": f"{tx['category']} deviates from historical average by >30% or $1000.",
+                        "data_link": f"/transactions/{tx['id']}",
+                    }
+                )
     # Example: IRS audit pattern
-    if user_profile.get('high_audit_risk'):
+    if user_profile.get("high_audit_risk"):
         for tx in transactions:
-            if tx.get('flagged_by_irs_model'):
-                flags.append({
-                    'type': 'IRS_PATTERN',
-                    'category': tx['category'],
-                    'amount': tx['amount'],
-                    'rationale': "Matches IRS audit trigger pattern.",
-                    'data_link': f"/transactions/{tx['id']}"
-                })
+            if tx.get("flagged_by_irs_model"):
+                flags.append(
+                    {
+                        "type": "IRS_PATTERN",
+                        "category": tx["category"],
+                        "amount": tx["amount"],
+                        "rationale": "Matches IRS audit trigger pattern.",
+                        "data_link": f"/transactions/{tx['id']}",
+                    }
+                )
     # More: Add additional pattern checks as needed
     return flags
+
 
 # --- HUMAN-IN-THE-LOOP REVIEW ---
 def require_human_review(flags):
     # All high-risk triggers must be reviewed by a human before reporting
     for flag in flags:
-        flag['status'] = 'REQUIRES_HUMAN_REVIEW'
+        flag["status"] = "REQUIRES_HUMAN_REVIEW"
     return flags
+
 
 # --- DOUBLE AUDIT LOGGING ---
 def log_flags(flags, user_id):
     entry = f"{datetime.now()}|USER:{user_id}|FLAGS:{json.dumps(flags)}\n"
     for logf in [AUDIT_LOG, AUDIT_BACKUP]:
-        with open(logf, 'a') as f:
+        with open(logf, "a") as f:
             f.write(entry)
     logging.info(entry)
     if sentry_sdk:
         sentry_sdk.capture_message(entry)
+
 
 # --- MAIN ENTRYPOINT ---
 def run_suspicious_tax_flow(transactions, prior_years, user_profile, user_id):
@@ -84,25 +94,29 @@ def run_suspicious_tax_flow(transactions, prior_years, user_profile, user_id):
     log_flags(flags, user_id)
     return flags
 
+
 # --- PRIVACY & ETHICS CHECKS ---
 def privacy_check(user_profile):
     # Ensure explicit consent and compliance before any processing
-    if not user_profile.get('consent_to_audit'):
+    if not user_profile.get("consent_to_audit"):
         raise PermissionError("User consent required for audit triggers.")
 
+
 # --- EXAMPLE USAGE ---
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Simulated data (replace with real data sources)
     transactions = [
-        {'id': 1, 'category': 'income', 'amount': 12000},
-        {'id': 2, 'category': 'income', 'amount': 50000, 'flagged_by_irs_model': True},
-        {'id': 3, 'category': 'deduction', 'amount': 2000},
+        {"id": 1, "category": "income", "amount": 12000},
+        {"id": 2, "category": "income", "amount": 50000, "flagged_by_irs_model": True},
+        {"id": 3, "category": "deduction", "amount": 2000},
     ]
     prior_years = [
-        {'category': 'income', 'amount': 15000},
-        {'category': 'deduction', 'amount': 2200},
+        {"category": "income", "amount": 15000},
+        {"category": "deduction", "amount": 2200},
     ]
-    user_profile = {'high_audit_risk': True, 'consent_to_audit': True}
+    user_profile = {"high_audit_risk": True, "consent_to_audit": True}
     privacy_check(user_profile)
-    flags = run_suspicious_tax_flow(transactions, prior_years, user_profile, user_id='demo')
+    flags = run_suspicious_tax_flow(
+        transactions, prior_years, user_profile, user_id="demo"
+    )
     print(json.dumps(flags, indent=2))

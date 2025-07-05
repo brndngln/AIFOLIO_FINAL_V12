@@ -10,14 +10,17 @@ import datetime
 
 MARKET_MONITOR_LOG = []
 
+
 class PredictiveMarketMonitor:
     @staticmethod
     def log_market_signal(signal_type: str, description: str) -> None:
-        MARKET_MONITOR_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'signal_type': signal_type,
-            'description': description
-        })
+        MARKET_MONITOR_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "signal_type": signal_type,
+                "description": description,
+            }
+        )
 
     @staticmethod
     def get_market_signals() -> List[Dict]:

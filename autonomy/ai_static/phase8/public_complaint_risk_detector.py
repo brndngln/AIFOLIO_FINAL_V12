@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/public_complaint_risk_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-COMPLAINT_RISK_TABLE = {
-    "vault1": "low",
-    "vault2": "high",
-    "vault3": "medium"
-}
+COMPLAINT_RISK_TABLE = {"vault1": "low", "vault2": "high", "vault3": "medium"}
+
 
 def detect_complaint_risk(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()

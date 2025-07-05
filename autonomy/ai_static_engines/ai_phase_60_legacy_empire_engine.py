@@ -10,14 +10,17 @@ import datetime
 
 LEGACY_EMPIRE_LOG = []
 
+
 class Phase60LegacyEmpireEngine:
     @staticmethod
     def archive_legacy_event(event: str, context: Dict) -> None:
-        LEGACY_EMPIRE_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'event': event,
-            'context': context
-        })
+        LEGACY_EMPIRE_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "event": event,
+                "context": context,
+            }
+        )
 
     @staticmethod
     def export_legacy_log() -> List[Dict]:

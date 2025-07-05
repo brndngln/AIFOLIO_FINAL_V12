@@ -9,5 +9,6 @@ import logging
 LOG_PATH = "../../distribution/legal_exports/telegram_alert_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
+
 def log_telegram_alert(message):
     logging.info(f"Telegram alert (stub): {message}")

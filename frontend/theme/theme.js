@@ -15,7 +15,7 @@ const theme = {
       dark: '#059669',
       contrastText: '#ffffff'
     }, // [WINDSURF FIXED]
-    
+
     // Background Colors
     background: {
       main: '#0f172a',
@@ -24,7 +24,7 @@ const theme = {
       surface: '#1e293b',
       surfaceVariant: '#334155'
     },
-    
+
     // Text Colors
     text: {
       primary: '#f8fafc',
@@ -33,7 +33,7 @@ const theme = {
       hint: '#64748b',
       link: '#3b82f6'
     },
-    
+
     // Status Colors
     success: {
       main: '#10b981',
@@ -59,7 +59,7 @@ const theme = {
       dark: '#1d4ed8',
       contrastText: '#ffffff'
     },
-    
+
     // Additional Status Colors
     neutral: {
       main: '#64748b',
@@ -91,7 +91,7 @@ const theme = {
       dark: '#dc2626',
       contrastText: '#ffffff'
     },
-    
+
     // Metric Colors
     metrics: {
       up: '#10b981',
@@ -104,7 +104,7 @@ const theme = {
       poor: '#ef4444'
     }
   },
-  
+
   // Typography
   typography: {
     h1: {
@@ -162,7 +162,7 @@ const theme = {
       letterSpacing: '0.02em'
     }
   },
-  
+
   // Spacing
   spacing: {
     xs: '0.25rem',
@@ -173,7 +173,7 @@ const theme = {
     xxl: '3rem',
     xxxl: '4rem'
   },
-  
+
   // Border Radius
   borderRadius: {
     xs: '0.125rem',
@@ -183,7 +183,7 @@ const theme = {
     xl: '1rem',
     full: '9999px'
   },
-  
+
   // Shadows
   shadows: {
     sm: '0 1px 2px rgba(0, 0, 0, 0.05)',
@@ -194,7 +194,7 @@ const theme = {
     inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.05)',
     none: 'none'
   },
-  
+
   // Components
   components: {
     button: {
@@ -272,7 +272,7 @@ const theme = {
       }
     }
   },
-  
+
   // Layout
   layout: {
     container: {
@@ -289,14 +289,14 @@ const theme = {
       }
     }
   },
-  
+
   // Transitions
   transitions: {
     default: 'all 0.2s ease-in-out',
     fast: 'all 0.1s ease-in-out',
     slow: 'all 0.3s ease-in-out'
   },
-  
+
   // Z-index
   zIndex: {
     hide: -1,

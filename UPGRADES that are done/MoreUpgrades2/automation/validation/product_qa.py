@@ -1,5 +1,6 @@
 import textstat
 
+
 def quality_guard(text):
     score = textstat.flesch_reading_ease(text)
     grammar_issues = []
@@ -22,5 +23,5 @@ def quality_guard(text):
     return {
         "readability_score": score,
         "suggestions": suggestions,
-        "int_paragraph_count": len(int_paras)
+        "int_paragraph_count": len(int_paras),
     }

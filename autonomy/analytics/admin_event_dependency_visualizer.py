@@ -4,6 +4,8 @@ Admin event dependency visualizer (graph view)
 - 100% static, non-sentient
 - Outputs Graphviz DOT and JSON
 """
+
+
 def generate_visualization(event_dependencies):
     # Static visualization logic here
     # ...

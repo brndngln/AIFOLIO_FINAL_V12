@@ -16,16 +16,21 @@ from datetime import datetime
 try:
     from config import config, logger
 except ImportError:
-    print("Warning: Could not import 'config' and 'logger' directly. Using basic logging.")
+    print(
+        "Warning: Could not import 'config' and 'logger' directly. Using basic logging."
+    )
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
+
     class MockConfig:
         # Example: Default simulated limits
         DEFAULT_SIM_REQUESTS_PER_MINUTE = 60
         DEFAULT_SIM_REQUESTS_PER_HOUR = 1000
-        SIM_RATE_LIMIT_VARIABILITY = 0.1 # 10% variability in actual enforcement
-        SIM_RATE_LIMIT_GRACE_CHANCE = 0.05 # Chance to allow even if over limit
+        SIM_RATE_LIMIT_VARIABILITY = 0.1  # 10% variability in actual enforcement
+        SIM_RATE_LIMIT_GRACE_CHANCE = 0.05  # Chance to allow even if over limit
+
     config = MockConfig()
+
 
 class RateLimiters:
     """Simulates rate limiting mechanisms with anti-sentience safeguards."""
@@ -38,7 +43,9 @@ class RateLimiters:
     def __init__(self):
         """Initialize the simulator. All operations are conceptually stateless per check."""
         self._random_seed = random.randint(1, 1000000)
-        logger.info("RateLimiters initialized. Operations are stateless per check. No persistent tracking.")
+        logger.info(
+            "RateLimiters initialized. Operations are stateless per check. No persistent tracking."
+        )
 
     def _get_simulated_limits(self, resource_id: str) -> Tuple[int, int]:
         """Returns simulated requests/minute and requests/hour for a given resource.
@@ -50,23 +57,38 @@ class RateLimiters:
         elif "hf_sim" in resource_id.lower():
             base_rpm, base_rph = 70, 1200
         elif "stability_sim" in resource_id.lower():
-            base_rpm, base_rph = 30, 500 # Image gen might be lower
+            base_rpm, base_rph = 30, 500  # Image gen might be lower
         else:
-            base_rpm, base_rph = config.DEFAULT_SIM_REQUESTS_PER_MINUTE, config.DEFAULT_SIM_REQUESTS_PER_HOUR
-        
+            base_rpm, base_rph = (
+                config.DEFAULT_SIM_REQUESTS_PER_MINUTE,
+                config.DEFAULT_SIM_REQUESTS_PER_HOUR,
+            )
+
         # Anti-sentience: Introduce slight, unpredictable variability to the *effective* limit for this check
-        rpm = int(base_rpm * random.uniform(1 - config.SIM_RATE_LIMIT_VARIABILITY, 1 + config.SIM_RATE_LIMIT_VARIABILITY))
-        rph = int(base_rph * random.uniform(1 - config.SIM_RATE_LIMIT_VARIABILITY, 1 + config.SIM_RATE_LIMIT_VARIABILITY))
+        rpm = int(
+            base_rpm
+            * random.uniform(
+                1 - config.SIM_RATE_LIMIT_VARIABILITY,
+                1 + config.SIM_RATE_LIMIT_VARIABILITY,
+            )
+        )
+        rph = int(
+            base_rph
+            * random.uniform(
+                1 - config.SIM_RATE_LIMIT_VARIABILITY,
+                1 + config.SIM_RATE_LIMIT_VARIABILITY,
+            )
+        )
         return max(1, rpm), max(1, rph)
 
     def check_rate_limit_simulated(
-        self, 
-        resource_id: str, 
-        action_id: str, 
+        self,
+        resource_id: str,
+        action_id: str,
         # Conceptual current state (would be managed externally or reset for true statelessness)
-        sim_minute_count: int, 
+        sim_minute_count: int,
         sim_hour_count: int,
-        sim_last_request_timestamp: Optional[float] = None
+        sim_last_request_timestamp: Optional[float] = None,
     ) -> Dict[str, Any]:
         """Simulates checking if an action is allowed based on rate limits.
         This is a stateless check. The counts and timestamp are for the current conceptual window.
@@ -81,7 +103,7 @@ class RateLimiters:
         """
         time.time()
         limit_rpm, limit_rph = self._get_simulated_limits(resource_id)
-        
+
         allowed = True
         reason = "Within simulated limits."
         retry_after_sim_seconds = 0
@@ -96,29 +118,41 @@ class RateLimiters:
             reason = f"Simulated per-minute limit ({limit_rpm}) reached for '{resource_id}'. Count: {sim_minute_count}."
             # Simulate retry_after: time until the oldest request in the minute window expires
             # This is highly conceptual as we don't have the actual list of timestamps.
-            retry_after_sim_seconds = random.randint(5, 60) 
-        
+            retry_after_sim_seconds = random.randint(5, 60)
+
         if allowed and sim_hour_count >= limit_rph:
             allowed = False
             reason = f"Simulated per-hour limit ({limit_rph}) reached for '{resource_id}'. Count: {sim_hour_count}."
-            retry_after_sim_seconds = max(retry_after_sim_seconds, random.randint(60, 600))
+            retry_after_sim_seconds = max(
+                retry_after_sim_seconds, random.randint(60, 600)
+            )
 
         # Anti-sentience: Random chance to grant grace period or enforce stricter than usual
         if not allowed and random.random() < config.SIM_RATE_LIMIT_GRACE_CHANCE:
             allowed = True
             reason += " (SIMULATED GRACE PERIOD GRANTED)"
             retry_after_sim_seconds = 0
-            logger.warning(f"Simulated grace period granted for '{resource_id}', action '{action_id}'. Original reason: {reason}")
-        elif allowed and random.random() < 0.01: # Tiny chance of false positive limiting
+            logger.warning(
+                f"Simulated grace period granted for '{resource_id}', action '{action_id}'. Original reason: {reason}"
+            )
+        elif (
+            allowed and random.random() < 0.01
+        ):  # Tiny chance of false positive limiting
             allowed = False
             reason = f"Simulated unexpected rate limit enforcement for '{resource_id}'. (RANDOM_ENFORCEMENT)"
             retry_after_sim_seconds = random.randint(10, 120)
-            logger.warning(f"Simulated unexpected rate limit for '{resource_id}', action '{action_id}'.")
-        
+            logger.warning(
+                f"Simulated unexpected rate limit for '{resource_id}', action '{action_id}'."
+            )
+
         if not allowed:
-            logger.warning(f"Rate limit check FAILED for '{resource_id}', action '{action_id}'. Reason: {reason}")
+            logger.warning(
+                f"Rate limit check FAILED for '{resource_id}', action '{action_id}'. Reason: {reason}"
+            )
         else:
-            logger.info(f"Rate limit check PASSED for '{resource_id}', action '{action_id}'.")
+            logger.info(
+                f"Rate limit check PASSED for '{resource_id}', action '{action_id}'."
+            )
 
         return {
             "action_id_sim": action_id,
@@ -130,8 +164,9 @@ class RateLimiters:
             "current_minute_count_sim_checked": sim_minute_count,
             "current_hour_count_sim_checked": sim_hour_count,
             "retry_after_sim_seconds": retry_after_sim_seconds if not allowed else 0,
-            "checked_at_sim": datetime.utcnow().isoformat() + "Z"
+            "checked_at_sim": datetime.utcnow().isoformat() + "Z",
         }
+
 
 # Example Usage:
 if __name__ == "__main__":
@@ -149,39 +184,38 @@ if __name__ == "__main__":
     # For true statelessness in this example, we'd reset or not use internal state from RateLimiters.
     # The counts are passed in directly.
     result1 = rate_limiter.check_rate_limit_simulated(
-        resource_id="openai_sim_gpt-4", 
+        resource_id="openai_sim_gpt-4",
         action_id=test_action_id + "_1",
-        sim_minute_count=current_minute_requests, 
-        sim_hour_count=current_hour_requests
+        sim_minute_count=current_minute_requests,
+        sim_hour_count=current_hour_requests,
     )
     print(json.dumps(result1, indent=2))
 
     print("\nChecking resource 'openai_sim_gpt-4' (over minute limit conceptually):")
     result2 = rate_limiter.check_rate_limit_simulated(
-        resource_id="openai_sim_gpt-4", 
+        resource_id="openai_sim_gpt-4",
         action_id=test_action_id + "_2",
-        sim_minute_count=70, # Conceptual count now over typical minute limit
-        sim_hour_count=current_hour_requests + 15 
+        sim_minute_count=70,  # Conceptual count now over typical minute limit
+        sim_hour_count=current_hour_requests + 15,
     )
     print(json.dumps(result2, indent=2))
 
     print("\nChecking resource 'some_other_vault_action' (likely within limits):")
     result3 = rate_limiter.check_rate_limit_simulated(
-        resource_id="vault_xyz789_render", 
+        resource_id="vault_xyz789_render",
         action_id=test_action_id + "_3",
-        sim_minute_count=5, 
-        sim_hour_count=30
+        sim_minute_count=5,
+        sim_hour_count=30,
     )
     print(json.dumps(result3, indent=2))
-    
+
     print("\nChecking resource 'stability_sim_image_gen' (high hour count):")
     result4 = rate_limiter.check_rate_limit_simulated(
-        resource_id="stability_sim_image_gen", 
+        resource_id="stability_sim_image_gen",
         action_id=test_action_id + "_4",
-        sim_minute_count=25, 
-        sim_hour_count=550 # Conceptual count over typical stability hour limit
+        sim_minute_count=25,
+        sim_hour_count=550,  # Conceptual count over typical stability hour limit
     )
     print(json.dumps(result4, indent=2))
 
     logger.info("--- RateLimiters Example Finished ---")
-

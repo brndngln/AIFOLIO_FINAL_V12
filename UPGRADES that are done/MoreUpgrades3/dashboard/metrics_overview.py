@@ -16,7 +16,9 @@ else:
 
     st.subheader("Top Products")
     for product, stats in metrics["top_products"].items():
-        st.markdown(f"**{product}** — Downloads: {stats['downloads']}, Purchases: {stats['purchases']}, Upsells: {stats['upsells']}")
+        st.markdown(
+            f"**{product}** — Downloads: {stats['downloads']}, Purchases: {stats['purchases']}, Upsells: {stats['upsells']}"
+        )
 
     st.subheader("Drop-Off Points")
     for product, count in metrics["drop_off_points"].items():

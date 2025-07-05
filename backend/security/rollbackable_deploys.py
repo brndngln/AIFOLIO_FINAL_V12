@@ -5,13 +5,15 @@ Static, deterministic, SAFE AI-compliant deployment script with last-known-good 
 import logging
 import os
 import shutil
+
 logger = logging.getLogger(__name__)
 
-DEPLOY_DIR = 'deploy/current/'
-BACKUP_DIR = 'deploy/backup/'
+DEPLOY_DIR = "deploy/current/"
+BACKUP_DIR = "deploy/backup/"
 
 os.makedirs(DEPLOY_DIR, exist_ok=True)
 os.makedirs(BACKUP_DIR, exist_ok=True)
+
 
 def deploy_new_version(src_dir: str):
     # Backup current
@@ -20,6 +22,7 @@ def deploy_new_version(src_dir: str):
     # Deploy new
     shutil.copytree(src_dir, DEPLOY_DIR, dirs_exist_ok=True)
     logger.info(f"Deployed new version from {src_dir}")
+
 
 def rollback():
     if os.path.exists(BACKUP_DIR):

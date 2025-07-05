@@ -18,10 +18,16 @@ from autonomy.utils.activity_log import log_activity
 
 logger = logging.getLogger("vault_published")
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def sync_integrations(metadata):
-    push_vault_to_gumroad(metadata.get("metadata_path"), metadata.get("preview_path"), metadata.get("file_path"))
+    push_vault_to_gumroad(
+        metadata.get("metadata_path"),
+        metadata.get("preview_path"),
+        metadata.get("file_path"),
+    )
     report_to_analytics(metadata)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(metadata, event_type, error=None):
@@ -33,9 +39,11 @@ def send_alerts(metadata, event_type, error=None):
     if metadata.get("alert_email_opt_in"):
         send_email_alert(metadata.get("owner_email"), alert_msg)
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(vault_id, payload):
     push_dashboard_update(vault_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_and_monitor(metadata):
@@ -43,29 +51,32 @@ def audit_and_monitor(metadata):
     monitor_vault_build(metadata.get("vault_path", ""), metadata)
     track_template_version(metadata.get("vault_path", ""), metadata)
 
+
 def handle_event(metadata):
     """
     Handles the 'vault_published' event with SAFE AI, retry-safe integrations, and robust logging.
     """
-    vault_id = metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
+    vault_id = (
+        metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
+    )
     start_time = time.time()
     errors = []
     # --- Static AI Compliance & Anomaly Checks ---
     ai_results = {}
     compliance_result = check_vault_metadata(metadata)
-    ai_results['compliance'] = compliance_result
+    ai_results["compliance"] = compliance_result
     anomaly_flags = []
-    if not compliance_result['compliant']:
-        anomaly_flags.append('compliance_failure')
-    if not metadata.get('preview_path'):
-        anomaly_flags.append('missing_preview')
-    if not metadata.get('metadata_path'):
-        anomaly_flags.append('missing_metadata')
-    if not metadata.get('final_validation_passed', True):
-        anomaly_flags.append('final_validation_failed')
-    ai_results['anomaly_flags'] = anomaly_flags
+    if not compliance_result["compliant"]:
+        anomaly_flags.append("compliance_failure")
+    if not metadata.get("preview_path"):
+        anomaly_flags.append("missing_preview")
+    if not metadata.get("metadata_path"):
+        anomaly_flags.append("missing_metadata")
+    if not metadata.get("final_validation_passed", True):
+        anomaly_flags.append("final_validation_failed")
+    ai_results["anomaly_flags"] = anomaly_flags
     # If any anomaly or compliance failure, trigger alerts and outbound webhooks
-    if anomaly_flags or not compliance_result['compliant']:
+    if anomaly_flags or not compliance_result["compliant"]:
         alert_msg = f"[AI] Vault published anomaly/compliance issue: {anomaly_flags}, {compliance_result}"
         send_slack_alert(alert_msg)
         send_telegram_alert(alert_msg)
@@ -74,7 +85,14 @@ def handle_event(metadata):
         # Outbound webhook (future-proof, e.g. Zapier)
         try:
             from autonomy.post_sale_hooks.outbound_webhook import post_outbound_webhooks
-            post_outbound_webhooks({"event":"vault_published","metadata":metadata,"ai_results":ai_results})
+
+            post_outbound_webhooks(
+                {
+                    "event": "vault_published",
+                    "metadata": metadata,
+                    "ai_results": ai_results,
+                }
+            )
         except Exception as e:
             logger.warning(f"Outbound webhook failed: {e}")
     # --- End AI Checks ---
@@ -95,11 +113,15 @@ def handle_event(metadata):
     try:
         audit_and_monitor(metadata)
     except Exception as e:
-        logger.error(f"Audit/monitor/version tracking failed: {e}\n{traceback.format_exc()}")
+        logger.error(
+            f"Audit/monitor/version tracking failed: {e}\n{traceback.format_exc()}"
+        )
         errors.append(f"Audit: {e}")
     # Required metadata/previews check
     try:
-        assert metadata.get("metadata_path") and metadata.get("preview_path"), "Missing Gumroad metadata or preview"
+        assert metadata.get("metadata_path") and metadata.get(
+            "preview_path"
+        ), "Missing Gumroad metadata or preview"
         assert metadata.get("final_validation_passed", True), "Final validation failed"
     except Exception as e:
         logger.error(f"Final validation failed: {e}\n{traceback.format_exc()}")
@@ -107,8 +129,12 @@ def handle_event(metadata):
         send_alerts(metadata, "published", error=str(e))
     # Log to vault event log/activity log (with ai_results)
     try:
-        log_vault_event(vault_id, "published", {**metadata, "ai_results": ai_results}, errors)
-        log_activity(vault_id, "published", {**metadata, "ai_results": ai_results}, errors)
+        log_vault_event(
+            vault_id, "published", {**metadata, "ai_results": ai_results}, errors
+        )
+        log_activity(
+            vault_id, "published", {**metadata, "ai_results": ai_results}, errors
+        )
     except Exception as e:
         logger.error(f"Vault activity logging failed: {e}\n{traceback.format_exc()}")
     # AI anomaly detection on failures
@@ -120,7 +146,9 @@ def handle_event(metadata):
     # Track build time/performance
     try:
         build_time = time.time() - start_time
-        monitor_vault_build(metadata.get("vault_path", ""), {**metadata, "build_time": build_time})
+        monitor_vault_build(
+            metadata.get("vault_path", ""), {**metadata, "build_time": build_time}
+        )
     except Exception as e:
         logger.error(f"Performance monitoring failed: {e}\n{traceback.format_exc()}")
     return {"status": "success", "vault_id": vault_id, "errors": errors}

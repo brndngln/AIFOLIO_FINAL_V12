@@ -9,7 +9,10 @@ import os
 import json
 from datetime import datetime
 
-WORKFLOW_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/workflow_log.json')
+WORKFLOW_LOG_PATH = os.path.join(
+    os.path.dirname(__file__), "../../analytics/workflow_log.json"
+)
+
 
 def trigger_compliance_workflow(event, data=None, owner_override=None):
     """
@@ -20,14 +23,14 @@ def trigger_compliance_workflow(event, data=None, owner_override=None):
         "timestamp": datetime.now().isoformat(),
         "event": event,
         "status": event_status,
-        "data": data
+        "data": data,
     }
     if os.path.exists(WORKFLOW_LOG_PATH):
-        with open(WORKFLOW_LOG_PATH, 'r') as f:
+        with open(WORKFLOW_LOG_PATH, "r") as f:
             logs = json.load(f)
     else:
         logs = []
     logs.append(log_entry)
-    with open(WORKFLOW_LOG_PATH, 'w') as f:
+    with open(WORKFLOW_LOG_PATH, "w") as f:
         json.dump(logs, f, indent=2)
     return True

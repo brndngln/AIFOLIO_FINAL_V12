@@ -14,9 +14,11 @@ if not ADMIN_KEY:
     print("[SECURITY ERROR] Admin key not set in .env. Exiting.")
     sys.exit(1)
 
+
 def check_admin_key(input_key):
     """Verify admin key for all access. No public login/signup."""
     return input_key == ADMIN_KEY
+
 
 # Example usage: prompt for admin key on CLI (replace with UI as needed)
 if __name__ == "__main__":

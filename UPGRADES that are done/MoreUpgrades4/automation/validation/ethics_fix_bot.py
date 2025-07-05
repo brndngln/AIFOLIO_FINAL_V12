@@ -1,14 +1,17 @@
 import re
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def auto_fix_ethics_issues(text):
     """
@@ -23,7 +26,7 @@ def auto_fix_ethics_issues(text):
         "secret trick": "lesser-known technique",
         "100%": "highly likely",
         "instantly": "quickly",
-        "effortless": "simple to follow"
+        "effortless": "simple to follow",
     }
     try:
         for bad, replacement in issues.items():

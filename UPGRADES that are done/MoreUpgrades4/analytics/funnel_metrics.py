@@ -2,20 +2,24 @@ import json
 
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
 
+
 def privacy_compliance_check(logs):
     """Ensure logs do not contain sensitive or unauthorized data."""
     for log in logs:
-        log['user_id'] = str(log['user_id'])[:8] + "***"
+        log["user_id"] = str(log["user_id"])[:8] + "***"
     return logs
+
 
 def get_funnel_metrics():
     """
@@ -37,12 +41,14 @@ def get_funnel_metrics():
         "upsells": 0,
         "conversion_rate": 0.0,
         "top_products": {},
-        "drop_off_points": {}
+        "drop_off_points": {},
     }
     for log in logs:
         action = log["action"]
         product = log["product_id"]
-        metrics["top_products"].setdefault(product, {"downloads": 0, "purchases": 0, "upsells": 0})
+        metrics["top_products"].setdefault(
+            product, {"downloads": 0, "purchases": 0, "upsells": 0}
+        )
         if action == "download":
             metrics["downloads"] += 1
             metrics["top_products"][product]["downloads"] += 1
@@ -56,7 +62,9 @@ def get_funnel_metrics():
             metrics["drop_off_points"].setdefault(product, 0)
             metrics["drop_off_points"][product] += 1
     try:
-        metrics["conversion_rate"] = round((metrics["purchases"] / metrics["downloads"]) * 100, 2)
+        metrics["conversion_rate"] = round(
+            (metrics["purchases"] / metrics["downloads"]) * 100, 2
+        )
     except ZeroDivisionError:
         metrics["conversion_rate"] = 0.0
     logging.info(f"Funnel metrics computed: {metrics}")

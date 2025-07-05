@@ -13,47 +13,48 @@ from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
 from emma_ethics_guard import EMMAEthicsGuard
 
+
 class AvaPerformanceAnalyticsRiskStrategist:
     @staticmethod
     def monitor_performance(metric: str, value: float, details: Dict) -> Dict:
-        context = {
-            'metric': metric,
-            'value': value,
-            'details': details
-        }
-        if not OmnieliteEthicsEngine.enforce('monitor_performance', context):
-            PERFORMANCE_ANALYTICS_LOG.append({
-                'error': 'Ethics violation',
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'owner_approved': False
-            })
+        context = {"metric": metric, "value": value, "details": details}
+        if not OmnieliteEthicsEngine.enforce("monitor_performance", context):
+            PERFORMANCE_ANALYTICS_LOG.append(
+                {
+                    "error": "Ethics violation",
+                    "timestamp": datetime.datetime.utcnow().isoformat(),
+                    "owner_approved": False,
+                }
+            )
             return {
-                'metric': metric,
-                'value': value,
-                'details': details,
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'owner_approved': False
+                "metric": metric,
+                "value": value,
+                "details": details,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "owner_approved": False,
             }
-        if not ethics_validator('monitor_performance', context):
-            PERFORMANCE_ANALYTICS_LOG.append({
-                'error': 'Ethics validation failed',
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'owner_approved': False
-            })
+        if not ethics_validator("monitor_performance", context):
+            PERFORMANCE_ANALYTICS_LOG.append(
+                {
+                    "error": "Ethics validation failed",
+                    "timestamp": datetime.datetime.utcnow().isoformat(),
+                    "owner_approved": False,
+                }
+            )
             return {
-                'metric': metric,
-                'value': value,
-                'details': details,
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'owner_approved': False
+                "metric": metric,
+                "value": value,
+                "details": details,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "owner_approved": False,
             }
-        EMMAEthicsGuard.audit_action('monitor_performance', context)
+        EMMAEthicsGuard.audit_action("monitor_performance", context)
         result = {
-            'metric': metric,
-            'value': value,
-            'details': details,
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'owner_approved': True
+            "metric": metric,
+            "value": value,
+            "details": details,
+            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "owner_approved": True,
         }
         PERFORMANCE_ANALYTICS_LOG.append(result)
         return result
@@ -62,11 +63,11 @@ class AvaPerformanceAnalyticsRiskStrategist:
     def inject_dashboard_analytics(agent_id: str, analytics_type: str) -> Dict:
         """Inject static analytics logic into dashboard."""
         result = {
-            'agent_id': agent_id,
-            'analytics_type': analytics_type,
-            'injected': True,
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'owner_approved': True
+            "agent_id": agent_id,
+            "analytics_type": analytics_type,
+            "injected": True,
+            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "owner_approved": True,
         }
         PERFORMANCE_ANALYTICS_LOG.append(result)
         return result
@@ -75,11 +76,11 @@ class AvaPerformanceAnalyticsRiskStrategist:
     def advise_reinvestment(timing: str, capital: float) -> Dict:
         """Statically advise on reinvestment timing/capital."""
         result = {
-            'timing': timing,
-            'capital': capital,
-            'advised': True,
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'owner_approved': True
+            "timing": timing,
+            "capital": capital,
+            "advised": True,
+            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "owner_approved": True,
         }
         PERFORMANCE_ANALYTICS_LOG.append(result)
         return result
@@ -92,5 +93,11 @@ class AvaPerformanceAnalyticsRiskStrategist:
     def rollback_last_action() -> Dict:
         if PERFORMANCE_ANALYTICS_LOG:
             last = PERFORMANCE_ANALYTICS_LOG.pop()
-            return {'rolled_back': last, 'timestamp': datetime.datetime.utcnow().isoformat()}
-        return {'rolled_back': None, 'timestamp': datetime.datetime.utcnow().isoformat()}
+            return {
+                "rolled_back": last,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+            }
+        return {
+            "rolled_back": None,
+            "timestamp": datetime.datetime.utcnow().isoformat(),
+        }

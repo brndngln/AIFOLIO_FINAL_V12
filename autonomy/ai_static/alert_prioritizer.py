@@ -12,10 +12,10 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 
 def prioritize_alerts(alert_log_path):
-    with open(alert_log_path, 'r') as f:
+    with open(alert_log_path, "r") as f:
         alerts = json.load(f)
-    failed = [a for a in alerts if a.get('status') == 'failed']
+    failed = [a for a in alerts if a.get("status") == "failed"]
     # Sort by timestamp, most recent first
-    failed.sort(key=lambda x: x.get('timestamp', 0), reverse=True)
+    failed.sort(key=lambda x: x.get("timestamp", 0), reverse=True)
     logging.info(f"Prioritized {len(failed)} failed alerts.")
     return failed

@@ -4,8 +4,9 @@ import os
 WEBHOOK_URLS = [
     os.getenv("NOTION_WEBHOOK_URL"),
     os.getenv("AIRTABLE_WEBHOOK_URL"),
-    os.getenv("SLACK_WEBHOOK_URL")
+    os.getenv("SLACK_WEBHOOK_URL"),
 ]
+
 
 def notify_policy_change(policy_name: str, version_hash: str, timestamp: str):
     """
@@ -14,7 +15,7 @@ def notify_policy_change(policy_name: str, version_hash: str, timestamp: str):
     payload = {
         "policy_name": policy_name,
         "version_hash": version_hash,
-        "timestamp": timestamp
+        "timestamp": timestamp,
     }
     for url in WEBHOOK_URLS:
         if url:

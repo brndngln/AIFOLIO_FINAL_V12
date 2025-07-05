@@ -4,8 +4,9 @@ from googletrans import Translator
 POLICY_PATHS = {
     "terms_of_service": "terms_of_service.md",
     "refund_policy": "refund_policy.md",
-    "privacy_policy": "privacy_policy.md"
+    "privacy_policy": "privacy_policy.md",
 }
+
 
 def translate_policy(policy_name: str, target_language: str = "en") -> str:
     """

@@ -9,9 +9,18 @@ import os
 import json
 from datetime import datetime
 
-ALERT_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/alert_log.json')
+ALERT_LOG_PATH = os.path.join(
+    os.path.dirname(__file__), "../../analytics/alert_log.json"
+)
 
-def send_alert(type="compliance_failure", method="static", message="Vault failed PDF compliance check.", to=None, owner_override=None):
+
+def send_alert(
+    type="compliance_failure",
+    method="static",
+    message="Vault failed PDF compliance check.",
+    to=None,
+    owner_override=None,
+):
     """
     Static SAFE AI alert logging. No live API calls. Owner can override alert content.
     """
@@ -21,14 +30,14 @@ def send_alert(type="compliance_failure", method="static", message="Vault failed
         "type": type,
         "method": method,
         "message": alert_message,
-        "to": to
+        "to": to,
     }
     if os.path.exists(ALERT_LOG_PATH):
-        with open(ALERT_LOG_PATH, 'r') as f:
+        with open(ALERT_LOG_PATH, "r") as f:
             logs = json.load(f)
     else:
         logs = []
     logs.append(log_entry)
-    with open(ALERT_LOG_PATH, 'w') as f:
+    with open(ALERT_LOG_PATH, "w") as f:
         json.dump(logs, f, indent=2)
     return True

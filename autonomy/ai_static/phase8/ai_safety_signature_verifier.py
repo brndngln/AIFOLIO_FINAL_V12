@@ -12,11 +12,7 @@ import os
 LOG_PATH = "../../distribution/legal_exports/ai_safety_signature_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-MODULE_PATHS = [
-    "policy_audit_bot.py",
-    "gdpr_ccpa_audit_bot.py",
-    "refund_optimizer.py"
-]
+MODULE_PATHS = ["policy_audit_bot.py", "gdpr_ccpa_audit_bot.py", "refund_optimizer.py"]
 
 
 def verify_ai_signatures(triggered_by):

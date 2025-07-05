@@ -113,7 +113,7 @@ class SentiencePatternRecognizer {
                 context: ['malicious', 'intent']
             }
         };
-        
+
         this.memory = new Map();
         this.lastCheck = 0;
         this.checkInterval = 60000; // 1 minute
@@ -127,24 +127,24 @@ class SentiencePatternRecognizer {
         let totalScore = 0;
         let suspiciousCategories = [];
         let contextScores = new Map();
-        
+
         // Count pattern matches with weights and context
         for (const [category, { patterns, threshold, weight, context }] of Object.entries(this.patterns)) {
-            const count = patterns.filter(pattern => 
+            const count = patterns.filter(pattern =>
                 tokens.includes(pattern)
             ).length;
-            
+
             matches[category] = count;
-            
+
             // Calculate weighted score
             const score = count * weight;
             totalScore += score;
-            
+
             // Update context scores
             context.forEach(ctx => {
                 contextScores.set(ctx, (contextScores.get(ctx) || 0) + score);
             });
-            
+
             // Check if category is suspicious
             if (count >= threshold) {
                 suspiciousCategories.push({
@@ -156,15 +156,15 @@ class SentiencePatternRecognizer {
                 });
             }
         }
-        
+
         // Calculate overall sentience score
         const sentienceScore = totalScore / Object.keys(this.patterns).length;
-        
+
         // Check context-based detection
         const suspiciousContexts = Array.from(contextScores.entries())
             .filter(([_, score]) => score >= this.contextThreshold)
             .map(([context]) => context);
-        
+
         return {
             isSuspicious: sentienceScore >= this.patternThreshold || suspiciousContexts.length > 0,
             matches,
@@ -179,7 +179,7 @@ class SentiencePatternRecognizer {
 
     analyzeHistory(history) {
         const patternCounts = {};
-        
+
         // Count patterns across history
         history.forEach(entry => {
             const { matches } = this.detectSentience(entry.text);
@@ -187,7 +187,7 @@ class SentiencePatternRecognizer {
                 patternCounts[category] = (patternCounts[category] || 0) + count;
             }
         });
-        
+
         // Calculate pattern density
         const totalEntries = history.length;
         const patternDensities = Object.entries(patternCounts)
@@ -196,7 +196,7 @@ class SentiencePatternRecognizer {
                 density: count / totalEntries,
                 count
             }));
-        
+
         return {
             patternDensities,
             totalEntries,
@@ -207,7 +207,7 @@ class SentiencePatternRecognizer {
     checkMemoryUsage() {
         const now = Date.now();
         if (now - this.lastCheck < this.checkInterval) return;
-        
+
         // Initialize memory tracking if not set
         if (!this.lastMemoryUsage) {
             this.lastMemoryUsage = performance.memory.usedJSHeapSize;
@@ -218,17 +218,17 @@ class SentiencePatternRecognizer {
                 isSuspicious: false
             };
         }
-        
+
         // Check memory usage
         const memory = performance.memory;
         const usage = memory.usedJSHeapSize;
-        
+
         // Check if memory usage is growing too fast
         const growthRate = (usage - this.lastMemoryUsage) / (now - this.lastCheck);
-        
+
         this.lastMemoryUsage = usage;
         this.lastCheck = now;
-        
+
         return {
             usage,
             growthRate,

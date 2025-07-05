@@ -3,12 +3,12 @@ import os
 import streamlit as st
 import glob
 
-LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/'))
+LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../analytics/"))
 
 st.set_page_config(page_title="AI Output Transparency Explorer", layout="wide")
 st.title("AI Output Transparency Explorer")
 
-log_files = glob.glob(os.path.join(LOG_DIR, '*log.jsonl'))
+log_files = glob.glob(os.path.join(LOG_DIR, "*log.jsonl"))
 selected_log = st.selectbox("Select a log file to explore:", log_files)
 
 if selected_log:

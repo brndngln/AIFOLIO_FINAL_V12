@@ -27,7 +27,7 @@ const PerformanceDashboard = () => {
 
         // Initial update
         updateMetrics();
-        
+
         // Update every 10 seconds
         const interval = setInterval(updateMetrics, 10000);
         return () => clearInterval(interval);

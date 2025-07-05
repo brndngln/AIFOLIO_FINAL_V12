@@ -9,14 +9,17 @@ import datetime
 
 EMPIRE_DNA_LOG = []
 
+
 class UltimateEmpireDNAEngine:
     @staticmethod
     def archive_empire_dna(lesson: str, context: Dict) -> None:
-        EMPIRE_DNA_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'lesson': lesson,
-            'context': context
-        })
+        EMPIRE_DNA_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "lesson": lesson,
+                "context": context,
+            }
+        )
 
     @staticmethod
     def get_empire_dna_archive() -> List[Dict]:

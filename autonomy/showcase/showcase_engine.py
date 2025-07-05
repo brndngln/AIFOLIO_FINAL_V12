@@ -5,24 +5,40 @@ Features: Outline, Screenshots (watermarked), Testimonials, Reviews, Benefits, V
 from typing import Dict, Any, List
 import random
 
+
 class ShowcaseEngine:
     @staticmethod
     def get_vault_outline(vault_id: str) -> Dict[str, Any]:
         # Static sample
-        return {"vault_id": vault_id, "outline": "This vault includes...", "screenshots": [f"/vaults/{vault_id}/ss1.png"], "watermarked": True}
+        return {
+            "vault_id": vault_id,
+            "outline": "This vault includes...",
+            "screenshots": [f"/vaults/{vault_id}/ss1.png"],
+            "watermarked": True,
+        }
 
     @staticmethod
     def get_testimonials(vault_id: str) -> List[Dict[str, str]]:
         return [
-            {"user": "Alice", "review": "Amazing value!", "benefit": "Saved time", "score": 9},
-            {"user": "Bob", "review": "Very useful.", "benefit": "Improved workflow", "score": 8}
+            {
+                "user": "Alice",
+                "review": "Amazing value!",
+                "benefit": "Saved time",
+                "score": 9,
+            },
+            {
+                "user": "Bob",
+                "review": "Very useful.",
+                "benefit": "Improved workflow",
+                "score": 8,
+            },
         ]
 
     @staticmethod
     def get_reviews(vault_id: str) -> List[Dict[str, str]]:
         return [
             {"user": "Charlie", "review": "Solid product.", "stars": 5},
-            {"user": "Dana", "review": "Would recommend.", "stars": 4}
+            {"user": "Dana", "review": "Would recommend.", "stars": 4},
         ]
 
     @staticmethod
@@ -39,7 +55,11 @@ class ShowcaseEngine:
 
     @staticmethod
     def lifecycle_tracker(vault_id: str) -> Dict[str, str]:
-        return {"stage": "active", "created": "2024-01-01", "last_updated": "2025-06-01"}
+        return {
+            "stage": "active",
+            "created": "2024-01-01",
+            "last_updated": "2025-06-01",
+        }
 
     @staticmethod
     def audience_heatmap(vault_id: str) -> Dict[str, int]:

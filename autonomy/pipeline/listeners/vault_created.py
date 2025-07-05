@@ -26,28 +26,39 @@ from autonomy.utils.retry import retry_safe
 
 logger = logging.getLogger("vault_created")
 
+
 # Retry-safe wrapper with exponential backoff
 @retry_safe(max_attempts=3, backoff_factor=2)
 def trigger_preview(vault_path, metadata):
     vault_preview_builder.build_vault_preview(vault_path, metadata)
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def trigger_pricing(vault_path, metadata):
     pricing_engine.trigger_pricing_on_vault_event(vault_path, metadata)
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def trigger_price_test(vault_path, vault_id, metadata):
     if metadata.get("auto_price_testing", False):
-        price_test_engine.trigger_price_test_and_update_metadata(vault_path, vault_id, metadata)
+        price_test_engine.trigger_price_test_and_update_metadata(
+            vault_path, vault_id, metadata
+        )
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def sync_integrations(vault_path, metadata):
-    push_vault_to_gumroad(metadata.get("metadata_path"), metadata.get("preview_path"), metadata.get("file_path"))
+    push_vault_to_gumroad(
+        metadata.get("metadata_path"),
+        metadata.get("preview_path"),
+        metadata.get("file_path"),
+    )
     sync_to_stripe(metadata)
     sync_to_notion(metadata)
     sync_to_crm(metadata)
     report_to_analytics(metadata)
     export_to_xbrl(metadata)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(metadata, event_type, error=None):
@@ -59,9 +70,11 @@ def send_alerts(metadata, event_type, error=None):
     if metadata.get("alert_email_opt_in"):
         send_email_alert(metadata.get("owner_email"), alert_msg)
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(vault_id, payload):
     push_dashboard_update(vault_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_and_monitor(vault_path, metadata):
@@ -76,24 +89,37 @@ def handle_event(metadata):
     """
     # SAFE AI VALIDATION LAYER (block on failure)
     from autonomy.validation import automation_safeguard
+
     valid, safeguard_msg = automation_safeguard.enforce_all_safeguards(metadata)
-    vault_id = metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
+    vault_id = (
+        metadata.get("vault_id") or metadata.get("title", "").replace(" ", "_").lower()
+    )
     errors = []
     if not valid:
         import logging
+
         logger = logging.getLogger("vault_created")
         logger.error(f"SAFEGUARD BLOCK: {safeguard_msg}")
         errors.append(f"SAFEGUARD: {safeguard_msg}")
-        automation_safeguard.audit_log('SAFEGUARD_BLOCKED', {'vault_id': vault_id, 'reason': safeguard_msg, 'metadata': metadata})
+        automation_safeguard.audit_log(
+            "SAFEGUARD_BLOCKED",
+            {"vault_id": vault_id, "reason": safeguard_msg, "metadata": metadata},
+        )
         # Optionally send alert
         try:
             from autonomy.compliance.alert_engine import send_alert
-            send_alert(type="safeguard_blocked", message=safeguard_msg, to=metadata.get("owner_email"))
+
+            send_alert(
+                type="safeguard_blocked",
+                message=safeguard_msg,
+                to=metadata.get("owner_email"),
+            )
         except Exception:
             pass
         # Log and abort further processing
         from autonomy.utils.vault_event_log import log_vault_event
         from autonomy.utils.activity_log import log_activity
+
         log_vault_event(vault_id, "safeguard_blocked", metadata, errors)
         log_activity(vault_id, "safeguard_blocked", metadata, errors)
         return {"status": "blocked", "vault_id": vault_id, "errors": errors}
@@ -108,19 +134,22 @@ def handle_event(metadata):
 
     # --- Static AI Compliance & Anomaly Checks ---
     from autonomy.ai_tools.audit_compliance import check_vault_metadata
+
     ai_results = {}
     compliance_result = check_vault_metadata(metadata)
-    ai_results['compliance'] = compliance_result
+    ai_results["compliance"] = compliance_result
     # Anomaly detection: outliers, suspicious patterns (static)
     anomaly_flags = []
-    if not compliance_result['compliant']:
-        anomaly_flags.append('compliance_failure')
-    if len(metadata.get('title','')) < 5 or len(metadata.get('description','')) < 10:
-        anomaly_flags.append('metadata_too_short')
-    ai_results['anomaly_flags'] = anomaly_flags
+    if not compliance_result["compliant"]:
+        anomaly_flags.append("compliance_failure")
+    if len(metadata.get("title", "")) < 5 or len(metadata.get("description", "")) < 10:
+        anomaly_flags.append("metadata_too_short")
+    ai_results["anomaly_flags"] = anomaly_flags
     # If any anomaly or compliance failure, trigger alerts and outbound webhooks
-    if anomaly_flags or not compliance_result['compliant']:
-        alert_msg = f"[AI] Vault anomaly/compliance issue: {anomaly_flags}, {compliance_result}"
+    if anomaly_flags or not compliance_result["compliant"]:
+        alert_msg = (
+            f"[AI] Vault anomaly/compliance issue: {anomaly_flags}, {compliance_result}"
+        )
         send_slack_alert(alert_msg)
         send_telegram_alert(alert_msg)
         if metadata.get("alert_email_opt_in"):
@@ -128,7 +157,14 @@ def handle_event(metadata):
         # Outbound webhook (future-proof, e.g. Zapier)
         try:
             from autonomy.post_sale_hooks.outbound_webhook import post_outbound_webhooks
-            post_outbound_webhooks({"event":"vault_created","metadata":metadata,"ai_results":ai_results})
+
+            post_outbound_webhooks(
+                {
+                    "event": "vault_created",
+                    "metadata": metadata,
+                    "ai_results": ai_results,
+                }
+            )
         except Exception as e:
             logger.warning(f"Outbound webhook failed: {e}")
     # --- End AI Checks ---
@@ -170,7 +206,9 @@ def handle_event(metadata):
     try:
         audit_and_monitor(vault_path, metadata)
     except Exception as e:
-        logger.error(f"Audit/monitor/version tracking failed: {e}\n{traceback.format_exc()}")
+        logger.error(
+            f"Audit/monitor/version tracking failed: {e}\n{traceback.format_exc()}"
+        )
         errors.append(f"Audit: {e}")
     # Compliance workflow
     try:
@@ -187,8 +225,12 @@ def handle_event(metadata):
         errors.append(f"Tax: {e}")
     # Log to vault activity log, including ai_results
     try:
-        log_vault_event(vault_id, "created", {**metadata, "ai_results": ai_results}, errors)
-        log_activity(vault_id, "created", {**metadata, "ai_results": ai_results}, errors)
+        log_vault_event(
+            vault_id, "created", {**metadata, "ai_results": ai_results}, errors
+        )
+        log_activity(
+            vault_id, "created", {**metadata, "ai_results": ai_results}, errors
+        )
     except Exception as e:
         logger.error(f"Vault activity logging failed: {e}\n{traceback.format_exc()}")
     # AI anomaly detection on failures

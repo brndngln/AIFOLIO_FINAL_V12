@@ -1,9 +1,13 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 import traceback
-from autonomy.product_prep.gumroad_delivery import push_vault_to_gumroad, GumroadDeliveryError
+from autonomy.product_prep.gumroad_delivery import (
+    push_vault_to_gumroad,
+    GumroadDeliveryError,
+)
 
 router = APIRouter()
+
 
 @router.post("/gumroad-deliver")
 async def gumroad_deliver(request: Request):
@@ -18,4 +22,6 @@ async def gumroad_deliver(request: Request):
     except GumroadDeliveryError as e:
         return JSONResponse({"success": False, "error": str(e)})
     except Exception as e:
-        return JSONResponse({"success": False, "error": str(e), "trace": traceback.format_exc()})
+        return JSONResponse(
+            {"success": False, "error": str(e), "trace": traceback.format_exc()}
+        )

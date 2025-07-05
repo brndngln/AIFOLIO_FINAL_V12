@@ -6,6 +6,7 @@ import logging
 
 FOUNDER_UNLOCK_TOKEN = "REPLACE_WITH_FOUNDER_SECRET"
 
+
 def verify_founder_access(token):
     if token != FOUNDER_UNLOCK_TOKEN:
         logging.critical("Unauthorized override attempt blocked by Founder Firewall.")

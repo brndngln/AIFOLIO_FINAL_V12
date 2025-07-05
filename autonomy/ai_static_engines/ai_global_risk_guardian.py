@@ -10,14 +10,17 @@ import datetime
 
 RISK_ALERTS_LOG = []
 
+
 class GlobalRiskGuardian:
     @staticmethod
     def log_risk_event(risk_type: str, description: str) -> None:
-        RISK_ALERTS_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'risk_type': risk_type,
-            'description': description
-        })
+        RISK_ALERTS_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "risk_type": risk_type,
+                "description": description,
+            }
+        )
 
     @staticmethod
     def get_risk_alerts() -> List[Dict]:

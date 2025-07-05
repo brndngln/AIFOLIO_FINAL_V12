@@ -7,8 +7,12 @@ SAFE AI Event Dependency Mapper for AIFOLIO
 import json
 import os
 
-DEPENDENCY_MAP_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/event_dependency_map.json'))
-DOT_MAP_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../analytics/event_dependency_map.dot'))
+DEPENDENCY_MAP_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../analytics/event_dependency_map.json")
+)
+DOT_MAP_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../analytics/event_dependency_map.dot")
+)
 
 # Define static event dependencies here
 EVENT_DEPENDENCIES = {
@@ -25,17 +29,19 @@ EVENT_DEPENDENCIES = {
     # ...add more as needed...
 }
 
+
 def generate_dependency_map():
-    with open(DEPENDENCY_MAP_PATH, 'w') as f:
+    with open(DEPENDENCY_MAP_PATH, "w") as f:
         json.dump(EVENT_DEPENDENCIES, f, indent=2)
     # Generate Graphviz DOT
-    with open(DOT_MAP_PATH, 'w') as f:
-        f.write('digraph EventDependencies {\n')
+    with open(DOT_MAP_PATH, "w") as f:
+        f.write("digraph EventDependencies {\n")
         for src, tgts in EVENT_DEPENDENCIES.items():
             for tgt in tgts:
                 f.write(f'    "{src}" -> "{tgt}";\n')
-        f.write('}\n')
+        f.write("}\n")
     return EVENT_DEPENDENCIES
+
 
 if __name__ == "__main__":
     generate_dependency_map()

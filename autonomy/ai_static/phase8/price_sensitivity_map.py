@@ -13,8 +13,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 PRICE_SENSITIVITY = {
     "us-east-1": "medium",
     "eu-west-1": "high",
-    "ap-southeast-1": "low"
+    "ap-southeast-1": "low",
 }
+
 
 def get_price_sensitivity(region, triggered_by):
     timestamp = datetime.utcnow().isoformat()

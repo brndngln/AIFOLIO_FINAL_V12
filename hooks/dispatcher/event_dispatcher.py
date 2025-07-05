@@ -20,20 +20,28 @@ EVENT_PRIORITIES = [
     "Analytics Dashboard Update Triggered",
     "Webhook Sent",
     "GitHub Clone Triggered",
-    "Audit Log Entry Created"
+    "Audit Log Entry Created",
 ]
 
 EVENT_QUEUE: List[Dict[str, Any]] = []
 AUDIT_LOG: List[Dict[str, Any]] = []
+
 
 class EventDispatcher:
     @staticmethod
     def dispatch_event(event_type: str, payload: dict):
         if event_type not in EVENT_PRIORITIES:
             raise ValueError("Invalid event type")
-        event = {"type": event_type, "payload": payload, "timestamp": time.time(), "status": "queued"}
+        event = {
+            "type": event_type,
+            "payload": payload,
+            "timestamp": time.time(),
+            "status": "queued",
+        }
         EVENT_QUEUE.append(event)
-        AUDIT_LOG.append({"action": "event_queued", "event": event, "timestamp": event["timestamp"]})
+        AUDIT_LOG.append(
+            {"action": "event_queued", "event": event, "timestamp": event["timestamp"]}
+        )
         return event
 
     @staticmethod
@@ -41,9 +49,19 @@ class EventDispatcher:
         # Processes event queue by priority, retry-safe
         delivered = []
         for priority in EVENT_PRIORITIES:
-            for event in [e for e in EVENT_QUEUE if e["type"] == priority and e["status"] == "queued"]:
+            for event in [
+                e
+                for e in EVENT_QUEUE
+                if e["type"] == priority and e["status"] == "queued"
+            ]:
                 event["status"] = "delivered"
-                AUDIT_LOG.append({"action": "event_delivered", "event": event, "timestamp": time.time()})
+                AUDIT_LOG.append(
+                    {
+                        "action": "event_delivered",
+                        "event": event,
+                        "timestamp": time.time(),
+                    }
+                )
                 delivered.append(event)
         return delivered
 

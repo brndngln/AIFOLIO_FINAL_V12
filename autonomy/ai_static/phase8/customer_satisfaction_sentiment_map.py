@@ -10,11 +10,8 @@ from datetime import datetime
 LOG_PATH = "../../distribution/legal_exports/customer_satisfaction_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-SATISFACTION_MAP = {
-    "vault1": "high",
-    "vault2": "medium",
-    "vault3": "low"
-}
+SATISFACTION_MAP = {"vault1": "high", "vault2": "medium", "vault3": "low"}
+
 
 def map_customer_satisfaction(vault_id, triggered_by):
     timestamp = datetime.utcnow().isoformat()

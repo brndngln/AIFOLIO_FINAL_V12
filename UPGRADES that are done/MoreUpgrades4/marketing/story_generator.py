@@ -1,13 +1,16 @@
 import logging
 
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def create_case_study(pdf_name, niche):
     """
@@ -15,7 +18,9 @@ def create_case_study(pdf_name, niche):
     Includes ethical/sentience safeguards, oversight checkpoints, compliance logging, audit trail, and robust error handling.
     """
     sentience_safeguard_check()
-    human_oversight_checkpoint("Begin create_case_study", {"pdf_name": pdf_name, "niche": niche})
+    human_oversight_checkpoint(
+        "Begin create_case_study", {"pdf_name": pdf_name, "niche": niche}
+    )
     try:
         case_study = f"""
 Act as a 7-figure marketer. Here's a 3-part case study:
@@ -23,7 +28,7 @@ Act as a 7-figure marketer. Here's a 3-part case study:
 2. They used {pdf_name} to create a product, build a funnel, and start selling.
 3. Results: First $500 in sales within 2 weeks. Built a 3-product offer.
 
-Lesson: Simplicity wins. 
+Lesson: Simplicity wins.
 CTA: Download {pdf_name} and start your transformation today.
 """
         human_oversight_checkpoint("Case study generated", case_study)

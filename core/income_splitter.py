@@ -3,12 +3,13 @@
 class IncomeSplitter:
     def __init__(self, split_config):
         self.split_config = split_config
-    def split_income(self, amount, tier='default'):
-        conf = self.split_config.get(tier, self.split_config['default'])
+
+    def split_income(self, amount, tier="default"):
+        conf = self.split_config.get(tier, self.split_config["default"])
         return {
-            'reinvestment': amount * conf['reinvestment'],
-            'liquidity': amount * conf['liquidity'],
-            'goals': amount * conf['goals'],
-            'rnd': amount * conf['rnd'],
-            'emergency': amount * conf['emergency']
+            "reinvestment": amount * conf["reinvestment"],
+            "liquidity": amount * conf["liquidity"],
+            "goals": amount * conf["goals"],
+            "rnd": amount * conf["rnd"],
+            "emergency": amount * conf["emergency"],
         }

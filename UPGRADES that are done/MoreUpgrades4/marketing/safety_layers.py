@@ -4,14 +4,18 @@ import logging
 Safety module for enforcing non-sentience and ethical automation.
 Includes sentience/ethical safeguards, oversight checkpoints, compliance logging, audit trail, and robust error handling.
 """
+
+
 def sentience_safeguard_check():
     """Prevent and monitor for any emergent sentience or unsafe autonomy."""
     logging.info("Sentience safeguard check passed.")
     return True
 
+
 def human_oversight_checkpoint(action, details=None):
     """Log and optionally require review for sensitive actions."""
     logging.info(f"Human oversight: {action} | Details: {details}")
+
 
 def verify_no_sentient_components(module_text):
     """
@@ -20,7 +24,16 @@ def verify_no_sentient_components(module_text):
     """
     sentience_safeguard_check()
     human_oversight_checkpoint("Begin sentience verification", module_text)
-    sentience_flags = ["self-train", "loop", "remember", "improve itself", "learn from experience", "memory", "recursive", "autonomous update"]
+    sentience_flags = [
+        "self-train",
+        "loop",
+        "remember",
+        "improve itself",
+        "learn from experience",
+        "memory",
+        "recursive",
+        "autonomous update",
+    ]
     found_flags = [flag for flag in sentience_flags if flag in module_text.lower()]
     if found_flags:
         logging.warning(f"Sentience flags detected: {found_flags}")
@@ -28,6 +41,7 @@ def verify_no_sentient_components(module_text):
     else:
         logging.info("No sentience risks found.")
     return found_flags
+
 
 def assert_safe_module(module_text):
     """

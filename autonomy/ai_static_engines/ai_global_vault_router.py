@@ -10,22 +10,25 @@ import datetime
 
 VAULT_ROUTER_LOG = []
 
+
 class GlobalVaultRouter:
     @staticmethod
     def suggest_routing_strategies(current_regions: List[str]) -> List[str]:
         """
         Suggests static region routing strategies.
         """
-        all_regions = ['US-East', 'EU-West', 'APAC', 'LATAM']
+        all_regions = ["US-East", "EU-West", "APAC", "LATAM"]
         return [r for r in all_regions if r not in current_regions]
 
     @staticmethod
     def log_routing_action(action: str, details: Dict):
-        VAULT_ROUTER_LOG.append({
-            'timestamp': datetime.datetime.utcnow().isoformat(),
-            'action': action,
-            'details': details
-        })
+        VAULT_ROUTER_LOG.append(
+            {
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "action": action,
+                "details": details,
+            }
+        )
 
     @staticmethod
     def export_routing_log() -> List[Dict]:

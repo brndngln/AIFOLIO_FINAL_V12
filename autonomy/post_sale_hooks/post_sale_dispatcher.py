@@ -14,17 +14,23 @@ POST_SALE_HOOKS_LOG = "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/autonomy
 RETRY_LIMIT = 3
 RETRY_BASE_SECONDS = 2
 
+
 class PostSaleHookError(Exception):
     pass
+
 
 def log_error(hook_name, error, context=None):
     with open(POST_SALE_HOOKS_LOG, "a") as f:
         f.write(f"[ERROR] {hook_name}: {error} | Context: {context}\n")
     logging.error(f"[AIFOLIO][HOOK ERROR] {hook_name}: {error} | Context: {context}")
 
+
 def alert_failure(hook_name, error, context=None):
     # Stub: Integrate with Slack/Discord alerting here
-    print(f"[ALERT] Post-sale hook '{hook_name}' failed after retries: {error} | Context: {context}")
+    print(
+        f"[ALERT] Post-sale hook '{hook_name}' failed after retries: {error} | Context: {context}"
+    )
+
 
 def retry_hook(hook_func, args, kwargs, hook_name, context=None):
     for attempt in range(1, RETRY_LIMIT + 1):
@@ -34,11 +40,14 @@ def retry_hook(hook_func, args, kwargs, hook_name, context=None):
         except Exception as e:
             log_error(hook_name, e, context)
             if attempt < RETRY_LIMIT:
-                sleep_time = RETRY_BASE_SECONDS * (2 ** (attempt - 1)) + random.uniform(0, 1)
+                sleep_time = RETRY_BASE_SECONDS * (2 ** (attempt - 1)) + random.uniform(
+                    0, 1
+                )
                 time.sleep(sleep_time)
             else:
                 alert_failure(hook_name, e, context)
     return False
+
 
 def run_post_sale_hooks(order_id, user_email, vault_id, metadata=None):
     """
@@ -48,7 +57,12 @@ def run_post_sale_hooks(order_id, user_email, vault_id, metadata=None):
     """
     hooks = [
         (send_receipt_email, (order_id, user_email), {}, "send_receipt_email"),
-        (trigger_upsell_suggestion, (vault_id, user_email), {}, "trigger_upsell_suggestion"),
+        (
+            trigger_upsell_suggestion,
+            (vault_id, user_email),
+            {},
+            "trigger_upsell_suggestion",
+        ),
         (log_vault_sale, (order_id, vault_id, metadata or {}), {}, "log_vault_sale"),
         (push_to_dashboard_analytics, (order_id,), {}, "push_to_dashboard_analytics"),
         (file_tax_compliance, (order_id,), {}, "file_tax_compliance"),
@@ -56,4 +70,14 @@ def run_post_sale_hooks(order_id, user_email, vault_id, metadata=None):
         (store_backup_to_archive, (order_id, vault_id), {}, "store_backup_to_archive"),
     ]
     for hook_func, args, kwargs, hook_name in hooks:
-        retry_hook(hook_func, args, kwargs, hook_name, context={"order_id": order_id, "user_email": user_email, "vault_id": vault_id})
+        retry_hook(
+            hook_func,
+            args,
+            kwargs,
+            hook_name,
+            context={
+                "order_id": order_id,
+                "user_email": user_email,
+                "vault_id": vault_id,
+            },
+        )

@@ -9,11 +9,15 @@ import os
 import json
 from datetime import datetime
 
-FILING_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/filing_log.json')
+FILING_LOG_PATH = os.path.join(
+    os.path.dirname(__file__), "../../analytics/filing_log.json"
+)
+
 
 def _deterministic_id(prefix, country_code, data):
     base = f"{prefix}-{country_code}-{str(hash(str(data)))[-6:]}"
     return base
+
 
 class FilingEngine:
     @staticmethod
@@ -42,27 +46,29 @@ class FilingEngine:
         else:
             filing_id = _deterministic_id("GEN", country_code, data)
             jurisdiction = country_code
-        FilingEngine._audit_log({
-            'country_code': country_code,
-            'jurisdiction': jurisdiction,
-            'filing_id': filing_id,
-            'status': status,
-            'data': data
-        })
+        FilingEngine._audit_log(
+            {
+                "country_code": country_code,
+                "jurisdiction": jurisdiction,
+                "filing_id": filing_id,
+                "status": status,
+                "data": data,
+            }
+        )
         return {"status": status, "jurisdiction": jurisdiction, "filing_id": filing_id}
 
     @staticmethod
     def _audit_log(details=None):
         log_entry = {
-            'timestamp': datetime.now().isoformat(),
-            'event': 'FILING_EVENT',
-            'details': details or {}
+            "timestamp": datetime.now().isoformat(),
+            "event": "FILING_EVENT",
+            "details": details or {},
         }
         if os.path.exists(FILING_LOG_PATH):
-            with open(FILING_LOG_PATH, 'r') as f:
+            with open(FILING_LOG_PATH, "r") as f:
                 logs = json.load(f)
         else:
             logs = []
         logs.append(log_entry)
-        with open(FILING_LOG_PATH, 'w') as f:
+        with open(FILING_LOG_PATH, "w") as f:
             json.dump(logs, f, indent=2)

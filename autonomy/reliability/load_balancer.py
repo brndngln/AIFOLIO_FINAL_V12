@@ -6,8 +6,11 @@ import os
 import json
 import datetime
 
-BALANCER_LOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/load_balancer_log.jsonl'))
+BALANCER_LOG = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/load_balancer_log.jsonl")
+)
 os.makedirs(os.path.dirname(BALANCER_LOG), exist_ok=True)
+
 
 # --- Load Balancer for AI Task Queue ---
 class AITaskQueue:
@@ -15,36 +18,40 @@ class AITaskQueue:
         self.queue = queue.Queue()
         self.workers = workers
         self.threads = []
+
     def add_task(self, task):
         self.queue.put(task)
+
     def worker(self):
         while True:
             task = self.queue.get()
             try:
                 # Simulate task execution
                 result = task()
-                status = 'success'
+                status = "success"
             except Exception as e:
                 result = str(e)
-                status = 'fail'
+                status = "fail"
             entry = {
-                'timestamp': datetime.datetime.utcnow().isoformat() + 'Z',
-                'task': str(task),
-                'result': result,
-                'status': status
+                "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+                "task": str(task),
+                "result": result,
+                "status": status,
             }
-            with open(BALANCER_LOG, 'a') as f:
-                f.write(json.dumps(entry) + '\n')
+            with open(BALANCER_LOG, "a") as f:
+                f.write(json.dumps(entry) + "\n")
             self.queue.task_done()
+
     def start(self):
         for _ in range(self.workers):
             t = threading.Thread(target=self.worker, daemon=True)
             t.start()
             self.threads.append(t)
 
+
 if __name__ == "__main__":
     balancer = AITaskQueue(workers=2)
     balancer.start()
     balancer.add_task(lambda: time.sleep(random.uniform(0.1, 0.5)))
-    balancer.add_task(lambda: 1/0)  # Simulate failure
+    balancer.add_task(lambda: 1 / 0)  # Simulate failure
     time.sleep(1)

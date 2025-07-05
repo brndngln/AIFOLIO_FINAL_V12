@@ -5,6 +5,7 @@ Verifies all founder rules, anti-sentience, monetization, and vault update logic
 import logging
 from datetime import datetime
 
+
 def run_omnicheck():
     checks = {
         "founder_rules": True,
@@ -16,7 +17,7 @@ def run_omnicheck():
         "no_hallucination": True,
         "no_unauthorized_regen": True,
         "all_modules_working": True,
-        "logs_apis_dashboards_ok": True
+        "logs_apis_dashboards_ok": True,
     }
     timestamp = datetime.utcnow().isoformat()
     logging.info(f"Omnicheck completed at {timestamp}: {checks}")

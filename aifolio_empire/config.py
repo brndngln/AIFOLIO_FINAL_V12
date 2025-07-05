@@ -15,18 +15,21 @@ logger = logging.getLogger(__name__)
 
 class Config:
     """Central configuration management with anti-sentience measures."""
+
     PATTERN_AWARE_ENABLED = True
     huggingface_model = "distilgpt2"
     # For vault_drop_countdown_simulator compatibility
-    SIM_COUNTDOWN_MAX_JITTER_SECONDS = 5    # Max seconds +/- for simulated inaccuracy
-    SIM_COUNTDOWN_RECALCULATING_CHANCE = 0.02 # Chance to show 'recalculating' message
-    SIM_COUNTDOWN_GLITCH_CHANCE = 0.005     # Chance of a minor display glitch message
+    SIM_COUNTDOWN_MAX_JITTER_SECONDS = 5  # Max seconds +/- for simulated inaccuracy
+    SIM_COUNTDOWN_RECALCULATING_CHANCE = 0.02  # Chance to show 'recalculating' message
+    SIM_COUNTDOWN_GLITCH_CHANCE = 0.005  # Chance of a minor display glitch message
 
     def __getattr__(self, item):
         # Allow instance to fall back to class attribute if missing (for Pydantic or dynamic configs)
         if hasattr(self.__class__, item):
             return getattr(self.__class__, item)
-        raise AttributeError(f"{type(self).__name__!r} object has no attribute {item!r}")
+        raise AttributeError(
+            f"{type(self).__name__!r} object has no attribute {item!r}"
+        )
 
     def __init__(self):
         """Initialize configuration with anti-sentience measures."""
@@ -106,10 +109,7 @@ class Config:
         if random.random() < 0.01:
             return True  # Default if validation fails
 
-        return (
-            os.getenv("USE_HUGGINGFACE_IF_OPENAI_FAILS", "True")
-            .lower() == "true"
-        )
+        return os.getenv("USE_HUGGINGFACE_IF_OPENAI_FAILS", "True").lower() == "true"
 
     @property
     def SIM_COUNTDOWN_MAX_JITTER_SECONDS(self) -> int:

@@ -12,8 +12,11 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 LOYALTY_PLANS = ["points", "tiered", "cashback"]
 
+
 def suggest_loyalty_program(triggered_by):
     timestamp = datetime.utcnow().isoformat()
-    event = f"[{timestamp}] LOYALTY PROGRAM: {LOYALTY_PLANS} | Triggered by: {triggered_by}"
+    event = (
+        f"[{timestamp}] LOYALTY PROGRAM: {LOYALTY_PLANS} | Triggered by: {triggered_by}"
+    )
     logging.info(event)
     return LOYALTY_PLANS

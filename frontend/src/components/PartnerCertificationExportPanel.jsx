@@ -39,7 +39,7 @@ const PartnerModal = ({ partner, onClose }) => {
 
 function PartnerCertificationExportPanel() {
   // [WINDSURF FIXED] Patch all referenced state/handlers for lint and runtime safety
-  const [toasts, setToasts] = useState([]); 
+  const [toasts, setToasts] = useState([]);
   function showToast(msg, type="info") {
     const id = Math.random().toString(36).slice(2);
     setToasts(t => [...t, {id, msg, type}]);

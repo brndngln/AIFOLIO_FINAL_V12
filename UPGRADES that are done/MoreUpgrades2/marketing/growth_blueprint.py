@@ -1,4 +1,6 @@
-def generate_growth_strategy(title, current_revenue, target_revenue, timeframe, tone="expert"):
+def generate_growth_strategy(
+    title, current_revenue, target_revenue, timeframe, tone="expert"
+):
     return f"""
 Act as a 7-figure info-product strategist.
 Given this product: {title}

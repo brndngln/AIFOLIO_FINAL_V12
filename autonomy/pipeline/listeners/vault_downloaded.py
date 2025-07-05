@@ -16,9 +16,11 @@ from autonomy.utils.retry import retry_safe
 
 logger = logging.getLogger("vault_downloaded")
 
+
 @retry_safe(max_attempts=3, backoff_factor=2)
 def push_dashboard(vault_id, payload):
     push_dashboard_update(vault_id, payload)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def send_alerts(payload, event_type, error=None):
@@ -29,6 +31,7 @@ def send_alerts(payload, event_type, error=None):
     send_telegram_alert(alert_msg)
     if payload.get("alert_email_opt_in"):
         send_email_alert(payload.get("owner_email"), alert_msg)
+
 
 @retry_safe(max_attempts=3, backoff_factor=2)
 def audit_vault(payload):
@@ -43,7 +46,11 @@ def handle_event(payload: dict):
     user_id = payload.get("user_id")
     ip = payload.get("ip")
     region = payload.get("region")
-    analytics_log = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/vault_activity_log.json'))
+    analytics_log = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__), "../../analytics/vault_activity_log.json"
+        )
+    )
     errors = []
     start_time = time.time()
     entry = {
@@ -52,7 +59,7 @@ def handle_event(payload: dict):
         "vault_id": vault_id,
         "user_id": user_id,
         "ip": ip,
-        "region": region
+        "region": region,
     }
     # Log download event
     try:
@@ -66,27 +73,36 @@ def handle_event(payload: dict):
             with open(analytics_log, "w") as f:
                 json.dump([entry], f, indent=2)
     except Exception as e:
-        logger.error(f"Failed to log vault download event: {e}\n{traceback.format_exc()}")
+        logger.error(
+            f"Failed to log vault download event: {e}\n{traceback.format_exc()}"
+        )
         errors.append(f"Log: {e}")
         send_alerts(payload, "downloaded", error=str(e))
     # --- SAFE FILENAME SANITIZATION & NOTIFICATION (if applicable) ---
     from autonomy.vaults.filename_sanitizer import enforce_safe_filename
     from autonomy.notifications.email_engine import send_vault_email
+
     try:
-        if payload.get('download_path'):
-            safe_path = enforce_safe_filename(payload['download_path'], payload.get('vault_title', vault_id))
+        if payload.get("download_path"):
+            safe_path = enforce_safe_filename(
+                payload["download_path"], payload.get("vault_title", vault_id)
+            )
             # Optionally, notify user of download with attachment (if policy requires)
-            if payload.get('notify_on_download'):
+            if payload.get("notify_on_download"):
                 email_subject = f"[AIFOLIO] Vault Downloaded: {vault_id}"
-                email_body = f"Your download of vault {vault_id} is logged for compliance."
+                email_body = (
+                    f"Your download of vault {vault_id} is logged for compliance."
+                )
                 send_status = send_vault_email(
-                    payload.get('user_email') or payload.get('owner_email'),
+                    payload.get("user_email") or payload.get("owner_email"),
                     email_subject,
                     email_body,
-                    [safe_path]
+                    [safe_path],
                 )
     except Exception as e:
-        logger.error(f"Download notification/attachment failed: {e}\n{traceback.format_exc()}")
+        logger.error(
+            f"Download notification/attachment failed: {e}\n{traceback.format_exc()}"
+        )
         errors.append(f"Notify: {e}")
     # Dashboard update
     try:
@@ -120,5 +136,12 @@ def handle_event(payload: dict):
         except Exception as e:
             logger.error(f"Anomaly detection failed: {e}\n{traceback.format_exc()}")
     # Track build time/performance (optional, not required here)
-    print(f"[AIFOLIO] Vault {vault_id} downloaded by user {user_id} from {region or ip}.")
-    return {"status": "success", "vault_id": vault_id, "user_id": user_id, "errors": errors}
+    print(
+        f"[AIFOLIO] Vault {vault_id} downloaded by user {user_id} from {region or ip}."
+    )
+    return {
+        "status": "success",
+        "vault_id": vault_id,
+        "user_id": user_id,
+        "errors": errors,
+    }

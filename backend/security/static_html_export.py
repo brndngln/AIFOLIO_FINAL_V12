@@ -3,9 +3,10 @@ AIFOLIO Static HTML Export
 Static, deterministic, SAFE AI-compliant static HTML export for sensitive views (no dynamic JS).
 """
 import logging
+
 logger = logging.getLogger(__name__)
 
-STATIC_HTML_TEMPLATE = '''
+STATIC_HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,8 @@ STATIC_HTML_TEMPLATE = '''
   </div>
 </body>
 </html>
-'''
+"""
+
 
 def export_static_html() -> str:
     logger.info("Exported static HTML for sensitive view.")

@@ -8,12 +8,20 @@ from .automated_vault_enhancements import *
 
 # Example: Enhanced vault generation pipeline
 
-def enhanced_generate_vault(niche: str, audience: dict = None, language: str = "en", publish: bool = False, marketplace: str = None) -> dict:
+
+def enhanced_generate_vault(
+    niche: str,
+    audience: dict = None,
+    language: str = "en",
+    publish: bool = False,
+    marketplace: str = None,
+) -> dict:
     """
     Generate a vault with all advanced enhancements applied. Deterministic, static, SAFE AI-compliant, OWNER-controlled.
     All steps are audit-logged. Extension points for real integrations are documented.
     """
     import logging
+
     logger = logging.getLogger(__name__)
     logger.info(f"Starting enhanced vault generation for niche: {niche}")
 
@@ -38,7 +46,14 @@ def enhanced_generate_vault(niche: str, audience: dict = None, language: str = "
     logger.info("Content statically enriched.")
 
     # 5. Suggest bundles (static)
-    all_niches = ["Business", "Health", "Finance", "AI Tools & Automation", "Weight Loss & Fitness", "Legal Templates & Contracts"]
+    all_niches = [
+        "Business",
+        "Health",
+        "Finance",
+        "AI Tools & Automation",
+        "Weight Loss & Fitness",
+        "Legal Templates & Contracts",
+    ]
     bundles = suggest_bundles(niche, all_niches)
     logger.info(f"Static bundle suggestions: {bundles}")
 
@@ -84,7 +99,8 @@ def enhanced_generate_vault(niche: str, audience: dict = None, language: str = "
         "bundles": bundles,
         "visual": visual,
         "changelog": changelog,
-        "risk_score": risk_score
+        "risk_score": risk_score,
     }
+
 
 # End of upgrade hook module

@@ -7,7 +7,7 @@ if __name__ == "__main__":
         "email": "buyer@demo.com",
         "country": "US",
         "vault_path": "vaults/demo_vault",
-        "alert_email_opt_in": True
+        "alert_email_opt_in": True,
     }
     result = vault_sold.handle_event(payload)
     print(json.dumps(result, indent=2))

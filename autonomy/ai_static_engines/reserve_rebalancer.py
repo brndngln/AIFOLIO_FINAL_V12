@@ -4,6 +4,7 @@ Charter-Enforced
 """
 from typing import Dict
 
+
 def rebalance_reserves(vaults: Dict[str, Dict[str, float]]) -> Dict[str, float]:
     """Static reserve rebalancing (SAFE AI only)"""
     # Example: equalize reserves across brands

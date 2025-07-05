@@ -5,6 +5,7 @@ from backend.agents.bobby import handle_bobby
 
 router = APIRouter()
 
+
 @router.post("/bobby")
 async def bobby_endpoint(request: Request):
     data = await request.json()

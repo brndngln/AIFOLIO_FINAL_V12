@@ -4,8 +4,10 @@ Wraps all logic processors and filters outputs through the OMNIELITE Ethics Engi
 """
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from ethics_engine import OmnieliteEthicsEngine, EthicsViolation
+
 
 def ethics_validator(action, context):
     try:

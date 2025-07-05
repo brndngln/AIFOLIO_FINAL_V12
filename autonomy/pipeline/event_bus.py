@@ -5,14 +5,26 @@ import uuid
 import glob
 from autonomy.pipeline.event_definitions import ALL_EVENTS
 
-ANALYTICS_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/event_log.json'))
-HEATMAP_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/event_heatmap.json'))
-ERROR_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/error_log.json'))
-VISUALIZER_FEED_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../analytics/pipeline_visualizer_feed.json'))
-LISTENER_DIR = os.path.join(os.path.dirname(__file__), 'listeners')
+ANALYTICS_LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/event_log.json")
+)
+HEATMAP_LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/event_heatmap.json")
+)
+ERROR_LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../analytics/error_log.json")
+)
+VISUALIZER_FEED_PATH = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "../../analytics/pipeline_visualizer_feed.json"
+    )
+)
+LISTENER_DIR = os.path.join(os.path.dirname(__file__), "listeners")
+
 
 class EventBusError(Exception):
     pass
+
 
 def validate_listeners():
     """
@@ -26,6 +38,7 @@ def validate_listeners():
     if missing:
         raise EventBusError(f"Missing listeners for events: {missing}")
     return True
+
 
 def auto_discover_listeners():
     """
@@ -44,6 +57,7 @@ def auto_discover_listeners():
             print(f"[EventBus] Failed to load listener {event_type}: {e}")
     return listeners
 
+
 def validate_event_dependencies(event_sequence):
     """
     Stub for event dependency validator. Implement event order checks as needed.
@@ -52,17 +66,19 @@ def validate_event_dependencies(event_sequence):
     # TODO: Implement actual dependency rules
     return True
 
+
 def log_error(event_type, payload, error, event_id):
     entry = {
-        'timestamp': str(uuid.uuid1()),
-        'event_type': event_type,
-        'payload': payload,
-        'event_id': event_id,
-        'error': str(error)
+        "timestamp": str(uuid.uuid1()),
+        "event_type": event_type,
+        "payload": payload,
+        "event_id": event_id,
+        "error": str(error),
     }
-    with open(ERROR_LOG_PATH, 'a') as f:
-        f.write(json.dumps(entry) + '\n')
+    with open(ERROR_LOG_PATH, "a") as f:
+        f.write(json.dumps(entry) + "\n")
     return entry
+
 
 def update_visualizer_feed(event_type, payload, event_id):
     """
@@ -70,23 +86,21 @@ def update_visualizer_feed(event_type, payload, event_id):
     """
     feed = []
     if os.path.exists(VISUALIZER_FEED_PATH):
-        with open(VISUALIZER_FEED_PATH, 'r') as f:
+        with open(VISUALIZER_FEED_PATH, "r") as f:
             try:
                 feed = json.load(f)
             except Exception:
                 feed = []
-    entry = {
-        'event_type': event_type,
-        'payload': payload,
-        'event_id': event_id
-    }
+    entry = {"event_type": event_type, "payload": payload, "event_id": event_id}
     feed.append(entry)
-    with open(VISUALIZER_FEED_PATH, 'w') as f:
+    with open(VISUALIZER_FEED_PATH, "w") as f:
         json.dump(feed, f, indent=2)
     return entry
 
+
 # Validate listeners on import/init
 validate_listeners()
+
 
 def dispatch_event(event_type: str, payload: dict):
     """
@@ -107,7 +121,10 @@ def dispatch_event(event_type: str, payload: dict):
     # Outbound webhook for all events (future-proof)
     try:
         from autonomy.post_sale_hooks.outbound_webhook import post_outbound_webhooks
-        post_outbound_webhooks({"event": event_type, "payload": payload, "event_id": event_id})
+
+        post_outbound_webhooks(
+            {"event": event_type, "payload": payload, "event_id": event_id}
+        )
     except Exception as e:
         print(f"[EventBus] Outbound webhook failed: {e}")
         log_error(event_type, payload, e, event_id)
@@ -130,23 +147,28 @@ def dispatch_event(event_type: str, payload: dict):
             except Exception as retry_e:
                 log_error(event_type, payload, retry_e, event_id)
                 # Event replay/auto-remediation stub
-                print(f"[EventBus][REPLAY] Critical event {event_type} failed after retry: {retry_e}")
-                raise EventBusError(f"Critical event {event_type} failed after retry: {retry_e}")
+                print(
+                    f"[EventBus][REPLAY] Critical event {event_type} failed after retry: {retry_e}"
+                )
+                raise EventBusError(
+                    f"Critical event {event_type} failed after retry: {retry_e}"
+                )
         else:
             # Event replay/auto-remediation stub
             print(f"[EventBus][REPLAY] Event {event_type} failed: {e}")
             raise EventBusError(f"Event {event_type} failed: {e}")
+
 
 def log_event(event_type, payload, event_id):
     entry = {
         "event_id": event_id,
         "event_type": event_type,
         "payload": payload,
-        "timestamp": __import__('datetime').datetime.now().isoformat()
+        "timestamp": __import__("datetime").datetime.now().isoformat(),
     }
     # Always log ai_results if present in payload
-    if isinstance(payload, dict) and 'ai_results' in payload:
-        entry['ai_results'] = payload['ai_results']
+    if isinstance(payload, dict) and "ai_results" in payload:
+        entry["ai_results"] = payload["ai_results"]
     try:
         if os.path.exists(ANALYTICS_LOG_PATH):
             with open(ANALYTICS_LOG_PATH, "r+") as f:
@@ -160,19 +182,24 @@ def log_event(event_type, payload, event_id):
     except Exception as e:
         print(f"Failed to log event: {e}")
 
+
 def log_heatmap(event_type, payload, event_id):
     """
     Logs event type and anomaly/compliance flags for heatmap/timeline analytics.
     """
     flags = []
-    ai_results = payload.get('ai_results') if isinstance(payload, dict) else None
+    ai_results = payload.get("ai_results") if isinstance(payload, dict) else None
     if ai_results:
-        flags = ai_results.get('anomaly_flags', []) + (["noncompliant"] if not ai_results.get('compliance', {}).get('compliant', True) else [])
+        flags = ai_results.get("anomaly_flags", []) + (
+            ["noncompliant"]
+            if not ai_results.get("compliance", {}).get("compliant", True)
+            else []
+        )
     heatmap_entry = {
         "event_id": event_id,
         "event_type": event_type,
-        "timestamp": __import__('datetime').datetime.now().isoformat(),
-        "flags": flags
+        "timestamp": __import__("datetime").datetime.now().isoformat(),
+        "flags": flags,
     }
     try:
         if os.path.exists(HEATMAP_LOG_PATH):

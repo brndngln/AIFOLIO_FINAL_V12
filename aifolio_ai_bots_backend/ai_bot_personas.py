@@ -9,7 +9,7 @@ BOT_PERSONAS = {
     "cover_bot": "Aesthetic Overlord",
     "vault_strategist": "The Empire Cartographer",
     "monetization_bot": "The Closer",
-    "compliance_bot": "The Enforcer"
+    "compliance_bot": "The Enforcer",
 }
 
 STRICT_COMMAND_MODE = True

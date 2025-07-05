@@ -10,6 +10,7 @@ import datetime
 
 COMPLIANCE_ALERTS_LOG = []
 
+
 class ComplianceGovernanceMonitor:
     @staticmethod
     def track_compliance_changes(changes: List[Dict]) -> None:
@@ -17,10 +18,9 @@ class ComplianceGovernanceMonitor:
         Logs new compliance, tax, or legal platform changes for owner review.
         """
         for change in changes:
-            COMPLIANCE_ALERTS_LOG.append({
-                'timestamp': datetime.datetime.utcnow().isoformat(),
-                'change': change
-            })
+            COMPLIANCE_ALERTS_LOG.append(
+                {"timestamp": datetime.datetime.utcnow().isoformat(), "change": change}
+            )
 
     @staticmethod
     def get_alerts() -> List[Dict]:

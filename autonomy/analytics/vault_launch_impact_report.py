@@ -7,10 +7,22 @@ import json
 import os
 from datetime import datetime
 
-LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'analytics_log.json'))
+LOG_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "analytics_log.json")
+)
 
 
 def log_vault_launch_impact(vault_id, stats):
-    with open(LOG_PATH, 'a') as f:
-        f.write(json.dumps({'action': 'vault_launch_impact', 'vault_id': vault_id, 'stats': stats, 'timestamp': datetime.utcnow().isoformat()}) + '\n')
+    with open(LOG_PATH, "a") as f:
+        f.write(
+            json.dumps(
+                {
+                    "action": "vault_launch_impact",
+                    "vault_id": vault_id,
+                    "stats": stats,
+                    "timestamp": datetime.utcnow().isoformat(),
+                }
+            )
+            + "\n"
+        )
     return True

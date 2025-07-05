@@ -8,20 +8,21 @@ AIFOLIO Tax Engine
 import os
 from datetime import datetime
 
-TAX_LOG_PATH = os.path.join(os.path.dirname(__file__), '../../analytics/tax_log.json')
+TAX_LOG_PATH = os.path.join(os.path.dirname(__file__), "../../analytics/tax_log.json")
 
 STATIC_TAX_TABLE = {
     # Example static rates for demonstration; expand as needed
-    'US': 0.07,
-    'DE': 0.19,
-    'FR': 0.20,
-    'UK': 0.20,
-    'CA': 0.05,
-    'AU': 0.10,
-    'IN': 0.18,
-    'JP': 0.10,
-    'DEFAULT': 0.0
+    "US": 0.07,
+    "DE": 0.19,
+    "FR": 0.20,
+    "UK": 0.20,
+    "CA": 0.05,
+    "AU": 0.10,
+    "IN": 0.18,
+    "JP": 0.10,
+    "DEFAULT": 0.0,
 }
+
 
 class TaxEngine:
     @staticmethod
@@ -33,35 +34,39 @@ class TaxEngine:
         """
         if owner_override is not None:
             rate = float(owner_override)
-            event = 'OWNER_OVERRIDE_TAX_RATE'
+            event = "OWNER_OVERRIDE_TAX_RATE"
         else:
-            rate = STATIC_TAX_TABLE.get(country_code, STATIC_TAX_TABLE['DEFAULT'])
-            event = 'STATIC_TAX_LOOKUP'
+            rate = STATIC_TAX_TABLE.get(country_code, STATIC_TAX_TABLE["DEFAULT"])
+            event = "STATIC_TAX_LOOKUP"
         region = f"{country_code} - {state_code}" if state_code else country_code
         vat_id_valid = True if vat_id else None
-        TaxEngine._audit_log(event, {
-            'country_code': country_code,
-            'state_code': state_code,
-            'vat_id': vat_id,
-            'tax_rate': rate,
-            'region': region,
-            'vat_id_valid': vat_id_valid
-        })
-        return {'tax_rate': rate, 'region': region, 'vat_id_valid': vat_id_valid}
+        TaxEngine._audit_log(
+            event,
+            {
+                "country_code": country_code,
+                "state_code": state_code,
+                "vat_id": vat_id,
+                "tax_rate": rate,
+                "region": region,
+                "vat_id_valid": vat_id_valid,
+            },
+        )
+        return {"tax_rate": rate, "region": region, "vat_id_valid": vat_id_valid}
 
     @staticmethod
     def _audit_log(event, details=None):
         log_entry = {
-            'timestamp': datetime.now().isoformat(),
-            'event': event,
-            'details': details or {}
+            "timestamp": datetime.now().isoformat(),
+            "event": event,
+            "details": details or {},
         }
         if os.path.exists(TAX_LOG_PATH):
-            with open(TAX_LOG_PATH, 'r') as f:
+            with open(TAX_LOG_PATH, "r") as f:
                 logs = json.load(f)
         else:
             logs = []
         logs.append(log_entry)
-        with open(TAX_LOG_PATH, 'w') as f:
+        with open(TAX_LOG_PATH, "w") as f:
             import json
+
             json.dump(logs, f, indent=2)
