@@ -5,6 +5,7 @@ SAFE AI, deterministic, static, owner-controlled, fully auditable, and maximally
 from fastapi import APIRouter, Body
 from fastapi.responses import JSONResponse
 import json
+from typing import Dict, Any, List, Optional, Tuple
 
 # --- Import all elite analytics, compliance, business logic, and integration modules ---
 from analytics.ai_analytics_engine import AIAnalyticsEngine
@@ -39,7 +40,7 @@ router = APIRouter()
 
 # --- Elite KPI Dashboard ---
 @router.get("/api/kpi/elite")
-def get_kpi_dashboard():
+def get_kpi_dashboard() -> JSONResponse:
     """Elite KPI dashboard metrics and trends."""
     engine = AIAnalyticsEngine()
     # Example: fetch static or computed KPIs
@@ -56,7 +57,7 @@ def get_kpi_dashboard():
 
 # --- Elite AI Analytics Panel ---
 @router.post("/api/analytics/insights")
-def get_ai_analytics_insights(data: dict = Body(...)):
+def get_ai_analytics_insights(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Run elite analytics engine for actionable insights, clustering, anomaly detection, and trends."""
     engine = AIAnalyticsEngine()
     insights = engine.actionable_insights(data.get("events", []))
@@ -65,14 +66,14 @@ def get_ai_analytics_insights(data: dict = Body(...)):
 
 # --- Marketplace Trend Analysis ---
 @router.get("/api/trends/marketplace")
-def get_marketplace_trends():
+def get_marketplace_trends() -> JSONResponse:
     """Static, deterministic marketplace trend analysis."""
     return JSONResponse(content=get_static_marketplace_trends())
 
 
 # --- Vault Engagement Analytics ---
 @router.post("/api/engagement/log")
-def log_vault_engagement(data: dict = Body(...)):
+def log_vault_engagement(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Log a vault engagement event."""
     out = log_engagement(
         data["vault_id"], data["event_type"], data.get("user_id"), data.get("metadata")
@@ -81,7 +82,7 @@ def log_vault_engagement(data: dict = Body(...)):
 
 
 @router.get("/api/engagement/calculate")
-def get_vault_engagement(vault_id: str, since_days: int = 30):
+def get_vault_engagement(vault_id: str, since_days: int = 30) -> JSONResponse:
     """Calculate engagement for a vault."""
     out = calculate_engagement(vault_id, since_days)
     return JSONResponse(content=out)
@@ -89,7 +90,7 @@ def get_vault_engagement(vault_id: str, since_days: int = 30):
 
 # --- Vault Lifecycle Analytics ---
 @router.post("/api/lifecycle/log")
-def log_lifecycle(data: dict = Body(...)):
+def log_lifecycle(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Log a vault lifecycle event."""
     out = log_vault_lifecycle_event(
         data["event_type"], data["vault_id"], data.get("details", {})
@@ -98,7 +99,7 @@ def log_lifecycle(data: dict = Body(...)):
 
 
 @router.get("/api/lifecycle/summary")
-def get_lifecycle_summary():
+def get_lifecycle_summary() -> JSONResponse:
     """Get static lifecycle analytics summary."""
     out = get_static_lifecycle_summary()
     return JSONResponse(content=out)
@@ -106,7 +107,7 @@ def get_lifecycle_summary():
 
 # --- Profitability Analytics ---
 @router.post("/api/profitability/calculate")
-def calculate_vault_profitability(data: dict = Body(...)):
+def calculate_vault_profitability(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Calculate profitability for a vault."""
     out = calculate_profitability(
         data["vault_id"], data["sales"], data["refunds"], data["costs"]
@@ -116,7 +117,7 @@ def calculate_vault_profitability(data: dict = Body(...)):
 
 # --- Bundle Recommendation Engine ---
 @router.post("/api/bundles/recommend")
-def recommend_vault_bundles(data: dict = Body(...)):
+def recommend_vault_bundles(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Recommend bundles for a vault."""
     out = recommend_bundles(data["vault_id"], data["purchase_history"])
     return JSONResponse(content=out)
@@ -124,7 +125,7 @@ def recommend_vault_bundles(data: dict = Body(...)):
 
 # --- Sales Anomaly Detection ---
 @router.post("/api/anomaly/sales")
-def detect_sales_anomaly_api(data: dict = Body(...)):
+def detect_sales_anomaly_api(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Detect sales anomalies for a vault."""
     out = detect_sales_anomaly(data["vault_id"], data["sales"])
     return JSONResponse(content=out)
@@ -132,21 +133,21 @@ def detect_sales_anomaly_api(data: dict = Body(...)):
 
 # --- AI Quality & Audit Engine ---
 @router.post("/api/aiquality/anomaly")
-def aiquality_anomaly_detector(data: dict = Body(...)):
+def aiquality_anomaly_detector(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Run anomaly detector on text."""
     out = AIQuality.anomaly_detector(data["text"])
     return JSONResponse(content=out)
 
 
 @router.post("/api/aiquality/quality")
-def aiquality_output_quality(data: dict = Body(...)):
+def aiquality_output_quality(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Run output quality gatekeeper on text."""
     out = AIQuality.output_quality_gatekeeper(data["text"])
     return JSONResponse(content=out)
 
 
 @router.post("/api/aiquality/spellcheck")
-def aiquality_spellcheck(data: dict = Body(...)):
+def aiquality_spellcheck(data: Dict[str, Any] = Body(...)) -> JSONResponse:
     """Run spellcheck/grammar on text."""
     out = AIQuality.spellcheck_grammar(data["text"])
     return JSONResponse(content=out)
@@ -154,7 +155,7 @@ def aiquality_spellcheck(data: dict = Body(...)):
 
 # --- Rule Editor ---
 @router.get("/api/rules/get")
-def get_rules():
+def get_rules() -> JSONResponse:
     """Get all compliance/business rules."""
     try:
         with open("compliance/rules/violation_rules.json", "r") as f:
@@ -165,7 +166,7 @@ def get_rules():
 
 
 @router.post("/api/rules/update")
-def update_rules(data: dict = Body(...)):
+def update_rules(data: Dict[str, Any] = Body(...)) -> Dict[str, bool]:
     """Update compliance/business rules."""
     try:
         with open("compliance/rules/violation_rules.json", "w") as f:
@@ -177,7 +178,7 @@ def update_rules(data: dict = Body(...)):
 
 # --- Alert Routing ---
 @router.get("/api/alert/routes")
-def get_alert_routes():
+def get_alert_routes() -> JSONResponse:
     """Get alert routing configuration."""
     return JSONResponse(
         content=[
@@ -191,21 +192,21 @@ def get_alert_routes():
 
 
 @router.post("/api/alert/routes")
-def update_alert_routes(data: dict = Body(...)):
+def update_alert_routes(data: Dict[str, Any] = Body(...)) -> Dict[str, bool]:
     """Update alert routing configuration."""
     return {"success": True}
 
 
 # --- Multi-Channel Export ---
 @router.get("/api/export/{type}")
-def elite_export(type: str):
+def elite_export(type: str) -> JSONResponse:
     """Export data to Notion, Airtable, PDF, CSV, Partner API (stub)."""
     return JSONResponse(content={"status": "exported", "type": type})
 
 
 # --- Audit Simulation ---
 @router.post("/api/audit/simulate")
-def simulate_audit(data: dict = Body(...)):
+def simulate_audit(data: Dict[str, Any] = Body(...)) -> Dict[str, Optional[str]]:
     """Simulate a static, deterministic audit."""
     return {
         "result": "PASS",
@@ -216,7 +217,7 @@ def simulate_audit(data: dict = Body(...)):
 
 # --- SAFE AI Score ---
 @router.get("/api/safeai/score")
-def get_safeai_score():
+def get_safeai_score() -> JSONResponse:
     """Get static SAFE AI compliance score."""
     score = {
         "score": 98,
@@ -232,91 +233,91 @@ def get_safeai_score():
 
 # --- Integrations: Notion, Airtable, Slack, SMS, Webhook, SendGrid, Stripe, Shopify, WooCommerce, Zapier, Discord, Google Sheets, Gumroad ---
 @router.post("/api/integrate/airtable")
-def integrate_airtable(data: dict = Body(...)):
+def integrate_airtable(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send record to Airtable."""
     send_airtable_record(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/notion")
-def integrate_notion(data: dict = Body(...)):
+def integrate_notion(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send task to Notion."""
     send_notion_task(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/slack")
-def integrate_slack(data: dict = Body(...)):
+def integrate_slack(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send alert to Slack."""
     send_slack_alert(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/sms")
-def integrate_sms(data: dict = Body(...)):
+def integrate_sms(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send SMS alert via Twilio."""
     send_sms_alert(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/webhook")
-def integrate_webhook(data: dict = Body(...)):
+def integrate_webhook(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send webhook to external endpoint."""
     send_webhook(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/sendgrid")
-def integrate_sendgrid(data: dict = Body(...)):
+def integrate_sendgrid(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send email via SendGrid."""
     notify_sendgrid_email(data["to_email"], data["subject"], data["message"])
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/stripe")
-def integrate_stripe():
+def integrate_stripe() -> JSONResponse:
     """Fetch Stripe payouts (static simulation)."""
     out = fetch_stripe_payouts()
     return JSONResponse(content=out)
 
 
 @router.post("/api/integrate/shopify")
-def integrate_shopify():
+def integrate_shopify() -> JSONResponse:
     """Fetch Shopify orders (static simulation)."""
     out = fetch_shopify_orders()
     return JSONResponse(content=out)
 
 
 @router.post("/api/integrate/woocommerce")
-def integrate_woocommerce():
+def integrate_woocommerce() -> JSONResponse:
     """Fetch WooCommerce orders (static simulation)."""
     out = fetch_woocommerce_orders()
     return JSONResponse(content=out)
 
 
 @router.post("/api/integrate/zapier")
-def integrate_zapier(data: dict = Body(...)):
+def integrate_zapier(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Trigger Zapier webhook."""
     trigger_zapier_webhook(data)
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/discord")
-def integrate_discord(data: dict = Body(...)):
+def integrate_discord(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Send message to Discord."""
     notify_discord(data["message"])
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/googlesheets")
-def integrate_google_sheets(data: dict = Body(...)):
+def integrate_google_sheets(data: Dict[str, Any] = Body(...)) -> Dict[str, str]:
     """Export data to Google Sheets."""
     export_to_google_sheets(data["sheet_id"], data["values"])
     return {"status": "sent"}
 
 
 @router.post("/api/integrate/gumroad")
-def integrate_gumroad():
+def integrate_gumroad() -> JSONResponse:
     """Fetch Gumroad sales (static simulation)."""
     out = fetch_gumroad_sales()
     return JSONResponse(content=out)

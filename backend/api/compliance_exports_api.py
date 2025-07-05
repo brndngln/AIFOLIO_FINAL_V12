@@ -2,7 +2,7 @@
 Elite Compliance Exports API for AIFOLIO™. Supports static, deterministic export of compliance events to Notion, Google Sheets, and Airtable. SAFE AI, owner control, and audit logging enforced.
 """
 from fastapi import APIRouter, Query
-from typing import Literal
+from typing import Literal, Dict, Any, List
 from datetime import datetime
 import os
 import json
@@ -11,13 +11,13 @@ router = APIRouter()
 
 
 @router.get("/export/compliance")
-def export_compliance(type: Literal["notion", "sheets", "airtable"] = Query(...)):
-    # Simulate static export logic (replace with real integrations as needed)
-    events = []
+def export_compliance(type: Literal["notion", "sheets", "airtable"] = Query(...)) -> Dict[str, Any]:
+    from typing import Dict, Any, List
+    events: List[Any] = []
     if os.path.exists("logs/compliance/compliance_log.json"):
         with open("logs/compliance/compliance_log.json") as f:
             events = json.load(f)
-    result = {
+    result: Dict[str, Any] = {
         "exported_to": type,
         "event_count": len(events),
         "timestamp": datetime.utcnow().isoformat(),
