@@ -1,3 +1,4 @@
 {
-    "github-enterprise.uri": ""
+    "github-enterprise.uri": "",
+    "files.autoSave": "onFocusChange"
 }
