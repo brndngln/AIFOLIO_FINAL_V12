@@ -7,6 +7,9 @@ AIFOLIO SAFE AI Backend API Endpoints — Batches 16–20 + Partner Certificatio
 from fastapi import APIRouter, status, Depends
 from fastapi.responses import JSONResponse
 import json
+import logging
+import os
+from typing import List, Dict, Any, Optional, Union
 from autonomy.security.ai_safety_layer import anti_static_guard
 from autonomy.analytics import (
     multi_currency_safe_ai_revenue_tracking,
@@ -33,31 +36,30 @@ from autonomy.partner_certification import (
 from backend.main import get_current_user
 
 # --- REAL DATA PLACEHOLDERS ---
-import os
 
 
-def get_real_multi_currency_revenue_data():
+def get_real_multi_currency_revenue_data() -> List[Dict[str, Union[str, float]]]:
     """
     Loads sales and refund events from vault_sales_log.json and refund_log.json, aggregates by currency.
     Returns a list of {currency, amount} for all currencies found in real business logs.
     """
-    base = os.path.dirname(__file__)
-    sales_path = os.path.join(base, "vault_sales_log.json")
-    refund_path = os.path.join(base, "refund_log.json")
-    sales = []
-    refunds = []
+    base: str = os.path.dirname(__file__)
+    sales_path: str = os.path.join(base, "vault_sales_log.json")
+    refund_path: str = os.path.join(base, "refund_log.json")
+    sales: List[Dict[str, Any]] = []
+    refunds: List[Dict[str, Any]] = []
     if os.path.exists(sales_path):
         with open(sales_path) as f:
             sales = json.load(f)
     if os.path.exists(refund_path):
         with open(refund_path) as f:
             refunds = json.load(f)
-    currency_totals = {}
+    currency_totals: Dict[str, float] = {}
     for s in sales:
-        c = s.get("currency", "USD")
+        c: str = s.get("currency", "USD")
         currency_totals[c] = currency_totals.get(c, 0) + float(s.get("amount", 0))
     for r in refunds:
-        c = r.get("currency", "USD")
+        c: str = r.get("currency", "USD")
         currency_totals[c] = currency_totals.get(c, 0) - float(r.get("amount", 0))
     return [{"currency": c, "amount": amt} for c, amt in currency_totals.items()]
 
