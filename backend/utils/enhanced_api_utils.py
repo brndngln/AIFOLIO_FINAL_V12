@@ -1,5 +1,9 @@
 from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional, TypeVar, Generic, Awaitable, Union, cast, overload, ParamSpec, Tuple
+
+def is_valid_cache_value(v: Any) -> bool:
+    return isinstance(v, (str, bytes, bytearray)) and not isinstance(v, Awaitable)
+
 import json
 import logging
 import time
@@ -434,7 +438,7 @@ class RedisCache:
                     not bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
                 "size": len([
-                    v for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray)) and not isinstance(v, Awaitable)
+                    v for v in list(self.client.mget(self.client.scan_iter(f"{name}:*"))) if is_valid_cache_value(v)
                 ]),
                 "ttl": strategy.ttl,
             }
