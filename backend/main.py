@@ -317,7 +317,7 @@ def login(request: Request, form_data: OAuth2PasswordRequestForm = Depends()) ->
 
 
 @app.get("/api/niches")
-@require_role(["admin", "partner"])
+@require_role(["admin", "partner"])  # type: ignore
 def get_niches(user: str = Depends(get_current_user), request: Optional[Request] = None) -> Dict[str, Any]:
     if request is None:
         raise HTTPException(status_code=400, detail="Request is required")
@@ -416,7 +416,22 @@ def delete_user(username: str, current_user: UserDict = Depends(get_current_user
 
 # === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
 
-generate_vault_prompt = safe_ai_guarded(generate_vault_prompt)
+@safe_ai_guarded  # type: ignore
+@cache_response  # type: ignore
+@retry_on_api_error(attempts=3, base_delay=1.0, max_delay=30.0)  # type: ignore
+@rate_limit(calls_per_minute=60, window_size=60, max_burst=5)  # type: ignore
+@handle_api_errors  # type: ignore
+def generate_vault_prompt(vault_specs: Dict[str, Any], rules: Dict[str, Any]) -> Dict[str, Any]:
+    state = load_state()  # type: ignore
+    return {
+        "phase": state["phase"],
+        "safe_mode": state["safe_mode"],
+        "last_upgrade": state["last_upgrade"],
+        "next_upgrade": state["next_upgrade"],
+        "system_integrity": state["system_integrity"],
+        "lockdown": state["lockdown"],
+    }
+
 
 # --- Phase Control Panel State ---
 
@@ -590,6 +605,9 @@ def sim_sales_heatmap(user: str = Depends(get_current_user)) -> JSONResponse:
 
 @app.get("/api/sim/ai-log-visualizer")
 def sim_ai_log_visualizer(user: str = Depends(get_current_user)) -> JSONResponse:
+    log_types: List[str] = [
+        "INFO_SIM", "WARNING_SIM", "ERROR_SIM", "AUDIT_SIM", "SECURITY_SIM"
+    ]
     logs: List[Dict[str, Any]] = [
         {
             "log_id_sim": f"LOG{random.randint(10000,99999)}",
