@@ -3,7 +3,7 @@ COMPLIANCE_PASS: Static SAFE AI enforcement utility.
 Blocks any high-risk vault/product launch or export unless both legal_review and ethical_compliance_check pass.
 """
 
-from typing import TypedDict, Final
+from typing import TypedDict, Sequence, Mapping, Any
 
 class ComplianceReport(TypedDict):
     legal_review_passed: bool
@@ -30,7 +30,7 @@ def enforce_compliance_pass(compliance_report: ComplianceReport) -> bool:
         )
     return True
 
-def compliance_pass(*args: object, **kwargs: object) -> bool:
+def compliance_pass(*args: Sequence[Any], **kwargs: Mapping[str, Any]) -> bool:
     """
     Simulates a compliance pass (SAFE AI static stub).
     

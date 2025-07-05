@@ -2,12 +2,12 @@
 # Real-time global legal/AI/ethics scanning and immutable audit trail
 import logging
 from datetime import datetime
-from typing import Dict
+from typing import Dict, Final, List
 
-LOG_PATH = "../../logs/elite_compliance.log"
+LOG_PATH: Final[str] = "../../logs/elite_compliance.log"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-COMPLIANCE_CHECKS = [
+COMPLIANCE_CHECKS: Final[List[str]] = [
     "GDPR",
     "CCPA",
     "SAFE AI",
@@ -17,7 +17,6 @@ COMPLIANCE_CHECKS = [
     "PIPL",
     "PDPA",
 ]
-
 
 def scan_compliance(event: str) -> Dict[str, bool]:
     """
@@ -36,16 +35,14 @@ def scan_compliance(event: str) -> Dict[str, bool]:
         )
     return results
 
-
 def log_audit(event: str, result: Dict[str, bool]) -> None:
     """
-    Logs an audit event.
+    Logs an audit event and its compliance result.
     Args:
-        event: Event to log.
-        result: Compliance check results.
+        event: The event string.
+        result: Dictionary of compliance check results.
     """
-    logging.info(f"{datetime.utcnow().isoformat()}Z AUDIT: {event} => {result}")
-
+    logging.info(f"AUDIT: {event} => {result}")
 
 def elite_compliance_check(data: Dict[str, str]) -> bool:
     """
@@ -55,5 +52,5 @@ def elite_compliance_check(data: Dict[str, str]) -> bool:
     Returns:
         True if elite compliance check is simulated successfully.
     """
-    print("[OMNIPROOF] Elite compliance check (static stub)")
+    print("[ELITE] Compliance check simulated (static stub)")
     return True

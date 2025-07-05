@@ -1,7 +1,5 @@
 # Blockchain License Anchor (stub)
 # OMNIPROOF ENHANCEMENT: Statically anchors PDF/vault license hashes (future blockchain integration).
-from typing import Final
-
 def anchor_license_hash(hash_value: str) -> bool:
     """
     Statically anchors a PDF/vault license hash (stub for future blockchain integration).

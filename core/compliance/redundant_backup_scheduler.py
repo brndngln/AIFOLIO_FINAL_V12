@@ -1,7 +1,5 @@
 # Redundant Immutable Backup Engine (static)
 # OMNIPROOF ENHANCEMENT: Schedules static backup of vaults/exports to secure offline storage.
-from typing import Final
-
 def schedule_backup(path: str) -> bool:
     """
     Schedules a redundant backup for the given path (stub for future SAFE AI integration).

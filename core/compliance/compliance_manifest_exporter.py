@@ -1,7 +1,5 @@
 # Compliance Manifest Exporter (static)
 # OMNIPROOF ENHANCEMENT: Exports compliance manifests as signed PDFs for audits.
-from typing import Final
-
 def export_compliance_manifest(md_path: str, pdf_path: str) -> bool:
     """
     Statically exports a compliance manifest to markdown and PDF (stub for future SAFE AI integration).
