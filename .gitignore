@@ -184,7 +184,7 @@ __pycache__/
 frontend/frontend_test_results.json
 
 # Ignore all .zip and .json files created by knowledge injection
-AIFOLIO_KNOWLEDGE_INJECT/
+# AIFOLIO_KNOWLEDGE_INJECT/
 *.zip
 node_modules
 node_modules
