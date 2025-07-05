@@ -428,14 +428,14 @@ class RedisCache:
         for name, strategy in self.strategies.items():
             stats[name] = {
                 "hits": sum(
-                    1 for k in self.client.scan_iter(f"{name}:*") if isinstance(self.client.get(k), (str, bytes, bytearray)) and bool(self.client.get(k))
+                    bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
                 "misses": sum(
-                    1 for k in self.client.scan_iter(f"{name}:*") if not (isinstance(self.client.get(k), (str, bytes, bytearray)) and bool(self.client.get(k)))
+                    not bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
-                "size": sum(
-                    len(v) for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray))
-                ),
+                "size": len([
+                    v for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray))
+                ]),
                 "ttl": strategy.ttl,
             }
         return stats
@@ -685,7 +685,7 @@ class RateLimitConfig:
             return limit
 
         # Higher priority means higher limits
-        return limit * (priority / max(self.priority_levels.values()))
+        return int(limit * (priority / max(self.priority_levels.values())))
 
     def _adjust_window_size(self) -> None:
         """Adjust window size based on system load"""
@@ -840,7 +840,7 @@ def handle_api_errors(func: Callable[..., Any]) -> Callable[..., Any]:
     """
 
     @wraps(func)
-    def wrapper(*args: P.args, **kwargs: P.kwargs) -> T:
+    def wrapper(*args: P.args, **kwargs: P.kwargs) -> Any:
         try:
             return func(*args, **kwargs)
         except RateLimitError as e:
