@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Callable, Optional, Dict, List, TypeVar, ParamSpec
+from typing import Any, Callable, Dict, List, Optional, TypeVar, Generic, Awaitable, Union, cast, overload, ParamSpec, Tuple
 import json
 import logging
 import time
@@ -210,7 +210,7 @@ class CacheStrategy:
 
 
 class TimeBasedStrategy(CacheStrategy):
-    def __init__(self, ttl: int = 3600, max_size: int = 100):
+    def __init__(self, ttl: int = 3600, max_size: int = 100) -> None:
         """
         Time-based caching strategy
 
@@ -222,7 +222,9 @@ class TimeBasedStrategy(CacheStrategy):
 
 
 class FrequencyBasedStrategy(CacheStrategy):
-    def __init__(self, min_hits: int = 5, ttl: int = 86400, max_size: int = 50):
+    def __init__(
+        self, min_hits: int = 5, ttl: int = 86400, max_size: int = 50
+    ) -> None:
         """
         Frequency-based caching strategy
 
@@ -235,11 +237,17 @@ class FrequencyBasedStrategy(CacheStrategy):
         self.min_hits = min_hits
         self.hit_counter: Dict[str, int] = {}
 
+    def should_cache(self, key: str, value: Any) -> bool:
+        """Determine if item should be cached based on frequency"""
+        if key in self.hit_counter and self.hit_counter[key] >= self.min_hits:
+            return True
+        return False
+
 
 class LRUStrategy(CacheStrategy):
     def __init__(
         self, ttl: int = 3600, max_size: int = 100, eviction_threshold: float = 0.8
-    ):
+    ) -> None:
         """
         Least Recently Used caching strategy
 
@@ -262,7 +270,7 @@ class LRUStrategy(CacheStrategy):
 
     def _evict_items(self) -> None:
         """Evict least recently used items"""
-        sorted_items: List[Any] = sorted(self.access_times.items(), key=lambda x: x[1])
+        sorted_items: List[Tuple[str, float]] = sorted(self.access_times.items(), key=lambda x: x[1])
 
         while self.size > int(self.max_size * self.eviction_threshold):
             key = sorted_items.pop(0)[0]
@@ -279,7 +287,7 @@ class LRUStrategy(CacheStrategy):
 class ContentBasedStrategy(CacheStrategy):
     def __init__(
         self, similarity_threshold: float = 0.8, ttl: int = 3600, max_size: int = 100
-    ):
+    ) -> None:
         """
         Content-based caching strategy
 
@@ -315,7 +323,7 @@ class ContentBasedStrategy(CacheStrategy):
 class ContextualStrategy(CacheStrategy):
     def __init__(
         self, context_fields: Optional[List[str]] = None, ttl: int = 3600, max_size: int = 100
-    ):
+    ) -> None:
         """
         Contextual caching strategy
 
@@ -341,7 +349,9 @@ class ContextualStrategy(CacheStrategy):
 
 
 class RedisCache:
-    def __init__(self, host: Optional[str] = None, port: Optional[int] = None, db: Optional[int] = None):
+    def __init__(
+        self, host: Optional[str] = None, port: Optional[int] = None, db: Optional[int] = None
+    ) -> None:
         """
         Initialize Redis cache with multiple strategies
 
@@ -418,17 +428,13 @@ class RedisCache:
         for name, strategy in self.strategies.items():
             stats[name] = {
                 "hits": sum(
-                    1 for k in self.client.scan_iter(f"{name}:*") if self.client.get(k)
+                    1 for k in self.client.scan_iter(f"{name}:*") if isinstance(self.client.get(k), (str, bytes, bytearray)) and bool(self.client.get(k))
                 ),
                 "misses": sum(
-                    1
-                    for k in self.client.scan_iter(f"{name}:*")
-                    if not self.client.get(k)
+                    1 for k in self.client.scan_iter(f"{name}:*") if not (isinstance(self.client.get(k), (str, bytes, bytearray)) and bool(self.client.get(k)))
                 ),
                 "size": sum(
-                    len(v)
-                    for v in self.client.mget(self.client.scan_iter(f"{name}:*"))
-                    if v
+                    len(v) for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray))
                 ),
                 "ttl": strategy.ttl,
             }
@@ -462,6 +468,8 @@ class RedisCache:
     def _increment_hit_counter(self, key: str) -> None:
         """Increment hit counter for frequency-based caching"""
         freq_strategy = self.strategies["frequency_based"]
+        if freq_strategy.hit_counter is None:
+            freq_strategy.hit_counter = {}
         if key not in freq_strategy.hit_counter:
             freq_strategy.hit_counter[key] = 0
         freq_strategy.hit_counter[key] += 1
@@ -519,7 +527,8 @@ def cache_response(func: Callable[..., Any]) -> Callable[..., Any]:
 
     @wraps(func)
     def wrapper(*args: P.args, **kwargs: P.kwargs) -> Any:
-        cache_key = cache_vault(kwargs.get("topic", "default"))
+        topic_arg = kwargs.get("topic", "default")
+        cache_key = cache_vault(str(topic_arg))
         cached_result = cache.get(cache_key)
         if cached_result:
             logger.info(f"Redis cache hit for topic: {kwargs.get('topic', 'default')}")
@@ -531,9 +540,10 @@ def cache_response(func: Callable[..., Any]) -> Callable[..., Any]:
 
     return wrapper
 
+
 def retry_on_api_error(
     attempts: int = 3, base_delay: float = 1.0, max_delay: float = 30.0
-) -> Callable[[Callable[..., Any]], Callable[..., Any]]:  # type: ignore
+) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
     """
     Decorator that retries API calls with exponential backoff
 
@@ -546,15 +556,22 @@ def retry_on_api_error(
     def decorator(func: Callable[P, T]) -> Callable[P, T]:
         @wraps(func)
         def wrapper(*args: P.args, **kwargs: P.kwargs) -> T:
-            try:
-                return func(*args, **kwargs)
-            except Exception as e:
-                # Handle retry logic here
-                pass
+            last_exc: Optional[Exception] = None
+            for attempt in range(attempts):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    last_exc = e
+                    delay = min(base_delay * (2 ** attempt), max_delay)
+                    time.sleep(delay)
+            if last_exc is not None:
+                raise last_exc
+            raise RuntimeError("Unreachable code path in retry_on_api_error")
 
         return wrapper
 
     return decorator
+
 
 class RateLimitConfig:
     def __init__(
@@ -570,12 +587,12 @@ class RateLimitConfig:
         user_based: bool = False,
         api_key_based: bool = False,
         region_based: bool = False,
-        priority_levels: Dict[str, int] = None,
+        priority_levels: Optional[Dict[str, int]] = None,
         burst_factor: float = 1.5,
         adaptive_window: bool = True,
         max_queue_size: int = 100,
         queue_timeout: int = 300,
-    ):
+    ) -> None:
         """
         Rate limiting configuration
 
@@ -624,7 +641,7 @@ class RateLimitConfig:
         self._queue: List[Any] = []
         self._queue_lock = Lock()
 
-    def check_rate_limit(self, context: Optional[Dict] = None) -> bool:
+    def check_rate_limit(self, context: Optional[Dict[str, Any]] = None) -> bool:
         """Check if rate limit is exceeded with context"""
         current_time = datetime.now()
 
@@ -677,9 +694,9 @@ class RateLimitConfig:
 
         # Adjust window size
         if load > 0.8:  # High load
-            self.window_size = max(60, self.window_size * 0.9)
+            self.window_size = max(60, int(self.window_size * 0.9))
         elif load < 0.2:  # Low load
-            self.window_size = min(3600, self.window_size * 1.1)
+            self.window_size = min(3600, int(self.window_size * 1.1))
 
     def _get_system_load(self) -> float:
         """Get system load (simplified)"""
@@ -739,7 +756,7 @@ def rate_limit(
     grace_period: int = 300,
     cooldown_period: int = 600,
     max_retry_attempts: int = 3,
-) -> Callable[[Callable[..., Any]], Callable[..., Any]]:  # type: ignore
+) -> Callable[[Callable[..., Any]], Callable[..., Any]]:  
     """
     Decorator that implements rate limiting with burst support and configurable parameters
 
@@ -817,7 +834,7 @@ def rate_limit(
         )
     )
 
-def handle_api_errors(func: Callable[..., Any]) -> Callable[..., Any]:  # type: ignore
+def handle_api_errors(func: Callable[..., Any]) -> Callable[..., Any]:
     """
     Decorator that handles API-related errors and provides user-friendly messages
     """
