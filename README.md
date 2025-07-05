@@ -809,6 +809,43 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [ ] Multi-language support
 - [ ] Enhanced AI capabilities
 
+## 🛠️ Backend Developer Quickstart
+
+### 1. Environment Setup
+- **Python 3.11 required**
+- Create and activate venv: `python3 -m venv venv_backend && source venv_backend/bin/activate`
+- Install dependencies: `pip install -r requirements.txt`
+
+### 2. Linting, Formatting, and Type Checking
+- Run all checks: `pre-commit run --all-files` (after `pip install pre-commit && pre-commit install`)
+- Manual:
+  - Format: `black backend`
+  - Lint: `flake8 backend`
+  - Type check: `mypy backend`
+
+### 3. Testing
+- Run backend tests: `pytest`
+- All tests must pass before merging or deploying.
+
+### 4. Continuous Integration (CI)
+- GitHub Actions runs lint, type, and test checks for every PR/push.
+- See `.github/workflows/ci.yml` for details.
+
+### 5. Docker (Optional)
+- Build: `docker build -t aifolio-backend .`
+- Run: `docker run -p 8000:8000 aifolio-backend`
+
+### 6. Security & SAFE AI Compliance
+- All dependencies are scanned in CI (`pip-audit` recommended for local use)
+- No sentient/adaptive logic; all compliance hooks and audit logs enforced
+- See SAFE AI checklist below for operational requirements
+
+### 7. Backend/Frontend Integration
+- API contracts: FastAPI auto-generates OpenAPI docs at `/docs`
+- Frontend uses `/api` endpoints; update docs if backend changes
+
+---
+
 ## 📮 Support
 
 For support, please:

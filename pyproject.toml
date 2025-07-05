@@ -1,0 +1,20 @@
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+addopts = "--maxfail=5 --disable-warnings -q"
+testpaths = ["backend"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_configs = true
+
+[tool.flake8]
+max-line-length = 88
+exclude = ["venv_backend", "__pycache__", ".git", ".mypy_cache", ".pytest_cache"]
