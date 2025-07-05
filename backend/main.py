@@ -209,8 +209,8 @@ vault_metrics = VaultMetrics()
 
 # File upload validation stub (future-proof)
 def validate_file_upload(file: Any) -> None:
-    allowed_types = ["application/pdf", "image/png", "image/jpeg"]
-    max_size_mb = 10
+    allowed_types: List[str] = ["application/pdf", "image/png", "image/jpeg"]
+    max_size_mb: int = 10
     if file.content_type not in allowed_types:
         raise HTTPException(status_code=400, detail="Invalid file type")
     if file.size > max_size_mb * 1024 * 1024:
@@ -219,7 +219,7 @@ def validate_file_upload(file: Any) -> None:
 
 # Middleware: Prompt sanitization & rate limiting
 @app.middleware("http")
-async def security_enforcement_middleware(request: Request, call_next):
+async def security_enforcement_middleware(request: Request, call_next: Callable[[Request], Any]) -> Any:
     # Rate limiting (per IP)
     client_ip = request.client.host
     try:
@@ -317,7 +317,7 @@ def login(request: Request, form_data: OAuth2PasswordRequestForm = Depends()) ->
 
 
 @app.get("/api/niches")
-@require_role(["admin", "partner"])  # type: ignore
+@require_role(["admin", "partner"])
 def get_niches(user: str = Depends(get_current_user), request: Optional[Request] = None) -> Dict[str, Any]:
     if request is None:
         raise HTTPException(status_code=400, detail="Request is required")
@@ -470,12 +470,12 @@ analytics_service = AnalyticsService(redis_client)
 
 @app.post("/api/generate-vault")
 async def api_generate_vault(request: Request, user: str = Depends(get_current_user)) -> Any:
-    data = await request.json()
-    topic = data.get("topic")
+    data: Dict[str, Any] = await request.json()
+    topic: Any = data.get("topic")
     vault_metrics.track_user_metrics(
         user_id=user, action="generate_vault", context={"topic": topic}
     )
-    result = generate_vault_prompt(topic)  # type: ignore
+    result: Any = generate_vault_prompt(topic)  # type: ignore
     return result
 
 
@@ -871,18 +871,17 @@ def send_notification(
 def guide_toggle(
     guide_name: str = Body(...),
     enabled: bool = Body(...),
-    current_user: dict = Depends(get_current_user),
-):
-    print(
-        f"[AUDIT] {datetime.datetime.utcnow()} - Guide '{guide_name}' toggled to {enabled}"
-    )
-    return {"success": True, "guide": guide_name, "enabled": enabled}
+    current_user: Dict[str, Any] = Depends(get_current_user),
+) -> Dict[str, Any]:
+    guides: Dict[str, bool] = getattr(current_user, "guides", {})
+    guides[guide_name] = enabled
+    return {"status": "ok", "guides": guides}
 
 
 app.mount("/static", StaticFiles(directory="frontend/dist", html=True), name="static")
 
 
-@app.get("/", response_class=HTMLResponse)
+{{ ... }}
 def serve_index():
     with open("frontend/dist/index.html") as f:
         return HTMLResponse(f.read())

@@ -137,7 +137,7 @@ omnisecure_stack/
 *.dist-info/
 
 # Ignore pdf_builder and related build folders
-**/pdf_builder/
+# **/pdf_builder/
 
 # Ignore pip build operations
 **/pip/_internal/operations/build/
