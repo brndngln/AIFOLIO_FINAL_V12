@@ -3,6 +3,7 @@ import requests
 import logging
 from typing import Dict, Any
 import datetime
+from backend.utils.safe_ai_utils import safe_ai_guarded
 
 # Configure logging
 logging.basicConfig(
@@ -20,7 +21,6 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
-from backend.utils.safe_ai_utils import safe_ai_guarded
 
 @safe_ai_guarded
 def push_to_notion(vault_data: Dict[str, Any]) -> Dict[str, Any]:

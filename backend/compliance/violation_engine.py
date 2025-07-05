@@ -2,6 +2,12 @@ import json
 from pathlib import Path
 from datetime import datetime
 import re
+from core.compliance.threat_feed_parser import parse_threat_feed
+from core.compliance.blockchain_license_anchor import anchor_license_hash
+from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
+from core.compliance.redundant_backup_scheduler import schedule_backup
+from core.compliance.compliance_manifest_exporter import export_compliance_manifest
+from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from backend.integrations.webhook_alerts import send_webhook
 
 VIOLATION_LOG = Path(__file__).parent.parent / 'logs' / 'compliance_violations.json'
@@ -42,12 +48,6 @@ def load_platform_rules():
     return _platform_rules_cache
 
 
-from core.compliance.threat_feed_parser import parse_threat_feed
-from core.compliance.blockchain_license_anchor import anchor_license_hash
-from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
-from core.compliance.redundant_backup_scheduler import schedule_backup
-from core.compliance.compliance_manifest_exporter import export_compliance_manifest
-from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 def scan_pdf_text(text, platforms=None):
     """
