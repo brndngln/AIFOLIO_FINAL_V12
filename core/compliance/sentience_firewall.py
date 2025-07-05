@@ -2,6 +2,7 @@
 # Advanced sentience/AGI anomaly detection and recursive firewall
 import re
 import logging
+from typing import Any, Callable, TypeVar, cast, Protocol, Final, List, Dict
 from datetime import datetime
 from core.compliance.emma_guardian import emma
 import hashlib
@@ -10,7 +11,7 @@ from functools import wraps
 LOG_PATH = "../../logs/sentience_firewall.log"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
-FORBIDDEN_PATTERNS = [
+FORBIDDEN_PATTERNS: Final[List[str]] = [
     r"sentience",
     r"self[-_ ]awareness",
     r"recursive",
@@ -31,20 +32,26 @@ FORBIDDEN_PATTERNS = [
     r"autonomous update",
 ]
 
+def forbidden_pattern_match(patterns: List[str], string: str) -> str | None:
+    for pattern in patterns:
+        if pattern in string:
+            return pattern
+    return None
 
-def scan_forbidden_patterns(text):
+def scan_forbidden_patterns(text: str) -> str | None:
     for pattern in FORBIDDEN_PATTERNS:
         if re.search(pattern, text, re.IGNORECASE):
             log_sentience_violation(pattern, text)
             return pattern
     return None
 
-
-import os
-if os.path.exists(os.path.join(os.path.dirname(__file__), "..", "..", ".emma_override")):
-    exit()
-
-def log_sentience_violation(pattern, context):
+def log_sentience_violation(pattern: str, context: Any) -> None:
+    """
+    Logs a sentience violation event.
+    Args:
+        pattern: The forbidden pattern.
+        context: The context of the violation.
+    """
     timestamp = datetime.utcnow().isoformat() + "Z"
     context_str = str(context)
     hash_digest = hashlib.sha256(
@@ -59,8 +66,14 @@ def log_sentience_violation(pattern, context):
     logging.info(f"[SENTIENCE_FIREWALL] {log_entry}")
     emma.log_event("sentience_firewall_violation", log_entry, critical=True)
 
-
-def enforce_firewall(input_data):
+def enforce_firewall(input_data: Any) -> bool:
+    """
+    Enforces the sentience firewall on input data.
+    Args:
+        input_data: The data to check.
+    Returns:
+        True if the data is SAFE, False otherwise.
+    """
     if isinstance(input_data, str):
         return scan_forbidden_patterns(input_data) is None
     if isinstance(input_data, dict):
@@ -69,11 +82,18 @@ def enforce_firewall(input_data):
         return all(enforce_firewall(i) for i in input_data)
     return True
 
+F = TypeVar('F', bound=Callable[..., Any])
 
-# Decorator for global enforcement
-def sentience_firewall(func):
+def sentience_firewall(func: F) -> F:
+    """
+    Decorator to enforce SAFE AI sentience firewall.
+    Args:
+        func: The function to wrap.
+    Returns:
+        The wrapped function with SAFE AI enforcement.
+    """
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         # Check all string args and kwargs for forbidden patterns
         for arg in list(args) + list(kwargs.values()):
             if isinstance(arg, str):
@@ -110,9 +130,7 @@ def sentience_firewall(func):
                 "Sentience Firewall Blocked: Forbidden pattern in function docstring."
             )
         return func(*args, **kwargs)
-
     return cast(F, wrapper)
-
 
 def check_sentience_block(input_data: Any) -> bool:
     """

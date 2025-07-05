@@ -33,16 +33,25 @@ EMMA_LOCK = threading.Lock()
 
 
 class EMMA:
-    _instance = None
+    _instance: Optional['EMMA'] = None
 
-    @staticmethod
-    def instance():
-        if EMMA._instance is None:
-            EMMA._instance = EMMA()
-        return EMMA._instance
+    @classmethod
+    def instance(cls) -> 'EMMA':
+        """
+        Returns the singleton instance of EMMA.
+        """
+        if cls._instance is None:
+            cls._instance = EMMA()
+        return cls._instance
 
-    def __init__(self):
-        self.log_path = EMMA_AUDIT_LOG
+    def __init__(self, user_id: Optional[str] = None) -> None:
+        """
+        Initializes the EMMA guardian instance.
+        Args:
+            user_id: Optional user ID for audit attribution.
+        """
+        self.user_id: str = user_id or "unknown"
+        self.log_path: str = EMMA_AUDIT_LOG
         if not os.path.exists(os.path.dirname(self.log_path)):
             os.makedirs(os.path.dirname(self.log_path), exist_ok=True)
         if not os.path.exists(self.log_path):
@@ -50,29 +59,58 @@ class EMMA:
                 json.dump([], f)
 
     def log_event(
-        self, event_type: str, details: Dict[str, Any], critical: bool = False
-    ):
+        self, event_type: str, details: Optional[Dict[str, Any]] = None, critical: bool = False
+    ) -> str:
+        """
+        Logs an event to the EMMA audit log.
+        Args:
+            event_type: The type of event.
+            details: Optional details for the event.
+            critical: Whether the event is critical.
+        Returns:
+            Hash of the logged event.
+        """
+        if details is None:
+            details = {}
+        timestamp: str = datetime.utcnow().isoformat() + "Z"
+        event: EventData = {
+            "event_type": event_type,
+            "user_id": self.user_id,
+            "timestamp": timestamp,
+            "details": details,
+            "hash": self._hash_event(event_type, self.user_id, timestamp),
+        }
         with EMMA_LOCK:
-            now = datetime.utcnow().isoformat()
-            entry = {
-                "timestamp": now,
-                "event_type": event_type,
-                "details": details,
-                "critical": critical,
-                "hash": self._hash_event(event_type, details, now),
-            }
-            log = self._read_log()
-            log.append(entry)
+            log: List[EventData] = self._read_log()
+            log.append(event)
             self._write_log(log)
-            return entry["hash"]
+        if critical:
+            self._alert(event)
+        return event["hash"]
 
     def verify_action(self, action_hash: str) -> bool:
-        log = self._read_log()
+        """
+        Verifies an action by checking its hash in the EMMA audit log.
+        Args:
+            action_hash: Hash of the action to verify.
+        Returns:
+            True if the action is verified, False otherwise.
+        """
+        log: List[EventData] = self._read_log()
         return any(entry["hash"] == action_hash for entry in log)
 
     def register_legal_guard(
         self, module: str, action: str, owner_id: Optional[str] = None
-    ):
+    ) -> str:
+        """
+        Registers a legal guard event in the EMMA audit log.
+        Args:
+            module: The module that triggered the event.
+            action: The action that triggered the event.
+            owner_id: Optional owner ID.
+        Returns:
+            Hash of the logged event.
+        """
         return self.log_event(
             "legal_guard",
             {"module": module, "action": action, "owner_id": owner_id},
@@ -80,8 +118,17 @@ class EMMA:
         )
 
     def enforce_commit_protocol(
-        self, files_changed: list, commit_msg: str, owner_id: Optional[str] = None
-    ):
+        self, files_changed: List[str], commit_msg: str, owner_id: Optional[str] = None
+    ) -> str:
+        """
+        Enforces the commit protocol by logging the event in the EMMA audit log.
+        Args:
+            files_changed: List of files changed.
+            commit_msg: Commit message.
+            owner_id: Optional owner ID.
+        Returns:
+            Hash of the logged event.
+        """
         return self.log_event(
             "commit_enforcement",
             {
@@ -92,33 +139,58 @@ class EMMA:
             critical=True,
         )
 
-    def audit_trail(self, since: Optional[str] = None):
-        log = self._read_log()
+    def get_events(self, since: Optional[str] = None) -> List[EventData]:
+        """
+        Retrieves events from the EMMA audit log since a given timestamp.
+        Args:
+            since: Optional ISO timestamp string.
+        Returns:
+            List of EventData since the given timestamp (or all events if None).
+        """
+        with EMMA_LOCK:
+            log: List[EventData] = self._read_log()
         if since:
             return [e for e in log if e["timestamp"] >= since]
         return log
 
-    def rollback_action(self, action_hash: str):
-        # Placeholder: Implement rollback logic as needed
+    def rollback_action(self, action_hash: str) -> str:
+        """
+        Rolls back an action by logging the rollback event in the EMMA audit log.
+        Args:
+            action_hash: Hash of the action to roll back.
+        Returns:
+            Hash of the logged rollback event.
+        """
         return self.log_event("rollback", {"action_hash": action_hash}, critical=True)
 
-    def _hash_event(self, event_type, details, timestamp):
+    def _hash_event(
+        self, event_type: str, user_id: Optional[str], timestamp: str
+    ) -> str:
+        """
+        Returns a SHA256 hash for the event.
+        Args:
+            event_type: Type of event.
+            user_id: ID of the user who triggered the event.
+            timestamp: Timestamp of the event.
+        Returns:
+            Hash of the event.
+        """
         h = hashlib.sha256()
         h.update(event_type.encode())
-        h.update(json.dumps(details, sort_keys=True).encode())
+        h.update(user_id.encode() if user_id else b"")
         h.update(timestamp.encode())
         return h.hexdigest()
 
-    def _read_log(self) -> List[Dict[str, Any]]:
+    def _read_log(self) -> List[EventData]:
         """
-        Reads the EMMA audit log.
+        Reads the EMMA audit log and returns a list of EventData.
         Returns:
             List of events in the audit log.
         """
         with open(self.log_path, "r") as f:
-            return json.load(f)
+            return cast(List[EventData], json.load(f))
 
-    def _write_log(self, log: List[Dict[str, Any]]) -> None:
+    def _write_log(self, log: List[EventData]) -> None:
         """
         Writes the EMMA audit log.
         Args:
@@ -126,6 +198,14 @@ class EMMA:
         """
         with open(self.log_path, "w") as f:
             json.dump(log, f, indent=2)
+
+    def _alert(self, event: EventData) -> None:
+        """
+        Placeholder for alerting logic.
+        Args:
+            event: EventData to alert on.
+        """
+        print(f"[EMMA GUARDIAN ALERT] {event}")
 
 
 def emma_guardian_action(event: EventData) -> bool:
@@ -141,4 +221,4 @@ def emma_guardian_action(event: EventData) -> bool:
 
 
 # Singleton instance for global use
-emma = EMMA.instance()
+emma: EMMA = EMMA.instance()
