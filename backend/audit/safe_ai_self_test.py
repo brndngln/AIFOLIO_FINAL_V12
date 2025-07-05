@@ -3,6 +3,9 @@ AIFOLIO SAFE-AI SELF-TEST MODULE
 Runs deterministic, static, OWNER-controlled self-test for SAFE AI compliance.
 """
 import logging
+import os
+import csv
+import json
 logger = logging.getLogger(__name__)
 
 def run_safe_ai_self_test():
@@ -43,9 +46,6 @@ def run_safe_ai_self_test():
     logger.info("SAFE-AI SELF-TEST RESULTS: %s", results)
     return results
 
-import os
-import csv
-import json
 
 def export_safe_ai_self_test_results(summary, prompt_results, export_dir="/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/analytics"):
     os.makedirs(export_dir, exist_ok=True)

@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from backend.compliance.reviewer_assignment import assign_all_open_violations, reviewer_leaderboard
 from pathlib import Path
 
 APPROVAL_PATH = Path(__file__).parent.parent.parent / 'logs' / 'policy_approvals.json'
@@ -6,7 +7,6 @@ REVIEWERS_PATH = Path(__file__).parent.parent.parent / 'config' / 'reviewers.jso
 
 router = APIRouter()
 
-from backend.compliance.reviewer_assignment import assign_all_open_violations, reviewer_leaderboard
 
 @router.post('/api/reviewer/assign_all')
 def assign_all():
