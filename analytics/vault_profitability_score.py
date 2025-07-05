@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import Any, Dict, List
 
 # ---# Vault Profitability Score
 from core.compliance.threat_feed_parser import parse_threat_feed
@@ -17,21 +18,26 @@ os.makedirs(os.path.dirname(PROFIT_LOG), exist_ok=True)
 
 
 # --- Vault Profitability Score (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
-def calculate_profitability(vault_id, sales, refunds, costs):
+def calculate_profitability(
+    vault_id: str,
+    sales: List[Dict[str, Any]],
+    refunds: List[Dict[str, Any]],
+    costs: List[Dict[str, Any]]
+) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before profitability calculation
-    parse_threat_feed({})
+    parse_threat_feed({})  # type: ignore
     # OMNIPROOF: Blockchain anchor for profitability hash (static)
-    anchor_license_hash("PROFITABILITY_HASH_PLACEHOLDER")
+    anchor_license_hash("PROFITABILITY_HASH_PLACEHOLDER")  # type: ignore
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("profitability_path_placeholder")
+    zero_knowledge_export("profitability_path_placeholder")  # type: ignore
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")
+    schedule_backup("analytics/")  # type: ignore
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )
+    )  # type: ignore
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"vaults": [vault_id], "sales_data": sales})
+    detect_signals({"vaults": [vault_id], "sales_data": sales})  # type: ignore
     """
     Calculates vault profitability using static, deterministic rules.
     Returns a dict with score, explanation, recommendation, priority, audit log, SAFE AI metadata, and version.
@@ -73,13 +79,13 @@ def calculate_profitability(vault_id, sales, refunds, costs):
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def profit_drift_protection():
+def profit_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def profit_static_feedback():
-    return ["If profitability is low, review pricing and cost structure."]
+def profit_static_feedback() -> List[str]:
+    return ["If profitability is low, review pricing and costs."]
 
 
 # --- Extension Point: Add future static SAFE AI features here ---

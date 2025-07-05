@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import Any, Dict, List, Optional
 
 LIFECYCLE_LOG = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "vault_lifecycle_analytics_log.jsonl")
@@ -14,7 +15,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def log_vault_lifecycle_event(event_type: str, vault_id: str, details: dict) -> dict:
+def log_vault_lifecycle_event(event_type: str, vault_id: str, details: Dict[str, Any]) -> Dict[str, Any]:
     """
     Audit log vault lifecycle event (static, SAFE AI-compliant).
     Returns a dict with result, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -47,7 +48,7 @@ def log_vault_lifecycle_event(event_type: str, vault_id: str, details: dict) -> 
     }
 
 
-def get_static_lifecycle_summary() -> dict:
+def get_static_lifecycle_summary() -> Dict[str, Any]:
     """
     Return static, deterministic lifecycle analytics summary with SAFE AI compliance and audit info.
     Returns a dict with summary, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -79,7 +80,12 @@ def get_static_lifecycle_summary() -> dict:
     }
 
 
-def log_lifecycle_event(vault_id, event_type, user_id=None, metadata=None):
+def log_lifecycle_event(
+    vault_id: str,
+    event_type: str,
+    user_id: Optional[str] = None,
+    metadata: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
     """
     Logs a vault lifecycle event (static, SAFE AI-compliant).
     Returns a dict with result, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -112,7 +118,7 @@ def log_lifecycle_event(vault_id, event_type, user_id=None, metadata=None):
     }
 
 
-def get_lifecycle_summary(vault_id):
+def get_lifecycle_summary(vault_id: str) -> Dict[str, Any]:
     """
     Returns all lifecycle events for a vault with SAFE AI compliance and audit info.
     Returns a dict with events, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -121,7 +127,7 @@ def get_lifecycle_summary(vault_id):
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
     NON_SENTIENT = True
-    events = []
+    events: List[Dict[str, Any]] = []
     try:
         with open(LIFECYCLE_LOG, "r") as f:
             for line in f:
@@ -146,12 +152,12 @@ def get_lifecycle_summary(vault_id):
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def lifecycle_drift_protection():
+def lifecycle_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def lifecycle_static_feedback():
+def lifecycle_static_feedback() -> List[str]:
     return ["Review lifecycle events for vault optimization."]
 
 

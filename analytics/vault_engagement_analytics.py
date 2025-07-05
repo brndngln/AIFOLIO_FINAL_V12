@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import Any, Dict, List, Optional
 
 ENGAGEMENT_LOG = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "vault_engagement_analytics_log.jsonl")
@@ -16,19 +17,24 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 
 # --- Vault Engagement Over Time (SAFE AI, Non-Sentient, Owner-Controlled) ---
-def log_engagement(vault_id, event_type, user_id=None, metadata=None):
+def log_engagement(
+    vault_id: str,
+    event_type: str,
+    user_id: Optional[str] = None,
+    metadata: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before engagement logging
-    parse_threat_feed({})
+    parse_threat_feed({})  # type: ignore
     # OMNIPROOF: Blockchain anchor for engagement hash (static)
-    anchor_license_hash("ENGAGEMENT_HASH_PLACEHOLDER")
+    anchor_license_hash("ENGAGEMENT_HASH_PLACEHOLDER")  # type: ignore
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("engagement_path_placeholder")
+    zero_knowledge_export("engagement_path_placeholder")  # type: ignore
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")
+    schedule_backup("analytics/")  # type: ignore
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )
+    )  # type: ignore
     # OMNIPROOF: Monetization signal detection
     detect_signals(
         {
@@ -37,7 +43,7 @@ def log_engagement(vault_id, event_type, user_id=None, metadata=None):
             "user_id": user_id,
             "metadata": metadata,
         }
-    )
+    )  # type: ignore
     """
     Logs a vault engagement event in a static, deterministic, SAFE AI-compliant way.
     Returns a dict with result, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -70,7 +76,7 @@ def log_engagement(vault_id, event_type, user_id=None, metadata=None):
     }
 
 
-def calculate_engagement(vault_id, since_days=30):
+def calculate_engagement(vault_id: str, since_days: int = 30) -> Dict[str, Any]:
     """
     Calculates vault engagement count over a static time window.
     Returns a dict with count, explanation, recommendation, priority, SAFE AI metadata, and version.
@@ -111,12 +117,12 @@ def calculate_engagement(vault_id, since_days=30):
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def engagement_drift_protection():
+def engagement_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def engagement_static_feedback():
+def engagement_static_feedback() -> List[str]:
     return ["Increase engagement if counts are low."]
 
 
