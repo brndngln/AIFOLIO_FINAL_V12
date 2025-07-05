@@ -14,7 +14,7 @@ load_dotenv()
 class SecretsManager:
     def __init__(self, env_path: str = ".env"):
         self.env_path = env_path
-        self.secrets = self._load_secrets()
+        self.secrets: Dict[str, str] = self._load_secrets()
 
     def _load_secrets(self):
         secrets = {}
@@ -41,17 +41,17 @@ class SecretsManager:
                 secrets[k] = os.getenv(k)
         return secrets
 
-    def get(self, key, default=None):
+    def get(self, key: str, default: Optional[str] = None) -> Optional[str]:
         return self.secrets.get(key, default)
 
-    def rotate_secret(self, key, new_value):
+    def rotate_secret(self, key: str, new_value: str) -> None:
         self.secrets[key] = new_value
         # Persist to .env (stub: in production, use vault/manager API)
-        lines = []
+        lines: List[str] = []
         if os.path.exists(self.env_path):
             with open(self.env_path) as f:
                 lines = f.readlines()
-        found = False
+        found: bool = False
         for i, line in enumerate(lines):
             if line.startswith(f"{key}="):
                 lines[i] = f"{key}={new_value}\n"
@@ -61,10 +61,10 @@ class SecretsManager:
         with open(self.env_path, "w") as f:
             f.writelines(lines)
 
-    def audit_secrets(self):
+    def audit_secrets(self) -> None:
         # Scan for hardcoded secrets in codebase (stub)
         pass
 
-    def export_secrets(self, path="secrets_backup.json"):
+    def export_secrets(self, path: str = "secrets_backup.json") -> None:
         with open(path, "w") as f:
             json.dump(self.secrets, f, indent=2)
