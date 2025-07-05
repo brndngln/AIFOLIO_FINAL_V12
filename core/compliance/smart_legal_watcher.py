@@ -17,6 +17,8 @@ class PolicyChange(TypedDict, total=False):
     name: str
     old_hash: str
     new_hash: str
+    change: str
+    timestamp: str
 
 SMART_LEGAL_WATCHER_LOG: Final[str] = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../logs/smart_legal_watcher_log.jsonl")
@@ -93,7 +95,6 @@ def weekly_report() -> None:
     with open(SMART_LEGAL_WATCHER_LOG, "a") as f:
         f.write(json.dumps(report) + "\n")
     print(f"[SmartLegalWatcher] Weekly report generated: {report}")
-    return report
 
 
 def run_smart_legal_watcher() -> None:
