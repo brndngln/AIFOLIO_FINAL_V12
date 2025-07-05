@@ -6,7 +6,12 @@ import time
 import datetime
 import redis
 import logging
+import json
 from typing import Optional
+from fastapi.responses import JSONResponse
+from datetime import timedelta
+from fastapi import Query
+from backend.admin.static_users import STATIC_USERS
 
 from fastapi import FastAPI, Depends, HTTPException, status, Request, Body
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -27,7 +32,7 @@ from backend.auth.deps import get_current_user
 from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
 from backend.utils.safe_ai_utils import safe_ai_guarded
 from backend.utils.security import (
-    validate_password_policy, require_role, require_api_key, get_device_fingerprint, check_token_reuse, sanitize_output, require_admin, require_mfa
+    validate_password_policy, require_role, require_api_key, check_token_reuse, sanitize_output, require_admin, require_mfa
 )
 from api import gumroad_api
 from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
@@ -131,6 +136,10 @@ async def security_enforcement_middleware(request: Request, call_next):
         return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 # --- Auth Logic ---
+
+def get_api_version(request):
+    # TODO: Replace with real version logic if needed
+    return "v1.0.0"
 
 def verify_password(plain_password, hashed_password):
     validate_password_policy(plain_password)  # Enforce password policy
@@ -463,7 +472,6 @@ def sim_compliance_risk_score(user: str = Depends(get_current_user)):
 
 # --- Serve Frontend (React/Vue/Next) ---
 # --- EMPRESS ULTIMATE: OWNER DOMINION, LEGAL SENTINEL, ANTI-SENTIENCE, NOTIFICATIONS, GUIDES ---
-import datetime
 from fastapi import Body
 
 # --- OMNIELITE EMMA AVATAR, PMP/PLC ISOLATION, SAFE AI OWNER DOMINION ---

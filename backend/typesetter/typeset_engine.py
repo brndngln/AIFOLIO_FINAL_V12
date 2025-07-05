@@ -61,8 +61,6 @@ def audit_log(event: str, params: Dict[str, Any]):
     with open(log_path, 'a', encoding='utf-8') as f:
         f.write(json.dumps(log_entry) + '\n')
 
-import requests
-from PIL import Image
 
 def run_compliance_checks(params: Dict[str, Any], standards: Optional[list] = None, compliance_api_url: Optional[str] = None) -> Dict[str, bool]:
     """
