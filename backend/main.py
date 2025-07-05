@@ -32,7 +32,7 @@ from backend.auth.deps import get_current_user
 from backend.utils.ai_safety import ContentFilter, RateLimiter, SystemMonitor
 from backend.utils.safe_ai_utils import safe_ai_guarded
 from backend.utils.security import (
-    validate_password_policy, require_role, require_api_key, check_token_reuse, sanitize_output, require_admin, require_mfa
+    validate_password_policy, require_role, require_api_key, check_token_reuse, sanitize_output, require_mfa
 )
 from api import gumroad_api
 from backend.pdf_builder.api_pdf_builders import router as pdf_builder_router
@@ -195,43 +195,7 @@ def get_niches(user: str = Depends(get_current_user), request: Request = None):
     from aifolio_empire.profit_engines.automated_vault_generator import get_supported_niches
     return sanitize_output({"niches": get_supported_niches()})
 
-# --- API: Generate Vault (JWT-protected) ---
-
-@app.post("/api/generate-vault")
-@require_role(["admin", "partner"])
-async def api_generate_vault(request: Request, user: str = Depends(get_current_user)):
-    require_api_key(request)
-    # Bot/burst detection stub
-    # detect_bot(request)
-    from backend.ai_prompt_engine.generate_vault import generate_vault_prompt
-    data = await request.json()
-    result = generate_vault_prompt(data)
-    return sanitize_output(result)
-
 # --- Admin/Privileged Endpoints ---
-
-@app.get("/api/admin/audit-log")
-@require_admin
-async def get_audit_log(limit: int = 50, user: str = Depends(get_current_user), request: Request = None):
-    require_api_key(request)
-    # Bot/burst detection stub
-    # detect_bot(request)
-    # ... fetch audit log ...
-    return sanitize_output({"log": []})
-
-@app.post("/api/admin/add-user")
-@require_admin
-async def add_user(user: dict, request: Request = None):
-    require_api_key(request)
-    # ... add user logic ...
-    return sanitize_output({"status": "user added"})
-
-@app.post("/api/admin/delete-user")
-@require_admin
-async def delete_user(username: str, request: Request = None):
-    require_api_key(request)
-    # ... delete user logic ...
-    return sanitize_output({"status": "user deleted"})
 
 # --- Example: API versioning helper usage ---
 @app.get("/v1/health")
@@ -472,7 +436,6 @@ def sim_compliance_risk_score(user: str = Depends(get_current_user)):
 
 # --- Serve Frontend (React/Vue/Next) ---
 # --- EMPRESS ULTIMATE: OWNER DOMINION, LEGAL SENTINEL, ANTI-SENTIENCE, NOTIFICATIONS, GUIDES ---
-from fastapi import Body
 
 # --- OMNIELITE EMMA AVATAR, PMP/PLC ISOLATION, SAFE AI OWNER DOMINION ---
 
