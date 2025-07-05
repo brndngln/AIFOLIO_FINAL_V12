@@ -1,6 +1,8 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
+from fastapi.responses import FileResponse
 from typing import List
 from .batch16_20_models import *
+from .export_utils import export_pdf, export_csv, log_export
 from backend.utils.safe_ai_utils import safe_ai_guarded
 from backend.auth.deps import get_current_user
 import datetime
@@ -52,10 +54,6 @@ def get_certification_audit_reports(user: str = Depends(get_current_user)):
 def add_certification_audit_report(entry: CertificationAuditReport, user: str = Depends(get_current_user)):
     return entry
 
-from fastapi import Query
-from fastapi.responses import FileResponse
-from .export_utils import export_pdf, export_csv, log_export
-from datetime import datetime
 
 @router.get("/partner-certifications/export")
 def export_partner_certification(type: str = Query(..., regex="^(pdf|csv)$"), partner: str = Query(...), user: str = Depends(get_current_user)):

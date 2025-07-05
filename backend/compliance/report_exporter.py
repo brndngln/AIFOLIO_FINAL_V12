@@ -14,7 +14,8 @@ BRAND_WATERMARK = 'AIFOLIO™ Compliance Engine vX.ELITE — Audit-Ready'
 # Mask reviewer IDs for privacy
 
 def mask_reviewer_id(rid):
-    if not rid: return ''
+    if not rid:
+        return ''
     return rid[:2] + '***' + rid[-2:]
 
 def export_json(doc_id=None):
