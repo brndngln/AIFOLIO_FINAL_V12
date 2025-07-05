@@ -101,13 +101,35 @@ class EMMA:
         h.update(timestamp.encode())
         return h.hexdigest()
 
-    def _read_log(self):
+    def _read_log(self) -> List[Dict[str, Any]]:
+        """
+        Reads the EMMA audit log.
+        Returns:
+            List of events in the audit log.
+        """
         with open(self.log_path, "r") as f:
             return json.load(f)
 
-    def _write_log(self, log):
+    def _write_log(self, log: List[Dict[str, Any]]) -> None:
+        """
+        Writes the EMMA audit log.
+        Args:
+            log: List of events to write.
+        """
         with open(self.log_path, "w") as f:
             json.dump(log, f, indent=2)
+
+
+def emma_guardian_action(event: EventData) -> bool:
+    """
+    Simulates an EMMA GUARDIAN action (SAFE AI static stub).
+    Args:
+        event: Dictionary of event data.
+    Returns:
+        True if action is simulated successfully.
+    """
+    print("[EMMA GUARDIAN] Action taken (static stub)")
+    return True
 
 
 # Singleton instance for global use

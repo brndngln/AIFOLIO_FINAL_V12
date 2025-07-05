@@ -111,12 +111,17 @@ def sentience_firewall(func):
             )
         return func(*args, **kwargs)
 
-    return wrapper
+    return cast(F, wrapper)
 
 
-# Static method for manual enforcement
-def check_sentience_block(input_data):
-    """Returns True if input_data is SAFE, else raises PermissionError and logs."""
+def check_sentience_block(input_data: Any) -> bool:
+    """
+    Returns True if input_data is SAFE, else raises PermissionError and logs.
+    Args:
+        input_data: The data to check.
+    Returns:
+        True if the data is SAFE, False otherwise.
+    """
     if not enforce_firewall(input_data):
         raise PermissionError("Sentience Firewall Blocked: Forbidden pattern detected.")
     return True
