@@ -434,7 +434,7 @@ class RedisCache:
                     not bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
                 "size": len([
-                    v for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray))
+                    v for v in self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(v, (str, bytes, bytearray)) and not isinstance(v, Awaitable)
                 ]),
                 "ttl": strategy.ttl,
             }
