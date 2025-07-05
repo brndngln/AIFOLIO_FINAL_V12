@@ -29,7 +29,6 @@
   "tests/test_blueprints.py::test_license_route": true,
   "tests/test_blueprints.py::test_product_gen_route": true,
   "tests/test_ai_bridge.py::TestAIBridge::test_input_validation": true,
-  "backend/test_pmp_service.py::TestClient": true,
   "ai_core/tests/test_agent.py::TestSafeAIAgent": true,
   "ai_core/tests/test_audit.py::TestAuditDaemon": true,
   "ai_core/tests/test_vault.py::TestVault": true,
@@ -39,7 +38,6 @@
   "ai_core/tests/test_audit.py": true,
   "ai_core/tests/test_emma_governor.py": true,
   "ai_core/tests/test_vault.py": true,
-  "backend/test_pmp_service.py": true,
   "tests/test_blueprints.py": true,
   "tests/test_blueprints_edge.py": true,
   "tests/autonomy_event_system/test_export_failed.py": true,
@@ -55,5 +53,6 @@
   "aifolio_ai_bots_backend/agents/test_agents_health.py::test_ceevee_health": true,
   "aifolio_ai_bots_backend/agents/test_agents_health.py::test_emmi_health": true,
   "aifolio_ai_bots_backend/agents/test_agents_health.py::test_victor_health": true,
-  "aifolio_ai_bots_backend/agents/test_agents_health.py::test_vinnie_health": true
+  "aifolio_ai_bots_backend/agents/test_agents_health.py::test_vinnie_health": true,
+  "backend/test_pmp_service.py::TestClient": true
 }
