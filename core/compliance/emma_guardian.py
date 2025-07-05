@@ -16,9 +16,17 @@ import json
 import os
 import threading
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Any, Dict, List, Optional, TypedDict, cast, Final
 
-EMMA_AUDIT_LOG = os.path.join(
+class EventData(TypedDict, total=False):
+    """EventData represents a dictionary of event data."""
+    event_type: str
+    user_id: Optional[str]
+    timestamp: str
+    details: Dict[str, Any]
+    hash: str
+
+EMMA_AUDIT_LOG: Final[str] = os.path.join(
     os.path.dirname(__file__), "../../audit/exports/emma_audit_log.json"
 )
 EMMA_LOCK = threading.Lock()
