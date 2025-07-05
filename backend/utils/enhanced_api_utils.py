@@ -438,7 +438,7 @@ class RedisCache:
                     not bool(self.client.get(k)) for k in self.client.scan_iter(f"{name}:*")
                 ),
                 "size": len([
-                    v for v in list(self.client.mget(self.client.scan_iter(f"{name}:*"))) if is_valid_cache_value(v)
+                    v for v in (self.client.mget(self.client.scan_iter(f"{name}:*")) if isinstance(self.client.mget(self.client.scan_iter(f"{name}:*")), list) else []) if is_valid_cache_value(v)
                 ]),
                 "ttl": strategy.ttl,
             }
