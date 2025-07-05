@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import FileResponse
 from typing import List
-from .batch16_20_models import *
+from .batch16_20_models import MultiCurrencyRevenue, TaxRegionReport, PartnerCertification, PartnerSelfCertSubmission, CertificationAuditReport
 from .export_utils import export_pdf, export_csv, log_export
 from backend.utils.safe_ai_utils import safe_ai_guarded
 from backend.auth.deps import get_current_user
