@@ -265,8 +265,6 @@ def delete_user(username: str, current_user: dict = Depends(get_current_user)):
     STATIC_USERS_MEM = [u for u in STATIC_USERS_MEM if u["username"] != username]
     return {"status": "ok", "users": STATIC_USERS_MEM}
 
-from fastapi import Request
-from backend.utils.monitoring import VaultMetrics
 
 # === AI OUTPUT GUARDRAILS: Wrap AI/LLM endpoints ===
 
@@ -331,7 +329,6 @@ def api_monitor_activity(user: str = Depends(get_current_user)):
 # --- API: Compliance/Ethics Metrics (JWT-protected) ---
 
 # --- API: SAFE AI-compliant API Key Status (JWT-protected) ---
-from fastapi import Request
 
 @app.get("/api/api-keys", tags=["SAFE AI", "Owner Control"], summary="SAFE AI-compliant API key status", response_model=dict)
 def api_key_status(current_user: dict = Depends(get_current_user)):
