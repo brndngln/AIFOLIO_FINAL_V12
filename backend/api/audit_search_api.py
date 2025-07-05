@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Query
 from pathlib import Path
 import json
+from typing import List, Dict, Any, Optional
 
 router = APIRouter()
 LOG_PATH = Path(__file__).parent.parent.parent / "logs" / "secret_rotation.json"
@@ -12,12 +13,12 @@ OVERRIDE_PATH = Path(__file__).parent.parent.parent / "logs" / "override_attempt
 def search_audit(
     log: str = Query("rotation", enum=["rotation", "anomaly", "override"]),
     q: str = Query("", description="Free-text search"),
-    key: str = Query(None),
-    status: str = Query(None),
-    admin: str = Query(None),
-    start: str = Query(None),
-    end: str = Query(None),
-):
+    key: Optional[str] = Query(None),
+    status: Optional[str] = Query(None),
+    admin: Optional[str] = Query(None),
+    start: Optional[str] = Query(None),
+    end: Optional[str] = Query(None),
+) -> List[Dict[str, Any]]:
     if log == "rotation":
         path = LOG_PATH
     elif log == "anomaly":
@@ -28,7 +29,7 @@ def search_audit(
         return []
     with open(path, "r") as f:
         data = json.load(f)
-    results = []
+    results: List[Dict[str, Any]] = []
     for row in data:
         if q and q.lower() not in json.dumps(row).lower():
             continue

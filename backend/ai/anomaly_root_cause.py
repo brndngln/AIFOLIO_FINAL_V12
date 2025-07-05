@@ -18,7 +18,7 @@ from core.compliance.compliance_manifest_exporter import export_compliance_manif
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 
-def analyze_anomaly_root_cause(anomaly):
+def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before anomaly root cause analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for anomaly root cause hash (static)
@@ -84,7 +84,9 @@ def analyze_anomaly_root_cause(anomaly):
     }
 
 
-def analyze_all():
+from typing import List, Dict, Any
+
+def analyze_all() -> List[Dict[str, Any]]:
     with open(ANOMALY_PATH, "r") as f:
         anomalies = json.load(f)
     return [analyze_anomaly(a) for a in anomalies]
