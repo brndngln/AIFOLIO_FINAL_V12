@@ -80,14 +80,6 @@ class ValidationError(APIError):
             }
         }
 
-            "validation_rules": {
-                "title": "10-100 characters",
-                "description": "50-500 characters",
-                "chapters": "Minimum 3 chapters",
-                "cta": "10-200 characters"
-            }
-        }
-
 
 class CacheError(APIError):
     """Raised when cache operations fail"""
@@ -448,59 +440,6 @@ class RedisCache:
                        f"Hit rate: {hit_rate:.2f}, "
                        f"New TTL: {strategy.ttl} seconds")
 
-    # Duplicate cleanup method removed. See above for canonical definition.
-        """Clean up expired items and optimize cache"""
-        super().cleanup()
-        self.optimize_cache()
-
-    # Duplicate get method removed. See above for canonical definition.
-        """
-        Get cached item with specified strategy
-        
-        Args:
-            key: Cache key
-            strategy: Caching strategy to use
-        """
-        if strategy not in self.strategies:
-            raise ValueError(f"Invalid strategy: {strategy}")
-            
-        cache_key = self.strategies[strategy].get_cache_key(key)
-        try:
-            data = self.client.get(cache_key)
-            if data:
-                self._increment_hit_counter(key)
-                return json.loads(data)
-            return None
-        except redis.RedisError as e:
-            logger.error(f"Redis error while getting: {str(e)}")
-            return None
-
-    # Duplicate set method removed. See above for canonical definition.
-        """
-        Set cached item with specified strategy
-        
-        Args:
-            key: Cache key
-            value: Value to cache
-            strategy: Caching strategy to use
-        """
-        if strategy not in self.strategies:
-            raise ValueError(f"Invalid strategy: {strategy}")
-            
-        if not self.strategies[strategy].should_cache(key, value):
-            return
-            
-        cache_key = self.strategies[strategy].get_cache_key(key)
-        try:
-            self.client.setex(
-                cache_key,
-                self.strategies[strategy].ttl,
-                json.dumps(value)
-            )
-            logger.info(f"Cached {key} with {strategy} strategy")
-        except redis.RedisError as e:
-            logger.error(f"Redis error while setting: {str(e)}")
-
     def _increment_hit_counter(self, key: str) -> None:
         """Increment hit counter for frequency-based caching"""
         freq_strategy = self.strategies['frequency_based']
@@ -558,6 +497,7 @@ class RedisCache:
             return None
             
     # Duplicate set method removed. See above for canonical definition.
+    def set_with_ttl(self, key: str, value: Any, ttl: int) -> None:
         """Set cached item in Redis with TTL"""
         try:
             self.client.setex(key, ttl, json.dumps(value))
