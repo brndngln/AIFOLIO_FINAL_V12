@@ -4,10 +4,13 @@ AIFOLIO SAFE AI Policy Update Notifier
 """
 
 
-def policy_update_notifier(policies, last_checked):
-    # Expects: list of {'policy_id': str, 'updated': 'YYYY-MM-DD'}
-    import datetime
+from typing import List, Dict
+import datetime
 
+def policy_update_notifier(policies: List[Dict[str, str]], last_checked: str) -> Dict[str, List[Dict[str, str]]]:
+    """
+    SAFE AI-compliant: Static policy update notifier. Deterministic, owner-controlled, no adaptive logic.
+    """
     last = datetime.datetime.strptime(last_checked, "%Y-%m-%d").date()
     changed = [
         p

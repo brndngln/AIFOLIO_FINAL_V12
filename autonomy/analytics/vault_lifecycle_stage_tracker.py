@@ -4,12 +4,15 @@ AIFOLIO SAFE AI Vault Lifecycle Stage Tracker
 """
 
 
-def vault_lifecycle_stage(vaults):
-    # Expects: list of {'vault_id': str, 'created': 'YYYY-MM-DD', 'last_sale': 'YYYY-MM-DD'}
-    import datetime
+from typing import List, Dict, Any
+import datetime
 
+def vault_lifecycle_stage(vaults: List[Dict[str, Any]]) -> Dict[str, str]:
+    """
+    SAFE AI-compliant: Static vault lifecycle stage tracker. Deterministic, owner-controlled, no adaptive logic.
+    """
     today = datetime.datetime.now().date()
-    result = {}
+    result: Dict[str, str] = {}
     for v in vaults:
         created = datetime.datetime.strptime(v["created"], "%Y-%m-%d").date()
         last_sale = (

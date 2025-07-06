@@ -4,10 +4,14 @@ AIFOLIO SAFE AI Vault Bundle Planner
 """
 
 
-def vault_bundle_planner(vaults):
-    # Expects: list of {'vault_id': str, 'tags': list}
-    bundles = []
-    seen = set()
+from typing import List, Dict, Any, Set, Tuple
+
+def vault_bundle_planner(vaults: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
+    """
+    SAFE AI-compliant: Static vault bundle planner. Deterministic, owner-controlled, no adaptive logic.
+    """
+    bundles: List[Dict[str, Any]] = []
+    seen: Set[Tuple[str, ...]] = set()
     for v in vaults:
         tag_tuple = tuple(sorted(v["tags"]))
         if tag_tuple not in seen:

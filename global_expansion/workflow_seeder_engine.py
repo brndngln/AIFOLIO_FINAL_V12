@@ -2,7 +2,7 @@
 AIFOLIO™ Phase 4: Workflow Seeder Engine
 Auto-registers all global expansion modules for inheritance by future workflows, vaults, and engines.
 """
-from typing import Dict, Any, List, TypeVar, Generic
+from typing import Dict, Any, List
 
 # SAFE AI Compliance: This module is static, deterministic, owner-controlled, and fully auditable. No adaptive or sentient logic is present. All extension points are documented for static inheritance only.
 from global_expansion.global_scale_systems import (
