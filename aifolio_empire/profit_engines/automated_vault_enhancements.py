@@ -21,7 +21,9 @@ Each enhancement is implemented as a class or function for easy integration and 
 
 
 # --- 1. Dynamic Content Personalization ---
-def personalize_content(base_content: str, audience: dict) -> dict:
+from typing import Dict, Any, List, Optional
+
+def personalize_content(base_content: str, audience: Dict[str, Any]) -> Dict[str, Any]:
     """SAFE AI-compliant: Personalize content based on audience/user context. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log. Extension points are statically locked."""
     from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
 
@@ -64,7 +66,7 @@ def personalize_content(base_content: str, audience: dict) -> dict:
 
 
 # --- 2. External Compliance & Copyright Integration ---
-def check_copyright_and_privacy(content: str) -> dict:
+def check_copyright_and_privacy(content: str) -> Dict[str, str]:
     """Deterministic static compliance check. Logs for audit. Extension: real API integration."""
     import logging
 
@@ -94,7 +96,7 @@ def enrich_content(content: str) -> str:
 
 
 # --- 5. Smart Asset Bundling & Cross-Selling ---
-def suggest_bundles(current_niche: str, all_niches: list) -> list:
+def suggest_bundles(current_niche: str, all_niches: List[str]) -> List[str]:
     """Deterministic, static bundle suggestion. Extension: real similarity logic."""
     import logging
 
@@ -140,7 +142,7 @@ def auto_test_pdf(pdf_path: str) -> bool:
 
 
 # --- 10. Human-in-the-Loop Review Portal ---
-def submit_for_human_review(vault_data: dict) -> bool:
+def submit_for_human_review(vault_data: Dict[str, Any]) -> bool:
     """Static, auditable human review submission. Extension: real workflow integration."""
     import logging
 
@@ -150,7 +152,7 @@ def submit_for_human_review(vault_data: dict) -> bool:
 
 
 # --- 11. Automated Documentation & Change Logs ---
-def generate_changelog(vault_data: dict) -> str:
+def generate_changelog(vault_data: Dict[str, Any]) -> str:
     """Deterministic static changelog. Extension: real changelog/versioning."""
     import logging
 
@@ -161,7 +163,7 @@ def generate_changelog(vault_data: dict) -> str:
 
 
 # --- 12. Integration with External Marketplaces ---
-def publish_to_marketplace(vault_data: dict, marketplace: str) -> bool:
+def publish_to_marketplace(vault_data: Dict[str, Any], marketplace: str) -> bool:
     """Static, auditable marketplace publish. Extension: real marketplace API."""
     import logging
 
