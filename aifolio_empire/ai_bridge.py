@@ -167,7 +167,7 @@ class AIBridge:
             if getattr(config, "openai_api_key", None) and not getattr(config, "use_huggingface_fallback", False):
                 return self._generate_with_openai(prompt, max_tokens, temperature)
 
-            if config.huggingface_api_key:
+            if getattr(config, "huggingface_api_key", None):
                 return self._generate_with_huggingface(prompt, max_tokens, temperature)
 
             if getattr(config, "openai_api_key", None) and getattr(config, "huggingface_api_key", None):
@@ -194,7 +194,7 @@ class AIBridge:
             if not isinstance(prompt, str):
                 raise ValueError("Prompt must be a string")
             if len(prompt) > MAX_PROMPT_LENGTH:
-                raise ValueError(f"Prompt too int (max {MAX_PROMPT_LENGTH} characters)")
+                raise ValueError(f"Prompt too long (max {MAX_PROMPT_LENGTH} characters)")
             if not 0 <= temperature <= 1.0:
                 raise ValueError("Temperature must be between 0 and 1")
 
@@ -204,7 +204,7 @@ class AIBridge:
                 "X-Request-Timestamp": str(int(time.time())),
             }
 
-            response = openai.ChatCompletion.create(
+            response = openai.ChatCompletion.create(  # type: ignore
                 api_key=api_key,
                 model=getattr(config, "openai_model", "gpt-4"),
                 messages=[{"role": "user", "content": prompt}],
@@ -219,7 +219,7 @@ class AIBridge:
             generated_text = response.choices[0].message.content
             if len(generated_text) > MAX_RESPONSE_LENGTH:
                 raise ValueError(
-                    f"Response too int (max {MAX_RESPONSE_LENGTH} characters)"
+                    f"Response too long (max {MAX_RESPONSE_LENGTH} characters)"
                 )
 
             return {
@@ -260,8 +260,8 @@ class AIBridge:
 
     def validate_models(self) -> Dict[str, bool]:
         return {
-            "openai": bool(config.openai_api_key),
-            "huggingface": bool(config.huggingface_api_key),
+            "openai": bool(getattr(config, "openai_api_key", None)),
+            "huggingface": bool(getattr(config, "huggingface_api_key", None)),
         }
 
 

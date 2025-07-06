@@ -84,7 +84,7 @@ class SentienceTripwire(Exception):
     pass
 
 
-def sentience_guard(*args, **kwargs):
+def sentience_guard(*args: Any, **kwargs: Any) -> None:
     raise SentienceTripwire(
         "Sentience, learning, or adaptation attempt detected and blocked."
     )
@@ -217,11 +217,11 @@ class AffiliateBooster:
 
     @staticmethod
     def export_compliance_report(
-        data: list,
+        data: List[Dict[str, Any]],
         format: str = "csv",
-        html_template: str = None,
-        branding: dict = None,
-        vault: str = None,
+        html_template: Optional[str] = None,
+        branding: Optional[Dict[str, Any]] = None,
+        vault: Optional[str] = None,
     ) -> str:
         """
         Export compliance/audit data in CSV, PDF (Typeset automation), XBRL (arelle), XLSX, or JSON.
@@ -313,7 +313,7 @@ class AffiliateBooster:
         )
 
         @staticmethod
-        def get_branding(vault: str = None, pdf_metadata: dict = None) -> dict:
+        def get_branding(vault: Optional[str] = None, pdf_metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
             branding = None
             vault_dir = None
             if vault:
@@ -356,7 +356,7 @@ class AffiliateBooster:
             return branding
 
         @staticmethod
-        def log_branding(vault: str, branding: dict, pdf_metadata: dict = None):
+        def log_branding(vault: str, branding: Dict[str, Any], pdf_metadata: Optional[Dict[str, Any]] = None) -> None:
             import datetime
 
             log_entry = {
@@ -381,7 +381,7 @@ class AffiliateBooster:
                 pass
 
         @staticmethod
-        def log_content_corrections(corrections: list):
+        def log_content_corrections(corrections: List[Dict[str, Any]]) -> None:
             try:
                 if os.path.exists(AIFOLIO_STYLEFORGE_GRAMMARLENS.CONTENT_LOG_PATH):
                     with open(
@@ -401,16 +401,16 @@ class AffiliateBooster:
 
         @staticmethod
         def apply_branding(
-            data: list, vault: str = None, pdf_metadata: dict = None
-        ) -> dict:
+            data: List[Dict[str, Any]], vault: Optional[str] = None, pdf_metadata: Optional[Dict[str, Any]] = None
+        ) -> Dict[str, Any]:
             branding = AIFOLIO_STYLEFORGE_GRAMMARLENS.get_branding(vault, pdf_metadata)
             AIFOLIO_STYLEFORGE_GRAMMARLENS.log_branding(vault, branding, pdf_metadata)
             return branding
 
         @staticmethod
         def validate_and_correct_content(
-            data: list, branding: dict, pdf_metadata: dict = None
-        ) -> tuple:
+            data: List[Dict[str, Any]], branding: Dict[str, Any], pdf_metadata: Optional[Dict[str, Any]] = None
+        ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
             """
             AI-powered content validation and correction for spelling, grammar, clarity, tone, logo/cover/filename/metadata.
             Returns (corrected_data, corrections_log)
@@ -461,7 +461,7 @@ class AffiliateBooster:
 
         @staticmethod
         def generate_visual_preview(
-            html: str, branding: dict, preview_path: str
+            html: str, branding: Dict[str, Any], preview_path: str
         ) -> str:
             """
             Generate a visual preview (PDF or HTML snapshot) for review before publishing.
@@ -483,7 +483,7 @@ class AffiliateBooster:
                 return preview_path
 
         @staticmethod
-        def queue_for_manual_review(preview_path: str, corrections: list) -> str:
+        def queue_for_manual_review(preview_path: str, corrections: List[Dict[str, Any]]) -> str:
             """
             Queue the preview for manual review/approval. Returns a review token or path.
             """
@@ -529,7 +529,7 @@ class AffiliateBooster:
         """
 
         @staticmethod
-        def on_event(event_type: str, payload: dict):
+        def on_event(event_type: str, payload: Dict[str, Any]) -> None:
             """
             Main event handler: triggers PDF/bundle generation on content/vault/bundle/schedule events.
             """
@@ -593,7 +593,7 @@ class AffiliateBooster:
 
         @staticmethod
         def create_pdf(
-            data: list, branding: dict, vault: str, bundle: bool = False
+            data: List[Dict[str, Any]], branding: Dict[str, Any], vault: str, bundle: bool = False
         ) -> str:
             """
             AI-enhanced typesetting: formats, styles, and structures content for optimal readability and professional design.
@@ -627,7 +627,7 @@ class AffiliateBooster:
 
         @staticmethod
         def compose_html(
-            data: list, branding: dict, vault: str, bundle: bool = False
+            data: List[Dict[str, Any]], branding: Dict[str, Any], vault: str, bundle: bool = False
         ) -> str:
             """
             Compose HTML for PDF: cover, TOC, sections, visuals, CTA. Modular and AI-enhanced.
@@ -671,7 +671,7 @@ class AffiliateBooster:
             """
 
         @staticmethod
-        def deliver_pdf(pdf_path: str, vault: str, payload: dict) -> str:
+        def deliver_pdf(pdf_path: str, vault: str, payload: Dict[str, Any]) -> str:
             """
             Deliver/export PDF to correct output (Gumroad, Email, Telegram, Notion, Dashboard, etc.).
             Returns delivery status string.
@@ -681,7 +681,7 @@ class AffiliateBooster:
             return pdf_path
 
         @staticmethod
-        def log_export(pdf_path: str, vault: str, delivery_status: str):
+        def log_export(pdf_path: str, vault: str, delivery_status: str) -> None:
             """
             Log export time, file name, vault, and delivery status for audit.
             """
@@ -699,7 +699,7 @@ class AffiliateBooster:
     # --- End AIFOLIO_TYPESMITH™ ---
 
     @staticmethod
-    def typeset_pdf_export(data: list, branding: dict = None, vault: str = None) -> str:
+    def typeset_pdf_export(data: List[Dict[str, Any]], branding: Optional[Dict[str, Any]] = None, vault: Optional[str] = None) -> str:
         """
         Typeset automation: Generate a fully branded, professional PDF using Typeset for any niche/vault.
         This method is now routed through AIFOLIO_TYPESMITH™ for full automation.
@@ -713,7 +713,7 @@ class AffiliateBooster:
         )
 
     @staticmethod
-    def _default_html_report(data, branding=None):
+    def _default_html_report(data: List[Dict[str, Any]], branding: Optional[Dict[str, Any]] = None) -> str:
         """
         Generate a simple HTML report for PDF export. Extend with branding, CSS, etc.
         """
@@ -849,7 +849,7 @@ class AffiliateBooster:
     }
 
     @staticmethod
-    def check_compliance(tx: dict) -> list:
+    def check_compliance(tx: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
         Check a transaction against all compliance rules.
         Returns a list of triggered rule IDs and their escalation levels.
@@ -877,7 +877,7 @@ class AffiliateBooster:
         return triggered
 
     @staticmethod
-    def escalate_compliance(triggered_rules: list, tx: dict):
+    def escalate_compliance(triggered_rules: List[Dict[str, Any]], tx: Dict[str, Any]) -> List[str]:
         """
         Statelessly escalate compliance events based on triggered rules and escalation policy.
         All actions are logged and non-adaptive.
@@ -989,7 +989,7 @@ class AffiliateBooster:
         return tx.get("crypto_payout", False) and tx.get("blockchain_flag", False)
 
     @staticmethod
-    def check_compliance(tx: dict) -> list:
+    def check_compliance(tx: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
         Check a transaction against all compliance rules, including advanced/AI/third-party stubs.
         Returns a list of triggered rule IDs and their escalation levels.

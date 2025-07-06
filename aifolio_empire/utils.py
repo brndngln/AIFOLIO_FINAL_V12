@@ -88,7 +88,7 @@ def api_error_handler(func: Callable[..., Any]) -> Callable[..., Any]:
     """Decorator to handle external API errors."""
 
     @wraps(func)
-    def wrapper(*args, **kwargs) -> Any:
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         try:
             return func(*args, **kwargs)
         except Exception as e:
