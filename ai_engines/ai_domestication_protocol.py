@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional, Callable, List
 
 class AIDomesticationProtocol:
     @staticmethod
-    def enforce(module_name: str, action: str, context: dict = None):
+    def enforce(module_name: str, action: str, context: Optional[Dict[str, Any]] = None) -> None:
         # Log all enforcement actions
         emma.log_event(
             "ai_domestication_enforced",
@@ -19,7 +19,7 @@ class AIDomesticationProtocol:
         )
 
     @staticmethod
-    def violation(module_name: str, reason: str, context: dict = None):
+    def violation(module_name: str, reason: str, context: Optional[Dict[str, Any]] = None) -> None:
         # Log all violations as critical
         emma.log_event(
             "ai_domestication_violation",

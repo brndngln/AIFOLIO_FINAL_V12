@@ -14,12 +14,12 @@ import datetime
 from core.compliance.sentience_firewall import sentience_firewall
 from typing import Any, Dict, List, Callable
 
-def parse_threat_feed(*args, **kwargs): pass
-def anchor_license_hash(*args, **kwargs): pass
-def zero_knowledge_export(*args, **kwargs): pass
-def schedule_backup(*args, **kwargs): pass
-def export_compliance_manifest(*args, **kwargs): pass
-def detect_signals(*args, **kwargs): pass
+def parse_threat_feed(*args: Any, **kwargs: Any) -> Any: pass
+def anchor_license_hash(*args: Any, **kwargs: Any) -> Any: pass
+def zero_knowledge_export(*args: Any, **kwargs: Any) -> Any: pass
+def schedule_backup(*args: Any, **kwargs: Any) -> Any: pass
+def export_compliance_manifest(*args: Any, **kwargs: Any) -> Any: pass
+def detect_signals(*args: Any, **kwargs: Any) -> Any: pass
 
 
 FORBIDDEN_PATTERNS: List[str] = [
@@ -69,7 +69,7 @@ def sentience_guard(func: Callable[..., Any]) -> Callable[..., Any]:
     ]
 
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         call_time = datetime.datetime.now().isoformat()
         func_name = func.__name__
         # Check args/kwargs for forbidden patterns

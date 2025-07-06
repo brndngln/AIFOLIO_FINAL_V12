@@ -35,8 +35,8 @@ from typing import Dict, Any, Tuple, List
 from typing import Callable
 
 @sentience_firewall
-@domesticate_ai
-@sentience_guard
+@domesticate_ai  # type: ignore[misc]
+@sentience_guard  # type: ignore[misc]
 def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
     # OMNIPROOF: Threat feed check before ethics enforcement
     parse_threat_feed({})
@@ -108,7 +108,10 @@ def summarize_ethics_issues(issues: List[str]) -> str:
 
 
 def static_ai_ethics_guard(content: str) -> Tuple[str, List[str]]:
-    return enforce_ethics("static_ai_ethics_guard", {}, content)
+    result = enforce_ethics("static_ai_ethics_guard", {}, content)
+    if isinstance(result, tuple) and len(result) == 2 and isinstance(result[0], str) and isinstance(result[1], list):
+        return result  # type: ignore
+    return (str(result), [])
 
 
 def static_human_review_required(content: str) -> bool:

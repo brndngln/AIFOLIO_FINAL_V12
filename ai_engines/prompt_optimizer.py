@@ -58,7 +58,7 @@ MAX_LENGTH: int = 1000
 
 from typing import TYPE_CHECKING
 
-@sentience_guard  # type: ignore[misc]
+@sentience_guard
 def enforce_legal_safety(text: str) -> str:
     """Static legal shield: formats, injects disclaimers, and removes illegal claims."""
     from core.compliance.smart_legal_watcher import weekly_report
@@ -73,7 +73,7 @@ def enforce_legal_safety(text: str) -> str:
     return text
 
 
-@sentience_guard  # type: ignore[misc]
+@sentience_guard
 def optimize_prompt(prompt: str, title: Optional[str] = None) -> Tuple[str, Optional[str]]:
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     prompt = enforce_legal_safety(prompt)
