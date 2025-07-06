@@ -16,7 +16,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class BrooklynUXVisualDominionEngineer:
     @staticmethod
-    def update_grid_logic(component: str, details: Dict) -> Dict:
+    def update_grid_logic(component: str, details: Dict[str, Any]) -> Dict[str, Any]:
         context = {"component": component, "details": details}
         if not OmnieliteEthicsEngine.enforce("update_grid_logic", context):
             UX_VISUAL_LOG.append(
@@ -46,7 +46,7 @@ class BrooklynUXVisualDominionEngineer:
         return result
 
     @staticmethod
-    def toggle_dark_light_mode(mode: str) -> Dict:
+    def toggle_dark_light_mode(mode: str) -> Dict[str, Any]:
         """Statically toggle dark/light mode (no adaptation)."""
         result = {
             "mode": mode,
@@ -58,7 +58,7 @@ class BrooklynUXVisualDominionEngineer:
         return result
 
     @staticmethod
-    def apply_dashboard_animation(animation: str) -> Dict:
+    def apply_dashboard_animation(animation: str) -> Dict[str, Any]:
         """Apply static dashboard animation logic."""
         result = {
             "animation": animation,
@@ -70,11 +70,11 @@ class BrooklynUXVisualDominionEngineer:
         return result
 
     @staticmethod
-    def get_ux_visual_log() -> List[Dict]:
+    def get_ux_visual_log() -> List[Dict[str, Any]]:
         return UX_VISUAL_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if UX_VISUAL_LOG:
             last = UX_VISUAL_LOG.pop()
             return {

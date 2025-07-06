@@ -5,9 +5,9 @@ Monitors latency, export times, API cost, vault earnings, queue optimization. In
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-PERFORMANCE_ANALYTICS_LOG = []
+PERFORMANCE_ANALYTICS_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
@@ -16,7 +16,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class AvaPerformanceAnalyticsRiskStrategist:
     @staticmethod
-    def monitor_performance(metric: str, value: float, details: Dict) -> Dict:
+    def monitor_performance(metric: str, value: float, details: Dict[str, Any]) -> Dict[str, Any]:
         context = {"metric": metric, "value": value, "details": details}
         if not OmnieliteEthicsEngine.enforce("monitor_performance", context):
             PERFORMANCE_ANALYTICS_LOG.append(
@@ -60,7 +60,7 @@ class AvaPerformanceAnalyticsRiskStrategist:
         return result
 
     @staticmethod
-    def inject_dashboard_analytics(agent_id: str, analytics_type: str) -> Dict:
+    def inject_dashboard_analytics(agent_id: str, analytics_type: str) -> Dict[str, Any]:
         """Inject static analytics logic into dashboard."""
         result = {
             "agent_id": agent_id,
@@ -73,7 +73,7 @@ class AvaPerformanceAnalyticsRiskStrategist:
         return result
 
     @staticmethod
-    def advise_reinvestment(timing: str, capital: float) -> Dict:
+    def advise_reinvestment(timing: str, capital: float) -> Dict[str, Any]:
         """Statically advise on reinvestment timing/capital."""
         result = {
             "timing": timing,
@@ -86,11 +86,11 @@ class AvaPerformanceAnalyticsRiskStrategist:
         return result
 
     @staticmethod
-    def get_performance_analytics_log() -> List[Dict]:
+    def get_performance_analytics_log() -> List[Dict[str, Any]]:
         return PERFORMANCE_ANALYTICS_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if PERFORMANCE_ANALYTICS_LOG:
             last = PERFORMANCE_ANALYTICS_LOG.pop()
             return {

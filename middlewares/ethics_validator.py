@@ -9,7 +9,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from ethics_engine import OmnieliteEthicsEngine, EthicsViolation
 
 
-def ethics_validator(action, context):
+from typing import Dict, Any
+
+def ethics_validator(action: str, context: Dict[str, Any]) -> bool:
     try:
         OmnieliteEthicsEngine.enforce(action, context)
         return True

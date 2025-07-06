@@ -4,6 +4,7 @@ Final arbiter of OMNIELITE Ethics Engine. Handles all audit, override, and viola
 """
 import datetime
 import json
+from typing import Dict, Any
 
 
 class EMMAEthicsGuard:
@@ -11,7 +12,7 @@ class EMMAEthicsGuard:
     _violation_log = "emma_ethics_violation.log"
 
     @classmethod
-    def handle_violation(cls, action, context, error):
+    def handle_violation(cls, action: str, context: Dict[str, Any], error: str) -> None:
         entry = {
             "timestamp": datetime.datetime.utcnow().isoformat(),
             "action": action,
@@ -25,14 +26,14 @@ class EMMAEthicsGuard:
         cls.notify_emma(entry)
 
     @classmethod
-    def notify_emma(cls, entry):
+    def notify_emma(cls, entry: Dict[str, Any]) -> None:
         # Placeholder for EMMA notification logic (static, non-adaptive)
         with open(cls._audit_log, "a") as f:
             f.write(json.dumps({"notified": True, **entry}) + "\n")
         # In production, could integrate with static webhook/email/discord
 
     @classmethod
-    def audit_action(cls, action, context):
+    def audit_action(cls, action: str, context: Dict[str, Any]) -> None:
         entry = {
             "timestamp": datetime.datetime.utcnow().isoformat(),
             "action": action,

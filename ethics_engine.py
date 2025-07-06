@@ -5,7 +5,7 @@ All logic is static, non-sentient, OWNER-controlled, and EMMA-governed.
 """
 import json
 import datetime
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 
 class EthicsViolation(Exception):
@@ -13,12 +13,12 @@ class EthicsViolation(Exception):
 
 
 class OmnieliteEthicsEngine:
-    _policy = None
+    _policy: Optional[Dict[str, Any]] = None
     _policy_path = "ethics_policy.json"
     _log_path = "ethics_violation.log"
 
     @classmethod
-    def load_policy(cls):
+    def load_policy(cls, policy_name: str) -> Dict[str, Any]:
         if cls._policy is None:
             with open(cls._policy_path, "r") as f:
                 cls._policy = json.load(f)
@@ -26,7 +26,7 @@ class OmnieliteEthicsEngine:
 
     @classmethod
     def validate_action(cls, action: str, context: Dict[str, Any]) -> bool:
-        policy = cls.load_policy()
+        policy = cls.load_policy("")
         for rule in policy["rules"]:
             if not cls._check_rule(rule, action, context):
                 cls.log_violation(action, context, rule)
@@ -34,7 +34,7 @@ class OmnieliteEthicsEngine:
         return True
 
     @staticmethod
-    def _check_rule(rule, action, context):
+    def _check_rule(rule: Dict[str, Any], action: str, context: Dict[str, Any]) -> bool:
         # For each rule, check if action/context violates codex
         # This is a static, deterministic SAFE AI check
         if rule["enforced"]:
@@ -45,7 +45,7 @@ class OmnieliteEthicsEngine:
         return True
 
     @classmethod
-    def log_violation(cls, action, context, rule):
+    def log_violation(cls, action: str, context: Dict[str, Any], rule: Dict[str, Any]) -> None:
         entry = {
             "timestamp": datetime.datetime.utcnow().isoformat(),
             "action": action,
@@ -56,7 +56,7 @@ class OmnieliteEthicsEngine:
             f.write(json.dumps(entry) + "\n")
 
     @classmethod
-    def enforce(cls, action: str, context: Dict[str, Any]):
+    def enforce(cls, action: str, context: Dict[str, Any]) -> bool:
         try:
             return cls.validate_action(action, context)
         except EthicsViolation as e:

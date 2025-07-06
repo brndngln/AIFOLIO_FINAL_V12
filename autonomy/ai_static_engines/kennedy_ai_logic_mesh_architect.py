@@ -16,7 +16,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class KennedyAILogicMeshArchitect:
     @staticmethod
-    def reinforce_pdf_pipeline(context: dict) -> Dict:
+    def reinforce_pdf_pipeline(context: Dict[str, Any]) -> Dict[str, Any]:
         if not OmnieliteEthicsEngine.enforce("reinforce_pdf_pipeline", context):
             LOGIC_MESH_LOG.append(
                 {
@@ -57,7 +57,7 @@ class KennedyAILogicMeshArchitect:
         return result
 
     @staticmethod
-    def optimize_prompt_tree(tree_id: str, nodes: int) -> Dict:
+    def optimize_prompt_tree(tree_id: str, nodes: int) -> Dict[str, Any]:
         """Statically optimize a prompt tree (no learning)."""
         result = {
             "tree_id": tree_id,
@@ -70,7 +70,7 @@ class KennedyAILogicMeshArchitect:
         return result
 
     @staticmethod
-    def inject_anti_sentient_logic(vault_template: str) -> Dict:
+    def inject_anti_sentient_logic(vault_template: str) -> Dict[str, Any]:
         """Inject static, anti-sentient logic into a vault template."""
         result = {
             "vault_template": vault_template,
@@ -82,11 +82,11 @@ class KennedyAILogicMeshArchitect:
         return result
 
     @staticmethod
-    def get_logic_mesh_log() -> List[Dict]:
+    def get_logic_mesh_log() -> List[Dict[str, Any]]:
         return LOGIC_MESH_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if LOGIC_MESH_LOG:
             last = LOGIC_MESH_LOG.pop()
             return {
