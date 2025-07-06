@@ -5,10 +5,10 @@ Phase 53 — SAFE AI, non-sentient, static, owner-controlled
 Tracks and logs capital allocation, reinvestment, and reserves for scaling.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
-CAPITAL_LOG = []
+CAPITAL_LOG: List[Dict[str, Any]] = []
 
 
 class EmpireCapitalEngine:
@@ -23,5 +23,5 @@ class EmpireCapitalEngine:
         )
 
     @staticmethod
-    def get_capital_log() -> List[Dict]:
+    def get_capital_log() -> List[Dict[str, Any]]:
         return CAPITAL_LOG
