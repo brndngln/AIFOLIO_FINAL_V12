@@ -31,10 +31,6 @@ class WorkflowSeederEngine:
     Seeds all expansion modules into the operational tree and future workflow templates.
     SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     """
-    global_scale: List[object]
-    pipeline_optimizers: List[object]
-    ai_logic: List[object]
-    seeded: bool
 
     def __init__(self) -> None:
         self.global_scale: List[object] = [
