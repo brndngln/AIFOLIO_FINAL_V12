@@ -5,9 +5,9 @@ Cleans legacy code, refactors modules, validates logic, enforces structure, and 
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-REFACTOR_MAINTENANCE_LOG = []
+REFACTOR_MAINTENANCE_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
@@ -16,7 +16,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class NovaCodeRefactorMaintenanceOverseer:
     @staticmethod
-    def clean_legacy_code(context: dict) -> Dict:
+    def clean_legacy_code(context: Dict[str, Any]) -> Dict[str, Any]:
         """Statically clean legacy code in a module."""
         OmnieliteEthicsEngine.enforce("clean_legacy_code", context)
         if not ethics_validator("clean_legacy_code", context):
@@ -33,7 +33,7 @@ class NovaCodeRefactorMaintenanceOverseer:
         return result
 
     @staticmethod
-    def refactor_module(module_name: str, refactor_details: Dict) -> Dict:
+    def refactor_module(module_name: str, refactor_details: Dict[str, Any]) -> Dict[str, Any]:
         """Statically refactor a module (no adaptation)."""
         result = {
             "module_name": module_name,
@@ -46,7 +46,7 @@ class NovaCodeRefactorMaintenanceOverseer:
         return result
 
     @staticmethod
-    def validate_logic(module_name: str) -> Dict:
+    def validate_logic(module_name: str) -> Dict[str, Any]:
         """Statically validate injected logic against system rules."""
         result = {
             "module_name": module_name,
@@ -59,7 +59,7 @@ class NovaCodeRefactorMaintenanceOverseer:
         return result
 
     @staticmethod
-    def sync_diff(module_name: str, diff_details: Dict) -> Dict:
+    def sync_diff(module_name: str, diff_details: Dict[str, Any]) -> Dict[str, Any]:
         """Enforce structure and sync diffs across team files."""
         result = {
             "module_name": module_name,
@@ -72,11 +72,11 @@ class NovaCodeRefactorMaintenanceOverseer:
         return result
 
     @staticmethod
-    def get_refactor_maintenance_log() -> List[Dict]:
+    def get_refactor_maintenance_log() -> List[Dict[str, Any]]:
         return REFACTOR_MAINTENANCE_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if REFACTOR_MAINTENANCE_LOG:
             last = REFACTOR_MAINTENANCE_LOG.pop()
             return {

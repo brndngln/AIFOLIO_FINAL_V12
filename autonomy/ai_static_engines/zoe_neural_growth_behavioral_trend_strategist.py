@@ -5,9 +5,9 @@ Maps product performance, suggests vault/funnel/agent evolution, models growth w
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-GROWTH_TREND_LOG = []
+GROWTH_TREND_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
@@ -16,7 +16,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class ZoeNeuralGrowthBehavioralTrendStrategist:
     @staticmethod
-    def map_product_performance(context: dict) -> bool:
+    def map_product_performance(context: Dict[str, Any]) -> bool:
         OmnieliteEthicsEngine.enforce("map_product_performance", context)
         if not ethics_validator("map_product_performance", context):
             return False
@@ -33,7 +33,7 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
         return True
 
     @staticmethod
-    def suggest_evolution(target: str, suggestion_type: str, details: Dict) -> Dict:
+    def suggest_evolution(target: str, suggestion_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
         """Statically suggest vault/funnel/agent evolution (pattern-based only)."""
         result = {
             "target": target,
@@ -46,7 +46,7 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
         return result
 
     @staticmethod
-    def model_growth_trend(period: str, pattern: str) -> Dict:
+    def model_growth_trend(period: str, pattern: str) -> Dict[str, Any]:
         """Model profitable growth (time-locked, static patterns only)."""
         result = {
             "period": period,
@@ -59,11 +59,11 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
         return result
 
     @staticmethod
-    def get_growth_trend_log() -> List[Dict]:
+    def get_growth_trend_log() -> List[Dict[str, Any]]:
         return GROWTH_TREND_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if GROWTH_TREND_LOG:
             last = GROWTH_TREND_LOG.pop()
             return {

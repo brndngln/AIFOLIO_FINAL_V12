@@ -5,9 +5,9 @@ Executes file injection/rollback, automates workflows, ensures zero-downtime pip
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-DEVOPS_ACTION_LOG = []
+DEVOPS_ACTION_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator
@@ -16,9 +16,9 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class EthanDevOpsInfraSupremeCommander:
     @staticmethod
-    def inject_file(file_path: str, action_details: Dict) -> Dict:
+    def inject_file(file_path: str, action_details: Dict[str, Any]) -> Dict[str, Any]:
         """Statically inject a file into the system (audit only)."""
-        result = {
+        context = {
             "file_path": file_path,
             "action": "inject",
             "details": action_details,
@@ -33,7 +33,7 @@ class EthanDevOpsInfraSupremeCommander:
         return context
 
     @staticmethod
-    def rollback_file(file_path: str) -> Dict:
+    def rollback_file(file_path: str) -> Dict[str, Any]:
         """Statically rollback a file injection (audit only)."""
         context = {
             "file_path": file_path,
@@ -49,7 +49,7 @@ class EthanDevOpsInfraSupremeCommander:
         return context
 
     @staticmethod
-    def automate_workflow(workflow_name: str, details: Dict) -> Dict:
+    def automate_workflow(workflow_name: str, details: Dict[str, Any]) -> Dict[str, Any]:
         """Statically automate a DevOps workflow (no adaptation)."""
         result = {
             "workflow": workflow_name,
@@ -62,7 +62,7 @@ class EthanDevOpsInfraSupremeCommander:
         return result
 
     @staticmethod
-    def commit_with_signature(change_log: str, emma_signature: str) -> Dict:
+    def commit_with_signature(change_log: str, emma_signature: str) -> Dict[str, Any]:
         """Enforce commit protocol with timestamp and EMMA approval."""
         result = {
             "change_log": change_log,
@@ -75,5 +75,5 @@ class EthanDevOpsInfraSupremeCommander:
         return result
 
     @staticmethod
-    def get_devops_action_log() -> List[Dict]:
+    def get_devops_action_log() -> List[Dict[str, Any]]:
         return DEVOPS_ACTION_LOG
