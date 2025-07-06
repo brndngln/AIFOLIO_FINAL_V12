@@ -20,15 +20,15 @@ class KyberQuantumEncryption:
 
 
 class BlockchainAuditLog:
-    def __init__(self):
-        self.ledger = []
+    def __init__(self) -> None:
+        self.ledger: list[dict[str, Any]] = []
 
-    def log(self, entry: Dict[str, Any]):
+    def log(self, entry: Dict[str, Any]) -> None:
         timestamp = datetime.datetime.utcnow().isoformat()
         self.ledger.append({"timestamp": timestamp, **entry})
         # In real system, would write to immutable blockchain
 
-    def export(self):
+    def export(self) -> list[dict[str, Any]]:
         return self.ledger
 
 

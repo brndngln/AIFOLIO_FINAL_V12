@@ -5,7 +5,7 @@ Phase 51 — SAFE AI, non-sentient, static, owner-controlled
 Monitors and logs static market signals for predictive alerts (no live ML or scraping).
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
 MARKET_MONITOR_LOG = []
@@ -23,5 +23,5 @@ class PredictiveMarketMonitor:
         )
 
     @staticmethod
-    def get_market_signals() -> List[Dict]:
+    def get_market_signals() -> List[Dict[str, Any]]:
         return MARKET_MONITOR_LOG

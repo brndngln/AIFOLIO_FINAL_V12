@@ -5,7 +5,7 @@ Phase 52 — SAFE AI, non-sentient, static, owner-controlled
 Suggests and logs platform decoupling strategies for resilience and independence.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
 DECOUPLING_LOG = []
@@ -26,7 +26,7 @@ class PlatformDecouplingEngine:
         return [s for s in all_strategies if s not in current_platforms]
 
     @staticmethod
-    def log_decoupling_action(action: str, details: Dict):
+    def log_decoupling_action(action: str, details: Dict[str, Any]) -> None:
         DECOUPLING_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -36,5 +36,5 @@ class PlatformDecouplingEngine:
         )
 
     @staticmethod
-    def export_decoupling_log() -> List[Dict]:
+    def export_decoupling_log() -> List[Dict[str, Any]]:
         return DECOUPLING_LOG

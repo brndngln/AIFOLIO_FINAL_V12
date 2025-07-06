@@ -4,7 +4,7 @@ AIFOLIO™ AI Personal Empire Companion
 Phase 70 — SAFE AI, non-sentient, static, owner-controlled
 Generates “Daily Empire Brief” for the owner dashboard.
 """
-from typing import Dict
+from typing import Dict, Any, List
 import datetime
 
 DAILY_BRIEF_LOG = []
@@ -14,7 +14,7 @@ class PersonalEmpireCompanion:
     @staticmethod
     def generate_brief(
         today_automations: int, revenue: float, pending: int, risks: int
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         brief = {
             "date": datetime.datetime.utcnow().date().isoformat(),
             "automated": today_automations,
@@ -28,5 +28,5 @@ class PersonalEmpireCompanion:
         return brief
 
     @staticmethod
-    def get_log() -> list:
+    def get_log() -> List[Dict[str, Any]]:
         return DAILY_BRIEF_LOG
