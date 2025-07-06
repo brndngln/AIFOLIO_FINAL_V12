@@ -2,8 +2,19 @@
 # Applies billionaire filter, ROI, and priority logic to reinvestment proposals
 from typing import List, Dict, Any
 
+from typing import List, Dict, Any
+
 class AIReinvestmentLogicSuite:
-    def rank_and_filter(self, proposals: List[Dict[str, Any]], brain_profiles: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Applies billionaire filter, ROI, and priority logic to reinvestment proposals.
+    Provides static, SAFE AI-compliant ranking and filtering for reinvestment logic.
+    """
+
+    def rank_and_filter(
+        self,
+        proposals: List[Dict[str, Any]],
+        brain_profiles: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Filters and ranks reinvestment proposals based on ROI, saturation, and billionaire logic.
         Args:
@@ -12,8 +23,7 @@ class AIReinvestmentLogicSuite:
         Returns:
             List of filtered and ranked proposal dicts.
         """
-        # Only allow ROI >= 6 and not saturated
-        filtered = [
+        filtered: List[Dict[str, Any]] = [
             p
             for p in proposals
             if p.get("roi", 0) >= 6 and not p.get("saturated", False)

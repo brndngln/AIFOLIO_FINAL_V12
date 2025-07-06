@@ -2,7 +2,15 @@
 # Enforces approval for every major lifecycle step
 from typing import List, Dict, Any
 
+from typing import List, Dict, Any
+
 class ApprovalWorkflowEnforcer:
+    """
+    Enforces approval for every major lifecycle step. Tracks approvals in a log and provides methods to require and grant approvals.
+    """
+    founder_id: str
+    approval_log: List[Dict[str, Any]]
+
     def __init__(self, founder_id: str) -> None:
         """
         Initializes the approval workflow enforcer for a founder.
@@ -21,7 +29,7 @@ class ApprovalWorkflowEnforcer:
         Returns:
             The index of the approval entry.
         """
-        entry = {"stage": stage, "details": details, "approved": False}
+        entry: Dict[str, Any] = {"stage": stage, "details": details, "approved": False}
         self.approval_log.append(entry)
         return len(self.approval_log) - 1
 

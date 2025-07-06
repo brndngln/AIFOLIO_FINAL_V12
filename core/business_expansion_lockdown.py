@@ -1,6 +1,12 @@
 # business_expansion_lockdown.py
 # No new business/vault/strategy unless unlocked by founder
 class BusinessExpansionLockdown:
+    """
+    Prevents new business/vault/strategy creation unless unlocked by founder.
+    Provides SAFE AI-compliant static lockdown logic for business expansion.
+    """
+    founder_key: str
+
     def __init__(self, founder_key: str) -> None:
         """
         Initializes the business expansion lockdown with a founder key.
