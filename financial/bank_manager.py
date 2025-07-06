@@ -10,7 +10,7 @@ import random
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from functools import lru_cache
-from cachetools import TTLCache
+from cachetools import TTLCache  # type: ignore  # No type stubs for 'cachetools', safe for static use
 
 # Configure logging with enhanced anti-sentience measures
 logging.basicConfig(

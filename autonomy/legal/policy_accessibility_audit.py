@@ -1,4 +1,4 @@
-import markdown
+import markdown  # type: ignore  # No type stubs for 'markdown', safe for static use
 from bs4 import BeautifulSoup
 import os
 from datetime import datetime
