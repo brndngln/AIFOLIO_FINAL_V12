@@ -66,6 +66,6 @@ def validate_neuro_core_admin_token(token: str) -> bool:
 
 
 # --- SAFE AI Charter Lockout Enforcement ---
-def enforce_safe_ai_charter():
+def enforce_safe_ai_charter() -> None:
     """Permanently enforce SAFE AI Charter (no bypass, no override, no drift)"""
     raise RuntimeError("SAFE AI Charter enforcement is permanent. No bypass allowed.")

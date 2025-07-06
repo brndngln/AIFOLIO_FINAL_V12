@@ -9,6 +9,8 @@ from .automated_vault_enhancements import *
 # Example: Enhanced vault generation pipeline
 
 
+from typing import Optional, Dict, Any
+
 def enhanced_generate_vault(
     niche: str,
     audience: Optional[Dict[Any, Any]] = None,

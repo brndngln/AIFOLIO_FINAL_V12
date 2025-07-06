@@ -5,6 +5,7 @@ import time
 import os
 import json
 import datetime
+from typing import Callable, Any
 
 BALANCER_LOG = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../analytics/load_balancer_log.jsonl")
@@ -15,7 +16,7 @@ os.makedirs(os.path.dirname(BALANCER_LOG), exist_ok=True)
 # --- Load Balancer for AI Task Queue ---
 class AITaskQueue:
     def __init__(self, workers: int = 3) -> None:
-        self.queue: queue.Queue = queue.Queue()
+        self.queue: queue.Queue[Any] = queue.Queue()
         self.workers: int = workers
         self.threads: list[threading.Thread] = []
 

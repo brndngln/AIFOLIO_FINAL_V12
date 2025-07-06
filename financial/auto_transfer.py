@@ -417,7 +417,7 @@ class AutoTransferRules:
         unallocated_float: Dict[str, float] = {k: float(v) for k, v in unallocated.items()}
         return allocations_float, unallocated_float
 
-    def get_allocation_rules(self) -> Dict[str, Dict]:
+    def get_allocation_rules(self) -> Dict[str, Dict[str, Any]]:
         """
         Get detailed allocation rules for the current strategy.
 

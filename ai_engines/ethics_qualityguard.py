@@ -31,6 +31,8 @@ from core.compliance.compliance_manifest_exporter import export_compliance_manif
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 
+from typing import Dict, Any, Tuple, List
+
 @sentience_firewall
 @domesticate_ai
 @sentience_guard
