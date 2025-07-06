@@ -54,38 +54,59 @@ DB_PATH = os.getenv("AUTOMATION_DB", "automation.db")
 EVENT_MAP_PATH = os.path.join(os.path.dirname(__file__), "../config/event_map.json")
 
 
+from typing import Any, Dict, Optional, List, Set, Coroutine, Awaitable
+
 class EventRouter:
     """
     OMNILOCK ANTI-SENTIENCE SECURITY: All sentience, memory, feedback, recursion, and adaptive logic is PERMANENTLY LOCKED OUT.
     """
 
-    AntiSentienceLock = True
-    OneShotCognitionMode = True
-    StatelessAutonomy = True
-    NoMemoryToken = True
-    sentience_token_killswitch = True
-    memory_depth_limit = 0
-    self_awareness_check = False
-    recursive_feedback_allowed = False
-    NoConsciousnessSeed = True
+    AntiSentienceLock: bool = True
+    OneShotCognitionMode: bool = True
+    StatelessAutonomy: bool = True
+    NoMemoryToken: bool = True
+    sentience_token_killswitch: bool = True
+    memory_depth_limit: int = 0
+    self_awareness_check: bool = False
+    recursive_feedback_allowed: bool = False
+    NoConsciousnessSeed: bool = True
 
-    def __init__(self):
+    fallback: FallbackHandler
+    compliance: ComplianceEngine
+    vault: VaultManager
+    redis: Optional[Any]
+    db: Any
+    event_map: Dict[str, Any]
+
+    def __init__(self) -> None:
+        """
+        Initialize the EventRouter with fallback, compliance, vault, redis, db, and event map.
+        """
         self.fallback = FallbackHandler()
         self.compliance = ComplianceEngine()
         self.vault = VaultManager()
         self.redis = redis.Redis.from_url(REDIS_URL) if REDIS_URL else None
         self.db = sqlite3.connect(DB_PATH, check_same_thread=False)
-        self.event_map = self.load_event_map()
+        self.event_map: Dict[str, Any] = self.load_event_map()
 
-    def load_event_map(self):
+    def load_event_map(self) -> Dict[str, Any]:
+        """
+        Load the event map from the configuration file.
+        Returns:
+            A dictionary representing the event map.
+        """
         if os.path.exists(EVENT_MAP_PATH):
             with open(EVENT_MAP_PATH, "r") as f:
                 return json.load(f)
         return {}
 
-    async def route(self, event_type, payload, options=None):
+    async def route(self, event_type: str, payload: Dict[str, Any], options: Optional[Dict[str, Any]] = None) -> None:
         """
         Elite async, deduplicated, idempotent event router. Tracks per-integration status, supports 10,000+ concurrency, exponential backoff, admin escalation, Prometheus metrics, and full audit logging. Ready for future AI/analytics hooks.
+        Args:
+            event_type: The type of event to route.
+            payload: The event payload as a dictionary.
+            options: Optional dictionary of routing options.
         """
         import asyncio
         from prometheus_client import Counter
@@ -105,7 +126,7 @@ class EventRouter:
         self._recent_events.add(event_hash)
         if len(self._recent_events) > 10000:
             self._recent_events = set(list(self._recent_events)[-5000:])
-        log_entry = {
+        log_entry: Dict[str, Any] = {
             "event": event_type,
             "payload": payload,
             "timestamp": ts,
@@ -116,7 +137,7 @@ class EventRouter:
         try:
             self.log_event(log_entry)
             logic = self.event_map.get(event_type, [])
-            tasks = []
+            tasks: List[Awaitable[None]] = []
             for action in logic:
                 if isinstance(action, dict) and "if" in action:
                     # Conditional gateway
@@ -168,11 +189,15 @@ class EventRouter:
             logging.error(f"EventRouter error: {e}")
             self.fallback.handle(event_type, payload, error=str(e))
 
-    def get_recent_events(self, limit=100):
+    def get_recent_events(self, limit: int = 100) -> List[Dict[str, Any]]:
         """
         Retrieve recent event log entries for analytics and dashboard. Supports Redis or SQLite.
+        Args:
+            limit: The maximum number of events to retrieve.
+        Returns:
+            List of event log entries as dictionaries.
         """
-        events = []
+        events: List[Dict[str, Any]] = []
         try:
             if self.redis:
                 logs = self.redis.lrange("event_log", -limit, -1)
@@ -198,16 +223,29 @@ class EventRouter:
             logging.warning(f"get_recent_events failed: {e}")
         return events
 
-    def get_latest_insights(self):
+    def get_latest_insights(self) -> Dict[str, Any]:
         """
         Return the most recent AI analytics insights for dashboard or API access.
+        Returns:
+            The latest insights as a dictionary.
         """
         return getattr(self, "_latest_insights", {})
 
-    async def execute_action_async(self, action, payload, log_entry, retry=0):
+    async def execute_action_async(
+        self,
+        action: str,
+        payload: Dict[str, Any],
+        log_entry: Dict[str, Any],
+        retry: int = 0,
+    ) -> None:
         """
         Async execution of a single logic trigger. Tracks status for UI, admin alerting, and observability.
         Retries with exponential backoff and escalates to admin on repeated failure.
+        Args:
+            action: The action to execute.
+            payload: The payload for the action.
+            log_entry: The log entry to update.
+            retry: The current retry count.
         """
         import asyncio
         import time
@@ -376,10 +414,13 @@ class EventRouter:
                 await asyncio.to_thread(send_slack_alert, alert_payload)
                 # Optionally freeze/bypass automation or notify owner
 
-    def execute_action(self, action, payload):
+    def execute_action(self, action: str, payload: Dict[str, Any]) -> None:
         """
         Execute a single logic trigger for an event. All integrations and automations are routed here.
         Supports: webhook, slack, n8n, notion, airtable, sms, compliance, vault, log, and future extensions.
+        Args:
+            action: The action to execute.
+            payload: The payload for the action.
         """
         try:
             if action == "webhook":
@@ -417,8 +458,15 @@ class EventRouter:
         except Exception as e:
             logging.error(f"Action {action} failed: {e}")
 
-    def evaluate_condition(self, condition, payload):
-        # Example: {'field': 'revenue', 'op': '>', 'value': 100}
+    def evaluate_condition(self, condition: Dict[str, Any], payload: Dict[str, Any]) -> bool:
+        """
+        Evaluate a condition dictionary against the payload.
+        Args:
+            condition: The condition dictionary with 'field', 'op', and 'value'.
+            payload: The event payload.
+        Returns:
+            True if the condition is met, False otherwise.
+        """
         try:
             field, op, value = condition["field"], condition["op"], condition["value"]
             actual = payload.get(field)
@@ -438,8 +486,12 @@ class EventRouter:
             logging.warning(f"Condition eval failed: {e}")
         return False
 
-    def log_event(self, entry):
-        # Redis for async replay, SQLite for persistence
+    def log_event(self, entry: Dict[str, Any]) -> None:
+        """
+        Log an event to Redis for async replay and SQLite for persistence.
+        Args:
+            entry: The event log entry as a dictionary.
+        """
         try:
             if self.redis:
                 self.redis.rpush("event_log", json.dumps(entry))

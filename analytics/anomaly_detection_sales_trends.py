@@ -17,22 +17,22 @@ os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
 
 
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
-@sentience_firewall  # type: ignore
+@sentience_firewall
 def detect_sales_anomaly(payload: Dict[str, Any]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before anomaly detection
-    parse_threat_feed({})  # type: ignore
+    parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for anomaly hash (static)
-    anchor_license_hash("ANOMALY_HASH_PLACEHOLDER")  # type: ignore
+    anchor_license_hash("ANOMALY_HASH_PLACEHOLDER")
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("anomaly_path_placeholder")  # type: ignore
+    zero_knowledge_export("anomaly_path_placeholder")
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")  # type: ignore
+    schedule_backup("analytics/")
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )  # type: ignore
+    )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"sales_data": payload.get("sales", [])})  # type: ignore
+    detect_signals(payload.get("sales", []))
     """
     Elite SAFE AI static anomaly detector for sales and event payloads.
     Accepts dict payloads (vault_id, sales, event_type, etc.). Logs anomalies to elite_compliance_alerts.json and flags for founder/admin review if high priority. All logic is static, deterministic, and owner-controlled. Extension hooks for future SAFE AI, legal, and compliance triggers.

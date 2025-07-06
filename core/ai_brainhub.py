@@ -1,11 +1,24 @@
 # ai_brainhub.py — OMNIELITE V3: Billionaire cognitive matrix and optimization
-class AIBrainHub:
-    def __init__(self):
-        self.engines = []
+from typing import List, Any
 
-    def register_engine(self, engine):
+class AIBrainHub:
+    def __init__(self) -> None:
+        """
+        Initializes the OMNIELITE Billionaire cognitive engine hub.
+        """
+        self.engines: List[Any] = []
+
+    def register_engine(self, engine: Any) -> None:
+        """
+        Registers an optimization engine to the hub.
+        Args:
+            engine: An object with an optimize() method.
+        """
         self.engines.append(engine)
 
-    def optimize_all(self):
+    def optimize_all(self) -> None:
+        """
+        Runs optimize() on all registered engines.
+        """
         for engine in self.engines:
             engine.optimize()

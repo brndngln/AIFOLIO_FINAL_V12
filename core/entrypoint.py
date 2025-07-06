@@ -15,8 +15,14 @@ if not ADMIN_KEY:
     sys.exit(1)
 
 
-def check_admin_key(input_key):
-    """Verify admin key for all access. No public login/signup."""
+def check_admin_key(input_key: str) -> bool:
+    """
+    Verify admin key for all access. No public login/signup.
+    Args:
+        input_key: The key provided by the user.
+    Returns:
+        True if the key matches the ADMIN_KEY, False otherwise.
+    """
     return input_key == ADMIN_KEY
 
 

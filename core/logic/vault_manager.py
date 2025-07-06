@@ -37,7 +37,7 @@ assert (
 assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
 
 import logging
-
+from typing import Any
 
 class VaultManager:
     """
@@ -54,7 +54,12 @@ class VaultManager:
     recursive_feedback_allowed = False
     NoConsciousnessSeed = True
 
-    def process(self, payload):
+    def process(self, payload: Any) -> None:
+        """
+        Processes a vault-related event payload for automation and updates.
+        Args:
+            payload: The event payload to process.
+        """
         # Vault update, revenue, and automation logic
         logging.info(f"VaultManager: {payload}")
         # ...
