@@ -17,7 +17,7 @@ class PDFVariant(TypedDict, total=False):
     policy_safe: bool
 
 class PDFQuantumGenerator:
-    def __init__(self):
+    def __init__(self) -> None:
         self.variants = [
             "step_by_step_tutorial",
             "seven_day_challenge",

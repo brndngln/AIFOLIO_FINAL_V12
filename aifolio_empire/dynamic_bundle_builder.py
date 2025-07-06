@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 class DynamicBundleBuilder:
     """Creates dynamic product bundles with pricing and scarcity."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the bundle builder."""
         self.bundle_templates = {
             "starter": {
@@ -92,7 +92,7 @@ class DynamicBundleBuilder:
 
         return bundle
 
-    def _create_scarcity(self, bundle_type: str) -> Dict[str, Any]:
+    def _create_scarcity(self, bundle_type: str) -> ScarcityDict:
         """Create scarcity element for bundle."""
         now = datetime.now()
 
@@ -121,7 +121,7 @@ class DynamicBundleBuilder:
                 "message": "Available exclusively to our VIP members",
             }
 
-    def _create_bonus(self, bundle_type: str) -> Dict[str, Any]:
+    def _create_bonus(self, bundle_type: str) -> BonusDict:
         """Create bonus offer for bundle."""
         if bundle_type == "starter":
             return {

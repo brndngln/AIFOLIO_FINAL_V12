@@ -11,7 +11,7 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.sentience_firewall import sentience_firewall
 
 
-def analyze_tone_voice(vaults):
+def analyze_tone_voice(vaults: List[Dict[str, Any]]) -> List[str]:
     # OMNIPROOF: Threat feed check before tone/voice analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for tone/voice hash (static)
@@ -42,9 +42,16 @@ def analyze_tone_voice(vaults):
     # OMNIPROOF: Monetization signal detection
     detect_signals({"vaults": vaults})
 
+    return []
 
 @sentience_firewall
-def check_tone_voice(text, brand_profile):
+def check_tone_voice(text: str, brand_profile: Dict[str, Any]) -> Dict[str, Any]:
+    """Return static analysis of tone and brand match."""
+    if brand_profile.lower() in text.lower():
+        return {"match": True, "tone": "consistent", "confidence": 1.0}
+    return {"match": False, "tone": "inconsistent", "confidence": 0.7}
+
+def check_typo_grammar(text: str, brand_profile: Dict[str, Any]) -> Dict[str, Any]:
     """Return static analysis of tone and brand match."""
     if brand_profile.lower() in text.lower():
         return {"match": True, "tone": "consistent", "confidence": 1.0}

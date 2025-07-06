@@ -31,6 +31,8 @@ TONE_WHITELIST = ["professional", "friendly", "neutral", "authoritative"]
 
 
 # --- Output Normalizer ---
+from typing import Any, Dict
+
 def normalize_output(
     text,
     brand_terms=BRAND_GUIDELINES,

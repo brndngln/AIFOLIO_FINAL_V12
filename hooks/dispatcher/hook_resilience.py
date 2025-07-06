@@ -12,7 +12,7 @@ HOOK_HISTORY: List[Dict[str, Any]] = []
 
 class HookResilience:
     @staticmethod
-    def retry_hook(hook_fn, args, max_attempts=3):
+    def retry_hook(hook_fn: Callable[..., Any], args: List[Any], max_attempts: int = 3) -> Optional[Any]:
         for attempt in range(max_attempts):
             try:
                 result = hook_fn(*args)
@@ -55,17 +55,17 @@ class HookResilience:
         return None
 
     @staticmethod
-    def manual_replay(hook_name, args):
+    def manual_replay(hook_name: str, args: List[Any]) -> Any:
         # Admin-only: manually replay a hook
         return HookResilience.retry_hook(globals()[hook_name], args)
 
     @staticmethod
-    def outcome_predictor(hook_name):
+    def outcome_predictor(hook_name: str) -> str:
         # Static: returns a random prediction for demo
         return random.choice(["success", "fail", "retry"])
 
     @staticmethod
-    def health_monitor():
+    def health_monitor() -> Dict[str, Any]:
         # Returns static health status
         return {
             "uptime": "99.99%",
@@ -74,15 +74,15 @@ class HookResilience:
         }
 
     @staticmethod
-    def refund_trigger_predictor(hook_name, args):
+    def refund_trigger_predictor(hook_name: str, args: List[Any]) -> str:
         # Static: returns random refund risk
         return random.choice(["low", "medium", "high"])
 
     @staticmethod
-    def replay_history():
+    def replay_history() -> List[Dict[str, Any]]:
         return HOOK_HISTORY[-20:]
 
     @staticmethod
-    def signature_fingerprinter(hook_name, args):
+    def signature_fingerprinter(hook_name: str, args: List[Any]) -> str:
         # Static: returns a hash-like signature
         return f"HOOK-{hook_name}-{'-'.join(str(a) for a in args)}"

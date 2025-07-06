@@ -19,7 +19,7 @@ class VaultDict(TypedDict, total=False):
     traffic: int
 
 class FractalVaultEngine:
-    def __init__(self):
+    def __init__(self) -> None:
         self.styles = ["minimal", "premium", "bold", "classic"]
         self.categories = ["marketing", "sales", "coaching", "education", "growth"]
         self.markets = ["US", "EU", "JP", "IN", "BR", "UK", "AU"]

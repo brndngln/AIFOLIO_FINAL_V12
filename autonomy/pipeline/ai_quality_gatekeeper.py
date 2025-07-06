@@ -12,7 +12,9 @@ os.makedirs(os.path.dirname(GATEKEEPER_LOG), exist_ok=True)
 
 
 # --- Quality Gatekeeper ---
-def score_output(text):
+from typing import Any, Dict
+
+def score_output(text: str) -> Dict[str, Any]:
     # Grammar (spelling errors)
     spell = SpellChecker()
     words = text.split()

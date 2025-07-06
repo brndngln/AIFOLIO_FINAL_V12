@@ -2,9 +2,9 @@ import os
 import shutil
 import logging
 import json
+from typing import Dict, Any
 
-
-def store_backup_to_archive(order_id, vault_id):
+def store_backup_to_archive(order_id: str, vault_id: str) -> None:
     """
     Copy a vault file to ARCHIVE_PATH (if set) or log to file. Simulate S3/local archive.
     """
