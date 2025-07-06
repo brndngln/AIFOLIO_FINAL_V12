@@ -6,13 +6,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-STATIC_TLS_CONFIG = {
+from typing import Dict
+
+STATIC_TLS_CONFIG: Dict[str, str] = {
     "min_version": "TLSv1.3",
     "hsts": "max-age=31536000; includeSubDomains",
     "csp": "default-src 'self'; script-src 'self'; object-src 'none';",
 }
 
-
-def get_tls_security_config() -> dict:
+def get_tls_security_config() -> Dict[str, str]:
     logger.info(f"TLS/HSTS/CSP config: {STATIC_TLS_CONFIG}")
     return STATIC_TLS_CONFIG

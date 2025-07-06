@@ -2,45 +2,47 @@
 # Placeholder regenerated file for compatibility
 
 
+from typing import Any
+
 class RateLimiter:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
-    def allow(self, *args, **kwargs):
+    def allow(self, *args: Any, **kwargs: Any) -> bool:
         return True
 
 
 class RedisCache:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
-    def get(self, *args, **kwargs):
+    def get(self, *args: Any, **kwargs: Any) -> Any:
         return None
 
-    def set(self, *args, **kwargs):
+    def set(self, *args: Any, **kwargs: Any) -> bool:
         return True
 
 
 class VaultMetrics:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
-    def record(self, *args, **kwargs):
+    def record(self, *args: Any, **kwargs: Any) -> bool:
         return True
 
 
 class APIErrorHandler:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
-    def handle(self, *args, **kwargs):
+    def handle(self, *args: Any, **kwargs: Any) -> dict[str, str]:
         return {"error": "static_stub"}
 
-    def allow(self, *args, **kwargs):
+    def allow(self, *args: Any, **kwargs: Any) -> bool:
         return True
 
 
-def placeholder_function():
+def placeholder_function() -> str:
     """Static compatibility function for SAFE AI compliance. Extension: real compatibility logic."""
     import logging
 
@@ -49,7 +51,7 @@ def placeholder_function():
     return "api_utils is active (static stub)"
 
 
-def get(url, **kwargs):
+def get(url: str, **kwargs: Any) -> dict[str, str]:
     """Static deterministic GET utility. Extension: real HTTP GET logic."""
     import logging
 

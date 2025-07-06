@@ -9,14 +9,16 @@ AUDIT_PATH = Path(__file__).parent.parent / "logs" / "safe_ai_policy_audit.json"
 # All logic is OWNER-controlled and fully auditable
 
 
-def load_policies():
+from typing import Any, Dict, List
+
+def load_policies() -> List[Dict[str, Any]]:
     if POLICY_PATH.exists():
         with open(POLICY_PATH, "r") as f:
             return json.load(f)
     return []
 
 
-def enforce_policy(event):
+def enforce_policy(event: Dict[str, Any]) -> tuple[bool, str]:
     policies = load_policies()
     for p in policies:
         if p["type"] == event["type"]:
@@ -39,8 +41,8 @@ def enforce_policy(event):
     return True, "Allowed."
 
 
-def log_audit(audit):
-    audits = []
+def log_audit(audit: Dict[str, Any]) -> None:
+    audits: List[Dict[str, Any]] = []
     if AUDIT_PATH.exists():
         with open(AUDIT_PATH, "r") as f:
             audits = json.load(f)
