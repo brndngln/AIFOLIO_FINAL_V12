@@ -17,6 +17,9 @@ os.makedirs(os.path.dirname(BALANCER_LOG), exist_ok=True)
 from typing import Callable, Any, List
 
 class AITaskQueue:
+    queue: "queue.Queue[Callable[..., Any]]"
+    workers: int
+    threads: List[threading.Thread]
     def __init__(self, workers: int = 3) -> None:
         self.queue: queue.Queue[Callable[..., Any]] = queue.Queue()
         self.workers: int = workers

@@ -8,8 +8,8 @@ import shutil
 
 logger = logging.getLogger(__name__)
 
-DEPLOY_DIR = "deploy/current/"
-BACKUP_DIR = "deploy/backup/"
+DEPLOY_DIR: str = "deploy/current/"
+BACKUP_DIR: str = "deploy/backup/"
 
 os.makedirs(DEPLOY_DIR, exist_ok=True)
 os.makedirs(BACKUP_DIR, exist_ok=True)
