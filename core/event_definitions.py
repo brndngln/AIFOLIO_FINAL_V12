@@ -1,6 +1,10 @@
-# core/event_definitions.py
-# Expanded event types for elite empire automation
-EVENT_TYPES = [
+"""
+core/event_definitions.py
+Expanded event types for elite empire automation. Strictly typed for OMNIELITE SAFE AI integration.
+"""
+from typing import List
+
+EVENT_TYPES: List[str] = [
     "PDF_CREATED",
     "REVENUE_THRESHOLD_REACHED",
     "COMPLIANCE_FLAG",
