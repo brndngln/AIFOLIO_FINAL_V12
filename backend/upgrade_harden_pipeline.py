@@ -32,22 +32,18 @@ def scan_system_version_state() -> Any:
 
 def refresh_ai_safety_envelope() -> None:
     log_audit_event("AI Safety Envelope refreshed.")
-    return True
 
 
 def refresh_immutable_infrastructure() -> None:
     log_audit_event("Immutable Infrastructure refreshed.")
-    return True
 
 
 def revalidate_file_integrity_and_anomaly(files: Any) -> None:
     log_audit_event("File Integrity & Anomaly Check revalidated.")
-    return True
 
 
 def sync_phase_control_panel(current_phase: Any) -> None:
     log_audit_event(f"Phase Control Panel synced to {current_phase}.")
-    return True
 
 
 def output_changelog(entries: Any) -> None:
@@ -56,23 +52,21 @@ def output_changelog(entries: Any) -> None:
     print("CHANGELOG:\n" + changelog)
 
 
-
 def output_readiness_summary(status: Any) -> None:
     summary = f"System readiness: {status}"
     log_audit_event(summary)
     print(summary)
 
 
-
 def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any) -> None:
     changelog = []
     version, phase = scan_system_version_state()
     changelog.append(f"System version/state scanned: {version}, {phase}")
-    load_revenue_profit_upgrade_engine(vaults)
+    load_revenue_profit_upgrade_engine(vaults)  # type: ignore[no-untyped-call]
     changelog.append("Revenue & Profit Upgrades applied.")
-    load_security_engine(vaults, files, actions, data)
+    load_security_engine(vaults, files, actions, data)  # type: ignore[no-untyped-call]
     changelog.append("Unbreakable Security Upgrades applied.")
-    load_auto_upgrade_manager(vaults)
+    load_auto_upgrade_manager(vaults)  # type: ignore[no-untyped-call]
     changelog.append("Auto-Upgrade Manager Enhancements applied.")
     refresh_ai_safety_envelope()
     changelog.append("AI Safety Envelope refreshed.")
@@ -87,13 +81,10 @@ def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any
     output_readiness_summary(
         "AIFOLIO FINAL V12™ fully secure, optimal, hardened, ready to scale."
     )
-    phase_status = get_empire_phase_status(
-        vaults, data.get("revenue", 0), current_phase
-    )
+    phase_status = get_empire_phase_status(vaults, data.get("revenue", 0), current_phase)  # type: ignore[no-untyped-call]
     print(f"Current Phase Status: {phase_status}")
     print(
         "Next Upgrade Trigger Prompt: Run this pipeline again after any major system change."
     )
     print("Safe Mode Status: ENABLED (static, deterministic, SAFE AI-locked)")
     print("\u2705 UPGRADE CYCLE COMPLETE — SYSTEM FULLY READY")
-    return True

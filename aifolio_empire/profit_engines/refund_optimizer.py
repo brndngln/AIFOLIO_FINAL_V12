@@ -14,7 +14,7 @@ STATIC_COPY_TEMPLATES = [
 ]
 
 
-def optimize_refund(user_id: str, region: str, refund_count: int) -> dict:
+def optimize_refund(user_id: str, region: str, refund_count: int) -> dict[str, Any]:
     """
     SAFE AI-compliant: Optimizes refund logic and copy for user/region/refund_count. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log. All logic is static, deterministic, non-sentient, and owner-controlled.
     """
