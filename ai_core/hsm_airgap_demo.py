@@ -2,17 +2,32 @@ import os
 import shutil
 
 
-def hsm_sign(data):
-    # Demo stub for HSM signing
-    print(f"[HSM] Signing data: {data[:16]}... (simulate real HSM)")
+from typing import Optional
+
+def hsm_sign(data: bytes) -> bytes:
+    """
+    Demo stub for HSM signing.
+    Args:
+        data: Data to sign (bytes).
+    Returns:
+        Simulated signature (bytes).
+    """
+    print(f"[HSM] Signing data: {data[:16].decode(errors='replace')}... (simulate real HSM)")
     # In production, replace with your HSM vendor's SDK/API
     return b"signed:" + data[:16]
 
 
-def airgap_transfer(file_path, dest_dir="/secure/airgap_transfer/"):
-    # Demo stub for air-gapped transfer
-    os.makedirs(dest_dir, exist_ok=True)
-    dest = os.path.join(dest_dir, os.path.basename(file_path))
+def airgap_transfer(file_path: str, dest_dir: Optional[str] = "/secure/airgap_transfer/") -> None:
+    """
+    Demo stub for air-gapped transfer.
+    Args:
+        file_path: Path to the file to transfer.
+        dest_dir: Destination directory for air-gapped transfer.
+    """
+    # Guarantee dest_dir is str, not None
+    _dest_dir: str = dest_dir if dest_dir is not None else "/secure/airgap_transfer/"
+    os.makedirs(_dest_dir, exist_ok=True)
+    dest = os.path.join(_dest_dir, os.path.basename(file_path))
     shutil.copy2(file_path, dest)
     print(f"[AIRGAP] Copied {file_path} to {dest} (simulate physical transfer)")
 
@@ -20,6 +35,6 @@ def airgap_transfer(file_path, dest_dir="/secure/airgap_transfer/"):
 if __name__ == "__main__":
     # Simulate HSM signing
     signed = hsm_sign(b"Critical audit log event")
-    print(f"Signature: {signed}")
+    print(f"Signature: {signed.decode(errors='replace')}")
     # Simulate airgap transfer
     airgap_transfer("ai_core/EmmaLogs/emma_audit_2025-07-03.log.enc")

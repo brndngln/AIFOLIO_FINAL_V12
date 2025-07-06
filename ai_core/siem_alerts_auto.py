@@ -3,8 +3,18 @@ import requests
 import logging
 
 
-def send_siem_alert(event_type, detail, webhook_url=None):
-    """Send a SIEM/webhook alert for any critical security or crypto event."""
+from typing import Any, Optional
+
+def send_siem_alert(event_type: str, detail: Any, webhook_url: Optional[str] = None) -> bool:
+    """
+    Send a SIEM/webhook alert for any critical security or crypto event.
+    Args:
+        event_type: Type of the event.
+        detail: Event detail (any serializable object).
+        webhook_url: Optional webhook URL. If None, uses EMMA_SIEM_WEBHOOK env var.
+    Returns:
+        True if alert sent successfully, False otherwise.
+    """
     if webhook_url is None:
         webhook_url = os.environ.get("EMMA_SIEM_WEBHOOK")
     if not webhook_url:

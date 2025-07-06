@@ -10,7 +10,17 @@ EMMA_USB_PATH = "/Volumes/EMMA_KEY/"
 # AES256 encryption using Emma Fingerprint ID
 
 
+from typing import Dict, Any
+
 def encrypt_file(data: bytes, key: bytes) -> bytes:
+    """
+    Encrypts data using AES256 CBC with PKCS7 padding.
+    Args:
+        data: Data to encrypt.
+        key: 32-byte encryption key.
+    Returns:
+        Encrypted bytes (IV + ciphertext).
+    """
     backend = default_backend()
     iv = os.urandom(16)
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=backend)
@@ -22,8 +32,18 @@ def encrypt_file(data: bytes, key: bytes) -> bytes:
 
 
 def export_to_usb_token(
-    fingerprint_id: str, key_share: str, meta: dict, biometric: str
-):
+    fingerprint_id: str, key_share: str, meta: Dict[str, Any], biometric: str
+) -> None:
+    """
+    Exports key material and metadata to a USB token, encrypting each file.
+    Args:
+        fingerprint_id: User fingerprint for key derivation.
+        key_share: Key share to export.
+        meta: Metadata dictionary.
+        biometric: Biometric authentication string.
+    Raises:
+        AssertionError if USB device is not mounted.
+    """
     assert os.path.ismount(EMMA_USB_PATH), "EMMA_KEY USB not mounted!"
     key = fingerprint_id.encode("utf-8").ljust(32, b"0")[:32]
     files = {
