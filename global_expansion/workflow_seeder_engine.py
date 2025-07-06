@@ -2,7 +2,7 @@
 AIFOLIO™ Phase 4: Workflow Seeder Engine
 Auto-registers all global expansion modules for inheritance by future workflows, vaults, and engines.
 """
-from typing import Dict, Any
+from typing import Dict, Any, List
 from global_expansion.global_scale_systems import (
     MultilingualVaultSpawner,
     AutoTranslationMarketFormatter,
@@ -28,28 +28,28 @@ class WorkflowSeederEngine:
     """Seeds all expansion modules into the operational tree and future workflow templates."""
 
     def __init__(self) -> None:
-        self.global_scale: list = [
+        self.global_scale: List[Any] = [
             MultilingualVaultSpawner(),
             AutoTranslationMarketFormatter(),
             GeoRestrictedPolicyCompliance(),
             GlobalVaultDiscoveryNetwork(),
         ]
-        self.pipeline_optimizers: list = [
+        self.pipeline_optimizers: List[Any] = [
             SmartFunnelSplitTesting(),
             AutoVaultToMasterclassBot(),
             AffiliateClonerCommission(),
             APIPaywallizer(),
             PDFProfitSpiderAILoop(),
         ]
-        self.ai_logic = [
+        self.ai_logic: List[Any] = [
             LicensingNFTGenerator(),
             FranchiseLogicInjector(),
             RealTimeMonetizationFeedback(),
             VaultThemeStyleRandomizer(),
         ]
-        self.seeded = False
+        self.seeded: bool = False
 
-    def seed_all(self):
+    def seed_all(self) -> Dict[str, Any]:
         # Simulate seeding logic
         self.seeded = True
         return {

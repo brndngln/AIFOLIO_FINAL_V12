@@ -119,9 +119,9 @@ class EMMA:
     @owner_approval_required(  # type: ignore
 "Brett: Patch Attack Vector")
     def patch_attack_vector(self, vector_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
-    result = self.code_legion["brett"].patch_attack_vector(vector_type, details)
-    self._log_legion_action("brett", "patch_attack_vector", result)
-    return dict(result) if isinstance(result, dict) else {"result": result}
+        result = self.code_legion["brett"].patch_attack_vector(vector_type, details)
+        self._log_legion_action("brett", "patch_attack_vector", result)
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Kennedy: Reinforce PDF Pipeline")
@@ -130,14 +130,14 @@ class EMMA:
             pipeline_name, details
         )
         self._log_legion_action("kennedy", "reinforce_pdf_pipeline", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Brooklyn: Update Grid Logic")
     def update_grid_logic(self, component: str, details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["brooklyn"].update_grid_logic(component, details)
         self._log_legion_action("brooklyn", "update_grid_logic", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Ray: Program PDF Agent")
@@ -146,42 +146,42 @@ class EMMA:
             agent_id, pdf_type, safeguards
         )
         self._log_legion_action("ray", "program_pdf_agent", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Ava: Monitor Performance")
     def monitor_performance(self, metric: str, value: float, details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["ava"].monitor_performance(metric, value, details)
         self._log_legion_action("ava", "monitor_performance", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Ethan: Inject File")
     def inject_file(self, file_path: str, action_details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["ethan"].inject_file(file_path, action_details)
         self._log_legion_action("ethan", "inject_file", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Zoe: Map Product Performance")
     def map_product_performance(self, product_id: str, metrics: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["zoe"].map_product_performance(product_id, metrics)
         self._log_legion_action("zoe", "map_product_performance", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Nova: Clean Legacy Code")
     def clean_legacy_code(self, module_name: str, details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["nova"].clean_legacy_code(module_name, details)
         self._log_legion_action("nova", "clean_legacy_code", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Justice: Monitor Violation")
     def monitor_violation(self, event_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["justice"].monitor_violation(event_type, details)
         self._log_legion_action("justice", "monitor_violation", result)
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     def orchestrate_agent_action(self, agent: Any, action: str, context: Dict[str, Any]) -> Dict[str, Any]:
         OmnieliteEthicsEngine.enforce(action, context)
