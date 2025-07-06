@@ -4,15 +4,15 @@ AIFOLIO™ AI Dynamic Risk Tiering
 Phase 63 — SAFE AI, non-sentient, static, owner-controlled
 Assigns low/med/high risk to automations; enables auto-approve for low risk.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
-RISK_TIER_LOG = []
+RISK_TIER_LOG: List[Dict[str, Any]] = []
 
 
 class DynamicRiskTiering:
     @staticmethod
-    def assign_risk(automation: Dict) -> str:
+    def assign_risk(automation: Dict[str, Any]) -> str:
         # Example: statically assign risk by type
         if automation.get("type") in ["metadata_update", "visual_update"]:
             return "low"
@@ -21,7 +21,7 @@ class DynamicRiskTiering:
         return "high"
 
     @staticmethod
-    def log_tier(automation: Dict, risk: str):
+    def log_tier(automation: Dict[str, Any], risk: str) -> None:
         RISK_TIER_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -31,5 +31,5 @@ class DynamicRiskTiering:
         )
 
     @staticmethod
-    def get_log() -> List[Dict]:
+    def get_log() -> List[Dict[str, Any]]:
         return RISK_TIER_LOG

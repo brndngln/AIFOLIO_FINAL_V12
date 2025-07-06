@@ -5,15 +5,15 @@ Phase 45 — SAFE AI, non-sentient, static, owner-controlled
 Tracks and logs compliance, tax, and legal platform changes. Proactively alerts owner/admin.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
-COMPLIANCE_ALERTS_LOG = []
+COMPLIANCE_ALERTS_LOG: List[Dict[str, Any]] = []
 
 
 class ComplianceGovernanceMonitor:
     @staticmethod
-    def track_compliance_changes(changes: List[Dict]) -> None:
+    def track_compliance_changes(changes: List[Dict[str, Any]]) -> None:
         """
         Logs new compliance, tax, or legal platform changes for owner review.
         """
@@ -23,5 +23,5 @@ class ComplianceGovernanceMonitor:
             )
 
     @staticmethod
-    def get_alerts() -> List[Dict]:
+    def get_alerts() -> List[Dict[str, Any]]:
         return COMPLIANCE_ALERTS_LOG

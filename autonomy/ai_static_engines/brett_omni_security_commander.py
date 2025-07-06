@@ -17,7 +17,7 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 class BrettOmniSecurityCommander:
     @staticmethod
-    def patch_attack_vector(vector_type: str, details: Dict) -> Dict:
+    def patch_attack_vector(vector_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
         """Apply a static, deterministic patch for a given attack vector."""
         result = {
             "vector_type": vector_type,
@@ -30,7 +30,7 @@ class BrettOmniSecurityCommander:
         return result
 
     @staticmethod
-    def block_jailbreak(prompt: str, context: dict) -> bool:
+    def block_jailbreak(prompt: str, context: Dict[str, Any]) -> bool:
         OmnieliteEthicsEngine.enforce("block_jailbreak", context)
         if not ethics_validator("block_jailbreak", context):
             SECURITY_PATCH_LOG.append(
@@ -46,11 +46,11 @@ class BrettOmniSecurityCommander:
         return True
 
     @staticmethod
-    def get_patch_log() -> List[Dict]:
+    def get_patch_log() -> List[Dict[str, Any]]:
         return SECURITY_PATCH_LOG
 
     @staticmethod
-    def rollback_last_patch() -> Dict:
+    def rollback_last_patch() -> Dict[str, Any]:
         if SECURITY_PATCH_LOG:
             last = SECURITY_PATCH_LOG.pop()
             return {
