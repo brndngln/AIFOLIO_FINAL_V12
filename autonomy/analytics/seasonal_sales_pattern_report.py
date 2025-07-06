@@ -4,7 +4,9 @@ AIFOLIO SAFE AI Seasonal Sales Pattern Report
 """
 
 
-def seasonal_sales_pattern(sales_by_month):
+from typing import Any
+
+def seasonal_sales_pattern(sales_by_month: Any) -> Any:
     # Expects: {'YYYY-MM': value, ...}
     if not sales_by_month:
         return {"seasonal_pattern": []}

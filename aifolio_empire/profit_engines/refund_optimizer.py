@@ -53,12 +53,12 @@ def optimize_refund(user_id: str, region: str, refund_count: int) -> dict:
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def refund_drift_protection():
+def refund_drift_protection() -> dict:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def refund_static_feedback():
+def refund_static_feedback() -> dict:
     return ["Review refund logic and copy for compliance and performance."]
 
 

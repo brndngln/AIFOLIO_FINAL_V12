@@ -47,7 +47,7 @@ class HookResilience:
                             "args": args,
                             "attempt": attempt + 1,
                         },
-                    )
+                    )  # type: ignore[no-untyped-call]
                 except Exception:
                     pass
                 if attempt < len(RETRY_BACKOFFS):

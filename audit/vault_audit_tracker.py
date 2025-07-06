@@ -5,12 +5,14 @@ import datetime
 from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
 
 
+from typing import List, Dict, Any
+
 class VaultAuditTracker:
-    _log = []
-    _snapshots = []
+    _log: List[Dict[str, Any]] = []
+    _snapshots: List[Dict[str, Any]] = []
 
     @staticmethod
-    def record(action, details=None):
+    def record(action: str, details: Dict[str, Any] | None = None) -> None:
         entry = {
             "action": action,
             "details": details,
@@ -25,7 +27,7 @@ class VaultAuditTracker:
             f.write(encrypted_log + "\n")
 
     @staticmethod
-    def snapshot(state):
+    def snapshot(state: Dict[str, Any]) -> None:
         snap = {
             "state": state,
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -40,9 +42,9 @@ class VaultAuditTracker:
             f.write(encrypted_log + "\n")
 
     @staticmethod
-    def get_log():
+    def get_log() -> List[Dict[str, Any]]:
         return list(VaultAuditTracker._log)
 
     @staticmethod
-    def get_snapshots():
+    def get_snapshots() -> List[Dict[str, Any]]:
         return list(VaultAuditTracker._snapshots)

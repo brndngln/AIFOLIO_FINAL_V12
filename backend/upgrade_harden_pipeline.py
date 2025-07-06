@@ -22,48 +22,48 @@ from backend.security.audit_logging import log_audit_event
 logger = logging.getLogger(__name__)
 
 
-def scan_system_version_state():
+def scan_system_version_state() -> Any:
     version = "AIFOLIO_FINAL_V12"
     phase = "FULLY UPGRADED"
     log_audit_event(f"System version/state: {version}, {phase}")
     return version, phase
 
 
-def refresh_ai_safety_envelope():
+def refresh_ai_safety_envelope() -> None:
     log_audit_event("AI Safety Envelope refreshed.")
     return True
 
 
-def refresh_immutable_infrastructure():
+def refresh_immutable_infrastructure() -> None:
     log_audit_event("Immutable Infrastructure refreshed.")
     return True
 
 
-def revalidate_file_integrity_and_anomaly(files):
+def revalidate_file_integrity_and_anomaly(files: Any) -> None:
     log_audit_event("File Integrity & Anomaly Check revalidated.")
     return True
 
 
-def sync_phase_control_panel(current_phase):
+def sync_phase_control_panel(current_phase: Any) -> None:
     log_audit_event(f"Phase Control Panel synced to {current_phase}.")
     return True
 
 
-def output_changelog(entries):
+def output_changelog(entries: Any) -> None:
     changelog = "\n".join(entries)
     log_audit_event(f"CHANGELOG: {changelog}")
     print("CHANGELOG:\n" + changelog)
     return changelog
 
 
-def output_readiness_summary(status):
+def output_readiness_summary(status: Any) -> None:
     summary = f"System readiness: {status}"
     log_audit_event(summary)
     print(summary)
     return summary
 
 
-def run_upgrade_harden_pipeline(vaults, files, actions, data):
+def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any) -> None:
     changelog = []
     version, phase = scan_system_version_state()
     changelog.append(f"System version/state scanned: {version}, {phase}")

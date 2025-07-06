@@ -21,13 +21,13 @@ FROM_NAME = os.getenv("FROM_NAME", "AIFOLIO Vaults")
 
 
 # --- Opt-in Email Alerts for Vault Builds ---
-def send_vault_email_alert(to_email, subject, body):
+def send_vault_email_alert(to_email: str, subject: str, body: str) -> None:
     # --- SAFE AI Legal Shield: Compliance Enforcement ---
     from core.compliance.smart_legal_watcher import weekly_report
     from autonomy.ai_tools.review_analyzer import analyze_review
 
     # Scrub subject/body for banned terms/PII/financial data
-    analysis = analyze_review(subject + " " + body)
+    analysis = analyze_review(subject + " " + body)  # type: ignore[no-untyped-call]
     if (
         analysis["banned"]
         or "pii" in analysis["flags"]
@@ -50,12 +50,13 @@ def send_vault_email_alert(to_email, subject, body):
 
     msg = MIMEText(body, "plain")
     msg["Subject"] = subject
+    from typing import cast
     msg["From"] = formataddr((FROM_NAME, FROM_EMAIL))
     msg["To"] = to_email
     try:
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+        with smtplib.SMTP(cast(str, SMTP_HOST), SMTP_PORT) as server:
             server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
+            server.login(cast(str, SMTP_USER), cast(str, SMTP_PASS))
             server.send_message(msg)
         status = "sent"
     except Exception as e:
@@ -68,4 +69,4 @@ def send_vault_email_alert(to_email, subject, body):
     }
     with open(EMAIL_LOG, "a") as f:
         f.write(json.dumps(entry) + "\n")
-    return status
+

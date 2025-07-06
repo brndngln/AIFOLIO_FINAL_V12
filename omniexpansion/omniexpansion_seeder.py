@@ -12,12 +12,12 @@ from omniexpansion.darkweb_intel_firewall import DarkwebIntelFirewall
 from omniexpansion.recursive_success_multiplier import RecursiveSuccessMultiplier
 from omniexpansion.empire_clone_engine import EmpireCloneEngine
 from omniexpansion.multilingual_exporter import MultilingualAIExporter
-
+from typing import Any
 
 class OmnieliteEmpireSeederEngine:
     """Seeds all Omnielite Empire modules into the operational tree and future workflow templates."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.neural_strategy = NeuralStrategySphere()
         self.perpetual_growth = PerpetualGrowthAILogic()
         self.mini_brands = MiniBrandsFactory()
@@ -30,7 +30,7 @@ class OmnieliteEmpireSeederEngine:
         self.multilingual_exporter = MultilingualAIExporter()
         self.seeded = False
 
-    def seed_all(self):
+    def seed_all(self) -> None:
         # Simulate seeding logic
         self.seeded = True
         return {
@@ -47,7 +47,7 @@ class OmnieliteEmpireSeederEngine:
             "status": "Omnielite Empire Seeded",
         }
 
-    def auto_inherit(self, workflow):
+    def auto_inherit(self, workflow: Any) -> None:
         """Attach all Omnielite Empire hooks to a new workflow, vault, or module."""
         workflow["omniexpansion_hooks"] = [
             type(self.neural_strategy).__name__,
