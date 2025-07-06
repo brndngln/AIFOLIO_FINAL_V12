@@ -14,15 +14,15 @@ os.makedirs(os.path.dirname(BALANCER_LOG), exist_ok=True)
 
 # --- Load Balancer for AI Task Queue ---
 class AITaskQueue:
-    def __init__(self, workers=3):
-        self.queue = queue.Queue()
-        self.workers = workers
-        self.threads = []
+    def __init__(self, workers: int = 3) -> None:
+        self.queue: queue.Queue = queue.Queue()
+        self.workers: int = workers
+        self.threads: list[threading.Thread] = []
 
-    def add_task(self, task):
+    def add_task(self, task: 'Callable[..., Any]') -> None:
         self.queue.put(task)
 
-    def worker(self):
+    def worker(self) -> None:
         while True:
             task = self.queue.get()
             try:
@@ -42,7 +42,7 @@ class AITaskQueue:
                 f.write(json.dumps(entry) + "\n")
             self.queue.task_done()
 
-    def start(self):
+    def start(self) -> None:
         for _ in range(self.workers):
             t = threading.Thread(target=self.worker, daemon=True)
             t.start()

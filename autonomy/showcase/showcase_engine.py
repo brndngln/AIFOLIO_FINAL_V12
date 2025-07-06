@@ -24,21 +24,21 @@ class ShowcaseEngine:
                 "user": "Alice",
                 "review": "Amazing value!",
                 "benefit": "Saved time",
-                "score": 9,
+                "score": "9",
             },
             {
                 "user": "Bob",
                 "review": "Very useful.",
                 "benefit": "Improved workflow",
-                "score": 8,
+                "score": "8",
             },
         ]
 
     @staticmethod
     def get_reviews(vault_id: str) -> List[Dict[str, str]]:
         return [
-            {"user": "Charlie", "review": "Solid product.", "stars": 5},
-            {"user": "Dana", "review": "Would recommend.", "stars": 4},
+            {"user": "Charlie", "review": "Solid product.", "stars": "5"},
+            {"user": "Dana", "review": "Would recommend.", "stars": "4"},
         ]
 
     @staticmethod

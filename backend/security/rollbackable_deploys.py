@@ -15,7 +15,7 @@ os.makedirs(DEPLOY_DIR, exist_ok=True)
 os.makedirs(BACKUP_DIR, exist_ok=True)
 
 
-def deploy_new_version(src_dir: str):
+def deploy_new_version(src_dir: str) -> None:
     # Backup current
     if os.path.exists(DEPLOY_DIR):
         shutil.copytree(DEPLOY_DIR, BACKUP_DIR, dirs_exist_ok=True)
@@ -24,7 +24,7 @@ def deploy_new_version(src_dir: str):
     logger.info(f"Deployed new version from {src_dir}")
 
 
-def rollback():
+def rollback() -> None:
     if os.path.exists(BACKUP_DIR):
         shutil.copytree(BACKUP_DIR, DEPLOY_DIR, dirs_exist_ok=True)
         logger.info("Rolled back to last-known-good deploy")

@@ -34,7 +34,7 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 @sentience_firewall
 @domesticate_ai
 @sentience_guard
-def enforce_ethics(module_name, state, text):
+def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
     # OMNIPROOF: Threat feed check before ethics enforcement
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for ethics hash (static)
@@ -65,7 +65,7 @@ def enforce_ethics(module_name, state, text):
 from ai_engines.prompt_optimizer import enforce_legal_safety
 
 
-def ethics_quality_check(output):
+def ethics_quality_check(output: str) -> str:
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     output = enforce_legal_safety(output)
     """
@@ -87,7 +87,7 @@ def ethics_quality_check(output):
     return fixes, report
 
 
-def scan_and_fix(text):
+def scan_and_fix(text: str) -> Tuple[str, List[str]]:
     """
     Static SAFE AI scan for unethical/manipulative language and readability.
     Returns (fixed_text, report_list). No sentient, adaptive, or learning logic.

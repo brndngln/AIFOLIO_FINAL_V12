@@ -11,11 +11,11 @@ from .automated_vault_enhancements import *
 
 def enhanced_generate_vault(
     niche: str,
-    audience: dict = None,
+    audience: Optional[Dict[Any, Any]] = None,
     language: str = "en",
     publish: bool = False,
-    marketplace: str = None,
-) -> dict:
+    marketplace: Optional[str] = None,
+) -> Dict[str, Any]:
     """
     Generate a vault with all advanced enhancements applied. Deterministic, static, SAFE AI-compliant, OWNER-controlled.
     All steps are audit-logged. Extension points for real integrations are documented.

@@ -157,33 +157,43 @@ class EMMA:
 
     @owner_approval_required(  # type: ignore
 "Ethan: Inject File")
-    def inject_file(self, file_path: str, action_details: Dict[str, Any]) -> Dict[str, Any]:
+    def inject_file(
+        self, file_path: str, action_details: Dict[str, Any]
+    ) -> Dict[str, Any]:
         result = self.code_legion["ethan"].inject_file(file_path, action_details)
         self._log_legion_action("ethan", "inject_file", result)
         return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Zoe: Map Product Performance")
-    def map_product_performance(self, product_id: str, metrics: Dict[str, Any]) -> Dict[str, Any]:
+    def map_product_performance(
+        self, product_id: str, metrics: Dict[str, Any]
+    ) -> Dict[str, Any]:
         result = self.code_legion["zoe"].map_product_performance(product_id, metrics)
         self._log_legion_action("zoe", "map_product_performance", result)
         return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Nova: Clean Legacy Code")
-    def clean_legacy_code(self, module_name: str, details: Dict[str, Any]) -> Dict[str, Any]:
+    def clean_legacy_code(
+        self, module_name: str, details: Dict[str, Any]
+    ) -> Dict[str, Any]:
         result = self.code_legion["nova"].clean_legacy_code(module_name, details)
         self._log_legion_action("nova", "clean_legacy_code", result)
         return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required(  # type: ignore
 "Justice: Monitor Violation")
-    def monitor_violation(self, event_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
+    def monitor_violation(
+        self, event_type: str, details: Dict[str, Any]
+    ) -> Dict[str, Any]:
         result = self.code_legion["justice"].monitor_violation(event_type, details)
         self._log_legion_action("justice", "monitor_violation", result)
         return dict(result) if isinstance(result, dict) else {"result": result}
 
-    def orchestrate_agent_action(self, agent: Any, action: str, context: Dict[str, Any]) -> Dict[str, Any]:
+    def orchestrate_agent_action(
+        self, agent: Any, action: str, context: Dict[str, Any]
+    ) -> Dict[str, Any]:
         OmnieliteEthicsEngine.enforce(action, context)
         if not ethics_validator(action, context):
             self.log_action(action, context, "blocked")
@@ -229,8 +239,10 @@ class EMMA:
         self.log_action(action, context, "success")
         return result
 
-    def log_action(self, action: str, context: Dict[str, Any], status: str) -> None:
-        entry = {
+    def log_action(
+        self, action: str, context: Dict[str, Any], status: str
+    ) -> None:
+        entry: Dict[str, Any] = {
             "timestamp": datetime.datetime.utcnow().isoformat(),
             "action": action,
             "context": context,

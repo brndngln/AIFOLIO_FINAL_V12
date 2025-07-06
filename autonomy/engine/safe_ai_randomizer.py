@@ -20,7 +20,7 @@ STYLE_SHIFTS = [
 ]
 
 
-def safe_randomize(text):
+def safe_randomize(text: str) -> str:
     """
     Applies a minor, brand-safe style shift. Human preview required for all outputs.
     """

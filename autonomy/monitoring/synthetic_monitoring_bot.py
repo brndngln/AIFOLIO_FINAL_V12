@@ -21,7 +21,7 @@ USER_FLOWS = [
 ]
 
 
-def simulate_user_flow(flow):
+def simulate_user_flow(flow: Dict[str, Any]) -> Dict[str, Any]:
     result = {"flow": flow["name"], "steps": [], "success": True}
     for step in flow["steps"]:
         latency = round(random.uniform(0.05, 1.5), 2)
@@ -40,7 +40,7 @@ def simulate_user_flow(flow):
     return result
 
 
-def run_all_flows():
+def run_all_flows() -> List[Dict[str, Any]]:
     return [simulate_user_flow(flow) for flow in USER_FLOWS]
 
 

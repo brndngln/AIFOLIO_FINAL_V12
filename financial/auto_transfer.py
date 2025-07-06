@@ -412,7 +412,10 @@ class AutoTransferRules:
                 f"Distributed ${amount:,.2f} according to strategy '{self.current_strategy.name}'"
             )
 
-        return allocations, unallocated
+        # Convert Decimal to float for return type compliance
+        allocations_float: Dict[str, float] = {k: float(v) for k, v in allocations.items()}
+        unallocated_float: Dict[str, float] = {k: float(v) for k, v in unallocated.items()}
+        return allocations_float, unallocated_float
 
     def get_allocation_rules(self) -> Dict[str, Dict]:
         """
