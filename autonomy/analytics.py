@@ -8,7 +8,19 @@ import json
 from collections import Counter, defaultdict
 
 
-def parse_line(line):
+from typing import Dict, Any, List, Optional, Tuple, Callable, TypedDict, Union
+
+# SAFE AI Compliance: This module is static, deterministic, owner-controlled, and fully auditable. No adaptive or sentient logic is present. All extension points are documented for static analytics only.
+
+class AuditEvent(TypedDict, total=False):
+    timestamp: Optional[str]
+    key: Optional[str]
+    action: Optional[str]
+    endpoint: Optional[str]
+    status: Optional[str]
+    latency: Optional[float]
+
+def parse_line(line: str) -> Optional[AuditEvent]:
     # Example: [2025-06-23T18:01:54.123456] API_KEY_USAGE: key=PHASE9SAFEKEY action=access endpoint=/phase9/foo
     if "API_KEY_USAGE:" not in line:
         return None
@@ -33,15 +45,18 @@ def parse_line(line):
         return None
 
 
-def get_analytics(filters=None, search=None, time_range=None):
+def get_analytics(
+    filters: Optional[Dict[str, str]] = None,
+    search: Optional[Dict[str, str]] = None,
+    time_range: Optional[Tuple[str, str]] = None,
+) -> Dict[str, Any]:
     logfile = "distribution/legal_exports/phase9_empire_audit_log.txt"
     try:
         with open(logfile, "r") as f:
             lines = f.readlines()
     except Exception:
         return {}
-    events = [parse_line(l) for l in lines]
-    events = [e for e in events if e]
+    events: List[AuditEvent] = [e for e in (parse_line(l) for l in lines) if e is not None]
     from autonomy.key_management import load_keys
 
     key_roles = load_keys()
@@ -49,7 +64,7 @@ def get_analytics(filters=None, search=None, time_range=None):
     if time_range:
         start, end = time_range
         events = [
-            e for e in events if e.get("timestamp") and start <= e["timestamp"] <= end
+            e for e in events if e.get("timestamp") is not None and start <= e["timestamp"] <= end
         ]
     # Regex or substring search
     if search:
@@ -57,15 +72,17 @@ def get_analytics(filters=None, search=None, time_range=None):
 
         if search.get("regex"):
             pat = re.compile(search["regex"])
-            events = [e for e in events if any(pat.search(str(v)) for v in e.values())]
+            events = [e for e in events if any(pat.search(str(v)) for v in e.values() if v is not None)]
         elif search.get("substring"):
             sub = search["substring"]
-            events = [e for e in events if any(sub in str(v) for v in e.values())]
+            events = [e for e in events if any(sub in str(v) for v in e.values() if v is not None)]
     # Advanced filtering
     if filters:
         events = filter_events(events, filters)
     # Analytics breakdowns
     total_calls = len(events)
+    unique_keys = len(set(e["key"] for e in events if e["key"] is not None))
+    most_active_key = Counter(e["key"] for e in events if e["key"] is not None).most_common(1)
     unique_keys = len(set(e["key"] for e in events if e["key"]))
     most_active_key = Counter(e["key"] for e in events if e["key"]).most_common(1)
     most_active_key = most_active_key[0][0] if most_active_key else None
@@ -73,17 +90,17 @@ def get_analytics(filters=None, search=None, time_range=None):
         e["endpoint"] for e in events if e["endpoint"]
     ).most_common(1)
     most_used_endpoint = most_used_endpoint[0][0] if most_used_endpoint else None
-    calls_by_role = defaultdict(int)
+    calls_by_role: Dict[str, int] = defaultdict(int)
     for e in events:
         role = key_roles.get(e["key"], "unknown")
         calls_by_role[role] += 1
     now = datetime.datetime.now()
     last_24h_calls = sum(
-        1
-        for e in events
-        if e["timestamp"]
-        and (now - datetime.datetime.fromisoformat(e["timestamp"])).total_seconds()
-        < 86400
+        1 for e in events if (
+            e["timestamp"] is not None and (
+                (now - datetime.datetime.fromisoformat(e["timestamp"])).total_seconds() < 86400
+            )
+        )
     )
     # Per-key, per-endpoint, per-role, per-status breakdowns
     per_key = get_per_key_endpoint_breakdown(events, key_roles)
@@ -110,11 +127,13 @@ def get_analytics(filters=None, search=None, time_range=None):
     }
 
 
-def get_per_role_endpoint_breakdown(events, key_roles):
-    result = {}
+def get_per_role_endpoint_breakdown(
+    events: List[AuditEvent], key_roles: Dict[str, str]
+) -> Dict[str, Dict[str, int]]:
+    result: Dict[str, Dict[str, int]] = {}
     for e in events:
-        role = key_roles.get(e.get("key"), "unknown")
-        ep = e.get("endpoint")
+        role = key_roles.get(e.get("key", ""), "unknown")
+        ep = e.get("endpoint", None)
         if role and ep:
             if role not in result:
                 result[role] = {}
@@ -122,11 +141,11 @@ def get_per_role_endpoint_breakdown(events, key_roles):
     return result
 
 
-def get_per_status_breakdown(events):
-    result = {}
+def get_per_status_breakdown(events: List[AuditEvent]) -> Dict[str, Dict[str, int]]:
+    result: Dict[str, Dict[str, int]] = {}
     for e in events:
-        status = e.get("status")
-        ep = e.get("endpoint")
+        status = e.get("status", None)
+        ep = e.get("endpoint", None)
         if status and ep:
             if status not in result:
                 result[status] = {}
@@ -134,41 +153,42 @@ def get_per_status_breakdown(events):
     return result
 
 
-def get_error_rate(events):
-    total = len(events)
-    errors = sum(
+def get_error_rate(events: List[AuditEvent]) -> Dict[str, float]:
+    total: int = len(events)
+    errors: int = sum(
         1
         for e in events
         if str(e.get("status", "")).startswith("4")
         or str(e.get("status", "")).startswith("5")
     )
-    return {"error_count": errors, "error_rate": errors / total if total else 0}
+    return {"error_count": float(errors), "error_rate": float(errors) / float(total) if total else 0.0}
 
 
-def get_latency_stats(events):
+def get_latency_stats(events: List[AuditEvent]) -> Dict[str, Dict[str, float]]:
     from statistics import mean, median, quantiles
 
-    result = {}
-    for ep in set(e.get("endpoint") for e in events if e.get("endpoint")):
-        latencies = [
-            float(e["latency"])
+    result: Dict[str, Dict[str, float]] = {}
+    for ep in set(e.get("endpoint", None) for e in events if e.get("endpoint", None)):
+        if ep is None:
+            continue
+        latencies: List[float] = [
+            float(e["latency"])  # type: ignore
             for e in events
-            if e.get("endpoint") == ep and e.get("latency")
+            if e.get("endpoint", None) == ep and e.get("latency", None) is not None
         ]
         if latencies:
+            p95: float = quantiles(latencies, n=100)[94] if len(latencies) >= 20 else 0.0
             result[ep] = {
                 "min": min(latencies),
                 "max": max(latencies),
                 "avg": mean(latencies),
                 "median": median(latencies),
-                "p95": quantiles(latencies, n=100)[94]
-                if len(latencies) >= 20
-                else None,
+                "p95": p95,
             }
     return result
 
 
-def export_events_csv(events):
+def export_events_csv(events: List[AuditEvent]) -> str:
     import csv
     import io
 
@@ -182,11 +202,11 @@ def export_events_csv(events):
     return output.getvalue()
 
 
-def export_events_json(events):
+def export_events_json(events: List[AuditEvent]) -> str:
     return json.dumps(events, indent=2)
 
 
-def generate_compliance_report(events):
+def generate_compliance_report(events: List[AuditEvent]) -> Dict[str, Any]:
     # Returns a dict summarizing compliance-relevant stats
     error_rate = get_error_rate(events)
     return {
@@ -202,7 +222,7 @@ def generate_compliance_report(events):
     }
 
 
-def filter_events(events, filters):
+def filter_events(events: List[AuditEvent], filters: Dict[str, str]) -> List[AuditEvent]:
     filtered = []
     for e in events:
         match = True
@@ -215,11 +235,13 @@ def filter_events(events, filters):
     return filtered
 
 
-def get_per_key_endpoint_breakdown(events, key_roles):
-    result = {}
+def get_per_key_endpoint_breakdown(
+    events: List[AuditEvent], key_roles: Dict[str, str]
+) -> Dict[str, Dict[str, int]]:
+    result: Dict[str, Dict[str, int]] = {}
     for e in events:
-        k = e.get("key")
-        ep = e.get("endpoint")
+        k = e.get("key", None)
+        ep = e.get("endpoint", None)
         if k and ep:
             if k not in result:
                 result[k] = {}
@@ -227,10 +249,12 @@ def get_per_key_endpoint_breakdown(events, key_roles):
     return result
 
 
-def get_role_time_series(events, key_roles):
-    days = {}
+def get_role_time_series(
+    events: List[AuditEvent], key_roles: Dict[str, str]
+) -> Dict[str, Dict[str, int]]:
+    days: Dict[str, Dict[str, int]] = {}
     for e in events:
-        if e.get("timestamp") and e.get("key"):
+        if e.get("timestamp", None) and e.get("key", None):
             role = key_roles.get(e["key"], "unknown")
             day = e["timestamp"][:10]
             if day not in days:
@@ -239,21 +263,21 @@ def get_role_time_series(events, key_roles):
     return days
 
 
-def get_endpoint_breakdown(events):
-    counts = Counter(e["endpoint"] for e in events if e and e["endpoint"])
+def get_endpoint_breakdown(events: List[AuditEvent]) -> Dict[str, int]:
+    counts: Counter[str] = Counter(e["endpoint"] for e in events if e.get("endpoint", None))
     return dict(counts)
 
 
-def get_time_series(events):
-    days = defaultdict(int)
+def get_time_series(events: List[AuditEvent]) -> Dict[str, int]:
+    days: Dict[str, int] = defaultdict(int)
     for e in events:
-        if e and e["timestamp"]:
+        if e.get("timestamp", None):
             day = e["timestamp"][:10]
             days[day] += 1
     return dict(sorted(days.items()))
 
 
-def export_csv():
+def export_csv() -> str:
     logfile = "distribution/legal_exports/phase9_empire_audit_log.txt"
     try:
         with open(logfile, "r") as f:
