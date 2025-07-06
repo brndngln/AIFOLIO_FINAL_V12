@@ -1118,7 +1118,7 @@ class AffiliateBooster:
         return triggered
 
     @staticmethod
-    def escalate_compliance(triggered_rules: list, tx: dict):
+    def escalate_compliance(triggered_rules: List[Dict[str, Any]], tx: Dict[str, Any]) -> List[str]:
         """
         Statelessly escalate compliance events based on triggered rules and escalation policy.
         All actions are logged and non-adaptive. Implements advanced escalation actions as stubs.
@@ -1433,7 +1433,7 @@ class AffiliateBooster:
         print(f"[ALERT] {event}: {details}")
 
     @staticmethod
-    def government_efiling(data: dict):
+    def government_efiling(data: Dict[str, Any]) -> None:
         """
         Stub for government e-filing integration (extend for real APIs).
         """
@@ -1442,7 +1442,7 @@ class AffiliateBooster:
         print(f"[E-FILING] Submission prepared: {data}")
 
     @staticmethod
-    def workflow_integration(event: str, details: dict, system: str = "jira"):
+    def workflow_integration(event: str, details: Dict[str, Any], system: str = "jira") -> None:
         """
         Integrate with workflow/ticketing system (stub for Jira, ServiceNow, Zapier).
         """
@@ -1454,7 +1454,7 @@ class AffiliateBooster:
         print(f"[WORKFLOW] ({system}) {event}: {details}")
 
     @staticmethod
-    def multi_level_audit_trail(event: str, details: dict, level: int = 1):
+    def multi_level_audit_trail(event: str, details: Dict[str, Any], level: int = 1) -> None:
         """
         Multi-level audit trail for compliance (level=1: normal, level=2: escalated, etc.).
         """
@@ -1490,7 +1490,7 @@ class AffiliateBooster:
         pass
 
     @staticmethod
-    def _audit(event: str, details: dict[str, Any]) -> None:
+    def _audit(event: str, details: Dict[str, Any]) -> None:
         # SAFE AI: AES-256 encrypted persistent audit log for all affiliate/referral/viral/upsell/compliance actions
         from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
 
