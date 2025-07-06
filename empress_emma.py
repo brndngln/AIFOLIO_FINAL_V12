@@ -229,7 +229,7 @@ class EMMA:
         # Call agent logic
         result = getattr(agent, action)(context)
         self.log_action(action, context, "success")
-        return dict(result) if isinstance(result, dict) else {"result": result}
+        return result if isinstance(result, dict) else {"result": result}
 
     def log_action(
         self, action: str, context: Dict[str, Any], status: str

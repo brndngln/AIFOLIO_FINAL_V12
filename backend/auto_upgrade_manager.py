@@ -116,4 +116,3 @@ def load_auto_upgrade_manager(vaults: list[dict[str, Any]]) -> None:
     phase_lockdown_control_panel()
     safe_mode_toggle()
     log_audit_event("AIFOLIO_FINAL_V12_AUTO_UPGRADE_MANAGER loaded.")
-    return True
