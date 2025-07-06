@@ -5,16 +5,16 @@ Acts as EMMA’s partner in legality and policy, monitors for violations, AI ris
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-ETHICS_ARBITRATION_LOG = []
+ETHICS_ARBITRATION_LOG: List[Dict[str, Any]] = []
 
 
 class JusticeEthicsExecutionLawfulAIArbitration:
     @staticmethod
-    def monitor_violation(event_type: str, details: Dict) -> Dict:
+    def monitor_violation(event_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
         context = {"event_type": event_type, "details": details}
-        if not JusticeEthicsExecutionLawfulAIArbitration.monitor_violations(context):
+        if not getattr(JusticeEthicsExecutionLawfulAIArbitration, 'monitor_violations', lambda x: True)(context):
             return {
                 "violation_detected": False,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -31,7 +31,7 @@ class JusticeEthicsExecutionLawfulAIArbitration:
         return result
 
     @staticmethod
-    def veto_agent_commit(agent_name: str, reason: str) -> Dict:
+    def veto_agent_commit(agent_name: str, reason: str) -> Dict[str, Any]:
         """Statically veto an agent commit for legal/ethical reasons."""
         result = {
             "agent_name": agent_name,
@@ -44,11 +44,11 @@ class JusticeEthicsExecutionLawfulAIArbitration:
         return result
 
     @staticmethod
-    def get_ethics_arbitration_log() -> List[Dict]:
+    def get_ethics_arbitration_log() -> List[Dict[str, Any]]:
         return ETHICS_ARBITRATION_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict:
+    def rollback_last_action() -> Dict[str, Any]:
         if ETHICS_ARBITRATION_LOG:
             last = ETHICS_ARBITRATION_LOG.pop()
             return {

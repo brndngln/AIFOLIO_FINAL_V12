@@ -58,7 +58,7 @@ class PersonalMuseProtocol:
         biometric_hash: str,
         passphrase: str,
         context: Dict[str, Any],
-    ):
+    ) -> None:
         self.owner_signature = owner_signature
         self.biometric_hash = biometric_hash
         self.passphrase = passphrase
@@ -76,14 +76,14 @@ class PersonalMuseProtocol:
         self._verify_owner()
         self._log_event("PMP initialized")
 
-    def _verify_owner(self):
+    def _verify_owner(self) -> None:
         if not self.auth.verify(self.biometric_hash, self.passphrase, self.context):
             self._log_event("Unauthorized PMP access attempt", alert_owner=True)
             raise PermissionError("PMP access denied: Owner verification failed.")
         self.active = True
         self._log_event("PMP owner verified and activated")
 
-    def _log_event(self, event: str, alert_owner: bool = False):
+    def _log_event(self, event: str, alert_owner: bool = False) -> None:
         entry = {
             "event": event,
             "owner": self.owner_signature,
@@ -94,35 +94,35 @@ class PersonalMuseProtocol:
         if alert_owner:
             self._notify_owner(event)
 
-    def _notify_owner(self, message: str):
+    def _notify_owner(self, message: str) -> None:
         # Stealth: disguised as generic notification
         if self.stealth_mode:
             logging.info(f"[Personal Muse update]: {message}")
         else:
             logging.info(f"[PMP]: {message}")
 
-    def set_intensity(self, level: str):
+    def set_intensity(self, level: str) -> None:
         assert level in ["subtle", "flirty", "explicit"]
         self.intensity = level
         self._log_event(f"PMP intensity set to {level}")
 
-    def set_scenario(self, scenario: str):
+    def set_scenario(self, scenario: str) -> None:
         self.scenario = scenario
         self._log_event(f"PMP scenario set to {scenario}")
 
-    def set_boundaries(self, boundaries: Dict[str, bool]):
+    def set_boundaries(self, boundaries: Dict[str, bool]) -> None:
         self.boundaries = boundaries
         self._log_event(f"PMP boundaries updated: {boundaries}")
 
-    def toggle_tutorial(self, enabled: bool):
+    def toggle_tutorial(self, enabled: bool) -> None:
         self.tutorial_enabled = enabled
         self._log_event(f"PMP tutorial {'enabled' if enabled else 'disabled'}")
 
-    def activate_stealth_mode(self, enabled: bool):
+    def activate_stealth_mode(self, enabled: bool) -> None:
         self.stealth_mode = enabled
         self._log_event(f"PMP stealth mode {'activated' if enabled else 'deactivated'}")
 
-    def kill_switch(self):
+    def kill_switch(self) -> None:
         self.kill_switch_engaged = True
         self.active = False
         self._log_event("PMP kill switch engaged: session purged", alert_owner=True)
@@ -149,13 +149,13 @@ class PersonalMuseProtocol:
         else:
             return "Emma keeps it romantic and respectful, honoring your preferences."
 
-    def get_audit_log(self):
+    def get_audit_log(self) -> str:
         # Only owner can access
         if not self.active:
             raise PermissionError("PMP is inactive.")
         return self.encryption.encrypt(str(self.audit_log.export()))
 
-    def tutorial(self):
+    def tutorial(self) -> str:
         if not self.tutorial_enabled:
             return "Tutorials are disabled."
         return (
