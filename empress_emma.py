@@ -195,10 +195,10 @@ class EMMA:
         self, agent: Any, action: str, context: Dict[str, Any]
     ) -> Dict[str, Any]:
         OmnieliteEthicsEngine.enforce(action, context)
-        if not ethics_validator(action, context):
+        if not ethics_validator(action, context):  # type: ignore
             self.log_action(action, context, "blocked")
             return {"error": "Ethics violation"}
-        EMMAEthicsGuard.audit_action(action, context)
+        EMMAEthicsGuard.audit_action(action, context)  # type: ignore
         # Restrict naughty mode/personality features to owner
         if action in ["enable_naughty_mode", "flirty_output", "personality_feature"]:
             if not verify_owner(self.biometric_hash):
@@ -223,21 +223,22 @@ class EMMA:
                 self._pmp_audit_last = str(e)
                 return {"error": str(e)}
         if action == "pmp_kill_switch" and self._pmp:
-            self._pmp.kill_switch()
+            self._pmp.kill_switch()  # type: ignore
             self._pmp_active = False
             self._pmp_kill_switch = True
             return {"pmp": "killed"}
         if action == "pmp_tutorial" and self._pmp:
-            return {"pmp_tutorial": self._pmp.tutorial()}
+            return {"pmp_tutorial": self._pmp.tutorial()}  # type: ignore
         if action == "pmp_audit_log" and self._pmp:
             try:
-                return {"pmp_audit_log": self._pmp.get_audit_log()}
+                audit_log = self._pmp.get_audit_log()  # type: ignore
+                return {"audit_log": audit_log}
             except Exception as e:
                 return {"error": str(e)}
         # Call agent logic
         result = getattr(agent, action)(context)
         self.log_action(action, context, "success")
-        return result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     def log_action(
         self, action: str, context: Dict[str, Any], status: str

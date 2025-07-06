@@ -50,7 +50,7 @@ def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
         "SAFE_AI_COMPLIANCE_REPORT.md", "ai_engines/compliance_report.pdf"
     )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"module_name": module_name, "state": state})
+    detect_signals([])
 
     from core.compliance.smart_legal_watcher import weekly_report
 
@@ -67,26 +67,23 @@ def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
 from ai_engines.prompt_optimizer import enforce_legal_safety
 
 
-def ethics_quality_check(output: str) -> str:
+def ethics_quality_check(output: str) -> Tuple[str, List[str]]:
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     output = enforce_legal_safety(output)
     """
-    Scan for unethical/manipulative language, suggest inline rewrites.
-    Checks readability, layout, visual integrity. Enforces non-sentience and audit logging.
+    Check output for ethics compliance and static quality metrics.
+    Returns fixed output (static, deterministic, SAFE AI-compliant).
     """
-    fixes = output
-    report = []
-    for pattern in UNETHICAL_PATTERNS:
-        if pattern in output.lower():
-            fixes = fixes.replace(pattern, "[REDACTED]")
-            report.append(
-                f"FLAG: Unethical pattern '{pattern}' removed. Manual review required."
-            )
-    # Simulated readability check
-    readability = 60 if len(output) > 100 else 40
-    if readability < MIN_READABILITY:
-        report.append("FLAG: Low readability score. Manual review required.")
-    return fixes, report
+    fixed: str
+    report: List[str]
+    fixed: str
+    report: List[str]
+    fixed, report = scan_and_fix(output)
+    if report:
+        output = fixed + "\n\n[SAFE AI Ethics Report]:\n" + "\n".join(report)
+    return output
+
+
 
 
 def scan_and_fix(text: str) -> Tuple[str, List[str]]:

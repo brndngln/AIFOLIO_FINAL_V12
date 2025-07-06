@@ -1,6 +1,7 @@
 import json
 import datetime
 import os
+from typing import List, Callable
 
 OWNER_LOCK = True
 import random
@@ -24,8 +25,8 @@ def safe_randomize(text: str) -> str:
     """
     Applies a minor, brand-safe style shift. Human preview required for all outputs.
     """
-    shift = random.choice(STYLE_SHIFTS)
-    randomized = shift(text)
+    shift: Callable[[str], str] = random.choice(STYLE_SHIFTS)
+    randomized: str = shift(text)
     entry = {
         "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
         "original": text,
@@ -35,6 +36,13 @@ def safe_randomize(text: str) -> str:
     with open(RANDOMIZER_LOG, "a") as f:
         f.write(json.dumps(entry) + "\n")
     return randomized
+
+
+def safe_ai_random_choice(options: List[str]) -> str:
+    """
+    Applies a minor, brand-safe style shift. Human preview required for all outputs.
+    """
+    return random.choice(options)
 
 
 if __name__ == "__main__":
