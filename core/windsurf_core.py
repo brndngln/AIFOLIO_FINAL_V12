@@ -17,8 +17,10 @@ class WindsurfCore:
         self.brainhub.optimize_all()
         return "OMNIELITE V3 Empire Engine running."
 
-    def route(self, event: str) -> object:
-        return self.dispatcher.route_all(event)
+    def route(self, event: str) -> None:
+        # Route is a stub; VaultDispatcher does not accept event argument in route_all
+        # Extend as needed for future event routing
+        self.dispatcher.route_all()
 
     def status(self) -> str:
         # Stub: Return status
