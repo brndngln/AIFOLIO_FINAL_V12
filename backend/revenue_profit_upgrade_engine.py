@@ -5,12 +5,13 @@ Static, deterministic, SAFE AI-compliant. No sentience, no adaptive agents. Full
 """
 import logging
 from backend.security.audit_logging import log_audit_event
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 
 # Vault Family Performance Mesh
-def build_vault_family_performance_mesh(vaults):
+def build_vault_family_performance_mesh(vaults: list[dict[str, Any]]) -> dict[str, Any]:
     mesh = {
         vault["title"]: {"niche": vault["niche"], "profit": vault.get("profit", 0)}
         for vault in vaults
@@ -20,14 +21,14 @@ def build_vault_family_performance_mesh(vaults):
 
 
 # AI Vault Profit Predictor
-def ai_vault_profit_predictor(vaults):
+def ai_vault_profit_predictor(vaults: list[dict[str, Any]]) -> dict[str, Any]:
     predictions = {vault["title"]: vault.get("profit", 0) * 1.1 for vault in vaults}
     log_audit_event(f"AI Vault Profit Predictions: {predictions}")
     return predictions
 
 
 # Dynamic Vault Cloning
-def dynamic_vault_cloning(vaults):
+def dynamic_vault_cloning(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     clones = []
     for vault in vaults:
         if vault.get("profit", 0) > 1000:
@@ -42,7 +43,7 @@ def dynamic_vault_cloning(vaults):
 
 
 # Auto Niche Expander
-def auto_niche_expander(vaults):
+def auto_niche_expander(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     new_niches = [f"Niche-{i}" for i in range(5)]
     for niche in new_niches:
         vaults.append({"title": f"AutoVault {niche}", "niche": niche, "profit": 0})
@@ -51,7 +52,7 @@ def auto_niche_expander(vaults):
 
 
 # AI Title Optimizer v3
-def ai_title_optimizer_v3(vaults):
+def ai_title_optimizer_v3(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for vault in vaults:
         vault["optimized_title"] = vault["title"].upper()
     log_audit_event("AI Title Optimizer v3 applied.")
@@ -59,14 +60,14 @@ def ai_title_optimizer_v3(vaults):
 
 
 # Visual Sales Heatmap Dashboard
-def build_sales_heatmap_dashboard(vaults):
+def build_sales_heatmap_dashboard(vaults: list[dict[str, Any]]) -> dict[str, Any]:
     heatmap = {vault["title"]: vault.get("profit", 0) for vault in vaults}
     log_audit_event(f"Sales Heatmap Dashboard: {heatmap}")
     return heatmap
 
 
 # PDF Upsell Engine
-def pdf_upsell_engine(vaults):
+def pdf_upsell_engine(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for vault in vaults:
         vault["upsell"] = True
     log_audit_event("PDF Upsell Engine activated.")
@@ -74,7 +75,7 @@ def pdf_upsell_engine(vaults):
 
 
 # PDF Funnel Builder
-def pdf_funnel_builder(vaults):
+def pdf_funnel_builder(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for vault in vaults:
         vault["funnel"] = ["Landing", "Checkout", "Thank You"]
     log_audit_event("PDF Funnel Builder created.")
@@ -82,7 +83,7 @@ def pdf_funnel_builder(vaults):
 
 
 # AI-Powered Email Sequences
-def ai_powered_email_sequences(vaults):
+def ai_powered_email_sequences(vaults: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for vault in vaults:
         vault["email_sequence"] = ["Welcome", "Upsell", "Reminder"]
     log_audit_event("AI-Powered Email Sequences deployed.")
@@ -92,7 +93,7 @@ def ai_powered_email_sequences(vaults):
 # Loader for Phase 1
 
 
-def load_revenue_profit_upgrade_engine(vaults):
+def load_revenue_profit_upgrade_engine(vaults: list[dict[str, Any]]) -> None:
     build_vault_family_performance_mesh(vaults)
     ai_vault_profit_predictor(vaults)
     dynamic_vault_cloning(vaults)
@@ -103,4 +104,3 @@ def load_revenue_profit_upgrade_engine(vaults):
     pdf_funnel_builder(vaults)
     ai_powered_email_sequences(vaults)
     log_audit_event("AIFOLIO_FINAL_V12_REVENUE_PROFIT_UPGRADE_ENGINE loaded.")
-    return True

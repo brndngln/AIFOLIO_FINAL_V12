@@ -6,12 +6,13 @@ SAVE LABEL: AIFOLIO_FINAL_V12_EMPIRE_PHASE_MANAGER
 """
 import logging
 from backend.security.audit_logging import log_audit_event
+from typing import Any, Callable
 
 logger = logging.getLogger(__name__)
 
 
 # --- Empire Phase Manager ---
-def get_empire_phase_status(vaults, revenue, current_phase_label):
+def get_empire_phase_status(vaults: list[dict[str, Any]], revenue: float, current_phase_label: str) -> dict[str, Any]:
     status = {
         "vault_count": len(vaults),
         "monthly_revenue": revenue,
@@ -24,8 +25,12 @@ def get_empire_phase_status(vaults, revenue, current_phase_label):
 
 # --- Phase Alert System ---
 def check_phase_ready_alerts(
-    vaults, revenue, current_phase_label, phase_roadmap, owner_notify_callback
-):
+    vaults: list[dict[str, Any]],
+    revenue: float,
+    current_phase_label: str,
+    phase_roadmap: dict[str, dict[str, Any]],
+    owner_notify_callback: Callable[[str], None]
+) -> list[str]:
     alerts = []
     for phase, conditions in phase_roadmap.items():
         if (

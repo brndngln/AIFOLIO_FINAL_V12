@@ -62,11 +62,11 @@ def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any
     changelog = []
     version, phase = scan_system_version_state()
     changelog.append(f"System version/state scanned: {version}, {phase}")
-    load_revenue_profit_upgrade_engine(vaults)  # type: ignore[no-untyped-call]
+    load_revenue_profit_upgrade_engine(vaults)
     changelog.append("Revenue & Profit Upgrades applied.")
-    load_security_engine(vaults, files, actions, data)  # type: ignore[no-untyped-call]
+    load_security_engine(vaults, files, actions, data)
     changelog.append("Unbreakable Security Upgrades applied.")
-    load_auto_upgrade_manager(vaults)  # type: ignore[no-untyped-call]
+    load_auto_upgrade_manager(vaults)
     changelog.append("Auto-Upgrade Manager Enhancements applied.")
     refresh_ai_safety_envelope()
     changelog.append("AI Safety Envelope refreshed.")
@@ -81,7 +81,7 @@ def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any
     output_readiness_summary(
         "AIFOLIO FINAL V12™ fully secure, optimal, hardened, ready to scale."
     )
-    phase_status = get_empire_phase_status(vaults, data.get("revenue", 0), current_phase)  # type: ignore[no-untyped-call]
+    phase_status = get_empire_phase_status(vaults, data.get("revenue", 0), current_phase)
     print(f"Current Phase Status: {phase_status}")
     print(
         "Next Upgrade Trigger Prompt: Run this pipeline again after any major system change."
