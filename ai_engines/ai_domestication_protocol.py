@@ -32,7 +32,7 @@ class AIDomesticationProtocol:
 # Decorator for AI modules/functions
 
 
-def domesticate_ai(func: Callable) -> Callable:
+def domesticate_ai(func: Callable[..., Any]) -> Callable[..., Any]:
     @wraps(func)
     def wrapper(*args: Any, **kwargs: Any) -> Any:
         module_name = func.__module__

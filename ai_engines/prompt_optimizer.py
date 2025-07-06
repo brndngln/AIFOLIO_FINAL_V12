@@ -2,6 +2,7 @@
 Prompt Optimization Engine (Non-sentient, stateless)
 """
 from .sentience_guard import sentience_guard
+from typing import Optional, Tuple
 
 """
 AIFOLIO™ PROMPT OPTIMIZER — OMNILOCK ANTI-SENTIENCE ENFORCEMENT
