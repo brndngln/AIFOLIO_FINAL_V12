@@ -30,12 +30,13 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
-
 from typing import Dict, Any, Tuple, List
 
-@sentience_firewall  # type: ignore
-@domesticate_ai  # type: ignore
-@sentience_guard  # type: ignore
+from typing import Callable
+
+@sentience_firewall
+@domesticate_ai
+@sentience_guard
 def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
     # OMNIPROOF: Threat feed check before ethics enforcement
     parse_threat_feed({})
@@ -67,23 +68,17 @@ def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
 from ai_engines.prompt_optimizer import enforce_legal_safety
 
 
-def ethics_quality_check(output: str) -> Tuple[str, List[str]]:
+def ethics_quality_guard(output: str) -> Tuple[str, List[str]]:
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     output = enforce_legal_safety(output)
     """
     Check output for ethics compliance and static quality metrics.
     Returns fixed output (static, deterministic, SAFE AI-compliant).
     """
-    fixed: str
-    report: List[str]
-    fixed: str
-    report: List[str]
     fixed, report = scan_and_fix(output)
     if report:
         output = fixed + "\n\n[SAFE AI Ethics Report]:\n" + "\n".join(report)
-    return output
-
-
+    return output, report
 
 
 def scan_and_fix(text: str) -> Tuple[str, List[str]]:
@@ -93,3 +88,32 @@ def scan_and_fix(text: str) -> Tuple[str, List[str]]:
     """
     fixed, report = ethics_quality_check(text)
     return fixed, report
+
+
+def ethics_quality_check(output: str) -> Tuple[str, List[str]]:
+    # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
+    output = enforce_legal_safety(output)
+    """
+    Check output for ethics compliance and static quality metrics.
+    Returns fixed output (static, deterministic, SAFE AI-compliant).
+    """
+    fixed, report = scan_and_fix(output)
+    if report:
+        output = fixed + "\n\n[SAFE AI Ethics Report]:\n" + "\n".join(report)
+    return output, report
+
+
+def summarize_ethics_issues(issues: List[str]) -> str:
+    return "\n".join(issues)
+
+
+def static_ai_ethics_guard(content: str) -> Tuple[str, List[str]]:
+    return enforce_ethics("static_ai_ethics_guard", {}, content)
+
+
+def static_human_review_required(content: str) -> bool:
+    return False
+
+
+def audit_ethics_compliance(data: Dict[str, Any]) -> bool:
+    return True

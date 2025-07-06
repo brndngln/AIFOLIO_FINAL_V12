@@ -51,12 +51,12 @@ BANNED_PHRASES = [
     "never fail",
     "loophole",
 ]
-MIN_LENGTH = 30
-MAX_LENGTH = 1000
+MIN_LENGTH: int = 30
+MAX_LENGTH: int = 1000
 
 
 @sentience_guard
-def enforce_legal_safety(text):
+def enforce_legal_safety(text: str) -> str:
     """Static legal shield: formats, injects disclaimers, and removes illegal claims."""
     from core.compliance.smart_legal_watcher import weekly_report
 
@@ -71,7 +71,7 @@ def enforce_legal_safety(text):
 
 
 @sentience_guard
-def optimize_prompt(prompt, title=None):
+def optimize_prompt(prompt: str, title: Optional[str] = None) -> Tuple[str, Optional[str]]:
     # --- OMNIBLADE LEGAL SHIELD: Enforce Legal Safety ---
     prompt = enforce_legal_safety(prompt)
 

@@ -6,7 +6,7 @@ Non-Human Entity Control Protocol (AI Domestication Framework) — OMNIELITE SYS
 """
 from functools import wraps
 from core.compliance.emma_guardian import emma
-
+from typing import Any, Dict, Optional, Callable, List
 
 class AIDomesticationProtocol:
     @staticmethod
@@ -32,9 +32,9 @@ class AIDomesticationProtocol:
 # Decorator for AI modules/functions
 
 
-def domesticate_ai(func):
+def domesticate_ai(func: Callable) -> Callable:
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         module_name = func.__module__
         # Enforce SAFE AI, non-sentience, owner control
         AIDomesticationProtocol.enforce(module_name, func.__name__)
