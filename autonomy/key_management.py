@@ -19,25 +19,29 @@ DEFAULT_KEYS = {
 }
 
 
-def load_keys():
+from typing import Dict, Any, List, Optional
+
+# SAFE AI Compliance: This module is static, deterministic, owner-controlled, and fully auditable. No adaptive or sentient logic is present. All extension points are documented for static key management only.
+
+def load_keys() -> Dict[str, str]:
     if not os.path.exists(KEYS_FILE):
         with open(KEYS_FILE, "w") as f:
             json.dump(DEFAULT_KEYS, f)
     with open(KEYS_FILE, "r") as f:
-        return json.load(f)
+        return dict(json.load(f))
 
 
-def save_keys(keys):
+def save_keys(keys: Dict[str, str]) -> None:
     with open(KEYS_FILE, "w") as f:
         json.dump(keys, f)
 
 
-def log_key_action(action, key, role):
+def log_key_action(action: str, key: str, role: str) -> None:
     with open(KEY_ROTATION_LOG, "a") as f:
         f.write(f"[{datetime.datetime.now().isoformat()}] {action}: {key} as {role}\n")
 
 
-def add_key(key, role):
+def add_key(key: str, role: str) -> bool:
     keys = load_keys()
     keys[key] = role
     save_keys(keys)
@@ -45,7 +49,7 @@ def add_key(key, role):
     return True
 
 
-def remove_key(key):
+def remove_key(key: str) -> bool:
     keys = load_keys()
     if key in keys:
         role = keys[key]
@@ -56,7 +60,7 @@ def remove_key(key):
     return False
 
 
-def list_keys():
+def list_keys() -> Dict[str, str]:
     return load_keys()
 
 
@@ -64,24 +68,24 @@ def list_keys():
 META_FILE = "distribution/legal_exports/phase9_api_key_meta.json"
 
 
-def load_key_meta():
+def load_key_meta() -> Dict[str, Any]:
     if not os.path.exists(META_FILE):
         with open(META_FILE, "w") as f:
             json.dump({}, f)
     with open(META_FILE, "r") as f:
-        return json.load(f)
+        return dict(json.load(f))
 
 
-def save_key_meta(meta):
+def save_key_meta(meta: Dict[str, Any]) -> None:
     with open(META_FILE, "w") as f:
         json.dump(meta, f)
 
 
-def get_key_meta():
+def get_key_meta() -> Dict[str, Any]:
     return load_key_meta()
 
 
-def set_key_meta(key, meta_update):
+def set_key_meta(key: str, meta_update: Dict[str, Any]) -> bool:
     meta = load_key_meta()
     m = meta.get(key, {})
     m.update(meta_update)
@@ -98,16 +102,19 @@ import hashlib
 import time
 
 
-def set_totp_secret(key, secret):
+def set_totp_secret(key: str, secret: str) -> bool:
     return set_key_meta(key, {"totp_secret": secret})
 
 
-def get_totp_secret(key):
+def get_totp_secret(key: str) -> Optional[str]:
     meta = load_key_meta()
-    return meta.get(key, {}).get("totp_secret")
+    value = meta.get(key, {}).get("totp_secret")
+    if isinstance(value, str):
+        return value
+    return None
 
 
-def verify_totp(key, code, window=1):
+def verify_totp(key: str, code: str, window: int = 1) -> bool:
     secret = get_totp_secret(key)
     if not secret:
         return False
@@ -117,7 +124,7 @@ def verify_totp(key, code, window=1):
     return False
 
 
-def _totp(secret, offset=0):
+def _totp(secret: str, offset: int = 0) -> str:
     # Static TOTP: 30s interval, 6 digits
     key = base64.b32decode(secret.upper())
     t = int(time.time() // 30) + offset
@@ -128,7 +135,7 @@ def _totp(secret, offset=0):
     return f"{code:06d}"
 
 
-def increment_key_usage(key):
+def increment_key_usage(key: str) -> bool:
     meta = load_key_meta()
     m = meta.get(key, {})
     m["usage"] = m.get("usage", 0) + 1
@@ -138,7 +145,7 @@ def increment_key_usage(key):
     return True
 
 
-def rotate_key(key):
+def rotate_key(key: str) -> bool:
     meta = load_key_meta()
     m = meta.get(key, {})
     m["rotated"] = True
@@ -148,7 +155,7 @@ def rotate_key(key):
     return True
 
 
-def bulk_import_keys(key_role_list):
+def bulk_import_keys(key_role_list: List[Dict[str, str]]) -> bool:
     keys = load_keys()
     for item in key_role_list:
         k, r = item.get("key"), item.get("role", "viewer")
@@ -159,5 +166,5 @@ def bulk_import_keys(key_role_list):
     return True
 
 
-def bulk_export_keys():
+def bulk_export_keys() -> Dict[str, str]:
     return load_keys()
