@@ -5,7 +5,7 @@ Phase 41 — SAFE AI, non-sentient, static, owner-controlled
 Builds and suggests new strategic partnerships and partner vaults for global scaling.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
 PARTNER_ECOSYSTEM_LOG = []
@@ -15,7 +15,7 @@ class PartnerEcosystemBuilder:
     @staticmethod
     def suggest_partners(
         existing_brands: List[str], target_markets: List[str]
-    ) -> List[Dict]:
+    ) -> List[Dict[str, Any]]:
         """
         Suggests new partner brands and SaaS apps for expansion. Deterministic, static logic.
         """
@@ -33,7 +33,7 @@ class PartnerEcosystemBuilder:
         ]
 
     @staticmethod
-    def log_partner_action(action: str, details: Dict):
+    def log_partner_action(action: str, details: Dict[str, Any]) -> None:
         PARTNER_ECOSYSTEM_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -43,5 +43,5 @@ class PartnerEcosystemBuilder:
         )
 
     @staticmethod
-    def export_partner_log() -> List[Dict]:
+    def export_partner_log() -> List[Dict[str, Any]]:
         return PARTNER_ECOSYSTEM_LOG

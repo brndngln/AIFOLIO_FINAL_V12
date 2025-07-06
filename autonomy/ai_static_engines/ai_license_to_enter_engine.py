@@ -5,7 +5,7 @@ Phase 43 — SAFE AI, non-sentient, static, owner-controlled
 Suggests and tracks licensing deals for external B2B clients to access AIFOLIO vault engines.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
 LICENSE_DEALS_LOG = []
@@ -15,7 +15,7 @@ class LicenseToEnterEngine:
     @staticmethod
     def suggest_licenses(
         existing_clients: List[str], available_engines: List[str]
-    ) -> List[Dict]:
+    ) -> List[Dict[str, Any]]:
         """
         Suggests new licensing deals for B2B clients. Deterministic, static logic.
         """
@@ -30,7 +30,7 @@ class LicenseToEnterEngine:
         ]
 
     @staticmethod
-    def log_license_action(action: str, details: Dict):
+    def log_license_action(action: str, details: Dict[str, Any]) -> None:
         LICENSE_DEALS_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -40,5 +40,5 @@ class LicenseToEnterEngine:
         )
 
     @staticmethod
-    def export_license_log() -> List[Dict]:
+    def export_license_log() -> List[Dict[str, Any]]:
         return LICENSE_DEALS_LOG
