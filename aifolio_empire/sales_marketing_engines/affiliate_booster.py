@@ -100,10 +100,10 @@ class AffiliateBooster:
     - Now includes elite tax simulation, audit-compliant reporting, and anti-sentience tripwires on all logic.
     """
 
-    _audit_log: List[dict] = []  # Class-level, only for simulation, not persisted.
+    _audit_log: List[Dict[str, Any]] = []  # Class-level, only for simulation, not persisted.
 
     # --- Tax Configuration (can be extended for more jurisdictions) ---
-    DEFAULT_TAX_RATES = {
+    DEFAULT_TAX_RATES: Dict[str, float] = {
         "US": 0.07,  # 7% default
         "EU": 0.20,  # 20% VAT
         "UK": 0.20,  # 20% VAT
@@ -112,11 +112,11 @@ class AffiliateBooster:
         "IN": 0.18,  # 18% GST
         "GLOBAL": 0.10,  # fallback
     }
-    TAX_REPORT_FORMATS = ["summary", "detailed", "audit"]
+    TAX_REPORT_FORMATS: List[str] = ["summary", "detailed", "audit"]
 
     # --- Regulatory/Compliance Integration Points ---
-    COMPLIANCE_EXPORT_FORMATS = ["csv", "pdf", "xbrl"]
-    WORKFLOW_INTEGRATIONS = ["jira", "servicenow", "zapier"]
+    COMPLIANCE_EXPORT_FORMATS: List[str] = ["csv", "pdf", "xbrl"]
+    WORKFLOW_INTEGRATIONS: List[str] = ["jira", "servicenow", "zapier"]
 
     @staticmethod
     def real_time_jurisdiction_lookup(address_or_ip: str) -> str:
@@ -902,7 +902,7 @@ class AffiliateBooster:
     # --- FULL ADVANCED COMPLIANCE RULES & ESCALATION IMPLEMENTATION ---
 
     @staticmethod
-    def ai_anomaly_score(tx: dict) -> float:
+    def ai_anomaly_score(tx: Dict[str, Any]) -> float:
         """
         Stateless, non-adaptive anomaly scoring using cryptographic randomness and static heuristics.
         """
@@ -921,7 +921,7 @@ class AffiliateBooster:
         return min(1.0, base_score + noise)
 
     @staticmethod
-    def external_kyc_aml_check(tx: dict) -> bool:
+    def external_kyc_aml_check(tx: Dict[str, Any]) -> bool:
         """
         Stub for real-time KYC/AML provider integration (stateless, auditable).
         Returns True if passed, False if failed.
@@ -930,28 +930,28 @@ class AffiliateBooster:
         return tx.get("kyc_valid", True)
 
     @staticmethod
-    def require_video_verification(tx: dict) -> bool:
+    def require_video_verification(tx: Dict[str, Any]) -> bool:
         """
         Require video verification for high-risk payouts (stub, always returns False for demo).
         """
         return False
 
     @staticmethod
-    def device_fingerprint_alert(tx: dict) -> bool:
+    def device_fingerprint_alert(tx: Dict[str, Any]) -> bool:
         """
         Alert if affiliate changes device/browser fingerprint after fraud flag.
         """
         return tx.get("device_changed", False) and tx.get("fraud_flag", False)
 
     @staticmethod
-    def multi_database_watchlist(tx: dict) -> bool:
+    def multi_database_watchlist(tx: Dict[str, Any]) -> bool:
         """
         Escalate if affiliate is flagged in multiple compliance/sanctions databases (stub).
         """
         return tx.get("on_watchlist", False) and tx.get("multi_db_flag", False)
 
     @staticmethod
-    def legal_review_required(tx: dict) -> bool:
+    def legal_review_required(tx: Dict[str, Any]) -> bool:
         """
         Require legal review for affiliates in new/high-risk markets.
         """
@@ -968,21 +968,21 @@ class AffiliateBooster:
         ]
 
     @staticmethod
-    def regulator_auto_notify(tx: dict) -> bool:
+    def regulator_auto_notify(tx: Dict[str, Any]) -> bool:
         """
         Auto-notify regulators if certain thresholds or patterns are breached (stub).
         """
         return tx.get("payout", 0) > 100000 or tx.get("fraud_flag", False)
 
     @staticmethod
-    def cooldown_required(tx: dict) -> bool:
+    def cooldown_required(tx: Dict[str, Any]) -> bool:
         """
         Add configurable cooldown period after suspicious activity (stub).
         """
         return tx.get("recent_suspicious", False)
 
     @staticmethod
-    def blockchain_analytics_check(tx: dict) -> bool:
+    def blockchain_analytics_check(tx: Dict[str, Any]) -> bool:
         """
         Integrate with blockchain analytics for crypto payouts (stub).
         """
@@ -1157,7 +1157,7 @@ class AffiliateBooster:
     # --- ELITE ENHANCEMENTS (Stateless, Developer-Only, Non-Adaptive) ---
 
     @staticmethod
-    def sentience_tripwire():
+    def sentience_tripwire() -> None:
         """
         Runtime check for any attempt to persist state, self-modify, or adapt logic.
         Halts execution and audits if triggered. Call at start of all critical methods.
@@ -1201,7 +1201,7 @@ class AffiliateBooster:
             return False
 
     @staticmethod
-    def zkp_compliance_proof(tx: dict) -> str:
+    def zkp_compliance_proof(tx: Dict[str, Any]) -> str:
         """
         Stub for Zero-Knowledge Proof (ZKP) compliance.
         Returns a string that can be shared with auditors to prove compliance without revealing sensitive data.
@@ -1213,7 +1213,7 @@ class AffiliateBooster:
         return f"ZKP-Proof:{proof}"
 
     @staticmethod
-    def homomorphic_encrypted_tax_calc(encrypted_earnings, encrypted_rate) -> str:
+    def homomorphic_encrypted_tax_calc(encrypted_earnings: Any, encrypted_rate: Any) -> str:
         """
         Stub for homomorphic encryption tax calculation (does not decrypt data).
         Returns a string representing the encrypted result.
@@ -1229,7 +1229,7 @@ class AffiliateBooster:
         return f"blockchain_anchor_stub:{audit_hash[:12]}"
 
     @staticmethod
-    def monitor_regulatory_changes() -> list:
+    def monitor_regulatory_changes() -> List[Any]:
         """
         Stub for automated regulatory change monitoring. Returns list of detected changes.
         In real use, would poll APIs or news feeds for compliance updates.
@@ -1238,7 +1238,7 @@ class AffiliateBooster:
 
     @staticmethod
     def explain_compliance_decision(
-        triggered_rules: list, tx: dict, lang: str = "en"
+        triggered_rules: List[Dict[str, Any]], tx: Dict[str, Any], lang: str = "en"
     ) -> str:
         """
         Generate a stateless, human-readable explanation for why a transaction was flagged or escalated.
@@ -1255,7 +1255,7 @@ class AffiliateBooster:
         return summary
 
     @staticmethod
-    def ai_voting_fraud_detection(tx: dict) -> bool:
+    def ai_voting_fraud_detection(tx: Dict[str, Any]) -> bool:
         """
         Multi-layered, stateless AI voting for fraud/anomaly detection.
         Returns True if majority of engines flag as fraud/anomaly.
@@ -1269,7 +1269,7 @@ class AffiliateBooster:
         return results.count(True) >= 2
 
     @staticmethod
-    def dynamic_risk_score(tx: dict) -> float:
+    def dynamic_risk_score(tx: Dict[str, Any]) -> float:
         """
         Stateless, non-adaptive risk scoring for affiliates/transactions.
         Weighted sum of flags, jurisdiction, payout history, etc.
@@ -1290,7 +1290,7 @@ class AffiliateBooster:
         return min(score, 10.0)
 
     @staticmethod
-    def export_regulator_pack(tx: dict, triggered_rules: list) -> str:
+    def export_regulator_pack(tx: Dict[str, Any], triggered_rules: List[Dict[str, Any]]) -> str:
         """
         Auto-generate regulator-ready documentation bundle for flagged transaction.
         Includes full rule explanations, escalation history, and audit log export (stub).
@@ -1312,7 +1312,7 @@ class AffiliateBooster:
             return f.name
 
     @staticmethod
-    def compliance_status_for_user(affiliate_id: str) -> dict:
+    def compliance_status_for_user(affiliate_id: str) -> Dict[str, Any]:
         """
         Stateless, on-demand compliance status for user/affiliate dashboards.
         Returns dict with summary flags and risk score (stub).
@@ -1331,7 +1331,7 @@ class AffiliateBooster:
         Multi-language/localization support for reports/alerts. Deterministic, static translation for supported languages.
         Returns translated text (English, Spanish, French, German, Italian supported statically). Extension point for real translation API.
         """
-        translations = {
+        translations: Dict[str, str] = {
             "es": f"[ES] {text}",
             "fr": f"[FR] {text}",
             "de": f"[DE] {text}",
@@ -1345,7 +1345,7 @@ class AffiliateBooster:
             return f"[Translation to {lang} not implemented] {text}"
 
     @staticmethod
-    def regulatory_alert(event: str, details: dict):
+    def regulatory_alert(event: str, details: Dict[str, Any]) -> None:
         """
         Send regulatory/compliance alert via SendGrid, Twilio, Slack, or Discord.
         Uses env vars for API keys/webhooks. Logs all actions.
