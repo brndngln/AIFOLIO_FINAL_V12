@@ -7,6 +7,8 @@ class SaleRecord(TypedDict, total=False):
     amount: float
     timestamp: str
     type: str  # Added for funnel analytics compatibility
+    vault_id: str  # Added for bundle recommendation compatibility
+    category: str  # Added for bundle recommendation compatibility
     # Add more fields as needed
 
 def detect_signals(sales_data: List[SaleRecord]) -> List[str]:

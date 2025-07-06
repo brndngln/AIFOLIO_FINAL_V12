@@ -14,24 +14,24 @@ from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
-from core.compliance.adaptive_monetization_signal_detector import detect_signals
+from core.compliance.adaptive_monetization_signal_detector import detect_signals, SaleRecord
 
 
-def recommend_bundles(vault_id: str, purchase_history: List[Dict[str, Any]]) -> Dict[str, Any]:
+def recommend_bundles(vault_id: str, purchase_history: List[SaleRecord]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before bundle recommendation
-    parse_threat_feed({})  # type: ignore
+    parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for bundle hash (static)
-    anchor_license_hash("BUNDLE_HASH_PLACEHOLDER")  # type: ignore
+    anchor_license_hash("BUNDLE_HASH_PLACEHOLDER")
     # OMNIPROOF: Zero-knowledge export filter (static)
-    zero_knowledge_export("bundle_path_placeholder")  # type: ignore
+    zero_knowledge_export("bundle_path_placeholder")
     # OMNIPROOF: Schedule redundant backup
-    schedule_backup("analytics/")  # type: ignore
+    schedule_backup("analytics/")
     # OMNIPROOF: Export compliance manifest
     export_compliance_manifest(
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
-    )  # type: ignore
+    )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"vault_id": vault_id, "purchase_history": purchase_history})  # type: ignore
+    detect_signals(purchase_history)
 
     VERSION = "AIFOLIO_BUNDLE_ENGINE_V2_SAFEAI_FINAL"
     SAFE_AI_COMPLIANT = True
