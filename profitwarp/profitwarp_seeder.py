@@ -17,18 +17,18 @@ class ProfitWarpSeederEngine:
     """Seeds all Profit Warp modules into the operational tree and future workflow templates."""
 
     def __init__(self) -> None:
-        self.fractal = FractalVaultEngine()
-        self.pdf_quantum = PDFQuantumGenerator()
+        self.fractal = FractalVaultEngine()  # type: ignore
+        self.pdf_quantum = PDFQuantumGenerator()  # type: ignore
         self.revenue_loop = AIRevenueLoop()
-        self.empire_os = [
+        self.empire_os: list[Any] = [
             MetaVaultGenerator(),
             AffiliateWarChest(),
             LicensingLayer(),
             WhiteLabelPartnerLauncher(),
         ]
-        self.seeded = False
+        self.seeded: bool = False
 
-    def seed_all(self):
+    def seed_all(self) -> Dict[str, Any]:
         # Simulate seeding logic
         self.seeded = True
         return {
@@ -39,7 +39,7 @@ class ProfitWarpSeederEngine:
             "status": "ProfitWarp Seeded",
         }
 
-    def auto_inherit(self, workflow):
+    def auto_inherit(self, workflow: Any) -> Any:
         """Attach all Profit Warp hooks to a new workflow, vault, or module."""
         workflow["profitwarp_hooks"] = [
             type(self.fractal).__name__,

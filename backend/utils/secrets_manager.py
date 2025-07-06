@@ -38,8 +38,9 @@ class SecretsManager:
             "REDIS_PORT",
             "REDIS_DB",
         ]:
-            if k not in secrets and os.getenv(k):
-                secrets[k] = os.getenv(k)
+            secret: Optional[str] = os.environ.get(k)
+            if secret is not None:
+                secrets[k] = secret
         return secrets
 
     def get(self, key: str, default: Optional[str] = None) -> Optional[str]:

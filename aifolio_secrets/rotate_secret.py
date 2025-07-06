@@ -4,11 +4,12 @@ import json
 from datetime import datetime
 from secrets import token_urlsafe
 from .audit_logger import log_rotation_event
+from typing import Optional, List, Dict, Any
 
 __all__ = ["log_rotation_event", "rotate_secret"]
 
 
-def rotate_secret(*args, **kwargs):
+def rotate_secret(*args: Any, **kwargs: Any) -> Dict[str, Any]:
     """Static SAFE AI-compliant stub for secret rotation."""
     return {"status": "rotated", "details": "static_stub"}
 
@@ -34,7 +35,7 @@ AUDIT_ONLY = os.environ.get("AUDIT_ONLY", "false").lower() == "true"
 def rotate_secret_with_vault(secret_name: str, vault_id: str) -> str:
     # Here you would call Doppler/HashiCorp/AWS APIs
     # For demo, just generate a new token
-    new_secret = token_urlsafe(48)
+    new_secret: str = token_urlsafe(48)
     # Simulate vault write
     return new_secret
 
@@ -45,15 +46,15 @@ def expire_old_secret(secret_name: str, old_secret: Optional[str]) -> None:
 
 
 # --- MAIN ROTATION LOGIC ---
-def rotate_all_secrets():
-    results = []
+def rotate_all_secrets() -> List[Dict[str, Any]]:
+    results: List[Dict[str, Any]] = []
     for key in SECRETS_LIST:
         try:
-            old_secret = None
-            new_secret = rotate_secret_with_vault(key)
+            old_secret: Optional[str] = None
+            new_secret: str = rotate_secret_with_vault(key, "default_vault")
             expire_old_secret(key, old_secret)
             results.append({"key": key, "status": "SUCCESS"})
-            log_rotation_event(key, new_secret)
+            log_rotation_event(key, new_secret)  # type: ignore
         except Exception as e:
             results.append(
                 {

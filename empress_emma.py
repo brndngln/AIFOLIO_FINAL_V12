@@ -12,7 +12,7 @@ SAFE AI EXTENSION POINTS:
 """
 import logging
 from typing import Dict, Any, List, Optional
-from owner_lockdown import owner_approval_required, never_without_you  # type: ignore  # Decorator may be untyped
+from owner_lockdown import owner_approval_required, never_without_you
 
 # OMNIELITE CODE LEGION AGENT IMPORTS
 from autonomy.ai_static_engines.brett_omni_security_commander import (
