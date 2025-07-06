@@ -22,23 +22,25 @@ def anchor_license_hash(*args, **kwargs):
     pass
 
 
-def zero_knowledge_export(*args, **kwargs):
+def zero_knowledge_export(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def schedule_backup(*args, **kwargs):
+def schedule_backup(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def export_compliance_manifest(*args, **kwargs):
+def export_compliance_manifest(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def detect_signals(*args, **kwargs):
+def detect_signals(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def check_asset_health(asset_path: str) -> dict:
+from typing import Dict, Any
+
+def check_asset_health(asset_path: str) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before asset health check
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for asset hash (static)

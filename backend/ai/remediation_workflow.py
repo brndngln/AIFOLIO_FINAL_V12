@@ -1,19 +1,23 @@
 import json
 from pathlib import Path
 from datetime import datetime
+from typing import Dict, List, Optional
 
-RECOMMEND_PATH = (
+RECOMMEND_PATH: Path = (
     Path(__file__).parent.parent / "logs" / "remediation_recommendations.json"
 )
-WORKFLOW_PATH = Path(__file__).parent.parent / "logs" / "remediation_workflows.json"
+WORKFLOW_PATH: Path = Path(__file__).parent.parent / "logs" / "remediation_workflows.json"
 
 # Deterministic, SAFE AI-compliant remediation workflow automation
 
 
-def submit_remediation(control, admin_id):
+def submit_remediation(control: str, admin_id: str) -> Dict[str, str]:
+    """
+    SAFE AI-compliant: Submits a remediation workflow. Deterministic, owner-controlled, no adaptive logic.
+    """
     with open(RECOMMEND_PATH, "r") as f:
-        recs = json.load(f)
-    rec = next((r for r in recs if r["control"] == control), None)
+        recs: List[Dict[str, str]] = json.load(f)
+    rec: Optional[Dict[str, str]] = next((r for r in recs if r["control"] == control), None)
     if not rec:
         return {"success": False, "error": "No recommendation for control"}
     if WORKFLOW_PATH.exists():

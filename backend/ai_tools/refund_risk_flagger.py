@@ -10,7 +10,9 @@ STATIC_HIGH_RISK_REGIONS = ["RegionX", "RegionY"]
 STATIC_REPEAT_REFUND_USERS = ["user_123", "user_456"]
 
 
-def flag_refund_risk(user_id: str, region: str, refund_count: int) -> dict:
+from typing import Dict, Any
+
+def flag_refund_risk(user_id: str, region: str, refund_count: int) -> Dict[str, Any]:
     """
     Static, deterministic SAFE AI refund risk flagger.
     Returns dict with flags, explanation, recommendation, priority, SAFE AI/owner/non-sentient/version metadata, and audit log.
@@ -49,12 +51,12 @@ def flag_refund_risk(user_id: str, region: str, refund_count: int) -> dict:
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def refund_drift_protection():
+def refund_drift_protection() -> Dict[str, str]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def refund_static_feedback():
+def refund_static_feedback() -> list[str]:
     return ["Review flagged users and regions for manual audit."]
 
 

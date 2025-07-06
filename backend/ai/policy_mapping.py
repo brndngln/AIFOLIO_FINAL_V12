@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
+from typing import Dict, List, Any
 
-POLICY_PATH = Path(__file__).parent.parent / "config" / "safe_ai_policies.json"
-MAPPING_PATH = Path(__file__).parent.parent / "logs" / "policy_external_mapping.json"
+POLICY_PATH: Path = Path(__file__).parent.parent / "config" / "safe_ai_policies.json"
+MAPPING_PATH: Path = Path(__file__).parent.parent / "logs" / "policy_external_mapping.json"
 
 # Static, deterministic, SAFE AI-compliant mapping to external standards
-EXTERNAL_STANDARDS = {
+EXTERNAL_STANDARDS: Dict[str, Dict[str, str]] = {
     "iso27001": {
         "rotation": "A.9.2.4 (Management of secret authentication information)",
         "override": "A.9.4.2 (Secure log-on procedures)",

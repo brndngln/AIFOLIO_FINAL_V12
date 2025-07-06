@@ -14,15 +14,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def parse_threat_feed(*args, **kwargs):
+def parse_threat_feed(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def anchor_license_hash(*args, **kwargs):
+def anchor_license_hash(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def zero_knowledge_export(*args, **kwargs):
+def zero_knowledge_export(*args: Any, **kwargs: Any) -> None:
     pass
 
 
@@ -30,11 +30,11 @@ def schedule_backup(*args, **kwargs):
     pass
 
 
-def export_compliance_manifest(*args, **kwargs):
+def export_compliance_manifest(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def detect_signals(*args, **kwargs):
+def detect_signals(*args: Any, **kwargs: Any) -> None:
     pass
 
 
@@ -48,7 +48,9 @@ STATIC_COMMON_ERRORS = [
 ]
 
 
-def check_typo_grammar(text: str) -> list:
+from typing import List, Dict, Any
+
+def check_typo_grammar(text: str) -> List[Dict[str, Any]]:
     # OMNIPROOF: Threat feed check before typo/grammar check
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for typo/grammar hash (static)

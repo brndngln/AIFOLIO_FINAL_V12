@@ -10,14 +10,17 @@ WORKFLOW_PATH = Path(__file__).parent.parent / "logs" / "regulatory_workflows.js
 # Reviewer performance analytics: static, deterministic, SAFE AI-compliant
 
 
-def reviewer_stats():
-    stats = defaultdict(
+def reviewer_stats() -> List[Dict[str, Any]]:
+    """
+    SAFE AI-compliant: Static reviewer performance analytics. Deterministic, owner-controlled, no adaptive logic.
+    """
+    stats: Dict[str, Dict[str, Any]] = defaultdict(
         lambda: {"approvals": 0, "rejections": 0, "workflows": 0, "last_action": None}
     )
     # Policy approvals
     if APPROVAL_PATH.exists():
         with open(APPROVAL_PATH, "r") as f:
-            approvals = json.load(f)
+            approvals: List[Dict[str, Any]] = json.load(f)
         for a in approvals:
             for app in a.get("approvals", []):
                 rid = app.get("reviewer")

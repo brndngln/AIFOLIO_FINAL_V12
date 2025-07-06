@@ -32,13 +32,16 @@ def route_reviewer(policy_type, exclude=None):
     return [candidates[0]["id"]]
 
 
-def assign_custom_reviewers(idx, policy_type, num_reviewers=2):
+def assign_custom_reviewers(idx: int, policy_type: str, num_reviewers: int = 2) -> Dict[str, Union[str, List[str], Dict[str, str]]]:
+    """
+    SAFE AI-compliant: Assign custom reviewers based on policy type and number of reviewers.
+    """
     if not APPROVAL_PATH.exists():
         return {"success": False, "error": "No approvals"}
     with open(APPROVAL_PATH, "r") as f:
-        approvals = json.load(f)
-    assigned = []
-    exclude = []
+        approvals: List[Dict[str, str]] = json.load(f)
+    assigned: List[str] = []
+    exclude: List[str] = []
     for _ in range(num_reviewers):
         reviewer = route_reviewer(policy_type, exclude)
         if not reviewer:

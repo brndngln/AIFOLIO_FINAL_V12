@@ -22,10 +22,10 @@ def recommend_remediation():
     if not GAP_PATH.exists():
         return []
     with open(GAP_PATH, "r") as f:
-        gaps = json.load(f)
-    recommendations = []
+        gaps: List[Dict[str, str]] = json.load(f)
+    recommendations: List[Dict[str, str]] = []
     for g in gaps:
-        rec = REMEDIATION_LIBRARY.get(
+        rec: Optional[str] = REMEDIATION_LIBRARY.get(
             g["control"], "Consult compliance experts for remediation guidance."
         )
         recommendations.append(

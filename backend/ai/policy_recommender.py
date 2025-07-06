@@ -17,7 +17,10 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 # No adaptive or sentient logic; only static, explainable heuristics
 
 
-def recommend_policies():
+def recommend_policies() -> List[Dict[str, Any]]:
+    """
+    SAFE AI-compliant: Static policy recommendation. Deterministic, owner-controlled, no adaptive logic.
+    """
     # OMNIPROOF: Threat feed check before policy recommendation
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for policy hash (static)

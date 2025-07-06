@@ -58,21 +58,21 @@ def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
     )
     # Check for recent secret rotations
     with open(ROTATION_PATH, "r") as f:
-        rotations = json.load(f)
-    recent_rotation = any(
+        rotations: List[Dict[str, str]] = json.load(f)
+    recent_rotation: bool = any(
         r
         for r in rotations
         if r.get("key") == key and r.get("timestamp", "")[:10] in window
     )
     # Static rules for root cause
     if recent_override:
-        cause = "Manual override likely triggered spike."
+        cause: str = "Manual override likely triggered spike."
     elif recent_rotation:
-        cause = "Recent secret rotation may have affected usage."
+        cause: str = "Recent secret rotation may have affected usage."
     elif max(pattern.values(), default=0) > 2 * (
         sum(pattern.values()) / max(1, len(pattern))
     ):
-        cause = "Sudden usage surge without admin intervention."
+        cause: str = "Sudden usage surge without admin intervention."
     else:
         cause = "No clear root cause detected."
     return {

@@ -13,34 +13,36 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def parse_threat_feed(*args, **kwargs):
+def parse_threat_feed(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def anchor_license_hash(*args, **kwargs):
+def anchor_license_hash(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def zero_knowledge_export(*args, **kwargs):
+def zero_knowledge_export(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def schedule_backup(*args, **kwargs):
+def schedule_backup(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def export_compliance_manifest(*args, **kwargs):
+def export_compliance_manifest(*args: Any, **kwargs: Any) -> None:
     pass
 
 
-def detect_signals(*args, **kwargs):
+def detect_signals(*args: Any, **kwargs: Any) -> None:
     pass
 
 
 STATIC_ALLOWED_TONES = ["premium", "minimalistic", "practical"]
 
 
-def match_tone_voice(text, target_profile):
+from typing import List, Dict, Any
+
+def match_tone_voice(text: str, target_profile: str) -> List[Dict[str, Any]]:
     # OMNIPROOF: Threat feed check before tone/voice matching
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for tone/voice hash (static)

@@ -4,7 +4,7 @@ PHASE 12 SAFE — Deterministic, Non-Sentient
 Implements tag-based, rule-driven content scoping for PDF/content generation.
 """
 import logging
-from typing import List, Dict
+from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)
 

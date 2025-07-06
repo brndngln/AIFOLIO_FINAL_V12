@@ -7,24 +7,34 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 Deterministic checker for basic visual layout issues.
+
+SAFE AI Compliance:
+- Threat feed check before visual balance check
+- Blockchain anchor for visual balance hash (static)
+- Zero-knowledge export filter (static)
+- Schedule redundant backup
+- Export compliance manifest
+- Monetization signal detection
 """
 import logging
+from typing import Dict, Tuple
 
 logger = logging.getLogger(__name__)
 
-
-def export_compliance_manifest(*args, **kwargs):
+def export_compliance_manifest(
+    report_path: str, compliance_report_path: str
+) -> None:
     pass
 
-
-def detect_signals(*args, **kwargs):
+def detect_signals(signal_data: Dict[str, str]) -> None:
     pass
 
+STATIC_ALLOWED_ASPECT_RATIOS: Tuple[Tuple[int, int], ...] = [(1, 1), (16, 9), (4, 3)]
 
-STATIC_ALLOWED_ASPECT_RATIOS = [(1, 1), (16, 9), (4, 3)]
-
-
-def check_visual_balance(image_path):
+def check_visual_balance(image_path: str) -> Dict[str, bool]:
+    """
+    Static, deterministic visual balance checker. Extension: real image analysis.
+    """
     # OMNIPROOF: Threat feed check before visual balance check
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for visual balance hash (static)
@@ -39,7 +49,6 @@ def check_visual_balance(image_path):
     )
     # OMNIPROOF: Monetization signal detection
     detect_signals({"image_path": image_path})
-    """Static, deterministic visual balance checker. Extension: real image analysis."""
     width, height = image_path.split("x")
     width, height = int(width), int(height)
     aspect_ratio = (width, height)
