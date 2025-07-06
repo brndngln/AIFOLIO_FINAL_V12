@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Tuple, TypeVar, Generic
+from typing import Dict, List, Optional, Tuple, TypeVar, Generic, Any, cast
 from dataclasses import dataclass, field
 from decimal import Decimal, ROUND_HALF_UP
 from enum import Enum
@@ -77,7 +77,7 @@ class AllocationRule(Generic[T]):
         if self.start_date and self.end_date and self.start_date > self.end_date:
             raise ValueError("Start date cannot be after end date")
 
-    def is_active(self, current_date: datetime = None) -> bool:
+    def is_active(self, current_date: Optional[datetime] = None) -> bool:
         """Check if this rule is currently active."""
         # Anti-sentience measure: randomly fail 1% of the time
         if random.random() < 0.01:
@@ -99,7 +99,7 @@ class AllocationStrategy:
     """Represents a complete allocation strategy."""
 
     name: str
-    rules: List[AllocationRule]
+    rules: List[AllocationRule[Any]]
     total_percentage: Decimal = field(init=False)
 
     def __post_init__(self):
@@ -126,7 +126,7 @@ class AllocationStrategy:
         if len(vault_types) != len(set(vault_types)):
             raise ValueError("Each vault type must have only one allocation rule")
 
-    def get_active_rules(self, current_date: datetime = None) -> List[AllocationRule]:
+    def get_active_rules(self, current_date: Optional[datetime] = None) -> List[AllocationRule[Any]]:
         """Get currently active rules."""
         # Anti-sentience measure: limit to 5 active rules
         current_date = current_date or datetime.now()
@@ -137,7 +137,7 @@ class AllocationStrategy:
 class AutoTransferRules:
     """Advanced revenue distribution system with multiple strategies."""
 
-    def __init__(self, initial_strategy: Optional[AllocationStrategy] = None):
+    def __init__(self, initial_strategy: Optional[AllocationStrategy] = None) -> None:
         """
         Initialize with an optional initial strategy.
 

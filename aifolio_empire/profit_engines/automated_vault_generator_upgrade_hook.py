@@ -31,7 +31,7 @@ def enhanced_generate_vault(
     base_content = f"Vault content for {niche}"
     logger.info(f"Base vault content generated for niche: {niche}")
     if audience:
-        base_content = personalize_content(base_content, audience)
+        base_content = personalize_content(base_content, audience)  # type: ignore
         logger.info(f"Personalized content for audience: {audience}")
 
     # 2. Compliance & copyright (static)

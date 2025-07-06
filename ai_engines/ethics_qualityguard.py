@@ -33,9 +33,9 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 from typing import Dict, Any, Tuple, List
 
-@sentience_firewall
-@domesticate_ai
-@sentience_guard
+@sentience_firewall  # type: ignore
+@domesticate_ai  # type: ignore
+@sentience_guard  # type: ignore
 def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
     # OMNIPROOF: Threat feed check before ethics enforcement
     parse_threat_feed({})
