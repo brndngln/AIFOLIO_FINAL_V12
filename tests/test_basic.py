@@ -2,7 +2,7 @@ import unittest
 
 
 class BasicTestCase(unittest.TestCase):
-    def test_sanity(self):
+    def test_sanity(self) -> None:
         self.assertEqual(1 + 1, 2)
 
 

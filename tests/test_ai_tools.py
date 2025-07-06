@@ -3,7 +3,7 @@ from autonomy.ai_tools import vault_formatter, review_analyzer, audit_compliance
 
 
 class TestVaultFormatter(unittest.TestCase):
-    def test_format_title(self):
+    def test_format_title(self) -> None:
         self.assertEqual(
             vault_formatter.format_title("the quick brown fox"), "The Quick Brown Fox"
         )
@@ -13,7 +13,7 @@ class TestVaultFormatter(unittest.TestCase):
         )
         self.assertEqual(vault_formatter.format_title(""), "")
 
-    def test_format_description(self):
+    def test_format_description(self) -> None:
         self.assertEqual(
             vault_formatter.format_description("hello world"), "Hello world."
         )
@@ -24,21 +24,21 @@ class TestVaultFormatter(unittest.TestCase):
 
 
 class TestReviewAnalyzer(unittest.TestCase):
-    def test_analyze_review_spelling(self):
+    def test_analyze_review_spelling(self) -> None:
         out = review_analyzer.analyze_review("Th1s is g00d!")
         self.assertIn("spelling", out["flags"])
 
-    def test_analyze_review_banned(self):
+    def test_analyze_review_banned(self) -> None:
         out = review_analyzer.analyze_review("This is a scam and fraud!")
         self.assertIn("banned", out["flags"])
 
-    def test_analyze_review_sentiment(self):
+    def test_analyze_review_sentiment(self) -> None:
         out = review_analyzer.analyze_review("This is bad and awful")
         self.assertIn("negative", out["flags"])
 
 
 class TestAuditCompliance(unittest.TestCase):
-    def test_vault_registry_entry_required_fields(self):
+    def test_vault_registry_entry_required_fields(self) -> None:
         """
         Ensure all required fields are present in a vault registry entry and compliance checker flags missing/invalid fields.
         """
@@ -73,7 +73,7 @@ class TestAuditCompliance(unittest.TestCase):
         self.assertIn("description", out3.get("missing", []))
         self.assertFalse(out3["compliant"])
 
-    def test_check_vault_metadata_compliant(self):
+    def test_check_vault_metadata_compliant(self) -> None:
         meta = {
             "vault_id": "v1",
             "title": "T",
@@ -85,7 +85,7 @@ class TestAuditCompliance(unittest.TestCase):
         out = audit_compliance.check_vault_metadata(meta)
         self.assertTrue(out["compliant"])
 
-    def test_check_vault_metadata_missing(self):
+    def test_check_vault_metadata_missing(self) -> None:
         meta = {
             "vault_id": "v1",
             "title": "",
@@ -97,7 +97,7 @@ class TestAuditCompliance(unittest.TestCase):
         self.assertIn("title", out["missing"])
         self.assertFalse(out["compliant"])
 
-    def test_check_vault_metadata_invalid(self):
+    def test_check_vault_metadata_invalid(self) -> None:
         meta = {
             "vault_id": "v1",
             "title": "T",
