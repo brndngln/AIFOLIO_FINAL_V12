@@ -56,7 +56,10 @@ class AIAnalyticsEngine:
         )
         X_scaled: NDArray[Any] = self.scaler.fit_transform(X)
         z_scores: NDArray[Any] = np.abs((X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0))
-        anomalies: List[int] = [i for i, row in enumerate(z_scores) if any(row > threshold)]
+        anomalies: List[int] = []
+        for i, row in enumerate(z_scores):
+            if any(float(val) > threshold for val in row):
+                anomalies.append(i)
         return anomalies
 
     def predict_trends(self, event_data: List[Dict[str, Any]], window: int = 7) -> Dict[str, str]:

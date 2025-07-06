@@ -4,6 +4,6 @@ AIFOLIO SAFE AI Governance Board Report Generator
 """
 
 
-def governance_board_report(report):
+def governance_board_report(report: dict) -> dict:
     # Expects: dict of governance board report data
     return {"governance_board_report": report}
