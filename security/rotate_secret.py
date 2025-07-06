@@ -16,14 +16,15 @@ ROTATION_ATTEMPTS = 3
 
 
 # --- SECRET ROTATION LOGIC ---
-def rotate_key(key):
+def rotate_key(key_name: str) -> str:
     # Vendor API call or fallback to secure random
-    if key == "OPENAI_API_KEY":
+    if key_name == "OPENAI_API_KEY":
         # TODO: requests.post() to OpenAI API for key rotation
         new_secret = token_urlsafe(64)
     else:
         new_secret = token_urlsafe(64)
     # Store in vault
+    store_secret(key_name, new_secret)
     store_secret(key, new_secret)
     return new_secret
 

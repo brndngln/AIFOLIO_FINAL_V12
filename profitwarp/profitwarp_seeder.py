@@ -11,12 +11,12 @@ from profitwarp.empire_scaling_os import (
     LicensingLayer,
     WhiteLabelPartnerLauncher,
 )
-
+from typing import Any, Dict, Optional
 
 class ProfitWarpSeederEngine:
     """Seeds all Profit Warp modules into the operational tree and future workflow templates."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.fractal = FractalVaultEngine()
         self.pdf_quantum = PDFQuantumGenerator()
         self.revenue_loop = AIRevenueLoop()

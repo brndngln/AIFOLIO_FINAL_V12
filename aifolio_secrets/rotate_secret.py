@@ -31,7 +31,7 @@ AUDIT_ONLY = os.environ.get("AUDIT_ONLY", "false").lower() == "true"
 
 
 # --- VAULT INTEGRATION STUBS ---
-def rotate_secret_with_vault(key):
+def rotate_secret_with_vault(secret_name: str, vault_id: str) -> str:
     # Here you would call Doppler/HashiCorp/AWS APIs
     # For demo, just generate a new token
     new_secret = token_urlsafe(48)
@@ -39,7 +39,7 @@ def rotate_secret_with_vault(key):
     return new_secret
 
 
-def expire_old_secret(key, old_secret):
+def expire_old_secret(secret_name: str, old_secret: Optional[str]) -> None:
     # Simulate vault expiration
     pass
 

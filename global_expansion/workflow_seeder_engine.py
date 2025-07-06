@@ -27,14 +27,14 @@ from global_expansion.ai_logic_expansion import (
 class WorkflowSeederEngine:
     """Seeds all expansion modules into the operational tree and future workflow templates."""
 
-    def __init__(self):
-        self.global_scale = [
+    def __init__(self) -> None:
+        self.global_scale: list = [
             MultilingualVaultSpawner(),
             AutoTranslationMarketFormatter(),
             GeoRestrictedPolicyCompliance(),
             GlobalVaultDiscoveryNetwork(),
         ]
-        self.pipeline_optimizers = [
+        self.pipeline_optimizers: list = [
             SmartFunnelSplitTesting(),
             AutoVaultToMasterclassBot(),
             AffiliateClonerCommission(),

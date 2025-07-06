@@ -7,17 +7,18 @@ Secrets Manager Utility for AIFOLIO/OMNIELITE
 import os
 import json
 from dotenv import load_dotenv
+from typing import Dict, List, Optional
 
 load_dotenv()
 
 
 class SecretsManager:
-    def __init__(self, env_path: str = ".env"):
-        self.env_path = env_path
+    def __init__(self, env_path: str = ".env") -> None:
+        self.env_path: str = env_path
         self.secrets: Dict[str, str] = self._load_secrets()
 
-    def _load_secrets(self):
-        secrets = {}
+    def _load_secrets(self) -> Dict[str, str]:
+        secrets: Dict[str, str] = {}
         if os.path.exists(self.env_path):
             with open(self.env_path) as f:
                 for line in f:
