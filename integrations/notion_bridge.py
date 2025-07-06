@@ -3,7 +3,14 @@ import requests
 import logging
 
 
-def send_notion_task(payload):
+from typing import Dict, Any
+
+def send_notion_task(payload: Dict[str, Any]) -> None:
+    """
+    Send a task to Notion using the provided payload.
+    Args:
+        payload: The task data as a dictionary.
+    """
     url = os.getenv("NOTION_API_URL")
     token = os.getenv("NOTION_API_TOKEN")
     if not url or not token:

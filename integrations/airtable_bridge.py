@@ -3,7 +3,14 @@ import requests
 import logging
 
 
-def send_airtable_record(payload):
+from typing import Dict, Any
+
+def send_airtable_record(payload: Dict[str, Any]) -> None:
+    """
+    Send a record to Airtable using the provided payload.
+    Args:
+        payload: The record data as a dictionary.
+    """
     url = os.getenv("AIRTABLE_API_URL")
     token = os.getenv("AIRTABLE_API_TOKEN")
     if not url or not token:
