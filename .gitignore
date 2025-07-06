@@ -42,6 +42,7 @@ venv/
 /backups/
 /mount/
 omnisecure_stack/
+!omnisecure_stack/__init__.py
 #UPGRADES that are done/MoreUpgrades4/vaults/  # [EmmaBypass 2025-07-03T11:28:42-06:00] Temporarily commented for legacy lockdown
 # autonomy/vaults/  # [EmmaBypass 2025-07-03T11:19:14-06:00] Temporarily commented for anti_sentience.marker deployment
 vaults/
