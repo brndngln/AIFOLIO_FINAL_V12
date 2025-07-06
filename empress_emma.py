@@ -128,13 +128,13 @@ class EMMA:
             pipeline_name, details
         )
         self._log_legion_action("kennedy", "reinforce_pdf_pipeline", result)
-        return dict(result) if isinstance(result, dict) else result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required("Brooklyn: Update Grid Logic")
     def update_grid_logic(self, component: str, details: Dict[str, Any]) -> Dict[str, Any]:
         result = self.code_legion["brooklyn"].update_grid_logic(component, details)
         self._log_legion_action("brooklyn", "update_grid_logic", result)
-        return dict(result) if isinstance(result, dict) else result
+        return dict(result) if isinstance(result, dict) else {"result": result}
 
     @owner_approval_required("Ray: Program PDF Agent")
     def program_pdf_agent(self, agent_id: str, pdf_type: str, safeguards: Dict[str, Any]) -> Dict[str, Any]:
