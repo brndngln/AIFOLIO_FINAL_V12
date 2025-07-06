@@ -51,7 +51,8 @@ def send_vault_email_alert(to_email: str, subject: str, body: str) -> None:
     msg = MIMEText(body, "plain")
     msg["Subject"] = subject
     from typing import cast
-    msg["From"] = formataddr((FROM_NAME, FROM_EMAIL))
+    from typing import cast
+    msg["From"] = formataddr((cast(str, FROM_NAME) if FROM_NAME is not None else None, cast(str, FROM_EMAIL)))
     msg["To"] = to_email
     try:
         with smtplib.SMTP(cast(str, SMTP_HOST), SMTP_PORT) as server:

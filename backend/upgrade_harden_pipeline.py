@@ -18,6 +18,7 @@ from backend.security_engine import load_security_engine
 from backend.auto_upgrade_manager import load_auto_upgrade_manager
 from backend.empire_phase_manager import get_empire_phase_status
 from backend.security.audit_logging import log_audit_event
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -53,14 +54,14 @@ def output_changelog(entries: Any) -> None:
     changelog = "\n".join(entries)
     log_audit_event(f"CHANGELOG: {changelog}")
     print("CHANGELOG:\n" + changelog)
-    return changelog
+
 
 
 def output_readiness_summary(status: Any) -> None:
     summary = f"System readiness: {status}"
     log_audit_event(summary)
     print(summary)
-    return summary
+
 
 
 def run_upgrade_harden_pipeline(vaults: Any, files: Any, actions: Any, data: Any) -> None:

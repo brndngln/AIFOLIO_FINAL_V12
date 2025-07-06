@@ -61,4 +61,3 @@ class OmnieliteEmpireSeederEngine:
             type(self.empire_clone).__name__,
             type(self.multilingual_exporter).__name__,
         ]
-        return workflow
