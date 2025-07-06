@@ -11,7 +11,7 @@ import neuro_core_analytics
 from autonomy.analytics import static_memory_grid_export  # type: ignore[attr-defined]
 
 # --- SAFE AI Output Bridge to NEURO CORE ---
-def export_static_analytics_to_neuro_core() -> Dict[str, Any]:  # type: ignore
+def export_static_analytics_to_neuro_core() -> Dict[str, Any]:
     """Export SAFE AI analytics and forecasts for NEURO CORE (read-only, static)"""
     analytics = safe_ai_governance_board_report_generator.generate_board_report()
     forecast = static_revenue_forecast.generate_forecast()  # type: ignore[name-defined]

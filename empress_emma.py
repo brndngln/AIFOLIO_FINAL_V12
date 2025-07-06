@@ -73,6 +73,7 @@ class EMMA:
         pmp_passphrase: Optional[str] = None,
         pmp_context: Optional[Dict[str, Any]] = None,
     ) -> None:
+    ) -> None:
         never_without_you(owner_signature)
         self.owner_signature: str = owner_signature
         self.biometric_hash: str = biometric_hash

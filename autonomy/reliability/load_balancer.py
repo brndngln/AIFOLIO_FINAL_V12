@@ -14,13 +14,15 @@ os.makedirs(os.path.dirname(BALANCER_LOG), exist_ok=True)
 
 
 # --- Load Balancer for AI Task Queue ---
+from typing import Callable, Any, List
+
 class AITaskQueue:
     def __init__(self, workers: int = 3) -> None:
-        self.queue: queue.Queue[Any] = queue.Queue()
+        self.queue: queue.Queue[Callable[..., Any]] = queue.Queue()
         self.workers: int = workers
-        self.threads: list[threading.Thread] = []
+        self.threads: List[threading.Thread] = []
 
-    def add_task(self, task: 'Callable[..., Any]') -> None:
+    def add_task(self, task: Callable[..., Any]) -> None:
         self.queue.put(task)
 
     def worker(self) -> None:
