@@ -67,16 +67,16 @@ class DynamicBundleBuilder:
             raise ValueError(f"Invalid bundle type: {bundle_type}")
 
         # Validate items
-        if len(items) < template["min_items"]:
+        if len(items) < int(template["min_items"]):
             raise ValueError(f"Not enough items for {bundle_type} bundle")
 
         # Select random items within range
-        num_items = randint(template["min_items"], template["max_items"])
+        num_items = randint(int(template["min_items"]), int(template["max_items"]))
         selected_items = items[:num_items]
 
         # Calculate bundle price
         total_price = sum(item["price"] for item in selected_items)
-        bundle_price = total_price * (1 - template["discount"])
+        bundle_price = total_price * (1 - float(template["discount"]))
 
         # Create bundle
         bundle = {
@@ -92,7 +92,7 @@ class DynamicBundleBuilder:
 
         return bundle
 
-    def _create_scarcity(self, bundle_type: str) -> ScarcityDict:
+    def _create_scarcity(self, bundle_type: str) -> Dict[str, Any]:
         """Create scarcity element for bundle."""
         now = datetime.now()
 
@@ -121,7 +121,7 @@ class DynamicBundleBuilder:
                 "message": "Available exclusively to our VIP members",
             }
 
-    def _create_bonus(self, bundle_type: str) -> BonusDict:
+    def _create_bonus(self, bundle_type: str) -> Dict[str, Any]:
         """Create bonus offer for bundle."""
         if bundle_type == "starter":
             return {

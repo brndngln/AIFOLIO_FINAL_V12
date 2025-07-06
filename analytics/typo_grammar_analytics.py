@@ -19,7 +19,9 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.sentience_firewall import sentience_firewall
 
 
-def analyze_typo_grammar(vaults):
+from typing import List, Dict, Any
+
+def analyze_typo_grammar(vaults: List[Dict[str, Any]]) -> List[str]:
     # OMNIPROOF: Threat feed check before typo/grammar analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for typo/grammar hash (static)
@@ -52,7 +54,7 @@ def analyze_typo_grammar(vaults):
 
 
 @sentience_firewall
-def check_typo_grammar(text: str) -> dict:
+def check_typo_grammar(text: str, brand_profile: Dict[str, Any]) -> Dict[str, Any]:
     """
     Returns static typo/grammar check results.
     This is a deterministic, non-adaptive, SAFE AI-compliant stub for demonstration and audit purposes.

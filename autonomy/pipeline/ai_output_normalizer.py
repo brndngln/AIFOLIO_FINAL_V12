@@ -34,12 +34,14 @@ TONE_WHITELIST = ["professional", "friendly", "neutral", "authoritative"]
 from typing import Any, Dict
 
 def normalize_output(
-    text,
-    brand_terms=BRAND_GUIDELINES,
-    legal_phrases=LEGAL_SAFE_PHRASES,
-    tone="professional",
-    reading_level=10,
-):
+    text: str,
+    brand_terms: List[str] = BRAND_GUIDELINES,
+    min_length: int = 80,
+    max_length: int = 4000,
+) -> Dict[str, Any]:
+    legal_phrases = LEGAL_SAFE_PHRASES
+    tone = "professional"
+    reading_level = 10
     # Check tone
     tone_flag = not any(t in text.lower() for t in TONE_WHITELIST)
     # Check reading level (Flesch-Kincaid grade)
