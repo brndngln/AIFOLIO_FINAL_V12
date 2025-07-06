@@ -6,6 +6,7 @@ class SaleRecord(TypedDict, total=False):
     id: str
     amount: float
     timestamp: str
+    type: str  # Added for funnel analytics compatibility
     # Add more fields as needed
 
 def detect_signals(sales_data: List[SaleRecord]) -> List[str]:

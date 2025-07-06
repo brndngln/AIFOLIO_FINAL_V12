@@ -5,17 +5,17 @@ Phase 54 — SAFE AI, non-sentient, static, owner-controlled
 Suggests and logs family trust and legacy planning actions for owner review.
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 from core.compliance.emma_guardian import emma
-from omniexpansion.legal_immunity_net import TrustAlignmentSystem
+from omniexpansion.legal_immunity_net import TrustAlignmentSystem  # type: ignore[attr-defined]
 
-FAMILY_TRUST_LOG = []
+FAMILY_TRUST_LOG: List[Dict[str, Any]] = []
 
 
 class FamilyTrustPlanner:
     @staticmethod
-    def suggest_trust_plan(family_data: Dict) -> Dict:
+    def suggest_trust_plan(family_data: Dict[str, Any]) -> Dict[str, Any]:
         # OMNIELITE: Multi-Jurisdictional Trust Alignment
         country = family_data.get("country", "US")
         entity = TrustAlignmentSystem.align_entity(family_data, country)
@@ -42,7 +42,7 @@ class FamilyTrustPlanner:
             return ["Review trust annually", "Update beneficiaries as needed"]
 
     @staticmethod
-    def log_trust_action(action: str, details: Dict):
+    def log_trust_action(action: str, details: Dict[str, Any]) -> None:
         FAMILY_TRUST_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -52,5 +52,5 @@ class FamilyTrustPlanner:
         )
 
     @staticmethod
-    def export_trust_log() -> List[Dict]:
+    def export_trust_log() -> List[Dict[str, Any]]:
         return FAMILY_TRUST_LOG

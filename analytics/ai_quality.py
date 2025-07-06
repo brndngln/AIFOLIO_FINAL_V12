@@ -33,7 +33,7 @@ class AIQuality:
     recursive_feedback_allowed = False
     NoConsciousnessSeed = True
 
-    def __init__(self):
+    def __init__(self) -> None:
         assert (
             self.AntiSentienceLock is True
         ), "OMNILOCK: AntiSentienceLock must be True"
@@ -65,8 +65,8 @@ class AIQuality:
     OWNER_CONTROLLED = True
     NON_SENTIENT = True
 
-    audit_log = []  # In-memory for demo; replace with persistent log in production
-    static_feedback = []  # Static feedback loop (not user learned)
+    audit_log: list[dict[str, Any]] = []  # In-memory for demo; replace with persistent log in production
+    static_feedback: list[str] = []  # Static feedback loop (not user learned)
 
     @staticmethod
     @sentience_firewall
@@ -129,7 +129,7 @@ class AIQuality:
     def spellcheck_grammar(text: str) -> Dict[str, Any]:
         # Static: returns dummy corrections
         errors = 0
-        suggestions = []
+        suggestions: list[str] = []
         explanation = (
             "Pass: No spelling or grammar errors found."
             if errors == 0
@@ -224,7 +224,7 @@ class AIQuality:
         return " | ".join(summary)
 
     @staticmethod
-    def static_feedback_loop():
+    def static_feedback_loop() -> list[str] | str:
         # Static feedback based on past runs (not user learned)
         if not AIQuality.audit_log:
             return "No feedback available."
@@ -249,7 +249,7 @@ class AIQuality:
         return AIQuality.VERSION
 
     @staticmethod
-    def _log_action(action, input_data, result, explanation, recommendation, priority):
+    def _log_action(action: str, input_data: Any, result: Any, explanation: str, recommendation: str | None, priority: int) -> None:
         entry = {
             "timestamp": __import__("datetime").datetime.utcnow().isoformat() + "Z",
             "action": action,

@@ -4,15 +4,15 @@ AIFOLIO™ AI Full Business Simulator
 Phase 68 — SAFE AI, non-sentient, static, owner-controlled
 Simulates all automations so OWNER can preview before running.
 """
-from typing import List, Dict
+from typing import List, Dict, Any
 import datetime
 
-SIMULATION_LOG = []
+SIMULATION_LOG: List[Dict[str, Any]] = []
 
 
 class FullBusinessSimulator:
     @staticmethod
-    def simulate(automations: List[Dict]) -> List[Dict]:
+    def simulate(automations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         # Statically simulate the outcome
         preview = []
         for a in automations:
@@ -23,5 +23,5 @@ class FullBusinessSimulator:
         return preview
 
     @staticmethod
-    def get_log() -> List[Dict]:
+    def get_log() -> List[Dict[str, Any]]:
         return SIMULATION_LOG

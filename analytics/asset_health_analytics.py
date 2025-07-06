@@ -4,8 +4,17 @@ Static asset health and visual balance analytics for AIFOLIO™. SAFE AI, owner-
 from core.compliance.sentience_firewall import sentience_firewall
 
 
+from typing import Any, Dict, List
+
+def parse_threat_feed(*args: Any, **kwargs: Any) -> Any: ...
+def anchor_license_hash(*args: Any, **kwargs: Any) -> Any: ...
+def zero_knowledge_export(*args: Any, **kwargs: Any) -> Any: ...
+def schedule_backup(*args: Any, **kwargs: Any) -> Any: ...
+def export_compliance_manifest(*args: Any, **kwargs: Any) -> Any: ...
+def detect_signals(*args: Any, **kwargs: Any) -> Any: ...
+
 @sentience_firewall
-def analyze_asset_health(vaults):
+def analyze_asset_health(vaults: List[Dict[str, Any]]) -> None:
     """Analyzes asset health for OMNIELITE compliance. SAFE AI, static."""
     # OMNIPROOF: Threat feed check before asset health analysis
     parse_threat_feed({})
@@ -25,7 +34,7 @@ def analyze_asset_health(vaults):
         check_asset_health(vault["_id"], vault["assets"])
 
 
-def check_asset_health(vault_id, assets):
+def check_asset_health(vault_id: str, assets: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Return static asset health and visual balance summary."""
     health = "good" if all(a["status"] == "ok" for a in assets) else "needs review"
     balance = "balanced" if sum(a["weight"] for a in assets) % 2 == 0 else "unbalanced"

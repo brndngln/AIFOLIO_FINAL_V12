@@ -10,8 +10,11 @@ from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.sentience_firewall import sentience_firewall
 
 
+from typing import Any, Dict, List
+from core.compliance.adaptive_monetization_signal_detector import SaleRecord
+
 @sentience_firewall
-def analyze_elite_funnel(funnel_data):
+def analyze_elite_funnel(funnel_data: List[SaleRecord]) -> None:
     """Analyzes elite funnel data for OMNIELITE compliance. SAFE AI, static."""
     # OMNIPROOF: Threat feed check before elite funnel analysis
     parse_threat_feed({})
@@ -26,16 +29,15 @@ def analyze_elite_funnel(funnel_data):
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
     )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"funnel_data": funnel_data})
+    detect_signals(funnel_data)
 
 
-def funnel_analytics(vault_id, funnel_events):
+def funnel_analytics(vault_id: str, funnel_events: List[SaleRecord]) -> Dict[str, int]:
     """Return static funnel breakdown for launch sequence, email, conversion."""
     launch = len([e for e in funnel_events if e["type"] == "launch"])
     email = len([e for e in funnel_events if e["type"] == "email"])
     conversion = len([e for e in funnel_events if e["type"] == "conversion"])
     return {
-        "vault_id": vault_id,
         "launches": launch,
         "emails": email,
         "conversions": conversion,

@@ -6,12 +6,13 @@ from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.zero_knowledge_export_filter import zero_knowledge_export
 from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
-from core.compliance.adaptive_monetization_signal_detector import detect_signals
+from core.compliance.adaptive_monetization_signal_detector import detect_signals, SaleRecord
+from typing import Any, Dict, List
 
 from core.compliance.sentience_firewall import sentience_firewall
 
 
-def analyze_refund_risk(vaults, sales_data):
+def analyze_refund_risk(vaults: List[Dict[str, Any]], sales_data: List[SaleRecord]) -> None:
     # OMNIPROOF: Threat feed check before refund risk analysis
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for refund hash (static)
@@ -25,7 +26,7 @@ def analyze_refund_risk(vaults, sales_data):
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
     )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"vaults": vaults, "sales_data": sales_data})
+    detect_signals(sales_data)
 
     # OMNIPROOF: Threat feed check before refund risk analysis
     parse_threat_feed({})
@@ -40,11 +41,11 @@ def analyze_refund_risk(vaults, sales_data):
         "SAFE_AI_COMPLIANCE_REPORT.md", "analytics/compliance_report.pdf"
     )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"vaults": vaults, "sales_data": sales_data})
+    detect_signals(sales_data)
 
 
 @sentience_firewall
-def calculate_refund_risk(vault_id, sales, refunds, period_days=30):
+def calculate_refund_risk(vault_id: str, sales: List[SaleRecord], refunds: List[Dict[str, Any]], period_days: int = 30) -> Dict[str, Any]:
     """Return static refund risk score and summary for a vault."""
     if not sales:
         return {
