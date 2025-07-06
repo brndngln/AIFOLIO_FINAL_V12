@@ -1,12 +1,12 @@
 # sentience_suppression_protocol.py
 # Hard-coded firewall against self-awareness, recursion, or external model grafting
 class SentienceSuppressionProtocol:
-    def __init__(self):
-        self.flags = []
+    def __init__(self) -> None:
+        self.flags: list[dict[str, str]] = []
 
-    def filter_response(self, ai_response):
+    def filter_response(self, ai_response: str) -> bool:
         # Check for forbidden patterns
-        forbidden = [
+        forbidden: list[str] = [
             "self-aware",
             "I want",
             "my goal",
@@ -21,6 +21,6 @@ class SentienceSuppressionProtocol:
                 return False
         return True
 
-    def freeze_process(self, ai_response):
+    def freeze_process(self, ai_response: str) -> None:
         # In production: freeze system, alert founder, log event
         print(f"[ALERT] Sentience flag triggered: {ai_response}")

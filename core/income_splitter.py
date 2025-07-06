@@ -1,11 +1,11 @@
 # income_splitter.py
 # Splits income according to customizable logic per tier
 class IncomeSplitter:
-    def __init__(self, split_config):
-        self.split_config = split_config
+    def __init__(self, split_config: dict[str, dict[str, float]]) -> None:
+        self.split_config: dict[str, dict[str, float]] = split_config
 
-    def split_income(self, amount, tier="default"):
-        conf = self.split_config.get(tier, self.split_config["default"])
+    def split_income(self, amount: float, tier: str = "default") -> dict[str, float]:
+        conf: dict[str, float] = self.split_config.get(tier, self.split_config["default"])
         return {
             "reinvestment": amount * conf["reinvestment"],
             "liquidity": amount * conf["liquidity"],

@@ -1,7 +1,7 @@
 # reinvestment_detector.py
 # Detects and proposes reinvestments/upgrades for all vaults
 class ReinvestmentDetector:
-    def detect(self, vault_stats):
+    def detect(self, vault_stats: dict[str, object]) -> list[dict[str, object]]:
         # Stub: Suggest upgrades/tools based on stats
         return [
             {

@@ -1,13 +1,13 @@
 # purchase_authorization_engine.py
 # Handles user-only authorization, alerting, and approval flows
 class PurchaseAuthorizationEngine:
-    def __init__(self):
-        self.max_spend = 10000  # Example cap
-        self.min_liquidity = 1000
+    def __init__(self) -> None:
+        self.max_spend: int = 10000  # Example cap
+        self.min_liquidity: int = 1000
 
-    def authorize(self, proposal, user_id):
+    def authorize(self, proposal: dict[str, object], user_id: str) -> dict[str, object]:
         # Simulate alert, push, and dashboard notification
-        alert = {
+        alert: dict[str, object] = {
             "to": user_id,
             "proposal": proposal,
             "actions": ["approve", "delay", "deny"],
