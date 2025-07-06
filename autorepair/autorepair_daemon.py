@@ -18,6 +18,7 @@ import time
 import logging
 import traceback
 from datetime import datetime
+from typing import Any, Dict
 from core.compliance.emma_guardian import emma
 import hashlib
 import json
@@ -61,7 +62,7 @@ MONITORED_SERVICES = [
 FAILOVER_REGISTRY = []
 
 
-def register_failover_service(service_dict):
+def register_failover_service(service_dict: dict[str, Any]) -> None:
     """
     Register a new service/component for failover/self-repair monitoring.
     """
@@ -71,7 +72,7 @@ def register_failover_service(service_dict):
 
 
 # --- REPAIR LOGGING ---
-def log_repair(action, service, status, explanation, attempts, escalation=False):
+def log_repair(action: str, service: Dict[str, Any], status: str, explanation: str, attempts: int, escalation: bool = False) -> None:
     entry = {
         "timestamp": datetime.utcnow().isoformat(),
         "action": action,
@@ -95,23 +96,23 @@ def log_repair(action, service, status, explanation, attempts, escalation=False)
 
 
 # --- HEALTH CHECK ---
-def run_healthcheck(script_path):
+def run_healthcheck(script_path: str) -> bool:
     try:
         exit_code = os.system(f"python {script_path}")
         return exit_code == 0
     except Exception as e:
         logger.error(f"Healthcheck failed for {script_path}: {e}")
-        return False
+        
 
 
 # --- REPAIR ACTION ---
-def repair_service(service):
+def repair_service(service: dict[str, Any]) -> None:
     attempts = 0
     while attempts < MAX_ATTEMPTS:
         try:
             os.system(" ".join(service["cmd"]))
             time.sleep(2)
-            if run_healthcheck(service["healthcheck"]):
+            if run_healthcheck(service["healthcheck"][0] if isinstance(service["healthcheck"], list) else service["healthcheck"]):
                 log_repair(
                     "repair",
                     service,
@@ -119,7 +120,7 @@ def repair_service(service):
                     "Service repaired and running.",
                     attempts + 1,
                 )
-                return True
+                
             else:
                 log_repair(
                     "repair",
@@ -137,11 +138,11 @@ def repair_service(service):
         time.sleep(RETRY_INTERVAL)
     # Escalate if unrecoverable
     escalate_issue(service, attempts)
-    return False
+    
 
 
 # --- ESCALATION ---
-def escalate_issue(service, attempts):
+def escalate_issue(service: dict[str, Any], attempts: int) -> None:
     log_repair(
         "escalate",
         service,
@@ -167,13 +168,13 @@ def escalate_issue(service, attempts):
 
 
 # --- MAIN DAEMON LOOP ---
-def main_loop():
+def main_loop() -> None:
     logger.info(
         "AIFOLIO Auto-Repair Daemon started (SAFE AI, static, non-sentient, owner-controlled)"
     )
     while True:
         for service in MONITORED_SERVICES:
-            if not run_healthcheck(service["healthcheck"]):
+            if not run_healthcheck(service["healthcheck"][0] if isinstance(service["healthcheck"], list) else service["healthcheck"]):
                 logger.warning(
                     f"Service {service['name']} unhealthy. Attempting repair..."
                 )

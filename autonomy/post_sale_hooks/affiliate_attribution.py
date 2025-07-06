@@ -8,7 +8,7 @@ from .retry_utils import retry_safe_hook
 
 
 @retry_safe_hook(max_attempts=3, backoff_tier="short")
-def affiliate_attribution(buyer_email, referral_data):
+def affiliate_attribution(buyer_email: str, referral_data: dict[str, Any]) -> None:
     """
     Handles affiliate attribution for the sale. Uses static logic only. Logs all actions and errors. Retries up to 3 times on failure.
     """

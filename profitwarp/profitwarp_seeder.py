@@ -17,8 +17,8 @@ class ProfitWarpSeederEngine:
     """Seeds all Profit Warp modules into the operational tree and future workflow templates."""
 
     def __init__(self) -> None:
-        self.fractal = FractalVaultEngine()  # type: ignore
-        self.pdf_quantum = PDFQuantumGenerator()  # type: ignore
+        self.fractal = FractalVaultEngine()
+        self.pdf_quantum = PDFQuantumGenerator()
         self.revenue_loop = AIRevenueLoop()
         self.empire_os: list[Any] = [
             MetaVaultGenerator(),

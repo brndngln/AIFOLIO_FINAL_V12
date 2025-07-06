@@ -15,9 +15,6 @@ def export_static_analytics_to_neuro_core() -> Dict[str, Any]:
     """Export SAFE AI analytics and forecasts for NEURO CORE (read-only, static)"""
     analytics = safe_ai_governance_board_report_generator.governance_board_report({})
     forecast = static_revenue_forecast.generate_forecast()  # type: ignore[name-defined]
-    analytics = safe_ai_governance_board_report_generator.governance_board_report({})  # type: ignore[attr-defined]
-    forecast = static_revenue_forecast.generate_forecast()  # type: ignore[name-defined]
-    forecast = static_revenue_forecast.generate_forecast()  # type: ignore[name-defined]
     return {"analytics": analytics, "forecast": forecast}
 
 

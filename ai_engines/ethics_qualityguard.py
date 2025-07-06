@@ -35,8 +35,8 @@ from typing import Dict, Any, Tuple, List
 from typing import Callable
 
 @sentience_firewall
-@domesticate_ai  # type: ignore[misc]
-@sentience_guard  # type: ignore[misc]
+@domesticate_ai
+@sentience_guard
 def enforce_ethics(module_name: str, state: Dict[str, Any], text: str) -> str:
     # OMNIPROOF: Threat feed check before ethics enforcement
     parse_threat_feed({})

@@ -8,7 +8,7 @@ from .retry_utils import retry_safe_hook
 
 
 @retry_safe_hook(max_attempts=3, backoff_tier="short")
-def fraud_check(buyer_data, sale_metadata):
+def fraud_check(buyer_data: dict[str, Any], sale_metadata: dict[str, Any]) -> None:
     """
     Runs a static fraud check on the sale. Flags if 'suspicious' in metadata, logs to file, and POSTs to FRAUD_API_URL if set.
     Logs all actions and errors. Retries up to 3 times on failure. Never uses AI learning or memory.

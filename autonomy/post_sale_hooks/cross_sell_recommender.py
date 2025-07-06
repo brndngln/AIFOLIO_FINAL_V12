@@ -10,7 +10,7 @@ from .retry_utils import retry_safe_hook
 class cross_sell_recommender:
     @staticmethod
     @retry_safe_hook(max_attempts=3, backoff_tier="short")
-    def recommend_next(buyer_email, current_vault=None):
+    def recommend_next(buyer_email: str, current_vault: str | None = None) -> None:
         """
         Generate a cross-sell offer and send via email (SendGrid if configured), or log to file.
         Uses static rule-based logic (e.g., offers a fixed discount).

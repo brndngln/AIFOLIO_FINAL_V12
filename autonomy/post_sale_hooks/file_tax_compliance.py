@@ -10,7 +10,7 @@ from .retry_utils import retry_safe_hook
 class file_tax_compliance:
     @staticmethod
     @retry_safe_hook(max_attempts=3, backoff_tier="short")
-    def trigger(sale_data):
+    def trigger(sale_data: dict[str, Any]) -> None:
         """
         Files a tax compliance event for the sale. Uses static rules only. Logs all actions and errors. Retries up to 3 times on failure.
         """

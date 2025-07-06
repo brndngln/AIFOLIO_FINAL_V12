@@ -14,13 +14,13 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 
-def send_email(to_email, subject, content, attachments=None):
+def send_email(to_email: str, subject: str, content: str, attachments: list[Any] | None = None) -> int | None:
     # --- SAFE AI Legal Shield: Compliance Enforcement ---
     from core.compliance.smart_legal_watcher import weekly_report
     from autonomy.ai_tools.review_analyzer import analyze_review
 
     # Scrub subject/content for banned terms/PII/financial data
-    analysis = analyze_review(subject + " " + content)
+    analysis = analyze_review(subject + " " + content)  # type: ignore[no-untyped-call]
     if (
         analysis["banned"]
         or "pii" in analysis["flags"]

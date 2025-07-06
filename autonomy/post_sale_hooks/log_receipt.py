@@ -5,7 +5,7 @@ from .retry_utils import retry_safe_hook
 
 
 @retry_safe_hook(max_attempts=3, backoff_tier="short")
-def log_receipt_to_db(receipt_data):
+def log_receipt_to_db(receipt_data: dict[str, Any]) -> None:
     """
     Logs the sale receipt to the database. Retries up to 3 times on failure, logs all exceptions.
     """

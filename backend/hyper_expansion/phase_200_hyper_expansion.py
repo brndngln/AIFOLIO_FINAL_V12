@@ -76,7 +76,7 @@ class AffiliateEngine:
     COMMISSION_RATE = 0.30
 
     @staticmethod
-    def calculate_commission(sale_amount):
+    def calculate_commission(sale_amount: float) -> float:
         commission = round(sale_amount * AffiliateEngine.COMMISSION_RATE, 2)
         log_audit_event(f"Affiliate commission calculated: {commission}")
         return commission
@@ -100,13 +100,13 @@ class FunnelBuilder:
 # Phase 206: Viral Loop Engine
 class ViralLoopEngine:
     @staticmethod
-    def generate_referral_code(user_id):
+    def generate_referral_code(user_id: int) -> str:
         code = f"VIRAL-{user_id:06d}"
         log_audit_event(f"Referral code generated: {code}")
         return code
 
     @staticmethod
-    def reward_referral(referrer_id):
+    def reward_referral(referrer_id: int) -> bool:
         log_audit_event(f"Referral reward granted to user {referrer_id}")
         return True
 
@@ -123,7 +123,7 @@ class PDFResaleProtection:
 # Phase 208: Bundle Recommendation Engine
 class BundleRecommendationEngine:
     @staticmethod
-    def recommend_bundles(vaults, buyer_profile):
+    def recommend_bundles(vaults: list[dict[str, Any]], buyer_profile: dict[str, Any]) -> list[dict[str, Any]]:
         # Static logic: recommend 2 highest-priced vaults
         recommended = sorted(
             vaults,
@@ -139,7 +139,7 @@ class BundleRecommendationEngine:
 
 class PassiveSEOBooster:
     @staticmethod
-    def generate_meta(vault):
+    def generate_meta(vault: dict[str, Any]) -> dict[str, Any]:
         # OMNIPROOF: Threat feed check before meta generation
         parse_threat_feed({})
         # OMNIPROOF: Blockchain anchor for meta hash (static)
@@ -202,7 +202,7 @@ HYPER_ELITE_UI_LABEL = "[🏆 HYPER ELITE VAULT] (PHASE 200+)"
 # System loader
 
 
-def load_hyper_expansion(vaults):
+def load_hyper_expansion(vaults: list[dict[str, Any]]) -> bool:
     for vault in vaults:
         apply_hyper_elite_badge(vault)
     log_audit_event("AIFOLIO_FINAL_V12_PHASE_200_HYPER_EXPANSION loaded.")

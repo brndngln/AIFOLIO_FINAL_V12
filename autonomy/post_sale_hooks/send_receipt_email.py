@@ -4,7 +4,7 @@ import requests
 import json
 
 
-def send_receipt_email(order_id, user_email):
+def send_receipt_email(order_id: str, user_email: str) -> None:
     """
     Send a receipt email via SendGrid if configured, else log to file. Add error handling and logging.
     """

@@ -7,7 +7,7 @@ from .retry_utils import retry_safe_hook
 
 
 @retry_safe_hook(max_attempts=3, backoff_tier="short")
-def send_preview_bundle(buyer_email, vault_preview_data):
+def send_preview_bundle(buyer_email: str, vault_preview_data: dict[str, Any]) -> None:
     """
     Sends a preview bundle email using SendGrid if configured, otherwise logs to file.
     Retries up to 3 times on failure. Logs all actions and errors. Static, non-autonomous logic only.
