@@ -9,20 +9,21 @@ import json
 from typing import Dict, Any, List
 from datetime import datetime
 
-PRICE_TEST_LOG_PATHS = [
+PRICE_TEST_LOG_PATHS: list[str] = [
     os.path.join(
         os.path.dirname(__file__), "../../analytics/price_tests/price_test_log.json"
     ),
     os.path.join(os.path.dirname(__file__), "price_test_log.json"),
 ]
+PRICE_TEST_LOG_PATH: str = PRICE_TEST_LOG_PATHS[0]
 PERFORMANCE_LOG_PATH = os.path.join(
     os.path.dirname(__file__), "../../analytics/performance_log.json"
 )
 
-DEFAULT_TEST_PRICES = [17, 27, 37]
+DEFAULT_TEST_PRICES: list[float] = [17, 27, 37]
 
 
-def audit_log(event, details=None):
+def audit_log(event: str, details: dict[str, Any] | None = None) -> None:
     log_entry = {
         "timestamp": datetime.now().isoformat(),
         "event": event,
@@ -39,11 +40,13 @@ def audit_log(event, details=None):
             json.dump(logs, f, indent=2)
 
 
+from typing import Optional, Sequence
+
 def run_price_test(
     vault_id: str,
     metadata: Dict[str, Any],
-    test_prices: List[float] = None,
-    owner_override: float = None,
+    test_prices: Optional[Sequence[float]] = None,
+    owner_override: Optional[float] = None,
 ) -> float:
     """
     Deterministically assign a visitor to a price group for A/B price testing, log impression, return assigned price.
@@ -88,11 +91,11 @@ def log_conversion(vault_id: str, price: float, event_type: str = "sale") -> Non
 
 def finalize_price_test(
     vault_id: str,
-    test_prices: List[float] = None,
+    test_prices: Optional[Sequence[float]] = None,
     min_sales: int = 5,
     min_days: int = 2,
-    owner_override: float = None,
-) -> float:
+    owner_override: Optional[float] = None,
+) -> Optional[float]:
     """
     Deterministically analyze price test results and return the winning price.
     Owner can override. Audit-logs all actions. GDPR/CCPA compliant.
@@ -155,7 +158,7 @@ def _log_test_event(vault_id: str, price: float, event_type: str) -> None:
         pass
 
 
-def _aggregate_test_stats(vault_id: str, test_prices: List[float]) -> dict:
+def _aggregate_test_stats(vault_id: str, test_prices: Sequence[float]) -> dict[str, dict[str, int]]:
     """
     Aggregate impression, sale, and click stats for each price group.
     """
@@ -179,7 +182,7 @@ def _aggregate_test_stats(vault_id: str, test_prices: List[float]) -> dict:
     return stats
 
 
-def _log_test_result(vault_id: str, best_price: float, stats: dict) -> None:
+def _log_test_result(vault_id: str, best_price: float, stats: dict[str, Any]) -> None:
     """
     Log the result of a finalized price test to the test log.
     """
@@ -204,7 +207,7 @@ def _log_test_result(vault_id: str, best_price: float, stats: dict) -> None:
         pass
 
 
-def _alert_insufficient_data(vault_id: str, stats: dict) -> None:
+def _alert_insufficient_data(vault_id: str, stats: dict[str, Any]) -> None:
     """
     Stub for alerting/notification if price test cannot be finalized due to insufficient data.
     """
@@ -214,8 +217,8 @@ def _alert_insufficient_data(vault_id: str, stats: dict) -> None:
 
 
 def trigger_price_test_and_update_metadata(
-    vault_path: str, vault_id: str, metadata: Dict[str, Any], test_prices: list = None
-):
+    vault_path: str, vault_id: str, metadata: Dict[str, Any], test_prices: Optional[Sequence[float]] = None
+) -> None:
     """
     Utility to run/finalize price test and update vault metadata with winning price.
     Pushes results to dashboard and analytics (stub).
@@ -246,7 +249,7 @@ def trigger_price_test_and_update_metadata(
 import logging
 
 
-def push_price_test_result_to_dashboard(vault_id: str, best_price: float):
+def push_price_test_result_to_dashboard(vault_id: str, best_price: float) -> None:
     """
     Push price test result to dashboard (stub).
     Replace this with actual dashboard integration.
@@ -258,8 +261,8 @@ def push_price_test_result_to_dashboard(vault_id: str, best_price: float):
 
 
 def push_price_test_result_to_analytics(
-    vault_id: str, best_price: float, metadata: dict
-):
+    vault_id: str, best_price: float, metadata: dict[str, Any]
+) -> None:
     """
     Push price test result to analytics (stub).
     Replace this with actual analytics integration.

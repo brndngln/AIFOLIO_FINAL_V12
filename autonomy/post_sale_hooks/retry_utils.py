@@ -8,7 +8,11 @@ logger = logging.getLogger("post_sale_hooks")
 FAILED_HOOKS_LOG = "logs/failed_hooks.log"
 
 
-def retry_safe_hook(max_attempts=3, backoff_tier="short"):
+from typing import Any, TypeVar, Callable, cast
+
+F = TypeVar('F', bound=Callable[..., Any])
+
+def retry_safe_hook(max_attempts: int = 3, backoff_tier: str = "short") -> Callable[[F], F]:
     """
     Decorator to retry a function with multi-tiered exponential backoff.
     Tiers:
@@ -29,9 +33,9 @@ def retry_safe_hook(max_attempts=3, backoff_tier="short"):
     }
     delays = tier_map.get(backoff_tier, [60, 300, 900])
 
-    def decorator(func: Callable):
+    def decorator(func: F) -> F:
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             for attempt in range(1, max_attempts + 1):
                 try:
                     return func(*args, **kwargs)
@@ -59,6 +63,6 @@ def retry_safe_hook(max_attempts=3, backoff_tier="short"):
                             f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} failed after {max_attempts} attempts. FINAL FAILURE.\n"
                         )
 
-        return wrapper
+        return cast(F, wrapper)
 
     return decorator

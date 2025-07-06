@@ -9,7 +9,9 @@ SIGNATURE_LOG = os.path.abspath(
 os.makedirs(os.path.dirname(SIGNATURE_LOG), exist_ok=True)
 
 
-def fingerprint_hook_payload(payload):
+from typing import Any, Dict
+
+def fingerprint_hook_payload(payload: Dict[str, Any]) -> str:
     payload_json = json.dumps(payload, sort_keys=True)
     sig = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
     entry = {

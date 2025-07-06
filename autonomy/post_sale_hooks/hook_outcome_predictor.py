@@ -11,7 +11,9 @@ os.makedirs(os.path.dirname(OUTCOME_LOG), exist_ok=True)
 
 
 # --- Hook Outcome Predictor ---
-def predict_hook_risk(hook_name, delivery_status, error_msg=None, past_failures=0):
+from typing import Dict, Any, Optional
+
+def predict_hook_risk(hook_name: str, delivery_status: str, error_msg: Optional[str] = None, past_failures: int = 0) -> Dict[str, Any]:
     # Simple rules-based risk predictor
     risk = "low"
     warn = False

@@ -11,7 +11,9 @@ os.makedirs(os.path.dirname(REFUND_TRIGGER_LOG), exist_ok=True)
 
 
 # --- Refund Trigger Predictor ---
-def predict_refund_risk(order_id, delivery_status, download_attempts, user_behavior):
+from typing import Dict, Any
+
+def predict_refund_risk(order_id: str, delivery_status: str, download_attempts: int, user_behavior: str) -> Dict[str, Any]:
     # Simple rules: non-delivery, >3 downloads, suspicious behavior
     risk = "low"
     if delivery_status != "delivered":
