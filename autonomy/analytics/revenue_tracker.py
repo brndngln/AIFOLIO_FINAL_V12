@@ -13,7 +13,23 @@ LOG_PATH = os.path.abspath(
 )
 
 
-def track_revenue(sales, refunds):
+from typing import List, Dict, TypedDict, Any
+
+class Transaction(TypedDict):
+    amount: float
+    date: str
+    vault_id: str
+    niche: str
+
+class Totals(TypedDict):
+    all_time: float
+    this_month: float
+    last_30_days: float
+    by_vault: Dict[str, float]
+    by_niche: Dict[str, float]
+
+
+def track_revenue(sales: List[Transaction], refunds: List[Transaction]) -> Totals:
     now = datetime.datetime.utcnow()
     periods = {
         "all_time": None,

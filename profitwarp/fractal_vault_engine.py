@@ -9,6 +9,15 @@ from typing import List, Dict, Any
 import random
 
 
+from typing import List, Dict, TypedDict, Any
+
+class VaultDict(TypedDict, total=False):
+    style: str
+    category: str
+    market: str
+    publish_channels: List[str]
+    traffic: int
+
 class FractalVaultEngine:
     def __init__(self):
         self.styles = ["minimal", "premium", "bold", "classic"]

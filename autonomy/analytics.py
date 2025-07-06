@@ -8,7 +8,7 @@ import json
 from collections import Counter, defaultdict
 
 
-from typing import Dict, Any, List, Optional, Tuple, Callable, TypedDict, Union
+from typing import Dict, Any, List, Optional, Tuple, Callable, TypedDict, Union, cast
 
 # SAFE AI Compliance: This module is static, deterministic, owner-controlled, and fully auditable. No adaptive or sentient logic is present. All extension points are documented for static analytics only.
 
@@ -67,13 +67,9 @@ def get_analytics(
         events = [
             e for e in events 
             if (
-                isinstance(start, str) 
-                and isinstance(end, str) 
-                and isinstance(e.get("timestamp"), str)
-                and start is not None 
-                and end is not None 
-                and e.get("timestamp") is not None
-                and start <= e.get("timestamp") <= end
+                isinstance(start, str) and isinstance(end, str)
+                and start is not None and end is not None
+                and ((e_ts := e.get("timestamp")) is not None and isinstance(e_ts, str) and start <= e_ts <= end)
             )
         ]
     # Regex or substring search
@@ -106,10 +102,11 @@ def get_analytics(
             calls_by_role[role] += 1
     now = datetime.datetime.now()
     last_24h_calls = sum(
-        1 for e in events 
-        if isinstance(e.get("timestamp"), str) and (
-            (now - datetime.datetime.fromisoformat(e["timestamp"])).total_seconds() < 86400
+        bool(
+            isinstance(e.get("timestamp"), str)
+            and (now - datetime.datetime.fromisoformat(cast(str, e.get("timestamp")))).total_seconds() < 86400
         )
+        for e in events
     )
     # Per-key, per-endpoint, per-role, per-status breakdowns
     per_key = get_per_key_endpoint_breakdown(events, key_roles)

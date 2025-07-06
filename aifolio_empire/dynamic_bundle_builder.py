@@ -1,4 +1,23 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, TypedDict
+
+class ItemDict(TypedDict):
+    name: str
+    price: float
+
+class BundleTemplate(TypedDict):
+    min_items: int
+    max_items: int
+    discount: float
+    scarcity: str
+    description: str
+
+class BundleDict(TypedDict):
+    items: List[ItemDict]
+    bundle_type: str
+    price: float
+    scarcity: str
+    description: str
+
 import logging
 from datetime import datetime, timedelta
 from random import randint

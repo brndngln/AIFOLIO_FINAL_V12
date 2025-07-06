@@ -17,7 +17,9 @@ def generate_pdf_id(length: int = 8) -> str:
     return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
-def simulate_revenue():
+from typing import Tuple, Dict, Any
+
+def simulate_revenue() -> Tuple[Any, Dict[str, float]]:
     """
     Simulate revenue intake and distribution.
 
@@ -42,7 +44,7 @@ def simulate_revenue():
     return bank, splits
 
 
-def main():
+def main() -> None:
     """Main function to demonstrate revenue distribution."""
     bank, splits = simulate_revenue()
 

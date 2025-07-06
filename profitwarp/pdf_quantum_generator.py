@@ -7,6 +7,15 @@ from typing import List, Dict, Any
 import random
 
 
+from typing import List, Dict, TypedDict, Any
+
+class PDFVariant(TypedDict, total=False):
+    variant_type: str
+    ai_logic_hook: str
+    monetization_callout: bool
+    disclaimer: str
+    policy_safe: bool
+
 class PDFQuantumGenerator:
     def __init__(self):
         self.variants = [

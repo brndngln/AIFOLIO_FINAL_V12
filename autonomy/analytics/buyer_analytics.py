@@ -16,7 +16,22 @@ LOG_PATH = os.path.abspath(
 )
 
 
-def segment_buyers(buyers, high_value_threshold=1000):
+from typing import List, Dict, TypedDict, Any
+
+class Buyer(TypedDict):
+    id: str
+    purchase_count: int
+    total_spent: float
+    region: str
+
+class Segments(TypedDict):
+    first_time: List[str]
+    repeat: List[str]
+    high_value: List[str]
+    by_region: Dict[str, List[str]]
+
+
+def segment_buyers(buyers: List[Buyer], high_value_threshold: float = 1000) -> Segments:
     segments = {"first_time": [], "repeat": [], "high_value": [], "by_region": {}}
     for b in buyers:
         if b["purchase_count"] == 1:

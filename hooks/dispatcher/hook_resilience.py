@@ -4,7 +4,7 @@ Implements: Retry Logic, Centralized Error Handler, Manual Replay, Outcome Predi
 """
 import time
 import random
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Callable, Optional
 
 RETRY_BACKOFFS = [2, 10, 60]  # seconds: short, medium, int
 HOOK_HISTORY: List[Dict[str, Any]] = []

@@ -5,7 +5,12 @@ AIFOLIO SAFE AI Natural Language Query Parser (static, non-sentient)
 """
 
 
-def ask_analytics(query, stats):
+from typing import Dict, Any, Union
+
+class StatsDict(Dict[str, Any]):
+    pass
+
+def ask_analytics(query: str, stats: StatsDict) -> Union[str, int, list[Any]]:
     # Simple static parser for a few common queries
     q = query.lower()
     if "top 3 vaults" in q and "this month" in q:
