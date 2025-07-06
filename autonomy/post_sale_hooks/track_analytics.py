@@ -1,12 +1,13 @@
 import logging
 import time
+from typing import Any
 from .retry_utils import retry_safe_hook
 
 
 class track_analytics:
     @staticmethod
     @retry_safe_hook(max_attempts=3, backoff_tier="short")
-    def record_sale(vault_id, buyer_metadata):
+    def record_sale(vault_id: str, buyer_metadata: dict[str, Any]) -> None:
         """
         Records the sale in analytics. Runs static anomaly checks (e.g., price outliers, velocity spikes).
         Logs execution time and errors. Retries up to 3 times on failure.

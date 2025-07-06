@@ -6,6 +6,7 @@ SAVE LABEL: AIFOLIO_FINAL_V12_HYPER_ELITE_VAULT_BADGE_SYSTEM
 """
 import logging
 from backend.security.audit_logging import log_audit_event
+from typing import Dict, Any, List
 
 logger = logging.getLogger(__name__)
 
@@ -55,14 +56,14 @@ BADGE_DEFINITIONS = {
 
 
 # --- Badge Application Logic ---
-def get_latest_badge_for_phase(phase):
+def get_latest_badge_for_phase(phase: int) -> Dict[str, Any]:
     # Find the highest phase <= current phase
     available_phases = sorted(BADGE_DEFINITIONS.keys())
     badge_phase = max([p for p in available_phases if p <= phase], default=200)
     return BADGE_DEFINITIONS[badge_phase]
 
 
-def apply_hyper_elite_badge_system(vaults, current_phase):
+def apply_hyper_elite_badge_system(vaults: List[Dict[str, Any]], current_phase: int) -> None:
     badge = get_latest_badge_for_phase(current_phase)
     for vault in vaults:
         vault["hyper_elite_badge"] = badge
@@ -72,7 +73,7 @@ def apply_hyper_elite_badge_system(vaults, current_phase):
     log_audit_event(
         f"Hyper Elite Vault badge system updated globally to v{badge['name']} (Phase {current_phase})"
     )
-    return vaults
+
 
 
 SAVE_LABEL = "AIFOLIO_FINAL_V12_HYPER_ELITE_VAULT_BADGE_SYSTEM"

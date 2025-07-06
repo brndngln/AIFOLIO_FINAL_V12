@@ -18,18 +18,25 @@ def biometric_check():
     return True
 
 
-def owner_approval_required(action_desc: str):
-    def decorator(func: Callable):
-        def wrapper(*args, **kwargs):
+from typing import Callable, TypeVar, Any
+try:
+    from typing import ParamSpec
+except ImportError:
+    from typing_extensions import ParamSpec
+
+P = ParamSpec('P')
+R = TypeVar('R')
+
+def owner_approval_required(action_desc: str) -> Callable[[Callable[P, R]], Callable[P, R]]:
+    def decorator(func: Callable[P, R]) -> Callable[P, R]:
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             if not biometric_check():
                 raise OwnerApprovalError(
                     "OWNER biometric approval required for: " + action_desc
                 )
             logging.info(f"[OWNER LOCKDOWN] OWNER approval granted for: {action_desc}")
             return func(*args, **kwargs)
-
         return wrapper
-
     return decorator
 
 

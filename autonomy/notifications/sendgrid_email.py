@@ -6,6 +6,7 @@ AIFOLIO™ SAFE Notification: SendGrid Email Integration
 """
 import os
 import logging
+from typing import Any
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
@@ -54,7 +55,7 @@ def send_email(to_email: str, subject: str, content: str, attachments: list[Any]
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
         logging.info(f"Email sent to {to_email}: {response.status_code}")
-        return response.status_code
+        return int(response.status_code) if hasattr(response, 'status_code') else None
     except Exception as e:
         logging.error(f"Email send failed to {to_email}: {e}")
         return None

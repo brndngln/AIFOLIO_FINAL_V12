@@ -102,7 +102,7 @@ def run_healthcheck(script_path: str) -> bool:
         return exit_code == 0
     except Exception as e:
         logger.error(f"Healthcheck failed for {script_path}: {e}")
-        
+        return False
 
 
 # --- REPAIR ACTION ---

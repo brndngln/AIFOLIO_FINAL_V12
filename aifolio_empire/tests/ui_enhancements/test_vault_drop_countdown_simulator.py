@@ -7,6 +7,7 @@ import sys
 import os
 from datetime import datetime, timezone, timedelta
 import importlib
+from unittest.mock import Mock
 
 # Adjust path to import module from parent directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -192,6 +193,8 @@ class TestVaultDropCountdownSimulator(unittest.TestCase):
         finally:
             # Restore the original config object to the simulator module
             if original_module_config is not None:
+                if not hasattr(simulator_module, "config"):
+                    simulator_module.config = Mock()
                 simulator_module.config = original_module_config
             elif hasattr(
                 simulator_module, "config"
