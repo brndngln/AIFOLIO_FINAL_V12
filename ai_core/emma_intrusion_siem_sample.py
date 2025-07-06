@@ -2,7 +2,12 @@ import os
 import requests
 
 
-def send_siem_alert(alert_msg):
+def send_siem_alert(alert_msg: str) -> None:
+    """
+    Sends a SIEM alert via webhook.
+    Args:
+        alert_msg: The alert message to send.
+    """
     webhook_url = os.environ.get("EMMA_SIEM_WEBHOOK")
     if not webhook_url:
         print("No webhook set. Set EMMA_SIEM_WEBHOOK env var.")
