@@ -9,12 +9,13 @@ import json
 from typing import Dict, Any
 from datetime import datetime
 
-PRICING_LOG_PATHS = [
+PRICING_LOG_PATHS: list[str] = [
     os.path.join(os.path.dirname(__file__), "../../analytics/pricing_log.json"),
     os.path.join(os.path.dirname(__file__), "pricing_log.json"),
 ]
+PRICING_LOG_PATH = PRICING_LOG_PATHS[0]  # Default log path for _log_pricing
 
-NICHE_MULTIPLIERS = {
+NICHE_MULTIPLIERS: dict[str, float] = {
     "ai": 1.5,
     "money": 1.5,
     "investing": 1.4,
@@ -24,10 +25,10 @@ NICHE_MULTIPLIERS = {
     "misc": 1.0,
 }
 
-PSYCH_PRICES = [9, 17, 27, 39, 47, 59, 79, 97]
+PSYCH_PRICES: list[int] = [9, 17, 27, 39, 47, 59, 79, 97]
 
 
-def audit_log(event, details=None):
+def audit_log(event: str, details: dict[str, Any] | None = None) -> None:
     log_entry = {
         "timestamp": datetime.now().isoformat(),
         "event": event,
@@ -55,14 +56,14 @@ def calculate_price(metadata: Dict[str, Any]) -> float:
         log["final_price"] = metadata["price"]
         log["reason"] = "lock_price override"
         _log_pricing(metadata, log)
-        return metadata["price"]
+        return float(metadata["price"])
     if not metadata.get("auto_price", True):
         if metadata.get("price") is None:
             raise ValueError("Manual pricing required but price is null.")
         log["final_price"] = metadata["price"]
         log["reason"] = "manual price"
         _log_pricing(metadata, log)
-        return metadata["price"]
+        return float(metadata["price"])
 
     # 2. Value-Based Pricing Engine
     base_price = 9.0
@@ -120,9 +121,8 @@ def calculate_price(metadata: Dict[str, Any]) -> float:
     log["tier"] = tier
 
     # 8. Performance Optimizer Engine (stub)
-    log["performance_adjustment"] = adjust_price_based_on_performance(
-        metadata.get("vault_id")
-    )
+    vault_id = str(metadata.get("vault_id", ""))
+    log["performance_adjustment"] = adjust_price_based_on_performance(vault_id)
 
     _log_pricing(metadata, log)
     return final_price
@@ -160,17 +160,17 @@ def trigger_pricing_on_vault_event(vault_path: str, metadata: Dict[str, Any]) ->
     return price
 
 
-def push_to_gumroad(vault_path: str, price: float):
+def push_to_gumroad(vault_path: str, price: float) -> None:
     # TODO: Implement Gumroad uploader integration
     pass
 
 
-def push_to_dashboard(vault_path: str, price: float):
+def push_to_dashboard(vault_path: str, price: float) -> None:
     # TODO: Implement dashboard preview panel integration
     pass
 
 
-def push_to_performance_tracker(vault_path: str, price: float):
+def push_to_performance_tracker(vault_path: str, price: float) -> None:
     # TODO: Implement vault performance tracker integration
     pass
 
@@ -191,14 +191,14 @@ def scan_competitor_prices(niche: str) -> float:
     return dummy.get(niche, 9.0)
 
 
-def adjust_price_based_on_performance(vault_id: str) -> float:
+def adjust_price_based_on_performance(vault_id: str) -> float | None:
     """
     Stub for future performance-based price optimization.
     """
     return None
 
 
-def _log_pricing(metadata: Dict[str, Any], log: Dict[str, Any]):
+def _log_pricing(metadata: Dict[str, Any], log: Dict[str, Any]) -> None:
     """
     Append a detailed pricing log entry to the analytics log file.
     """
