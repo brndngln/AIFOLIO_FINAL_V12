@@ -10,12 +10,15 @@ logger = logging.getLogger(__name__)
 
 
 class AnalyticsMiddleware(BaseHTTPMiddleware):
-    def __init__(self, app, redis_client: Redis):
+    """
+    SAFE AI-compliant: Static analytics middleware. Deterministic, owner-controlled, no adaptive logic.
+    """
+    def __init__(self, app: object, redis_client: Redis) -> None:
         super().__init__(app)
-        self.analytics_service = AnalyticsService(redis_client)
+        self.analytics_service: AnalyticsService = AnalyticsService(redis_client)
 
-    async def dispatch(self, request: Request, call_next: Callable) -> Response:
-        start_time = time.time()
+    async def dispatch(self, request: Request, call_next: Callable[[Request], Response]) -> Response:
+        start_time: float = time.time()
 
         # Record request
         self.analytics_service.record_request(

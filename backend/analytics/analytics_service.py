@@ -92,7 +92,19 @@ class AnalyticsService:
         # Add more as needed
         return anomalies, explanations
 
-    def _audit_anomalies(self, anomalies, explanations):
+    def _audit_anomalies(
+        self, anomalies: Dict[str, float], explanations: Dict[str, str]
+    ) -> None:
+        """
+        Audit anomalies.
+
+        Args:
+        - anomalies: A dictionary of anomalies.
+        - explanations: A dictionary of explanations.
+
+        Returns:
+        - None
+        """
         if anomalies:
             with open("analytics_anomalies_audit.log", "a") as f:
                 f.write(
