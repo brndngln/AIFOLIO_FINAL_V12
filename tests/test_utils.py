@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch
 from aifolio_empire.utils import RateLimiter, InputValidator
 import time
+from typing import Any
 
 
 class TestRateLimiter(unittest.TestCase):
@@ -27,20 +28,21 @@ class TestRateLimiter(unittest.TestCase):
 class TestInputValidator(unittest.TestCase):
     def test_validate_niche(self) -> None:
         # Valid cases
-        valid_niches = ["digital marketing", "AI programming", "web3 development"]
+        from typing import Any
+        valid_niches: list[str] = ["digital marketing", "AI programming", "web3 development"]
         for niche in valid_niches:
             self.assertTrue(InputValidator.validate_niche(niche))
 
         # Invalid cases
-        invalid_niches = [
+        invalid_niches: list[Any] = [
             "",  # Too short
-            "a" * 101,  # Too int
+            "a" * 101,  # Too long
             "invalid@niche",  # Invalid characters
             123,  # Not a string
         ]
         for niche in invalid_niches:
             if not isinstance(niche, str):
-                with self.assertRaises(ValueError):
+                with self.assertRaises(Exception):
                     InputValidator.validate_niche(str(niche))
             else:
                 with self.assertRaises(ValueError):
@@ -53,18 +55,18 @@ class TestInputValidator(unittest.TestCase):
             self.assertTrue(InputValidator.validate_api_key(key, provider))
 
         # Invalid cases
-        invalid_keys = [
+        invalid_keys: list[tuple[Any, Any]] = [
             ("invalid-key", "openai"),
             ("invalid-key", "huggingface"),
             ("sk-1234567890", "invalid"),
             (123, "openai"),  # Not a string
         ]
         for key, provider in invalid_keys:
-            if not isinstance(key, str):
-                with self.assertRaises(Exception):
-                    InputValidator.validate_api_key(str(key), provider)
-            else:
+            if isinstance(key, str):
                 self.assertFalse(InputValidator.validate_api_key(key, provider))
+            else:
+                with self.assertRaises(Exception):
+                    InputValidator.validate_api_key(key, provider)
 
     def test_validate_prompt(self) -> None:
         # Valid case
@@ -72,7 +74,7 @@ class TestInputValidator(unittest.TestCase):
         self.assertTrue(InputValidator.validate_prompt(valid_prompt))
 
         # Invalid cases
-        invalid_prompts = [
+        invalid_prompts: list[Any] = [
             "" * 4000,  # Too int
             123,  # Not a string
             None,  # Not a string

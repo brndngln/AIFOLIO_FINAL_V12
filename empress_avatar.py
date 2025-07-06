@@ -11,20 +11,22 @@ class EmpressAvatar:
     All fields are static; no adaptive or sentient logic. All extension points are clearly documented for future integrations.
     """
 
+    from typing import Any
+
     def __init__(
         self,
-        style="formal",
-        voice="australian",
-        enabled=True,
-        realism="standard",
-        attire="default",
-        preset="default",
-        visual=None,
-        wardrobe=None,
-        voice_profile=None,
-        behavior=None,
-        realism_profile=None,
-    ):
+        style: str = "formal",
+        voice: str = "australian",
+        enabled: bool = True,
+        realism: str = "standard",
+        attire: str = "default",
+        preset: str = "default",
+        visual: dict[str, Any] | None = None,
+        wardrobe: list[Any] | None = None,
+        voice_profile: dict[str, Any] | None = None,
+        behavior: dict[str, Any] | None = None,
+        realism_profile: dict[str, Any] | None = None,
+    ) -> None:
         # Basic fields
         self.style = style
         self.voice = voice
@@ -72,10 +74,10 @@ class EmpressAvatar:
             realism_profile,
         )
 
-    def set_style(self, style):
+    def set_style(self, style: str) -> None:
         self.style = style
 
-    def set_voice(self, voice):
+    def set_voice(self, voice: str) -> None:
         self.voice = voice
 
     def toggle(self, enabled: bool):
@@ -142,7 +144,7 @@ class EmpressAvatar:
             return self._secure_preview
         return {"error": "Preview requires owner authentication."}
 
-    def describe(self):
+    def describe(self) -> dict[str, Any]:
         return {
             "style": self.style,
             "voice": self.voice,
@@ -155,10 +157,10 @@ class EmpressAvatar:
 
 
 class EmotionalIntelligenceLayer:
-    def __init__(self, owner_state=None):
+    def __init__(self, owner_state: dict[str, Any] | None = None) -> None:
         self.owner_state = owner_state or {}
 
-    def adapt_to_owner(self, mood, stress, energy, goals):
+    def adapt_to_owner(self, mood: str, stress: str, energy: str, goals: str) -> str:
         # Static SAFE AI: logs and returns static support
         self.owner_state = {
             "mood": mood,

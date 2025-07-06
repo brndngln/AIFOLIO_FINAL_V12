@@ -4,15 +4,15 @@ Persona: Mature, charismatic Australian-accented assistant; elite in all coding 
 All logic is static, deterministic, SAFE AI-compliant, and OWNER-controlled.
 """
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from empress_avatar import EmpressAvatar, EmotionalIntelligenceLayer
 from owner_lockdown import owner_approval_required, never_without_you
 
 
 class EmpressCodeMaster:
     def __init__(
-        self, owner_signature: str, avatar_style="futuristic", voice="australian"
-    ):
+        self, owner_signature: str, avatar_style: str = "futuristic", voice: str = "australian"
+    ) -> None:
         never_without_you(owner_signature)
         self.owner_signature = owner_signature
         self.avatar = EmpressAvatar(style=avatar_style, voice=voice)
@@ -73,21 +73,21 @@ class EmpressCodeMaster:
 
     @owner_approval_required("Refactor Code")
     def refactor_code(
-        self, code: str, language: str = "Python", style: str = None
+        self, code: str, language: str = "Python", style: Optional[str] = None
     ) -> str:
         logging.info(
             f"[CodeMaster] Refactoring {language} code to style: {style or self.coding_style}"
         )
         return code + f"\n# Refactored to {style or self.coding_style} style."
 
-    def set_coding_style(self, style: str):
+    def set_coding_style(self, style: str) -> str:
         self.coding_style = style
         return self.coding_style
 
-    def set_avatar(self, style, voice):
+    def set_avatar(self, style: str, voice: str) -> dict[str, Any]:
         self.avatar.set_style(style)
         self.avatar.set_voice(voice)
         return self.avatar.describe()
 
-    def adapt_ei(self, mood, stress, energy, goals):
+    def adapt_ei(self, mood: str, stress: str, energy: str, goals: str) -> Any:
         return self.ei_layer.adapt_to_owner(mood, stress, energy, goals)

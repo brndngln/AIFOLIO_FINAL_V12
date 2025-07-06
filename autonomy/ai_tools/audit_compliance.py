@@ -1,4 +1,6 @@
-def check_vault_metadata(metadata):
+from typing import Any
+
+def check_vault_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
     """
     Checks for required fields and basic validity in vault metadata.
     Returns dict with 'missing', 'invalid', 'compliant' (True/False).

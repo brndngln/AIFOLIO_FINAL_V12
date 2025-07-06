@@ -10,12 +10,14 @@ except ImportError:
 HSM_STATUS_PATH = "ai_core/EmmaLogs/EmmaVaultIndex.json"
 
 
+from typing import Any
+
 # Fallback to FIDO2 (stub)
-def fido2_handshake():
+def fido2_handshake() -> bool:
     return False
 
 
-def emma_init_hsm_key():
+def emma_init_hsm_key() -> dict[str, Any]:
     """Initialize Emma Vault Key inside HSM or fallback."""
     if PKCS11_AVAILABLE:
         # Demo: create key and store ref
@@ -29,11 +31,11 @@ def emma_init_hsm_key():
     return status
 
 
-def validate_hsm_handshake():
+def validate_hsm_handshake() -> bool:
     try:
         with open(HSM_STATUS_PATH, "r") as f:
             status = json.load(f)
-        return status.get("verified", False)
+        return bool(status.get("verified", False))
     except Exception:
         return False
 

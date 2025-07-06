@@ -2,7 +2,11 @@ import datetime
 import json
 
 
-def analyze_review(text):
+import datetime
+import json
+from typing import Any
+
+def analyze_review(text: str) -> dict[str, Any]:
     """
     SAFE AI-compliant: Flags misspellings, banned words, PII, financial data, and basic sentiment (static rule-based, non-AI).
     Returns dict with 'spelling', 'banned', 'sentiment', 'flags'.

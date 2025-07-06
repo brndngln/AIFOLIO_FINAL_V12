@@ -1,7 +1,9 @@
 import re
 
 
-def format_title(title):
+import re
+
+def format_title(title: str) -> str:
     """
     Capitalizes first letter of each word, strips extra whitespace, and fixes common grammar issues.
     Strictly rule-based, non-AI.
@@ -21,7 +23,7 @@ def format_title(title):
     return " ".join(result)
 
 
-def format_description(desc):
+def format_description(desc: str) -> str:
     """
     Cleans up whitespace, ensures first letter is capitalized, ends with period.
     Strictly rule-based, non-AI.
