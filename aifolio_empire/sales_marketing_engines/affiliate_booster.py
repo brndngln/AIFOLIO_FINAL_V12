@@ -1476,7 +1476,7 @@ class AffiliateBooster:
         }
         return suggestions.get(fraud_type, "Flag for compliance review.")
 
-    def __init__(self):
+    def __init__(self) -> None:
         # SAFE_AI_COMPLIANT: Initialization is static, deterministic, and non-adaptive.
         self._random_seed = 0  # Static seed for deterministic behavior
         self._statelessness_check()
@@ -1485,12 +1485,12 @@ class AffiliateBooster:
         )
 
     @staticmethod
-    def _statelessness_check():
+    def _statelessness_check() -> None:
         # SAFE_AI_COMPLIANT: Ensures stateless, deterministic, non-adaptive operation.
         pass
 
     @staticmethod
-    def _audit(event: str, details: dict):
+    def _audit(event: str, details: dict[str, Any]) -> None:
         # SAFE AI: AES-256 encrypted persistent audit log for all affiliate/referral/viral/upsell/compliance actions
         from aifolio_ai_bots_backend.agents.agent_utils import encrypt_audit_log_entry
 
@@ -1534,7 +1534,7 @@ class AffiliateBooster:
 
     def _simulate_tax_fraud_scenario(
         self, affiliate_id: str, country_code: str
-    ) -> dict:
+    ) -> dict[str, Any]:
         """
         SAFE_AI_COMPLIANT: Static, deterministic simulation of tax fraud/anomaly scenarios for compliance testing.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1574,8 +1574,8 @@ class AffiliateBooster:
         country_code: str,
         earnings: float,
         format: str = "summary",
-        address_or_ip: str = None,
-    ) -> dict:
+        address_or_ip: Optional[str] = None,
+    ) -> dict[str, Any]:
         """
         Generates an elite, audit-compliant tax report for affiliate earnings.
         - Uses real-time jurisdiction lookup if address_or_ip is provided.
@@ -1651,7 +1651,7 @@ class AffiliateBooster:
 
     def _simulate_dashboard_data(
         self, affiliate_link: str, product_name: str
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         SAFE_AI_COMPLIANT: Statistically deterministic simulation of dashboard data for an affiliate.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1755,7 +1755,7 @@ class AffiliateBooster:
         product_price: float,
         affiliate_id: str,
         affiliate_name: str,
-    ) -> Optional[Dict[str, Any]]:
+    ) -> Optional[dict[str, Any]]:
         """
         SAFE_AI_COMPLIANT: Deterministic setup of affiliate program elements for a product and an affiliate.
         OWNER_CONTROLLED, NON_SENTIENT.
@@ -1820,8 +1820,8 @@ class AffiliateBooster:
         self,
         product_id: str,
         affiliate_id: str,
-        dashboard_data: dict,
-        program_elements: dict,
+        dashboard_data: dict[str, Any],
+        program_elements: dict[str, Any],
     ) -> str:
         """
         Generates a comprehensive JSON report on affiliate activity, fraud, and anomalies.
