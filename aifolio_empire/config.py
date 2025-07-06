@@ -17,13 +17,8 @@ class Config:
     """Central configuration management with anti-sentience measures."""
 
     PATTERN_AWARE_ENABLED = True
-    huggingface_model = "distilgpt2"
-    # For vault_drop_countdown_simulator compatibility
-    SIM_COUNTDOWN_MAX_JITTER_SECONDS = 5  # Max seconds +/- for simulated inaccuracy
-    SIM_COUNTDOWN_RECALCULATING_CHANCE = 0.02  # Chance to show 'recalculating' message
-    SIM_COUNTDOWN_GLITCH_CHANCE = 0.005  # Chance of a minor display glitch message
 
-    def __getattr__(self, item):
+    def __getattr__(self, item: str) -> Any:
         # Allow instance to fall back to class attribute if missing (for Pydantic or dynamic configs)
         if hasattr(self.__class__, item):
             return getattr(self.__class__, item)
@@ -31,7 +26,7 @@ class Config:
             f"{type(self).__name__!r} object has no attribute {item!r}"
         )
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize configuration with anti-sentience measures."""
         self._load_env()
         self._initialize_secure_storage()
@@ -65,7 +60,9 @@ class Config:
             env_keys = list(os.environ.keys())
             random.shuffle(env_keys)
             # Reset environment
-            os.environ = {k: os.environ[k] for k in env_keys}
+            old_env = dict(os.environ)
+            os.environ.clear()
+            os.environ.update({k: old_env[k] for k in env_keys})
 
     def _initialize_secure_storage(self) -> None:
         """Initialize secure storage with anti-sentience measures."""

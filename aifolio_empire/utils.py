@@ -13,14 +13,14 @@ class RateLimiter:
         """Initialize rate limiter."""
         self.max_calls = max_calls
         self.period = period
-        self.calls = []
+        self.calls: list[float] = []
         self.lock = Lock()
 
-    def __call__(self, func: Callable) -> Callable:
+    def __call__(self, func: Callable[..., Any]) -> Callable[..., Any]:
         """Decorator to apply rate limiting."""
 
         @wraps(func)
-        def wrapper(*args, **kwargs) -> Any:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             with self.lock:
                 # Remove old calls
                 now = time.time()
@@ -84,7 +84,7 @@ class InputValidator:
         return True
 
 
-def api_error_handler(func: Callable) -> Callable:
+def api_error_handler(func: Callable[..., Any]) -> Callable[..., Any]:
     """Decorator to handle external API errors."""
 
     @wraps(func)

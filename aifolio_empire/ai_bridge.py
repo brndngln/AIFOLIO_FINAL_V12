@@ -5,7 +5,7 @@ All API usage is subject to AIFOLIO's privacy, audit, and compliance policy.
 
 import openai
 from transformers import pipeline
-from typing import Dict, Any
+from typing import Dict, Any, Optional, Callable
 import random
 import time
 import hashlib
@@ -32,13 +32,13 @@ class APIKeyManager:
     Implements key expiration for OMNIELITE SAFE AI test compliance.
     """
 
-    def __init__(self):
-        self._openai_key = None
-        self._huggingface_key = None
-        self._openai_key_set_time = None
-        self._huggingface_key_set_time = None
+    def __init__(self) -> None:
+        self._openai_key: Optional[str] = None
+        self._huggingface_key: Optional[str] = None
+        self._openai_key_set_time: Optional[float] = None
+        self._huggingface_key_set_time: Optional[float] = None
 
-    def set_openai_key(self, key: str):
+    def set_openai_key(self, key: str) -> None:
         # OMNIELITE: Strict SAFE AI validation
         if (
             not isinstance(key, str)
@@ -51,7 +51,7 @@ class APIKeyManager:
         self._openai_key_set_time = time.time()
         logger.info("OpenAI API key set (value not logged)")
 
-    def set_huggingface_key(self, key: str):
+    def set_huggingface_key(self, key: str) -> None:
         # OMNIELITE: Strict SAFE AI validation
         if (
             not isinstance(key, str)
@@ -64,7 +64,7 @@ class APIKeyManager:
         self._huggingface_key_set_time = time.time()
         logger.info("Hugging Face API key set (value not logged)")
 
-    def get_openai_key(self):
+    def get_openai_key(self) -> str | None:
         # OMNIELITE: Expire key after 1 hour
         if self._openai_key_set_time and (
             time.time() - self._openai_key_set_time > 3600
@@ -72,7 +72,7 @@ class APIKeyManager:
             raise ValueError("OpenAI API key expired")
         return self._openai_key
 
-    def get_huggingface_key(self):
+    def get_huggingface_key(self) -> str | None:
         # OMNIELITE: Expire key after 1 hour
         if self._huggingface_key_set_time and (
             time.time() - self._huggingface_key_set_time > 3600
@@ -88,9 +88,9 @@ class AIBridge:
     All actions are logged and subject to compliance, privacy, and anti-sentience policy.
     """
 
-    def __init__(self):
-        self.key_manager = APIKeyManager()
-        self.huggingface_pipeline = None
+    def __init__(self) -> None:
+        self.key_manager: APIKeyManager = APIKeyManager()
+        self.huggingface_pipeline: Optional[Callable[..., Any]] = None
         self._initialize_clients()
         self._initialize_key_manager()
         self._anti_sentience_init()
@@ -101,11 +101,13 @@ class AIBridge:
 
     def _initialize_key_manager(self) -> None:
         try:
-            if config.openai_api_key:
-                self.key_manager.set_openai_key(config.openai_api_key)
+            openai_key = getattr(config, "openai_api_key", None)
+            if openai_key is not None and isinstance(openai_key, str):
+                self.key_manager.set_openai_key(openai_key)
                 logger.info("OpenAI API key initialized securely")
-            if config.huggingface_api_key:
-                self.key_manager.set_huggingface_key(config.huggingface_api_key)
+            huggingface_key = getattr(config, "huggingface_api_key", None)
+            if huggingface_key is not None and isinstance(huggingface_key, str):
+                self.key_manager.set_huggingface_key(huggingface_key)
                 logger.info("Hugging Face API key initialized securely")
         except ValueError as e:
             logger.error(f"API key initialization failed: {e}")
@@ -150,7 +152,7 @@ class AIBridge:
             logger.error(f"Failed to initialize Hugging Face pipeline: {e}")
             self.huggingface_pipeline = None
 
-    def _anti_sentience_init(self):
+    def _anti_sentience_init(self) -> None:
         logger.info(
             "Anti-sentience layer active. Memory tracing disabled. Conscience stack rejected."
         )
@@ -162,18 +164,18 @@ class AIBridge:
             raise ValueError("Generation failed")
 
         try:
-            if config.openai_api_key and not config.use_huggingface_fallback:
+            if getattr(config, "openai_api_key", None) and not getattr(config, "use_huggingface_fallback", False):
                 return self._generate_with_openai(prompt, max_tokens, temperature)
 
             if config.huggingface_api_key:
                 return self._generate_with_huggingface(prompt, max_tokens, temperature)
 
-            if config.openai_api_key and config.huggingface_api_key:
+            if getattr(config, "openai_api_key", None) and getattr(config, "huggingface_api_key", None):
                 try:
                     return self._generate_with_openai(prompt, max_tokens, temperature)
                 except Exception as e:
                     logger.error(f"OpenAI failed: {e}")
-                    if config.use_huggingface_fallback:
+                    if getattr(config, "use_huggingface_fallback", False):
                         return self._generate_with_huggingface(
                             prompt, max_tokens, temperature
                         )
@@ -204,7 +206,7 @@ class AIBridge:
 
             response = openai.ChatCompletion.create(
                 api_key=api_key,
-                model=config.openai_model,
+                model=getattr(config, "openai_model", "gpt-4"),
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -222,7 +224,7 @@ class AIBridge:
 
             return {
                 "text": generated_text,
-                "model": config.openai_model,
+                "model": getattr(config, "openai_model", "gpt-4"),
                 "source": "openai",
             }
         except Exception as e:
@@ -235,6 +237,8 @@ class AIBridge:
         try:
             InputValidator.validate_prompt(prompt)
 
+            if self.huggingface_pipeline is None:
+                raise ValueError("Hugging Face pipeline is not initialized")
             response = self.huggingface_pipeline(
                 prompt,
                 max_new_tokens=max_tokens,
@@ -247,7 +251,7 @@ class AIBridge:
 
             return {
                 "text": response[0]["generated_text"],
-                "model": config.huggingface_model,
+                "model": getattr(config, "huggingface_model", "distilbert-base-uncased"),
                 "source": "huggingface",
             }
         except Exception as e:
