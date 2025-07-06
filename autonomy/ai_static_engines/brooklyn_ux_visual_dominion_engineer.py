@@ -5,9 +5,9 @@ Reinvents frontend structure, manages grid logic, breakpoints, interactivity, an
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-UX_VISUAL_LOG = []
+UX_VISUAL_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator

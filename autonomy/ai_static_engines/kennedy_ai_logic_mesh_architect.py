@@ -5,9 +5,9 @@ Builds modular AI logic stacks, reinforces PDF pipelines, optimizes prompt trees
 All actions require explicit owner approval. No adaptive or sentient logic.
 """
 import datetime
-from typing import Dict, List
+from typing import Dict, List, Any
 
-LOGIC_MESH_LOG = []
+LOGIC_MESH_LOG: List[Dict[str, Any]] = []
 
 from ethics_engine import OmnieliteEthicsEngine
 from middlewares.ethics_validator import ethics_validator

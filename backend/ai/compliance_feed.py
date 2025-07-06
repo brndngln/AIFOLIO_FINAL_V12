@@ -19,7 +19,7 @@ def fetch_compliance_feeds() -> List[Dict[str, Any]]:
     SAFE AI-compliant: Static compliance feed fetcher. Deterministic, owner-controlled, no adaptive logic.
     """
     feeds: List[Dict[str, Any]] = []
-    for url: str in FEED_URLS:
+    for url in FEED_URLS:
         try:
             # For demo, just fetch the page title or first 500 chars
             resp = requests.get(url, timeout=10)
