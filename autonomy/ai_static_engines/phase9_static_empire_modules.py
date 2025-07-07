@@ -22,7 +22,10 @@ AUDIT_LOG_PATH = os.path.abspath(
 logging.basicConfig(filename=AUDIT_LOG_PATH, level=logging.INFO)
 
 
-def log_audit(module, event, data=None):
+def log_audit(module: str, event: str, data: dict[str, object] | None = None) -> None:
+    """Log audit event for SAFE AI compliance.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     log_entry = {
         "timestamp": datetime.utcnow().isoformat(),
         "module": module,
@@ -37,9 +40,14 @@ SAFE_AI_GOVERNANCE_CHARTER_VERSION = "Phase 9+ Final"
 
 # --- STRATEGIC BUSINESS INTELLIGENCE MODULES ---
 class AIStaticCompetitiveMoatBuilder:
+    """Static competitive moat builder module.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @staticmethod
-    def build_moat(vault_data):
-        """Compute static competitive moat factors."""
+    def build_moat(vault_data: dict[str, object]) -> dict[str, object]:
+        """Compute static competitive moat factors.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         log_audit(
             "AIStaticCompetitiveMoatBuilder", "build_moat", {"vault_data": vault_data}
         )
@@ -48,33 +56,53 @@ class AIStaticCompetitiveMoatBuilder:
 
 
 class AIStaticGlobalTrendForecaster:
+    """Static global trend forecaster module.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @staticmethod
-    def forecast():
-        """Static global trend forecast."""
+    def forecast() -> dict[str, object]:
+        """Static global trend forecast.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         log_audit("AIStaticGlobalTrendForecaster", "forecast")
         return {"trend": "digital products growth", "confidence": 0.97}
 
 
 class AIStaticMarketSaturationScanner:
+    """Static market saturation scanner module.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @staticmethod
-    def scan(market):
-        """Static market saturation scan."""
+    def scan(market: str) -> dict[str, object]:
+        """Static market saturation scan.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         log_audit("AIStaticMarketSaturationScanner", "scan", {"market": market})
         return {"saturation_level": "medium", "recommendation": "target niches"}
 
 
 class AIStaticNicheRejuvenationPlanner:
+    """Static niche rejuvenation planner module.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @staticmethod
-    def plan(niche):
-        """Static plan for rejuvenating a niche."""
+    def plan(niche: str) -> dict[str, object]:
+        """Static plan for rejuvenating a niche.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         log_audit("AIStaticNicheRejuvenationPlanner", "plan", {"niche": niche})
         return {"actions": ["refresh branding", "expand offers"]}
 
 
 class AIStaticOpportunityScoringEngine:
+    """Static opportunity scoring engine module.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @staticmethod
-    def score(opportunity):
-        """Static opportunity scoring."""
+    def score(opportunity: dict[str, object]) -> dict[str, object]:
+        """Static opportunity scoring.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         log_audit(
             "AIStaticOpportunityScoringEngine", "score", {"opportunity": opportunity}
         )
