@@ -20,11 +20,11 @@ class BrooklynUXVisualDominionEngineer:
     Reinvents frontend structure, manages grid logic, breakpoints, interactivity, and dashboard visuals.
     """
     @staticmethod
-    def update_grid_logic(component: str, details: Dict[str, Any]) -> Dict[str, Any]:
+    def update_grid_logic(component: str, details: dict[str, Any]) -> dict[str, Any]:
         """Update grid logic in a static, deterministic way.
         SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-        context: Dict[str, Any] = {"component": component, "details": details}
+        context: dict[str, Any] = {"component": component, "details": details}
         if not OmnieliteEthicsEngine.enforce("update_grid_logic", context):
             UX_VISUAL_LOG.append(
                 {
@@ -42,7 +42,7 @@ class BrooklynUXVisualDominionEngineer:
             )
             return {"error": "Ethics validation failed"}
         EMMAEthicsGuard.audit_action("update_grid_logic", context)
-        result: Dict[str, Any] = {
+        result: dict[str, Any] = {
             "component": component,
             "update": "grid_logic",
             "details": details,
@@ -53,11 +53,11 @@ class BrooklynUXVisualDominionEngineer:
         return result
 
     @staticmethod
-    def toggle_dark_light_mode(mode: str) -> Dict[str, Any]:
+    def toggle_dark_light_mode(mode: str) -> dict[str, Any]:
         """Statically toggle dark/light mode (no adaptation).
         SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-        result: Dict[str, Any] = {
+        result: dict[str, Any] = {
             "mode": mode,
             "toggled": True,
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -67,11 +67,11 @@ class BrooklynUXVisualDominionEngineer:
         return result
 
     @staticmethod
-    def apply_dashboard_animation(animation: str) -> Dict[str, Any]:
+    def apply_dashboard_animation(animation: str) -> dict[str, Any]:
         """Apply static dashboard animation logic.
         SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-        result: Dict[str, Any] = {
+        result: dict[str, Any] = {
             "animation": animation,
             "applied": True,
             "timestamp": datetime.datetime.utcnow().isoformat(),
