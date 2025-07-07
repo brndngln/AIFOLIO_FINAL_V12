@@ -4227,10 +4227,6 @@ aifolio_empire/profit_engines/viral_pdf_generator.py:23: error: Missing type
 parameters for generic type "dict"  [type-arg]
     def generate_viral_pdf_assets() -> dict:
                                        ^
-aifolio_empire/profit_engines/subscription_model_optimizer.py:28: error:
-Missing type parameters for generic type "dict"  [type-arg]
-    def optimize_subscription_models() -> dict:
-                                          ^
 aifolio_empire/profit_engines/pdf_pricing_optimizer.py:14: error: Missing type
 parameters for generic type "dict"  [type-arg]
     def assign_split_group(user_id: str) -> dict:
@@ -4267,126 +4263,13 @@ aifolio_empire/profit_engines/micro_upsell_engine.py:13: error: Function is
 missing a type annotation  [no-untyped-def]
     def get_upsell_offer(trigger_event):
     ^
-aifolio_empire/profit_engines/loyalty_loop_ai.py:11: error: Function is missing
-a type annotation  [no-untyped-def]
-    def get_loyalty_offer(user_email):
-    ^
-aifolio_empire/profit_engines/high_ticket_pdf_generator.py:20: error: Missing
-type parameters for generic type "dict"  [type-arg]
-    def generate_high_ticket_topic() -> dict:
-                                        ^
-aifolio_empire/profit_engines/gumroad_roi_sync_layer.py:11: error: Function is
-missing a type annotation  [no-untyped-def]
-    def log_funnel_event(pdf_id, event, group):
-    ^
-aifolio_empire/profit_engines/evergreen_seo_layer.py:23: error: Missing type
-parameters for generic type "dict"  [type-arg]
-    def get_next_seo_update() -> dict:
-                                 ^
-aifolio_empire/profit_engines/evergreen_seo_layer.py:65: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def seo_drift_protection():
-    ^
-aifolio_empire/profit_engines/evergreen_seo_layer.py:70: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def seo_static_feedback():
-    ^
-aifolio_empire/profit_engines/competitor_analysis_engine.py:35: error: Missing
-type parameters for generic type "dict"  [type-arg]
-    def analyze_competitors() -> dict:
-                                 ^
-aifolio_empire/profit_engines/ai_tax_optimizer.py:25: error: Missing type
-parameters for generic type "dict"  [type-arg]
-    def optimize_pdf_tax() -> dict:
-                              ^
-aifolio_empire/profit_engines/ai_tax_optimizer.py:51: error: Dict entry 0 has
-incompatible type "str": "str"; expected "str": "list[str]"  [dict-item]
-                "explanation": explanation,
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:52: error: Dict entry 1 has
-incompatible type "str": "str"; expected "str": "list[str]"  [dict-item]
-                "recommendation": recommendation,
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:53: error: Dict entry 2 has
-incompatible type "str": "int"; expected "str": "list[str]"  [dict-item]
-                "priority": priority,
-                ^~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:54: error: Dict entry 3 has
-incompatible type "str": "str"; expected "str": "list[str]"  [dict-item]
-                "version": VERSION,
-                ^~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:55: error: Dict entry 4 has
-incompatible type "str": "bool"; expected "str": "list[str]"  [dict-item]
-                "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:56: error: Dict entry 5 has
-incompatible type "str": "bool"; expected "str": "list[str]"  [dict-item]
-                "OWNER_CONTROLLED": OWNER_CONTROLLED,
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:57: error: Dict entry 6 has
-incompatible type "str": "bool"; expected "str": "list[str]"  [dict-item]
-                "NON_SENTIENT": NON_SENTIENT,
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-aifolio_empire/profit_engines/ai_tax_optimizer.py:64: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def tax_drift_protection():
-    ^
-aifolio_empire/profit_engines/ai_tax_optimizer.py:69: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def tax_static_feedback():
-    ^
-aifolio_empire/profit_engines/ai_revenue_turbo.py:18: error: Missing type
-parameters for generic type "dict"  [type-arg]
-    def get_revenue_turbo_hooks() -> dict:
-                                     ^
-aifolio_empire/profit_engines/ai_pricing_strategist.py:11: error: Function is
-missing a type annotation  [no-untyped-def]
-    def get_adaptive_price(pdf_id, base_price, demand_factor=1.0, group="S...
-    ^
 aifolio_empire/profit_engines/affiliate_intelligence_mesh.py:11: error:
 Function is missing a type annotation  [no-untyped-def]
     def get_affiliate_link(user_handle, tier="Bronze"):
     ^
-aifolio_ai_bots_backend/omnilock_security_grid.py:17: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def activate_omnivault_sentinel():
-    ^
-aifolio_ai_bots_backend/omnilock_security_grid.py:22: error: Function is
-missing a type annotation  [no-untyped-def]
-    def anti_hack_alert(event):
-    ^
-aifolio_ai_bots_backend/omnilock_security_grid.py:28: error: Function is
-missing a type annotation  [no-untyped-def]
-    def trigger_honeytrap(ip_addr):
-    ^
-aifolio_ai_bots_backend/omnilock_security_grid.py:35: error: Function is
-missing a return type annotation  [no-untyped-def]
-    def runtime_obfuscation():
-    ^
-aifolio_ai_bots_backend/omnilock_security_grid.py:40: error: Function is
-missing a type annotation  [no-untyped-def]
-    def bot_cloaking(bot_name):
-    ^
 aifolio_ai_bots_backend/ai_omnicheck_finalizer.py:9: error: Function is missing
 a return type annotation  [no-untyped-def]
     def run_omnicheck():
-    ^
-aifolio_ai_bots_backend/ai_growth_compliance_brain.py:14: error: Function is
-missing a type annotation  [no-untyped-def]
-    def scan_pdf_for_compliance(pdf_path):
-    ^
-aifolio_ai_bots_backend/ai_growth_compliance_brain.py:28: error: Argument 1 to
-"detect_signals" has incompatible type "dict[str, Any]"; expected
-"list[SaleRecord]"  [arg-type]
-        detect_signals({"pdf_path": pdf_path})
-                       ^~~~~~~~~~~~~~~~~~~~~~
-aifolio_ai_bots_backend/ai_growth_compliance_brain.py:31: error: Function is
-missing a type annotation  [no-untyped-def]
-    def compliance_scan(pdf_metadata, pdf_copy, pdf_visuals):
-    ^
-aifolio_ai_bots_backend/ai_growth_compliance_brain.py:40: error: Function is
-missing a type annotation  [no-untyped-def]
-    def growth_brain_trigger(trend, revenue_spike, social_virality):
     ^
 aifolio_ai_bots_backend/ai_bot_personas.py:18: error: Function is missing a
 type annotation  [no-untyped-def]
@@ -4400,18 +4283,6 @@ aifolio_ai_bots_backend/ai_bot_personas.py:27: error: Call to untyped function
 "log_bot_action" in typed context  [no-untyped-call]
         log_bot_action(bot, action)
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-ai_prompt_engine/validate_market_fit.py:9: error: Function is missing a type
-annotation  [no-untyped-def]
-    def validate_market_fit(product):
-    ^
-ai_prompt_engine/validate_market_fit.py:17: error: Call to untyped function
-"_log" in typed context  [no-untyped-call]
-        _log(
-        ^
-ai_prompt_engine/validate_market_fit.py:27: error: Function is missing a type
-annotation  [no-untyped-def]
-    def _log(entry):
-    ^
 autonomy/notifications/sendgrid_email.py:24: error: Unused "type: ignore"
 comment  [unused-ignore]
         analysis = analyze_review(subject + " " + content)  # type: ignore...
