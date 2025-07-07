@@ -110,10 +110,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
-    # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    def audit_log_static(event: str, details: dict):
-    """SAFE AI: AES-256 encrypted audit log for all vault generator actions."""
+def audit_log_static(event: str, details: dict[str, Any]) -> None:
+    """SAFE AI: AES-256 encrypted audit log for all vault generator actions.
+    Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     encrypted_log = encrypt_audit_log_entry({"event": event, "details": details})
     with open("ai_bots_audit.log", "a") as f:
         f.write(encrypted_log + "\n")
@@ -142,31 +142,28 @@ class VaultConfig:
     MAX_CONTENT_LENGTH = 8000
 
     @classmethod
+    def validate_all(cls) -> None:
+        """Validate all configuration settings.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def validate_all(cls):
-        """Validate all configuration settings."""
         cls._validate_rate_limits()
         cls._validate_content_limits()
         cls._validate_security_settings()
         logger.info("All vault configuration settings validated successfully")
 
     @classmethod
+    def _validate_rate_limits(cls) -> None:
+        """SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def _validate_rate_limits(cls):
         if cls.MAX_REQUESTS_PER_MINUTE < 10 or cls.MAX_REQUESTS_PER_MINUTE > 100:
             raise ValueError("MAX_REQUESTS_PER_MINUTE must be between 10 and 100")
         if cls.REQUEST_WINDOW < 10 or cls.REQUEST_WINDOW > 300:
             raise ValueError("REQUEST_WINDOW must be between 10 and 300 seconds")
 
     @classmethod
+    def _validate_content_limits(cls) -> None:
+        """SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def _validate_content_limits(cls):
         if cls.MAX_OUTLINE_POINTS < 3 or cls.MAX_OUTLINE_POINTS > 20:
             raise ValueError("MAX_OUTLINE_POINTS must be between 3 and 20")
         if cls.MAX_CTA_VARIATIONS < 1 or cls.MAX_CTA_VARIATIONS > 5:
@@ -175,10 +172,9 @@ class VaultConfig:
             raise ValueError("MAX_PDF_PROMPT_SECTIONS must be between 1 and 10")
 
     @classmethod
+    def _validate_security_settings(cls) -> None:
+        """SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def _validate_security_settings(cls):
         if cls.MAX_GENERATION_ATTEMPTS < 1 or cls.MAX_GENERATION_ATTEMPTS > 5:
             raise ValueError("MAX_GENERATION_ATTEMPTS must be between 1 and 5")
         if cls.MIN_VARIATION_SCORE < 0.5 or cls.MIN_VARIATION_SCORE > 1.0:
@@ -195,17 +191,17 @@ class AutomatedVaultGenerator:
     Generates vault components for a niche with robust security, privacy, and elite compliance measures.
     Set `user_consent_verified = True` on instance to allow vault generation for a user.
     All actions are subject to audit logging, human oversight, and compliance verification.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     """
 
     user_consent_verified = (
         False  # Must be set True before generation; required for compliance
     )
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def __init__(self, config: VaultConfig = None):
-        """Initialize the vault generator with security, privacy, and ethical compliance configurations."""
+        """Initialize the vault generator with security, privacy, and ethical compliance configurations.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         self.config = config or VaultConfig()
         self.ai_bridge = AIBridge()
         self.pdf_enhancer = AIPDFLayoutEnhancer()
@@ -223,11 +219,10 @@ class AutomatedVaultGenerator:
             "AutomatedVaultGenerator initialized with security and ethical configurations"
         )
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _rate_limit_check(self) -> None:
-        """Check and enforce rate limits."""
+        """Check and enforce rate limits.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         current_time = datetime.now()
 
         # Remove old timestamps
@@ -244,18 +239,17 @@ class AutomatedVaultGenerator:
 
         self.request_timestamps.append(current_time)
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _validate_content(
         self, content: str, content_type: str, metadata: Dict[str, Any]
-    ):
+    ) -> None:
         """
         Validate generated content with ethical, privacy, and compliance checks.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         - Performs privacy impact assessment, user consent verification, and copyright checks
         - Recognizes and blocks unethical patterns (scraping, copyright, privacy, manipulation, unauthorized, etc)
         - All actions are logged for auditability; human oversight checkpoints are enforced
         - TODO: Implement real copyright verification system
+        """
         """
         # User consent check (compliance)
         if not getattr(self, "user_consent_verified", False):
