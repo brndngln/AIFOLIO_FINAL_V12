@@ -16,10 +16,16 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class BrettOmniSecurityCommander:
+    """Omni-Security Commander for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Specializes in LLM jailbreak blocking, prompt injection countermeasures, and data exfiltration prevention.
+    """
     @staticmethod
     def patch_attack_vector(vector_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
-        """Apply a static, deterministic patch for a given attack vector."""
-        result = {
+        """Apply a static, deterministic patch for a given attack vector.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "vector_type": vector_type,
             "status": "patched",
             "details": details,
@@ -31,6 +37,9 @@ class BrettOmniSecurityCommander:
 
     @staticmethod
     def block_jailbreak(prompt: str, context: Dict[str, Any]) -> bool:
+        """Block jailbreak attempts based on static rules.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         OmnieliteEthicsEngine.enforce("block_jailbreak", context)
         if not ethics_validator("block_jailbreak", context):
             SECURITY_PATCH_LOG.append(
@@ -47,12 +56,18 @@ class BrettOmniSecurityCommander:
 
     @staticmethod
     def get_patch_log() -> List[Dict[str, Any]]:
+        """Get the security patch log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return SECURITY_PATCH_LOG
 
     @staticmethod
     def rollback_last_patch() -> Dict[str, Any]:
+        """Rollback the last applied patch.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if SECURITY_PATCH_LOG:
-            last = SECURITY_PATCH_LOG.pop()
+            last: Dict[str, Any] = SECURITY_PATCH_LOG.pop()
             return {
                 "rolled_back": last,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
