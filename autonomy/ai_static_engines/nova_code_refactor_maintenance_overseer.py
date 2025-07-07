@@ -15,14 +15,20 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class NovaCodeRefactorMaintenanceOverseer:
+    """Code Refactor & Maintenance Overseer for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Cleans legacy code, refactors modules, validates logic, enforces structure, and syncs diffs.
+    """
     @staticmethod
     def clean_legacy_code(context: Dict[str, Any]) -> Dict[str, Any]:
-        """Statically clean legacy code in a module."""
+        """Statically clean legacy code in a module.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         OmnieliteEthicsEngine.enforce("clean_legacy_code", context)
         if not ethics_validator("clean_legacy_code", context):
             return {"error": "Ethics validation failed"}
         EMMAEthicsGuard.audit_action("clean_legacy_code", context)
-        result = {
+        result: Dict[str, Any] = {
             "module_name": context["module_name"],
             "action": "clean_legacy_code",
             "details": context["details"],
@@ -34,8 +40,10 @@ class NovaCodeRefactorMaintenanceOverseer:
 
     @staticmethod
     def refactor_module(module_name: str, refactor_details: Dict[str, Any]) -> Dict[str, Any]:
-        """Statically refactor a module (no adaptation)."""
-        result = {
+        """Statically refactor a module (no adaptation).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "module_name": module_name,
             "action": "refactor",
             "refactor_details": refactor_details,
@@ -47,8 +55,10 @@ class NovaCodeRefactorMaintenanceOverseer:
 
     @staticmethod
     def validate_logic(module_name: str) -> Dict[str, Any]:
-        """Statically validate injected logic against system rules."""
-        result = {
+        """Statically validate injected logic against system rules.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "module_name": module_name,
             "action": "validate_logic",
             "validated": True,
@@ -60,8 +70,10 @@ class NovaCodeRefactorMaintenanceOverseer:
 
     @staticmethod
     def sync_diff(module_name: str, diff_details: Dict[str, Any]) -> Dict[str, Any]:
-        """Enforce structure and sync diffs across team files."""
-        result = {
+        """Enforce structure and sync diffs across team files.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "module_name": module_name,
             "action": "sync_diff",
             "diff_details": diff_details,
@@ -72,13 +84,19 @@ class NovaCodeRefactorMaintenanceOverseer:
         return result
 
     @staticmethod
-    def get_refactor_maintenance_log() -> List[Dict[str, Any]]:
+    def get_refactor_maintenance_log() -> list[dict[str, Any]]:
+        """Get the refactor/maintenance log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return REFACTOR_MAINTENANCE_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict[str, Any]:
+    def rollback_last_action() -> dict[str, Any]:
+        """Rollback the last refactor/maintenance action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if REFACTOR_MAINTENANCE_LOG:
-            last = REFACTOR_MAINTENANCE_LOG.pop()
+            last: dict[str, Any] = REFACTOR_MAINTENANCE_LOG.pop()
             return {
                 "rolled_back": last,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
