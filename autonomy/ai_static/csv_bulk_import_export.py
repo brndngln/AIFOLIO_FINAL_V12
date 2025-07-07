@@ -11,7 +11,9 @@ LOG_PATH = "../../distribution/legal_exports/csv_import_export_log.txt"
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 
-def import_csv(path):
+from typing import List, Dict
+
+def import_csv(path: str) -> List[Dict[str, str]]:
     with open(path, newline="") as csvfile:
         reader = csv.DictReader(csvfile)
         data = list(reader)
@@ -19,7 +21,7 @@ def import_csv(path):
         return data
 
 
-def export_csv(path, data, fieldnames):
+def export_csv(path: str, data: List[Dict[str, str]], fieldnames: List[str]) -> None:
     with open(path, "w", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()

@@ -22,7 +22,9 @@ POLICIES = ["terms_of_service.md", "refund_policy.md", "privacy_policy.md"]
 VERSION_TRACKER_PATH = LOG_PATH
 
 
-def record_policy_version(policy_dir, policy_name):
+from typing import List, Dict, Any
+
+def record_policy_version(policy_dir: str, policy_name: str) -> bool:
     path = os.path.join(policy_dir, policy_name)
     if not os.path.exists(path):
         return False
@@ -45,8 +47,11 @@ def record_policy_version(policy_dir, policy_name):
     return True
 
 
-def get_policy_versions():
+def get_policy_versions() -> List[Dict[str, Any]]:
     if os.path.exists(VERSION_TRACKER_PATH):
         with open(VERSION_TRACKER_PATH, "r") as f:
-            return json.load(f)
+            data = json.load(f)
+            if isinstance(data, list):
+                return data
+            return []
     return []

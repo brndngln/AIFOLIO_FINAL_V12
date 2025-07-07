@@ -23,7 +23,9 @@ LOG_PATH = os.path.abspath(
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 
-def static_translate(text, language):
+from typing import Dict
+
+def static_translate(text: str, language: str) -> str:
     if not os.path.exists(TRANSLATION_TABLE_PATH):
         logging.error("Translation table missing.")
         return text

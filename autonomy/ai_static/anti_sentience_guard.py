@@ -12,7 +12,9 @@ logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 FORBIDDEN_PATTERNS = ["I think", "I feel", "I want", "I am alive", "I have desires"]
 
 
-def scan_for_static(text):
+from typing import Any
+
+def scan_for_static(text: str) -> bool:
     for pattern in FORBIDDEN_PATTERNS:
         if pattern in text:
             logging.warning(f"Sentience pattern detected: {pattern} in '{text}'")
