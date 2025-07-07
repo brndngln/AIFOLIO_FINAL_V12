@@ -6,6 +6,8 @@ It is designed to be stateless, rule-based, and without learning capabilities.
 
 import random
 import logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 from aifolio_ai_bots_backend.agents.agent_utils import (
     encrypt_audit_log_entry,
 )  # SAFE AI: Use AES-256 encrypted audit logs
@@ -41,7 +43,7 @@ SUPPORTED_NICHES = [
     "Freelancing & Side Hustles",
     "Online Business & Agencies",
     "Ebook & Digital Product Creation",
-    "Children’s Educational Printables",
+    "Childrens Educational Printables",
     "Mental Health & Journaling",
     "Natural Remedies & Holistic Healing",
     "Dating, Attraction & Relationships",
@@ -98,19 +100,18 @@ def process_all_supported_niches(process_niche: callable) -> None:
             # ... do something with niche ...
             pass
         process_all_supported_niches(my_processing_logic)
-    for niche in SUPPORTED_NICHES:
-        process_niche(niche)
-
-
-# To update supported vaults/niches, modify SUPPORTED_NICHES above. The order determines focus for automation, UI, and compliance systems.
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-logger = logging.getLogger(__name__)
 
 def audit_log_static(event: str, details: Dict[str, Any]) -> None:
-    """AES-256 encrypted audit log for all vault generator actions. SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive or sentient logic."""
-    encrypted_log = encrypt_audit_log_entry({"event": event, "details": details})
+    """
+    AES-256 encrypted audit log for all vault generator actions.
+
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable.
+    No adaptive or sentient logic permitted.
+    """
+    encrypted_log = encrypt_audit_log_entry({
+        "event": event,
+        "details": details
+    })
     with open("ai_bots_audit.log", "a") as f:
         f.write(encrypted_log + "\n")
 
@@ -269,7 +270,7 @@ class AutomatedVaultGenerator:
         KNOWN_COPYRIGHTED_PHRASES = [
             "All rights reserved",
             "Do not copy",
-            "©",
+            "",
             "[CopyrightedContent]",
         ]
         copyright_flag = False
@@ -880,7 +881,7 @@ if __name__ == "__main__":
     assets = vault_generator.generate_vault_assets(example_niche)
 
     if assets:
-        print(f"\n✨ Generated Vault Assets for Niche: {example_niche} ✨")
+        print(f"\n Generated Vault Assets for Niche: {example_niche} ")
         # Using json.dumps for pretty printing the dictionary
         print(json.dumps(assets, indent=2))
     else:
