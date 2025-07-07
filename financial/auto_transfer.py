@@ -20,7 +20,9 @@ T = TypeVar("T")
 
 @dataclass
 class AllocationType(Enum):
-    """Types of allocation rules."""
+    """Types of allocation rules.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+"""
 
     FIXED_PERCENTAGE = "fixed_percentage"
     DYNAMIC = "dynamic"
@@ -30,7 +32,9 @@ class AllocationType(Enum):
 
 @dataclass
 class AllocationRule(Generic[T]):
-    """Represents a single allocation rule."""
+    """Represents a single allocation rule.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+"""
 
     vault_type: str
     allocation_type: AllocationType
@@ -96,7 +100,9 @@ class AllocationRule(Generic[T]):
 
 @dataclass
 class AllocationStrategy(Generic[T]):
-    """Represents a complete allocation strategy."""
+    """Represents a complete allocation strategy.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+"""
 
     name: str
     rules: List[AllocationRule[T]]
@@ -135,7 +141,9 @@ class AllocationStrategy(Generic[T]):
 
 
 class AutoTransferRules:
-    """Advanced revenue distribution system with multiple strategies."""
+    """Advanced revenue distribution system with multiple strategies.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+"""
 
     def __init__(self, initial_strategy: Optional[AllocationStrategy[Any]] = None) -> None:
         """
