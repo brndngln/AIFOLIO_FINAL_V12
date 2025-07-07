@@ -105,8 +105,10 @@ def audit_log_static(event: str, details: Dict[str, Any]) -> None:
     """
     AES-256 encrypted audit log for all vault generator actions.
 
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable.
-    No adaptive or sentient logic permitted.
+    SAFE AI Compliance: This function is static, deterministic, owner-controlled, and fully auditable. No adaptive, learning, or sentient logic is present. All audit log entries are immutable and encrypted.
+    """
+
+    SAFE AI Compliance: This function is static, deterministic, owner-controlled, and fully auditable. No adaptive, learning, or sentient logic is present. All audit log entries are immutable and encrypted.
     """
     encrypted_log = encrypt_audit_log_entry({
         "event": event,
