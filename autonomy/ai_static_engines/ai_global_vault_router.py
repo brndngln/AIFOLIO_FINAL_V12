@@ -12,16 +12,23 @@ VAULT_ROUTER_LOG = []
 
 
 class GlobalVaultRouter:
+    """AI Global Vault Router for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Suggests and logs static routing strategies for multi-region vault distribution.
+    """
     @staticmethod
-    def suggest_routing_strategies(current_regions: List[str]) -> List[str]:
-        """
-        Suggests static region routing strategies.
+    def suggest_routing_strategies(current_regions: list[str]) -> list[str]:
+        """Suggest static region routing strategies.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         all_regions = ["US-East", "EU-West", "APAC", "LATAM"]
         return [r for r in all_regions if r not in current_regions]
 
     @staticmethod
-    def log_routing_action(action: str, details: Dict):
+    def log_routing_action(action: str, details: dict) -> None:
+        """Log a static routing action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         VAULT_ROUTER_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -31,5 +38,8 @@ class GlobalVaultRouter:
         )
 
     @staticmethod
-    def export_routing_log() -> List[Dict]:
+    def export_routing_log() -> list[dict]:
+        """Export the global vault routing log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return VAULT_ROUTER_LOG

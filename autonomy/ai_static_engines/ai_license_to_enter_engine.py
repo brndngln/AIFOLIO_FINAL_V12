@@ -12,12 +12,16 @@ LICENSE_DEALS_LOG = []
 
 
 class LicenseToEnterEngine:
+    """AI License-to-Enter Engine for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Suggests and tracks licensing deals for external B2B clients to access AIFOLIO vault engines.
+    """
     @staticmethod
     def suggest_licenses(
-        existing_clients: List[str], available_engines: List[str]
-    ) -> List[Dict[str, Any]]:
-        """
-        Suggests new licensing deals for B2B clients. Deterministic, static logic.
+        existing_clients: list[str], available_engines: list[str]
+    ) -> list[dict[str, Any]]:
+        """Suggest new licensing deals for B2B clients. Deterministic, static logic.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         suggestions = [
             {"client": "AcmeCorp", "engine": "Vault Engine"},
@@ -30,7 +34,10 @@ class LicenseToEnterEngine:
         ]
 
     @staticmethod
-    def log_license_action(action: str, details: Dict[str, Any]) -> None:
+    def log_license_action(action: str, details: dict[str, Any]) -> None:
+        """Log a static license action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         LICENSE_DEALS_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -40,5 +47,8 @@ class LicenseToEnterEngine:
         )
 
     @staticmethod
-    def export_license_log() -> List[Dict[str, Any]]:
+    def export_license_log() -> list[dict[str, Any]]:
+        """Export the license deals log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return LICENSE_DEALS_LOG
