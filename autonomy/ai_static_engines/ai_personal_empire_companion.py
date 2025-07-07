@@ -11,11 +11,18 @@ DAILY_BRIEF_LOG = []
 
 
 class PersonalEmpireCompanion:
+    """AI Personal Empire Companion for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Generates “Daily Empire Brief” for the owner dashboard.
+    """
     @staticmethod
     def generate_brief(
         today_automations: int, revenue: float, pending: int, risks: int
-    ) -> Dict[str, Any]:
-        brief = {
+    ) -> dict[str, Any]:
+        """Generate a static daily empire brief.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        brief: dict[str, Any] = {
             "date": datetime.datetime.utcnow().date().isoformat(),
             "automated": today_automations,
             "revenue": revenue,
@@ -28,5 +35,8 @@ class PersonalEmpireCompanion:
         return brief
 
     @staticmethod
-    def get_log() -> List[Dict[str, Any]]:
+    def get_log() -> list[dict[str, Any]]:
+        """Get the daily empire brief log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return DAILY_BRIEF_LOG
