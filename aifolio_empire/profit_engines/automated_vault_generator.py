@@ -105,22 +105,16 @@ def process_all_supported_niches(process_niche: callable) -> None:
 # To update supported vaults/niches, modify SUPPORTED_NICHES above. The order determines focus for automation, UI, and compliance systems.
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-def audit_log_static(event: str, details: dict[str, Any]) -> None:
-    """SAFE AI: AES-256 encrypted audit log for all vault generator actions.
-    Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
+def audit_log_static(event: str, details: Dict[str, Any]) -> None:
+    """AES-256 encrypted audit log for all vault generator actions. SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive or sentient logic."""
     encrypted_log = encrypt_audit_log_entry({"event": event, "details": details})
     with open("ai_bots_audit.log", "a") as f:
         f.write(encrypted_log + "\n")
 
-
 # All extension points below are statically locked for SAFE AI compliance.
-
 
 # Operational limits with validation
 class VaultConfig:
@@ -153,7 +147,8 @@ class VaultConfig:
 
     @classmethod
     def _validate_rate_limits(cls) -> None:
-        """SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """Validate rate limiting settings.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         if cls.MAX_REQUESTS_PER_MINUTE < 10 or cls.MAX_REQUESTS_PER_MINUTE > 100:
             raise ValueError("MAX_REQUESTS_PER_MINUTE must be between 10 and 100")
@@ -365,11 +360,12 @@ class AutomatedVaultGenerator:
             content, metadata, f"content_validation_{content_type}"
         )
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
+        # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+
     def _enhance_pdf_layout(self, content: str) -> str:
-        """Enhance PDF layout with AI formatting."""
+        """Enhance PDF layout with AI formatting.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         try:
             self._rate_limit_check()
             return self.pdf_enhancer.enhance_layout(content)
@@ -377,11 +373,10 @@ class AutomatedVaultGenerator:
             logger.error(f"PDF enhancement failed: {e}")
             return content  # Return original if enhancement fails
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _sign_data(self, data: Dict[str, Any]) -> str:
-        """Sign the data with HMAC for security."""
+        """Sign the data with HMAC for security.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if not self._security_key:
             raise ValueError("Security key not configured")
 

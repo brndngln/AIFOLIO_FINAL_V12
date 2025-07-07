@@ -1,2 +1,2 @@
-aifolio_empire/profit_engines/automated_vault_generator.py:115: error: invalid syntax  [syntax]
+aifolio_empire/profit_engines/automated_vault_generator.py:112: error: invalid syntax  [syntax]
 Found 1 error in 1 file (errors prevented further checking)
