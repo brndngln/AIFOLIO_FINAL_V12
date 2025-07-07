@@ -1,6 +1,7 @@
 """
 OMNIELITE Audit Trail Export & Search Tool
 OWNER-controlled, static CLI for searching/exporting audit logs.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
 No adaptive/sentient logic. Exports are SHA256 signed.
 """
 import os
@@ -17,7 +18,7 @@ def search_audit(field: str | None = None, value: str | None = None) -> list[dic
     """Search audit logs for entries matching a field and value.
     SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     """
-    results = []
+    results: list[dict[str, object]] = []
     for f in glob(os.path.join(EXPORTS_DIR, "*.json")):
         with open(f) as fp:
             data = json.load(fp)
@@ -31,11 +32,11 @@ def export_results(results: list[dict[str, object]], filename: str) -> None:
     """Export results to a file and write a SHA256 hash.
     SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     """
-    out_path = os.path.join(REPORTS_DIR, filename)
+    out_path: str = os.path.join(REPORTS_DIR, filename)
     with open(out_path, "w") as f:
         json.dump(results, f, indent=2)
     # SHA256 hash
-    hashval = hashlib.sha256(json.dumps(results, sort_keys=True).encode()).hexdigest()
+    hashval: str = hashlib.sha256(json.dumps(results, sort_keys=True).encode()).hexdigest()
     with open(out_path + ".sha256", "w") as f:
         f.write(hashval)
     print(f"Exported {len(results)} entries to {out_path} (SHA256: {hashval})")
@@ -47,14 +48,14 @@ def main() -> None:
     """
     import argparse
 
-    parser = argparse.ArgumentParser(description="OMNIELITE Audit Exporter")
+    parser = argparse.ArgumentParser(description="OMNIELITE Audit Exporter (SAFE AI Static CLI)")
     parser.add_argument("--field", type=str, help="Field to filter by")
     parser.add_argument("--value", type=str, help="Value to match for field")
     parser.add_argument(
         "--output", type=str, default="audit_export.json", help="Output filename"
     )
     args = parser.parse_args()
-    results = search_audit(args.field, args.value)
+    results: list[dict[str, object]] = search_audit(args.field, args.value)
     export_results(results, args.output)
 
 
