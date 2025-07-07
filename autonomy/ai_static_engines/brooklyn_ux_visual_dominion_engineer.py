@@ -15,9 +15,16 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class BrooklynUXVisualDominionEngineer:
+    """UX/Visual Dominion Engineer for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Reinvents frontend structure, manages grid logic, breakpoints, interactivity, and dashboard visuals.
+    """
     @staticmethod
     def update_grid_logic(component: str, details: Dict[str, Any]) -> Dict[str, Any]:
-        context = {"component": component, "details": details}
+        """Update grid logic in a static, deterministic way.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        context: Dict[str, Any] = {"component": component, "details": details}
         if not OmnieliteEthicsEngine.enforce("update_grid_logic", context):
             UX_VISUAL_LOG.append(
                 {
@@ -35,7 +42,7 @@ class BrooklynUXVisualDominionEngineer:
             )
             return {"error": "Ethics validation failed"}
         EMMAEthicsGuard.audit_action("update_grid_logic", context)
-        result = {
+        result: Dict[str, Any] = {
             "component": component,
             "update": "grid_logic",
             "details": details,
@@ -47,8 +54,10 @@ class BrooklynUXVisualDominionEngineer:
 
     @staticmethod
     def toggle_dark_light_mode(mode: str) -> Dict[str, Any]:
-        """Statically toggle dark/light mode (no adaptation)."""
-        result = {
+        """Statically toggle dark/light mode (no adaptation).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "mode": mode,
             "toggled": True,
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -59,8 +68,10 @@ class BrooklynUXVisualDominionEngineer:
 
     @staticmethod
     def apply_dashboard_animation(animation: str) -> Dict[str, Any]:
-        """Apply static dashboard animation logic."""
-        result = {
+        """Apply static dashboard animation logic.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "animation": animation,
             "applied": True,
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -71,12 +82,18 @@ class BrooklynUXVisualDominionEngineer:
 
     @staticmethod
     def get_ux_visual_log() -> List[Dict[str, Any]]:
+        """Get the UX/visual log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return UX_VISUAL_LOG
 
     @staticmethod
     def rollback_last_action() -> Dict[str, Any]:
+        """Rollback the last UX/visual action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if UX_VISUAL_LOG:
-            last = UX_VISUAL_LOG.pop()
+            last: Dict[str, Any] = UX_VISUAL_LOG.pop()
             return {
                 "rolled_back": last,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
