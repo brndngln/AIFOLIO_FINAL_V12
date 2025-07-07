@@ -12,10 +12,14 @@ COMPLIANCE_ALERTS_LOG: List[Dict[str, Any]] = []
 
 
 class ComplianceGovernanceMonitor:
+    """AI Compliance & Governance Monitor for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Tracks and logs compliance, tax, and legal platform changes. Proactively alerts owner/admin.
+    """
     @staticmethod
-    def track_compliance_changes(changes: List[Dict[str, Any]]) -> None:
-        """
-        Logs new compliance, tax, or legal platform changes for owner review.
+    def track_compliance_changes(changes: list[dict[str, Any]]) -> None:
+        """Logs new compliance, tax, or legal platform changes for owner review.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         for change in changes:
             COMPLIANCE_ALERTS_LOG.append(
@@ -23,5 +27,8 @@ class ComplianceGovernanceMonitor:
             )
 
     @staticmethod
-    def get_alerts() -> List[Dict[str, Any]]:
+    def get_alerts() -> list[dict[str, Any]]:
+        """Get the compliance alerts log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return COMPLIANCE_ALERTS_LOG
