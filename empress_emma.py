@@ -56,6 +56,7 @@ from autonomy.ai_static_engines.pmp_personal_muse_protocol import PersonalMusePr
 class EMMA:
     """
     Elite Multidomain Matrix Attorney (EMMA):
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     Supreme AI Commander for OMNIELITE CODE LEGION
     - Orchestrates agent logic, legal/contract enforcement, SAFE AI compliance
     - All actions require OWNER approval and signature
@@ -72,7 +73,10 @@ class EMMA:
         biometric_hash: str,
         pmp_passphrase: Optional[str] = None,
         pmp_context: Optional[Dict[str, Any]] = None,
-    ):
+    ) -> None:
+        """Initialize EMMA instance.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         never_without_you(owner_signature)
         self.owner_signature: str = owner_signature
         self.biometric_hash: str = biometric_hash
