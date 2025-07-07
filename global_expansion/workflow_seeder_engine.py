@@ -28,29 +28,31 @@ from global_expansion.ai_logic_expansion import (
 
 class WorkflowSeederEngine:
     """
-    Seeds all expansion modules into the operational tree and future workflow templates.
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    All extension points are static, owner-controlled, and fully documented for audit.
+    Static vault and workflow expansion engine for deterministic, SAFE AI-compliant module seeding.
+
+    This engine seeds all expansion modules into the operational tree and workflow templates. All logic is static, immutable, fully auditable, and owner-controlled. No learning, adaptation, or sentient behavior is present at any extension point. All extension points are statically documented and locked for audit.
     """
 
     def __init__(self) -> None:
-        """Initialize the WorkflowSeederEngine.
-        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-        self.global_scale: list[object] = [
+        Initialize the WorkflowSeederEngine with static module lists.
+
+        SAFE AI Compliance: All modules are statically defined, immutable, and deterministic. No adaptive, learning, or sentient logic is present in any seeded component or extension point.
+        """
+        self.global_scale: List[object] = [
             MultilingualVaultSpawner(),
             AutoTranslationMarketFormatter(),
             GeoRestrictedPolicyCompliance(),
             GlobalVaultDiscoveryNetwork(),
         ]
-        self.pipeline_optimizers: list[object] = [
+        self.pipeline_optimizers: List[object] = [
             SmartFunnelSplitTesting(),
             AutoVaultToMasterclassBot(),
             AffiliateClonerCommission(),
             APIPaywallizer(),
             PDFProfitSpiderAILoop(),
         ]
-        self.ai_logic: list[object] = [
+        self.ai_logic: List[object] = [
             LicensingNFTGenerator(),
             FranchiseLogicInjector(),
             RealTimeMonetizationFeedback(),
@@ -58,9 +60,11 @@ class WorkflowSeederEngine:
         ]
         self.seeded: bool = False
 
-    def seed_all(self) -> dict[str, list[str]]:
-        """Seed all expansion modules and return status.
-        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    def seed_all(self) -> Dict[str, List[str]]:
+        """
+        Seed all static expansion modules and return a summary status.
+
+        This method marks the engine as seeded and returns the static, deterministic structure of all seeded modules. All logic is immutable, owner-controlled, and fully auditable. No adaptive, learning, or sentient logic is present at any extension point.
         """
         self.seeded = True
         return {
@@ -70,10 +74,11 @@ class WorkflowSeederEngine:
             "status": ["Seeded"],
         }
 
-    def auto_inherit(self, workflow: dict[str, Any]) -> dict[str, Any]:
-        """Attach all expansion hooks to a new workflow or vault.
-        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-        All extension points are static and owner-controlled only.
+    def auto_inherit(self, workflow: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Attach all static expansion hooks to a workflow or vault for audit and compliance.
+
+        This method appends only static, owner-controlled extension points to the workflow. No learning, adaptation, or sentient logic is present or permitted. All extension points are immutable and fully documented for audit.
         """
         workflow["expansion_hooks"] = [
             *[type(m).__name__ for m in self.global_scale],
