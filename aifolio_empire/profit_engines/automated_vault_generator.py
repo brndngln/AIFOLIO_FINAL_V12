@@ -80,30 +80,24 @@ SUPPORTED_NICHES = [
     "Therapy-Adjacent Workbooks",
 ]
 
-
+def get_supported_niches() -> list[str]:
     """
     SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Return the official list of supported niches for vault generation, ordered by profitability/priority.
     """
-    def get_supported_niches():
-    """Return the official list of supported niches for vault generation, ordered by profitability/priority."""
     return SUPPORTED_NICHES
 
 
+def process_all_supported_niches(process_niche: callable) -> None:
     """
     SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def process_all_supported_niches(process_niche):
-    """
     Utility for automation: applies the provided process_niche(niche) function to every supported niche in SUPPORTED_NICHES.
     This ensures equal focus on all niches, regardless of their order in the list.
     Example usage:
-            """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
-    def my_processing_logic(niche):
+        def my_processing_logic(niche: str) -> None:
             # ... do something with niche ...
+            pass
         process_all_supported_niches(my_processing_logic)
-    """
     for niche in SUPPORTED_NICHES:
         process_niche(niche)
 
@@ -117,9 +111,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-    """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
+    # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
     def audit_log_static(event: str, details: dict):
     """SAFE AI: AES-256 encrypted audit log for all vault generator actions."""
     encrypted_log = encrypt_audit_log_entry({"event": event, "details": details})
@@ -600,11 +592,9 @@ class AutomatedVaultGenerator:
             logger.error(f"Text generation failed: {e}")
             raise
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _generate_simulated_outline(self, niche: str) -> List[str]:
         """Simulates generating a PDF outline for the niche."""
+        # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         outline_points: List[str] = []
         num_points: int = random.randint(3, VaultConfig.MAX_OUTLINE_POINTS)
         for i in range(num_points):
@@ -625,13 +615,11 @@ class AutomatedVaultGenerator:
         random.shuffle(outline_points)  # Anti-sentience: shuffle order
         return outline_points
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _generate_simulated_pdf_prompts(
         self, niche: str, outline: List[str]
     ) -> Dict[str, str]:
         """Simulates generating prompts for an AI to write PDF content based on the outline."""
+        # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         pdf_prompts: Dict[str, str] = {}
         num_prompts: int = random.randint(
             1, min(len(outline), VaultConfig.MAX_PDF_PROMPT_SECTIONS)
@@ -662,26 +650,22 @@ class AutomatedVaultGenerator:
                 pdf_prompts[prompt_key] += f" {constraint}"
         return pdf_prompts
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def _sign_data(self, data: Dict[str, Any]) -> str:
-        """Signs the data with HMAC for security."""
+        """Signs the data with HMAC for security.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         signed_data: str = hmac.new(
             self._security_key.encode(), json.dumps(data).encode(), hashlib.sha256
         ).hexdigest()
         return signed_data
 
-        """
-    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-    """
     def generate_vault_assets(
         self, niche_name: str, niche_context: Optional[Dict[str, Any]] = None
     ) -> Optional[Dict[str, Any]]:
-        """
-        Generates all assets for a new vault based on the given niche.
+        """Generates all assets for a new vault based on the given niche.
         This is a one-shot, stateless operation with anti-sentience measures.
         Integrates autonomous preview and pricing engines, and blocks publishing if preview JSON is missing/incomplete.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         import importlib.util
         import traceback
