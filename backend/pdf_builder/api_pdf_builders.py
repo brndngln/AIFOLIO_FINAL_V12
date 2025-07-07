@@ -5,11 +5,8 @@ from backend.pdf_builder.expanded_pdf_builders import (
     build_social_media_content_pdf,
     build_market_trends_pdf,
     build_revenue_conversion_pdf,
-    build_customer_welcome_pdf,
-    build_niche_authority_ebook,
-    build_email_funnel_blueprint_pdf,
 )
-from backend.auth.deps import get_current_user
+from backend.auth.deps import get_current_user: callable[..., str]
 from pydantic import BaseModel
 from typing import Dict, Any
 
@@ -21,7 +18,10 @@ class PDFGenRequest(BaseModel):
 
 
 @router.post("/niche-product", response_model=str)
-def api_niche_product_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_niche_product_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_niche_product_pdf(req.data)
         return str(result)
@@ -30,7 +30,10 @@ def api_niche_product_pdf(req: PDFGenRequest, user: str = Depends(get_current_us
 
 
 @router.post("/affiliate-promo", response_model=str)
-def api_affiliate_promo_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_affiliate_promo_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_affiliate_promo_pack_pdf(req.data)
         return str(result)
@@ -39,7 +42,10 @@ def api_affiliate_promo_pdf(req: PDFGenRequest, user: str = Depends(get_current_
 
 
 @router.post("/social-media", response_model=str)
-def api_social_media_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_social_media_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_social_media_content_pdf(req.data)
         return str(result)
@@ -48,7 +54,10 @@ def api_social_media_pdf(req: PDFGenRequest, user: str = Depends(get_current_use
 
 
 @router.post("/market-trends", response_model=str)
-def api_market_trends_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_market_trends_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_market_trends_pdf(req.data)
         return str(result)
@@ -57,7 +66,10 @@ def api_market_trends_pdf(req: PDFGenRequest, user: str = Depends(get_current_us
 
 
 @router.post("/revenue-conversion", response_model=str)
-def api_revenue_conversion_pdf(
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_revenue_conversion_pdf(
     req: PDFGenRequest, user: str = Depends(get_current_user)
 ) -> str:
     try:
@@ -68,7 +80,10 @@ def api_revenue_conversion_pdf(
 
 
 @router.post("/customer-welcome", response_model=str)
-def api_customer_welcome_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_customer_welcome_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_customer_welcome_pdf(req.data)
         return str(result)
@@ -77,7 +92,10 @@ def api_customer_welcome_pdf(req: PDFGenRequest, user: str = Depends(get_current
 
 
 @router.post("/niche-ebook", response_model=str)
-def api_niche_ebook_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_niche_ebook_pdf(req: PDFGenRequest, user: str = Depends(get_current_user)) -> str:
     try:
         result = build_niche_authority_ebook(req.data)
         return str(result)
@@ -86,7 +104,10 @@ def api_niche_ebook_pdf(req: PDFGenRequest, user: str = Depends(get_current_user
 
 
 @router.post("/email-funnel-blueprint", response_model=str)
-def api_email_funnel_blueprint_pdf(
+    """
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
+    def api_email_funnel_blueprint_pdf(
     req: PDFGenRequest, user: str = Depends(get_current_user)
 ):
     try:
