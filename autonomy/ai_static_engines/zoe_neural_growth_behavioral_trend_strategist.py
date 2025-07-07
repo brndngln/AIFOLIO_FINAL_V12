@@ -15,15 +15,22 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class ZoeNeuralGrowthBehavioralTrendStrategist:
+    """Neural Growth + Behavioral Trend Strategist for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Maps product performance, suggests vault/funnel/agent evolution, models growth with pattern-based, time-locked trends only.
+    """
     @staticmethod
     def map_product_performance(context: Dict[str, Any]) -> bool:
+        """Map product performance in a static, deterministic way.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         OmnieliteEthicsEngine.enforce("map_product_performance", context)
         if not ethics_validator("map_product_performance", context):
             return False
         EMMAEthicsGuard.audit_action("map_product_performance", context)
-        product_id = context.get("product_id")
-        metrics = context.get("metrics")
-        result = {
+        product_id: Any = context.get("product_id")
+        metrics: Any = context.get("metrics")
+        result: Dict[str, Any] = {
             "product_id": product_id,
             "metrics": metrics,
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -34,8 +41,10 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
 
     @staticmethod
     def suggest_evolution(target: str, suggestion_type: str, details: Dict[str, Any]) -> Dict[str, Any]:
-        """Statically suggest vault/funnel/agent evolution (pattern-based only)."""
-        result = {
+        """Statically suggest vault/funnel/agent evolution (pattern-based only).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "target": target,
             "suggestion_type": suggestion_type,
             "details": details,
@@ -47,8 +56,10 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
 
     @staticmethod
     def model_growth_trend(period: str, pattern: str) -> Dict[str, Any]:
-        """Model profitable growth (time-locked, static patterns only)."""
-        result = {
+        """Model profitable growth (time-locked, static patterns only).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "period": period,
             "pattern": pattern,
             "modeled": True,
@@ -60,12 +71,18 @@ class ZoeNeuralGrowthBehavioralTrendStrategist:
 
     @staticmethod
     def get_growth_trend_log() -> List[Dict[str, Any]]:
+        """Get the growth trend log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return GROWTH_TREND_LOG
 
     @staticmethod
     def rollback_last_action() -> Dict[str, Any]:
+        """Rollback the last growth trend action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if GROWTH_TREND_LOG:
-            last = GROWTH_TREND_LOG.pop()
+            last: Dict[str, Any] = GROWTH_TREND_LOG.pop()
             return {
                 "rolled_back": last,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
