@@ -33,13 +33,16 @@ class WorkflowSeederEngine:
     """
 
     def __init__(self) -> None:
-        self.global_scale: List[object] = [
+        """Initialize the WorkflowSeederEngine.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        self.global_scale: list[object] = [
             MultilingualVaultSpawner(),
             AutoTranslationMarketFormatter(),
             GeoRestrictedPolicyCompliance(),
             GlobalVaultDiscoveryNetwork(),
         ]
-        self.pipeline_optimizers: List[object] = [
+        self.pipeline_optimizers: list[object] = [
             SmartFunnelSplitTesting(),
             AutoVaultToMasterclassBot(),
             AffiliateClonerCommission(),
