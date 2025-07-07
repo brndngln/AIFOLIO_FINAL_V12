@@ -12,8 +12,15 @@ LEGACY_EMPIRE_LOG = []
 
 
 class Phase60LegacyEmpireEngine:
+    """AI Phase 60 Legacy Empire Engine for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Archives, surfaces, and exports all legacy, crisis, and DNA data for compliance, handoff, and audit.
+    """
     @staticmethod
-    def archive_legacy_event(event: str, context: Dict[str, Any]) -> None:
+    def archive_legacy_event(event: str, context: dict[str, Any]) -> None:
+        """Archive a static legacy event for audit/compliance.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         LEGACY_EMPIRE_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -23,5 +30,8 @@ class Phase60LegacyEmpireEngine:
         )
 
     @staticmethod
-    def export_legacy_log() -> List[Dict[str, Any]]:
+    def export_legacy_log() -> list[dict[str, Any]]:
+        """Export the legacy empire log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return LEGACY_EMPIRE_LOG
