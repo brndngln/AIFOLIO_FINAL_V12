@@ -15,7 +15,9 @@ STATIC_HOOKS = [
 FOCUS_MODE = True
 
 
-def get_revenue_turbo_hooks() -> dict:
+from typing import Dict, Any
+
+def get_revenue_turbo_hooks() -> Dict[str, Any]:
     result = {"hooks": STATIC_HOOKS, "focus_mode": FOCUS_MODE}
     logger.info(f"Revenue turbo hooks: {result}")
     return result

@@ -25,7 +25,9 @@ STATIC_TEST_MATRIX = [
 ]
 
 
-def optimize_subscription_models() -> dict:
+from typing import Dict, Any
+
+def optimize_subscription_models() -> Dict[str, Any]:
     """Deterministically return static subscription models and test matrix."""
     result = {"models": STATIC_SUBSCRIPTION_MODELS, "test_matrix": STATIC_TEST_MATRIX}
     logger.info(f"Subscription optimization: {result}")

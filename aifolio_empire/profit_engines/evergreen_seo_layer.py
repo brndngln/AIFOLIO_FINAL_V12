@@ -20,7 +20,9 @@ STATIC_SEO_METAS = [
 STATIC_UPDATE_SCHEDULE = ["2025-07-01", "2025-10-01"]
 
 
-def get_next_seo_update() -> dict:
+from typing import Dict, Any, List
+
+def get_next_seo_update() -> Dict[str, Any]:
     """
     SAFE AI-compliant: Returns next static SEO update. Returns dict with result, explanation, recommendation, priority, version, SAFE AI/owner/non-sentient metadata, and audit log. All logic is static, deterministic, non-sentient, and owner-controlled.
     """
@@ -62,12 +64,12 @@ def get_next_seo_update() -> dict:
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def seo_drift_protection():
+def seo_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def seo_static_feedback():
+def seo_static_feedback() -> List[str]:
     return ["Review SEO title/meta for compliance and freshness."]
 
 

@@ -32,7 +32,9 @@ STATIC_MARKET_GAPS = [
 ]
 
 
-def analyze_competitors() -> dict:
+from typing import Dict, Any
+
+def analyze_competitors() -> Dict[str, Any]:
     """Deterministically return static competitor and gap analysis."""
     result = {"competitors": STATIC_COMPETITORS, "market_gaps": STATIC_MARKET_GAPS}
     logger.info(f"Competitor analysis: {result}")
