@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""
+Windsurf Sentinel: Static SAFE AI audit and forbidden pattern monitor.
+SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+Monitors for forbidden patterns and enforces static audit policy. No adaptive or sentient logic.
+"""
 import subprocess
 import sys
 import json
@@ -28,7 +33,14 @@ FORBIDDEN_PATTERNS = [
 AUDIT_LOG = "emma_volume_audit.json"
 
 
-def is_forbidden(filename):
+def is_forbidden(filename: str) -> bool:
+    """Check if a filename matches any forbidden pattern.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Args:
+        filename (str): The filename to check.
+    Returns:
+        bool: True if forbidden, False otherwise.
+    """
     for pat in FORBIDDEN_PATTERNS:
         if Path(filename).match(pat):
             return True
@@ -36,9 +48,12 @@ def is_forbidden(filename):
 
 
 def autonomous_recovery(func):
+    """Decorator for static, deterministic recovery from permission errors.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        retries = 3
+        retries: int = 3
         for attempt in range(1, retries + 1):
             try:
                 return func(*args, **kwargs)
