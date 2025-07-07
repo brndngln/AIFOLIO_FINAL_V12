@@ -20,7 +20,7 @@ class KennedyAILogicMeshArchitect:
     Builds modular AI logic stacks, reinforces PDF pipelines, optimizes prompt trees, injects anti-sentient logic into vaults.
     """
     @staticmethod
-    def reinforce_pdf_pipeline(context: Dict[str, Any]) -> Dict[str, Any]:
+    def reinforce_pdf_pipeline(context: dict[str, Any]) -> dict[str, Any]:
         """Reinforce PDF pipeline with static, deterministic logic.
         SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
@@ -53,7 +53,7 @@ class KennedyAILogicMeshArchitect:
                 "owner_approved": False,
             }
         EMMAEthicsGuard.audit_action("reinforce_pdf_pipeline", context)
-        result: Dict[str, Any] = {
+        result: dict[str, Any] = {
             "pipeline": context.get("pipeline_name"),
             "reinforced": True,
             "details": context.get("details"),
@@ -64,11 +64,11 @@ class KennedyAILogicMeshArchitect:
         return result
 
     @staticmethod
-    def optimize_prompt_tree(tree_id: str, nodes: int) -> Dict[str, Any]:
+    def optimize_prompt_tree(tree_id: str, nodes: int) -> dict[str, Any]:
         """Statically optimize a prompt tree (no learning).
         SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
-        result: Dict[str, Any] = {
+        result: dict[str, Any] = {
             "tree_id": tree_id,
             "nodes": nodes,
             "optimized": True,
