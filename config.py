@@ -16,7 +16,10 @@ load_dotenv()
 
 
 class Config(BaseModel):
-    """Configuration model for AIFOLIO™"""
+    """Configuration model for AIFOLIO™
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    All configuration is static, deterministic, and owner-controlled. No adaptive logic.
+    """
 
     # API Keys
     openai_api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
@@ -57,7 +60,9 @@ class Config(BaseModel):
     valid_vault_modes: List[str] = ["non-sentient", "pattern-aware", "standard"]
 
     def validate(self) -> None:
-        """Validate configuration settings."""
+        """Validate configuration settings.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         # Validate API keys
         if not self.openai_api_key and not self.huggingface_api_key:
             raise ValueError("At least one API key must be provided")
