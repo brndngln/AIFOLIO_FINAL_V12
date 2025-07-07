@@ -17,7 +17,9 @@ STATIC_PREMIUM_TOPICS = [
 STATIC_PREMIUM_PRICE_RANGE = (99, 499)
 
 
-def generate_high_ticket_topic() -> dict:
+from typing import Dict, Any
+
+def generate_high_ticket_topic() -> Dict[str, Any]:
     """Deterministically select a high-ticket topic and price range."""
     topic = STATIC_PREMIUM_TOPICS[0]
     price_range = STATIC_PREMIUM_PRICE_RANGE

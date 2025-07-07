@@ -6,7 +6,9 @@ from datetime import datetime
 LOG_PATH = os.path.join(os.path.dirname(__file__), "../logs/prompt_engine_log.json")
 
 
-def validate_market_fit(product):
+from typing import Dict, Any
+
+def validate_market_fit(product: Dict[str, Any]) -> Dict[str, Any]:
     # Static, deterministic validation
     persona = {
         "persona": "Growth-Oriented Entrepreneur",
@@ -24,7 +26,7 @@ def validate_market_fit(product):
     return persona
 
 
-def _log(entry):
+def _log(entry: Dict[str, Any]) -> None:
     os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
     try:
         if os.path.exists(LOG_PATH):

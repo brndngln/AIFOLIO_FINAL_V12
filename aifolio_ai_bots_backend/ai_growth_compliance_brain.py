@@ -11,7 +11,9 @@ from core.compliance.compliance_manifest_exporter import export_compliance_manif
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 
 
-def scan_pdf_for_compliance(pdf_path):
+from typing import List
+
+def scan_pdf_for_compliance(pdf_path: str) -> None:
     # OMNIPROOF: Threat feed check before compliance scan
     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for PDF hash (static)
@@ -25,10 +27,11 @@ def scan_pdf_for_compliance(pdf_path):
         "SAFE_AI_COMPLIANCE_REPORT.md", "aifolio_ai_bots_backend/compliance_report.pdf"
     )
     # OMNIPROOF: Monetization signal detection
-    detect_signals({"pdf_path": pdf_path})
+    # SAFE AI: static stub, no real sales; pass empty list for type compliance
+    detect_signals([])
 
 
-def compliance_scan(pdf_metadata, pdf_copy, pdf_visuals):
+def compliance_scan(pdf_metadata: str, pdf_copy: str, pdf_visuals: str) -> List[str]:
     # Static compliance scan stub (FTC, FDA, COPPA, DMCA)
     flags = []
     if "disclaimer" not in pdf_copy.lower():
@@ -37,7 +40,7 @@ def compliance_scan(pdf_metadata, pdf_copy, pdf_visuals):
     return flags
 
 
-def growth_brain_trigger(trend, revenue_spike, social_virality):
+def growth_brain_trigger(trend: bool, revenue_spike: bool, social_virality: bool) -> List[str]:
     # Static growth trigger stub
     ideas = []
     if trend:

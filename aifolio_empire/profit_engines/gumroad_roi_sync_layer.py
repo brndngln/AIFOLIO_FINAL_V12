@@ -8,7 +8,9 @@ STATIC_AB_GROUPS = ["A", "B"]
 STATIC_LOGS = []
 
 
-def log_funnel_event(pdf_id, event, group):
+from typing import Dict
+
+def log_funnel_event(pdf_id: str, event: str, group: str) -> Dict[str, str]:
     if group not in STATIC_AB_GROUPS:
         group = "A"
     entry = {"pdf_id": pdf_id, "event": event, "group": group}
