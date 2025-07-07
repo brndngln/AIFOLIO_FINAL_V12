@@ -15,10 +15,16 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class EthanDevOpsInfraSupremeCommander:
+    """DevOps + Infra Supreme Commander for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Executes file injection/rollback, automates workflows, ensures zero-downtime pipelines, and enforces commit protocols.
+    """
     @staticmethod
     def inject_file(file_path: str, action_details: Dict[str, Any]) -> Dict[str, Any]:
-        """Statically inject a file into the system (audit only)."""
-        context = {
+        """Statically inject a file into the system (audit only).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        context: Dict[str, Any] = {
             "file_path": file_path,
             "action": "inject",
             "details": action_details,
@@ -34,8 +40,10 @@ class EthanDevOpsInfraSupremeCommander:
 
     @staticmethod
     def rollback_file(file_path: str) -> Dict[str, Any]:
-        """Statically rollback a file injection (audit only)."""
-        context = {
+        """Statically rollback a file injection (audit only).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        context: Dict[str, Any] = {
             "file_path": file_path,
             "action": "rollback",
             "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -50,8 +58,10 @@ class EthanDevOpsInfraSupremeCommander:
 
     @staticmethod
     def automate_workflow(workflow_name: str, details: Dict[str, Any]) -> Dict[str, Any]:
-        """Statically automate a DevOps workflow (no adaptation)."""
-        result = {
+        """Statically automate a DevOps workflow (no adaptation).
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "workflow": workflow_name,
             "automated": True,
             "details": details,
@@ -63,8 +73,10 @@ class EthanDevOpsInfraSupremeCommander:
 
     @staticmethod
     def commit_with_signature(change_log: str, emma_signature: str) -> Dict[str, Any]:
-        """Enforce commit protocol with timestamp and EMMA approval."""
-        result = {
+        """Enforce commit protocol with timestamp and EMMA approval.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "change_log": change_log,
             "emma_signature": emma_signature,
             "committed": True,
@@ -76,4 +88,7 @@ class EthanDevOpsInfraSupremeCommander:
 
     @staticmethod
     def get_devops_action_log() -> List[Dict[str, Any]]:
+        """Get the DevOps action log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return DEVOPS_ACTION_LOG
