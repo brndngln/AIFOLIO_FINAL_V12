@@ -15,9 +15,16 @@ from emma_ethics_guard import EMMAEthicsGuard
 
 
 class AvaPerformanceAnalyticsRiskStrategist:
+    """Performance, Analytics, & Risk Strategist for OMNIELITE CODE LEGION.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Monitors latency, export times, API cost, vault earnings, queue optimization. Injects analytics dashboard logic. Advises EMMA on reinvestment and capital redistribution.
+    """
     @staticmethod
     def monitor_performance(metric: str, value: float, details: Dict[str, Any]) -> Dict[str, Any]:
-        context = {"metric": metric, "value": value, "details": details}
+        """Monitor performance metrics in a static, deterministic way.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        context: Dict[str, Any] = {"metric": metric, "value": value, "details": details}
         if not OmnieliteEthicsEngine.enforce("monitor_performance", context):
             PERFORMANCE_ANALYTICS_LOG.append(
                 {
@@ -49,7 +56,7 @@ class AvaPerformanceAnalyticsRiskStrategist:
                 "owner_approved": False,
             }
         EMMAEthicsGuard.audit_action("monitor_performance", context)
-        result = {
+        result: Dict[str, Any] = {
             "metric": metric,
             "value": value,
             "details": details,
@@ -61,8 +68,10 @@ class AvaPerformanceAnalyticsRiskStrategist:
 
     @staticmethod
     def inject_dashboard_analytics(agent_id: str, analytics_type: str) -> Dict[str, Any]:
-        """Inject static analytics logic into dashboard."""
-        result = {
+        """Inject static analytics logic into dashboard.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "agent_id": agent_id,
             "analytics_type": analytics_type,
             "injected": True,
@@ -74,8 +83,10 @@ class AvaPerformanceAnalyticsRiskStrategist:
 
     @staticmethod
     def advise_reinvestment(timing: str, capital: float) -> Dict[str, Any]:
-        """Statically advise on reinvestment timing/capital."""
-        result = {
+        """Statically advise on reinvestment timing/capital.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
+        result: Dict[str, Any] = {
             "timing": timing,
             "capital": capital,
             "advised": True,
