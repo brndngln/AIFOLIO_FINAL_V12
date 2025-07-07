@@ -22,7 +22,9 @@ STATIC_TAX_STRATEGIES = [
 ]
 
 
-def optimize_pdf_tax() -> dict:
+from typing import Dict, Any
+
+def optimize_pdf_tax() -> Dict[str, Any]:
     """
     SAFE AI-compliant: Static, deterministic PDF tax optimizer. Returns dict with strategies_applied, explanation, recommendation, priority, SAFE AI/owner/non-sentient/version metadata, and audit log. All logic is static, deterministic, non-sentient, and owner-controlled.
     """
@@ -30,7 +32,7 @@ def optimize_pdf_tax() -> dict:
     SAFE_AI_COMPLIANT = True
     OWNER_CONTROLLED = True
     NON_SENTIENT = True
-    result = {"strategies_applied": STATIC_TAX_STRATEGIES}
+    result: Dict[str, Any] = {"strategies_applied": STATIC_TAX_STRATEGIES}
     explanation = "Applied static tax strategies for PDF business."
     recommendation = "Review strategies for compliance with latest tax law."
     priority = 2
@@ -46,27 +48,23 @@ def optimize_pdf_tax() -> dict:
         "NON_SENTIENT": NON_SENTIENT,
     }
     logger.info(f"Tax Optimizer audit: {entry}")
-    result.update(
-        {
-            "explanation": explanation,
-            "recommendation": recommendation,
-            "priority": priority,
-            "version": VERSION,
-            "SAFE_AI_COMPLIANT": SAFE_AI_COMPLIANT,
-            "OWNER_CONTROLLED": OWNER_CONTROLLED,
-            "NON_SENTIENT": NON_SENTIENT,
-        }
-    )
+    result["explanation"] = explanation
+    result["recommendation"] = recommendation
+    result["priority"] = priority
+    result["version"] = VERSION
+    result["SAFE_AI_COMPLIANT"] = SAFE_AI_COMPLIANT
+    result["OWNER_CONTROLLED"] = OWNER_CONTROLLED
+    result["NON_SENTIENT"] = NON_SENTIENT
     return result
 
 
 # --- Static Drift/Hallucination Protection (stub) ---
-def tax_drift_protection():
+def tax_drift_protection() -> Dict[str, Any]:
     return {"drift": False, "explanation": "No drift detected."}
 
 
 # --- Static Feedback Loop (stub, not user learned) ---
-def tax_static_feedback():
+def tax_static_feedback() -> list[str]:
     return ["Review tax strategies annually for compliance."]
 
 

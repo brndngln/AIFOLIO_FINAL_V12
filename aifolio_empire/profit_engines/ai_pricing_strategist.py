@@ -8,7 +8,9 @@ STATIC_PRICING_GROUPS = ["Standard", "Premium", "VIP", "Bundle"]
 STATIC_PROMOTIONS = ["Launch Discount", "Holiday Sale", "Flash Deal"]
 
 
-def get_adaptive_price(pdf_id, base_price, demand_factor=1.0, group="Standard"):
+from typing import Dict
+
+def get_adaptive_price(pdf_id: str, base_price: float, demand_factor: float = 1.0, group: str = "Standard") -> Dict[str, object]:
     """Returns a static, deterministic price for a PDF based on group and demand."""
     if group not in STATIC_PRICING_GROUPS:
         group = "Standard"
