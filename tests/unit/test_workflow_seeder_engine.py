@@ -2,7 +2,7 @@ from global_expansion.workflow_seeder_engine import WorkflowSeederEngine
 from typing import Dict, Any
 import pytest
 
-def test_seed_all_returns_static_structure():
+def test_seed_all_returns_static_structure() -> None:
     engine = WorkflowSeederEngine()
     result = engine.seed_all()
     assert isinstance(result, dict)
@@ -15,7 +15,7 @@ def test_seed_all_returns_static_structure():
         assert isinstance(result[key], list)
         assert all(isinstance(x, str) for x in result[key])
 
-def test_auto_inherit_embeds_hooks():
+def test_auto_inherit_embeds_hooks() -> None:
     engine = WorkflowSeederEngine()
     workflow: Dict[str, Any] = {"name": "Test Workflow"}
     result = engine.auto_inherit(workflow)

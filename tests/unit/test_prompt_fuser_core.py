@@ -2,7 +2,7 @@ from ai_logic.prompt_fuser_core import PromptFuserCore
 from typing import Dict, Any
 import pytest
 
-def test_fuse_static_prompts():
+def test_fuse_static_prompts() -> None:
     prompts = ["Welcome!", "Follow the steps."]
     context = {"workflow": "onboarding"}
     fuser = PromptFuserCore()

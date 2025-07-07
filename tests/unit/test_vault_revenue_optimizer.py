@@ -2,7 +2,7 @@ from ai_logic.vault_revenue_optimizer import VaultRevenueOptimizer
 from typing import Dict, Any
 import pytest
 
-def test_optimize_applies_static_strategies():
+def test_optimize_applies_static_strategies() -> None:
     vault = {"id": "V1001", "revenue_optimized": False}
     strategies = ["static_bundle", "fixed_discount"]
     optimizer = VaultRevenueOptimizer()
