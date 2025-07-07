@@ -93,13 +93,19 @@ class KennedyAILogicMeshArchitect:
         return result
 
     @staticmethod
-    def get_logic_mesh_log() -> List[Dict[str, Any]]:
+    def get_logic_mesh_log() -> list[dict[str, Any]]:
+        """Get the logic mesh action log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return LOGIC_MESH_LOG
 
     @staticmethod
-    def rollback_last_action() -> Dict[str, Any]:
+    def rollback_last_action() -> dict[str, Any]:
+        """Rollback the last logic mesh action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         if LOGIC_MESH_LOG:
-            last = LOGIC_MESH_LOG.pop()
+            last: dict[str, Any] = LOGIC_MESH_LOG.pop()
             return {
                 "rolled_back": last,
                 "timestamp": datetime.datetime.utcnow().isoformat(),
