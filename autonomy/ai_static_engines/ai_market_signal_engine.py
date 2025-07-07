@@ -12,10 +12,14 @@ MARKET_SIGNAL_LOG = []
 
 
 class MarketSignalEngine:
+    """AI Market Signal Engine for AIFOLIO.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    Detects and suggests future profitable niches based on static trend data (no live scraping).
+    """
     @staticmethod
-    def suggest_profitable_niches(existing_niches: List[str]) -> List[str]:
-        """
-        Suggests new profitable niches based on static trend data.
+    def suggest_profitable_niches(existing_niches: list[str]) -> list[str]:
+        """Suggest new profitable niches based on static trend data.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
         """
         all_niches = [
             "AI Compliance",
@@ -27,7 +31,10 @@ class MarketSignalEngine:
         return [n for n in all_niches if n not in existing_niches]
 
     @staticmethod
-    def log_signal_action(action: str, details: Dict[str, Any]) -> None:
+    def log_signal_action(action: str, details: dict[str, Any]) -> None:
+        """Log a static market signal action.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         MARKET_SIGNAL_LOG.append(
             {
                 "timestamp": datetime.datetime.utcnow().isoformat(),
@@ -37,5 +44,8 @@ class MarketSignalEngine:
         )
 
     @staticmethod
-    def export_signal_log() -> List[Dict[str, Any]]:
+    def export_signal_log() -> list[dict[str, Any]]:
+        """Export the market signal log.
+        SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+        """
         return MARKET_SIGNAL_LOG
