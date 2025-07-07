@@ -13,7 +13,10 @@ REPORTS_DIR = os.path.join(os.path.dirname(__file__), "compliance_reports")
 os.makedirs(REPORTS_DIR, exist_ok=True)
 
 
-def search_audit(field=None, value=None):
+def search_audit(field: str | None = None, value: str | None = None) -> list[dict[str, object]]:
+    """Search audit logs for entries matching a field and value.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     results = []
     for f in glob(os.path.join(EXPORTS_DIR, "*.json")):
         with open(f) as fp:
@@ -24,7 +27,10 @@ def search_audit(field=None, value=None):
     return results
 
 
-def export_results(results, filename):
+def export_results(results: list[dict[str, object]], filename: str) -> None:
+    """Export results to a file and write a SHA256 hash.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     out_path = os.path.join(REPORTS_DIR, filename)
     with open(out_path, "w") as f:
         json.dump(results, f, indent=2)
@@ -35,7 +41,10 @@ def export_results(results, filename):
     print(f"Exported {len(results)} entries to {out_path} (SHA256: {hashval})")
 
 
-def main():
+def main() -> None:
+    """Main CLI entry point for OMNIELITE Audit Exporter.
+    SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
+    """
     import argparse
 
     parser = argparse.ArgumentParser(description="OMNIELITE Audit Exporter")
