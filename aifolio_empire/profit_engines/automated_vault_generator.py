@@ -896,7 +896,5 @@ if __name__ == "__main__":
         print(json.dumps(assets, indent=2))
     else:
         print(
-            f"\nFailed to generate assets for niche: {example_niche} (simulated failure or error)."
-        )
-
-    logger.info("--- AutomatedVaultGenerator Example Finished ---")
+    f"\nFailed to generate assets for niche: {example_niche} (simulated fallback)"
+)
