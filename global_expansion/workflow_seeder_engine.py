@@ -27,18 +27,12 @@ from global_expansion.ai_logic_expansion import (
 
 
 class WorkflowSeederEngine:
-    """
-    Static vault and workflow expansion engine for deterministic, SAFE AI-compliant module seeding.
-
-    This engine seeds all expansion modules into the operational tree and workflow templates. All logic is static, immutable, fully auditable, and owner-controlled. No learning, adaptation, or sentient behavior is present at any extension point. All extension points are statically documented and locked for audit.
-    """
+    """Static vault and workflow expansion engine.\n\nSAFE AI: Static, deterministic, owner-controlled. No adaptive or sentient logic."""
 
     def __init__(self) -> None:
-        """
-        Initialize the WorkflowSeederEngine with static module lists.
+        """Initialize WorkflowSeederEngine with static module lists.
 
-        SAFE AI Compliance: All modules are statically defined, immutable, and deterministic. No adaptive, learning, or sentient logic is present in any seeded component or extension point.
-        """
+SAFE AI: Static, deterministic, owner-controlled. No adaptive or sentient logic."""
         self.global_scale: List[object] = [
             MultilingualVaultSpawner(),
             AutoTranslationMarketFormatter(),
@@ -61,11 +55,9 @@ class WorkflowSeederEngine:
         self.seeded: bool = False
 
     def seed_all(self) -> Dict[str, List[str]]:
-        """
-        Seed all static expansion modules and return a summary status.
+        """Seed all static expansion modules and return summary status.
 
-        This method marks the engine as seeded and returns the static, deterministic structure of all seeded modules. All logic is immutable, owner-controlled, and fully auditable. No adaptive, learning, or sentient logic is present at any extension point.
-        """
+SAFE AI: Static, deterministic, owner-controlled. No adaptive or sentient logic."""
         self.seeded = True
         return {
             "global_scale": [type(m).__name__ for m in self.global_scale],
@@ -75,11 +67,9 @@ class WorkflowSeederEngine:
         }
 
     def auto_inherit(self, workflow: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Attach all static expansion hooks to a workflow or vault for audit and compliance.
+        """Attach static expansion hooks to a workflow or vault.
 
-        This method appends only static, owner-controlled extension points to the workflow. No learning, adaptation, or sentient logic is present or permitted. All extension points are immutable and fully documented for audit.
-        """
+SAFE AI: Static, deterministic, owner-controlled. No adaptive or sentient logic."""
         workflow["expansion_hooks"] = [
             *[type(m).__name__ for m in self.global_scale],
             *[type(m).__name__ for m in self.pipeline_optimizers],
