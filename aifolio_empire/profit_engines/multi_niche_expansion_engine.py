@@ -39,8 +39,8 @@ from aifolio_empire.profit_engines.automated_vault_generator import (
 # This ensures every niche receives automation/processing regardless of order or profitability.
 # Usage: define a processing function and pass to process_all_supported_niches.
 #
-def demo_equal_focus_processing():
-    def print_niche(niche):
+def demo_equal_focus_processing() -> None:
+    def print_niche(niche: str) -> None:
         print(f"Processing niche: {niche}")
 
     process_all_supported_niches(print_niche)

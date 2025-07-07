@@ -367,7 +367,7 @@ class AutomatedVaultGenerator:
     def _generate_vault_bundle(self, vault: Dict[str, Any]) -> Dict[str, Any]:
         """Create a bundle configuration for the vault."""
         try:
-            items = [
+            items: List[Dict[str, Any]] = [
                 {"id": 1, "name": vault["title"], "price": 99.99},
                 {"id": 2, "name": f"{vault['title']} - Advanced", "price": 149.99},
                 {"id": 3, "name": f"{vault['title']} - Premium", "price": 199.99},
@@ -388,7 +388,7 @@ class AutomatedVaultGenerator:
             self._rate_limit_check()
 
             # Generate components
-            vault = {
+            vault: Dict[str, Any] = {
                 "title": self._generate_plausible_text(niche, "title"),
                 "problem": self._generate_plausible_text(niche, "problem"),
                 "promise": self._generate_plausible_text(niche, "promise"),
@@ -404,7 +404,7 @@ class AutomatedVaultGenerator:
             # Validate all components
             for key, content in vault.items():
                 if isinstance(content, str):
-                    metadata = {
+                    metadata: Dict[str, Any] = {
                         "user_id": "system",
                         "permissions": "admin",
                         "source": "template",
@@ -414,7 +414,7 @@ class AutomatedVaultGenerator:
                     self._validate_content(content, key, metadata)
                 elif isinstance(content, list):
                     for item in content:
-                        metadata = {
+                        metadata: Dict[str, Any] = {
                             "user_id": "system",
                             "permissions": "admin",
                             "source": "template",
@@ -441,8 +441,8 @@ class AutomatedVaultGenerator:
 
     def _generate_ctas(self, niche: str) -> List[str]:
         """Generate multiple CTA variations."""
-        ctas = []
-        attempts = 0
+        ctas: List[str] = []
+        attempts: int = 0
 
         while (
             len(ctas) < self.config.MAX_CTA_VARIATIONS
@@ -450,16 +450,17 @@ class AutomatedVaultGenerator:
         ):
             attempts += 1
 
-            response = self.ai_bridge.generate_text(
+            response: Dict[str, Any] = self.ai_bridge.generate_text(
                 f"Create {self.config.MAX_CTA_VARIATIONS} unique CTAs for a vault about {niche}",
                 max_tokens=100,
                 temperature=0.9,
-            )["text"]
+            )
+            text: str = response["text"]
 
             # Split and validate CTAs
-            new_ctas = [cta.strip() for cta in response.split("\n") if cta.strip()]
+            new_ctas: List[str] = [cta.strip() for cta in text.split("\n") if cta.strip()]
             for cta in new_ctas:
-                metadata = {
+                metadata: Dict[str, Any] = {
                     "user_id": "system",
                     "permissions": "admin",
                     "source": "template",
@@ -500,7 +501,7 @@ class AutomatedVaultGenerator:
             if length not in ["short", "medium", "int"]:
                 raise ValueError(f"Invalid length: {length}")
 
-            templates = {
+            templates: Dict[str, List[str]] = {
                 "title": [
                     f"The Ultimate Guide to {niche} Success",
                     f"Complete System for Mastering {niche}",
@@ -536,10 +537,10 @@ class AutomatedVaultGenerator:
                 ],
             }
 
-            selected_template_list = templates.get(
+            selected_template_list: List[str] = templates.get(
                 text_type, [f"Generic {text_type} for {niche}"]
             )
-            base_text = random.choice(selected_template_list)
+            base_text: str = random.choice(selected_template_list)
 
             logger.info(f"Generated {text_type} text for niche: {niche}")
             return base_text
@@ -553,18 +554,18 @@ class AutomatedVaultGenerator:
 
     def _generate_simulated_outline(self, niche: str) -> List[str]:
         """Simulates generating a PDF outline for the niche."""
-        outline_points = []
-        num_points = random.randint(3, VaultConfig.MAX_OUTLINE_POINTS)
+        outline_points: List[str] = []
+        num_points: int = random.randint(3, VaultConfig.MAX_OUTLINE_POINTS)
         for i in range(num_points):
             # Anti-sentience: Use generic point structures, vary them slightly
-            point_structures = [
+            point_structures: List[str] = [
                 f"Chapter {i+1}: Understanding the Basics of {niche}",
                 f"Key Strategies for {niche} Success - Part {i+1}",
                 f"Exploring Advanced Techniques in {niche}",
                 f"Common Pitfalls in {niche} and How to Avoid Them",
                 f"Practical Exercises for {niche} ({random.choice(['Beginner', 'Intermediate', 'Advanced'])})",
             ]
-            point = random.choice(point_structures)
+            point: str = random.choice(point_structures)
             if (
                 random.random() < 0.05
             ):  # Small chance to make a point slightly nonsensical
@@ -577,27 +578,27 @@ class AutomatedVaultGenerator:
         self, niche: str, outline: List[str]
     ) -> Dict[str, str]:
         """Simulates generating prompts for an AI to write PDF content based on the outline."""
-        pdf_prompts = {}
-        num_prompts = random.randint(
+        pdf_prompts: Dict[str, str] = {}
+        num_prompts: int = random.randint(
             1, min(len(outline), VaultConfig.MAX_PDF_PROMPT_SECTIONS)
         )
-        selected_outline_points = random.sample(outline, num_prompts)
+        selected_outline_points: List[str] = random.sample(outline, num_prompts)
 
         for i, point in enumerate(selected_outline_points):
             # Anti-sentience: Prompt structure is generic, not adaptive
-            prompt_templates = [
+            prompt_templates: List[str] = [
                 f"Write a detailed section about '{point}' for a guide on {niche}. Focus on practical advice.",
                 f"Elaborate on '{point}' in the context of {niche}. Provide examples and case studies.",
                 f"Create content for the chapter '{point}' for a {niche} PDF. Target audience: beginners.",
             ]
-            prompt_key = (
+            prompt_key: str = (
                 f"section_{i+1}_prompt_for_{point.lower().replace(' ', '_')[:20]}"
             )
             pdf_prompts[prompt_key] = random.choice(prompt_templates)
 
             # Anti-sentience: Randomly add a constraint or modify the prompt slightly
             if random.random() < 0.1:
-                constraint = random.choice(
+                constraint: str = random.choice(
                     [
                         "Keep it under 500 words.",
                         "Include a list of 3-5 key takeaways.",
@@ -609,7 +610,7 @@ class AutomatedVaultGenerator:
 
     def _sign_data(self, data: Dict[str, Any]) -> str:
         """Signs the data with HMAC for security."""
-        signed_data = hmac.new(
+        signed_data: str = hmac.new(
             self._security_key.encode(), json.dumps(data).encode(), hashlib.sha256
         ).hexdigest()
         return signed_data

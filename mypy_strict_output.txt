@@ -3647,42 +3647,22 @@ aifolio_empire/profit_engines/automated_vault_generator.py:353: error: "enhance_
 aifolio_empire/profit_engines/automated_vault_generator.py:376: error: Incompatible return value type (got "list[dict[str, Any]]", expected "dict[str, Any]")  [return-value]
 aifolio_empire/profit_engines/automated_vault_generator.py:379: error: Incompatible return value type (got "list[<nothing>]", expected "dict[str, Any]")  [return-value]
 aifolio_empire/profit_engines/automated_vault_generator.py:397: error: Missing positional argument "outline" in call to "_generate_simulated_pdf_prompts" of "AutomatedVaultGenerator"  [call-arg]
-aifolio_empire/profit_engines/automated_vault_generator.py:427: error: Argument 1 to "_enhance_pdf_layout" of "AutomatedVaultGenerator" has incompatible type "Collection[str]"; expected "str"  [arg-type]
-aifolio_empire/profit_engines/automated_vault_generator.py:444: error: Need type annotation for "ctas" (hint: "ctas: List[<type>] = ...")  [var-annotated]
-aifolio_empire/profit_engines/automated_vault_generator.py:610: error: Name "_sign_data" already defined on line 358  [no-redef]
-aifolio_empire/profit_engines/automated_vault_generator.py:612: error: Name "hmac" is not defined  [name-defined]
-aifolio_empire/profit_engines/automated_vault_generator.py:613: error: Item "None" of "str | None" has no attribute "encode"  [union-attr]
-aifolio_empire/profit_engines/automated_vault_generator.py:615: error: Returning Any from function declared to return "str"  [no-any-return]
-aifolio_empire/profit_engines/automated_vault_generator.py:765: error: Call to untyped function "generate_final_checklist" in typed context  [no-untyped-call]
-aifolio_empire/profit_engines/automated_vault_generator.py:793: error: Incompatible types in assignment (expression has type "object", variable has type "str")  [assignment]
-aifolio_empire/profit_engines/automated_vault_generator.py:797: error: Call to untyped function "optimize_description" in typed context  [no-untyped-call]
-aifolio_empire/profit_engines/automated_vault_generator.py:797: error: Too many arguments for "optimize_description"  [call-arg]
-aifolio_empire/profit_engines/automated_vault_generator.py:799: error: Call to untyped function "generate_seo_metadata" in typed context  [no-untyped-call]
-tests/test_automated_vault_generator.py:9: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:9: note: Use "-> None" if function does not return a value
-tests/test_automated_vault_generator.py:12: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:12: note: Use "-> None" if function does not return a value
-tests/test_automated_vault_generator.py:32: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:32: note: Use "-> None" if function does not return a value
+aifolio_empire/profit_engines/automated_vault_generator.py:417: error: Name "metadata" already defined on line 407  [no-redef]
+aifolio_empire/profit_engines/automated_vault_generator.py:611: error: Name "_sign_data" already defined on line 358  [no-redef]
+aifolio_empire/profit_engines/automated_vault_generator.py:613: error: Name "hmac" is not defined  [name-defined]
+aifolio_empire/profit_engines/automated_vault_generator.py:614: error: Item "None" of "str | None" has no attribute "encode"  [union-attr]
+aifolio_empire/profit_engines/automated_vault_generator.py:766: error: Call to untyped function "generate_final_checklist" in typed context  [no-untyped-call]
+aifolio_empire/profit_engines/automated_vault_generator.py:794: error: Incompatible types in assignment (expression has type "object", variable has type "str")  [assignment]
+aifolio_empire/profit_engines/automated_vault_generator.py:798: error: Call to untyped function "optimize_description" in typed context  [no-untyped-call]
+aifolio_empire/profit_engines/automated_vault_generator.py:798: error: Too many arguments for "optimize_description"  [call-arg]
+aifolio_empire/profit_engines/automated_vault_generator.py:800: error: Call to untyped function "generate_seo_metadata" in typed context  [no-untyped-call]
 tests/test_automated_vault_generator.py:38: error: Argument 1 to "_generate_plausible_text" of "AutomatedVaultGenerator" has incompatible type "object"; expected "str"  [arg-type]
-tests/test_automated_vault_generator.py:40: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:40: note: Use "-> None" if function does not return a value
 tests/test_automated_vault_generator.py:46: error: Argument 2 to "_generate_plausible_text" of "AutomatedVaultGenerator" has incompatible type "int | str | None"; expected "str"  [arg-type]
-tests/test_automated_vault_generator.py:48: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:48: note: Use "-> None" if function does not return a value
 tests/test_automated_vault_generator.py:54: error: Argument 3 to "_generate_plausible_text" of "AutomatedVaultGenerator" has incompatible type "int | str | None"; expected "str"  [arg-type]
-tests/test_automated_vault_generator.py:56: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:56: note: Use "-> None" if function does not return a value
-tests/test_automated_vault_generator.py:67: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:67: note: Use "-> None" if function does not return a value
 tests/test_automated_vault_generator.py:72: error: Call to untyped function "validate_all" of "VaultConfig" in typed context  [no-untyped-call]
 tests/test_automated_vault_generator.py:77: error: Call to untyped function "validate_all" of "VaultConfig" in typed context  [no-untyped-call]
 tests/test_automated_vault_generator.py:81: error: Call to untyped function "validate_all" of "VaultConfig" in typed context  [no-untyped-call]
 tests/test_automated_vault_generator.py:85: error: Call to untyped function "validate_all" of "VaultConfig" in typed context  [no-untyped-call]
-tests/test_automated_vault_generator.py:87: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:87: note: Use "-> None" if function does not return a value
-tests/test_automated_vault_generator.py:93: error: Function is missing a return type annotation  [no-untyped-def]
-tests/test_automated_vault_generator.py:93: note: Use "-> None" if function does not return a value
 tests/test_automated_vault_generator.py:101: error: Argument 1 to "_generate_plausible_text" of "AutomatedVaultGenerator" has incompatible type "int"; expected "str"  [arg-type]
 backend/pdf_builder/api_pdf_builders.py:89: error: Function is missing a return type annotation  [no-untyped-def]
 backend/main.py:115: error: Module "backend.api" does not explicitly export attribute "elite_analytics_automation_api_router"  [attr-defined]
@@ -3710,9 +3690,6 @@ aifolio_empire/profit_engines/multi_niche_expansion_engine.py:23: error: Functio
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:23: note: Use "-> None" if function does not return a value
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:26: error: Call to untyped function "MockConfig" in typed context  [no-untyped-call]
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:26: error: Incompatible types in assignment (expression has type "MockConfig", variable has type "Config")  [assignment]
-aifolio_empire/profit_engines/multi_niche_expansion_engine.py:42: error: Function is missing a return type annotation  [no-untyped-def]
-aifolio_empire/profit_engines/multi_niche_expansion_engine.py:42: note: Use "-> None" if function does not return a value
-aifolio_empire/profit_engines/multi_niche_expansion_engine.py:43: error: Function is missing a type annotation  [no-untyped-def]
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:46: error: Call to untyped function "process_all_supported_niches" in typed context  [no-untyped-call]
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:52: error: Function is missing a return type annotation  [no-untyped-def]
 aifolio_empire/profit_engines/multi_niche_expansion_engine.py:52: note: Use "-> None" if function does not return a value
@@ -3723,4 +3700,4 @@ aifolio_secrets/test_reload_injection.py:9: note: Use "-> None" if function does
 aifolio_secrets/test_reload_injection.py:13: error: Incompatible types in assignment (expression has type "None", variable has type "TestClient")  [assignment]
 aifolio_secrets/test_reload_injection.py:16: error: Function is missing a return type annotation  [no-untyped-def]
 aifolio_secrets/test_reload_injection.py:16: note: Use "-> None" if function does not return a value
-Found 3433 errors in 526 files (checked 768 source files)
+Found 3420 errors in 526 files (checked 768 source files)

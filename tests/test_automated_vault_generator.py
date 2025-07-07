@@ -6,10 +6,10 @@ from aifolio_empire.profit_engines.automated_vault_generator import (
 
 
 class TestAutomatedVaultGenerator(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.generator = AutomatedVaultGenerator()
 
-    def test_generate_plausible_text_valid(self):
+    def test_generate_plausible_text_valid(self) -> None:
         """Test valid text generation."""
         text_types = [
             "title",
@@ -29,7 +29,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
                 self.assertIsInstance(result, str)
                 self.assertIn("Test Niche", result)
 
-    def test_generate_plausible_text_invalid_niche(self):
+    def test_generate_plausible_text_invalid_niche(self) -> None:
         """Test invalid niche input."""
         invalid_niches = ["", "invalid@niche", "a" * 101, 123]
 
@@ -37,7 +37,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.generator._generate_plausible_text(niche, "title")
 
-    def test_generate_plausible_text_invalid_type(self):
+    def test_generate_plausible_text_invalid_type(self) -> None:
         """Test invalid text type."""
         invalid_types = ["invalid", "", None, 123]
 
@@ -45,7 +45,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.generator._generate_plausible_text("Test Niche", text_type)
 
-    def test_generate_plausible_text_invalid_length(self):
+    def test_generate_plausible_text_invalid_length(self) -> None:
         """Test invalid length parameter."""
         invalid_lengths = ["invalid", "", None, 123]
 
@@ -53,7 +53,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.generator._generate_plausible_text("Test Niche", "title", length)
 
-    def test_generate_simulated_outline(self):
+    def test_generate_simulated_outline(self) -> None:
         """Test outline generation."""
         outline = self.generator._generate_simulated_outline("Test Niche")
         self.assertIsInstance(outline, list)
@@ -64,7 +64,7 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             self.assertIsInstance(point, str)
             self.assertIn("Test Niche", point)
 
-    def test_vault_limits(self):
+    def test_vault_limits(self) -> None:
         """Test vault operational limits."""
         from aifolio_empire.profit_engines.automated_vault_generator import VaultConfig
 
@@ -84,13 +84,13 @@ class TestAutomatedVaultGenerator(unittest.TestCase):
             with self.assertRaises(ValueError):
                 VaultConfig.validate_all()
 
-    def test_error_handling(self):
+    def test_error_handling(self) -> None:
         """Test error handling in text generation."""
         with patch("random.choice", side_effect=Exception("Test error")):
             with self.assertRaises(Exception):
                 self.generator._generate_plausible_text("Test Niche", "title")
 
-    def test_logging(self):
+    def test_logging(self) -> None:
         """Test logging in text generation."""
         with patch("logging.Logger.info") as mock_info:
             self.generator._generate_plausible_text("Test Niche", "title")
