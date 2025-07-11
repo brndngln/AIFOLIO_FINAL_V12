@@ -5,3 +5,4 @@
 *.h5 filter=lfs diff=lfs merge=lfs -text
 *.veracrypt filter=lfs diff=lfs merge=lfs -text
 *.hc filter=lfs diff=lfs merge=lfs -text
+*.txt filter=lfs diff=lfs merge=lfs -text
