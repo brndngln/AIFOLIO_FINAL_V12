@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2021 The HuggingFace Team. All rights reserved.
@@ -22,14 +19,9 @@ from typing import Optional
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import warnings
-
 from ..trainer import Trainer
 from ..utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
-
 class SageMakerTrainer(Trainer):
     def __init__(self, args=None, **kwargs):
 #         warnings.warn(

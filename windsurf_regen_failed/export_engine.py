@@ -1,44 +1,32 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import csv
 import logging
 import os
-
 try:
     from autonomy.events.bus import event_bus, EVENT_EXPORT_FAILED
 except ImportError:
-
     class event_bus:
 #         @staticmethod
         def dispatch_event(*args, **kwargs):
-
             return None
-
 import json
 import tempfile
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-
 # - Fully static, deterministic, SAFE AI compliant
 # - No live event bus calls; all logic is static
 # - Audit-logs all export events
 # - GDPR/CCPA compliant, owner controlled
-
 from datetime import datetime
-
 #     os.path.dirname(__file__), "../../analytics/export_log.json"
 # )
-
-
 def _audit_export(event, details=None):
 #     log_entry = {
 #         "timestamp": datetime.now().isoformat(),
@@ -46,8 +34,8 @@ def _audit_export(event, details=None):
 #         "details": details or {},
 #     }
     if os.path.exists(EXPORT_LOG_PATH):
-      pass
-      pass
+    pass
+    pass
     pass
         with open(EXPORT_LOG_PATH, "r") as f:
 #             logs = json.load(f)
@@ -56,12 +44,8 @@ def _audit_export(event, details=None):
 #     logs.append(log_entry)
     with open(EXPORT_LOG_PATH, "w") as f:
 #         json.dump(logs, f, indent=2)
-
-
 def export_to_pdf(data: dict, filename: str, owner_override=None):
-
 #     Static SAFE AI PDF export. Owner can override export content. Audit-logged.
-
     try:
 #         c = canvas.Canvas(filename, pagesize=letter)
 #         y = 750
@@ -76,12 +60,8 @@ def export_to_pdf(data: dict, filename: str, owner_override=None):
 #         _audit_export(
 #         )
 #         raise
-
-
 def export_to_csv(data: dict, filename: str, owner_override=None):
-
 #     Static SAFE AI CSV export. Owner can override export content. Audit-logged.
-
     try:
 #         export_data = owner_override if owner_override is not None else data
         with open(filename, w, newline=) as csvfile:
@@ -94,12 +74,8 @@ def export_to_csv(data: dict, filename: str, owner_override=None):
 #         _audit_export(
 #         )
 #         raise
-
-
 def export_to_xbrl(financial_data: dict, owner_override=None):
-
 #     Static SAFE AI XBRL export. Owner can override export content. Audit-logged.
-
 #     path = tempfile.mktemp(suffix=".xbrl")
     try:
 #         export_data = owner_override if owner_override is not None else financial_data

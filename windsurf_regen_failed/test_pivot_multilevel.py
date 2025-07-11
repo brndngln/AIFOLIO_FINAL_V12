@@ -1,26 +1,19 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import numpy as np
 import pytest
-
 from pandas._libs import lib
-
 import pandas as pd
 from pandas import (
 #     Index,
 #     MultiIndex,
 # )
 import pandas._testing as tm
-
-
 # @pytest.mark.parametrize(
 #     "input_index, input_columns, input_values, "
 #     "expected_values, expected_columns, expected_index",
@@ -112,14 +105,11 @@ def test_pivot_list_like_index(
 #             "values": [0, 1, 2, 3, 4, 5, 6, 7],
 #         }
 #     )
-
 #     result = df.pivot(index=input_index, columns=input_columns, values=input_values)
 #     expected = pd.DataFrame(
 #         expected_values, columns=expected_columns, index=expected_index
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "input_index, input_columns, input_values, "
 #     "expected_values, expected_columns, expected_index",
@@ -199,17 +189,13 @@ def test_pivot_list_like_columns(
 #             "values": [0, 1, 2, 3, 4, 5, 6, 7],
 #         }
 #     )
-
 #     result = df.pivot(index=input_index, columns=input_columns, values=input_values)
 #     expected = pd.DataFrame(
 #         expected_values, columns=expected_columns, index=expected_index
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_pivot_multiindexed_rows_and_cols(using_array_manager):
     # GH 36360
-
 #     df = pd.DataFrame(
 #         data=np.arange(12).reshape(4, 3),
 #         columns=MultiIndex.from_tuples(
@@ -220,14 +206,12 @@ def test_pivot_multiindexed_rows_and_cols(using_array_manager):
 #             names=["idx_L0", "idx_L1", "idx_L2"],
 #         ),
 #     )
-
 #     res = df.pivot_table(
 #         index=["idx_L0"],
 #         columns=["idx_L1"],
 #         values=[(0, 1)],
 #         aggfunc=lambda col: col.values.sum(),
 #     )
-
 #     expected = pd.DataFrame(
 #         data=[[5, np.nan], [10, 7.0]],
 #         columns=MultiIndex.from_tuples(
@@ -236,15 +220,12 @@ def test_pivot_multiindexed_rows_and_cols(using_array_manager):
 #         index=Index([0, 1], dtype="int64", name="idx_L0"),
 #     )
     if not using_array_manager:
-      pass
-      pass
+    pass
+    pass
     pass
         # BlockManager does not preserve the dtypes
 #         expected = expected.astype("float64")
-
 #     tm.assert_frame_equal(res, expected)
-
-
 def test_pivot_df_multiindex_index_none():
     # GH 23955
 #     df = pd.DataFrame(
@@ -257,7 +238,6 @@ def test_pivot_df_multiindex_index_none():
 #         columns=["index_1", "index_2", "label", "value"],
 #     )
 #     df = df.set_index(["index_1", "index_2"])
-
 #     result = df.pivot(columns="label", values="value")
 #     expected = pd.DataFrame(
 #         [[1.0, np.nan], [np.nan, 2.0], [3.0, np.nan], [np.nan, 4.0]],

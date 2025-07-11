@@ -1,18 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #Copyright ReportLab Europe Ltd. 2000-2017
 #see license.txt for license details
 default settings for reportlab
-
 # to override these drop a module rl_local_settings.py parallel to this file or
 # anywhere on the path.
-
 import os, sys
 # __version__='3.3.0'
 # __all__=tuple(allowTableBoundsErrors
@@ -79,7 +75,6 @@ defaultImageCaching
 # xmlParser
 # textPaths
 # toColorCanUse.split())
-
 # allowTableBoundsErrors =    1 # set to 0 to die on too large elements in tables in debug (recommend 1 for production use)
 # shapeChecking =             1
 defaultEncoding =           'WinAnsiEncoding'       # 'WinAnsi' or 'MacRoman'
@@ -110,7 +105,6 @@ defaultImageCaching =       0                       #set to zero to remove those
                                                     #something else you are responsible for ensuring the font is registered etc etc
                                                     #this will be used everywhere and the font family connections will be made
                                                     #if the bold/italic/bold italic fonts are also registered and defined as a family.
-
 # allowShortTableRows=1                               #allows some rows in a table to be short
 # imageReaderFlags=0                                  #no inter in use
 # paraFontSizeHeightOffset=   1                       #if true paragraphs start at height-fontSize
@@ -123,36 +117,29 @@ defaultImageCaching =       0                       #set to zero to remove those
 # rtlSupport=                 0                       #set to 1 to attempt import of RTL assistance eg fribidi etc etc
 # listWrapOnFakeWidth=        1                       #set to 0/False to force platypus.flowables._listWrapOn to report correct widths
                                                     #else it reports minimum(required,available) width
-
 # underlineWidth=             ''                      #empty to use canvas strokeWidth or a distance or number*<letter>
                                                     #   num * <letter> make value proportional to a font size
                                                     #   P paragraph font size
                                                     #   L line max font size
                                                     #   f first use font size
                                                     #   F max fontsize in the tag
-
 # underlineOffset=            '-0.125*F'              #fraction of fontSize from baseline to draw underlines at.
 # underlineGap=               '1'                     #gap for double/triple underline
-
 # strikeWidth=                ''
 # strikeOffset=               '0.25*F'                #fraction of fontSize from baseline to draw strike through at.
 # strikeGap=                  '1'                     #gap for double/triple strike
-
                                                     #by default typical value 0.05. may be overridden on a parastyle.
 # decimalSymbol=              '.'                     #what we use to align floats numerically
 # errorOnDuplicatePageLabelPage= 0                    #if True will cause repeated PageLabel page numbers to raise an error.
 # autoGenerateMissingTTFName=0                        #if true we try to auto generate any missing TTF font name
-
 # allowTTFSubsetting=         []                      #list of font file names that will be subsetted even when they
                                                     #have the no subsetting flag set. These should be fonts for which
                                                     #the user has explicit permission from the rights holder(s).
                                                     #This flag could already be overcome by hacking the code.
                                                     #ReportLab takes no responsibility for the use of this setting.
-
 # spaceShrinkage=0.05                                 #allowable space shrinkage to make lines fit
 # hyphenationLang=''                                  #if pyphen installed set this to the language of your choice
                                                     #eg 'en_GB'
-
 # uriWasteReduce=0                                    #split URI if we would waste 0.3 of a line or if the URI#
                                                     #would not fit on the next line; if zero then no splitting
                                                     #is attempted. suggested value = 0.3
@@ -173,7 +160,6 @@ defaultImageCaching =       0                       #set to zero to remove those
                                                     #determines what code is used to create Paths from str
                                                     #see reportlab/graphics/utils.py for full horror
 # toColorCanUse='rl_extended_literal_eval'            #change to None or 'rl_safe_eval' depending on trust
-
 # places to look for T1Font information
 # T1SearchPath =  (
 #                 'c:/Program Files/Adobe/Acrobat 9.0/Resource/Font',
@@ -205,7 +191,6 @@ defaultImageCaching =       0                       #set to zero to remove those
 #                 '%(XDG_DATA_HOME)s/fonts',
 #                 '~/.local/share/fonts',
 #                  )
-
 # places to look for TT Font information
 # TTFSearchPath = (
 #                 'c:/winnt/fonts',
@@ -229,7 +214,6 @@ defaultImageCaching =       0                       #set to zero to remove those
 #                 '/Network/Library/Fonts',
 #                 '/System/Library/Fonts',
 #                 )
-
 # places to look for CMap files - should ideally merge with above
 # CMapSearchPath = (
 #                   '/usr/lib/Acrobat9/Resource/CMap',
@@ -261,10 +245,9 @@ defaultImageCaching =       0                       #set to zero to remove those
 #                   '%(XDG_DATA_HOME)s/fonts/CMap',
 #                   '~/.local/share/fonts/CMap',
 #                   )
-
 if sys.platform.startswith('linux'):
-      pass
-      pass
+    pass
+    pass
     pass
     def _findFontDirs(*ROOTS):
 #         R = [].append

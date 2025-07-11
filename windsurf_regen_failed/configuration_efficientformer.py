@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,31 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import List
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "snap-research/efficientformer-l1-300": (
 #         "https://huggingface.co/snap-research/efficientformer-l1-300/resolve/main/config.json"
 #     ),
 # }
-
-
 class EfficientFormerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of an [`EfficientFormerModel`]. It is used to
 #     instantiate an EfficientFormer model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the EfficientFormer
 #     [snap-research/efficientformer-l1](https://huggingface.co/snap-research/efficientformer-l1) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         depths (`List(int)`, *optional*, defaults to `[3, 2, 6, 4]`)
 #             Depth of each stage.
@@ -101,24 +88,17 @@ class EfficientFormerConfig(PretrainedConfig):
 #             The epsilon used by the layer normalization layers.
 #         image_size (`int`, *optional*, defaults to `224`):
 #             The size (resolution) of each image.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import EfficientFormerConfig, EfficientFormerModel
-
 #     >>> # Initializing a EfficientFormer efficientformer-l1 style configuration
 #     >>> configuration = EfficientFormerConfig()
-
 #     >>> # Initializing a EfficientFormerModel (with random weights) from the efficientformer-l3 style configuration
 #     >>> model = EfficientFormerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "efficientformer"
-
     def __init__(
 #         self,
 #         depths: List[int] = [3, 2, 6, 4],
@@ -151,7 +131,6 @@ class EfficientFormerConfig(PretrainedConfig):
 #         **kwargs,
 #     ) -> None:
 #         super().__init__(**kwargs)
-
 #         self.hidden_act = hidden_act
 #         self.hidden_dropout_prob = hidden_dropout_prob
 #         self.hidden_sizes = hidden_sizes

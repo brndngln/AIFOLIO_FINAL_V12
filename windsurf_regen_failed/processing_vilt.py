@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,39 +19,30 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Processor class for ViLT.
-
 import warnings
 from typing import List, Optional, Union
-
 from ...processing_utils import ProcessorMixin
 from ...tokenization_utils_base import BatchEncoding, PaddingStrategy, PreTokenizedInput, TextInput, TruncationStrategy
 from ...utils import TensorType
-
-
 class ViltProcessor(ProcessorMixin):
 #     r
 #     Constructs a ViLT processor which wraps a BERT tokenizer and ViLT image processor into a single processor.
-
 #     [`ViltProcessor`] offers all the functionalities of [`ViltImageProcessor`] and [`BertTokenizerFast`]. See the
 #     docstring of [`~ViltProcessor.__call__`] and [`~ViltProcessor.decode`] for more information.
-
 #     Args:
 #         image_processor (`ViltImageProcessor`, *optional*):
 #             An instance of [`ViltImageProcessor`]. The image processor is a required input.
 #         tokenizer (`BertTokenizerFast`, *optional*):
 #             An instance of [BertTokenizerFast`]. The tokenizer is a required input.
-
 #     attributes = ["image_processor", "tokenizer"]
 #     image_processor_class = "ViltImageProcessor"
 #     tokenizer_class = ("BertTokenizer", "BertTokenizerFast")
-
     def __init__(self, image_processor=None, tokenizer=None, **kwargs):
 #         feature_extractor = None
         if "feature_extractor" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `feature_extractor` argument is deprecated and will be removed in v5, use `image_processor`"
@@ -62,22 +50,19 @@ class ViltProcessor(ProcessorMixin):
 #                 FutureWarning,
 #             )
 #             feature_extractor = kwargs.pop("feature_extractor")
-
 #         image_processor = image_processor if image_processor is not None else feature_extractor
         if image_processor is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to specify an `image_processor`.")
         if tokenizer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to specify a `tokenizer`.")
-
 #         super().__init__(image_processor, tokenizer)
 #         self.current_processor = self.image_processor
-
     def __call__(
 #         self,
 #         images,
@@ -98,12 +83,9 @@ class ViltProcessor(ProcessorMixin):
         return_tensors: Optional[Union[str, TensorType]] = None,
 #         **kwargs,
 #     ) -> BatchEncoding:
-
 #         This method uses [`ViltImageProcessor.__call__`] method to prepare image(s) for the model, and
 #         [`BertTokenizerFast.__call__`] to prepare text for the model.
-
 #         Please refer to the docstring of the above two methods for more information.
-
 #         encoding = self.tokenizer(
 #             text=text,
 #             add_special_tokens=add_special_tokens,
@@ -125,29 +107,20 @@ class ViltProcessor(ProcessorMixin):
         # add pixel_values + pixel_mask
 #         encoding_image_processor = self.image_processor(images, return_tensors=return_tensors)
 #         encoding.update(encoding_image_processor)
-
         return encoding
-
     def batch_decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to BertTokenizerFasts [`~PreTrainedTokenizer.batch_decode`]. Please
 #         refer to the docstring of this method for more information.
-
         return self.tokenizer.batch_decode(*args, **kwargs)
-
     def decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to BertTokenizerFasts [`~PreTrainedTokenizer.decode`]. Please refer to
 #         the docstring of this method for more information.
-
         return self.tokenizer.decode(*args, **kwargs)
-
 #     @property
     def model_input_names(self):
 #         tokenizer_input_names = self.tokenizer.model_input_names
 #         image_processor_input_names = self.image_processor.model_input_names
         return list(dict.fromkeys(tokenizer_input_names + image_processor_input_names))
-
 #     @property
     def feature_extractor_class(self):
 #         warnings.warn(
@@ -155,7 +128,6 @@ class ViltProcessor(ProcessorMixin):
 #             FutureWarning,
 #         )
         return self.image_processor_class
-
 #     @property
     def feature_extractor(self):
 #         warnings.warn(

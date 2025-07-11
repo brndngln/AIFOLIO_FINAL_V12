@@ -1,30 +1,23 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import json
 import datetime
 import os
-
 #     os.path.join(
 #         os.path.dirname(__file__), "../../analytics/personalized_thankyou_log.jsonl"
 #     )
 # )
 # os.makedirs(os.path.dirname(THANKYOU_LOG), exist_ok=True)
-
 #     "Thank you for your purchase, {name}! Your support means a lot.",
 #     "Hi {name}, thanks for choosing AIFOLIO. We hope you love your new vault!",
 #     "Hello {name}, your order is confirmed. Welcome to the AIFOLIO community!",
 # ]
-
-
 def generate_thankyou(name, template_idx=0):
 #     template = TEMPLATES[template_idx % len(TEMPLATES)]
 #     note = template.format(name=name)
@@ -37,10 +30,8 @@ def generate_thankyou(name, template_idx=0):
     with open(THANKYOU_LOG, "a") as f:
 #         f.write(json.dumps(entry) + "\n")
     return note
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     print(generate_thankyou("Alex"))

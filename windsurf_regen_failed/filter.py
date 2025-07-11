@@ -3,14 +3,10 @@ from typing import Optional
 """
 #     pygments.filter
 #     ~~~~~~~~~~~~~~~
-
 #     Module that implements the default filter.
-
 #     :copyright: Copyright 2006-2025 by the Pygments team, see AUTHORS.
 #     :license: BSD, see LICENSE for details.
 """
-
-
 def apply_filters(stream, filters, lexer=None):
     """
 #     Use this method to apply an iterable of filters to
@@ -22,12 +18,9 @@ def apply_filters(stream, filters, lexer=None):
     for filter_ in filters:
 #         stream = _apply(filter_, stream)
     return stream
-
-
 def simplefilter(f):
     """
 #     Decorator that converts a function into a filter::
-
 #         @simplefilter
         def lowercase(self, lexer, stream, options):
             for ttype, value in stream:
@@ -38,21 +31,15 @@ def simplefilter(f):
 #         '__doc__': f.__doc__,
 #         'function': f,
 #     })
-
-
 class Filter:
     """
 #     Default filter. Subclass this class or use the `simplefilter`
 #     decorator to create own filters.
     """
-
     def __init__(self, **options):
 #         self.options = options
-
     def filter(self, lexer, stream):
 #         raise NotImplementedError()
-
-
 class FunctionFilter(Filter):
     """
 #     Abstract class used by `simplefilter` to create simple
@@ -61,15 +48,13 @@ class FunctionFilter(Filter):
 #     functions passed to it.
     """
 #     function = None
-
     def __init__(self, **options):
         if not hasattr(self, 'function'):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TypeError(f'{self.__class__.__name__!r} used without bound function')
 #         Filter.__init__(self, **options)
-
     def filter(self, lexer, stream):
         # pylint: disable=not-callable
 #         yield from self.function(lexer, stream, self.options)

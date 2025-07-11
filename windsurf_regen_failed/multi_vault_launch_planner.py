@@ -1,25 +1,19 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # - Static, suggests optimal launch windows based on aggregate past launches
-
 def multi_vault_launch_plan(launch_history):
     # Expects: list of {'vault_id': str, 'launch_date': 'YYYY-MM-DD'}
     from collections import Counter
     import datetime
-
     if not launch_history:
-      pass
-      pass
+    pass
+    pass
     pass
         return {"suggested_month": None}
 #     months = [

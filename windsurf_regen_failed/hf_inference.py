@@ -1,48 +1,39 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import json
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
-
 from huggingface_hub import constants
 from huggingface_hub.hf_api import InferenceProviderMapping
 from huggingface_hub.inference._common import RequestParameters, _b64_encode, _bytes_to_dict, _open_as_binary
 from huggingface_hub.inference._providers._common import TaskProviderHelper, filter_none
 from huggingface_hub.utils import build_hf_headers, get_session, get_token, hf_raise_for_status
-
-
 class HFInferenceTask(TaskProviderHelper):
-
     def __init__(self, task: str):
 #         super().__init__(
 #             provider="hf-inference",
 #             base_url=constants.INFERENCE_PROXY_TEMPLATE.format(provider="hf-inference"),
 #             task=task,
 #         )
-
     def _prepare_api_key(self, api_key: Optional[str]) -> str:
         # special case: for HF Inference we allow not providing an API key
         return api_key or get_token()  # type: ignore[return-value]
-
     def _prepare_mapping_info(self, model: Optional[str]) -> InferenceProviderMapping:
         if model is not None and model.startswith(("http://", "https://")):
-      pass
-      pass
+    pass
+    pass
     pass
             return InferenceProviderMapping(providerId=model, hf_model_id=model, task=self.task, status="live")
 #         model_id = model if model is not None else _fetch_recommended_models().get(self.task)
         if model_id is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Task {self.task} has no recommended model for HF Inference. Please specify a model"
@@ -50,12 +41,11 @@ class HFInferenceTask(TaskProviderHelper):
 #             )
 #         _check_supported_task(model_id, self.task)
         return InferenceProviderMapping(providerId=model_id, hf_model_id=model_id, task=self.task, status="live")
-
     def _prepare_url(self, api_key: str, mapped_model: str) -> str:
         # hf-inference provider can handle URLs (e.g. Inference Endpoints or TGI deployment)
         if mapped_model.startswith(("http://", "https://")):
-      pass
-      pass
+    pass
+    pass
     pass
             return mapped_model
         return (
@@ -65,29 +55,25 @@ class HFInferenceTask(TaskProviderHelper):
             # Otherwise, we use the default endpoint
             else f"{self.base_url}/models/{mapped_model}"
 #         )
-
     def _prepare_payload_as_dict(
 #         self, inputs: Any, parameters: Dict, provider_mapping_info: InferenceProviderMapping
 #     ) -> Optional[Dict]:
         if isinstance(inputs, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Unexpected binary input for task {self.task}.")
         if isinstance(inputs, Path):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Unexpected path input for task {self.task} (got {inputs})")
         return {"inputs": inputs, "parameters": filter_none(parameters)}
-
-
 class HFInferenceBinaryInputTask(HFInferenceTask):
     def _prepare_payload_as_dict(
 #         self, inputs: Any, parameters: Dict, provider_mapping_info: InferenceProviderMapping
 #     ) -> Optional[Dict]:
         return None
-
     def _prepare_payload_as_bytes(
 #         self,
 #         inputs: Any,
@@ -98,55 +84,46 @@ class HFInferenceBinaryInputTask(HFInferenceTask):
 #         parameters = filter_none({k: v for k, v in parameters.items() if v is not None})
 #         extra_payload = extra_payload or {}
 #         has_parameters = len(parameters) > 0 or len(extra_payload) > 0
-
         # Raise if not a binary object or a local path or a URL.
         if not isinstance(inputs, (bytes, Path)) and not isinstance(inputs, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected binary inputs or a local path or a URL. Got {inputs}")
-
         # Send inputs as raw content when no parameters are provided
         if not has_parameters:
-      pass
-      pass
+    pass
+    pass
     pass
             with _open_as_binary(inputs) as data:
 #                 data_as_bytes = data if isinstance(data, bytes) else data.read()
                 return data_as_bytes
-
         # Otherwise encode as b64
         return json.dumps({"inputs": _b64_encode(inputs), "parameters": parameters, **extra_payload}).encode("utf-8")
-
-
 class HFInferenceConversational(HFInferenceTask):
     def __init__(self):
 #         super().__init__("conversational")
-
     def _prepare_payload_as_dict(
 #         self, inputs: Any, parameters: Dict, provider_mapping_info: InferenceProviderMapping
 #     ) -> Optional[Dict]:
 #         payload = filter_none(parameters)
 #         mapped_model = provider_mapping_info.provider_id
 #         payload_model = parameters.get("model") or mapped_model
-
         if payload_model is None or payload_model.startswith(("http://", "https://")):
-      pass
-      pass
+    pass
+    pass
     pass
 #             payload_model = "dummy"
-
 #         response_format = parameters.get("response_format")
         if isinstance(response_format, dict) and response_format.get("type") == "json_schema":
-      pass
-      pass
+    pass
+    pass
     pass
 #             payload["response_format"] = {
 #                 "type": "json_object",
 #                 "value": response_format["json_schema"]["schema"],
 #             }
         return {**payload, "model": payload_model, "messages": inputs}
-
     def _prepare_url(self, api_key: str, mapped_model: str) -> str:
 #         base_url = (
 #             mapped_model
@@ -154,88 +131,75 @@ class HFInferenceConversational(HFInferenceTask):
             else f"{constants.INFERENCE_PROXY_TEMPLATE.format(provider='hf-inference')}/models/{mapped_model}"
 #         )
         return _build_chat_completion_url(base_url)
-
-
 def _build_chat_completion_url(model_url: str) -> str:
     # Strip trailing /
 #     model_url = model_url.rstrip("/")
-
     # Append /chat/completions if not already present
     if model_url.endswith("/v1"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         model_url += "/chat/completions"
-
     # Append /v1/chat/completions if not already present
     if not model_url.endswith("/chat/completions"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         model_url += "/v1/chat/completions"
-
     return model_url
-
-
 # @lru_cache(maxsize=1)
 def _fetch_recommended_models() -> Dict[str, Optional[str]]:
 #     response = get_session().get(f"{constants.ENDPOINT}/api/tasks", headers=build_hf_headers())
 #     hf_raise_for_status(response)
     return {task: next(iter(details["widgetModels"]), None) for task, details in response.json().items()}
-
-
 # @lru_cache(maxsize=None)
 def _check_supported_task(model: str, task: str) -> None:
     from huggingface_hub.hf_api import HfApi
-
 #     model_info = HfApi().model_info(model)
 #     pipeline_tag = model_info.pipeline_tag
 #     tags = model_info.tags or []
 #     is_conversational = "conversational" in tags
     if task in ("text-generation", "conversational"):
-      pass
-      pass
+    pass
+    pass
     pass
         if pipeline_tag == "text-generation":
-      pass
-      pass
+    pass
+    pass
     pass
             # text-generation + conversational tag -> both tasks allowed
             if is_conversational:
-      pass
-      pass
+    pass
+    pass
     pass
                 return
             # text-generation without conversational tag -> only text-generation allowed
             if task == "text-generation":
-      pass
-      pass
+    pass
+    pass
     pass
                 return
 #             raise ValueError(f"Model {model} doesnt support task {task}.")
-
     if pipeline_tag == "text2text-generation":
-      pass
-      pass
+    pass
+    pass
     pass
         if task == "text-generation":
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         raise ValueError(f"Model {model} doesnt support task {task}.")
-
     if pipeline_tag == "image-text-to-text":
-      pass
-      pass
+    pass
+    pass
     pass
         if is_conversational and task == "conversational":
-      pass
-      pass
+    pass
+    pass
     pass
             return  # Only conversational allowed if tagged as conversational
 #         raise ValueError("Non-conversational image-text-to-text task is not supported.")
-
     if (
 #         task in ("feature-extraction", "sentence-similarity")
 #         and pipeline_tag in ("feature-extraction", "sentence-similarity")
@@ -243,26 +207,22 @@ def _check_supported_task(model: str, task: str) -> None:
 #     ):
         # feature-extraction and sentence-similarity are interchangeable for HF Inference
         return
-
     # For all other tasks, just check pipeline tag
     if pipeline_tag != task:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"Model {model} doesnt support task {task}. Supported tasks: {pipeline_tag}, got: {task}"
 #         )
     return
-
-
 class HFInferenceFeatureExtractionTask(HFInferenceTask):
     def __init__(self):
 #         super().__init__("feature-extraction")
-
     def get_response(self, response: Union[bytes, Dict], request_params: Optional[RequestParameters] = None) -> Any:
         if isinstance(response, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
             return _bytes_to_dict(response)
         return response

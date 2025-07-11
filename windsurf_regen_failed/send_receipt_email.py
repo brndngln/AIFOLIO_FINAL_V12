@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,12 +10,8 @@ import os
 import logging
 import requests
 import json
-
-
 def send_receipt_email(order_id: str, user_email: str) -> None:
-
 #     Send a receipt email via SendGrid if configured, else log to file. Add error handling and logging.
-
 #     api_key = os.environ.get("SENDGRID_API_KEY")
 #     sender = os.environ.get("SENDGRID_FROM_EMAIL", "noreply@aifolio.com")
 #     subject = f"Your AIFOLIO Receipt for Order {order_id}"
@@ -29,8 +22,8 @@ def send_receipt_email(order_id: str, user_email: str) -> None:
 #     entry = {"order_id": order_id, "user_email": user_email}
     try:
         if api_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             resp = requests.post(
 #                 "https://api.sendgrid.com/v3/mail/send",
@@ -47,8 +40,8 @@ def send_receipt_email(order_id: str, user_email: str) -> None:
 #                 timeout=10,
 #             )
             if resp.status_code == 202:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logging.info(
 #                     f"[AIFOLIO] Receipt email sent to {user_email} for order {order_id}."
@@ -59,8 +52,8 @@ def send_receipt_email(order_id: str, user_email: str) -> None:
 #                 )
         else:
             if os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
                 with open(log_path, "r+") as f:
 #                     logs = json.load(f)

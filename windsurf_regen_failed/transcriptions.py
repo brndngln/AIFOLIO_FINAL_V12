@@ -1,45 +1,32 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless.
-
 from __future__ import annotations
-
 from typing import TYPE_CHECKING, Union, Mapping, cast
 from typing_extensions import Literal
-
 import httpx
-
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, FileTypes
 from ..._utils import extract_files, maybe_transform, deepcopy_minimal
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from ...types.audio import Transcription, transcription_create_params
 from ..._base_client import make_request_options
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ..._client import OpenAI, AsyncOpenAI
-
 # __all__ = ["Transcriptions", "AsyncTranscriptions"]
-
-
 class Transcriptions(SyncAPIResource):
     with_raw_response: TranscriptionsWithRawResponse
-
     def __init__(self, client: OpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = TranscriptionsWithRawResponse(self)
-
     def create(
 #         self,
 #         *,
@@ -56,42 +43,30 @@ class Transcriptions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Transcription:
-
 #         Transcribes audio into the input language.
-
 #         Args:
 #           file:
 #               The audio file object (not file name) to transcribe, in one of these formats:
 #               flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
-
 #           model: ID of the model to use. Only `whisper-1` is currently available.
-
 #           language: The language of the input audio. Supplying the input language in
 #               [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format will
 #               improve accuracy and latency.
-
 #           prompt: An optional text to guide the models style or continue a previous audio
 #               segment. The
 #               [prompt](https://platform.openai.com/docs/guides/speech-to-text/prompting)
 #               should match the audio language.
-
 #           response_format: The format of the transcript output, in one of these options: `json`, `text`,
 #               `srt`, `verbose_json`, or `vtt`.
-
 #           temperature: The sampling temperature, between 0 and 1. Higher values like 0.8 will make the
 #               output more random, while lower values like 0.2 will make it more focused and
 #               deterministic. If set to 0, the model will use
 #               [log probability](https://en.wikipedia.org/wiki/Log_probability) to
 #               automatically increase the temperature until certain thresholds are hit.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "file": file,
@@ -104,14 +79,13 @@ class Transcriptions(SyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return self._post(
 #             "/audio/transcriptions",
 #             body=maybe_transform(body, transcription_create_params.TranscriptionCreateParams),
@@ -121,15 +95,11 @@ class Transcriptions(SyncAPIResource):
 #             ),
 #             cast_to=Transcription,
 #         )
-
-
 class AsyncTranscriptions(AsyncAPIResource):
     with_raw_response: AsyncTranscriptionsWithRawResponse
-
     def __init__(self, client: AsyncOpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = AsyncTranscriptionsWithRawResponse(self)
-
 #     async def create(
 #         self,
 #         *,
@@ -146,42 +116,30 @@ class AsyncTranscriptions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Transcription:
-
 #         Transcribes audio into the input language.
-
 #         Args:
 #           file:
 #               The audio file object (not file name) to transcribe, in one of these formats:
 #               flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
-
 #           model: ID of the model to use. Only `whisper-1` is currently available.
-
 #           language: The language of the input audio. Supplying the input language in
 #               [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format will
 #               improve accuracy and latency.
-
 #           prompt: An optional text to guide the models style or continue a previous audio
 #               segment. The
 #               [prompt](https://platform.openai.com/docs/guides/speech-to-text/prompting)
 #               should match the audio language.
-
 #           response_format: The format of the transcript output, in one of these options: `json`, `text`,
 #               `srt`, `verbose_json`, or `vtt`.
-
 #           temperature: The sampling temperature, between 0 and 1. Higher values like 0.8 will make the
 #               output more random, while lower values like 0.2 will make it more focused and
 #               deterministic. If set to 0, the model will use
 #               [log probability](https://en.wikipedia.org/wiki/Log_probability) to
 #               automatically increase the temperature until certain thresholds are hit.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "file": file,
@@ -194,14 +152,13 @@ class AsyncTranscriptions(AsyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["file"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return await self._post(
 #             "/audio/transcriptions",
 #             body=maybe_transform(body, transcription_create_params.TranscriptionCreateParams),
@@ -211,15 +168,11 @@ class AsyncTranscriptions(AsyncAPIResource):
 #             ),
 #             cast_to=Transcription,
 #         )
-
-
 class TranscriptionsWithRawResponse:
     def __init__(self, transcriptions: Transcriptions) -> None:
 #         self.create = to_raw_response_wrapper(
 #             transcriptions.create,
 #         )
-
-
 class AsyncTranscriptionsWithRawResponse:
     def __init__(self, transcriptions: AsyncTranscriptions) -> None:
 #         self.create = async_to_raw_response_wrapper(

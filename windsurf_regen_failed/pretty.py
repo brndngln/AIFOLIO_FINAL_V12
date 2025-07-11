@@ -28,16 +28,12 @@ from typing import (
 #     Tuple,
 #     Union,
 # )
-
 from pip._vendor.rich.repr import RichReprResult
-
 try:
     import attr as _attr_module
-
 #     _has_attrs = hasattr(_attr_module, "ib")
 except ImportError:  # pragma: no cover
 #     _has_attrs = False
-
 from . import get_console
 from ._loop import loop_last
 from ._pick import pick_bool
@@ -47,10 +43,9 @@ from .highlighter import ReprHighlighter
 from .jupyter import JupyterMixin, JupyterRenderable
 from .measure import Measurement
 from .text import Text
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .console import (
 #         Console,
@@ -60,24 +55,16 @@ if TYPE_CHECKING:
 #         OverflowMethod,
 #         RenderResult,
 #     )
-
-
 def _is_attr_object(obj: Any) -> bool:
     """Check if an object was created with attrs module."""
     return _has_attrs and _attr_module.has(type(obj))
-
-
 def _get_attr_fields(obj: Any) -> Sequence["_attr_module.Attribute[Any]"]:
     """Get fields for an attrs object."""
     return _attr_module.fields(type(obj)) if _has_attrs else []
-
-
 def _is_dataclass_repr(obj: object) -> bool:
     """Check if an instance of a dataclass contains the default repr.
-
 #     Args:
 #         obj (object): A dataclass instance.
-
 #     Returns:
 #         bool: True if the default repr is used, False if there is a custom repr.
     """
@@ -90,17 +77,11 @@ def _is_dataclass_repr(obj: object) -> bool:
 #         )
     except Exception:  # pragma: no coverage
         return False
-
-
 # _dummy_namedtuple = collections.namedtuple("_dummy_namedtuple", [])
-
-
 def _has_default_namedtuple_repr(obj: object) -> bool:
     """Check if an instance of namedtuple contains the default repr
-
 #     Args:
 #         obj (object): A namedtuple
-
 #     Returns:
 #         bool: True if the default repr is used, False if there's a custom repr.
     """
@@ -113,8 +94,6 @@ def _has_default_namedtuple_repr(obj: object) -> bool:
 #         pass
     default_repr_file = inspect.getfile(_dummy_namedtuple.__repr__)
     return obj_file == default_repr_file
-
-
 def _ipy_display_hook(
 #     value: Any,
 #     console: Optional["Console"] = None,
@@ -128,21 +107,18 @@ def _ipy_display_hook(
 # ) -> Union[str, None]:
     # needed here to prevent circular import:
     from .console import ConsoleRenderable
-
     # always skip rich generated jupyter renderables or None values
     if _safe_isinstance(value, JupyterRenderable) or value is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return None
-
 #     console = console or get_console()
-
     with console.capture() as capture:
         # certain renderables should start on a new line
         if _safe_isinstance(value, ConsoleRenderable):
-      pass
-      pass
+    pass
+    pass
     pass
 #             console.line()
 #         console.print(
@@ -167,8 +143,6 @@ def _ipy_display_hook(
     # strip trailing newline, not usually part of a text repr
     # I'm not sure if this should be prevented at a lower level
     return capture.get().rstrip("\n")
-
-
 def _safe_isinstance(
 #     obj: object, class_or_tuple: Union[type, Tuple[type, ...]]
 # ) -> bool:
@@ -177,8 +151,6 @@ def _safe_isinstance(
         return isinstance(obj, class_or_tuple)
     except Exception:
         return False
-
-
 def install(
 #     console: Optional["Console"] = None,
 #     overflow: "OverflowMethod" = "ignore",
@@ -190,7 +162,6 @@ def install(
 #     expand_all: bool = False,
 # ) -> None:
     """Install automatic pretty printing in the Python REPL.
-
 #     Args:
 #         console (Console, optional): Console instance or ``None`` to use global console. Defaults to None.
 #         overflow (Optional[OverflowMethod], optional): Overflow method. Defaults to "ignore".
@@ -204,15 +175,13 @@ def install(
 #         max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.
     """
     from pip._vendor.rich import get_console
-
 #     console = console or get_console()
 #     assert console is not None
-
     def display_hook(value: Any) -> None:
         """Replacement sys.displayhook which prettifies objects with Rich."""
         if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert console is not None
 #             builtins._ = None  # type: ignore[attr-defined]
@@ -233,21 +202,18 @@ def install(
 #                 crop=crop,
 #             )
 #             builtins._ = value  # type: ignore[attr-defined]
-
     try:
 #         ip = get_ipython()  # type: ignore[name-defined]
     except NameError:
 #         sys.displayhook = display_hook
     else:
         from IPython.core.formatters import BaseFormatter
-
         class RichFormatter(BaseFormatter):  # type: ignore[misc]
 #             pprint: bool = True
-
             def __call__(self, value: Any) -> Any:
                 if self.pprint:
-      pass
-      pass
+    pass
+    pass
     pass
                     return _ipy_display_hook(
 #                         value,
@@ -261,15 +227,11 @@ def install(
 #                     )
                 else:
                     return repr(value)
-
         # replace plain text formatter with rich formatter
 #         rich_formatter = RichFormatter()
 #         ip.display_formatter.formatters["text/plain"] = rich_formatter
-
-
 class Pretty(JupyterMixin):
     """A rich renderable that pretty prints an object.
-
 #     Args:
 #         _object (Any): An object to pretty print.
 #         highlighter (HighlighterType, optional): Highlighter object to apply to result, or None for ReprHighlighter. Defaults to None.
@@ -286,7 +248,6 @@ class Pretty(JupyterMixin):
 #         margin (int, optional): Subtrace a margin from width to force containers to expand earlier. Defaults to 0.
 #         insert_line (bool, optional): Insert a new line if the output has multiple new lines. Defaults to False.
     """
-
     def __init__(
 #         self,
 #         _object: Any,
@@ -317,7 +278,6 @@ class Pretty(JupyterMixin):
 #         self.expand_all = expand_all
 #         self.margin = margin
 #         self.insert_line = insert_line
-
     def __rich_console__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "RenderResult":
@@ -346,19 +306,18 @@ class Pretty(JupyterMixin):
 #             )
 #         )
         if self.indent_guides and not options.ascii_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pretty_text = pretty_text.with_indent_guides(
 #                 self.indent_size, style="repr.indent"
 #             )
         if self.insert_line and "\n" in pretty_text:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield ""
 #         yield pretty_text
-
     def __rich_measure__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "Measurement":
@@ -375,20 +334,16 @@ class Pretty(JupyterMixin):
 #             max(cell_len(line) for line in pretty_str.splitlines()) if pretty_str else 0
 #         )
         return Measurement(text_width, text_width)
-
-
 def _get_braces_for_defaultdict(_object: DefaultDict[Any, Any]) -> Tuple[str, str, str]:
     return (
 #         f"defaultdict({_object.default_factory!r}, {{",
 #         "})",
 #         f"defaultdict({_object.default_factory!r}, {{}})",
 #     )
-
-
 def _get_braces_for_deque(_object: Deque[Any]) -> Tuple[str, str, str]:
     if _object.maxlen is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return ("deque([", "])", "deque()")
     return (
@@ -396,12 +351,8 @@ def _get_braces_for_deque(_object: Deque[Any]) -> Tuple[str, str, str]:
 #         f"], maxlen={_object.maxlen})",
 #         f"deque(maxlen={_object.maxlen})",
 #     )
-
-
 def _get_braces_for_array(_object: "array[Any]") -> Tuple[str, str, str]:
     return (f"array({_object.typecode!r}, [", "])", f"array({_object.typecode!r})")
-
-
 # _BRACES: Dict[type, Callable[[Any], Tuple[str, str, str]]] = {
 #     os._Environ: lambda _object: ("environ({", "})", "environ({})"),
 #     array: _get_braces_for_array,
@@ -419,8 +370,6 @@ def _get_braces_for_array(_object: "array[Any]") -> Tuple[str, str, str]:
 # }
 # _CONTAINERS = tuple(_BRACES.keys())
 # _MAPPING_CONTAINERS = (dict, os._Environ, MappingProxyType, UserDict)
-
-
 def is_expandable(obj: Any) -> bool:
     """Check if an object may be expanded by pretty print."""
     return (
@@ -429,12 +378,9 @@ def is_expandable(obj: Any) -> bool:
 #         or (hasattr(obj, "__rich_repr__"))
 #         or _is_attr_object(obj)
 #     ) and not isclass(obj)
-
-
 # @dataclass
 class Node:
     """A node in a repr tree. May be atomic or a container."""
-
 #     key_repr: str = ""
 #     value_repr: str = ""
 #     open_brace: str = ""
@@ -446,30 +392,29 @@ class Node:
 #     children: Optional[List["Node"]] = None
 #     key_separator: str = ": "
 #     separator: str = ", "
-
     def iter_tokens(self) -> Iterable[str]:
         """Generate tokens for this node."""
         if self.key_repr:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield self.key_repr
 #             yield self.key_separator
         if self.value_repr:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield self.value_repr
         elif self.children is not None:
     pass
             if self.children:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield self.open_brace
                 if self.is_tuple and not self.is_namedtuple and len(self.children) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield from self.children[0].iter_tokens()
 #                     yield ","
@@ -477,21 +422,18 @@ class Node:
                     for child in self.children:
 #                         yield from child.iter_tokens()
                         if not child.last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield self.separator
 #                 yield self.close_brace
             else:
 #                 yield self.empty
-
     def check_length(self, start_length: int, max_length: int) -> bool:
         """Check the length fits within a limit.
-
 #         Args:
 #             start_length (int): Starting length of the line (indent, prefix, suffix).
 #             max_length (int): Maximum length.
-
 #         Returns:
 #             bool: True if the node can be rendered within max length, otherwise False.
         """
@@ -499,26 +441,22 @@ class Node:
         for token in self.iter_tokens():
 #             total_length += cell_len(token)
             if total_length > max_length:
-      pass
-      pass
+    pass
+    pass
     pass
                 return False
         return True
-
     def __str__(self) -> str:
 #         repr_text = "".join(self.iter_tokens())
         return repr_text
-
     def render(
 #         self, max_width: int = 80, indent_size: int = 4, expand_all: bool = False
 #     ) -> str:
         """Render the node to a pretty repr.
-
 #         Args:
 #             max_width (int, optional): Maximum width of the repr. Defaults to 80.
 #             indent_size (int, optional): Size of indents. Defaults to 4.
 #             expand_all (bool, optional): Expand all levels. Defaults to False.
-
 #         Returns:
 #             str: A repr string of the original object.
         """
@@ -527,24 +465,20 @@ class Node:
         while line_no < len(lines):
 #             line = lines[line_no]
             if line.expandable and not line.expanded:
-      pass
-      pass
+    pass
+    pass
     pass
                 if expand_all or not line.check_length(max_width):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     lines[line_no : line_no + 1] = line.expand(indent_size)
 #             line_no += 1
-
 #         repr_str = "\n".join(str(line) for line in lines)
         return repr_str
-
-
 # @dataclass
 class _Line:
     """A line in repr output."""
-
 #     parent: Optional["_Line"] = None
 #     is_root: bool = False
 #     node: Optional[Node] = None
@@ -553,12 +487,10 @@ class _Line:
 #     whitespace: str = ""
 #     expanded: bool = False
 #     last: bool = False
-
 #     @property
     def expandable(self) -> bool:
         """Check if the line may be expanded."""
         return bool(self.node is not None and self.node.children)
-
     def check_length(self, max_length: int) -> bool:
         """Check this line fits within a given number of cells."""
 #         start_length = (
@@ -566,7 +498,6 @@ class _Line:
 #         )
 #         assert self.node is not None
         return self.node.check_length(start_length, max_length)
-
     def expand(self, indent_size: int) -> Iterable["_Line"]:
         """Expand this line by adding children on their own line."""
 #         node = self.node
@@ -574,8 +505,8 @@ class _Line:
 #         whitespace = self.whitespace
 #         assert node.children
         if node.key_repr:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_line = yield _Line(
 #                 text=f"{node.key_repr}{node.key_separator}{node.open_brace}",
@@ -595,34 +526,28 @@ class _Line:
 #                 last=last and not tuple_of_one,
 #             )
 #             yield line
-
 #         yield _Line(
 #             text=node.close_brace,
 #             whitespace=whitespace,
 #             suffix=self.suffix,
 #             last=self.last,
 #         )
-
     def __str__(self) -> str:
         if self.last:
-      pass
-      pass
+    pass
+    pass
     pass
             return f"{self.whitespace}{self.text}{self.node or ''}"
         else:
             return (
 #                 f"{self.whitespace}{self.text}{self.node or ''}{self.suffix.rstrip()}"
 #             )
-
-
 def _is_namedtuple(obj: Any) -> bool:
     """Checks if an object is most likely a namedtuple. It is possible
 #     to craft an object that passes this check and isn't a namedtuple, but
 #     there is only a minuscule chance of this happening unintentionally.
-
 #     Args:
 #         obj (Any): The object to test
-
 #     Returns:
 #         bool: True if the object is a namedtuple. False otherwise.
     """
@@ -632,8 +557,6 @@ def _is_namedtuple(obj: Any) -> bool:
         # Being very defensive - if we cannot get the attr then its not a namedtuple
         return False
     return isinstance(obj, tuple) and isinstance(fields, tuple)
-
-
 def traverse(
 #     _object: Any,
 #     max_length: Optional[int] = None,
@@ -641,7 +564,6 @@ def traverse(
 #     max_depth: Optional[int] = None,
 # ) -> Node:
     """Traverse object and generate a tree.
-
 #     Args:
 #         _object (Any): Object to be traversed.
 #         max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.
@@ -650,11 +572,9 @@ def traverse(
 #             Defaults to None.
 #         max_depth (int, optional): Maximum depth of data structures, or None for no maximum.
 #             Defaults to None.
-
 #     Returns:
 #         Node: The root of a tree structure which can be used to render a pretty repr.
     """
-
     def to_repr(obj: Any) -> str:
         """Get repr string for an object, but catch errors."""
         if (
@@ -670,40 +590,35 @@ def traverse(
             except Exception as error:
 #                 obj_repr = f"<repr-error {str(error)!r}>"
         return obj_repr
-
 #     visited_ids: Set[int] = set()
 #     push_visited = visited_ids.add
 #     pop_visited = visited_ids.remove
-
     def _traverse(obj: Any, root: bool = False, depth: int = 0) -> Node:
         """Walk the object depth first."""
-
 #         obj_id = id(obj)
         if obj_id in visited_ids:
-      pass
-      pass
+    pass
+    pass
     pass
             # Recursion detected
             return Node(value_repr="...")
-
 #         obj_type = type(obj)
 #         children: List[Node]
 #         reached_max_depth = max_depth is not None and depth >= max_depth
-
         def iter_rich_args(rich_args: Any) -> Iterable[Union[Any, Tuple[str, Any]]]:
             for arg in rich_args:
                 if _safe_isinstance(arg, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
                     if len(arg) == 3:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         key, child, default = arg
                         if default == child:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             continue
 #                         yield key, child
@@ -716,59 +631,54 @@ def traverse(
 #                         yield arg[0]
                 else:
 #                     yield arg
-
         try:
 #             fake_attributes = hasattr(
 #                 obj, "awehoi234_wdfjwljet234_234wdfoijsdfmmnxpi492"
 #             )
         except Exception:
 #             fake_attributes = False
-
 #         rich_repr_result: Optional[RichReprResult] = None
         if not fake_attributes:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
                 if hasattr(obj, "__rich_repr__") and not isclass(obj):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     rich_repr_result = obj.__rich_repr__()
             except Exception:
 #                 pass
-
         if rich_repr_result is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             push_visited(obj_id)
 #             angular = getattr(obj.__rich_repr__, "angular", False)
 #             args = list(iter_rich_args(rich_repr_result))
             class_name = obj.__class__.__name__
-
             if args:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 children = []
 #                 append = children.append
-
                 if reached_max_depth:
-      pass
-      pass
+    pass
+    pass
     pass
                     if angular:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         node = Node(value_repr=f"<{class_name}...>")
                     else:
 #                         node = Node(value_repr=f"{class_name}(...)")
                 else:
                     if angular:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         node = Node(
 #                             open_brace=f"<{class_name} ",
@@ -786,8 +696,8 @@ def traverse(
 #                         )
                     for last, arg in loop_last(args):
                         if _safe_isinstance(arg, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             key, child = arg
 #                             child_node = _traverse(child, depth=depth + 1)
@@ -811,15 +721,14 @@ def traverse(
 #             push_visited(obj_id)
 #             children = []
 #             append = children.append
-
 #             attr_fields = _get_attr_fields(obj)
             if attr_fields:
-      pass
-      pass
+    pass
+    pass
     pass
                 if reached_max_depth:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     node = Node(value_repr=f"{obj.__class__.__name__}(...)")
                 else:
@@ -829,15 +738,14 @@ def traverse(
 #                         children=children,
 #                         last=root,
 #                     )
-
                     def iter_attrs() -> (
 #                         Iterable[Tuple[str, Any, Optional[Callable[[Any], str]]]]
 #                     ):
                         """Iterate over attr fields and values."""
                         for attr in attr_fields:
                             if attr.repr:
-      pass
-      pass
+    pass
+    pass
     pass
                                 try:
 #                                     value = getattr(obj, attr.name)
@@ -850,11 +758,10 @@ def traverse(
 #                                         value,
 #                                         attr.repr if callable(attr.repr) else None,
 #                                     )
-
                     for last, (name, value, repr_callable) in loop_last(iter_attrs()):
                         if repr_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             child_node = Node(value_repr=str(repr_callable(value)))
                         else:
@@ -878,8 +785,8 @@ def traverse(
 #             children = []
 #             append = children.append
             if reached_max_depth:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 node = Node(value_repr=f"{obj.__class__.__name__}(...)")
             else:
@@ -890,7 +797,6 @@ def traverse(
 #                     last=root,
 #                     empty=f"{obj.__class__.__name__}()",
 #                 )
-
                 for last, field in loop_last(
 #                     field
                     for field in fields(obj)
@@ -901,15 +807,14 @@ def traverse(
 #                     child_node.last = last
 #                     child_node.key_separator = "="
 #                     append(child_node)
-
 #             pop_visited(obj_id)
         elif _is_namedtuple(obj) and _has_default_namedtuple_repr(obj):
     pass
 #             push_visited(obj_id)
             class_name = obj.__class__.__name__
             if reached_max_depth:
-      pass
-      pass
+    pass
+    pass
     pass
                 # If we've reached the max depth, we still show the class name, but not its contents
 #                 node = Node(
@@ -935,19 +840,16 @@ def traverse(
     pass
             for container_type in _CONTAINERS:
                 if _safe_isinstance(obj, container_type):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     obj_type = container_type
 #                     break
-
 #             push_visited(obj_id)
-
 #             open_brace, close_brace, empty = _BRACES[obj_type](obj)
-
             if reached_max_depth:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 node = Node(value_repr=f"{open_brace}...{close_brace}")
             elif obj_type.__repr__ != type(obj).__repr__:
@@ -965,15 +867,14 @@ def traverse(
 #                 append = children.append
 #                 num_items = len(obj)
 #                 last_item_index = num_items - 1
-
                 if _safe_isinstance(obj, _MAPPING_CONTAINERS):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     iter_items = iter(obj.items())
                     if max_length is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         iter_items = islice(iter_items, max_length)
                     for index, (key, child) in enumerate(iter_items):
@@ -984,8 +885,8 @@ def traverse(
                 else:
 #                     iter_values = iter(obj)
                     if max_length is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         iter_values = islice(iter_values, max_length)
                     for index, child in enumerate(iter_values):
@@ -993,24 +894,20 @@ def traverse(
 #                         child_node.last = index == last_item_index
 #                         append(child_node)
                 if max_length is not None and num_items > max_length:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append(Node(value_repr=f"... +{num_items - max_length}", last=True))
             else:
 #                 node = Node(empty=empty, children=[], last=root)
-
 #             pop_visited(obj_id)
         else:
 #             node = Node(value_repr=to_repr(obj), last=root)
 #         node.is_tuple = type(obj) == tuple
 #         node.is_namedtuple = _is_namedtuple(obj)
         return node
-
 #     node = _traverse(_object, root=True)
     return node
-
-
 def pretty_repr(
 #     _object: Any,
 #     *,
@@ -1022,7 +919,6 @@ def pretty_repr(
 #     expand_all: bool = False,
 # ) -> str:
     """Prettify repr string by expanding on to new lines to fit within a given width.
-
 #     Args:
 #         _object (Any): Object to repr.
 #         max_width (int, optional): Desired maximum width of repr string. Defaults to 80.
@@ -1034,14 +930,12 @@ def pretty_repr(
 #         max_depth (int, optional): Maximum depth of nested data structure, or None for no depth.
 #             Defaults to None.
 #         expand_all (bool, optional): Expand all containers regardless of available width. Defaults to False.
-
 #     Returns:
 #         str: A possibly multi-line representation of the object.
     """
-
     if _safe_isinstance(_object, Node):
-      pass
-      pass
+    pass
+    pass
     pass
 #         node = _object
     else:
@@ -1052,8 +946,6 @@ def pretty_repr(
 #         max_width=max_width, indent_size=indent_size, expand_all=expand_all
 #     )
     return repr_str
-
-
 def pprint(
 #     _object: Any,
 #     *,
@@ -1065,7 +957,6 @@ def pprint(
 #     expand_all: bool = False,
 # ) -> None:
     """A convenience function for pretty printing.
-
 #     Args:
 #         _object (Any): Object to pretty print.
 #         console (Console, optional): Console instance, or None to use default. Defaults to None.
@@ -1089,24 +980,18 @@ def pprint(
 #         ),
 #         soft_wrap=True,
 #     )
-
-
 if __name__ == "__main__":  # pragma: no cover
-
     class BrokenRepr:
         def __repr__(self) -> str:
 #             1 / 0
             return "this will fail"
-
     from typing import NamedTuple
-
     class StockKeepingUnit(NamedTuple):
 #         name: str
 #         description: str
 #         price: float
 #         category: str
 #         reviews: List[str]
-
 #     d = defaultdict(int)
 #     d["foo"] = 5
 #     data = {
@@ -1143,13 +1028,9 @@ if __name__ == "__main__":  # pragma: no cover
 #         "Broken": BrokenRepr(),
 #     }
 #     data["foo"].append(data)  # type: ignore[attr-defined]
-
     from pip._vendor.rich import print
-
 #     print(Pretty(data, indent_guides=True, max_string=20))
-
     class Thing:
         def __repr__(self) -> str:
             return "Hello\x1b[38;5;239m World!"
-
 #     print(Pretty(Thing()))

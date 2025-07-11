@@ -1,14 +1,11 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from typing import Optional, TYPE_CHECKING
-
 from .segment import Segment
 from .style import StyleType
 from ._loop import loop_last
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .console import (
 #         Console,
@@ -17,18 +14,13 @@ if TYPE_CHECKING:
 #         RenderableType,
 #         Group,
 #     )
-
-
 class Screen:
     """A renderable that fills the terminal screen and crops excess.
-
 #     Args:
 #         renderable (RenderableType): Child renderable.
 #         style (StyleType, optional): Optional background style. Defaults to None.
     """
-
 #     renderable: "RenderableType"
-
     def __init__(
 #         self,
 #         *renderables: "RenderableType",
@@ -36,11 +28,9 @@ class Screen:
 #         application_mode: bool = False,
 #     ) -> None:
         from pip._vendor.rich.console import Group
-
 #         self.renderable = Group(*renderables)
 #         self.style = style
 #         self.application_mode = application_mode
-
     def __rich_console__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "RenderResult":
@@ -55,7 +45,7 @@ class Screen:
         for last, line in loop_last(lines):
 #             yield from line
             if not last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield new_line

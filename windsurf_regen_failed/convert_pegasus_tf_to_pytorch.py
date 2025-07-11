@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,20 +19,15 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import os
 from pathlib import Path
 from typing import Dict
-
 import tensorflow as tf
 import torch
 from tqdm import tqdm
-
 from transformers import PegasusConfig, PegasusForConditionalGeneration, PegasusTokenizer
 from transformers.models.pegasus.configuration_pegasus import DEFAULTS, task_specific_params
-
-
     # replace left string with right string to get the relevant state_dict key (identical state dict to bart)
 #     ["memory_attention", "encoder_attn"],
 #     ["attention", "attn"],
@@ -52,17 +44,11 @@ from transformers.models.pegasus.configuration_pegasus import DEFAULTS, task_spe
 #     ["decoder_layer_norm.", "decoder.layer_norm."],
 #     ["embeddings.weights", "shared.weight"],
 # ]
-
-
 def rename_state_dict_key(k):
     for pegasus_name, hf_name in PATTERNS:
 #         k = k.replace(pegasus_name, hf_name)
     return k
-
-
 # See appendix C of paper for all hyperparams
-
-
 def convert_pegasus(tf_weights: dict, cfg_updates: dict) -> PegasusForConditionalGeneration:
 #     cfg_kwargs = DEFAULTS.copy()
 #     cfg_kwargs.update(cfg_updates)
@@ -73,14 +59,13 @@ def convert_pegasus(tf_weights: dict, cfg_updates: dict) -> PegasusForConditiona
     for k, v in tf_weights.items():
 #         new_k = rename_state_dict_key(k)
         if new_k not in sd:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"could not find new key {new_k} in state dict. (converted from {k})")
-
         if "dense" in k or "proj" in new_k:
-      pass
-      pass
+    pass
+    pass
     pass
 #             v = v.T
 #         mapping[new_k] = torch.tensor(v, dtype=sd[new_k].dtype)
@@ -98,8 +83,6 @@ def convert_pegasus(tf_weights: dict, cfg_updates: dict) -> PegasusForConditiona
 #     assert unexpected_missing == [], f"no matches found for the following torch keys {unexpected_missing}"
 #     assert extra == [], f"no matches found for the following tf keys {extra}"
     return torch_model
-
-
 def get_tf_weights_as_numpy(path="./ckpt/aeslc/model.ckpt-32000") -> Dict:
 #     init_vars = tf.train.list_variables(path)
 #     tf_weights = {}
@@ -107,15 +90,13 @@ def get_tf_weights_as_numpy(path="./ckpt/aeslc/model.ckpt-32000") -> Dict:
     for name, shape in tqdm(init_vars, desc="converting tf checkpoint to dict"):
 #         skip_key = any(pat in name for pat in ignore_name)
         if skip_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         array = tf.train.load_variable(path, name)
 #         tf_weights[name] = array
     return tf_weights
-
-
 def convert_pegasus_ckpt_to_pytorch(ckpt_path: str, save_dir: str):
     # save tokenizer first
 #     dataset = Path(ckpt_path).parent.name
@@ -123,13 +104,12 @@ def convert_pegasus_ckpt_to_pytorch(ckpt_path: str, save_dir: str):
 #     tok = PegasusTokenizer.from_pretrained("sshleifer/pegasus", model_max_length=desired_max_model_length)
 #     assert tok.model_max_length == desired_max_model_length
 #     tok.save_pretrained(save_dir)
-
     # convert model
 #     tf_weights = get_tf_weights_as_numpy(ckpt_path)
 #     cfg_updates = task_specific_params[f"summarization_{dataset}"]
     if dataset == "large":
-      pass
-      pass
+    pass
+    pass
     pass
 #         cfg_updates["task_specific_params"] = task_specific_params
 #     torch_model = convert_pegasus(tf_weights, cfg_updates)
@@ -138,11 +118,9 @@ def convert_pegasus_ckpt_to_pytorch(ckpt_path: str, save_dir: str):
 #     sd.pop("model.decoder.embed_positions.weight")
 #     sd.pop("model.encoder.embed_positions.weight")
 #     torch.save(sd, Path(save_dir) / "pytorch_model.bin")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -150,8 +128,8 @@ if __name__ == "__main__":
 #     parser.add_argument("save_dir", default=None, type=str, help="Path to the output PyTorch model.")
 #     args = parser.parse_args()
     if args.save_dir is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         dataset = Path(args.tf_ckpt_path).parent.name
 #         args.save_dir = os.path.join("pegasus", dataset)

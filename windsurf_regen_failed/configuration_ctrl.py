@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # CTRL_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "Salesforce/ctrl": "https://huggingface.co/Salesforce/ctrl/resolve/main/config.json"
 # }
-
-
 class CTRLConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`CTRLModel`] or a [`TFCTRLModel`]. It is used to
 #     instantiate a CTRL model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the
 #     [Salesforce/ctrl](https://huggingface.co/Salesforce/ctrl) architecture from SalesForce.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 246534):
 #             Vocabulary size of the CTRL model. Defines the number of different tokens that can be represented by the
@@ -69,23 +57,16 @@ class CTRLConfig(PretrainedConfig):
 #             The standard deviation of the truncated_normal_initializer for initializing all weight matrices.
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
-
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import CTRLConfig, CTRLModel
-
 #     >>> # Initializing a CTRL configuration
 #     >>> configuration = CTRLConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = CTRLModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "ctrl"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -94,7 +75,6 @@ class CTRLConfig(PretrainedConfig):
 #         "num_attention_heads": "n_head",
 #         "num_hidden_layers": "n_layer",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=246534,
@@ -120,7 +100,5 @@ class CTRLConfig(PretrainedConfig):
 #         self.embd_pdrop = embd_pdrop
 #         self.layer_norm_epsilon = layer_norm_epsilon
 #         self.initializer_range = initializer_range
-
 #         self.use_cache = use_cache
-
 #         super().__init__(**kwargs)

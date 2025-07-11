@@ -1,21 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """distutils.command.install_data
-
 # Implements the Distutils 'install_data' command, for installing
 # platform-independent data files."""
-
 # contributed by Bastian Kleineidam
-
 import os
 from distutils.core import Command
 from distutils.util import change_root, convert_path
-
-
 class install_data(Command):
-
 #     description = "install data files"
-
 #     user_options = [
 #         (
 #             'install-dir=',
@@ -26,9 +19,7 @@ class install_data(Command):
 #         ('root=', None, "install everything relative to this alternate root directory"),
 #         ('force', 'f', "force installation (overwrite existing files)"),
 #     ]
-
 #     boolean_options = ['force']
-
     def initialize_options(self):
 #         self.install_dir = None
 #         self.outfiles = []
@@ -36,7 +27,6 @@ class install_data(Command):
 #         self.force = 0
 #         self.data_files = self.distribution.data_files
 #         self.warn_dir = 1
-
     def finalize_options(self):
 #         self.set_undefined_options(
 #             'install',
@@ -44,19 +34,18 @@ class install_data(Command):
 #             ('root', 'root'),
 #             ('force', 'force'),
 #         )
-
     def run(self):
 #         self.mkpath(self.install_dir)
         for f in self.data_files:
             if isinstance(f, str):
-      pass
-      pass
+    pass
+    pass
     pass
                 # it's a simple file, so copy it
 #                 f = convert_path(f)
                 if self.warn_dir:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.warn(
 #                         "setup script did not provide a directory for "
@@ -68,18 +57,17 @@ class install_data(Command):
                 # it's a tuple with path to install to and a list of files
 #                 dir = convert_path(f[0])
                 if not os.path.isabs(dir):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     dir = os.path.join(self.install_dir, dir)
                 elif self.root:
     pass
 #                     dir = change_root(self.root, dir)
 #                 self.mkpath(dir)
-
                 if f[1] == []:
-      pass
-      pass
+    pass
+    pass
     pass
                     # If there are no files listed, the user must be
                     # trying to create an empty directory, so add the
@@ -91,9 +79,7 @@ class install_data(Command):
 #                         data = convert_path(data)
 #                         (out, _) = self.copy_file(data, dir)
 #                         self.outfiles.append(out)
-
     def get_inputs(self):
         return self.data_files or []
-
     def get_outputs(self):
         return self.outfiles

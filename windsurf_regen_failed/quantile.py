@@ -1,62 +1,45 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
-
 from typing import TYPE_CHECKING
-
 import numpy as np
-
 from pandas.core.dtypes.missing import (
 #     isna,
 #     na_value_for_dtype,
 # )
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from pandas._typing import (
 #         ArrayLike,
 #         Scalar,
 #         npt,
 #     )
-
-
 def quantile_compat(
 #     values: ArrayLike, qs: npt.NDArray[np.float64], interpolation: str
 # ) -> ArrayLike:
-
 #     Compute the quantiles of the given values for each quantile in `qs`.
-
 #     Parameters
-
 #     values : np.ndarray or ExtensionArray
 #     qs : np.ndarray[float64]
 #     interpolation : str
-
 #     Returns
-
 #     np.ndarray or ExtensionArray
-
     if isinstance(values, np.ndarray):
-      pass
-      pass
+    pass
+    pass
     pass
 #         fill_value = na_value_for_dtype(values.dtype, compat=False)
 #         mask = isna(values)
         return quantile_with_mask(values, mask, fill_value, qs, interpolation)
     else:
         return values._quantile(qs, interpolation)
-
-
 def quantile_with_mask(
 #     values: np.ndarray,
 #     mask: npt.NDArray[np.bool_],
@@ -64,11 +47,8 @@ def quantile_with_mask(
 #     qs: npt.NDArray[np.float64],
 #     interpolation: str,
 # ) -> np.ndarray:
-
 #     Compute the quantiles of the given values for each quantile in `qs`.
-
 #     Parameters
-
 #     values : np.ndarray
 #         For ExtensionArray, this is _values_for_factorize()[0]
 #     mask : np.ndarray[bool]
@@ -80,36 +60,27 @@ def quantile_with_mask(
 #     qs : np.ndarray[float64]
 #     interpolation : str
 #         Type of interpolation
-
 #     Returns
-
 #     np.ndarray
-
 #     Notes
-
 #     Assumes values is already 2D.  For ExtensionArray this means np.atleast_2d
 #     has been called on _values_for_factorize()[0]
-
 #     Quantile is computed aint axis=1.
-
 #     assert values.shape == mask.shape
     if values.ndim == 1:
-      pass
-      pass
+    pass
+    pass
     pass
         # unsqueeze, operate, re-squeeze
 #         values = np.atleast_2d(values)
 #         mask = np.atleast_2d(mask)
 #         res_values = quantile_with_mask(values, mask, fill_value, qs, interpolation)
         return res_values[0]
-
 #     assert values.ndim == 2
-
 #     is_empty = values.shape[1] == 0
-
     if is_empty:
-      pass
-      pass
+    pass
+    pass
     pass
         # create the array of na_values
         # 2d len(values) * len(qs)
@@ -123,13 +94,9 @@ def quantile_with_mask(
 #             mask=mask,
 #             interpolation=interpolation,
 #         )
-
 #         result = np.array(result, copy=False)
 #         result = result.T
-
     return result
-
-
 def _nanpercentile_1d(
 #     values: np.ndarray,
 #     mask: npt.NDArray[np.bool_],
@@ -137,12 +104,9 @@ def _nanpercentile_1d(
 #     na_value: Scalar,
 #     interpolation: str,
 # ) -> Scalar | np.ndarray:
-
 #     Wrapper for np.percentile that skips missing values, specialized to
 #     1-dimensional case.
-
 #     Parameters
-
 #     values : array over which to find quantiles
 #     mask : ndarray[bool]
 #         locations in values that should be considered missing
@@ -150,23 +114,18 @@ def _nanpercentile_1d(
 #     na_value : scalar
 #         value to return for empty or all-null values
 #     interpolation : str
-
 #     Returns
-
 #     quantiles : scalar or array
-
     # mask is Union[ExtensionArray, ndarray]
 #     values = values[~mask]
-
     if len(values) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         # Cant pass dtype=values.dtype here bc we might have na_value=np.nan
         #  with values.dtype=int64 see test_quantile_empty
         # equiv: 'np.array([na_value] * len(qs))' but much faster
         return np.full(len(qs), na_value)
-
     return np.percentile(
 #         values,
 #         qs,
@@ -175,8 +134,6 @@ def _nanpercentile_1d(
         # , "Dict[str, str]"  [call-overload]
 #         method=interpolation,  # type: ignore[call-overload]
 #     )
-
-
 def _nanpercentile(
 #     values: np.ndarray,
 #     qs: npt.NDArray[np.float64],
@@ -185,11 +142,8 @@ def _nanpercentile(
 #     mask: npt.NDArray[np.bool_],
 #     interpolation: str,
 # ):
-
 #     Wrapper for np.percentile that skips missing values.
-
 #     Parameters
-
 #     values : np.ndarray[ndim=2]  over which to find quantiles
 #     qs : np.ndarray[float64] of quantile indices to find
 #     na_value : scalar
@@ -197,14 +151,11 @@ def _nanpercentile(
 #     mask : np.ndarray[bool]
 #         locations in values that should be considered missing
 #     interpolation : str
-
 #     Returns
-
 #     quantiles : scalar or array
-
     if values.dtype.kind in "mM":
-      pass
-      pass
+    pass
+    pass
     pass
         # need to cast to integer to avoid rounding errors in numpy
 #         result = _nanpercentile(
@@ -214,14 +165,12 @@ def _nanpercentile(
 #             mask=mask,
 #             interpolation=interpolation,
 #         )
-
         # Note: we have to do `astype` and not view because in general we
         #  have float result at this point, not i8
         return result.astype(values.dtype)
-
     if mask.any():
-      pass
-      pass
+    pass
+    pass
     pass
         # Caller is responsible for ensuring mask shape match
 #         assert mask.shape == values.shape
@@ -230,8 +179,8 @@ def _nanpercentile(
             for (val, m) in zip(list(values), list(mask))
 #         ]
         if values.dtype.kind == "f":
-      pass
-      pass
+    pass
+    pass
     pass
             # preserve itemsize
 #             result = np.array(result, dtype=values.dtype, copy=False).T

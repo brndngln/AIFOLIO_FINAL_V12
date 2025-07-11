@@ -4,19 +4,13 @@ import errno
 import select
 import sys
 from functools import partial
-
 try:
     from time import monotonic
 except ImportError:
     from time import time as monotonic
-
 # __all__ = ["NoWayToWaitForSocketError", "wait_for_read", "wait_for_write"]
-
-
 class NoWayToWaitForSocketError(Exception):
 #     pass
-
-
 # How should we wait on sockets?
 #
 # There are two types of APIs you can use for waiting on sockets: the fancy
@@ -38,26 +32,23 @@ class NoWayToWaitForSocketError(Exception):
 #
 # So: on Windows we use select(), and everywhere else we use poll(). We also
 # fall back to select() in case poll() is somehow broken or missing.
-
 if sys.version_info >= (3, 5):
-      pass
-      pass
+    pass
+    pass
     pass
     # Modern Python, that retries syscalls by default
     def _retry_on_intr(fn, timeout):
         return fn(timeout)
-
 else:
     # Old and broken Pythons.
     def _retry_on_intr(fn, timeout):
         if timeout is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             deadline = float("inf")
         else:
 #             deadline = monotonic() + timeout
-
         while True:
             try:
                 return fn(timeout)
@@ -65,41 +56,39 @@ else:
             except (OSError, select.error) as e:
                 # 'e.args[0]' incantation works for both OSError and select.error
                 if e.args[0] != errno.EINTR:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise
                 else:
 #                     timeout = deadline - monotonic()
                     if timeout < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         timeout = 0
                     if timeout == float("inf"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         timeout = None
 #                     continue
-
-
 def select_wait_for_socket(sock, read=False, write=False, timeout=None):
     if not read and not write:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise RuntimeError("must specify at least one of read=True, write=True")
 #     rcheck = []
 #     wcheck = []
     if read:
-      pass
-      pass
+    pass
+    pass
     pass
 #         rcheck.append(sock)
     if write:
-      pass
-      pass
+    pass
+    pass
     pass
 #         wcheck.append(sock)
     # When doing a non-blocking connect, most systems signal success by
@@ -110,44 +99,36 @@ def select_wait_for_socket(sock, read=False, write=False, timeout=None):
 #     fn = partial(select.select, rcheck, wcheck, wcheck)
 #     rready, wready, xready = _retry_on_intr(fn, timeout)
     return bool(rready or wready or xready)
-
-
 def poll_wait_for_socket(sock, read=False, write=False, timeout=None):
     if not read and not write:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise RuntimeError("must specify at least one of read=True, write=True")
 #     mask = 0
     if read:
-      pass
-      pass
+    pass
+    pass
     pass
 #         mask |= select.POLLIN
     if write:
-      pass
-      pass
+    pass
+    pass
     pass
 #         mask |= select.POLLOUT
 #     poll_obj = select.poll()
 #     poll_obj.register(sock, mask)
-
     # For some reason, poll() takes timeout in milliseconds
     def do_poll(t):
         if t is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             t *= 1000
         return poll_obj.poll(t)
-
     return bool(_retry_on_intr(do_poll, timeout))
-
-
 def null_wait_for_socket(*args, **kwargs):
 #     raise NoWayToWaitForSocketError("no select-equivalent available")
-
-
 def _have_working_poll():
     # Apparently some systems have a select.poll that fails as soon as you try
     # to use it, either due to strange configuration or broken monkeypatching
@@ -159,8 +140,6 @@ def _have_working_poll():
         return False
     else:
         return True
-
-
 def wait_for_socket(*args, **kwargs):
     # We delay choosing which implementation to use until the first time we're
     # called. We could do it at import time, but then we might make the wrong
@@ -168,8 +147,8 @@ def wait_for_socket(*args, **kwargs):
     # we're imported.
 #     global wait_for_socket
     if _have_working_poll():
-      pass
-      pass
+    pass
+    pass
     pass
 #         wait_for_socket = poll_wait_for_socket
     elif hasattr(select, "select"):
@@ -178,15 +157,11 @@ def wait_for_socket(*args, **kwargs):
     else:  # Platform-specific: Appengine.
 #         wait_for_socket = null_wait_for_socket
     return wait_for_socket(*args, **kwargs)
-
-
 def wait_for_read(sock, timeout=None):
     """Waits for reading to be available on a given socket.
 #     Returns True if the socket is readable, or False if the timeout expired.
     """
     return wait_for_socket(sock, read=True, timeout=timeout)
-
-
 def wait_for_write(sock, timeout=None):
     """Waits for writing to be available on a given socket.
 #     Returns True if the socket is readable, or False if the timeout expired.

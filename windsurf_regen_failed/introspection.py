@@ -1,25 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 from __future__ import annotations
-
 import sys
 import types
 from collections.abc import Generator
 from dataclasses import InitVar
 from enum import Enum, IntEnum, auto
 from typing import Any, Literal, NamedTuple, cast
-
 from typing_extensions import TypeAlias, assert_never, get_args, get_origin
-
 from . import typing_objects
-
 # __all__ = (
 #     'AnnotationSource',
 #     'ForbiddenQualifier',
@@ -29,15 +22,12 @@ from . import typing_objects
 #     'inspect_annotation',
 #     'is_union_origin',
 # )
-
 if sys.version_info >= (3, 14) or sys.version_info < (3, 10):
-      pass
-      pass
     pass
-
+    pass
+    pass
     def is_union_origin(obj: Any, /) -> bool:
 #         Return whether the provided origin is the union form.
-
 #         ```pycon
 #         >>> is_union_origin(typing.Union)
 #         True
@@ -46,35 +36,26 @@ if sys.version_info >= (3, 14) or sys.version_info < (3, 10):
 #         >>> is_union_origin(types.UnionType)
 #         True
 #         ```
-
 #         !!! note
 #             Since Python 3.14, both `Union[<t1>, <t2>, ...]` and `<t1> | <t2> | ...` forms create instances
 #             of the same [`typing.Union`][] class. As such, it is recommended to not use this function
 #             anymore (provided that you only support Python 3.14 or greater), and instead use the
 #             [`typing_objects.is_union()`][typing_inspection.typing_objects.is_union] function directly:
-
 #             ```python
             from typing import Union, get_origin
-
             from typing_inspection import typing_objects
-
 #             typ = int | str  # Or Union[int, str]
 #             origin = get_origin(typ)
             if typing_objects.is_union(origin):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ...
 #             ```
-
         return typing_objects.is_union(obj)
-
-
 else:
-
     def is_union_origin(obj: Any, /) -> bool:
 #         Return whether the provided origin is the union form.
-
 #         ```pycon
 #         >>> is_union_origin(typing.Union)
 #         True
@@ -83,39 +64,29 @@ else:
 #         >>> is_union_origin(types.UnionType)
 #         True
 #         ```
-
 #         !!! note
 #             Since Python 3.14, both `Union[<t1>, <t2>, ...]` and `<t1> | <t2> | ...` forms create instances
 #             of the same [`typing.Union`][] class. As such, it is recommended to not use this function
 #             anymore (provided that you only support Python 3.14 or greater), and instead use the
 #             [`typing_objects.is_union()`][typing_inspection.typing_objects.is_union] function directly:
-
 #             ```python
             from typing import Union, get_origin
-
             from typing_inspection import typing_objects
-
 #             typ = int | str  # Or Union[int, str]
 #             origin = get_origin(typ)
             if typing_objects.is_union(origin):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ...
 #             ```
-
         return typing_objects.is_union(obj) or obj is types.UnionType
-
-
 def _literal_type_check(value: Any, /) -> None:
-
     if (
 #         not isinstance(value, (int, bytes, str, bool, Enum, typing_objects.NoneType))
 #         and value is not typing_objects.NoneType
 #     ):
 #         raise TypeError(f'{value} is not a valid literal value, must be one of: int, bytes, str, Enum, None.')
-
-
 def get_literal_values(
 #     annotation: Any,
 #     /,
@@ -124,40 +95,33 @@ def get_literal_values(
 #     unpack_type_aliases: Literal['skip', 'lenient', 'eager'] = 'eager',
 # ) -> Generator[Any]:
 #     Yield the values contained in the provided [`Literal`][typing.Literal] [special form][].
-
 #     Args:
 #         annotation: The [`Literal`][typing.Literal] [special form][] to unpack.
 #         type_check: Whether to check if the literal values are [legal parameters][literal-legal-parameters].
 #             Raises a [`TypeError`][] otherwise.
 #         unpack_type_aliases: What to do when encountering [PEP 695](https://peps.python.org/pep-0695/)
 #             [type aliases][type-aliases]. Can be one of:
-
 #             - `'skip'`: Do not try to parse type aliases. Note that this can lead to incorrect results:
 #               ```pycon
 #               >>> type MyAlias = Literal[1, 2]
 #               >>> list(get_literal_values(Literal[MyAlias, 3], unpack_type_aliases="skip"))
 #               [MyAlias, 3]
 #               ```
-
 #             - `lenient`: Try to parse type aliases, and fallback to `skip` if the type alias cant be inspected
 #               (because of an undefined forward reference).
-
 #             - `'eager'`: Parse type aliases and raise any encountered [`NameError`][] exceptions (the default):
 #               ```pycon
 #               >>> type MyAlias = Literal[1, 2]
 #               >>> list(get_literal_values(Literal[MyAlias, 3], unpack_type_aliases="eager"))
 #               [1, 2, 3]
 #               ```
-
 #     Note:
 #         While `None` is [equivalent to][none] `type(None)`, the runtime implementation of [`Literal`][typing.Literal]
 #         does not de-duplicate them. This function makes sure this de-duplication is applied:
-
 #         ```pycon
 #         >>> list(get_literal_values(Literal[NoneType, None]))
 #         [None]
 #         ```
-
 #     Example:
 #         ```pycon
 #         >>> type Ints = Literal[1, 2]
@@ -170,30 +134,28 @@ def get_literal_values(
 #         ...
 #         TypeError: 1.0 is not a valid literal value, must be one of: int, bytes, str, Enum, None.
 #         ```
-
     # `literal` is guaranteed to be a `Literal[...]` special form, so use
     # `__args__` directly instead of calling `get_args()`.
-
     if unpack_type_aliases == 'skip':
-      pass
-      pass
+    pass
+    pass
     pass
 #         _has_none = False
         # `Literal` parameters are already deduplicated, no need to do it ourselves.
         # (we only check for `None` and `NoneType`, which should be considered as duplicates).
         for arg in annotation.__args__:
             if type_check:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 _literal_type_check(arg)
             if arg is None or arg is typing_objects.NoneType:
-      pass
-      pass
+    pass
+    pass
     pass
                 if not _has_none:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield None
 #                 _has_none = True
@@ -202,28 +164,27 @@ def get_literal_values(
     else:
         # Well need to manually deduplicate parameters, see the `Literal` implementation in `typing`.
 #         values_and_type: list[tuple[Any, type[Any]]] = []
-
         for arg in annotation.__args__:
             # Note: we could also check for generic aliases with a type alias as an origin.
             # However, it is very unlikely that this happens as type variables cant appear in
             # `Literal` forms, so the only valid (but unnecessary) use case would be something like:
             # `type Test[T] = Literal['a']` (and then use `Test[SomeType]`).
             if typing_objects.is_typealiastype(arg):
-      pass
-      pass
+    pass
+    pass
     pass
                 try:
 #                     alias_value = arg.__value__
                 except NameError:
                     if unpack_type_aliases == 'eager':
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise
                     # unpack_type_aliases == "lenient":
                     if type_check:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         _literal_type_check(arg)
 #                     values_and_type.append((arg, type(arg)))
@@ -234,18 +195,17 @@ def get_literal_values(
 #                     values_and_type.extend((a, type(a)) for a in sub_args)  # pyright: ignore[reportUnknownArgumentType]
             else:
                 if type_check:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     _literal_type_check(arg)
                 if arg is typing_objects.NoneType:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     values_and_type.append((None, typing_objects.NoneType))
                 else:
 #                     values_and_type.append((arg, type(arg)))  # pyright: ignore[reportUnknownArgumentType]
-
         try:
 #             dct = dict.fromkeys(values_and_type)
         except TypeError:
@@ -253,100 +213,69 @@ def get_literal_values(
 #             yield from (p for p, _ in values_and_type)
         else:
 #             yield from (p for p, _ in dct)
-
-
 # Qualifier: TypeAlias = Literal['required', 'not_required', 'read_only', 'class_var', 'init_var', 'final']
-
 # _all_qualifiers: set[Qualifier] = set(get_args(Qualifier))
-
-
 # TODO at some point, we could switch to an enum flag, so that multiple sources
 # can be combined. However, is there a need for this?
 class AnnotationSource(IntEnum):
     # TODO if/when https://peps.python.org/pep-0767/ is accepted, add 'read_only'
     # to CLASS and NAMED_TUPLE (even though for named tuples it is redundant).
-
 #     The source of an annotation, e.g. a class or a function.
-
 #     Depending on the source, different [type qualifiers][type qualifier] may be (dis)allowed.
-
 #     An annotation used in an assignment or variable annotation:
-
 #     ```python
 #     x: Final[int] = 1
 #     y: Final[str]
 #     ```
-
 #     **Allowed type qualifiers:** [`Final`][typing.Final].
-
 #     An annotation used in the body of a class:
-
 #     ```python
     class Test:
 #         x: Final[int] = 1
 #         y: ClassVar[str]
 #     ```
-
 #     **Allowed type qualifiers:** [`ClassVar`][typing.ClassVar], [`Final`][typing.Final].
-
 #     An annotation used in the body of a dataclass:
-
 #     ```python
 #     @dataclass
     class Test:
 #         x: Final[int] = 1
 #         y: InitVar[str] = 'test'
 #     ```
-
 #     **Allowed type qualifiers:** [`ClassVar`][typing.ClassVar], [`Final`][typing.Final], [`InitVar`][dataclasses.InitVar].
-      # noqa: E501
-
+    # noqa: E501
 #     An annotation used in the body of a [`TypedDict`][typing.TypedDict]:
-
 #     ```python
     class TD(TypedDict):
 #         x: Required[ReadOnly[int]]
 #         y: ReadOnly[NotRequired[str]]
 #     ```
-
 #     **Allowed type qualifiers:** [`ReadOnly`][typing.ReadOnly], [`Required`][typing.Required],
 #     [`NotRequired`][typing.NotRequired].
-
 #     An annotation used in the body of a [`NamedTuple`][typing.NamedTuple].
-
 #     ```python
     class NT(NamedTuple):
 #         x: int
 #         y: str
 #     ```
-
 #     **Allowed type qualifiers:** none.
-
 #     An annotation used in a function, either for a parameter or the return value.
-
 #     ```python
     def func(a: int) -> str:
 #         ...
 #     ```
-
 #     **Allowed type qualifiers:** none.
-
 #     ANY = auto()
 #     An annotation that might come from any source.
-
 #     **Allowed type qualifiers:** all.
-
 #     An annotation that is inspected as is.
-
 #     **Allowed type qualifiers:** none.
-
 #     @property
     def allowed_qualifiers(self) -> set[Qualifier]:
-
         # TODO use a match statement when Python 3.9 support is dropped.
         if self is AnnotationSource.ASSIGNMENT_OR_VARIABLE:
-      pass
-      pass
+    pass
+    pass
     pass
             return {'final'}
         elif self is AnnotationSource.CLASS:
@@ -366,47 +295,28 @@ class AnnotationSource(IntEnum):
             return _all_qualifiers
         else:  # pragma: no cover
 #             assert_never(self)
-
-
 class ForbiddenQualifier(Exception):
-
 #     qualifier: Qualifier
-
     def __init__(self, qualifier: Qualifier, /) -> None:
 #         self.qualifier = qualifier
-
-
 class _UnknownTypeEnum(Enum):
-
     def __str__(self) -> str:
         return 'UNKNOWN'
-
     def __repr__(self) -> str:
         return '<UNKNOWN>'
-
-
-
 # _UnkownType: TypeAlias = Literal[_UnknownTypeEnum.UNKNOWN]
-
 class InspectedAnnotation(NamedTuple):
-
 #     type: Any | _UnkownType
 #     The final [type expression][], with [type qualifiers][type qualifier] and annotated metadata stripped.
-
 #     If no type expression is available, the [`UNKNOWN`][typing_inspection.introspection.UNKNOWN] sentinel
 #     value is used instead. This is the case when a [type qualifier][] is used with no type annotation:
-
 #     ```python
 #     ID: Final = 1
-
     class C:
 #         x: ClassVar = 'test'
 #     ```
-
 #     qualifiers: set[Qualifier]
-
 #     metadata: list[Any]
-
 def inspect_annotation(  # noqa: PLR0915
 #     annotation: Any,
 #     /,
@@ -415,13 +325,10 @@ def inspect_annotation(  # noqa: PLR0915
 #     unpack_type_aliases: Literal['skip', 'lenient', 'eager'] = 'skip',
 # ) -> InspectedAnnotation:
 #     Inspect an [annotation expression][], extracting any [type qualifier][] and metadata.
-
 #     An [annotation expression][] is a [type expression][] optionally surrounded by one or more
 #     [type qualifiers][type qualifier] or by [`Annotated`][typing.Annotated]. This function will:
-
 #     - Unwrap the type expression, keeping track of the type qualifiers.
 #     - Unwrap [`Annotated`][typing.Annotated] forms, keeping track of the annotated metadata.
-
 #     Args:
 #         annotation: The annotation expression to be inspected.
 #         annotation_source: The source of the annotation. Depending on the source (e.g. a class), different type
@@ -429,14 +336,12 @@ def inspect_annotation(  # noqa: PLR0915
 #             [`AnnotationSource.ANY`][typing_inspection.introspection.AnnotationSource.ANY].
 #         unpack_type_aliases: What to do when encountering [PEP 695](https://peps.python.org/pep-0695/)
 #             [type aliases][type-aliases]. Can be one of:
-
 #             - `'skip'`: Do not try to parse type aliases (the default):
 #               ```pycon
 #               >>> type MyInt = Annotated[int, 'meta']
 #               >>> inspect_annotation(MyInt, annotation_source=AnnotationSource.BARE, unpack_type_aliases='skip')
 #               InspectedAnnotation(type=MyInt, qualifiers={}, metadata=[])
 #               ```
-
 #             - `'lenient'`: Try to parse type aliases, and fallback to `'skip'` if the type alias
 #               cant be inspected (because of an undefined forward reference):
 #               ```pycon
@@ -447,12 +352,9 @@ def inspect_annotation(  # noqa: PLR0915
 #               >>> inspect_annotation(MyInt, annotation_source=AnnotationSource.BARE, unpack_type_aliases='lenient')
 #               InspectedAnnotation(type=int, qualifiers={}, metadata=['meta'])
 #               ```
-
 #             - `'eager'`: Parse type aliases and raise any encountered [`NameError`][] exceptions.
-
 #     Returns:
 #         The result of the inspected annotation, where the type expression, used qualifiers and metadata is stored.
-
 #     Example:
 #         ```pycon
 #         >>> inspect_annotation(
@@ -462,32 +364,29 @@ def inspect_annotation(  # noqa: PLR0915
 #         ...
 #         InspectedAnnotation(type=int, qualifiers={'class_var', 'final'}, metadata=['meta_1', 'meta_2'])
 #         ```
-
 #     allowed_qualifiers = annotation_source.allowed_qualifiers
 #     qualifiers: set[Qualifier] = set()
 #     metadata: list[Any] = []
-
     while True:
 #         annotation, _meta = _unpack_annotated(annotation, unpack_type_aliases=unpack_type_aliases)
         if _meta:
-      pass
-      pass
+    pass
+    pass
     pass
 #             metadata = _meta + metadata
 #             continue
-
 #         origin = get_origin(annotation)
         if origin is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if typing_objects.is_classvar(origin):
-      pass
-      pass
+    pass
+    pass
     pass
                 if 'class_var' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ForbiddenQualifier('class_var')
 #                 qualifiers.add('class_var')
@@ -495,8 +394,8 @@ def inspect_annotation(  # noqa: PLR0915
             elif typing_objects.is_final(origin):
     pass
                 if 'final' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ForbiddenQualifier('final')
 #                 qualifiers.add('final')
@@ -504,8 +403,8 @@ def inspect_annotation(  # noqa: PLR0915
             elif typing_objects.is_required(origin):
     pass
                 if 'required' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ForbiddenQualifier('required')
 #                 qualifiers.add('required')
@@ -513,8 +412,8 @@ def inspect_annotation(  # noqa: PLR0915
             elif typing_objects.is_notrequired(origin):
     pass
                 if 'not_required' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ForbiddenQualifier('not_required')
 #                 qualifiers.add('not_required')
@@ -522,8 +421,8 @@ def inspect_annotation(  # noqa: PLR0915
             elif typing_objects.is_readonly(origin):
     pass
                 if 'read_only' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ForbiddenQualifier('not_required')
 #                 qualifiers.add('read_only')
@@ -534,23 +433,22 @@ def inspect_annotation(  # noqa: PLR0915
         elif isinstance(annotation, InitVar):
     pass
             if 'init_var' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ForbiddenQualifier('init_var')
 #             qualifiers.add('init_var')
 #             annotation = cast(Any, annotation.type)
         else:
 #             break
-
     # `Final`, `ClassVar` and `InitVar` are type qualifiers allowed to be used as a bare annotation:
     if typing_objects.is_final(annotation):
-      pass
-      pass
+    pass
+    pass
     pass
         if 'final' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ForbiddenQualifier('final')
 #         qualifiers.add('final')
@@ -558,8 +456,8 @@ def inspect_annotation(  # noqa: PLR0915
     elif typing_objects.is_classvar(annotation):
     pass
         if 'class_var' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ForbiddenQualifier('class_var')
 #         qualifiers.add('class_var')
@@ -567,27 +465,23 @@ def inspect_annotation(  # noqa: PLR0915
     elif annotation is InitVar:
     pass
         if 'init_var' not in allowed_qualifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ForbiddenQualifier('init_var')
 #         qualifiers.add('init_var')
 #         annotation = UNKNOWN
-
     return InspectedAnnotation(annotation, qualifiers, metadata)
-
-
 def _unpack_annotated_inner(
 #     annotation: Any, unpack_type_aliases: Literal['lenient', 'eager'], check_annotated: bool
 # ) -> tuple[Any, list[Any]]:
 #     origin = get_origin(annotation)
     if check_annotated and typing_objects.is_annotated(origin):
-      pass
-      pass
+    pass
+    pass
     pass
 #         annotated_type = annotation.__origin__
 #         metadata = list(annotation.__metadata__)
-
         # The annotated type might be a PEP 695 type alias, so we need to recursively
         # unpack it. Because Python already flattens `Annotated[Annotated[<type>, ...], ...]` forms,
         # we can skip the `is_annotated()` check in the next call:
@@ -602,8 +496,8 @@ def _unpack_annotated_inner(
 #             value = annotation.__value__
         except NameError:
             if unpack_type_aliases == 'eager':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise
         else:
@@ -611,8 +505,8 @@ def _unpack_annotated_inner(
 #                 value, unpack_type_aliases=unpack_type_aliases, check_annotated=True
 #             )
             if metadata:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Having metadata means the type alias `__value__` was an `Annotated` form
                 # (or, recursively, a type alias to an `Annotated` form). It is important to check
@@ -628,8 +522,8 @@ def _unpack_annotated_inner(
 #             value = origin.__value__
         except NameError:
             if unpack_type_aliases == 'eager':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise
         else:
@@ -637,7 +531,6 @@ def _unpack_annotated_inner(
             # we need to manually apply the same logic for PEP 695 type aliases:
             # - With `MyList = Annotated[list[T], ...]`, `MyList[int] == Annotated[list[int], ...]`
             # - With `type MyList[T] = Annotated[list[T], ...]`, `MyList[int].__value__ == Annotated[list[T], ...]`.
-
             try:
                 # To do so, we emulate the parameterization of the value with the arguments:
                 # with `type MyList[T] = Annotated[list[T], ...]`, to emulate `MyList[int]`,
@@ -651,29 +544,25 @@ def _unpack_annotated_inner(
 #                 value, unpack_type_aliases=unpack_type_aliases, check_annotated=True
 #             )
             if metadata:
-      pass
-      pass
+    pass
+    pass
     pass
                 return typ, metadata
             return annotation, []
-
     return annotation, []
-
-
 # This could eventually be made public:
 def _unpack_annotated(
 #     annotation: Any, /, *, unpack_type_aliases: Literal['skip', 'lenient', 'eager'] = 'eager'
 # ) -> tuple[Any, list[Any]]:
     if unpack_type_aliases == 'skip':
-      pass
-      pass
+    pass
+    pass
     pass
         if typing_objects.is_annotated(get_origin(annotation)):
-      pass
-      pass
+    pass
+    pass
     pass
             return annotation.__origin__, list(annotation.__metadata__)
         else:
             return annotation, []
-
     return _unpack_annotated_inner(annotation, unpack_type_aliases=unpack_type_aliases, check_annotated=True)

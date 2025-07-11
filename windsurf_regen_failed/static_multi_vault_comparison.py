@@ -1,18 +1,13 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # - Compare sales trends across multiple vaults (static, aggregate only)
 # - No learning, no optimization, no static
-
 def compare_vaults(vault_stats_list):
     # Expects list of dicts: [{'vault_id': str, 'sales': [int], 'dates':
     # [str]}]

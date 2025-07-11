@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from io import StringIO
@@ -11,15 +9,12 @@ import re
 from string import ascii_uppercase as uppercase
 import sys
 import textwrap
-
 import numpy as np
 import pytest
-
 from pandas.compat import (
 #     IS64,
 #     PYPY,
 # )
-
 from pandas import (
 #     CategoricalIndex,
 #     DataFrame,
@@ -29,17 +24,12 @@ from pandas import (
 #     option_context,
 # )
 import pandas._testing as tm
-
-
 # @pytest.fixture
 def duplicate_columns_frame():
-
     return DataFrame(
 #         np.random.default_rng(2).standard_normal((1500, 4)),
 #         columns=["a", "a", "b", "b"],
 #     )
-
-
 def test_info_empty():
     # GH #45494
 #     df = DataFrame()
@@ -53,8 +43,6 @@ def test_info_empty():
 #         Empty DataFrame\n
 #     )
 #     assert result == expected
-
-
 def test_info_categorical_column_smoke_test():
 #     n = 2500
 #     df = DataFrame({"int64": np.random.default_rng(2).integers(100, size=n, dtype=int)})
@@ -66,12 +54,9 @@ def test_info_categorical_column_smoke_test():
 #     df.isna()
 #     buf = StringIO()
 #     df.info(buf=buf)
-
 #     df2 = df[df["category"] == "d"]
 #     buf = StringIO()
 #     df2.info(buf=buf)
-
-
 # @pytest.mark.parametrize(
 #     "fixture_func_name",
 #     [
@@ -87,8 +72,6 @@ def test_info_smoke_test(fixture_func_name, request):
 #     frame.info(buf=buf)
 #     result = buf.getvalue().splitlines()
 #     assert len(result) > 10
-
-
 # @pytest.mark.parametrize(
 #     "num_columns, max_info_columns, verbose",
 #     [
@@ -105,39 +88,30 @@ def test_info_default_verbose_selection(num_columns, max_info_columns, verbose):
 #         io_default = StringIO()
 #         frame.info(buf=io_default)
 #         result = io_default.getvalue()
-
 #         io_explicit = StringIO()
 #         frame.info(buf=io_explicit, verbose=verbose)
 #         expected = io_explicit.getvalue()
-
 #         assert result == expected
-
-
 def test_info_verbose_check_header_separator_body():
 #     buf = StringIO()
 #     size = 1001
 #     start = 5
 #     frame = DataFrame(np.random.default_rng(2).standard_normal((3, size)))
 #     frame.info(verbose=True, buf=buf)
-
 #     res = buf.getvalue()
 #     header = " #     Column  Dtype  \n---    ------  -----  "
 #     assert header in res
-
 #     frame.info(verbose=True, buf=buf)
 #     buf.seek(0)
 #     lines = buf.readlines()
 #     assert len(lines) > 0
-
     for i, line in enumerate(lines):
         if start <= i < start + size:
-      pass
-      pass
+    pass
+    pass
     pass
 #             line_nr = f" {i - start} "
 #             assert line.startswith(line_nr)
-
-
 # @pytest.mark.parametrize(
 #     "size, header_exp, separator_exp, first_line_exp, last_line_exp",
 #     [
@@ -181,7 +155,6 @@ def test_info_verbose_check_header_separator_body():
 def test_info_verbose_with_counts_spacing(
 #     size, header_exp, separator_exp, first_line_exp, last_line_exp
 # ):
-
 #     frame = DataFrame(np.random.default_rng(2).standard_normal((3, size)))
     with StringIO() as buf:
 #         frame.info(verbose=True, show_counts=True, buf=buf)
@@ -194,8 +167,6 @@ def test_info_verbose_with_counts_spacing(
 #     assert separator == separator_exp
 #     assert first_line == first_line_exp
 #     assert last_line == last_line_exp
-
-
 def test_info_memory():
     # https://github.com/pandas-dev/pandas/issues/21056
 #     df = DataFrame({"a": Series([1, 2], dtype="i8")})
@@ -208,34 +179,26 @@ def test_info_memory():
 #     <class 'pandas.core.frame.DataFrame'>
 #     RangeIndex: 2 entries, 0 to 1
 #     Data columns (total 1 columns):
-     #   Column  Non-Null Count  Dtype
-
+    #   Column  Non-Null Count  Dtype
 #      0   a       2 non-null      int64
 #     dtypes: int64(1)
 #     memory usage: {bytes} bytes
-
 #     )
 #     assert result == expected
-
-
 def test_info_wide():
 #     io = StringIO()
 #     df = DataFrame(np.random.default_rng(2).standard_normal((5, 101)))
 #     df.info(buf=io)
-
 #     io = StringIO()
 #     df.info(buf=io, max_cols=101)
 #     result = io.getvalue()
 #     assert len(result.splitlines()) > 100
-
 #     expected = result
     with option_context("display.max_info_columns", 101):
 #         io = StringIO()
 #         df.info(buf=io)
 #         result = io.getvalue()
 #         assert result == expected
-
-
 def test_info_duplicate_columns_shows_correct_dtypes():
     # GH11761
 #     io = StringIO()
@@ -244,8 +207,6 @@ def test_info_duplicate_columns_shows_correct_dtypes():
 #     lines = io.getvalue().splitlines(True)
 #     assert " 0   a       1 non-null      int64  \n" == lines[5]
 #     assert " 1   a       1 non-null      float64\n" == lines[6]
-
-
 def test_info_shows_column_dtypes():
 #     dtypes = [
 #         "int64",
@@ -266,14 +227,11 @@ def test_info_shows_column_dtypes():
 #     res = buf.getvalue()
 #     header = (
 #         " #   Column  Non-Null Count  Dtype          \n"
-
 #     )
 #     assert header in res
     for i, dtype in enumerate(dtypes):
 #         name = f" {i:d}   {i:d}       {n:d} non-null     {dtype}"
 #         assert name in res
-
-
 def test_info_max_cols():
 #     df = DataFrame(np.random.default_rng(2).standard_normal((10, 5)))
     for len_, verbose in [(5, None), (5, False), (12, True)]:
@@ -283,7 +241,6 @@ def test_info_max_cols():
 #             df.info(buf=buf, verbose=verbose)
 #             res = buf.getvalue()
 #             assert len(res.strip().split("\n")) == len_
-
     for len_, verbose in [(12, None), (5, False), (12, True)]:
         # max_cols not exceeded
         with option_context("max_info_columns", 5):
@@ -291,7 +248,6 @@ def test_info_max_cols():
 #             df.info(buf=buf, verbose=verbose)
 #             res = buf.getvalue()
 #             assert len(res.strip().split("\n")) == len_
-
     for len_, max_cols in [(12, 5), (5, 4)]:
         # setting truncates
         with option_context("max_info_columns", 4):
@@ -299,15 +255,12 @@ def test_info_max_cols():
 #             df.info(buf=buf, max_cols=max_cols)
 #             res = buf.getvalue()
 #             assert len(res.strip().split("\n")) == len_
-
         # setting wouldnt truncate
         with option_context("max_info_columns", 5):
 #             buf = StringIO()
 #             df.info(buf=buf, max_cols=max_cols)
 #             res = buf.getvalue()
 #             assert len(res.strip().split("\n")) == len_
-
-
 def test_info_memory_usage():
     # Ensure memory usage is displayed, when asserted, on the last line
 #     dtypes = [
@@ -325,29 +278,22 @@ def test_info_memory_usage():
 #         data[i] = np.random.default_rng(2).integers(2, size=n).astype(dtype)
 #     df = DataFrame(data)
 #     buf = StringIO()
-
     # display memory usage case
 #     df.info(buf=buf, memory_usage=True)
 #     res = buf.getvalue().splitlines()
 #     assert "memory usage: " in res[-1]
-
     # do not display memory usage case
 #     df.info(buf=buf, memory_usage=False)
 #     res = buf.getvalue().splitlines()
 #     assert "memory usage: " not in res[-1]
-
 #     df.info(buf=buf, memory_usage=True)
 #     res = buf.getvalue().splitlines()
-
     # memory usage is a lower bound, so print it as XYZ+ MB
 #     assert re.match(r"memory usage: [^+]++", res[-1])
-
 #     df.iloc[:, :5].info(buf=buf, memory_usage=True)
 #     res = buf.getvalue().splitlines()
-
     # excluded column with object dtype, so estimate is accurate
 #     assert not re.match(r"memory usage: [^+]++", res[-1])
-
     # Test a DataFrame with duplicate columns
 #     dtypes = ["int64", "int64", "int64", "float64"]
 #     data = {}
@@ -356,29 +302,23 @@ def test_info_memory_usage():
 #         data[i] = np.random.default_rng(2).integers(2, size=n).astype(dtype)
 #     df = DataFrame(data)
 #     df.columns = dtypes
-
 #     df_with_object_index = DataFrame({"a": [1]}, index=["foo"])
 #     df_with_object_index.info(buf=buf, memory_usage=True)
 #     res = buf.getvalue().splitlines()
 #     assert re.match(r"memory usage: [^+]++", res[-1])
-
 #     df_with_object_index.info(buf=buf, memory_usage="deep")
 #     res = buf.getvalue().splitlines()
 #     assert re.match(r"memory usage: [^+]+$", res[-1])
-
     # Ensure df size is as expected
     # (cols * rows * bytes) + index size
 #     df_size = df.memory_usage().sum()
 #     exp_size = len(dtypes) * n * 8 + df.index.nbytes
 #     assert df_size == exp_size
-
     # Ensure number of cols in memory_usage is the same as df
 #     size_df = np.size(df.columns.values) + 1  # index=True; default
 #     assert size_df == np.size(df.memory_usage())
-
     # assert deep works only on object
 #     assert df.memory_usage().sum() == df.memory_usage(deep=True).sum()
-
     # test for validity
 #     DataFrame(1, index=["a"], columns=["A"]).memory_usage(index=True)
 #     DataFrame(1, index=["a"], columns=["A"]).index.nbytes
@@ -388,11 +328,8 @@ def test_info_memory_usage():
 #     df.index.nbytes
 #     df.memory_usage(index=True)
 #     df.index.values.nbytes
-
 #     mem = df.memory_usage(deep=True).sum()
 #     assert mem > 0
-
-
 # @pytest.mark.skipif(PYPY, reason="on PyPy deep=True doesnt change result")
 def test_info_memory_usage_deep_not_pypy():
 #     df_with_object_index = DataFrame({"a": [1]}, index=["foo"])
@@ -400,11 +337,8 @@ def test_info_memory_usage_deep_not_pypy():
 #         df_with_object_index.memory_usage(index=True, deep=True).sum()
 #         > df_with_object_index.memory_usage(index=True).sum()
 #     )
-
 #     df_object = DataFrame({"a": ["a"]})
 #     assert df_object.memory_usage(deep=True).sum() > df_object.memory_usage().sum()
-
-
 # @pytest.mark.xfail(not PYPY, reason="on PyPy deep=True does not change result")
 def test_info_memory_usage_deep_pypy():
 #     df_with_object_index = DataFrame({"a": [1]}, index=["foo"])
@@ -412,11 +346,8 @@ def test_info_memory_usage_deep_pypy():
 #         df_with_object_index.memory_usage(index=True, deep=True).sum()
 #         == df_with_object_index.memory_usage(index=True).sum()
 #     )
-
 #     df_object = DataFrame({"a": ["a"]})
 #     assert df_object.memory_usage(deep=True).sum() == df_object.memory_usage().sum()
-
-
 # @pytest.mark.skipif(PYPY, reason="PyPy getsizeof() fails by design")
 def test_usage_via_getsizeof():
 #     df = DataFrame(
@@ -427,41 +358,32 @@ def test_usage_via_getsizeof():
     # deep=True, and add on some GC overhead
 #     diff = mem - sys.getsizeof(df)
 #     assert abs(diff) < 100
-
-
 def test_info_memory_usage_qualified():
 #     buf = StringIO()
 #     df = DataFrame(1, columns=list("ab"), index=[1, 2, 3])
 #     df.info(buf=buf)
 #     assert  not in buf.getvalue()
-
 #     buf = StringIO()
 #     df = DataFrame(1, columns=list("ab"), index=list("ABC"))
 #     df.info(buf=buf)
 #     assert  in buf.getvalue()
-
 #     buf = StringIO()
 #     df = DataFrame(
 #         1, columns=list("ab"), index=MultiIndex.from_product([range(3), range(3)])
 #     )
 #     df.info(buf=buf)
 #     assert  not in buf.getvalue()
-
 #     buf = StringIO()
 #     df = DataFrame(
 #         1, columns=list("ab"), index=MultiIndex.from_product([range(3), ["foo", "bar"]])
 #     )
 #     df.info(buf=buf)
 #     assert  in buf.getvalue()
-
-
 def test_info_memory_usage_bug_on_multiindex():
     # GH 14308
     # memory usage introspection should not materialize .values
-
     def memory_usage(f):
         return f.memory_usage(deep=True).sum()
-
 #     N = 100
 #     M = len(uppercase)
 #     index = MultiIndex.from_product(
@@ -471,24 +393,17 @@ def test_info_memory_usage_bug_on_multiindex():
 #     df = DataFrame(
 #         {"value": np.random.default_rng(2).standard_normal(N * M)}, index=index
 #     )
-
 #     unstacked = df.unstack("id")
 #     assert df.values.nbytes == unstacked.values.nbytes
 #     assert memory_usage(df) > memory_usage(unstacked)
-
     # high upper bound
 #     assert memory_usage(unstacked) - memory_usage(df) < 2000
-
-
 def test_info_categorical():
     # GH14298
 #     idx = CategoricalIndex(["a", "b"])
 #     df = DataFrame(np.zeros((2, 2)), index=idx, columns=idx)
-
 #     buf = StringIO()
 #     df.info(buf=buf)
-
-
 # @pytest.mark.xfail(not IS64, reason="GH 36579: fail on 32-bit system")
 def test_info_int_columns():
     # GH#37245
@@ -501,17 +416,14 @@ def test_info_int_columns():
 #         <class 'pandas.core.frame.DataFrame'>
 #         Index: 2 entries, A to B
 #         Data columns (total 2 columns):
-         #   Column  Non-Null Count  Dtype
+        #   Column  Non-Null Count  Dtype
 #         ---  ------  --------------  -----
 #          0   1       2 non-null      int64
 #          1   2       2 non-null      int64
 #         dtypes: int64(2)
 #         memory usage: 48.0+ bytes
-
 #     )
 #     assert result == expected
-
-
 def test_memory_usage_empty_no_warning():
     # GH#50066
 #     df = DataFrame(index=["a", "b"])
@@ -519,19 +431,15 @@ def test_memory_usage_empty_no_warning():
 #         result = df.memory_usage()
 #     expected = Series(16 if IS64 else 8, index=["Index"])
 #     tm.assert_series_equal(result, expected)
-
-
 # @pytest.mark.single_cpu
 def test_info_compute_numba():
     # GH#51922
 #     pytest.importorskip("numba")
 #     df = DataFrame([[1, 2], [3, 4]])
-
     with option_context("compute.use_numba", True):
 #         buf = StringIO()
 #         df.info()
 #         result = buf.getvalue()
-
 #     buf = StringIO()
 #     df.info()
 #     expected = buf.getvalue()

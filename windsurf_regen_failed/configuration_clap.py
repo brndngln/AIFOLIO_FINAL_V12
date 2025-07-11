@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,33 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from typing import Union
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # CLAP_PRETRAINED_MODEL_ARCHIVE_LIST = {
 #     "laion/clap-htsat-fused": "https://huggingface.co/laion/clap-htsat-fused/resolve/main/config.json",
 #     "laion/clap-htsat-unfused": "https://huggingface.co/laion/clap-htsat-unfused/resolve/main/config.json",
 # }
-
-
 class ClapTextConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`ClapTextModel`]. It is used to instantiate a CLAP
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the CLAP
 #     [calp-hsat-fused](https://huggingface.co/laion/clap-hsat-fused) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the CLAP model. Defines the number of different tokens that can be represented by the
@@ -91,24 +77,17 @@ class ClapTextConfig(PretrainedConfig):
 #             `"relu"`, `"silu"` and `"gelu_new"` are supported.
 #         projection_dim (`int`, *optional*, defaults to 512)
 #             Dimension of the projection head of the `ClapTextModelWithProjection`.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import ClapTextConfig, ClapTextModel
-
 #     >>> # Initializing a CLAP text configuration
 #     >>> configuration = ClapTextConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = ClapTextModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "clap_text_model"
-
     def __init__(
 #         self,
 #         vocab_size=50265,
@@ -133,7 +112,6 @@ class ClapTextConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
@@ -150,41 +128,31 @@ class ClapTextConfig(PretrainedConfig):
 #         self.use_cache = use_cache
 #         self.projection_hidden_act = projection_hidden_act
 #         self.projection_dim = projection_dim
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the text config dict if we are loading from ClapConfig
         if config_dict.get("model_type") == "clap":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["text_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class ClapAudioConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`ClapAudioModel`]. It is used to instantiate a
 #     configuration with the defaults will yield a similar configuration to that of the audio encoder of the CLAP
 #     [laion/clap-htsat-fused](https://huggingface.co/laion/clap-htsat-fused) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         window_size (`int`, *optional*, defaults to 8):
 #             Image size of the spectrogram
@@ -247,24 +215,17 @@ class ClapAudioConfig(PretrainedConfig):
 #         initializer_factor (`float`, *optional*, defaults to 1.0):
 #             A factor for initializing all weight matrices (should be kept to 1, used internally for initialization
 #             testing).
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import ClapAudioConfig, ClapAudioModel
-
 #     >>> # Initializing a ClapAudioConfig with laion/clap-htsat-fused style configuration
 #     >>> configuration = ClapAudioConfig()
-
 #     >>> # Initializing a ClapAudioModel (with random weights) from the laion/clap-htsat-fused style configuration
 #     >>> model = ClapAudioModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "clap_audio_model"
-
     def __init__(
 #         self,
 #         window_size=8,
@@ -325,42 +286,32 @@ class ClapAudioConfig(PretrainedConfig):
 #         self.layer_norm_eps = layer_norm_eps
 #         self.initializer_factor = initializer_factor
 #         self.projection_hidden_act = projection_hidden_act
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the audio config dict if we are loading from ClapConfig
         if config_dict.get("model_type") == "clap":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["audio_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class ClapConfig(PretrainedConfig):
-
 #     [`ClapConfig`] is the configuration class to store the configuration of a [`ClapModel`]. It is used to instantiate
 #     a CLAP model according to the specified arguments, defining the text model and audio model configs. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the CLAP
 #     [laion/clap-htsat-fused](https://huggingface.co/laion/clap-htsat-fused) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         text_config (`dict`, *optional*):
 #             Dictionary of configuration options used to initialize [`ClapTextConfig`].
@@ -376,33 +327,23 @@ class ClapConfig(PretrainedConfig):
 #             Factor to scale the initialization of the model weights.
 #         kwargs (*optional*):
 #             Dictionary of keyword arguments.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import ClapConfig, ClapModel
-
 #     >>> # Initializing a ClapConfig with laion-ai/base style configuration
 #     >>> configuration = ClapConfig()
-
 #     >>> # Initializing a ClapModel (with random weights) from the laion-ai/base style configuration
 #     >>> model = ClapModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
-
 #     >>> # We can also initialize a ClapConfig from a ClapTextConfig and a ClapAudioConfig
 #     >>> from transformers import ClapTextConfig, ClapAudioConfig
-
 #     >>> # Initializing a ClapText and ClapAudioConfig configuration
 #     >>> config_text = ClapTextConfig()
 #     >>> config_audio = ClapAudioConfig()
-
 #     >>> config = ClapConfig.from_text_audio_configs(config_text, config_audio)
 #     ```
-
 #     model_type = "clap"
-
     def __init__(
 #         self,
 #         text_config=None,
@@ -414,44 +355,35 @@ class ClapConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
         if text_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text_config = {}
 #             logger.info("text_config is None. Initializing the ClapTextConfig with default values.")
-
         if audio_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             audio_config = {}
 #             logger.info("audio_config is None. initializing the ClapAudioConfig with default values.")
-
 #         self.text_config = ClapTextConfig(**text_config)
 #         self.audio_config = ClapAudioConfig(**audio_config)
 #         self.text_config.projection_dim = projection_dim
 #         self.audio_config.projection_dim = projection_dim
-
 #         self.text_config.projection_hidden_act = projection_hidden_act
 #         self.audio_config.projection_hidden_act = projection_hidden_act
-
 #         self.projection_dim = projection_dim
 #         self.projection_hidden_act = projection_hidden_act
 #         self.hidden_size = self.text_config.hidden_size
-
 #         self.logit_scale_init_value = logit_scale_init_value
 #         self.initializer_factor = initializer_factor
 #         self.num_hidden_layers = self.text_config.num_hidden_layers + len(self.audio_config.depths)
-
 #     @classmethod
     def from_text_audio_configs(cls, text_config: ClapTextConfig, audio_config: ClapAudioConfig, **kwargs):
 #         r
 #         Instantiate a [`ClapConfig`] (or a derived class) from clap text model configuration and clap audio model
 #         configuration.
-
 #         Returns:
 #             [`ClapConfig`]: An instance of a configuration object
-
         return cls(text_config=text_config.to_dict(), audio_config=audio_config.to_dict(), **kwargs)

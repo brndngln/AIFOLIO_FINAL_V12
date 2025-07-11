@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ...utils.backbone_utils import BackboneConfigMixin, get_aligned_output_features_output_indices
-
-
 # logger = logging.get_logger(__name__)
-
 #     "facebook/vit-det-base": "https://huggingface.co/facebook/vit-det-base/resolve/main/config.json",
 # }
-
-
 class VitDetConfig(BackboneConfigMixin, PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`VitDetModel`]. It is used to instantiate an
 #     VitDet model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the VitDet
 #     [google/vitdet-base-patch16-224](https://huggingface.co/google/vitdet-base-patch16-224) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 768):
 #             Dimensionality of the encoder layers and the pooler layer.
@@ -92,24 +80,17 @@ class VitDetConfig(BackboneConfigMixin, PretrainedConfig):
 #             If used as backbone, list of indices of features to output. Can be any of 0, 1, 2, etc. (depending on how
 #             many stages the model has). If unset and `out_features` is set, will default to the corresponding stages.
 #             If unset and `out_features` is unset, will default to the last stage.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import VitDetConfig, VitDetModel
-
 #     >>> # Initializing a VitDet configuration
 #     >>> configuration = VitDetConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = VitDetModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "vitdet"
-
     def __init__(
 #         self,
 #         hidden_size=768,
@@ -136,7 +117,6 @@ class VitDetConfig(BackboneConfigMixin, PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
 #         self.num_attention_heads = num_attention_heads
@@ -156,7 +136,6 @@ class VitDetConfig(BackboneConfigMixin, PretrainedConfig):
 #         self.use_absolute_position_embeddings = use_absolute_position_embeddings
 #         self.use_relative_position_embeddings = use_relative_position_embeddings
 #         self.window_size = window_size
-
 #         self.stage_names = ["stem"] + [f"stage{idx}" for idx in range(1, self.num_hidden_layers + 1)]
 #         self._out_features, self._out_indices = get_aligned_output_features_output_indices(
 #             out_features=out_features, out_indices=out_indices, stage_names=self.stage_names

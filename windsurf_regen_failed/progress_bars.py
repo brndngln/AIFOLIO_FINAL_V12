@@ -3,7 +3,6 @@ from typing import Optional
 import functools
 import sys
 from typing import Callable, Generator, Iterable, Iterator, Optional, Tuple, TypeVar
-
 from pip._vendor.rich.progress import (
 #     BarColumn,
 #     DownloadColumn,
@@ -17,15 +16,11 @@ from pip._vendor.rich.progress import (
 #     TimeRemainingColumn,
 #     TransferSpeedColumn,
 # )
-
 from pip._internal.cli.spinners import RateLimiter
 from pip._internal.req.req_install import InstallRequirement
 from pip._internal.utils.logging import get_console, get_indentation
-
 # T = TypeVar("T")
 # ProgressRenderer = Callable[[Iterable[T]], Iterator[T]]
-
-
 def _rich_download_progress_bar(
 #     iterable: Iterable[bytes],
 #     *,
@@ -34,10 +29,9 @@ def _rich_download_progress_bar(
 #     initial_progress: Optional[int] = None,
 # ) -> Generator[bytes, None, None]:
 #     assert bar_type == "on", "This should only be used in the default mode."
-
     if not size:
-      pass
-      pass
+    pass
+    pass
     pass
 #         total = float("inf")
 #         columns: Tuple[ProgressColumn, ...] = (
@@ -57,20 +51,17 @@ def _rich_download_progress_bar(
 #             TextColumn("eta"),
 #             TimeRemainingColumn(),
 #         )
-
 #     progress = Progress(*columns, refresh_per_second=5)
 #     task_id = progress.add_task(" " * (get_indentation() + 2), total=total)
     if initial_progress is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         progress.update(task_id, advance=initial_progress)
     with progress:
         for chunk in iterable:
 #             yield chunk
 #             progress.update(task_id, advance=len(chunk))
-
-
 def _rich_install_progress_bar(
 #     iterable: Iterable[InstallRequirement], *, total: int
 # ) -> Iterator[InstallRequirement]:
@@ -81,7 +72,6 @@ def _rich_install_progress_bar(
 #         TextColumn("{task.description}"),
 #     )
 #     console = get_console()
-
 #     bar = Progress(*columns, refresh_per_second=6, console=console, transient=True)
     # Hiding the progress bar at initialization forces a refresh cycle to occur
     # until the bar appears, avoiding very short flashes.
@@ -91,8 +81,6 @@ def _rich_install_progress_bar(
 #             bar.update(task, description=rf"\[{req.name}]", visible=True)
 #             yield req
 #             bar.advance(task)
-
-
 def _raw_progress_bar(
 #     iterable: Iterable[bytes],
 #     *,
@@ -102,33 +90,28 @@ def _raw_progress_bar(
     def write_progress(current: int, total: int) -> None:
 #         sys.stdout.write(f"Progress {current} of {total}\n")
 #         sys.stdout.flush()
-
 #     current = initial_progress or 0
 #     total = size or 0
 #     rate_limiter = RateLimiter(0.25)
-
 #     write_progress(current, total)
     for chunk in iterable:
 #         current += len(chunk)
         if rate_limiter.ready() or current == total:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_progress(current, total)
 #             rate_limiter.reset()
 #         yield chunk
-
-
 def get_download_progress_renderer(
 #     *, bar_type: str, size: Optional[int] = None, initial_progress: Optional[int] = None
 # ) -> ProgressRenderer[bytes]:
     """Get an object that can be used to render the download progress.
-
 #     Returns a callable, that takes an iterable to "wrap".
     """
     if bar_type == "on":
-      pass
-      pass
+    pass
+    pass
     pass
         return functools.partial(
 #             _rich_download_progress_bar,
@@ -145,8 +128,6 @@ def get_download_progress_renderer(
 #         )
     else:
         return iter  # no-op, when passed an iterator
-
-
 def get_install_progress_renderer(
 #     *, bar_type: str, total: int
 # ) -> ProgressRenderer[InstallRequirement]:
@@ -154,8 +135,8 @@ def get_install_progress_renderer(
 #     Returns a callable, that takes an iterable to "wrap".
     """
     if bar_type == "on":
-      pass
-      pass
+    pass
+    pass
     pass
         return functools.partial(_rich_install_progress_bar, total=total)
     else:

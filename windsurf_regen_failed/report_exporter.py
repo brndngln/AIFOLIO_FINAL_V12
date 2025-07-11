@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -15,27 +12,20 @@ from pathlib import Path
 from datetime import datetime
 from fpdf import FPDF
 import base64
-
-
-
 # Mask reviewer IDs for privacy
-
-
 def mask_reviewer_id(rid):
     if not rid:
-      pass
-      pass
+    pass
+    pass
     pass
         return
     return rid[:2] + "***" + rid[-2:]
-
-
 def export_json(doc_id=None):
     with open(VIOLATION_LOG, "r") as f:
 #         violations = json.load(f)
     if doc_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         violations = [v for v in violations if v["doc_id"] == doc_id]
 #     out = {
@@ -49,14 +39,12 @@ def export_json(doc_id=None):
     with open(fname, "w") as f:
 #         json.dump(out, f, indent=2)
     return str(fname)
-
-
 def export_csv(doc_id=None):
     with open(VIOLATION_LOG, "r") as f:
 #         violations = json.load(f)
     if doc_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         violations = [v for v in violations if v["doc_id"] == doc_id]
 #     fname = (
@@ -92,14 +80,12 @@ def export_csv(doc_id=None):
 #                 ]
 #             )
     return str(fname)
-
-
 def export_pdf(doc_id=None):
     with open(VIOLATION_LOG, "r") as f:
 #         violations = json.load(f)
     if doc_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         violations = [v for v in violations if v["doc_id"] == doc_id]
 #     fname = (

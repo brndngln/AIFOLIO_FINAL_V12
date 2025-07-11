@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import sys
@@ -11,40 +9,29 @@ from functools import lru_cache
 from marshal import dumps, loads
 from random import randint
 from typing import Any, Dict, Iterable, List, Optional, Type, Union, cast
-
 from . import errors
 from .color import Color, ColorParseError, ColorSystem, blend_rgb
 from .repr import Result, rich_repr
 from .terminal_theme import DEFAULT_TERMINAL_THEME, TerminalTheme
-
 # Style instances and style definitions are often interchangeable
 # StyleType = Union[str, "Style"]
-
-
 class _Bit:
-
 #     __slots__ = ["bit"]
-
     def __init__(self, bit_no: int) -> None:
 #         self.bit = 1 << bit_no
-
     def __get__(self, obj: "Style", objtype: Type["Style"]) -> Optional[bool]:
         if obj._set_attributes & self.bit:
-      pass
-      pass
+    pass
+    pass
     pass
             return obj._attributes & self.bit != 0
         return None
-
-
 # @rich_repr
 class Style:
 #     A terminal style.
-
 #     A terminal style consists of a color (`color`), a background color (`bgcolor`), and a number of attributes, such
 #     as bold, italic etc. The attributes have 3 states: they can either be on
 #     (``True``), off (``False``), or not set (``None``).
-
 #     Args:
 #         color (Union[Color, str], optional): Color of terminal text. Defaults to None.
 #         bgcolor (Union[Color, str], optional): Color of terminal background. Defaults to None.
@@ -62,7 +49,6 @@ class Style:
 #         encircle (bool, optional): Enable encircled text. Defaults to None.
 #         overline (bool, optional): Enable overlined text. Defaults to None.
 #         link (str, link): Link URL. Defaults to None.
-
 #     _color: Optional[Color]
 #     _bgcolor: Optional[Color]
 #     _attributes: int
@@ -70,7 +56,6 @@ class Style:
 #     _hash: Optional[int]
 #     _null: bool
 #     _meta: Optional[bytes]
-
 #     __slots__ = [
 #         "_color",
 #         "_bgcolor",
@@ -84,7 +69,6 @@ class Style:
 #         "_null",
 #         "_meta",
 #     ]
-
     # maps bits on to SGR parameter
 #     _style_map = {
 #         0: "1",
@@ -101,7 +85,6 @@ class Style:
 #         11: "52",
 #         12: "53",
 #     }
-
 #         "dim": "dim",
 #         "d": "dim",
 #         "bold": "bold",
@@ -125,7 +108,6 @@ class Style:
 #         "overline": "overline",
 #         "o": "overline",
 #     }
-
     def __init__(
 #         self,
 #         *,
@@ -149,10 +131,8 @@ class Style:
 #     ):
 #         self._ansi: Optional[str] = None
 #         self._style_definition: Optional[str] = None
-
         def _make_color(color: Union[Color, str]) -> Color:
             return color if isinstance(color, Color) else Color.parse(color)
-
 #         self._color = None if color is None else _make_color(color)
 #         self._bgcolor = None if bgcolor is None else _make_color(bgcolor)
 #         self._set_attributes = sum(
@@ -193,7 +173,6 @@ class Style:
             if self._set_attributes
             else 0
 #         )
-
 #         self._link = link
 #         self._meta = None if meta is None else dumps(meta)
 #         self._link_id = (
@@ -201,22 +180,17 @@ class Style:
 #         )
 #         self._hash: Optional[int] = None
 #         self._null = not (self._set_attributes or color or bgcolor or link or meta)
-
 #     @classmethod
     def null(cls) -> "Style":
-
         return NULL_STYLE
-
 #     @classmethod
     def from_color(
 #         cls, color: Optional[Color] = None, bgcolor: Optional[Color] = None
 #     ) -> "Style":
 #         Create a new style with colors and no attributes.
-
 #         Returns:
 #             color (Optional[Color]): A (foreground) color, or None for no color. Defaults to None.
 #             bgcolor (Optional[Color]): A (background) color, or None for no color. Defaults to None.
-
 #         style: Style = cls.__new__(Style)
 #         style._ansi = None
 #         style._style_definition = None
@@ -230,14 +204,11 @@ class Style:
 #         style._null = not (color or bgcolor)
 #         style._hash = None
         return style
-
 #     @classmethod
     def from_meta(cls, meta: Optional[Dict[str, Any]]) -> "Style":
 #         Create a new style with meta data.
-
 #         Returns:
 #             meta (Optional[Dict[str, Any]]): A dictionary of meta data. Defaults to None.
-
 #         style: Style = cls.__new__(Style)
 #         style._ansi = None
 #         style._style_definition = None
@@ -251,25 +222,19 @@ class Style:
 #         style._hash = None
 #         style._null = not (meta)
         return style
-
 #     @classmethod
     def on(cls, meta: Optional[Dict[str, Any]] = None, **handlers: Any) -> "Style":
 #         Create a blank style with meta information.
-
 #         Example:
 #             style = Style.on(click=self.on_click)
-
 #         Args:
 #             meta (Optional[Dict[str, Any]], optional): An optional dict of meta information.
 #             **handlers (Any): Keyword arguments are translated in to handlers.
-
 #         Returns:
 #             Style: A Style with meta information attached.
-
 #         meta = {} if meta is None else meta
 #         meta.update({f"@{key}": value for key, value in handlers.items()})
         return cls.from_meta(meta)
-
 #     bold = _Bit(0)
 #     dim = _Bit(1)
 #     italic = _Bit(2)
@@ -283,191 +248,181 @@ class Style:
 #     frame = _Bit(10)
 #     encircle = _Bit(11)
 #     overline = _Bit(12)
-
 #     @property
     def link_id(self) -> str:
-
         return self._link_id
-
     def __str__(self) -> str:
-
         if self._style_definition is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attributes: List[str] = []
 #             append = attributes.append
 #             bits = self._set_attributes
             if bits & 0b0000000001111:
-      pass
-      pass
+    pass
+    pass
     pass
                 if bits & 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("bold" if self.bold else "not bold")
                 if bits & (1 << 1):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("dim" if self.dim else "not dim")
                 if bits & (1 << 2):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("italic" if self.italic else "not italic")
                 if bits & (1 << 3):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("underline" if self.underline else "not underline")
             if bits & 0b0000111110000:
-      pass
-      pass
+    pass
+    pass
     pass
                 if bits & (1 << 4):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("blink" if self.blink else "not blink")
                 if bits & (1 << 5):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("blink2" if self.blink2 else "not blink2")
                 if bits & (1 << 6):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("reverse" if self.reverse else "not reverse")
                 if bits & (1 << 7):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("conceal" if self.conceal else "not conceal")
                 if bits & (1 << 8):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("strike" if self.strike else "not strike")
             if bits & 0b1111000000000:
-      pass
-      pass
+    pass
+    pass
     pass
                 if bits & (1 << 9):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("underline2" if self.underline2 else "not underline2")
                 if bits & (1 << 10):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("frame" if self.frame else "not frame")
                 if bits & (1 << 11):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("encircle" if self.encircle else "not encircle")
                 if bits & (1 << 12):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append("overline" if self.overline else "not overline")
             if self._color is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append(self._color.name)
             if self._bgcolor is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append("on")
 #                 append(self._bgcolor.name)
             if self._link:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append("link")
 #                 append(self._link)
 #             self._style_definition = " ".join(attributes) or "none"
         return self._style_definition
-
     def __bool__(self) -> bool:
-
         return not self._null
-
     def _make_ansi_codes(self, color_system: ColorSystem) -> str:
 #         Generate ANSI codes for this style.
-
 #         Args:
 #             color_system (ColorSystem): Color system.
-
 #         Returns:
 #             str: String containing codes.
-
         if self._ansi is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             sgr: List[str] = []
 #             append = sgr.append
 #             _style_map = self._style_map
 #             attributes = self._attributes & self._set_attributes
             if attributes:
-      pass
-      pass
+    pass
+    pass
     pass
                 if attributes & 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append(_style_map[0])
                 if attributes & 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append(_style_map[1])
                 if attributes & 4:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append(_style_map[2])
                 if attributes & 8:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     append(_style_map[3])
                 if attributes & 0b0000111110000:
-      pass
-      pass
+    pass
+    pass
     pass
                     for bit in range(4, 9):
                         if attributes & (1 << bit):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             append(_style_map[bit])
                 if attributes & 0b1111000000000:
-      pass
-      pass
+    pass
+    pass
     pass
                     for bit in range(9, 13):
                         if attributes & (1 << bit):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             append(_style_map[bit])
             if self._color is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 sgr.extend(self._color.downgrade(color_system).get_ansi_codes())
             if self._bgcolor is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 sgr.extend(
 #                     self._bgcolor.downgrade(color_system).get_ansi_codes(
@@ -476,35 +431,28 @@ class Style:
 #                 )
 #             self._ansi = ";".join(sgr)
         return self._ansi
-
 #     @classmethod
 #     @lru_cache(maxsize=1024)
     def normalize(cls, style: str) -> str:
 #         Normalize a style definition so that styles with the same effect have the same string
 #         representation.
-
 #         Args:
 #             style (str): A style definition.
-
 #         Returns:
 #             str: Normal form of style definition.
-
         try:
             return str(cls.parse(style))
         except errors.StyleSyntaxError:
             return style.strip().lower()
-
 #     @classmethod
     def pick_first(cls, *values: Optional[StyleType]) -> StyleType:
-
         for value in values:
             if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return value
 #         raise ValueError("expected at least one non-None style")
-
     def __rich_repr__(self) -> Result:
 #         yield "color", self.color, None
 #         yield "bgcolor", self.bgcolor, None
@@ -522,31 +470,28 @@ class Style:
 #         yield "encircle", self.encircle, None
 #         yield "link", self.link, None
         if self._meta:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield "meta", self.meta
-
     def __eq__(self, other: Any) -> bool:
         if not isinstance(other, Style):
-      pass
-      pass
+    pass
+    pass
     pass
             return NotImplemented
         return self.__hash__() == other.__hash__()
-
     def __ne__(self, other: Any) -> bool:
         if not isinstance(other, Style):
-      pass
-      pass
+    pass
+    pass
     pass
             return NotImplemented
         return self.__hash__() != other.__hash__()
-
     def __hash__(self) -> int:
         if self._hash is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return self._hash
 #         self._hash = hash(
@@ -560,43 +505,29 @@ class Style:
 #             )
 #         )
         return self._hash
-
 #     @property
     def color(self) -> Optional[Color]:
-
         return self._color
-
 #     @property
     def bgcolor(self) -> Optional[Color]:
-
         return self._bgcolor
-
 #     @property
     def link(self) -> Optional[str]:
-
         return self._link
-
 #     @property
     def transparent_background(self) -> bool:
-
         return self.bgcolor is None or self.bgcolor.is_default
-
 #     @property
     def background_style(self) -> "Style":
-
         return Style(bgcolor=self.bgcolor)
-
 #     @property
     def meta(self) -> Dict[str, Any]:
-
         return {} if self._meta is None else cast(Dict[str, Any], loads(self._meta))
-
 #     @property
     def without_color(self) -> "Style":
-
         if self._null:
-      pass
-      pass
+    pass
+    pass
     pass
             return NULL_STYLE
 #         style: Style = self.__new__(Style)
@@ -612,43 +543,36 @@ class Style:
 #         style._meta = None
 #         style._hash = None
         return style
-
 #     @classmethod
 #     @lru_cache(maxsize=4096)
     def parse(cls, style_definition: str) -> "Style":
 #         Parse a style definition.
-
 #         Args:
 #             style_definition (str): A string containing a style.
-
 #         Raises:
 #             errors.StyleSyntaxError: If the style definition syntax is invalid.
-
 #         Returns:
 #             `Style`: A Style instance.
-
         if style_definition.strip() == "none" or not style_definition:
-      pass
-      pass
+    pass
+    pass
     pass
             return cls.null()
-
 #         color: Optional[str] = None
 #         bgcolor: Optional[str] = None
 #         attributes: Dict[str, Optional[Any]] = {}
 #         link: Optional[str] = None
-
 #         words = iter(style_definition.split())
         for original_word in words:
 #             word = original_word.lower()
             if word == "on":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 word = next(words, )
                 if not word:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise errors.StyleSyntaxError("color expected after 'on'")
                 try:
@@ -658,34 +582,30 @@ class Style:
 #                         f"unable to parse {word!r} as background color; {error}"
 #                     ) from None
 #                 bgcolor = word
-
             elif word == "not":
     pass
 #                 word = next(words, )
 #                 attribute = STYLE_ATTRIBUTES.get(word)
                 if attribute is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise errors.StyleSyntaxError(
 #                         f"expected style attribute after 'not', found {word!r}"
 #                     )
 #                 attributes[attribute] = False
-
             elif word == "link":
     pass
 #                 word = next(words, )
                 if not word:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise errors.StyleSyntaxError("URL expected after 'link'")
 #                 link = word
-
             elif word in STYLE_ATTRIBUTES:
     pass
 #                 attributes[STYLE_ATTRIBUTES[word]] = True
-
             else:
                 try:
 #                     Color.parse(word)
@@ -696,24 +616,21 @@ class Style:
 #                 color = word
 #         style = Style(color=color, bgcolor=bgcolor, link=link, **attributes)
         return style
-
 #     @lru_cache(maxsize=1024)
     def get_html_style(self, theme: Optional[TerminalTheme] = None) -> str:
-
 #         theme = theme or DEFAULT_TERMINAL_THEME
 #         css: List[str] = []
 #         append = css.append
-
 #         color = self.color
 #         bgcolor = self.bgcolor
         if self.reverse:
-      pass
-      pass
+    pass
+    pass
     pass
 #             color, bgcolor = bgcolor, color
         if self.dim:
-      pass
-      pass
+    pass
+    pass
     pass
             foreground_color = (
 #                 theme.foreground_color if color is None else color.get_truecolor(theme)
@@ -722,80 +639,69 @@ class Style:
 #                 blend_rgb(foreground_color, theme.background_color, 0.5)
 #             )
         if color is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             theme_color = color.get_truecolor(theme)
 #             append(f"color: {theme_color.hex}")
 #             append(f"text-decoration-color: {theme_color.hex}")
         if bgcolor is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             theme_color = bgcolor.get_truecolor(theme, foreground=False)
 #             append(f"background-color: {theme_color.hex}")
         if self.bold:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append("font-weight: bold")
         if self.italic:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append("font-style: italic")
         if self.underline:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append("text-decoration: underline")
         if self.strike:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append("text-decoration: line-through")
         if self.overline:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append("text-decoration: overline")
         return "; ".join(css)
-
 #     @classmethod
     def combine(cls, styles: Iterable["Style"]) -> "Style":
 #         Combine styles and get result.
-
 #         Args:
 #             styles (Iterable[Style]): Styles to combine.
-
 #         Returns:
 #             Style: A new style instance.
-
 #         iter_styles = iter(styles)
         return sum(iter_styles, next(iter_styles))
-
 #     @classmethod
     def chain(cls, *styles: "Style") -> "Style":
 #         Combine styles from positional argument in to a single style.
-
 #         Args:
 #             *styles (Iterable[Style]): Styles to combine.
-
 #         Returns:
 #             Style: A new style instance.
-
 #         iter_styles = iter(styles)
         return sum(iter_styles, next(iter_styles))
-
     def copy(self) -> "Style":
 #         Get a copy of this style.
-
 #         Returns:
 #             Style: A new Style instance with identical attributes.
-
         if self._null:
-      pass
-      pass
+    pass
+    pass
     pass
             return NULL_STYLE
 #         style: Style = self.__new__(Style)
@@ -811,17 +717,14 @@ class Style:
 #         style._null = False
 #         style._meta = self._meta
         return style
-
 #     @lru_cache(maxsize=128)
     def clear_meta_and_links(self) -> "Style":
 #         Get a copy of this style with link and meta information removed.
-
 #         Returns:
 #             Style: New style object.
-
         if self._null:
-      pass
-      pass
+    pass
+    pass
     pass
             return NULL_STYLE
 #         style: Style = self.__new__(Style)
@@ -837,16 +740,12 @@ class Style:
 #         style._null = False
 #         style._meta = None
         return style
-
     def update_link(self, link: Optional[str] = None) -> "Style":
 #         Get a copy with a different value for link.
-
 #         Args:
 #             link (str, optional): New value for link. Defaults to None.
-
 #         Returns:
 #             Style: A new Style instance.
-
 #         style: Style = self.__new__(Style)
 #         style._ansi = self._ansi
 #         style._style_definition = self._style_definition
@@ -860,7 +759,6 @@ class Style:
 #         style._null = False
 #         style._meta = self._meta
         return style
-
     def render(
 #         self,
 #         text: str = ,
@@ -869,51 +767,43 @@ class Style:
 #         legacy_windows: bool = False,
 #     ) -> str:
 #         Render the ANSI codes for the style.
-
 #         Args:
 #             text (str, optional): A string to style. Defaults to .
 #             color_system (Optional[ColorSystem], optional): Color system to render to. Defaults to ColorSystem.TRUECOLOR.
-
 #         Returns:
 #             str: A string containing ANSI style codes.
-
         if not text or color_system is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return text
 #         attrs = self._ansi or self._make_ansi_codes(color_system)
 #         rendered = f"\x1b[{attrs}m{text}\x1b[0m" if attrs else text
         if self._link and not legacy_windows:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rendered = (
 #                 f"\x1b]8;id={self._link_id};{self._link}\x1b\\{rendered}\x1b]8;;\x1b"
 #             )
         return rendered
-
     def test(self, text: Optional[str] = None) -> None:
 #         Write text with style directly to terminal.
-
 #         This method is for testing purposes only.
-
 #         Args:
 #             text (Optional[str], optional): Text to style or None for style name.
-
 #         text = text or str(self)
 #         sys.stdout.write(f"{self.render(text)}\n")
-
 #     @lru_cache(maxsize=1024)
     def _add(self, style: Optional["Style"]) -> "Style":
         if style is None or style._null:
-      pass
-      pass
+    pass
+    pass
     pass
             return self
         if self._null:
-      pass
-      pass
+    pass
+    pass
     pass
             return style
 #         new_style: Style = self.__new__(Style)
@@ -929,51 +819,35 @@ class Style:
 #         new_style._link_id = style._link_id or self._link_id
 #         new_style._null = style._null
         if self._meta and style._meta:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_style._meta = dumps({**self.meta, **style.meta})
         else:
 #             new_style._meta = self._meta or style._meta
 #         new_style._hash = None
         return new_style
-
     def __add__(self, style: Optional["Style"]) -> "Style":
 #         combined_style = self._add(style)
         return combined_style.copy() if combined_style.link else combined_style
-
-
 # NULL_STYLE = Style()
-
-
 class StyleStack:
-
 #     __slots__ = ["_stack"]
-
     def __init__(self, default_style: "Style") -> None:
 #         self._stack: List[Style] = [default_style]
-
     def __repr__(self) -> str:
         return f"<stylestack {self._stack!r}>"
-
 #     @property
     def current(self) -> Style:
-
         return self._stack[-1]
-
     def push(self, style: Style) -> None:
 #         Push a new style on to the stack.
-
 #         Args:
 #             style (Style): New style to combine with current style.
-
 #         self._stack.append(self._stack[-1] + style)
-
     def pop(self) -> Style:
 #         Pop last style and discard.
-
 #         Returns:
 #             Style: New current style (also available as stack.current)
-
 #         self._stack.pop()
         return self._stack[-1]

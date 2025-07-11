@@ -1,28 +1,21 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # OMNIELITE SAFE AI MODULE
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
-
 from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Dict
-
 #     Path(__file__).parent.parent / "logs" / "policy_external_mapping.json"
 # )
-
 # Static, deterministic, SAFE AI-compliant mapping to external standards
 #     "iso27001": {
 #         "rotation": "A.9.2.4 (Management of secret authentication information)",
@@ -37,12 +30,10 @@ from typing import Dict
 #         "workflow": "PL-2 (System and Communications Protection Policy)",
 #     },
 # }
-
-
 def map_policies_to_standards():
     if not POLICY_PATH.exists():
-      pass
-      pass
+    pass
+    pass
     pass
         return []
     with open(POLICY_PATH, "r") as f:

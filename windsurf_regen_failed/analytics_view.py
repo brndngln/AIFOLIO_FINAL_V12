@@ -1,21 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import os
 import json
-
 #     os.path.dirname(__file__), "../integrations/notion_push.py"
 # )
-
-
 class AnalyticsView:
 #     @staticmethod
     def get_dashboard_data():
@@ -54,8 +48,8 @@ class AnalyticsView:
 #         }
         # Load issue log
         if os.path.exists(ISSUE_LOG_PATH):
-      pass
-      pass
+    pass
+    pass
     pass
             with open(ISSUE_LOG_PATH, "r") as f:
 #                 data["issue_log"] = json.load(f)
@@ -74,13 +68,11 @@ class AnalyticsView:
 #             "Elite Vault 3": "❌ FAIL",
 #         }
         return data
-
 #     @staticmethod
     def sync_top_issues_to_notion():
         # Dummy: call notion_push.py (stub)
         try:
             import subprocess
-
 #             subprocess.run(["python", NOTION_PUSH_PATH], check=True)
         except Exception:
 #             pass

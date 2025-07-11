@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -14,16 +11,11 @@ import os
 import time
 import getpass
 from typing import Any, Dict
-
-
-
 def log_intrusion(event: str, filename: str) -> None:
-
 #     Logs an intrusion event to the intrusion log and sends a webhook alert if configured.
 #     Args:
 #         event: The event type (e.g., 'PERMISSION_CHANGE').
 #         filename: The file involved in the event.
-
 #     user: str = getpass.getuser()
 #     ts: str = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 #     msg: str = f"{ts} | {user} | {event} | {filename}\n"
@@ -33,39 +25,27 @@ def log_intrusion(event: str, filename: str) -> None:
     try:
 #         webhook_url = os.environ.get("EMMA_SIEM_WEBHOOK")
         if webhook_url:
-      pass
-      pass
+    pass
+    pass
     pass
 #             requests.post(webhook_url, json={"alert": msg})
     except Exception as e:
 #         print(f"Webhook/SIEM integration failed: {e}")
 #     print(f"INTRUSION ALERT: {msg}")
-
-
 def hsm_sign(data: Any) -> None:
-
 #     Stub for HSM signing.
 #     Args:
 #         data: Data to be signed.
-
 #     pass
-
-
 def airgap_transfer(file_path: str) -> None:
-
 #     Stub for secure transfer to air-gapped storage.
 #     Args:
 #         file_path: Path to the file to transfer.
-
 #     pass
-
-
 def monitor_permissions(log_dir: str = "ai_core/EmmaLogs/") -> None:
-
 #     Monitors for unauthorized chmod/chown or access attempts in the log directory.
 #     Args:
 #         log_dir: Directory to monitor.
-
 #     last_perms: Dict[str, str] = {}
     while True:
         for fname in os.listdir(log_dir):
@@ -73,8 +53,8 @@ def monitor_permissions(log_dir: str = "ai_core/EmmaLogs/") -> None:
             try:
 #                 perms = oct(os.stat(path).st_mode)[-3:]
                 if fname not in last_perms:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     last_perms[fname] = perms
                 elif perms != last_perms[fname]:

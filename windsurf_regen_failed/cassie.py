@@ -1,29 +1,22 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # backend/agents/cassie.py
-
 from .agent_utils import sanitize_input, moderate_content, log_interaction, raise_if_sentience_attempted
 import openai
-
 def handle_cassie(user_input: str, user: str = "anonymous") -> str:
-
 #     Responds to user input using a stateless, safe GPT-4 interaction, with full audit, moderation, and anti-sentience safeguards.
-
 #     safe_input = sanitize_input(user_input)
     # Enhanced compliance: pass user_consent in context
 #     context = {"user_consent": True}  # Replace with actual consent logic if available
 #     moderation = moderate_content(safe_input, context)
     if moderation["block_reason"] or moderation["human_review_required"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         log_interaction("cassie", safe_input, f"[BLOCKED: {moderation.get('block_reason','compliance')}]", moderation, user)
         return f"Sorry, this request cannot be processed due to compliance or safety policies. [Reason: {moderation.get('block_reason','compliance')}]"
@@ -47,8 +40,8 @@ def handle_cassie(user_input: str, user: str = "anonymous") -> str:
     # Post-response moderation and audit
 #     moderation_out = moderate_content(output, context)
     if moderation_out["block_reason"] or moderation_out["human_review_required"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         log_interaction("cassie", safe_input, f"[BLOCKED-OUTPUT: {moderation_out.get('block_reason','compliance')}]", moderation_out, user)
         return f"Sorry, the generated response was blocked for compliance or safety reasons. [Reason: {moderation_out.get('block_reason','compliance')}]"

@@ -1,23 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Static, deterministic, SAFE AI-compliant PDF signing logic.
-
 import logging
-
 # logger = logging.getLogger(__name__)
-
-
-
 def sign_pdf(pdf_path: str) -> str:
     # Simulate signing by appending static signature metadata
 #     signed_pdf_path = pdf_path.replace(".pdf", "_signed.pdf")

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -23,17 +20,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # XMOD_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "facebook/xmod-base": "https://huggingface.co/facebook/xmod-base/resolve/main/config.json",
 #     "facebook/xmod-large-prenorm": "https://huggingface.co/facebook/xmod-large-prenorm/resolve/main/config.json",
@@ -45,19 +37,13 @@ from ...utils import logging
 #     "facebook/xmod-base-75-125k": "https://huggingface.co/facebook/xmod-base-75-125k/resolve/main/config.json",
 #     "facebook/xmod-base-75-269k": "https://huggingface.co/facebook/xmod-base-75-269k/resolve/main/config.json",
 # }
-
-
 class XmodConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`XmodModel`]. It is used to instantiate an X-MOD
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the
 #     [facebook/xmod-base](https://huggingface.co/facebook/xmod-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the X-MOD model. Defines the number of different tokens that can be represented by the
@@ -114,24 +100,17 @@ class XmodConfig(PretrainedConfig):
         default_language (`str`, *optional*):
 #             Language code of a default language. It will be assumed that the input is in this language if no language
 #             codes are explicitly passed to the forward method.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import XmodConfig, XmodModel
-
 #     >>> # Initializing an X-MOD facebook/xmod-base style configuration
 #     >>> configuration = XmodConfig()
-
 #     >>> # Initializing a model (with random weights) from the facebook/xmod-base style configuration
 #     >>> model = XmodModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "xmod"
-
     def __init__(
 #         self,
 #         vocab_size=30522,
@@ -162,7 +141,6 @@ class XmodConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
@@ -185,15 +163,13 @@ class XmodConfig(PretrainedConfig):
 #         self.ln_before_adapter = ln_before_adapter
 #         self.languages = list(languages)
 #         self.default_language = default_language
-
-
 # Copied from transformers.models.roberta.configuration_roberta.RobertaOnnxConfig with Roberta->Xmod
 class XmodOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task == "multiple-choice":
-      pass
-      pass
+    pass
+    pass
     pass
 #             dynamic_axis = {0: "batch", 1: "choice", 2: "sequence"}
         else:

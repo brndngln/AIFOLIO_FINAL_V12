@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,20 +10,15 @@ import os
 import logging
 import requests
 import json
-
 import time
 from .retry_utils import retry_safe_hook
-
-
 class cross_sell_recommender:
 #     @staticmethod
 #     @retry_safe_hook(max_attempts=3, backoff_tier="short")
     def recommend_next(buyer_email: str, current_vault: str | None = None) -> None:
-
 #         Generate a cross-sell offer and send via email (SendGrid if configured), or log to file.
 #         Uses static rule-based logic (e.g., offers a fixed discount).
 #         Logs all actions and errors. Retries up to 3 times on failure.
-
 #         start = time.time()
 #         offer = "Special offer: Get 20% off on your next AIFOLIO vault!"
 #         api_key = os.environ.get("SENDGRID_API_KEY")
@@ -45,8 +37,8 @@ class cross_sell_recommender:
 #         }
         try:
             if api_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = requests.post(
 #                     "https://api.sendgrid.com/v3/mail/send",
@@ -63,8 +55,8 @@ class cross_sell_recommender:
 #                     timeout=10,
 #                 )
                 if resp.status_code == 202:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logging.info(f"[AIFOLIO] Cross-sell offer sent to {buyer_email}.")
                 else:
@@ -73,8 +65,8 @@ class cross_sell_recommender:
 #                     )
             else:
                 if os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
                     with open(log_path, "r+") as f:
 #                         logs = json.load(f)

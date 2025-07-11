@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,35 +19,24 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Any, Mapping, Optional
-
 from ... import PreTrainedTokenizer, TensorType, is_torch_available
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfigWithPast
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # GPT_NEO_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "EleutherAI/gpt-neo-1.3B": "https://huggingface.co/EleutherAI/gpt-neo-1.3B/resolve/main/config.json",
     # See all GPTNeo models at https://huggingface.co/models?filter=gpt_neo
 # }
-
-
 class GPTNeoConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`GPTNeoModel`]. It is used to instantiate a GPT
 #     Neo model according to the specified arguments, defining the model architecture. Instantiating a configuration with
 #     the defaults will yield a similar configuration to that of the GPTNeo
 #     [EleutherAI/gpt-neo-1.3B](https://huggingface.co/EleutherAI/gpt-neo-1.3B) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50257):
 #             Vocabulary size of the GPT Neo model. Defines the number of different tokens that can be represented by the
@@ -96,26 +82,19 @@ class GPTNeoConfig(PretrainedConfig):
 #             The id of the beginning of sentence token in the vocabulary.
 #         eos_token_id (`int`, *optional*, defaults to 50256):
 #             The id of the end of sentence token in the vocabulary.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import GPTNeoConfig, GPTNeoModel
-
 #     >>> # Initializing a GPTNeo EleutherAI/gpt-neo-1.3B style configuration
 #     >>> configuration = GPTNeoConfig()
-
 #     >>> # Initializing a model (with random weights) from the EleutherAI/gpt-neo-1.3B style configuration
 #     >>> model = GPTNeoModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "gpt_neo"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {"num_attention_heads": "num_heads", "num_hidden_layers": "num_layers"}
-
     def __init__(
 #         self,
 #         vocab_size=50257,
@@ -153,16 +132,13 @@ class GPTNeoConfig(PretrainedConfig):
 #         self.layer_norm_epsilon = layer_norm_epsilon
 #         self.initializer_range = initializer_range
 #         self.use_cache = use_cache
-
 #         self.bos_token_id = bos_token_id
 #         self.eos_token_id = eos_token_id
-
 #         self.attention_types = attention_types
 #         self.attention_layers = self.expand_attention_types_params(attention_types)
-
         if len(self.attention_layers) != self.num_layers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Configuration for convolutional module is incorrect. "
@@ -172,9 +148,7 @@ class GPTNeoConfig(PretrainedConfig):
 #                 "`config.attention_layers` is prepared using `config.attention_types`. "
 #                 "Please verify the value of `config.attention_types` argument."
 #             )
-
 #         super().__init__(bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)
-
 #     @staticmethod
     def expand_attention_types_params(attention_types):
 #         attentions = []
@@ -182,64 +156,46 @@ class GPTNeoConfig(PretrainedConfig):
             for _ in range(item[1]):
 #                 attentions.extend(item[0])
         return attentions
-
-
 def custom_unfold(input, dimension, size, step):
-
     import torch
-
 #     shape = input.size()
 #     rank = len(shape)
 #     sizedim = shape[dimension]
-
 #     low_indices = torch.arange(0, sizedim, step)
 #     min_length = torch.div(sizedim - size, step, rounding_mode="floor") + 1
 #     indices = torch.arange(size) + low_indices[:min_length][:, None]
-
 #     s = [slice(None)] * rank
 #     s[dimension] = indices
 #     sliced = input[s]
-
 #     perm = list(range(0, rank + 1))
 #     perm.append(perm.pop(dimension + 1))
-
     return sliced.permute(perm)
-
-
 def custom_get_block_length_and_num_blocks(seq_length, window_size):
-
 #     Custom implementation for GPTNeoAttentionMixin._get_block_length_and_num_blocks to enable the export to ONNX as
 #     original implementation uses Python variables and control flow.
-
     import torch
-
 #     candidates = torch.arange(1, window_size)
 #     remainders = torch.remainder(seq_length, candidates)
 #     divisor_indices = remainders == 0
 #     divisors = candidates[divisor_indices]
 #     largest_divisor = torch.max(divisors)
     return largest_divisor, torch.div(seq_length, largest_divisor, rounding_mode="floor")
-
-
 class GPTNeoOnnxConfig(OnnxConfigWithPast):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
 #         common_inputs = OrderedDict({"input_ids": {0: "batch", 1: "sequence"}})
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.fill_with_past_key_values_(common_inputs, direction="inputs")
 #             common_inputs["attention_mask"] = {0: "batch", 1: "past_sequence + sequence"}
         else:
 #             common_inputs["attention_mask"] = {0: "batch", 1: "sequence"}
-
         return common_inputs
-
 #     @property
     def num_attention_heads(self) -> int:
         return self._config.num_heads
-
     def generate_dummy_inputs(
 #         self,
 #         tokenizer: PreTrainedTokenizer,
@@ -251,23 +207,20 @@ class GPTNeoOnnxConfig(OnnxConfigWithPast):
 #         common_inputs = super(OnnxConfigWithPast, self).generate_dummy_inputs(
 #             tokenizer, batch_size=batch_size, seq_length=seq_length, is_pair=is_pair, framework=framework
 #         )
-
         # We need to order the input in the way they appears in the forward()
 #         ordered_inputs = OrderedDict({"input_ids": common_inputs["input_ids"]})
-
         # Need to add the past_keys
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
             if not is_torch_available():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Cannot generate dummy past_keys inputs without PyTorch installed.")
             else:
                 import torch
-
 #                 batch, seqlen = common_inputs["input_ids"].shape
                 # Not using the same length for past_key_values
 #                 past_key_values_length = seqlen + 2
@@ -280,19 +233,16 @@ class GPTNeoOnnxConfig(OnnxConfigWithPast):
 #                 ordered_inputs["past_key_values"] = [
 #                     (torch.zeros(past_shape), torch.zeros(past_shape)) for _ in range(self.num_layers)
 #                 ]
-
 #         ordered_inputs["attention_mask"] = common_inputs["attention_mask"]
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #             mask_dtype = ordered_inputs["attention_mask"].dtype
 #             ordered_inputs["attention_mask"] = torch.cat(
 #                 [ordered_inputs["attention_mask"], torch.ones(batch, past_key_values_length, dtype=mask_dtype)], dim=1
 #             )
-
         return ordered_inputs
-
 #     @property
     def default_onnx_opset(self) -> int:
         return 13

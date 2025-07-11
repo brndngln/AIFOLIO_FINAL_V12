@@ -1,18 +1,13 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from typing import Union
 from typing_extensions import Literal, Annotated, TypeAlias
-
 from ...._utils import PropertyInfo
 from ...._models import BaseModel
 from .error_event import ErrorEvent
@@ -48,7 +43,6 @@ from .conversation_item_input_audio_transcription_failed_event import Conversati
 from .conversation_item_input_audio_transcription_completed_event import (
 #     ConversationItemInputAudioTranscriptionCompletedEvent,
 # )
-
 # __all__ = [
 #     "RealtimeServerEvent",
 #     "ConversationItemRetrieved",
@@ -56,36 +50,22 @@ from .conversation_item_input_audio_transcription_completed_event import (
 #     "OutputAudioBufferStopped",
 #     "OutputAudioBufferCleared",
 # ]
-
-
 class ConversationItemRetrieved(BaseModel):
 #     event_id: str
-
 #     item: ConversationItem
-
 #     type: Literal["conversation.item.retrieved"]
-
 class OutputAudioBufferStarted(BaseModel):
 #     event_id: str
-
 #     response_id: str
-
 #     type: Literal["output_audio_buffer.started"]
-
 class OutputAudioBufferStopped(BaseModel):
 #     event_id: str
-
 #     response_id: str
-
 #     type: Literal["output_audio_buffer.stopped"]
-
 class OutputAudioBufferCleared(BaseModel):
 #     event_id: str
-
 #     response_id: str
-
 #     type: Literal["output_audio_buffer.cleared"]
-
 # RealtimeServerEvent: TypeAlias = Annotated[
 #     Union[
 #         ConversationCreatedEvent,

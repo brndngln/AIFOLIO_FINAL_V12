@@ -1,15 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # mypy: ignore-errors
-
 from .. import fixtures
 from ..assertions import eq_
 from ..schema import Column
@@ -19,15 +15,11 @@ from ... import Integer
 from ... import select
 from ... import String
 from ... import testing
-
-
 class CTETest(fixtures.TablesTest):
 #     __backend__ = True
 #     __requires__ = ("ctes",)
-
 #     run_inserts = "each"
 #     run_deletes = "each"
-
 #     @classmethod
     def define_tables(cls, metadata):
 #         Table(
@@ -37,7 +29,6 @@ class CTETest(fixtures.TablesTest):
 #             Column("data", String(50)),
 #             Column("parent_id", ForeignKey("some_table.id")),
 #         )
-
 #         Table(
 #             "some_other_table",
 #             metadata,
@@ -45,7 +36,6 @@ class CTETest(fixtures.TablesTest):
 #             Column("data", String(50)),
 #             Column("parent_id", Integer),
 #         )
-
 #     @classmethod
     def insert_data(cls, connection):
 #         connection.execute(
@@ -58,10 +48,8 @@ class CTETest(fixtures.TablesTest):
 #                 {"id": 5, "data": "d5", "parent_id": 3},
 #             ],
 #         )
-
     def test_select_nonrecursive_round_trip(self, connection):
 #         some_table = self.tables.some_table
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))
@@ -71,16 +59,13 @@ class CTETest(fixtures.TablesTest):
 #             select(cte.c.data).where(cte.c.data.in_(["d4", "d5"]))
 #         )
 #         eq_(result.fetchall(), [("d4",)])
-
     def test_select_recursive_round_trip(self, connection):
 #         some_table = self.tables.some_table
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))
 #             .cte("some_cte", recursive=True)
 #         )
-
 #         cte_alias = cte.alias("c1")
 #         st1 = some_table.alias()
         # note that SQL Server requires this to be UNION ALL,
@@ -97,11 +82,9 @@ class CTETest(fixtures.TablesTest):
 #             result.fetchall(),
 #             [("d4",), ("d3",), ("d3",), ("d1",), ("d1",), ("d1",)],
 #         )
-
     def test_insert_from_select_round_trip(self, connection):
 #         some_table = self.tables.some_table
 #         some_other_table = self.tables.some_other_table
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))
@@ -118,19 +101,16 @@ class CTETest(fixtures.TablesTest):
 #             ).fetchall(),
 #             [(2, "d2", 1), (3, "d3", 1), (4, "d4", 3)],
 #         )
-
 #     @testing.requires.ctes_with_update_delete
 #     @testing.requires.update_from
     def test_update_from_round_trip(self, connection):
 #         some_table = self.tables.some_table
 #         some_other_table = self.tables.some_other_table
-
 #         connection.execute(
 #             some_other_table.insert().from_select(
 #                 ["id", "data", "parent_id"], select(some_table)
 #             )
 #         )
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))
@@ -153,19 +133,16 @@ class CTETest(fixtures.TablesTest):
 #                 (5, "d5", 3),
 #             ],
 #         )
-
 #     @testing.requires.ctes_with_update_delete
 #     @testing.requires.delete_from
     def test_delete_from_round_trip(self, connection):
 #         some_table = self.tables.some_table
 #         some_other_table = self.tables.some_other_table
-
 #         connection.execute(
 #             some_other_table.insert().from_select(
 #                 ["id", "data", "parent_id"], select(some_table)
 #             )
 #         )
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))
@@ -182,18 +159,15 @@ class CTETest(fixtures.TablesTest):
 #             ).fetchall(),
 #             [(1, "d1", None), (5, "d5", 3)],
 #         )
-
 #     @testing.requires.ctes_with_update_delete
     def test_delete_scalar_subq_round_trip(self, connection):
 #         some_table = self.tables.some_table
 #         some_other_table = self.tables.some_other_table
-
 #         connection.execute(
 #             some_other_table.insert().from_select(
 #                 ["id", "data", "parent_id"], select(some_table)
 #             )
 #         )
-
 #         cte = (
 #             select(some_table)
 #             .where(some_table.c.data.in_(["d2", "d3", "d4"]))

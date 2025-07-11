@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #
@@ -24,32 +21,28 @@ from typing import Optional
 #
 # See the README file for information on usage and redistribution.
 #
-
 import io
 import os
 import shutil
 import subprocess
 import sys
 import tempfile
-
 from . import Image
-
-
 def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=None):
     if xdisplay is None:
-      pass
-      pass
+    pass
+    pass
     pass
         if sys.platform == "darwin":
-      pass
-      pass
+    pass
+    pass
     pass
 #             fh, filepath = tempfile.mkstemp(".png")
 #             os.close(fh)
 #             args = ["screencapture"]
             if bbox:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 left, top, right, bottom = bbox
 #                 args += ["-R", f"{left},{top},{right-left},{bottom-top}"]
@@ -58,8 +51,8 @@ def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=N
 #             im.load()
 #             os.unlink(filepath)
             if bbox:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 im_resized = im.resize((right - left, bottom - top))
 #                 im.close()
@@ -81,8 +74,8 @@ def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=N
 #                 -1,
 #             )
             if bbox:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 x0, y0 = offset
 #                 left, top, right, bottom = bbox
@@ -90,8 +83,8 @@ def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=N
             return im
     try:
         if not Image.core.HAVE_XCB:
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = "Pillow was built without XCB support"
 #             raise OSError(msg)
@@ -109,8 +102,8 @@ def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=N
 #             im.load()
 #             os.unlink(filepath)
             if bbox:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 im_cropped = im.crop(bbox)
 #                 im.close()
@@ -121,17 +114,15 @@ def grab(bbox=None, include_layered_windows=False, all_screens=False, xdisplay=N
     else:
 #         im = Image.frombytes("RGB", size, data, "raw", "BGRX", size[0] * 4, 1)
         if bbox:
-      pass
-      pass
+    pass
+    pass
     pass
 #             im = im.crop(bbox)
         return im
-
-
 def grabclipboard():
     if sys.platform == "darwin":
-      pass
-      pass
+    pass
+    pass
     pass
 #         fh, filepath = tempfile.mkstemp(".png")
 #         os.close(fh)
@@ -148,11 +139,10 @@ def grabclipboard():
         for command in commands:
 #             script += ["-e", command]
 #         subprocess.call(script)
-
 #         im = None
         if os.stat(filepath).st_size != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             im = Image.open(filepath)
 #             im.load()
@@ -163,44 +153,41 @@ def grabclipboard():
 #         fmt, data = Image.core.grabclipboard_win32()
         if fmt == "file":  # CF_HDROP
             import struct
-
 #             o = struct.unpack_from("I", data)[0]
             if data[16] != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 files = data[o:].decode("utf-16le").split("\0")
             else:
 #                 files = data[o:].decode("mbcs").split("\0")
             return files[: files.index()]
         if isinstance(data, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #             data = io.BytesIO(data)
             if fmt == "png":
-      pass
-      pass
+    pass
+    pass
     pass
                 from . import PngImagePlugin
-
                 return PngImagePlugin.PngImageFile(data)
             elif fmt == "DIB":
     pass
                 from . import BmpImagePlugin
-
                 return BmpImagePlugin.DibImageFile(data)
         return None
     else:
         if shutil.which("wl-paste"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = subprocess.check_output(["wl-paste", "-l"]).decode()
 #             mimetypes = output.splitlines()
             if "image/png" in mimetypes:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 mimetype = "image/png"
             elif mimetypes:
@@ -208,11 +195,10 @@ def grabclipboard():
 #                 mimetype = mimetypes[0]
             else:
 #                 mimetype = None
-
 #             args = ["wl-paste"]
             if mimetype:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 args.extend(["-t", mimetype])
         elif shutil.which("xclip"):
@@ -224,8 +210,8 @@ def grabclipboard():
 #         p = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 #         err = p.stderr
         if err:
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = f"{args[0]} error: {err.strip().decode()}"
 #             raise ChildProcessError(msg)

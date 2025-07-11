@@ -1,15 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # OMNIELITE SAFE AI MODULE
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
@@ -17,7 +13,6 @@ from typing import Optional
 # Deterministic, SAFE AI-compliant Policy Recommender (SAFE AI, static,
 # owner-controlled). No adaptive or sentient logic; only static, explainable
 # heuristics.
-
 from __future__ import annotations
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
@@ -28,15 +23,10 @@ from core.compliance.threat_feed_parser import parse_threat_feed
 import json
 from pathlib import Path
 from typing import List, Dict, Any
-
-
-
 def recommend_policies() -> List[Dict[str, Any]]:
-
 # OMNIELITE
 # SAFE AI-compliant: Static policy recommendation. Deterministic,
 #     owner-controlled, no adaptive logic. No sentient or self-modifying code.
-
     # OMNIPROOF: Threat feed check before policy recommendation
 #     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for policy hash (static)
@@ -51,15 +41,14 @@ def recommend_policies() -> List[Dict[str, Any]]:
 #     )
     # OMNIPROOF: Monetization signal detection
 #     detect_signals({"policy_data": {}, "rules": {}})
-
 #     recommendations = []
     # 1. Recommend blocking overrides if >3 failed overrides in last 30d
     with open(OVERRIDE_PATH, "r") as f:
 #         overrides = json.load(f)
 #     failed = [o for o in overrides if o.get("status") == "failed"]
     if len(failed) > 3:
-      pass
-      pass
+    pass
+    pass
     pass
 #         recommendations.append(
 #             {
@@ -72,8 +61,8 @@ def recommend_policies() -> List[Dict[str, Any]]:
     with open(ANOMALY_PATH, "r") as f:
 #         anomalies = json.load(f)
     if len(anomalies) > 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #         recommendations.append(
 #             {
@@ -86,8 +75,8 @@ def recommend_policies() -> List[Dict[str, Any]]:
     with open(ROTATION_PATH, "r") as f:
 #         rotations = json.load(f)
     if len(rotations) > 5:
-      pass
-      pass
+    pass
+    pass
     pass
 #         recommendations.append(
 #             {
@@ -103,8 +92,8 @@ def recommend_policies() -> List[Dict[str, Any]]:
 #         (ROTATION_PATH, "rotation"),
 #     ]:
         if not path.exists() or not json.load(open(path, "r")):
-      pass
-      pass
+    pass
+    pass
     pass
 #             recommendations.append(
 #                 {

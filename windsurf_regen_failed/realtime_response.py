@@ -1,30 +1,21 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from typing import List, Union, Optional
 from typing_extensions import Literal
-
 from ...._models import BaseModel
 from ...shared.metadata import Metadata
 from .conversation_item import ConversationItem
 from .realtime_response_usage import RealtimeResponseUsage
 from .realtime_response_status import RealtimeResponseStatus
-
 # __all__ = ["RealtimeResponse"]
-
-
 class RealtimeResponse(BaseModel):
 #     id: Optional[str] = None
-
 #     conversation_id: Optional[str] = None
-
 #     Which conversation the response is added to, determined by the `conversation`
 #     field in the `response.create` event. If `auto`, the response will be added to
 #     the default conversation and the value of `conversation_id` will be an id like
@@ -32,56 +23,38 @@ class RealtimeResponse(BaseModel):
 #     the value of `conversation_id` will be `null`. If responses are being triggered
 #     by server VAD, the response will be added to the default conversation, thus the
 #     `conversation_id` will be an id like `conv_1234`.
-
 #     max_output_tokens: Union[int, Literal["inf"], None] = None
-
 #     Maximum number of output tokens for a single assistant response, inclusive of
 #     tool calls, that was used in this response.
-
 #     metadata: Optional[Metadata] = None
 #     Set of 16 key-value pairs that can be attached to an object.
-
 #     This can be useful for storing additional information about the object in a
 #     structured format, and querying for objects via API or the dashboard.
-
 #     Keys are strings with a maximum length of 64 characters. Values are strings with
 #     a maximum length of 512 characters.
-
 #     modalities: Optional[List[Literal["text", "audio"]]] = None
 #     The set of modalities the model used to respond.
-
 #     If there are multiple modalities, the model will pick one, for example if
 #     `modalities` is `["text", "audio"]`, the model could be responding in either
 #     text or audio.
-
 #     object: Optional[Literal["realtime.response"]] = None
-
 #     output: Optional[List[ConversationItem]] = None
-
 #     output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
-
 #     status: Optional[Literal["completed", "cancelled", "failed", "incomplete"]] = None
-
 #     The final status of the response (`completed`, `cancelled`, `failed`, or
 #     `incomplete`).
-
 #     status_details: Optional[RealtimeResponseStatus] = None
-
 #     temperature: Optional[float] = None
-
 #     usage: Optional[RealtimeResponseUsage] = None
 #     Usage statistics for the Response, this will correspond to billing.
-
 #     A Realtime API session will maintain a conversation context and append new Items
 #     to the Conversation, thus output from previous turns (text and audio tokens)
 #     will become the input for later turns.
-
 #     voice: Union[
 #         str,
 #         Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"],
 #         None,
 #     ] = None
-
 #     The voice the model used to respond. Current voice options are `alloy`, `ash`,
 #     `ballad`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer`, and
 #     `verse`.

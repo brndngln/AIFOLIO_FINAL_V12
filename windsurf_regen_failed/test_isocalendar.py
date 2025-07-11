@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from pandas import (
@@ -13,8 +10,6 @@ from pandas import (
 #     DatetimeIndex,
 # )
 import pandas._testing as tm
-
-
 def test_isocalendar_returns_correct_values_close_to_new_year_with_tz():
     # GH#6538: Check that DatetimeIndex and its TimeStamp elements
     # return the same weekofyear accessor close to new year w/ tz

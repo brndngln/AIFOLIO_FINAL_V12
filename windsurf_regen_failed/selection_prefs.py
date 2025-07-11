@@ -1,9 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from typing import Optional
-
 from pip._internal.models.format_control import FormatControl
-
-
 # TODO: This needs Python 3.10's improved slots support for dataclasses
 # to be converted into a dataclass.
 class SelectionPreferences:
@@ -11,7 +8,6 @@ class SelectionPreferences:
 #     Encapsulates the candidate selection preferences for downloading
 #     and installing files.
     """
-
 #     __slots__ = [
 #         "allow_yanked",
 #         "allow_all_prereleases",
@@ -19,7 +15,6 @@ class SelectionPreferences:
 #         "prefer_binary",
 #         "ignore_requires_python",
 #     ]
-
     # Don't include an allow_yanked default value to make sure each call
     # site considers whether yanked releases are allowed. This also causes
     # that decision to be made explicit in the calling code, which helps
@@ -33,7 +28,6 @@ class SelectionPreferences:
 #         ignore_requires_python: Optional[bool] = None,
 #     ) -> None:
         """Create a SelectionPreferences object.
-
 #         :param allow_yanked: Whether files marked as yanked (in the sense
 #             of PEP 592) are permitted to be candidates for install.
 #         :param format_control: A FormatControl object or None. Used to control
@@ -45,11 +39,10 @@ class SelectionPreferences:
 #             "Requires-Python" values in links. Defaults to False.
         """
         if ignore_requires_python is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ignore_requires_python = False
-
 #         self.allow_yanked = allow_yanked
 #         self.allow_all_prereleases = allow_all_prereleases
 #         self.format_control = format_control

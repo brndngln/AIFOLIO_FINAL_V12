@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,36 +19,25 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
 from ..auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/conditional-detr-resnet-50": (
 #         "https://huggingface.co/microsoft/conditional-detr-resnet-50/resolve/main/config.json"
 #     ),
 # }
-
-
 class ConditionalDetrConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`ConditionalDetrModel`]. It is used to instantiate
 #     a Conditional DETR model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the Conditional DETR
 #     [microsoft/conditional-detr-resnet-50](https://huggingface.co/microsoft/conditional-detr-resnet-50) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         use_timm_backbone (`bool`, *optional*, defaults to `True`):
 #             Whether or not to use the `timm` library for the backbone. If set to `False`, will use the [`AutoBackbone`]
@@ -128,29 +114,22 @@ class ConditionalDetrConfig(PretrainedConfig):
 #             Relative classification weight of the 'no-object' class in the object detection loss.
 #         focal_alpha (`float`, *optional*, defaults to 0.25):
 #             Alpha parameter in the focal loss.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import ConditionalDetrConfig, ConditionalDetrModel
-
 #     >>> # Initializing a Conditional DETR microsoft/conditional-detr-resnet-50 style configuration
 #     >>> configuration = ConditionalDetrConfig()
-
 #     >>> # Initializing a model (with random weights) from the microsoft/conditional-detr-resnet-50 style configuration
 #     >>> model = ConditionalDetrModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "conditional_detr"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
 #         "hidden_size": "d_model",
 #         "num_attention_heads": "encoder_attention_heads",
 #     }
-
     def __init__(
 #         self,
 #         use_timm_backbone=True,
@@ -190,18 +169,17 @@ class ConditionalDetrConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
         if backbone_config is not None and use_timm_backbone:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You cant specify both `backbone_config` and `use_timm_backbone`.")
-
         if not use_timm_backbone:
-      pass
-      pass
+    pass
+    pass
     pass
             if backbone_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.info("`backbone_config` is `None`. Initializing the config with the default `ResNet` backbone.")
 #                 backbone_config = CONFIG_MAPPING["resnet"](out_features=["stage4"])
@@ -210,7 +188,6 @@ class ConditionalDetrConfig(PretrainedConfig):
 #                 backbone_model_type = backbone_config.get("model_type")
 #                 config_class = CONFIG_MAPPING[backbone_model_type]
 #                 backbone_config = config_class.from_dict(backbone_config)
-
 #         self.use_timm_backbone = use_timm_backbone
 #         self.backbone_config = backbone_config
 #         self.num_channels = num_channels
@@ -248,19 +225,14 @@ class ConditionalDetrConfig(PretrainedConfig):
 #         self.giou_loss_coefficient = giou_loss_coefficient
 #         self.focal_alpha = focal_alpha
 #         super().__init__(is_encoder_decoder=is_encoder_decoder, **kwargs)
-
 #     @property
     def num_attention_heads(self) -> int:
         return self.encoder_attention_heads
-
 #     @property
     def hidden_size(self) -> int:
         return self.d_model
-
-
 class ConditionalDetrOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -269,11 +241,9 @@ class ConditionalDetrOnnxConfig(OnnxConfig):
 #                 ("pixel_mask", {0: "batch"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-5
-
 #     @property
     def default_onnx_opset(self) -> int:
         return 12

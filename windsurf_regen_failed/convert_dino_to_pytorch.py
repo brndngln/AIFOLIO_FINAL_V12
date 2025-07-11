@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,24 +19,17 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import json
 from pathlib import Path
-
 import requests
 import torch
 from huggingface_hub import hf_hub_download
 from PIL import Image
-
 from transformers import ViTConfig, ViTForImageClassification, ViTImageProcessor, ViTModel
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger(__name__)
-
-
 # here we list all keys to be renamed (original name on the left, our name on the right)
 def create_rename_keys(config, base_model=False):
 #     rename_keys = []
@@ -55,7 +45,6 @@ def create_rename_keys(config, base_model=False):
 #         rename_keys.append((f"blocks.{i}.mlp.fc1.bias", f"vit.encoder.layer.{i}.intermediate.dense.bias"))
 #         rename_keys.append((f"blocks.{i}.mlp.fc2.weight", f"vit.encoder.layer.{i}.output.dense.weight"))
 #         rename_keys.append((f"blocks.{i}.mlp.fc2.bias", f"vit.encoder.layer.{i}.output.dense.bias"))
-
     # projection layer + position embeddings
 #     rename_keys.extend(
 #         [
@@ -65,10 +54,9 @@ def create_rename_keys(config, base_model=False):
 #             ("pos_embed", "vit.embeddings.position_embeddings"),
 #         ]
 #     )
-
     if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
         # layernorm + pooler
 #         rename_keys.extend(
@@ -77,7 +65,6 @@ def create_rename_keys(config, base_model=False):
 #                 ("norm.bias", "layernorm.bias"),
 #             ]
 #         )
-
         # if just the base model, we should remove "vit" from all keys that start with "vit"
 #         rename_keys = [(pair[0], pair[1][4:]) if pair[1].startswith("vit") else pair for pair in rename_keys]
     else:
@@ -90,16 +77,13 @@ def create_rename_keys(config, base_model=False):
 #                 ("head.bias", "classifier.bias"),
 #             ]
 #         )
-
     return rename_keys
-
-
 # we split up the matrix of each encoder layer into queries, keys and values
 def read_in_q_k_v(state_dict, config, base_model=False):
     for i in range(config.num_hidden_layers):
         if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #             prefix =
         else:
@@ -121,43 +105,33 @@ def read_in_q_k_v(state_dict, config, base_model=False):
 #             -config.hidden_size :, :
 #         ]
 #         state_dict[f"{prefix}encoder.layer.{i}.attention.attention.value.bias"] = in_proj_bias[-config.hidden_size :]
-
-
 def remove_classification_head_(state_dict):
 #     ignore_keys = ["head.weight", "head.bias"]
     for k in ignore_keys:
 #         state_dict.pop(k, None)
-
-
 def rename_key(dct, old, new):
 #     val = dct.pop(old)
 #     dct[new] = val
-
-
 # We will verify our results on an image of cute cats
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     im = Image.open(requests.get(url, stream=True).raw)
     return im
-
-
 # @torch.no_grad()
 def convert_vit_checkpoint(model_name, pytorch_dump_folder_path, base_model=True):
-
 #     Copy/paste/tweak models weights to our ViT structure.
-
     # define default ViT configuration
 #     config = ViTConfig()
     # patch_size
     if model_name[-1] == "8":
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.patch_size = 8
     # set labels if required
     if not base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.num_labels = 1000
 #         repo_id = "huggingface/label-files"
@@ -168,49 +142,44 @@ def convert_vit_checkpoint(model_name, pytorch_dump_folder_path, base_model=True
 #         config.label2id = {v: k for k, v in id2label.items()}
     # size of the architecture
     if model_name in ["dino_vits8", "dino_vits16"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.hidden_size = 384
 #         config.intermediate_size = 1536
 #         config.num_hidden_layers = 12
 #         config.num_attention_heads = 6
-
     # load original model from torch hub
 #     original_model = torch.hub.load("facebookresearch/dino:main", model_name)
 #     original_model.eval()
-
     # load state_dict of original model, remove and rename some keys
 #     state_dict = original_model.state_dict()
     if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #         remove_classification_head_(state_dict)
 #     rename_keys = create_rename_keys(config, base_model=base_model)
     for src, dest in rename_keys:
 #         rename_key(state_dict, src, dest)
 #     read_in_q_k_v(state_dict, config, base_model)
-
     # load HuggingFace model
     if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #         model = ViTModel(config, add_pooling_layer=False).eval()
     else:
 #         model = ViTForImageClassification(config).eval()
 #     model.load_state_dict(state_dict)
-
     # Check outputs on an image, prepared by ViTImageProcessor
 #     image_processor = ViTImageProcessor()
 #     encoding = image_processor(images=prepare_img(), return_tensors="pt")
 #     pixel_values = encoding["pixel_values"]
 #     outputs = model(pixel_values)
-
     if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #         final_hidden_state_cls_token = original_model(pixel_values)
 #         assert torch.allclose(final_hidden_state_cls_token, outputs.last_hidden_state[:, 0, :], atol=1e-1)
@@ -218,17 +187,14 @@ def convert_vit_checkpoint(model_name, pytorch_dump_folder_path, base_model=True
 #         logits = original_model(pixel_values)
 #         assert logits.shape == outputs.logits.shape
 #         assert torch.allclose(logits, outputs.logits, atol=1e-3)
-
 #     Path(pytorch_dump_folder_path).mkdir(exist_ok=True)
 #     print(f"Saving model {model_name} to {pytorch_dump_folder_path}")
 #     model.save_pretrained(pytorch_dump_folder_path)
 #     print(f"Saving image processor to {pytorch_dump_folder_path}")
 #     image_processor.save_pretrained(pytorch_dump_folder_path)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -246,7 +212,6 @@ if __name__ == "__main__":
 #         action="store_true",
 #         help="Whether to only convert the base model (no projection head weights).",
 #     )
-
 #     parser.set_defaults(base_model=True)
 #     args = parser.parse_args()
 #     convert_vit_checkpoint(args.model_name, args.pytorch_dump_folder_path, args.base_model)

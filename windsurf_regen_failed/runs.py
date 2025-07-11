@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless.
-
 from __future__ import annotations
-
 from typing import TYPE_CHECKING, List, Optional
 from typing_extensions import Literal
-
 import httpx
-
 from .steps import Steps, AsyncSteps, StepsWithRawResponse, AsyncStepsWithRawResponse
 from ....._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ....._utils import maybe_transform
@@ -31,25 +24,19 @@ from .....types.beta.threads import (
 #     run_update_params,
 #     run_submit_tool_outputs_params,
 # )
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ....._client import OpenAI, AsyncOpenAI
-
 # __all__ = ["Runs", "AsyncRuns"]
-
-
 class Runs(SyncAPIResource):
 #     steps: Steps
     with_raw_response: RunsWithRawResponse
-
     def __init__(self, client: OpenAI) -> None:
 #         super().__init__(client)
 #         self.steps = Steps(client)
 #         self.with_raw_response = RunsWithRawResponse(self)
-
     def create(
 #         self,
 #         thread_id: str,
@@ -66,38 +53,27 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Create a run.
-
 #         Args:
 #           assistant_id: The ID of the
 #               [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to
 #               execute this run.
-
 #           instructions: Override the default system message of the assistant. This is useful for
 #               modifying the behavior on a per-run basis.
-
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format. Keys
+            for storing additional information about the object in a structured format. Keys
 #               can be a maximum of 64 characters int and values can be a maxium of 512
 #               characters int.
-
 #           model: The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to
 #               be used to execute this run. If a value is provided here, it will override the
 #               model associated with the assistant. If not, the model associated with the
 #               assistant will be used.
-
 #           tools: Override the tools the assistant can use for this run. This is useful for
 #               modifying the behavior on a per-run basis.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._post(
 #             f"/threads/{thread_id}/runs",
@@ -116,7 +92,6 @@ class Runs(SyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
     def retrieve(
 #         self,
 #         run_id: str,
@@ -129,18 +104,12 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Retrieves a run.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._get(
 #             f"/threads/{thread_id}/runs/{run_id}",
@@ -149,7 +118,6 @@ class Runs(SyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
     def update(
 #         self,
 #         run_id: str,
@@ -163,23 +131,16 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Modifies a run.
-
 #         Args:
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format. Keys
+            for storing additional information about the object in a structured format. Keys
 #               can be a maximum of 64 characters int and values can be a maxium of 512
 #               characters int.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._post(
 #             f"/threads/{thread_id}/runs/{run_id}",
@@ -189,7 +150,6 @@ class Runs(SyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
     def list(
 #         self,
 #         thread_id: str,
@@ -205,34 +165,24 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> SyncCursorPage[Run]:
-
 #         Returns a list of runs beinting to a thread.
-
 #         Args:
 #           after: A cursor for use in pagination. `after` is an object ID that defines your place
 #               in the list. For instance, if you make a list request and receive 100 objects,
 #               ending with obj_foo, your subsequent call can include after=obj_foo in order to
 #               fetch the next page of the list.
-
 #           before: A cursor for use in pagination. `before` is an object ID that defines your place
 #               in the list. For instance, if you make a list request and receive 100 objects,
 #               ending with obj_foo, your subsequent call can include before=obj_foo in order to
 #               fetch the previous page of the list.
-
 #           limit: A limit on the number of objects to be returned. Limit can range between 1 and
 #               100, and the default is 20.
-
 #           order: Sort order by the `created_at` timestamp of the objects. `asc` for ascending
 #               order and `desc` for descending order.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._get_api_list(
 #             f"/threads/{thread_id}/runs",
@@ -254,7 +204,6 @@ class Runs(SyncAPIResource):
 #             ),
 #             model=Run,
 #         )
-
     def cancel(
 #         self,
 #         run_id: str,
@@ -267,18 +216,12 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Cancels a run that is `in_progress`.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._post(
 #             f"/threads/{thread_id}/runs/{run_id}/cancel",
@@ -287,7 +230,6 @@ class Runs(SyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
     def submit_tool_outputs(
 #         self,
 #         run_id: str,
@@ -301,23 +243,16 @@ class Runs(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         When a run has the `status: "requires_action"` and `required_action.type` is
 #         `submit_tool_outputs`, this endpoint can be used to submit the outputs from the
 #         tool calls once theyre all completed. All outputs must be submitted in a single
 #         request.
-
 #         Args:
 #           tool_outputs: A list of tools for which the outputs are being submitted.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._post(
 #             f"/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
@@ -329,17 +264,13 @@ class Runs(SyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
-
 class AsyncRuns(AsyncAPIResource):
 #     steps: AsyncSteps
     with_raw_response: AsyncRunsWithRawResponse
-
     def __init__(self, client: AsyncOpenAI) -> None:
 #         super().__init__(client)
 #         self.steps = AsyncSteps(client)
 #         self.with_raw_response = AsyncRunsWithRawResponse(self)
-
 #     async def create(
 #         self,
 #         thread_id: str,
@@ -356,38 +287,27 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Create a run.
-
 #         Args:
 #           assistant_id: The ID of the
 #               [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to
 #               execute this run.
-
 #           instructions: Override the default system message of the assistant. This is useful for
 #               modifying the behavior on a per-run basis.
-
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format. Keys
+            for storing additional information about the object in a structured format. Keys
 #               can be a maximum of 64 characters int and values can be a maxium of 512
 #               characters int.
-
 #           model: The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to
 #               be used to execute this run. If a value is provided here, it will override the
 #               model associated with the assistant. If not, the model associated with the
 #               assistant will be used.
-
 #           tools: Override the tools the assistant can use for this run. This is useful for
 #               modifying the behavior on a per-run basis.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return await self._post(
 #             f"/threads/{thread_id}/runs",
@@ -406,7 +326,6 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
 #     async def retrieve(
 #         self,
 #         run_id: str,
@@ -419,18 +338,12 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Retrieves a run.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return await self._get(
 #             f"/threads/{thread_id}/runs/{run_id}",
@@ -439,7 +352,6 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
 #     async def update(
 #         self,
 #         run_id: str,
@@ -453,23 +365,16 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Modifies a run.
-
 #         Args:
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format. Keys
+            for storing additional information about the object in a structured format. Keys
 #               can be a maximum of 64 characters int and values can be a maxium of 512
 #               characters int.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return await self._post(
 #             f"/threads/{thread_id}/runs/{run_id}",
@@ -479,7 +384,6 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
     def list(
 #         self,
 #         thread_id: str,
@@ -495,34 +399,24 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> AsyncPaginator[Run, AsyncCursorPage[Run]]:
-
 #         Returns a list of runs beinting to a thread.
-
 #         Args:
 #           after: A cursor for use in pagination. `after` is an object ID that defines your place
 #               in the list. For instance, if you make a list request and receive 100 objects,
 #               ending with obj_foo, your subsequent call can include after=obj_foo in order to
 #               fetch the next page of the list.
-
 #           before: A cursor for use in pagination. `before` is an object ID that defines your place
 #               in the list. For instance, if you make a list request and receive 100 objects,
 #               ending with obj_foo, your subsequent call can include before=obj_foo in order to
 #               fetch the previous page of the list.
-
 #           limit: A limit on the number of objects to be returned. Limit can range between 1 and
 #               100, and the default is 20.
-
 #           order: Sort order by the `created_at` timestamp of the objects. `asc` for ascending
 #               order and `desc` for descending order.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return self._get_api_list(
 #             f"/threads/{thread_id}/runs",
@@ -544,7 +438,6 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             model=Run,
 #         )
-
 #     async def cancel(
 #         self,
 #         run_id: str,
@@ -557,18 +450,12 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         Cancels a run that is `in_progress`.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return await self._post(
 #             f"/threads/{thread_id}/runs/{run_id}/cancel",
@@ -577,7 +464,6 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
 #     async def submit_tool_outputs(
 #         self,
 #         run_id: str,
@@ -591,23 +477,16 @@ class AsyncRuns(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Run:
-
 #         When a run has the `status: "requires_action"` and `required_action.type` is
 #         `submit_tool_outputs`, this endpoint can be used to submit the outputs from the
 #         tool calls once theyre all completed. All outputs must be submitted in a single
 #         request.
-
 #         Args:
 #           tool_outputs: A list of tools for which the outputs are being submitted.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         extra_headers = {"OpenAI-Beta": "assistants=v1", **(extra_headers or {})}
         return await self._post(
 #             f"/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
@@ -619,12 +498,9 @@ class AsyncRuns(AsyncAPIResource):
 #             ),
 #             cast_to=Run,
 #         )
-
-
 class RunsWithRawResponse:
     def __init__(self, runs: Runs) -> None:
 #         self.steps = StepsWithRawResponse(runs.steps)
-
 #         self.create = to_raw_response_wrapper(
 #             runs.create,
 #         )
@@ -643,12 +519,9 @@ class RunsWithRawResponse:
 #         self.submit_tool_outputs = to_raw_response_wrapper(
 #             runs.submit_tool_outputs,
 #         )
-
-
 class AsyncRunsWithRawResponse:
     def __init__(self, runs: AsyncRuns) -> None:
 #         self.steps = AsyncStepsWithRawResponse(runs.steps)
-
 #         self.create = async_to_raw_response_wrapper(
 #             runs.create,
 #         )

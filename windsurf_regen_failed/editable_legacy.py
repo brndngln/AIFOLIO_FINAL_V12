@@ -1,17 +1,12 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """Legacy editable installation process, i.e. `setup.py develop`."""
-
 import logging
 from typing import Optional, Sequence
-
 from pip._internal.build_env import BuildEnvironment
 from pip._internal.utils.logging import indent_log
 from pip._internal.utils.setuptools_build import make_setuptools_develop_args
 from pip._internal.utils.subprocess import call_subprocess
-
 # logger = logging.getLogger(__name__)
-
-
 def install_editable(
 #     *,
 #     global_options: Sequence[str],
@@ -28,7 +23,6 @@ def install_editable(
 #     to setuptools.
     """
 #     logger.info("Running setup.py develop for %s", name)
-
 #     args = make_setuptools_develop_args(
 #         setup_py_path,
 #         global_options=global_options,
@@ -37,7 +31,6 @@ def install_editable(
 #         home=home,
 #         use_user_site=use_user_site,
 #     )
-
     with indent_log():
         with build_env:
 #             call_subprocess(

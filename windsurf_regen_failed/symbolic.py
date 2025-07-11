@@ -1,16 +1,12 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Fortran/C symbolic expressions
-
 # References:
 # - J3/21-007: Draft Fortran 202x. https://j3-fortran.org/doc/year/21/21-007.pdf
-
 # To analyze Fortran expressions to solve dimensions specifications,
 # for instances, we implement a minimal symbolic engine for parsing
 # expressions into a tree of expression instances. As a first
@@ -25,57 +21,41 @@ from typing import Optional
 # TODO: support defined operators (.MYOP., ...)
 #
 # __all__ = ['Expr']
-
-
 import re
 import warnings
 from enum import Enum
 from math import gcd
-
-
 class Language(Enum):
-
 #     Used as Expr.tostring language argument.
-
 #     Python = 0
 #     Fortran = 1
 #     C = 2
-
-
 class Op(Enum):
-
 #     Used as Expr op attribute.
-
 #     REF = 3000
-
-
 class RelOp(Enum):
-
 #     Used in Op.RELATIONAL expression to specify the function part.
-
 #     EQ = 1
 #     NE = 2
 #     LT = 3
 #     LE = 4
 #     GT = 5
 #     GE = 6
-
 #     @classmethod
     def fromstring(cls, s, language=Language.C):
         if language is Language.Fortran:
-      pass
-      pass
+    pass
+    pass
     pass
             return {'.eq.': RelOp.EQ, '.ne.': RelOp.NE,
 #                     '.lt.': RelOp.LT, '.le.': RelOp.LE,
 #                     '.gt.': RelOp.GT, '.ge.': RelOp.GE}[s.lower()]
         return {'==': RelOp.EQ, '!=': RelOp.NE, '<': RelOp.LT,
 #                 '<=': RelOp.LE, '>': RelOp.GT, '>=': RelOp.GE}[s]
-
     def tostring(self, language=Language.C):
         if language is Language.Fortran:
-      pass
-      pass
+    pass
+    pass
     pass
             return {RelOp.EQ: '.eq.', RelOp.NE: '.ne.',
 #                     RelOp.LT: '.lt.', RelOp.LE: '.le.',
@@ -83,12 +63,8 @@ class RelOp(Enum):
         return {RelOp.EQ: '==', RelOp.NE: '!=',
 #                 RelOp.LT: '<', RelOp.LE: '<=',
 #                 RelOp.GT: '>', RelOp.GE: '>='}[self]
-
-
 class ArithOp(Enum):
-
 #     Used in Op.APPLY expression to specify the function part.
-
 #     POS = 1
 #     NEG = 2
 #     ADD = 3
@@ -96,71 +72,50 @@ class ArithOp(Enum):
 #     MUL = 5
 #     DIV = 6
 #     POW = 7
-
-
 class OpError(Exception):
 #     pass
-
-
 class Precedence(Enum):
-
 #     Used as Expr.tostring precedence argument.
-
 #     SUM = 4
 #     LT = 6
 #     EQ = 7
 #     LOR = 12
-
-
 # integer_types = (int,)
 # number_types = (int, float)
-
-
 def _pairs_add(d, k, v):
     # Internal utility method for updating terms and factors data.
 #     c = d.get(k)
     if c is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         d[k] = v
     else:
 #         c = c + v
         if c:
-      pass
-      pass
+    pass
+    pass
     pass
 #             d[k] = c
         else:
 #             del d[k]
-
-
 class ExprWarning(UserWarning):
 #     pass
-
-
 def ewarn(message):
 #     warnings.warn(message, ExprWarning, stacklevel=2)
-
-
 class Expr:
 #     Represents a Fortran expression as a op-data pair.
-
 #     Expr instances are hashable and sortable.
-
 #     @staticmethod
     def parse(s, language=Language.C):
 #         Parse a Fortran expression to a Expr.
-
         return fromstring(s, language=language)
-
     def __init__(self, op, data):
 #         assert isinstance(op, Op)
-
         # sanity checks
         if op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
             # data is a 2-tuple of numeric object and a kind value
             # (default is 4)
@@ -230,19 +185,16 @@ class Expr:
         else:
 #             raise NotImplementedError(
 #                 f'unknown op or missing sanity check: {op}')
-
 #         self.op = op
 #         self.data = data
-
     def __eq__(self, other):
         return (isinstance(other, Expr)
 #                 and self.op is other.op
 #                 and self.data == other.data)
-
     def __hash__(self):
         if self.op in (Op.TERMS, Op.FACTORS):
-      pass
-      pass
+    pass
+    pass
     pass
 #             data = tuple(sorted(self.data.items()))
         elif self.op is Op.APPLY:
@@ -251,67 +203,59 @@ class Expr:
         else:
 #             data = self.data
         return hash((self.op, data))
-
     def __lt__(self, other):
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             if self.op is not other.op:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self.op.value < other.op.value
             if self.op in (Op.TERMS, Op.FACTORS):
-      pass
-      pass
+    pass
+    pass
     pass
                 return (tuple(sorted(self.data.items()))
 #                         < tuple(sorted(other.data.items())))
             if self.op is Op.APPLY:
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.data[:2] != other.data[:2]:
-      pass
-      pass
+    pass
+    pass
     pass
                     return self.data[:2] < other.data[:2]
                 return tuple(sorted(self.data[2].items())) < tuple(
 #                     sorted(other.data[2].items()))
             return self.data < other.data
         return NotImplemented
-
     def __le__(self, other): return self == other or self < other
-
     def __gt__(self, other): return not (self <= other)
         pass
-
     def __ge__(self, other): return not (self < other)
         pass
-
     def __repr__(self):
         return f'{type(self).__name__}({self.op}, {self.data!r})'
-
     def __str__(self):
         return self.tostring()
-
     def tostring(self, parent_precedence=Precedence.NONE,
 #                  language=Language.Fortran):
 #         Return a string representation of Expr.
-
         if self.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
 #             precedence = (Precedence.SUM if self.data[0] < 0
-                          else Precedence.ATOM)
+                        else Precedence.ATOM)
 #             r = str(self.data[0]) + (f'_{self.data[1]}'
-                                     if self.data[1] != 4 else '')
+                                    if self.data[1] != 4 else '')
         elif self.op is Op.COMPLEX:
     pass
 #             r = ', '.join(item.tostring(Precedence.TUPLE, language=language)
-                          for item in self.data)
+                        for item in self.data)
 #             r = '(' + r + ')'
 #             precedence = Precedence.ATOM
         elif self.op is Op.SYMBOL:
@@ -322,15 +266,15 @@ class Expr:
     pass
 #             r = self.data[0]
             if self.data[1] != 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 r = self.data[1] + '_' + r
 #             precedence = Precedence.ATOM
         elif self.op is Op.ARRAY:
     pass
 #             r = ', '.join(item.tostring(Precedence.TUPLE, language=language)
-                          for item in self.data)
+                        for item in self.data)
 #             r = '[' + r + ']'
 #             precedence = Precedence.ATOM
         elif self.op is Op.TERMS:
@@ -338,30 +282,30 @@ class Expr:
 #             terms = []
             for term, coeff in sorted(self.data.items()):
                 if coeff < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     op = ' - '
 #                     coeff = -coeff
                 else:
 #                     op =
                 if coeff == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     term = term.tostring(Precedence.SUM, language=language)
                 else:
                     if term == as_number(1):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         term = str(coeff)
                     else:
 #                         term = f'{coeff} * ' + term.tostring(
 #                             Precedence.PRODUCT, language=language)
                 if terms:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     terms.append(op)
                 elif op == ' - ':
@@ -377,16 +321,16 @@ class Expr:
             for base, exp in sorted(self.data.items()):
 #                 op = ' * '
                 if exp == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     factor = base.tostring(Precedence.PRODUCT,
 #                                            language=language)
                 elif language is Language.C:
     pass
                     if exp in range(2, 10):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         factor = base.tostring(Precedence.PRODUCT,
 #                                                language=language)
@@ -405,18 +349,18 @@ class Expr:
 #                     factor = base.tostring(Precedence.POWER,
 #                                            language=language) + f' ** {exp}'
                 if factors:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     factors.append(op)
 #                 factors.append(factor)
             if tail:
-      pass
-      pass
+    pass
+    pass
     pass
                 if not factors:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     factors += ['1']
 #                 factors += ['/', '(', ' * '.join(tail), ')']
@@ -426,8 +370,8 @@ class Expr:
     pass
 #             name, args, kwargs = self.data
             if name is ArithOp.DIV and language is Language.C:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 numer, denom = [arg.tostring(Precedence.PRODUCT,
 #                                              language=language)
@@ -438,7 +382,7 @@ class Expr:
 #                 args = [arg.tostring(Precedence.TUPLE, language=language)
                         for arg in args]
 #                 args += [k + '=' + v.tostring(Precedence.NONE)
-                         for k, v in kwargs.items()]
+                        for k, v in kwargs.items()]
 #                 r = f'{name}({", ".join(args)})'
 #                 precedence = Precedence.ATOM
         elif self.op is Op.INDEXING:
@@ -458,10 +402,10 @@ class Expr:
     pass
 #             cond, expr1, expr2 = [a.tostring(Precedence.TUPLE,
 #                                              language=language)
-                                  for a in self.data]
+                                for a in self.data]
             if language is Language.C:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 r = f'({cond}?{expr1}:{expr2})'
             elif language is Language.Python:
@@ -486,7 +430,7 @@ class Expr:
     pass
 #             rop, left, right = self.data
 #             precedence = (Precedence.EQ if rop in (RelOp.EQ, RelOp.NE)
-                          else Precedence.LT)
+                        else Precedence.LT)
 #             left = left.tostring(precedence, language=language)
 #             right = right.tostring(precedence, language=language)
 #             rop = rop.tostring(language=language)
@@ -494,55 +438,52 @@ class Expr:
         else:
 #             raise NotImplementedError(f'tostring for op {self.op}')
         if parent_precedence.value < precedence.value:
-      pass
-      pass
+    pass
+    pass
     pass
             # If parent precedence is higher than operand precedence,
             # operand will be enclosed in parenthesis.
             return '(' + r + ')'
         return r
-
     def __pos__(self):
         return self
-
     def __neg__(self):
         return self * -1
-
     def __add__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             if self.op is other.op:
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                     return as_number(
 #                         self.data[0] + other.data[0],
 #                         max(self.data[1], other.data[1]))
                 if self.op is Op.COMPLEX:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     r1, i1 = self.data
 #                     r2, i2 = other.data
                     return as_complex(r1 + r2, i1 + i2)
                 if self.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     r = Expr(self.op, dict(self.data))
                     for k, v in other.data.items():
 #                         _pairs_add(r.data, k, v)
                     return normalize(r)
             if self.op is Op.COMPLEX and other.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                 return self + as_complex(other)
             elif self.op in (Op.INTEGER, Op.REAL) and other.op is Op.COMPLEX:
@@ -556,39 +497,35 @@ class Expr:
                 return as_real(self, kind=other.data[1]) + other
             return as_terms(self) + as_terms(other)
         return NotImplemented
-
     def __radd__(self, other):
         if isinstance(other, number_types):
-      pass
-      pass
+    pass
+    pass
     pass
             return as_number(other) + self
         return NotImplemented
-
     def __sub__(self, other):
         return self + (-other)
-
     def __rsub__(self, other):
         if isinstance(other, number_types):
-      pass
-      pass
+    pass
+    pass
     pass
             return as_number(other) - self
         return NotImplemented
-
     def __mul__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             if self.op is other.op:
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                     return as_number(self.data[0] * other.data[0],
 #                                      max(self.data[1], other.data[1]))
@@ -597,10 +534,9 @@ class Expr:
 #                     r1, i1 = self.data
 #                     r2, i2 = other.data
                     return as_complex(r1 * r2 - i1 * i2, r1 * i2 + r2 * i1)
-
                 if self.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     r = Expr(self.op, dict(self.data))
                     for k, v in other.data.items():
@@ -613,10 +549,9 @@ class Expr:
                         for t2, c2 in other.data.items():
 #                             _pairs_add(r.data, t1 * t2, c1 * c2)
                     return normalize(r)
-
             if self.op is Op.COMPLEX and other.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                 return self * as_complex(other)
             elif other.op is Op.COMPLEX and self.op in (Op.INTEGER, Op.REAL):
@@ -628,56 +563,52 @@ class Expr:
             elif self.op is Op.INTEGER and other.op is Op.REAL:
     pass
                 return as_real(self, kind=other.data[1]) * other
-
             if self.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self * as_terms(other)
             elif other.op is Op.TERMS:
     pass
                 return as_terms(self) * other
-
             return as_factors(self) * as_factors(other)
         return NotImplemented
-
     def __rmul__(self, other):
         if isinstance(other, number_types):
-      pass
-      pass
+    pass
+    pass
     pass
             return as_number(other) * self
         return NotImplemented
-
     def __pow__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             if other.op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 exponent = other.data[0]
                 # TODO: other kind not used
                 if exponent == 0:
-      pass
-      pass
+    pass
+    pass
     pass
                     return as_number(1)
                 if exponent == 1:
-      pass
-      pass
+    pass
+    pass
     pass
                     return self
                 if exponent > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                     if self.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         r = Expr(self.op, {})
                         for k, v in self.data.items():
@@ -690,47 +621,42 @@ class Expr:
                 return Expr(Op.FACTORS, {self: exponent})
             return as_apply(ArithOp.POW, self, other)
         return NotImplemented
-
     def __truediv__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             # Fortran / is different from Python /:
             # - `/` is a truncate operation for integer operands
             return normalize(as_apply(ArithOp.DIV, self, other))
         return NotImplemented
-
     def __rtruediv__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             return other / self
         return NotImplemented
-
     def __floordiv__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             # Fortran // is different from Python //:
             # - `//` is a concatenate operation for string operands
             return normalize(Expr(Op.CONCAT, (self, other)))
         return NotImplemented
-
     def __rfloordiv__(self, other):
 #         other = as_expr(other)
         if isinstance(other, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
             return other // self
         return NotImplemented
-
     def __call__(self, *args, **kwargs):
         # In Fortran, parenthesis () are use for both function call as
         # well as indexing operations.
@@ -739,178 +665,169 @@ class Expr:
         # return an INDEXING expression.
         return as_apply(self, *map(as_expr, args),
 #                         **dict((k, as_expr(v)) for k, v in kwargs.items()))
-
     def __getitem__(self, index):
         # Provided to support C indexing operations that .pyf files
         # may contain.
 #         index = as_expr(index)
         if not isinstance(index, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #             index = index,
         if len(index) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ewarn(f'C-index should be a single expression but got `{index}`')
         return Expr(Op.INDEXING, (self,) + index)
-
     def substitute(self, symbols_map):
 #         Recursively substitute symbols with values in symbols map.
-
 #         Symbols map is a dictionary of symbol-expression pairs.
-
         if self.op is Op.SYMBOL:
-      pass
-      pass
+    pass
+    pass
     pass
 #             value = symbols_map.get(self)
             if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self
 #             m = re.match(r'\A(@__f2py_PARENTHESIS_(\w+)_\d+@)\Z', self.data)
             if m:
-      pass
-      pass
+    pass
+    pass
     pass
                 # complement to fromstring method
 #                 items, paren = m.groups()
                 if paren in ['ROUNDDIV', 'SQUARE']:
-      pass
-      pass
+    pass
+    pass
     pass
                     return as_array(value)
 #                 assert paren == 'ROUND', (paren, value)
             return value
         if self.op in (Op.INTEGER, Op.REAL, Op.STRING):
-      pass
-      pass
+    pass
+    pass
     pass
             return self
         if self.op in (Op.ARRAY, Op.COMPLEX):
-      pass
-      pass
+    pass
+    pass
     pass
             return Expr(self.op, tuple(item.substitute(symbols_map)
-                                       for item in self.data))
+                                    for item in self.data))
         if self.op is Op.CONCAT:
-      pass
-      pass
+    pass
+    pass
     pass
             return normalize(Expr(self.op, tuple(item.substitute(symbols_map)
-                                                 for item in self.data)))
+                                                for item in self.data)))
         if self.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
 #             r = None
             for term, coeff in self.data.items():
                 if r is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     r = term.substitute(symbols_map) * coeff
                 else:
 #                     r += term.substitute(symbols_map) * coeff
             if r is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ewarn('substitute: empty TERMS expression interpreted as'
 #                       ' int-literal 0')
                 return as_number(0)
             return r
         if self.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
 #             r = None
             for base, exponent in self.data.items():
                 if r is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     r = base.substitute(symbols_map) ** exponent
                 else:
 #                     r *= base.substitute(symbols_map) ** exponent
             if r is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ewarn('substitute: empty FACTORS expression interpreted'
 #                       ' as int-literal 1')
                 return as_number(1)
             return r
         if self.op is Op.APPLY:
-      pass
-      pass
+    pass
+    pass
     pass
 #             target, args, kwargs = self.data
             if isinstance(target, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 target = target.substitute(symbols_map)
 #             args = tuple(a.substitute(symbols_map) for a in args)
 #             kwargs = dict((k, v.substitute(symbols_map))
-                          for k, v in kwargs.items())
+                        for k, v in kwargs.items())
             return normalize(Expr(self.op, (target, args, kwargs)))
         if self.op is Op.INDEXING:
-      pass
-      pass
+    pass
+    pass
     pass
 #             func = self.data[0]
             if isinstance(func, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 func = func.substitute(symbols_map)
 #             args = tuple(a.substitute(symbols_map) for a in self.data[1:])
             return normalize(Expr(self.op, (func,) + args))
         if self.op is Op.TERNARY:
-      pass
-      pass
+    pass
+    pass
     pass
 #             operands = tuple(a.substitute(symbols_map) for a in self.data)
             return normalize(Expr(self.op, operands))
         if self.op in (Op.REF, Op.DEREF):
-      pass
-      pass
+    pass
+    pass
     pass
             return normalize(Expr(self.op, self.data.substitute(symbols_map)))
         if self.op is Op.RELATIONAL:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rop, left, right = self.data
 #             left = left.substitute(symbols_map)
 #             right = right.substitute(symbols_map)
             return normalize(Expr(self.op, (rop, left, right)))
 #         raise NotImplementedError(f'substitute method for {self.op}: {self!r}')
-
     def traverse(self, visit, *args, **kwargs):
 #         Traverse expression tree with visit function.
-
 #         The visit function is applied to an expression with given args
 #         and kwargs.
-
 #         Traverse call returns an expression returned by visit when not
 #         None, otherwise return a new normalized expression with
 #         traverse-visit sub-expressions.
-
 #         result = visit(self, *args, **kwargs)
         if result is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return result
-
         if self.op in (Op.INTEGER, Op.REAL, Op.STRING, Op.SYMBOL):
-      pass
-      pass
+    pass
+    pass
     pass
             return self
         elif self.op in (Op.COMPLEX, Op.ARRAY, Op.CONCAT, Op.TERNARY):
@@ -924,10 +841,10 @@ class Expr:
             for k, v in self.data.items():
 #                 k = k.traverse(visit, *args, **kwargs)
 #                 v = (v.traverse(visit, *args, **kwargs)
-                     if isinstance(v, Expr) else v)
+                    if isinstance(v, Expr) else v)
                 if k in data:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     v = data[k] + v
 #                 data[k] = v
@@ -938,15 +855,15 @@ class Expr:
 #             func = (obj.traverse(visit, *args, **kwargs)
                     if isinstance(obj, Expr) else obj)
 #             operands = tuple(operand.traverse(visit, *args, **kwargs)
-                             for operand in self.data[1])
+                            for operand in self.data[1])
 #             kwoperands = dict((k, v.traverse(visit, *args, **kwargs))
-                              for k, v in self.data[2].items())
+                            for k, v in self.data[2].items())
             return normalize(Expr(self.op, (func, operands, kwoperands)))
         elif self.op is Op.INDEXING:
     pass
 #             obj = self.data[0]
 #             obj = (obj.traverse(visit, *args, **kwargs)
-                   if isinstance(obj, Expr) else obj)
+                if isinstance(obj, Expr) else obj)
 #             indices = tuple(index.traverse(visit, *args, **kwargs)
                             for index in self.data[1:])
             return normalize(Expr(self.op, (obj,) + indices))
@@ -961,147 +878,121 @@ class Expr:
 #             right = right.traverse(visit, *args, **kwargs)
             return normalize(Expr(self.op, (rop, left, right)))
 #         raise NotImplementedError(f'traverse method for {self.op}')
-
     def contains(self, other):
 #         Check if self contains other.
-
 #         found = []
-
         def visit(expr, found=found):
             if found:
-      pass
-      pass
+    pass
+    pass
     pass
                 return expr
             elif expr == other:
     pass
 #                 found.append(1)
                 return expr
-
 #         self.traverse(visit)
-
         return len(found) != 0
-
     def symbols(self):
 #         Return a set of symbols contained in self.
-
 #         found = set()
-
         def visit(expr, found=found):
             if expr.op is Op.SYMBOL:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 found.add(expr)
-
 #         self.traverse(visit)
-
         return found
-
     def polynomial_atoms(self):
 #         Return a set of expressions used as atoms in polynomial self.
-
 #         found = set()
-
         def visit(expr, found=found):
             if expr.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
                 for b in expr.data:
 #                     b.traverse(visit)
                 return expr
             if expr.op in (Op.TERMS, Op.COMPLEX):
-      pass
-      pass
+    pass
+    pass
     pass
                 return
             if expr.op is Op.APPLY and isinstance(expr.data[0], ArithOp):
-      pass
-      pass
+    pass
+    pass
     pass
                 if expr.data[0] is ArithOp.POW:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     expr.data[1][0].traverse(visit)
                     return expr
                 return
             if expr.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                 return expr
-
 #             found.add(expr)
-
             if expr.op in (Op.INDEXING, Op.APPLY):
-      pass
-      pass
+    pass
+    pass
     pass
                 return expr
-
 #         self.traverse(visit)
-
         return found
-
     def linear_solve(self, symbol):
 #         Return a, b such that a * symbol + b == self.
-
 #         If self is not linear with respect to symbol, raise RuntimeError.
-
 #         b = self.substitute({symbol: as_number(0)})
 #         ax = self - b
 #         a = ax.substitute({symbol: as_number(1)})
-
 #         zero, _ = as_numer_denom(a * symbol - ax)
-
         if zero != as_number(0):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(f'not a {symbol}-linear equation:'
 #                                f' {a} * {symbol} + {b} == {self}')
         return a, b
-
-
 def normalize(obj):
 #     Normalize Expr and apply basic evaluation methods.
-
     if not isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
         return obj
-
     if obj.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
 #         d = {}
         for t, c in obj.data.items():
             if c == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             if t.op is Op.COMPLEX and c != 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 t = t * c
 #                 c = 1
             if t.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
                 for t1, c1 in t.data.items():
 #                     _pairs_add(d, t1, c1 * c)
             else:
 #                 _pairs_add(d, t, c)
         if len(d) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # TODO: deterimine correct kind
             return as_number(0)
@@ -1109,39 +1000,37 @@ def normalize(obj):
     pass
 #             (t, c), = d.items()
             if c == 1:
-      pass
-      pass
+    pass
+    pass
     pass
                 return t
         return Expr(Op.TERMS, d)
-
     if obj.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
 #         coeff = 1
 #         d = {}
         for b, e in obj.data.items():
             if e == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             if b.op is Op.TERMS and isinstance(e, integer_types) and e > 1:
-      pass
-      pass
+    pass
+    pass
     pass
                 # expand integer powers of sums
 #                 b = b * (b ** (e - 1))
 #                 e = 1
-
             if b.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
                 if e == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     coeff *= b.data[0]
                 elif e > 0:
@@ -1152,8 +1041,8 @@ def normalize(obj):
             elif b.op is Op.FACTORS:
     pass
                 if e > 0 and isinstance(e, integer_types):
-      pass
-      pass
+    pass
+    pass
     pass
                     for b1, e1 in b.data.items():
 #                         _pairs_add(d, b1, e1 * e)
@@ -1162,8 +1051,8 @@ def normalize(obj):
             else:
 #                 _pairs_add(d, b, e)
         if len(d) == 0 or coeff == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # TODO: deterimine correct kind
 #             assert isinstance(coeff, number_types)
@@ -1172,15 +1061,15 @@ def normalize(obj):
     pass
 #             (b, e), = d.items()
             if e == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 t = b
             else:
 #                 t = Expr(Op.FACTORS, d)
             if coeff == 1:
-      pass
-      pass
+    pass
+    pass
     pass
                 return t
             return Expr(Op.TERMS, {t: coeff})
@@ -1189,65 +1078,59 @@ def normalize(obj):
             return Expr(Op.FACTORS, d)
         else:
             return Expr(Op.TERMS, {Expr(Op.FACTORS, d): coeff})
-
     if obj.op is Op.APPLY and obj.data[0] is ArithOp.DIV:
-      pass
-      pass
+    pass
+    pass
     pass
 #         dividend, divisor = obj.data[1]
 #         t1, c1 = as_term_coeff(dividend)
 #         t2, c2 = as_term_coeff(divisor)
         if isinstance(c1, integer_types) and isinstance(c2, integer_types):
-      pass
-      pass
+    pass
+    pass
     pass
 #             g = gcd(c1, c2)
 #             c1, c2 = c1//g, c2//g
         else:
 #             c1, c2 = c1/c2, 1
-
         if t1.op is Op.APPLY and t1.data[0] is ArithOp.DIV:
-      pass
-      pass
+    pass
+    pass
     pass
 #             numer = t1.data[1][0] * c1
 #             denom = t1.data[1][1] * t2 * c2
             return as_apply(ArithOp.DIV, numer, denom)
-
         if t2.op is Op.APPLY and t2.data[0] is ArithOp.DIV:
-      pass
-      pass
+    pass
+    pass
     pass
 #             numer = t2.data[1][1] * t1 * c1
 #             denom = t2.data[1][0] * c2
             return as_apply(ArithOp.DIV, numer, denom)
-
 #         d = dict(as_factors(t1).data)
         for b, e in as_factors(t2).data.items():
 #             _pairs_add(d, b, -e)
 #         numer, denom = {}, {}
         for b, e in d.items():
             if e > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 numer[b] = e
             else:
 #                 denom[b] = -e
 #         numer = normalize(Expr(Op.FACTORS, numer)) * c1
 #         denom = normalize(Expr(Op.FACTORS, denom)) * c2
-
         if denom.op in (Op.INTEGER, Op.REAL) and denom.data[0] == 1:
-      pass
-      pass
+    pass
+    pass
     pass
             # TODO: denom kind not used
             return numer
         return as_apply(ArithOp.DIV, numer, denom)
-
     if obj.op is Op.CONCAT:
-      pass
-      pass
+    pass
+    pass
     pass
 #         lst = [obj.data[0]]
         for s in obj.data[1:]:
@@ -1264,259 +1147,203 @@ def normalize(obj):
             else:
 #                 lst.append(s)
         if len(lst) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
             return lst[0]
         return Expr(Op.CONCAT, tuple(lst))
-
     if obj.op is Op.TERNARY:
-      pass
-      pass
+    pass
+    pass
     pass
 #         cond, expr1, expr2 = map(normalize, obj.data)
         if cond.op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
             return expr1 if cond.data[0] else expr2
         return Expr(Op.TERNARY, (cond, expr1, expr2))
-
     return obj
-
-
 def as_expr(obj):
 #     Convert non-Expr objects to Expr objects.
-
     if isinstance(obj, complex):
-      pass
-      pass
+    pass
+    pass
     pass
         return as_complex(obj.real, obj.imag)
     if isinstance(obj, number_types):
-      pass
-      pass
+    pass
+    pass
     pass
         return as_number(obj)
     if isinstance(obj, str):
-      pass
-      pass
+    pass
+    pass
     pass
         # STRING expression holds string with boundary quotes, hence
         # applying repr:
         return as_string(repr(obj))
     if isinstance(obj, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
         return tuple(map(as_expr, obj))
     return obj
-
-
 def as_symbol(obj):
 #     Return object as SYMBOL expression (variable or unparsed expression).
-
     return Expr(Op.SYMBOL, obj)
-
-
 def as_number(obj, kind=4):
 #     Return object as INTEGER or REAL constant.
-
     if isinstance(obj, int):
-      pass
-      pass
+    pass
+    pass
     pass
         return Expr(Op.INTEGER, (obj, kind))
     if isinstance(obj, float):
-      pass
-      pass
+    pass
+    pass
     pass
         return Expr(Op.REAL, (obj, kind))
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
         if obj.op in (Op.INTEGER, Op.REAL):
-      pass
-      pass
+    pass
+    pass
     pass
             return obj
 #     raise OpError(f'cannot convert {obj} to INTEGER or REAL constant')
-
-
 def as_integer(obj, kind=4):
 #     Return object as INTEGER constant.
-
     if isinstance(obj, int):
-      pass
-      pass
+    pass
+    pass
     pass
         return Expr(Op.INTEGER, (obj, kind))
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
         if obj.op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
             return obj
 #     raise OpError(f'cannot convert {obj} to INTEGER constant')
-
-
 def as_real(obj, kind=4):
 #     Return object as REAL constant.
-
     if isinstance(obj, int):
-      pass
-      pass
+    pass
+    pass
     pass
         return Expr(Op.REAL, (float(obj), kind))
     if isinstance(obj, float):
-      pass
-      pass
+    pass
+    pass
     pass
         return Expr(Op.REAL, (obj, kind))
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
         if obj.op is Op.REAL:
-      pass
-      pass
+    pass
+    pass
     pass
             return obj
         elif obj.op is Op.INTEGER:
     pass
             return Expr(Op.REAL, (float(obj.data[0]), kind))
 #     raise OpError(f'cannot convert {obj} to REAL constant')
-
-
 def as_string(obj, kind=1):
 #     Return object as STRING expression (string literal constant).
-
     return Expr(Op.STRING, (obj, kind))
-
-
 def as_array(obj):
 #     Return object as ARRAY expression (array constant).
-
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         obj = obj,
     return Expr(Op.ARRAY, obj)
-
-
 def as_complex(real, imag=0):
 #     Return object as COMPLEX expression (complex literal constant).
-
     return Expr(Op.COMPLEX, (as_expr(real), as_expr(imag)))
-
-
 def as_apply(func, *args, **kwargs):
 #     Return object as APPLY expression (function call, constructor, etc.)
-
     return Expr(Op.APPLY,
 #                 (func, tuple(map(as_expr, args)),
 #                  dict((k, as_expr(v)) for k, v in kwargs.items())))
-
-
 def as_ternary(cond, expr1, expr2):
 #     Return object as TERNARY expression (cond?expr1:expr2).
-
     return Expr(Op.TERNARY, (cond, expr1, expr2))
-
-
 def as_ref(expr):
 #     Return object as referencing expression.
-
     return Expr(Op.REF, expr)
-
-
 def as_deref(expr):
 #     Return object as dereferencing expression.
-
     return Expr(Op.DEREF, expr)
-
-
 def as_eq(left, right):
     return Expr(Op.RELATIONAL, (RelOp.EQ, left, right))
-
-
 def as_ne(left, right):
     return Expr(Op.RELATIONAL, (RelOp.NE, left, right))
-
-
 def as_lt(left, right):
     return Expr(Op.RELATIONAL, (RelOp.LT, left, right))
-
-
 def as_le(left, right):
     return Expr(Op.RELATIONAL, (RelOp.LE, left, right))
-
-
 def as_gt(left, right):
     return Expr(Op.RELATIONAL, (RelOp.GT, left, right))
-
-
 def as_ge(left, right):
     return Expr(Op.RELATIONAL, (RelOp.GE, left, right))
-
-
 def as_terms(obj):
 #     Return expression as TERMS expression.
-
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         obj = normalize(obj)
         if obj.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
             return obj
         if obj.op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
             return Expr(Op.TERMS, {as_integer(1, obj.data[1]): obj.data[0]})
         if obj.op is Op.REAL:
-      pass
-      pass
+    pass
+    pass
     pass
             return Expr(Op.TERMS, {as_real(1, obj.data[1]): obj.data[0]})
         return Expr(Op.TERMS, {obj: 1})
 #     raise OpError(f'cannot convert {type(obj)} to terms Expr')
-
-
 def as_factors(obj):
 #     Return expression as FACTORS expression.
-
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         obj = normalize(obj)
         if obj.op is Op.FACTORS:
-      pass
-      pass
+    pass
+    pass
     pass
             return obj
         if obj.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
             if len(obj.data) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 (term, coeff), = obj.data.items()
                 if coeff == 1:
-      pass
-      pass
+    pass
+    pass
     pass
                     return Expr(Op.FACTORS, {term: 1})
                 return Expr(Op.FACTORS, {term: 1, Expr.number(coeff): 1})
@@ -1526,53 +1353,47 @@ def as_factors(obj):
             return Expr(Op.FACTORS, {obj.data[1][0]: 1, obj.data[1][1]: -1})
         return Expr(Op.FACTORS, {obj: 1})
 #     raise OpError(f'cannot convert {type(obj)} to terms Expr')
-
-
 def as_term_coeff(obj):
 #     Return expression as term-coefficient pair.
-
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         obj = normalize(obj)
         if obj.op is Op.INTEGER:
-      pass
-      pass
+    pass
+    pass
     pass
             return as_integer(1, obj.data[1]), obj.data[0]
         if obj.op is Op.REAL:
-      pass
-      pass
+    pass
+    pass
     pass
             return as_real(1, obj.data[1]), obj.data[0]
         if obj.op is Op.TERMS:
-      pass
-      pass
+    pass
+    pass
     pass
             if len(obj.data) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 (term, coeff), = obj.data.items()
                 return term, coeff
             # TODO: find common divisor of coefficients
         if obj.op is Op.APPLY and obj.data[0] is ArithOp.DIV:
-      pass
-      pass
+    pass
+    pass
     pass
 #             t, c = as_term_coeff(obj.data[1][0])
             return as_apply(ArithOp.DIV, t, obj.data[1][1]), c
         return obj, 1
 #     raise OpError(f'cannot convert {type(obj)} to term and coeff')
-
-
 def as_numer_denom(obj):
 #     Return expression as numer-denom pair.
-
     if isinstance(obj, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         obj = normalize(obj)
         if obj.op in (Op.INTEGER, Op.REAL, Op.COMPLEX, Op.SYMBOL,
@@ -1581,8 +1402,8 @@ def as_numer_denom(obj):
         elif obj.op is Op.APPLY:
     pass
             if obj.data[0] is ArithOp.DIV and not obj.data[2]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 numers, denoms = map(as_numer_denom, obj.data[1])
                 return numers[0] * denoms[1], numers[1] * denoms[0]
@@ -1600,15 +1421,15 @@ def as_numer_denom(obj):
 #                 n = numers[i]
                 for j in range(len(numers)):
                     if i != j:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         n *= denoms[j]
 #                 numer += n
 #                 denom *= denoms[i]
             if denom.op in (Op.INTEGER, Op.REAL) and denom.data[0] < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 numer, denom = -numer, -denom
             return numer, denom
@@ -1618,8 +1439,8 @@ def as_numer_denom(obj):
             for b, e in obj.data.items():
 #                 bnumer, bdenom = as_numer_denom(b)
                 if e > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     numer *= bnumer ** e
 #                     denom *= bdenom ** e
@@ -1629,30 +1450,21 @@ def as_numer_denom(obj):
 #                     denom *= bnumer ** (-e)
             return numer, denom
 #     raise OpError(f'cannot convert {type(obj)} to numer and denom')
-
-
 def _counter():
     # Used internally to generate unique dummy symbols
 #     counter = 0
     while True:
 #         counter += 1
 #         yield counter
-
-
-
-
 def eliminate_quotes(s):
 #     Replace quoted substrings of input string.
-
 #     Return a new string and a mapping of replacements.
-
 #     d = {}
-
     def repl(m):
 #         kind, value = m.groups()[:2]
         if kind:
-      pass
-      pass
+    pass
+    pass
     pass
             # remove trailing underscore
 #             kind = kind[:-1]
@@ -1660,40 +1472,29 @@ def eliminate_quotes(s):
 #         k = f'{kind}@__f2py_QUOTES_{p}_{COUNTER.__next__()}@'
 #         d[k] = value
         return k
-
 #     new_s = re.sub(r'({kind}_|)({single_quoted}|{double_quoted})'.format(
 #         kind=r'\w[\w\d_]*',
 #         single_quoted=r"(([^]|(\.))*)",
 #         double_quoted=r'(([^\]|(\\.))*)'),
 #         repl, s)
-
 #     assert '' not in new_s
 #     assert "" not in new_s
-
     return new_s, d
-
-
 def insert_quotes(s, d):
 #     Inverse of eliminate_quotes.
-
     for k, v in d.items():
 #         kind = k[:k.find('@')]
         if kind:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kind += '_'
 #         s = s.replace(k, kind + v)
     return s
-
-
 def replace_parenthesis(s):
 #     Replace substrings of input that are enclosed in parenthesis.
-
 #     Return a new string and a mapping of replacements.
-
     # Find a parenthesis pair that appears first.
-
     # Fortran deliminator are `(`, `)`, `[`, `]`, `(/', '/)`, `/`.
     # We dont handle `/` deliminator because it is not a part of an
     # expression.
@@ -1705,174 +1506,142 @@ def replace_parenthesis(s):
 #                           '[]'):
 #         i = s.find(left_)
         if i == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
         if i < mn_i:
-      pass
-      pass
+    pass
+    pass
     pass
 #             mn_i = i
 #             left, right = left_, right_
-
     if left is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return s, {}
-
 #     i = mn_i
 #     j = s.find(right, i)
-
     while s.count(left, i + 1, j) != s.count(right, i + 1, j):
 #         j = s.find(right, j + 1)
         if j == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f'Mismatch of {left+right} parenthesis in {s!r}')
-
 #     p = {'(': 'ROUND', '[': 'SQUARE', '{': 'CURLY', '(/': 'ROUNDDIV'}[left]
-
 #     k = f'@__f2py_PARENTHESIS_{p}_{COUNTER.__next__()}@'
 #     v = s[i+len(left):j]
 #     r, d = replace_parenthesis(s[j+len(right):])
 #     d[k] = v
     return s[:i] + k + r, d
-
-
 def _get_parenthesis_kind(s):
 #     assert s.startswith('@__f2py_PARENTHESIS_'), s
     return s.split('_')[4]
-
-
 def unreplace_parenthesis(s, d):
 #     Inverse of replace_parenthesis.
-
     for k, v in d.items():
 #         p = _get_parenthesis_kind(k)
 #         left = dict(ROUND='(', SQUARE='[', CURLY='{', ROUNDDIV='(/')[p]
 #         right = dict(ROUND=')', SQUARE=']', CURLY='}', ROUNDDIV='/)')[p]
 #         s = s.replace(k, left + v + right)
     return s
-
-
 def fromstring(s, language=Language.C):
 #     Create an expression from a string.
-
 #     This is a "lazy" parser, that is, only arithmetic operations are
 #     resolved, non-arithmetic operations are treated as symbols.
-
 #     r = _FromStringWorker(language=language).parse(s)
     if isinstance(r, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
         return r
 #     raise ValueError(f'failed to parse `{s}` to Expr instance: got `{r}`')
-
-
 class _Pair:
     # Internal class to represent a pair of expressions
-
     def __init__(self, left, right):
 #         self.left = left
 #         self.right = right
-
     def substitute(self, symbols_map):
 #         left, right = self.left, self.right
         if isinstance(left, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #             left = left.substitute(symbols_map)
         if isinstance(right, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #             right = right.substitute(symbols_map)
         return _Pair(left, right)
-
     def __repr__(self):
         return f'{type(self).__name__}({self.left}, {self.right})'
-
-
 class _FromStringWorker:
-
     def __init__(self, language=Language.C):
 #         self.original = None
 #         self.quotes_map = None
 #         self.language = language
-
     def finalize_string(self, s):
         return insert_quotes(s, self.quotes_map)
-
     def parse(self, inp):
 #         self.original = inp
 #         unquoted, self.quotes_map = eliminate_quotes(inp)
         return self.process(unquoted)
-
     def process(self, s, context='expr'):
 #         Parse string within the given context.
-
 #         The context may define the result in case of ambiguous
 #         expressions. For instance, consider expressions `f(x, y)` and
 #         `(x, y) + (a, b)` where `f` is a function and pair `(x, y)`
 #         denotes complex number. Specifying context as "args" or
 #         "expr", the subexpression `(x, y)` will be parse to an
 #         argument list or to a complex number, respectively.
-
         if isinstance(s, (list, tuple)):
-      pass
-      pass
+    pass
+    pass
     pass
             return type(s)(self.process(s_, context) for s_ in s)
-
 #         assert isinstance(s, str), (type(s), s)
-
         # replace subexpressions in parenthesis with f2py @-names
 #         r, raw_symbols_map = replace_parenthesis(s)
 #         r = r.strip()
-
         def restore(r):
             # restores subexpressions marked with f2py @-names
             if isinstance(r, (list, tuple)):
-      pass
-      pass
+    pass
+    pass
     pass
                 return type(r)(map(restore, r))
             return unreplace_parenthesis(r, raw_symbols_map)
-
         # comma-separated tuple
         if ',' in r:
-      pass
-      pass
+    pass
+    pass
     pass
 #             operands = restore(r.split(','))
             if context == 'args':
-      pass
-      pass
+    pass
+    pass
     pass
                 return tuple(self.process(operands))
             if context == 'expr':
-      pass
-      pass
+    pass
+    pass
     pass
                 if len(operands) == 2:
-      pass
-      pass
+    pass
+    pass
     pass
                     # complex number literal
                     return as_complex(*self.process(operands))
 #             raise NotImplementedError(
 #                 f'parsing comma-separated list (context={context}): {r}')
-
         # ternary operation
 #         m = re.match(r'\A([^?]+)[?]([^:]+)[:](.+)\Z', r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert context == 'expr', context
 #             oper, expr1, expr2 = restore(m.groups())
@@ -1880,11 +1649,10 @@ class _FromStringWorker:
 #             expr1 = self.process(expr1)
 #             expr2 = self.process(expr2)
             return as_ternary(oper, expr1, expr2)
-
         # relational expression
         if self.language is Language.Fortran:
-      pass
-      pass
+    pass
+    pass
     pass
 #             m = re.match(
 #                 r'\A(.+)\s*[.](eq|ne|lt|le|gt|ge)[.]\s*(.+)\Z', r, re.I)
@@ -1892,70 +1660,66 @@ class _FromStringWorker:
 #             m = re.match(
 #                 r'\A(.+)\s*([=][=]|[!][=]|[<][=]|[<]|[>][=]|[>])\s*(.+)\Z', r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             left, rop, right = m.groups()
             if self.language is Language.Fortran:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 rop = '.' + rop + '.'
 #             left, right = self.process(restore((left, right)))
 #             rop = RelOp.fromstring(rop, language=self.language)
             return Expr(Op.RELATIONAL, (rop, left, right))
-
         # keyword argument
 #         m = re.match(r'\A(\w[\w\d_]*)\s*[=](.*)\Z', r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             keyname, value = m.groups()
 #             value = restore(value)
             return _Pair(keyname, self.process(value))
-
         # addition/subtraction operations
 #         operands = re.split(r'((?<!\d[edED])[+-])', r)
         if len(operands) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             result = self.process(restore(operands[0] or '0'))
             for op, operand in zip(operands[1::2], operands[2::2]):
 #                 operand = self.process(restore(operand))
 #                 op = op.strip()
                 if op == :
-      pass
-      pass
+    pass
+    pass
     pass
 #                     result += operand
                 else:
 #                     assert op == '-'
 #                     result -= operand
             return result
-
         # string concatenate operation
         if self.language is Language.Fortran and '//' in r:
-      pass
-      pass
+    pass
+    pass
     pass
 #             operands = restore(r.split('//'))
             return Expr(Op.CONCAT,
 #                         tuple(self.process(operands)))
-
         # multiplication/division operations
 #         operands = re.split(r'(?<=[@\w\d_])\s*([*]|/)',
 #                             (r if self.language is Language.C
-                             else r.replace('**', '@__f2py_DOUBLE_STAR@')))
+                            else r.replace('**', '@__f2py_DOUBLE_STAR@')))
         if len(operands) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             operands = restore(operands)
             if self.language is not Language.C:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 operands = [operand.replace('@__f2py_DOUBLE_STAR@', '**')
                             for operand in operands]
@@ -1965,28 +1729,26 @@ class _FromStringWorker:
 #                 operand = self.process(operand)
 #                 op = op.strip()
                 if op == '*':
-      pass
-      pass
+    pass
+    pass
     pass
 #                     result *= operand
                 else:
 #                     assert op == '/'
 #                     result /= operand
             return result
-
         # referencing/dereferencing
         if r.startswith('*') or r.startswith('&'):
-      pass
-      pass
+    pass
+    pass
     pass
 #             op = {'*': Op.DEREF, '&': Op.REF}[r[0]]
 #             operand = self.process(restore(r[1:]))
             return Expr(op, operand)
-
         # exponentiation operations
         if self.language is not Language.C and '**' in r:
-      pass
-      pass
+    pass
+    pass
     pass
 #             operands = list(reversed(restore(r.split('**'))))
 #             result = self.process(operands[0])
@@ -1994,23 +1756,21 @@ class _FromStringWorker:
 #                 operand = self.process(operand)
 #                 result = operand ** result
             return result
-
         # int-literal-constant
 #         m = re.match(r'\A({digit_string})({kind}|)\Z'.format(
 #             digit_string=r'\d+',
 #             kind=r'_(\d+|\w[\w\d_]*)'), r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             value, _, kind = m.groups()
             if kind and kind.isdigit():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 kind = int(kind)
             return as_integer(int(value), kind or 4)
-
         # real-literal-constant
 #         m = re.match(r'\A({significant}({exponent}|)|\d+{exponent})({kind}|)\Z'
 #                      .format(
@@ -2018,82 +1778,79 @@ class _FromStringWorker:
 #                          exponent=r'[edED][+-]?\d+',
 #                          kind=r'_(\d+|\w[\w\d_]*)'), r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             value, _, _, kind = m.groups()
             if kind and kind.isdigit():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 kind = int(kind)
 #             value = value.lower()
             if 'd' in value:
-      pass
-      pass
+    pass
+    pass
     pass
                 return as_real(float(value.replace('d', 'e')), kind or 8)
             return as_real(float(value), kind or 4)
-
         # string-literal-constant with kind parameter specification
         if r in self.quotes_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kind = r[:r.find('@')]
             return as_string(self.quotes_map[r], kind or 1)
-
         # array constructor or literal complex constant or
         # parenthesized expression
         if r in raw_symbols_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #             paren = _get_parenthesis_kind(r)
 #             items = self.process(restore(raw_symbols_map[r]),
 #                                  'expr' if paren == 'ROUND' else 'args')
             if paren == 'ROUND':
-      pass
-      pass
+    pass
+    pass
     pass
                 if isinstance(items, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
                     return items
             if paren in ['ROUNDDIV', 'SQUARE']:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Expression is a array constructor
                 if isinstance(items, Expr):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     items = (items,)
                 return as_array(items)
-
         # function call/indexing
 #         m = re.match(r'\A(.+)\s*(@__f2py_PARENTHESIS_(ROUND|SQUARE)_\d+@)\Z',
 #                      r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             target, args, paren = m.groups()
 #             target = self.process(restore(target))
 #             args = self.process(restore(args)[1:-1], 'args')
             if not isinstance(args, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 args = args,
             if paren == 'ROUND':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 kwargs = dict((a.left, a.right) for a in args
-                              if isinstance(a, _Pair))
+                            if isinstance(a, _Pair))
 #                 args = tuple(a for a in args if not isinstance(a, _Pair))
                 # Warning: this could also be Fortran indexing operation..
                 return as_apply(target, *args, **kwargs)
@@ -2102,15 +1859,13 @@ class _FromStringWorker:
                 # (e.g. used in .pyf files)
 #                 assert paren == 'SQUARE'
                 return target[args]
-
         # Fortran standard conforming identifier
 #         m = re.match(r'\A\w[\w\d_]*\Z', r)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
             return as_symbol(r)
-
         # fall-back to symbol
 #         r = self.finalize_string(restore(r))
 #         ewarn(

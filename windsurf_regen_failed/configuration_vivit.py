@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "google/vivit-b-16x2-kinetics400": (
 #         "https://huggingface.co/google/vivit-b-16x2-kinetics400/resolve/main/config.json"
 #     ),
     # See all Vivit models at https://huggingface.co/models?filter=vivit
 # }
-
-
 class VivitConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`VivitModel`]. It is used to instantiate a ViViT
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the ViViT
 #     [google/vivit-b-16x2-kinetics400](https://huggingface.co/google/vivit-b-16x2-kinetics400) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 224):
 #             The size (resolution) of each image.
@@ -76,24 +64,17 @@ class VivitConfig(PretrainedConfig):
 #             The epsilon used by the layer normalization layers.
 #         qkv_bias (`bool`, *optional*, defaults to `True`):
 #             Whether to add a bias to the queries, keys and values.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import VivitConfig, VivitModel
-
 #     >>> # Initializing a ViViT google/vivit-b-16x2-kinetics400 style configuration
 #     >>> configuration = VivitConfig()
-
 #     >>> # Initializing a model (with random weights) from the google/vivit-b-16x2-kinetics400 style configuration
 #     >>> model = VivitModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "vivit"
-
     def __init__(
 #         self,
 #         image_size=224,
@@ -121,11 +102,9 @@ class VivitConfig(PretrainedConfig):
 #         self.attention_probs_dropout_prob = attention_probs_dropout_prob
 #         self.initializer_range = initializer_range
 #         self.layer_norm_eps = layer_norm_eps
-
 #         self.image_size = image_size
 #         self.num_frames = num_frames
 #         self.tubelet_size = tubelet_size
 #         self.num_channels = num_channels
 #         self.qkv_bias = qkv_bias
-
 #         super().__init__(**kwargs)

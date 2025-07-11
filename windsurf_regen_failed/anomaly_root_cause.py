@@ -1,20 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # OMNIELITE SAFE AI MODULE
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
-
 from __future__ import annotations
 from typing import List, Dict, Any
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
@@ -25,24 +20,15 @@ from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.threat_feed_parser import parse_threat_feed
 import json
 import logging
-
 try:
     from backend.ai.anomaly_analysis import analyze_anomaly
 except ImportError:
-
     def analyze_anomaly(*args, **kwargs):
-
         return None
-
-
 from pathlib import Path
 from datetime import datetime
-
-
 # Deterministic, SAFE AI-compliant root cause analysis
 # No adaptive or sentient logic; only static, explainable heuristics
-
-
 def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
     # OMNIPROOF: Threat feed check before anomaly root cause analysis
 #     parse_threat_feed({})
@@ -58,7 +44,6 @@ def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
 #     )
     # OMNIPROOF: Monetization signal detection
 #     detect_signals({"anomaly_data": anomaly})
-
 #     key = anomaly.get("key")
 #     timestamp = anomaly.get("timestamp")
     # Find related usage pattern
@@ -91,8 +76,8 @@ def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
 #     )
     # Static rules for root cause
     if recent_override:
-      pass
-      pass
+    pass
+    pass
     pass
 #         cause: str = "Manual override likely triggered spike."
     elif recent_rotation:
@@ -111,8 +96,6 @@ def analyze_anomaly_root_cause(anomaly: Dict[str, Any]) -> Dict[str, Any]:
 #         "recent_rotation": recent_rotation,
 #         "root_cause": cause,
 #     }
-
-
 def analyze_all() -> List[Dict[str, Any]]:
     with open(ANOMALY_PATH, "r") as f:
 #         anomalies = json.load(f)

@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,35 +18,24 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import functools
 import operator
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/speecht5_asr": "https://huggingface.co/microsoft/speecht5_asr/resolve/main/config.json",
 #     "microsoft/speecht5_tts": "https://huggingface.co/microsoft/speecht5_tts/resolve/main/config.json",
 #     "microsoft/speecht5_vc": "https://huggingface.co/microsoft/speecht5_vc/resolve/main/config.json",
 # }
-
 #     "microsoft/speecht5_hifigan": "https://huggingface.co/microsoft/speecht5_hifigan/resolve/main/config.json",
 # }
-
-
 class SpeechT5Config(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SpeechT5Model`]. It is used to instantiate a
 #     SpeechT5 model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the SpeechT5
 #     [microsoft/speecht5_asr](https://huggingface.co/microsoft/speecht5_asr) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 81):
 #             Vocabulary size of the SpeechT5 model. Defines the number of different tokens that can be represented by
@@ -184,25 +171,18 @@ class SpeechT5Config(PretrainedConfig):
 #             Scaling coefficient for guided attention loss (also known as lambda).
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import SpeechT5Model, SpeechT5Config
-
 #     >>> # Initializing a "microsoft/speecht5_asr" style configuration
 #     >>> configuration = SpeechT5Config()
-
 #     >>> # Initializing a model (with random weights) from the "microsoft/speecht5_asr" style configuration
 #     >>> model = SpeechT5Model(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "speecht5"
 #     attribute_map = {"num_attention_heads": "encoder_attention_heads", "num_hidden_layers": "encoder_layers"}
-
     def __init__(
 #         self,
 #         vocab_size=81,
@@ -282,7 +262,6 @@ class SpeechT5Config(PretrainedConfig):
 #         self.initializer_range = initializer_range
 #         self.layer_norm_eps = layer_norm_eps
 #         self.scale_embedding = scale_embedding
-
 #         self.feat_extract_norm = feat_extract_norm
 #         self.feat_proj_dropout = feat_proj_dropout
 #         self.feat_extract_activation = feat_extract_activation
@@ -293,7 +272,6 @@ class SpeechT5Config(PretrainedConfig):
 #         self.num_conv_pos_embeddings = num_conv_pos_embeddings
 #         self.num_conv_pos_embedding_groups = num_conv_pos_embedding_groups
 #         self.num_feat_extract_layers = len(self.conv_dim)
-
         if (
 #             (len(self.conv_stride) != self.num_feat_extract_layers)
 #             or (len(self.conv_kernel) != self.num_feat_extract_layers)
@@ -305,7 +283,6 @@ class SpeechT5Config(PretrainedConfig):
 #                 f" {len(self.conv_dim)}`, `len(config.conv_stride) = {len(self.conv_stride)}`,"
 #                 f" `len(config.conv_kernel) = {len(self.conv_kernel)}`."
 #             )
-
         # fine-tuning config parameters for SpecAugment: https://arxiv.org/abs/1904.08779
 #         self.apply_spec_augment = apply_spec_augment
 #         self.mask_time_prob = mask_time_prob
@@ -314,31 +291,25 @@ class SpeechT5Config(PretrainedConfig):
 #         self.mask_feature_prob = mask_feature_prob
 #         self.mask_feature_length = mask_feature_length
 #         self.mask_feature_min_masks = mask_feature_min_masks
-
 #         self.num_mel_bins = num_mel_bins
 #         self.speech_decoder_prenet_layers = speech_decoder_prenet_layers
 #         self.speech_decoder_prenet_units = speech_decoder_prenet_units
 #         self.speech_decoder_prenet_dropout = speech_decoder_prenet_dropout
 #         self.speaker_embedding_dim = speaker_embedding_dim
-
 #         self.speech_decoder_postnet_layers = speech_decoder_postnet_layers
 #         self.speech_decoder_postnet_units = speech_decoder_postnet_units
 #         self.speech_decoder_postnet_kernel = speech_decoder_postnet_kernel
 #         self.speech_decoder_postnet_dropout = speech_decoder_postnet_dropout
 #         self.reduction_factor = reduction_factor
-
 #         self.max_speech_positions = max_speech_positions
 #         self.max_text_positions = max_text_positions
 #         self.encoder_max_relative_position = encoder_max_relative_position
-
 #         self.use_guided_attention_loss = use_guided_attention_loss
 #         self.guided_attention_loss_num_heads = guided_attention_loss_num_heads
 #         self.guided_attention_loss_sigma = guided_attention_loss_sigma
 #         self.guided_attention_loss_scale = guided_attention_loss_scale
-
 #         self.use_cache = use_cache
 #         self.is_encoder_decoder = is_encoder_decoder
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,
@@ -347,21 +318,16 @@ class SpeechT5Config(PretrainedConfig):
 #             decoder_start_token_id=decoder_start_token_id,
 #             **kwargs,
 #         )
-
     def inputs_to_logits_ratio(self):
         return functools.reduce(operator.mul, self.conv_stride, 1)
-
-
 class SpeechT5HifiGanConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`SpeechT5HifiGanModel`]. It is used to instantiate
 #     a SpeechT5 HiFi-GAN vocoder model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the SpeechT5
 #     [microsoft/speecht5_hifigan](https://huggingface.co/microsoft/speecht5_hifigan) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         model_in_dim (`int`, *optional*, defaults to 80):
 #             The number of frequency bins in the input log-mel spectrogram.
@@ -389,24 +355,17 @@ class SpeechT5HifiGanConfig(PretrainedConfig):
 #             The angle of the negative slope used by the leaky ReLU activation.
 #         normalize_before (`bool`, *optional*, defaults to `True`):
 #             Whether or not to normalize the spectrogram before vocoding using the vocoders learned mean and variance.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import SpeechT5HifiGan, SpeechT5HifiGanConfig
-
 #     >>> # Initializing a "microsoft/speecht5_hifigan" style configuration
 #     >>> configuration = SpeechT5HifiGanConfig()
-
 #     >>> # Initializing a model (with random weights) from the "microsoft/speecht5_hifigan" style configuration
 #     >>> model = SpeechT5HifiGan(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "hifigan"
-
     def __init__(
 #         self,
 #         model_in_dim=80,

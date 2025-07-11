@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,11 +19,8 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
-
 from torch import nn
-
 # transformers_old should correspond to branch `save_old_prophetnet_model_structure` here
 # original prophetnet_checkpoints are saved under `patrickvonplaten/..._old` respectively
 from transformers_old.modeling_prophetnet import (
@@ -35,21 +29,14 @@ from transformers_old.modeling_prophetnet import (
 from transformers_old.modeling_xlm_prophetnet import (
 #     XLMProphetNetForConditionalGeneration as XLMProphetNetForConditionalGenerationOld,
 # )
-
 from transformers import ProphetNetForConditionalGeneration, XLMProphetNetForConditionalGeneration, logging
-
-
 # logger = logging.get_logger(__name__)
 # logging.set_verbosity_info()
-
-
 def convert_prophetnet_checkpoint_to_pytorch(prophetnet_checkpoint_path: str, pytorch_dump_folder_path: str):
-
 #     Copy/paste/tweak prohpetnets weights to our prophetnet structure.
-
     if "xprophetnet" in prophetnet_checkpoint_path:
-      pass
-      pass
+    pass
+    pass
     pass
 #         prophet_old = XLMProphetNetForConditionalGenerationOld.from_pretrained(prophetnet_checkpoint_path)
 #         prophet, loading_info = XLMProphetNetForConditionalGeneration.from_pretrained(
@@ -60,9 +47,7 @@ def convert_prophetnet_checkpoint_to_pytorch(prophetnet_checkpoint_path: str, py
 #         prophet, loading_info = ProphetNetForConditionalGeneration.from_pretrained(
 #             prophetnet_checkpoint_path, output_loading_info=True
 #         )
-
 #     special_keys = ["key_proj", "value_proj", "query_proj"]
-
 #     mapping = {
 #         "self_attn": "ngram_self_attn",
 #         "cross_attn": "encoder_attn",
@@ -80,39 +65,35 @@ def convert_prophetnet_checkpoint_to_pytorch(prophetnet_checkpoint_path: str, py
 #         "ngram_embeddings": "ngram_input_embed",
 #         "position_embeddings": "embed_positions",
 #     }
-
     for key in loading_info["missing_keys"]:
 #         attributes = key.split(".")
-
         if attributes[0] == "lm_head":
-      pass
-      pass
+    pass
+    pass
     pass
 #             model = prophet
 #             old_model = prophet_old
         else:
 #             model = prophet.prophetnet
 #             old_model = prophet_old.model
-
 #         is_key_init = False
         for attribute in attributes:
             if attribute in mapping:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 old_attribute = mapping[attribute]
                 if not hasattr(old_model, old_attribute) and len(old_attribute) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     old_attribute = attribute
             elif hasattr(old_model, attribute):
     pass
 #                 old_attribute = attribute
-
             if attribute == "weight":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 assert old_model.weight.shape == model.weight.shape, "Shapes have to match!"
 #                 model.weight = old_model.weight
@@ -133,12 +114,11 @@ def convert_prophetnet_checkpoint_to_pytorch(prophetnet_checkpoint_path: str, py
 #                 param.weight.shape == old_model.in_proj_weight[:embed_dim, :].shape, "Shapes have to match"
 #                 param.bias.shape == old_model.in_proj_bias[:embed_dim].shape, "Shapes have to match"
                 if attribute == "query_proj":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     model.query_proj.weight = nn.Parameter(old_model.in_proj_weight[:embed_dim, :])
 #                     model.query_proj.bias = nn.Parameter(old_model.in_proj_bias[:embed_dim])
-
                 elif attribute == "key_proj":
     pass
 #                     model.key_proj.weight = nn.Parameter(old_model.in_proj_weight[embed_dim : 2 * embed_dim, :])
@@ -158,42 +138,36 @@ def convert_prophetnet_checkpoint_to_pytorch(prophetnet_checkpoint_path: str, py
 #                 model.position_embeddings.weight = nn.Parameter(old_model.embed_positions.weight[:512, :])
 #                 is_key_init = True
 #                 break
-
             if attribute.isdigit():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 model = model[int(attribute)]
 #                 old_model = old_model[int(old_attribute)]
             else:
 #                 model = getattr(model, attribute)
-
                 if old_attribute == :
-      pass
-      pass
+    pass
+    pass
     pass
 #                     old_model = old_model
                 else:
                     if not hasattr(old_model, old_attribute):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise ValueError(f"{old_model} does not have {old_attribute}")
 #                     old_model = getattr(old_model, old_attribute)
-
         if not is_key_init:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"{key} was not correctly initialized!")
-
 #     print(f"Saving model to {pytorch_dump_folder_path}")
 #     prophet.save_pretrained(pytorch_dump_folder_path)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters

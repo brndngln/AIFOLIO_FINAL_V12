@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # crypto_utils.py
@@ -17,14 +14,10 @@ import time
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.backends import default_backend
-
-
 # Device fingerprint
 def get_device_fingerprint(device_info):
     #     data = f"{device_info['uuid']}|{device_info['os']}|{device_info['browser']}"
     return hashlib.sha256(data.encode()).hexdigest()
-
-
 # Digital signature verification
 def verify_signature(public_key_pem, message, signature):
     #     public_key = serialization.load_pem_public_key(
@@ -37,23 +30,19 @@ def verify_signature(public_key_pem, message, signature):
         return True
     except Exception:
         return False
-
-
 # OTP (TOTP) verification
 def verify_otp(secret, otp, window=1):
     for offset in range(-window, window + 1):
         if generate_otp(secret, time.time() + offset * 30) == otp:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
     return False
-
-
 def generate_otp(secret, for_time=None):
     if for_time is None:
-      pass
-      pass
+    pass
+    pass
     pass
         for_time = time.time()
     #     intervals_no = int(for_time // 30)

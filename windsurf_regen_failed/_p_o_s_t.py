@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from fontTools import ttLib
@@ -15,12 +13,10 @@ import sys
 import struct
 import array
 import logging
-
 # log = logging.getLogger(__name__)
-
 # postFormat =
 # 	>
-	formatType:			16.16F
+formatType:			16.16F
 # 	italicAngle:		16.16F		# italic angle in degrees
 # 	underlinePosition:	h
 # 	underlineThickness:	h
@@ -29,25 +25,19 @@ import logging
 # 	maxMemType42:		L			# maximum memory if TrueType font is downloaded
 # 	minMemType1:		L			# minimum memory if Type1 font is downloaded
 # 	maxMemType1:		L			# maximum memory if Type1 font is downloaded
-
 # postFormatSize = sstruct.calcsize(postFormat)
-
-
 class table__p_o_s_t(DefaultTable.DefaultTable):
 #     PostScript table
-
 #     The ``post`` table contains information needed to use the font on
 #     PostScript printers, including the PostScript names of glyphs and
 #     data that was stored in the ``FontInfo`` dictionary for Type 1 fonts.
-
 #     See also https://learn.microsoft.com/en-us/typography/opentype/spec/post
-
     def decompile(self, data, ttFont):
 #         sstruct.unpack(postFormat, data[:postFormatSize], self)
 #         data = data[postFormatSize:]
         if self.formatType == 1.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.decode_format_1_0(data, ttFont)
         elif self.formatType == 2.0:
@@ -64,12 +54,11 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             raise ttLib.TTLibError(
 #                 "'post' table format %f not supported" % self.formatType
 #             )
-
     def compile(self, ttFont):
 #         data = sstruct.pack(postFormat, self)
         if self.formatType == 1.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pass  # were done
         elif self.formatType == 2.0:
@@ -87,30 +76,26 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #                 "'post' table format %f not supported" % self.formatType
 #             )
         return data
-
     def getGlyphOrder(self):
 #         This function will get called by a ttLib.TTFont instance.
 #         Do not call this function yourself, use TTFont().getGlyphOrder()
 #         or its relatives instead!
-
         if not hasattr(self, "glyphOrder"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ttLib.TTLibError("illegal use of getGlyphOrder()")
 #         glyphOrder = self.glyphOrder
 #         del self.glyphOrder
         return glyphOrder
-
     def decode_format_1_0(self, data, ttFont):
 #         self.glyphOrder = standardGlyphOrder[: ttFont["maxp"].numGlyphs]
-
     def decode_format_2_0(self, data, ttFont):
 #         (numGlyphs,) = struct.unpack(">H", data[:2])
 #         numGlyphs = int(numGlyphs)
         if numGlyphs > ttFont["maxp"].numGlyphs:
-      pass
-      pass
+    pass
+    pass
     pass
             # Assume the numGlyphs field is bogus, so sync with maxp.
             # Ive seen this in one font, and if the assumption is
@@ -121,8 +106,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #         indices = array.array("H")
 #         indices.frombytes(data[: 2 * numGlyphs])
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             indices.byteswap()
 #         data = data[2 * numGlyphs :]
@@ -132,8 +117,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
         for glyphID in range(numGlyphs):
 #             index = indices[glyphID]
             if index > 257:
-      pass
-      pass
+    pass
+    pass
     pass
                 try:
 #                     name = extraNames[index - 258]
@@ -144,21 +129,19 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #                 name = standardGlyphOrder[index]
 #             glyphOrder[glyphID] = name
 #         self.build_psNameMapping(ttFont)
-
     def build_psNameMapping(self, ttFont):
 #         mapping = {}
 #         allNames = {}
         for i in range(ttFont["maxp"].numGlyphs):
 #             glyphName = psName = self.glyphOrder[i]
             if glyphName == :
-      pass
-      pass
+    pass
+    pass
     pass
 #                 glyphName = "glyph%.5d" % i
-
             if glyphName in allNames:
-      pass
-      pass
+    pass
+    pass
     pass
                 # make up a new glyphName thats unique
 #                 n = allNames[glyphName]
@@ -168,31 +151,26 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #                     n += 1
 #                 allNames[glyphName] = n + 1
 #                 glyphName = glyphName + "." + str(n)
-
 #             self.glyphOrder[i] = glyphName
 #             allNames[glyphName] = 1
             if glyphName != psName:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 mapping[glyphName] = psName
-
 #         self.mapping = mapping
-
     def decode_format_3_0(self, data, ttFont):
         # Setting self.glyphOrder to None will cause the TTFont object
         # try and construct glyph names from a Unicode cmap table.
 #         self.glyphOrder = None
-
     def decode_format_4_0(self, data, ttFont):
         from fontTools import agl
-
 #         numGlyphs = ttFont["maxp"].numGlyphs
 #         indices = array.array("H")
 #         indices.frombytes(data)
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             indices.byteswap()
         # In some older fonts, the size of the post table doesnt match
@@ -200,8 +178,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #         self.glyphOrder = glyphOrder = [] * int(numGlyphs)
         for i in range(min(len(indices), numGlyphs)):
             if indices[i] == 0xFFFF:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.glyphOrder[i] =
             elif indices[i] in agl.UV2AGL:
@@ -210,7 +188,6 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
             else:
 #                 self.glyphOrder[i] = "uni%04X" % indices[i]
 #         self.build_psNameMapping(ttFont)
-
     def encode_format_2_0(self, ttFont):
 #         numGlyphs = ttFont["maxp"].numGlyphs
 #         glyphOrder = ttFont.getGlyphOrder()
@@ -225,15 +202,15 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
         for glyphID in range(numGlyphs):
 #             glyphName = glyphOrder[glyphID]
             if glyphName in self.mapping:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 psName = self.mapping[glyphName]
             else:
 #                 psName = glyphName
             if psName in extraDict:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 index = 258 + extraDict[psName]
             elif psName in standardGlyphOrder:
@@ -245,17 +222,15 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #                 extraNames.append(psName)
 #             indices.append(index)
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             indices.byteswap()
         return (
 #             struct.pack(">H", numGlyphs) + indices.tobytes() + packPStrings(extraNames)
 #         )
-
     def encode_format_4_0(self, ttFont):
         from fontTools import agl
-
 #         numGlyphs = ttFont["maxp"].numGlyphs
 #         glyphOrder = ttFont.getGlyphOrder()
 #         assert len(glyphOrder) == numGlyphs
@@ -263,8 +238,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
         for glyphID in glyphOrder:
 #             glyphID = glyphID.split("#")[0]
             if glyphID in agl.AGL2UV:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 indices.append(agl.AGL2UV[glyphID])
             elif len(glyphID) == 7 and glyphID[:3] == "uni":
@@ -273,12 +248,11 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
             else:
 #                 indices.append(0xFFFF)
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             indices.byteswap()
         return indices.tobytes()
-
     def toXML(self, writer, ttFont):
         formatstring, names, fixes = sstruct.getformat(postFormat)
         for name in names:
@@ -286,8 +260,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             writer.simpletag(name, value=value)
 #             writer.newline()
         if hasattr(self, "mapping"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("psNames")
 #             writer.newline()
@@ -307,8 +281,8 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             writer.endtag("psNames")
 #             writer.newline()
         if hasattr(self, "extraNames"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("extraNames")
 #             writer.newline()
@@ -322,19 +296,18 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             writer.endtag("extraNames")
 #             writer.newline()
         if hasattr(self, "data"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("hexdata")
 #             writer.newline()
 #             writer.dumphex(self.data)
 #             writer.endtag("hexdata")
 #             writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont):
         if name not in ("psNames", "extraNames", "hexdata"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             setattr(self, name, safeEval(attrs["value"]))
         elif name == "psNames":
@@ -342,14 +315,14 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             self.mapping = {}
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 name, attrs, content = element
                 if name == "psName":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.mapping[attrs["name"]] = attrs["psName"]
         elif name == "extraNames":
@@ -357,61 +330,51 @@ class table__p_o_s_t(DefaultTable.DefaultTable):
 #             self.extraNames = []
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 name, attrs, content = element
                 if name == "psName":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.extraNames.append(attrs["name"])
         else:
 #             self.data = readHex(content)
-
-
 def unpackPStrings(data, n):
     # extract n Pascal strings from data.
     # if there is not enough data, use
-
 #     strings = []
 #     index = 0
 #     dataLen = len(data)
-
     for _ in range(n):
         if dataLen <= index:
-      pass
-      pass
+    pass
+    pass
     pass
 #             length = 0
         else:
 #             length = byteord(data[index])
 #         index += 1
-
         if dataLen <= index + length - 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             name =
         else:
 #             name = tostr(data[index : index + length], encoding="latin1")
 #         strings.append(name)
 #         index += length
-
     if index < dataLen:
-      pass
-      pass
+    pass
+    pass
     pass
 #         log.warning("%d extra bytes in post.stringData array", dataLen - index)
-
     elif dataLen < index:
     pass
 #         log.warning("not enough data in post.stringData array")
-
     return strings
-
-
 def packPStrings(strings):
 #     data = b
     for s in strings:

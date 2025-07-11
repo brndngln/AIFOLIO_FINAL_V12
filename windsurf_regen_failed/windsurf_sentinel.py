@@ -1,24 +1,19 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #!/usr/bin/env python3
-
 # Windsurf Sentinel: Static SAFE AI audit and forbidden pattern monitor.
 # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
 # Monitors for forbidden patterns and enforces static audit policy. No adaptive or sentient logic.
-
 import subprocess
 import sys
 import json
 from pathlib import Path
 import os
 import functools
-
 # Patterns to monitor
 #     "*.hc",
 #     "*.veracrypt",
@@ -36,9 +31,6 @@ import functools
 #     "admin/tools/system_backups/",
 #     "analytics/backups/",
 # ]
-
-
-
 def is_forbidden(filename: str) -> bool:
 #     Check if a filename matches any forbidden pattern.
 # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
@@ -46,20 +38,16 @@ def is_forbidden(filename: str) -> bool:
 #         filename (str): The filename to check.
 #     Returns:
 #         bool: True if forbidden, False otherwise.
-
     for pat in FORBIDDEN_PATTERNS:
         if Path(filename).match(pat):
-      pass
-      pass
+    pass
+    pass
     pass
             return True
     return False
-
-
 def autonomous_recovery(func):
 #     Decorator for static, deterministic recovery from permission errors.
 # SAFE AI: Static, deterministic, owner-controlled, fully auditable, no adaptive/sentient logic.
-
 #     @functools.wraps(func)
     def wrapper(*args, **kwargs):
 #         retries: int = 3
@@ -82,8 +70,8 @@ def autonomous_recovery(func):
                 except Exception as chown_e:
 #                     print(f"[AUTONOMOUS RECOVERY] chown error: {chown_e}")
                 if attempt == retries:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     print(
 #                         f"[AUTONOMOUS RECOVERY] Permanent error after {retries} attempts:\n"
@@ -91,16 +79,13 @@ def autonomous_recovery(func):
 #                     )
                     # Only abort on SAFE AI violation
                     if "sentient" in str(e).lower():
-      pass
-      pass
+    pass
+    pass
     pass
 #                         sys.exit("SAFE AI violation: sentience detected.")
                     return []
         return []
-
     return wrapper
-
-
 # @autonomous_recovery
 def get_staged_files(timeout_sec=60):
     try:
@@ -150,13 +135,11 @@ def get_staged_files(timeout_sec=60):
 #             pass
         # CEO alert logic (if available)
         return []
-
-
 def log_event(event):
     try:
         if Path(AUDIT_LOG).exists():
-      pass
-      pass
+    pass
+    pass
     pass
             with open(AUDIT_LOG, "r") as f:
 #                 log = json.load(f)
@@ -167,14 +150,12 @@ def log_event(event):
 #             json.dump(log, f, indent=2)
     except Exception as e:
 #         print(f"[Sentinel] Failed to log event: {e}", file=sys.stderr)
-
-
 def main():
 #     staged = get_staged_files()
     forbidden = [f for f in staged if is_forbidden(f)]
     if forbidden:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print(f"[Sentinel] ERROR: Forbidden files staged: {forbidden}")
 #         log_event(
@@ -185,13 +166,10 @@ def main():
 #             }
 #         )
 #         sys.exit(0)
-
     else:
 #         print("[Sentinel] No forbidden files staged.")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     main()

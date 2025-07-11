@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "tau/splinter-base": "https://huggingface.co/tau/splinter-base/resolve/main/config.json",
 #     "tau/splinter-base-qass": "https://huggingface.co/tau/splinter-base-qass/resolve/main/config.json",
 #     "tau/splinter-large": "https://huggingface.co/tau/splinter-large/resolve/main/config.json",
 #     "tau/splinter-large-qass": "https://huggingface.co/tau/splinter-large-qass/resolve/main/config.json",
     # See all Splinter models at https://huggingface.co/models?filter=splinter
 # }
-
-
 class SplinterConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SplinterModel`]. It is used to instantiate an
 #     Splinter model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the Splinter
 #     [tau/splinter-base](https://huggingface.co/tau/splinter-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the Splinter model. Defines the number of different tokens that can be represented by
@@ -81,24 +68,17 @@ class SplinterConfig(PretrainedConfig):
 #             relevant if `config.is_decoder=True`.
 #         question_token_id (`int`, *optional*, defaults to 104):
 #             The id of the `[QUESTION]` token.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import SplinterModel, SplinterConfig
-
 #     >>> # Initializing a Splinter tau/splinter-base style configuration
 #     >>> configuration = SplinterConfig()
-
 #     >>> # Initializing a model from the tau/splinter-base style configuration
 #     >>> model = SplinterModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "splinter"
-
     def __init__(
 #         self,
 #         vocab_size=30522,
@@ -119,7 +99,6 @@ class SplinterConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.max_position_embeddings = max_position_embeddings
 #         self.hidden_size = hidden_size

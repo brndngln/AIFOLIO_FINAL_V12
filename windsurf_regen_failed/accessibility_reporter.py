@@ -1,23 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Automated accessibility testing and reporting for AIFOLIO dashboard (WCAG 2.1 AA).
 # Uses axe-core via Selenium for frontend testing.
-
 import json
 from selenium import webdriver
 from axe_selenium_python import Axe
-
-
 def run_accessibility_audit(url="http://localhost:8765"):
     # Start headless browser
 #     options = webdriver.ChromeOptions()
@@ -33,8 +26,6 @@ def run_accessibility_audit(url="http://localhost:8765"):
     with open(report_path, "w") as f:
 #         json.dump(results, f, indent=2)
     return report_path, results
-
-
 def summarize_accessibility_report(
 #     report_path="../analytics/accessibility_report.json",
 # ):
@@ -53,12 +44,9 @@ def summarize_accessibility_report(
     for impact, count in by_type.items():
 #         summary += f"- {impact}: {count}\n"
     return summary
-
-
 def export_accessibility_pdf(report_path="../analytics/accessibility_report.json"):
     from reportlab.pdfgen import canvas
     import io
-
     with open(report_path) as f:
 #         results = json.load(f)
 #     buf = io.BytesIO()
@@ -73,8 +61,8 @@ def export_accessibility_pdf(report_path="../analytics/accessibility_report.json
 #             c.drawString(50, y, f"On: {node['html']}")
 #             y -= 12
         if y < 50:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c.showPage()
 #             y = 800
@@ -83,12 +71,9 @@ def export_accessibility_pdf(report_path="../analytics/accessibility_report.json
     with open("../analytics/accessibility_report.log", "a") as logf:
 #         logf.write("EXPORT: Accessibility PDF exported\n")
     return buf
-
-
 def export_accessibility_csv(report_path="../analytics/accessibility_report.json"):
     import io
     import csv
-
     with open(report_path) as f:
 #         results = json.load(f)
 #     output = io.StringIO()
@@ -100,8 +85,6 @@ def export_accessibility_csv(report_path="../analytics/accessibility_report.json
     with open("../analytics/accessibility_report.log", "a") as logf:
 #         logf.write("EXPORT: Accessibility CSV exported\n")
     return output.getvalue()
-
-
 def run_accessibility_audit_on_route(route_url):
 #     options = webdriver.ChromeOptions()
 #     options.add_argument("headless")

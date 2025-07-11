@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,14 +10,11 @@ import json
 import datetime
 import os
 import requests
-
 #     os.path.join(
 #         os.path.dirname(__file__), "../../analytics/marketplace_trend_scanner_log.jsonl"
 #     )
 # )
 # os.makedirs(os.path.dirname(TREND_LOG), exist_ok=True)
-
-
 # --- Marketplace Trend Scanner (SAFE AI, Read-Only) ---
 def scan_gumroad_trends(api_url="https://api.gumroad.com/v2/products"):
     try:

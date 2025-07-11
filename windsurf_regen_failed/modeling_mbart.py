@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,17 +18,14 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import copy
 import math
 from typing import List, Optional, Tuple, Union
-
 import torch
 import torch.nn.functional as F
 import torch.utils.checkpoint
 from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
-
 from ...activations import ACT2FN
 from ...modeling_attn_mask_utils import _prepare_4d_attention_mask, _prepare_4d_causal_attention_mask
 from ...modeling_outputs import (
@@ -54,29 +49,20 @@ from ...utils import (
 #     replace_return_docstrings,
 # )
 from .configuration_mbart import MBartConfig
-
-
 if is_flash_attn_2_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from flash_attn import flash_attn_func, flash_attn_varlen_func
     from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-
-
 # logger = logging.get_logger(__name__)
-
 # _CHECKPOINT_FOR_DOC = "facebook/mbart-large-cc25"
 # _CONFIG_FOR_DOC = "MBartConfig"
-
 # Base model docstring
 # _EXPECTED_OUTPUT_SHAPE = [1, 8, 1024]
-
 #     "facebook/mbart-large-cc25",
     # See all MBART models at https://huggingface.co/models?filter=mbart
 # ]
-
-
 # Copied from transformers.models.llama.modeling_llama._get_unpad_data
 def _get_unpad_data(attention_mask):
 #     seqlens_in_batch = attention_mask.sum(dim=-1, dtype=torch.int32)
@@ -88,55 +74,38 @@ def _get_unpad_data(attention_mask):
 #         cu_seqlens,
 #         max_seqlen_in_batch,
 #     )
-
-
 def shift_tokens_right(input_ids: torch.Tensor, pad_token_id: int):
-
 #     Shift input ids one token to the right, and wrap the last non pad token (the <LID> token) Note that MBart does not
 #     have a single `decoder_start_token_id` in contrast to other Bart-like models.
-
 #     prev_output_tokens = input_ids.clone()
-
     if pad_token_id is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("self.model.config.pad_token_id has to be defined.")
     # replace possible -100 values in labels by `pad_token_id`
 #     prev_output_tokens.masked_fill_(prev_output_tokens == -100, pad_token_id)
-
 #     index_of_eos = (prev_output_tokens.ne(pad_token_id).sum(dim=1) - 1).unsqueeze(-1)
 #     decoder_start_tokens = prev_output_tokens.gather(1, index_of_eos).squeeze()
 #     prev_output_tokens[:, 1:] = prev_output_tokens[:, :-1].clone()
 #     prev_output_tokens[:, 0] = decoder_start_tokens
-
     return prev_output_tokens
-
-
 # Copied from transformers.models.bart.modeling_bart.BartLearnedPositionalEmbedding with Bart->MBart
 class MBartLearnedPositionalEmbedding(nn.Embedding):
-
 #     This module learns positional embeddings up to a fixed maximum size.
-
     def __init__(self, num_embeddings: int, embedding_dim: int):
         # MBart is set up so that if padding_idx is specified then offset the embedding ids by 2
         # and adjust num_embeddings appropriately. Other models dont have this hack
 #         self.offset = 2
 #         super().__init__(num_embeddings + self.offset, embedding_dim)
-
     def forward(self, input_ids: torch.Tensor, past_key_values_length: int = 0):
-
 #         bsz, seq_len = input_ids.shape[:2]
 #         positions = torch.arange(
 #             past_key_values_length, past_key_values_length + seq_len, dtype=torch.int, device=self.weight.device
 #         ).expand(bsz, -1)
-
         return super().forward(positions + self.offset)
-
-
 # Copied from transformers.models.bart.modeling_bart.BartAttention with Bart->MBart
 class MBartAttention(nn.Module):
-
     def __init__(
 #         self,
 #         embed_dim: int,
@@ -153,10 +122,9 @@ class MBartAttention(nn.Module):
 #         self.dropout = dropout
 #         self.head_dim = embed_dim // num_heads
 #         self.config = config
-
         if (self.head_dim * num_heads) != self.embed_dim:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"embed_dim must be divisible by num_heads (got `embed_dim`: {self.embed_dim}"
@@ -165,15 +133,12 @@ class MBartAttention(nn.Module):
 #         self.scaling = self.head_dim**-0.5
 #         self.is_decoder = is_decoder
 #         self.is_causal = is_causal
-
 #         self.k_proj = nn.Linear(embed_dim, embed_dim, bias=bias)
 #         self.v_proj = nn.Linear(embed_dim, embed_dim, bias=bias)
 #         self.q_proj = nn.Linear(embed_dim, embed_dim, bias=bias)
 #         self.out_proj = nn.Linear(embed_dim, embed_dim, bias=bias)
-
     def _shape(self, tensor: torch.Tensor, seq_len: int, bsz: int):
         return tensor.view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2).contiguous()
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -183,13 +148,10 @@ class MBartAttention(nn.Module):
 #         layer_head_mask: Optional[torch.Tensor] = None,
 #         output_attentions: bool = False,
 #     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
-
         # if key_value_states are provided this layer is used as a cross-attention layer
         # for the decoder
 #         is_cross_attention = key_value_states is not None
-
 #         bsz, tgt_len, _ = hidden_states.size()
-
         # get query proj
 #         query_states = self.q_proj(hidden_states) * self.scaling
         # get key, value proj
@@ -220,10 +182,9 @@ class MBartAttention(nn.Module):
             # self_attention
 #             key_states = self._shape(self.k_proj(hidden_states), -1, bsz)
 #             value_states = self._shape(self.v_proj(hidden_states), -1, bsz)
-
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
             # if cross_attention save Tuple(torch.Tensor, torch.Tensor) of all cross attention key/value_states.
             # Further calls to cross_attention layer can then reuse all cross-attention
@@ -233,47 +194,41 @@ class MBartAttention(nn.Module):
             # can concat previous decoder key/value_states to current projected key/value_states (third "elif" case)
             # if encoder bi-directional self-attention `past_key_value` is always `None`
 #             past_key_value = (key_states, value_states)
-
 #         proj_shape = (bsz * self.num_heads, -1, self.head_dim)
 #         query_states = self._shape(query_states, tgt_len, bsz).view(*proj_shape)
 #         key_states = key_states.reshape(*proj_shape)
 #         value_states = value_states.reshape(*proj_shape)
-
 #         src_len = key_states.size(1)
 #         attn_weights = torch.bmm(query_states, key_states.transpose(1, 2))
-
         if attn_weights.size() != (bsz * self.num_heads, tgt_len, src_len):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Attention weights should be of size {(bsz * self.num_heads, tgt_len, src_len)}, but is"
 #                 f" {attn_weights.size()}"
 #             )
-
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if attention_mask.size() != (bsz, 1, tgt_len, src_len):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Attention mask should be of size {(bsz, 1, tgt_len, src_len)}, but is {attention_mask.size()}"
 #                 )
 #             attn_weights = attn_weights.view(bsz, self.num_heads, tgt_len, src_len) + attention_mask
 #             attn_weights = attn_weights.view(bsz * self.num_heads, tgt_len, src_len)
-
 #         attn_weights = nn.functional.softmax(attn_weights, dim=-1)
-
         if layer_head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if layer_head_mask.size() != (self.num_heads,):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Head mask for a single layer should be of size {(self.num_heads,)}, but is"
@@ -281,10 +236,9 @@ class MBartAttention(nn.Module):
 #                 )
 #             attn_weights = layer_head_mask.view(1, -1, 1, 1) * attn_weights.view(bsz, self.num_heads, tgt_len, src_len)
 #             attn_weights = attn_weights.view(bsz * self.num_heads, tgt_len, src_len)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
             # this operation is a bit awkward, but its required to
             # make sure that attn_weights keeps its gradient.
@@ -294,51 +248,37 @@ class MBartAttention(nn.Module):
 #             attn_weights = attn_weights_reshaped.view(bsz * self.num_heads, tgt_len, src_len)
         else:
 #             attn_weights_reshaped = None
-
 #         attn_probs = nn.functional.dropout(attn_weights, p=self.dropout, training=self.training)
-
 #         attn_output = torch.bmm(attn_probs, value_states)
-
         if attn_output.size() != (bsz * self.num_heads, tgt_len, self.head_dim):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"`attn_output` should be of size {(bsz * self.num_heads, tgt_len, self.head_dim)}, but is"
 #                 f" {attn_output.size()}"
 #             )
-
 #         attn_output = attn_output.view(bsz, self.num_heads, tgt_len, self.head_dim)
 #         attn_output = attn_output.transpose(1, 2)
-
         # Use the `embed_dim` from the config (stored in the class) rather than `hidden_state` because `attn_output` can be
         # partitioned across GPUs when using tensor-parallelism.
 #         attn_output = attn_output.reshape(bsz, tgt_len, self.embed_dim)
-
 #         attn_output = self.out_proj(attn_output)
-
         return attn_output, attn_weights_reshaped, past_key_value
-
-
 # Copied from transformers.models.bart.modeling_bart.BartFlashAttention2 with Bart->MBart
 class MBartFlashAttention2(MBartAttention):
-
 #     MBart flash attention module. This module inherits from `MBartAttention` as the weights of the module stays
 #     untouched. The only required change would be on the forward pass where it needs to correctly call the public API of
 #     flash attention and deal with padding tokens in case the input contains any of them.
-
     # Copied from transformers.models.llama.modeling_llama.LlamaFlashAttention2.__init__
     def __init__(self, *args, **kwargs):
 #         super().__init__(*args, **kwargs)
-
         # TODO: Should be removed once Flash Attention for RoCm is bumped to 2.1.
         # flash_attn<2.1 generates top-left aligned causal mask, while what is needed here is bottom-right alignement, that was made default for flash_attn>=2.1. This attribute is used to handle this difference. Reference: https://github.com/Dao-AILab/flash-attention/releases/tag/v2.1.0.
         # Beware that with flash_attn<2.1, using q_seqlen != k_seqlen (except for the case q_seqlen == 1) produces a wrong mask (top-left).
 #         self._flash_attn_uses_top_left_mask = not is_flash_attn_greater_or_equal_2_10()
-
     def _reshape(self, tensor: torch.Tensor, seq_len: int, bsz: int):
         return tensor.view(bsz, seq_len, self.num_heads, self.head_dim)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -350,17 +290,14 @@ class MBartFlashAttention2(MBartAttention):
 #     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
         # MBartFlashAttention2 attention does not support output_attentions
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("MBartFlashAttention2 attention does not support output_attentions")
-
         # if key_value_states are provided this layer is used as a cross-attention layer
         # for the decoder
 #         is_cross_attention = key_value_states is not None
-
 #         bsz, q_len, _ = hidden_states.size()
-
         # get query proj
 #         query_states = self._reshape(self.q_proj(hidden_states), -1, bsz)
         # get key, value proj
@@ -391,10 +328,9 @@ class MBartFlashAttention2(MBartAttention):
             # self_attention
 #             key_states = self._reshape(self.k_proj(hidden_states), -1, bsz)
 #             value_states = self._reshape(self.v_proj(hidden_states), -1, bsz)
-
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
             # if cross_attention save Tuple(torch.Tensor, torch.Tensor) of all cross attention key/value_states.
             # Further calls to cross_attention layer can then reuse all cross-attention
@@ -404,67 +340,55 @@ class MBartFlashAttention2(MBartAttention):
             # can concat previous decoder key/value_states to current projected key/value_states (third "elif" case)
             # if encoder bi-directional self-attention `past_key_value` is always `None`
 #             past_key_value = (key_states.transpose(1, 2), value_states.transpose(1, 2))
-
 #         kv_seq_len = key_states.shape[-2]
         if past_key_value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kv_seq_len += past_key_value[0].shape[-2]
-
         # In PEFT, usually we cast the layer norms in float32 for training stability reasons
         # therefore the input hidden states gets silently casted in float32. Hence, we need
         # cast them back in the correct dtype just to be sure everything works as expected.
         # This might slowdown training & inference so it is recommended to not cast the LayerNorms
         # in fp32. (LlamaRMSNorm handles it correctly)
-
 #         input_dtype = query_states.dtype
         if input_dtype == torch.float32:
-      pass
-      pass
+    pass
+    pass
     pass
             # Handle the case where the model is quantized
             if hasattr(self.config, "_pre_quantization_dtype"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 target_dtype = self.config._pre_quantization_dtype
             else:
 #                 target_dtype = self.q_proj.weight.dtype
-
 #             logger.warning_once(
 #                 f"The input hidden states seems to be silently casted in float32, this might be related to"
 #                 f" the fact you have upcasted embedding or layer norm layers in float32. We will cast back the input in"
 #                 f" {target_dtype}."
 #             )
-
 #             query_states = query_states.to(target_dtype)
 #             key_states = key_states.to(target_dtype)
 #             value_states = value_states.to(target_dtype)
-
 #         attn_output = self._flash_attention_forward(
 #             query_states, key_states, value_states, attention_mask, q_len, dropout=self.dropout
 #         )
-
 #         attn_output = attn_output.reshape(bsz, q_len, -1)
 #         attn_output = self.out_proj(attn_output)
-
         if not output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attn_weights = None
-
         return attn_output, attn_weights, past_key_value
-
     # Copied from transformers.models.llama.modeling_llama.LlamaFlashAttention2._flash_attention_forward
     def _flash_attention_forward(
 #         self, query_states, key_states, value_states, attention_mask, query_length, dropout=0.0, softmax_scale=None
 #     ):
-
 #         Calls the forward method of Flash Attention - if the input hidden states contain at least one padding token
 #         first unpad the input, then computes the attention scores and pad the final attention scores.
-
 #         Args:
 #             query_states (`torch.Tensor`):
 #                 Input query states to be passed to Flash Attention API
@@ -479,29 +403,25 @@ class MBartFlashAttention2(MBartAttention):
 #                 Attention dropout
 #             softmax_scale (`float`, *optional*):
 #                 The scaling of QK^T before applying softmax. Default to 1 / sqrt(head_dim)
-
         if not self._flash_attn_uses_top_left_mask:
-      pass
-      pass
+    pass
+    pass
     pass
 #             causal = self.is_causal
         else:
             # TODO: Remove the `query_length != 1` check once Flash Attention for RoCm is bumped to 2.1. For details, please see the comment in LlamaFlashAttention2 __init__.
 #             causal = self.is_causal and query_length != 1
-
         # Contains at least one padding token in the sequence
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size = query_states.shape[0]
 #             query_states, key_states, value_states, indices_q, cu_seq_lens, max_seq_lens = self._upad_input(
 #                 query_states, key_states, value_states, attention_mask, query_length
 #             )
-
 #             cu_seqlens_q, cu_seqlens_k = cu_seq_lens
 #             max_seqlen_in_batch_q, max_seqlen_in_batch_k = max_seq_lens
-
 #             attn_output_unpad = flash_attn_varlen_func(
 #                 query_states,
 #                 key_states,
@@ -514,20 +434,16 @@ class MBartFlashAttention2(MBartAttention):
 #                 softmax_scale=softmax_scale,
 #                 causal=causal,
 #             )
-
 #             attn_output = pad_input(attn_output_unpad, indices_q, batch_size, query_length)
         else:
 #             attn_output = flash_attn_func(
 #                 query_states, key_states, value_states, dropout, softmax_scale=softmax_scale, causal=causal
 #             )
-
         return attn_output
-
     # Copied from transformers.models.llama.modeling_llama.LlamaFlashAttention2._upad_input
     def _upad_input(self, query_layer, key_layer, value_layer, attention_mask, query_length):
 #         indices_k, cu_seqlens_k, max_seqlen_in_batch_k = _get_unpad_data(attention_mask)
 #         batch_size, kv_seq_len, num_key_value_heads, head_dim = key_layer.shape
-
 #         key_layer = index_first_axis(
 #             key_layer.reshape(batch_size * kv_seq_len, num_key_value_heads, head_dim), indices_k
 #         )
@@ -535,8 +451,8 @@ class MBartFlashAttention2(MBartAttention):
 #             value_layer.reshape(batch_size * kv_seq_len, num_key_value_heads, head_dim), indices_k
 #         )
         if query_length == kv_seq_len:
-      pass
-      pass
+    pass
+    pass
     pass
 #             query_layer = index_first_axis(
 #                 query_layer.reshape(batch_size * kv_seq_len, self.num_heads, head_dim), indices_k
@@ -556,7 +472,6 @@ class MBartFlashAttention2(MBartAttention):
             # The -q_len: slice assumes left padding.
 #             attention_mask = attention_mask[:, -query_length:]
 #             query_layer, indices_q, cu_seqlens_q, max_seqlen_in_batch_q = unpad_input(query_layer, attention_mask)
-
         return (
 #             query_layer,
 #             key_layer,
@@ -565,18 +480,13 @@ class MBartFlashAttention2(MBartAttention):
 #             (cu_seqlens_q, cu_seqlens_k),
 #             (max_seqlen_in_batch_q, max_seqlen_in_batch_k),
 #         )
-
-
 #     "eager": MBartAttention,
 #     "flash_attention_2": MBartFlashAttention2,
 # }
-
-
 class MBartEncoderLayer(nn.Module):
     def __init__(self, config: MBartConfig):
 #         super().__init__()
 #         self.embed_dim = config.d_model
-
 #         self.self_attn = MBART_ATTENTION_CLASSES[config._attn_implementation](
 #             embed_dim=self.embed_dim,
 #             num_heads=config.encoder_attention_heads,
@@ -590,7 +500,6 @@ class MBartEncoderLayer(nn.Module):
 #         self.fc1 = nn.Linear(self.embed_dim, config.encoder_ffn_dim)
 #         self.fc2 = nn.Linear(config.encoder_ffn_dim, self.embed_dim)
 #         self.final_layer_norm = nn.LayerNorm(self.embed_dim)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -598,7 +507,6 @@ class MBartEncoderLayer(nn.Module):
 #         layer_head_mask: torch.Tensor,
 #         output_attentions: bool = False,
 #     ) -> torch.Tensor:
-
 #         Args:
 #             hidden_states (`torch.FloatTensor`): input to the layer of shape `(batch, seq_len, embed_dim)`
 #             attention_mask (`torch.FloatTensor`): attention mask of size
@@ -608,7 +516,6 @@ class MBartEncoderLayer(nn.Module):
 #             output_attentions (`bool`, *optional*):
 #                 Whether or not to return the attentions tensors of all attention layers. See `attentions` under
                 returned tensors for more detail.
-
 #         residual = hidden_states
 #         hidden_states = self.self_attn_layer_norm(hidden_states)
 #         hidden_states, attn_weights, _ = self.self_attn(
@@ -619,7 +526,6 @@ class MBartEncoderLayer(nn.Module):
 #         )
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
 #         hidden_states = residual + hidden_states
-
 #         residual = hidden_states
 #         hidden_states = self.final_layer_norm(hidden_states)
 #         hidden_states = self.activation_fn(self.fc1(hidden_states))
@@ -627,29 +533,22 @@ class MBartEncoderLayer(nn.Module):
 #         hidden_states = self.fc2(hidden_states)
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
 #         hidden_states = residual + hidden_states
-
         if hidden_states.dtype == torch.float16 and (
 #             torch.isinf(hidden_states).any() or torch.isnan(hidden_states).any()
 #         ):
 #             clamp_value = torch.finfo(hidden_states.dtype).max - 1000
 #             hidden_states = torch.clamp(hidden_states, min=-clamp_value, max=clamp_value)
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (attn_weights,)
-
         return outputs
-
-
 class MBartDecoderLayer(nn.Module):
     def __init__(self, config: MBartConfig):
 #         super().__init__()
 #         self.embed_dim = config.d_model
-
 #         self.self_attn = MBART_ATTENTION_CLASSES[config._attn_implementation](
 #             embed_dim=self.embed_dim,
 #             num_heads=config.decoder_attention_heads,
@@ -661,7 +560,6 @@ class MBartDecoderLayer(nn.Module):
 #         self.dropout = config.dropout
 #         self.activation_fn = ACT2FN[config.activation_function]
 #         self.activation_dropout = config.activation_dropout
-
 #         self.self_attn_layer_norm = nn.LayerNorm(self.embed_dim)
 #         self.encoder_attn = MBART_ATTENTION_CLASSES[config._attn_implementation](
 #             self.embed_dim,
@@ -674,7 +572,6 @@ class MBartDecoderLayer(nn.Module):
 #         self.fc1 = nn.Linear(self.embed_dim, config.decoder_ffn_dim)
 #         self.fc2 = nn.Linear(config.decoder_ffn_dim, self.embed_dim)
 #         self.final_layer_norm = nn.LayerNorm(self.embed_dim)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -687,7 +584,6 @@ class MBartDecoderLayer(nn.Module):
 #         output_attentions: Optional[bool] = False,
 #         use_cache: Optional[bool] = True,
 #     ) -> torch.Tensor:
-
 #         Args:
 #             hidden_states (`torch.FloatTensor`): input to the layer of shape `(batch, seq_len, embed_dim)`
 #             attention_mask (`torch.FloatTensor`): attention mask of size
@@ -704,10 +600,8 @@ class MBartDecoderLayer(nn.Module):
 #             output_attentions (`bool`, *optional*):
 #                 Whether or not to return the attentions tensors of all attention layers. See `attentions` under
                 returned tensors for more detail.
-
 #         residual = hidden_states
 #         hidden_states = self.self_attn_layer_norm(hidden_states)
-
         # Self Attention
         # decoder uni-directional self-attention cached key/values tuple is at positions 1,2
 #         self_attn_past_key_value = past_key_value[:2] if past_key_value is not None else None
@@ -721,17 +615,15 @@ class MBartDecoderLayer(nn.Module):
 #         )
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
 #         hidden_states = residual + hidden_states
-
         # Cross-Attention Block
 #         cross_attn_present_key_value = None
 #         cross_attn_weights = None
         if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             residual = hidden_states
 #             hidden_states = self.encoder_attn_layer_norm(hidden_states)
-
             # cross_attn cached key/values tuple is at positions 3,4 of present_key_value tuple
 #             cross_attn_past_key_value = past_key_value[-2:] if past_key_value is not None else None
 #             hidden_states, cross_attn_weights, cross_attn_present_key_value = self.encoder_attn(
@@ -744,10 +636,8 @@ class MBartDecoderLayer(nn.Module):
 #             )
 #             hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
 #             hidden_states = residual + hidden_states
-
             # add cross-attn to positions 3,4 of present_key_value tuple
 #             present_key_value = present_key_value + cross_attn_present_key_value
-
         # Fully Connected
 #         residual = hidden_states
 #         hidden_states = self.final_layer_norm(hidden_states)
@@ -756,27 +646,20 @@ class MBartDecoderLayer(nn.Module):
 #         hidden_states = self.fc2(hidden_states)
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
 #         hidden_states = residual + hidden_states
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (self_attn_weights, cross_attn_weights)
-
         if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (present_key_value,)
-
         return outputs
-
-
 # Copied from transformers.models.bart.modeling_bart.BartClassificationHead with Bart->MBart
 class MBartClassificationHead(nn.Module):
-
     def __init__(
 #         self,
 #         input_dim: int,
@@ -788,7 +671,6 @@ class MBartClassificationHead(nn.Module):
 #         self.dense = nn.Linear(input_dim, inner_dim)
 #         self.dropout = nn.Dropout(p=pooler_dropout)
 #         self.out_proj = nn.Linear(inner_dim, num_classes)
-
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dropout(hidden_states)
 #         hidden_states = self.dense(hidden_states)
@@ -796,32 +678,28 @@ class MBartClassificationHead(nn.Module):
 #         hidden_states = self.dropout(hidden_states)
 #         hidden_states = self.out_proj(hidden_states)
         return hidden_states
-
-
 class MBartPreTrainedModel(PreTrainedModel):
 #     config_class = MBartConfig
 #     base_model_prefix = "model"
 #     supports_gradient_checkpointing = True
 #     _no_split_modules = ["MBartDecoderLayer", "MBartAttention"]
 #     _supports_flash_attn_2 = True
-
     def _init_weights(self, module):
 #         std = self.config.init_std
         if isinstance(module, nn.Linear):
-      pass
-      pass
+    pass
+    pass
     pass
             if module.bias is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         elif isinstance(module, nn.Embedding):
     pass
             if module.padding_idx is not None:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @property
     def dummy_inputs(self):
 #         pad_token = self.config.pad_token_id
@@ -831,90 +709,65 @@ class MBartPreTrainedModel(PreTrainedModel):
 #             "input_ids": input_ids,
 #         }
         return dummy_inputs
-
-
 #     This model inherits from [`PreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading or saving, resizing the input embeddings, pruning heads
 #     etc.)
-
 #     This model is also a PyTorch [torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module) subclass.
 #     Use it as a regular PyTorch Module and refer to the PyTorch documentation for all matter related to general usage
 #     and behavior.
-
 #     Parameters:
 #         config ([`MBartConfig`]):
 #             Model configuration class with all the parameters of the model. Initializing with a config file does not
 #             load the weights associated with the model, only the configuration. Check out the
 #             [`~PreTrainedModel.from_pretrained`] method to load the model weights.
-
 #     Translation example:
-
 #     ```python
 #     >>> from transformers import AutoTokenizer, MBartForConditionalGeneration
-
 #     >>> model = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-en-ro")
 #     >>> tokenizer = AutoTokenizer.from_pretrained("facebook/mbart-large-en-ro")
-
 #     >>> example_english_phrase = "42 is the answer"
 #     >>> inputs = tokenizer(example_english_phrase, return_tensors="pt")
-
 #     >>> # Translate
 #     >>> generated_ids = model.generate(**inputs, num_beams=4, max_length=5)
 #     >>> tokenizer.batch_decode(generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 #     '42 este răspuns'
 #     ```
-
 #     Mask filling example:
-
 #     ```python
 #     >>> from transformers import AutoTokenizer, MBartForConditionalGeneration
-
 #     >>> model = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-cc25")
 #     >>> tokenizer = AutoTokenizer.from_pretrained("facebook/mbart-large-cc25")
-
 #     >>> # de_DE is the language symbol id <LID> for German
 #     >>> TXT = "</s> Meine Freunde sind <mask> nett aber sie essen zu viel Kuchen. </s> de_DE"
-
 #     >>> input_ids = tokenizer([TXT], add_special_tokens=False, return_tensors="pt")["input_ids"]
 #     >>> logits = model(input_ids).logits
-
 #     >>> masked_index = (input_ids[0] == tokenizer.mask_token_id).nonzero().item()
 #     >>> probs = logits[0, masked_index].softmax(dim=0)
 #     >>> values, predictions = probs.topk(5)
-
 #     >>> tokenizer.decode(predictions).split()
 #     ['nett', 'sehr', 'ganz', 'nicht', 'so']
 #     ```
-
 #     Args:
 #         input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         decoder_input_ids (`torch.LongTensor` of shape `(batch_size, target_sequence_length)`, *optional*):
 #             Indices of decoder input sequence tokens in the vocabulary.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are decoder input IDs?](../glossary#decoder-input-ids)
-
 #             MBart uses a specific language id token as the starting token for `decoder_input_ids` generation that
 #             varies according to source and target language, *e.g.* 25004 for *en_XX*, and 25003 for *de_DE*. If
 #             `past_key_values` is used, optionally only the last `decoder_input_ids` have to be input (see
 #             `past_key_values`).
-
 #             For translation and summarization training, `decoder_input_ids` should be provided. If no
 #             `decoder_input_ids` is provided, the model will create this tensor by shifting the `input_ids` to the right
             for denoising pre-training following the paper.
@@ -923,23 +776,17 @@ class MBartPreTrainedModel(PreTrainedModel):
 #             be used by default.
 #         head_mask (`torch.Tensor` of shape `(encoder_layers, encoder_attention_heads)`, *optional*):
 #             Mask to nullify selected heads of the attention modules in the encoder. Mask values selected in `[0, 1]`:
-
 #             - 1 indicates the head is **not masked**,
 #             - 0 indicates the head is **masked**.
-
 #         decoder_head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #             Mask to nullify selected heads of the attention modules in the decoder. Mask values selected in `[0, 1]`:
-
 #             - 1 indicates the head is **not masked**,
 #             - 0 indicates the head is **masked**.
-
 #         cross_attn_head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #             Mask to nullify selected heads of the cross-attention modules in the decoder. Mask values selected in `[0,
 #             1]`:
-
 #             - 1 indicates the head is **not masked**,
 #             - 0 indicates the head is **masked**.
-
 #         encoder_outputs (`tuple(tuple(torch.FloatTensor)`, *optional*):
 #             Tuple consists of (`last_hidden_state`, *optional*: `hidden_states`, *optional*: `attentions`)
 #             `last_hidden_state` of shape `(batch_size, sequence_length, hidden_size)`, *optional*) is a sequence of
@@ -948,10 +795,8 @@ class MBartPreTrainedModel(PreTrainedModel):
 #             Tuple of `tuple(torch.FloatTensor)` of length `config.n_layers`, with each tuple having 2 tensors of shape
 #             `(batch_size, num_heads, sequence_length, embed_size_per_head)`) and 2 additional tensors of shape
 #             `(batch_size, num_heads, encoder_sequence_length, embed_size_per_head)`.
-
 #             Contains pre-computed hidden-states (key and values in the self-attention blocks and in the cross-attention
 #             blocks) that can be used (see `past_key_values` input) to speed up sequential decoding.
-
 #             If `past_key_values` are used, the user can optionally input only the last `decoder_input_ids` (those that
 #             dont have their past key value states given to this model) of shape `(batch_size, 1)` instead of all
 #             `decoder_input_ids` of shape `(batch_size, sequence_length)`. inputs_embeds (`torch.FloatTensor` of shape
@@ -963,7 +808,6 @@ class MBartPreTrainedModel(PreTrainedModel):
 #             representation. If `past_key_values` is used, optionally only the last `decoder_inputs_embeds` have to be
 #             input (see `past_key_values`). This is useful if you want more control over how to convert
 #             `decoder_input_ids` indices into associated vectors than the models internal embedding lookup matrix.
-
 #             If `decoder_input_ids` and `decoder_inputs_embeds` are both unset, `decoder_inputs_embeds` takes the value
 #             of `inputs_embeds`.
 #         use_cache (`bool`, *optional*):
@@ -977,35 +821,26 @@ class MBartPreTrainedModel(PreTrainedModel):
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 class MBartEncoder(MBartPreTrainedModel):
-
 #     Transformer encoder consisting of *config.encoder_layers* self attention layers. Each layer is a
 #     [`MBartEncoderLayer`].
-
 #     Args:
 #         config: MBartConfig
 #         embed_tokens (nn.Embedding): output embedding
-
     def __init__(self, config: MBartConfig, embed_tokens: Optional[nn.Embedding] = None):
 #         super().__init__(config)
-
 #         self.dropout = config.dropout
 #         self.layerdrop = config.encoder_layerdrop
-
 #         embed_dim = config.d_model
 #         self.padding_idx = config.pad_token_id
 #         self.max_source_positions = config.max_position_embeddings
 #         self.embed_scale = math.sqrt(embed_dim) if config.scale_embedding else 1.0
-
 #         self.embed_tokens = nn.Embedding(config.vocab_size, embed_dim, self.padding_idx)
-
         if embed_tokens is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.embed_tokens.weight = embed_tokens.weight
-
 #         self.embed_positions = MBartLearnedPositionalEmbedding(
 #             config.max_position_embeddings,
 #             embed_dim,
@@ -1014,19 +849,16 @@ class MBartEncoder(MBartPreTrainedModel):
 #         self._use_flash_attention_2 = config._attn_implementation == "flash_attention_2"
 #         self.layernorm_embedding = nn.LayerNorm(embed_dim)
 #         self.layer_norm = nn.LayerNorm(config.d_model)
-
 #         self.gradient_checkpointing = False
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def _backward_compatibility_gradient_checkpointing(self):
         # Override to not delete the attribute from the config
         if self.supports_gradient_checkpointing and getattr(self.config, "gradient_checkpointing", False):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.gradient_checkpointing_enable()
-
     def forward(
 #         self,
 #         input_ids: torch.LongTensor = None,
@@ -1037,29 +869,22 @@ class MBartEncoder(MBartPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, BaseModelOutput]:
-
 #         Args:
 #             input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #                 Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you
 #                 provide it.
-
 #                 Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #                 [`PreTrainedTokenizer.__call__`] for details.
-
 #                 [What are input IDs?](../glossary#input-ids)
 #             attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #                 Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #                 - 1 for tokens that are **not masked**,
 #                 - 0 for tokens that are **masked**.
-
 #                 [What are attention masks?](../glossary#attention-mask)
 #             head_mask (`torch.Tensor` of shape `(encoder_layers, encoder_attention_heads)`, *optional*):
 #                 Mask to nullify selected heads of the attention modules. Mask values selected in `[0, 1]`:
-
 #                 - 1 indicates the head is **not masked**,
 #                 - 0 indicates the head is **masked**.
-
 #             inputs_embeds (`torch.FloatTensor` of shape `(batch_size, sequence_length, hidden_size)`, *optional*):
 #                 Optionally, instead of passing `input_ids` you can choose to directly pass an embedded representation.
 #                 This is useful if you want more control over how to convert `input_ids` indices into associated vectors
@@ -1072,17 +897,15 @@ class MBartEncoder(MBartPreTrainedModel):
                 for more detail.
             return_dict (`bool`, *optional*):
 #                 Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 #         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         # retrieve input_ids and inputs_embeds
         if input_ids is not None and inputs_embeds is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You cannot specify both input_ids and inputs_embeds at the same time")
         elif input_ids is not None:
@@ -1095,45 +918,39 @@ class MBartEncoder(MBartPreTrainedModel):
 #             input = inputs_embeds[:, :, -1]
         else:
 #             raise ValueError("You have to specify either input_ids or inputs_embeds")
-
         if inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             inputs_embeds = self.embed_tokens(input_ids) * self.embed_scale
-
 #         embed_pos = self.embed_positions(input)
-
 #         hidden_states = inputs_embeds + embed_pos.to(inputs_embeds.device)
 #         hidden_states = self.layernorm_embedding(hidden_states)
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
-
         # expand attention_mask
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # [bsz, seq_len] -> [bsz, 1, tgt_seq_len, src_seq_len]
             if self._use_flash_attention_2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 attention_mask = attention_mask if 0 in attention_mask else None
             else:
                 # [bsz, seq_len] -> [bsz, 1, tgt_seq_len, src_seq_len]
 #                 attention_mask = _prepare_4d_attention_mask(attention_mask, inputs_embeds.dtype)
-
 #         encoder_states = () if output_hidden_states else None
 #         all_attentions = () if output_attentions else None
-
         # check if head_mask has a correct number of layers specified if desired
         if head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if head_mask.size()[0] != len(self.layers):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"The head_mask should be specified for {len(self.layers)} layers, but it is for"
@@ -1141,29 +958,28 @@ class MBartEncoder(MBartPreTrainedModel):
 #                 )
         for idx, encoder_layer in enumerate(self.layers):
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 encoder_states = encoder_states + (hidden_states,)
             # add LayerDrop (see https://arxiv.org/abs/1909.11556 for description)
 #             to_drop = False
             if self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dropout_probability = torch.rand([])
                 if dropout_probability < self.layerdrop:  # skip the layer
 #                     to_drop = True
-
             if to_drop:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_outputs = (None, None)
             else:
                 if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     layer_outputs = self._gradient_checkpointing_func(
 #                         encoder_layer.__call__,
@@ -1179,41 +995,31 @@ class MBartEncoder(MBartPreTrainedModel):
 #                         layer_head_mask=(head_mask[idx] if head_mask is not None else None),
 #                         output_attentions=output_attentions,
 #                     )
-
 #                 hidden_states = layer_outputs[0]
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_attentions = all_attentions + (layer_outputs[1],)
-
 #         hidden_states = self.layer_norm(hidden_states)
-
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoder_states = encoder_states + (hidden_states,)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(v for v in [hidden_states, encoder_states, all_attentions] if v is not None)
         return BaseModelOutput(
 #             last_hidden_state=hidden_states, hidden_states=encoder_states, attentions=all_attentions
 #         )
-
-
 class MBartDecoder(MBartPreTrainedModel):
-
 #     Transformer decoder consisting of *config.decoder_layers* layers. Each layer is a [`MBartDecoderLayer`]
-
 #     Args:
 #         config: MBartConfig
 #         embed_tokens (nn.Embedding): output embedding
-
     def __init__(self, config: MBartConfig, embed_tokens: Optional[nn.Embedding] = None):
 #         super().__init__(config)
 #         self.dropout = config.dropout
@@ -1221,15 +1027,12 @@ class MBartDecoder(MBartPreTrainedModel):
 #         self.padding_idx = config.pad_token_id
 #         self.max_target_positions = config.max_position_embeddings
 #         self.embed_scale = math.sqrt(config.d_model) if config.scale_embedding else 1.0
-
 #         self.embed_tokens = nn.Embedding(config.vocab_size, config.d_model, self.padding_idx)
-
         if embed_tokens is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.embed_tokens.weight = embed_tokens.weight
-
 #         self.embed_positions = MBartLearnedPositionalEmbedding(
 #             config.max_position_embeddings,
 #             config.d_model,
@@ -1238,17 +1041,13 @@ class MBartDecoder(MBartPreTrainedModel):
 #         self._use_flash_attention_2 = config._attn_implementation == "flash_attention_2"
 #         self.layernorm_embedding = nn.LayerNorm(config.d_model)
 #         self.layer_norm = nn.LayerNorm(config.d_model)
-
 #         self.gradient_checkpointing = False
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self):
         return self.embed_tokens
-
     def set_input_embeddings(self, value):
 #         self.embed_tokens = value
-
     def forward(
 #         self,
 #         input_ids: torch.LongTensor = None,
@@ -1269,17 +1068,13 @@ class MBartDecoder(MBartPreTrainedModel):
 #             input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #                 Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you
 #                 provide it.
-
 #                 Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #                 [`PreTrainedTokenizer.__call__`] for details.
-
 #                 [What are input IDs?](../glossary#input-ids)
 #             attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #                 Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #                 - 1 for tokens that are **not masked**,
 #                 - 0 for tokens that are **masked**.
-
 #                 [What are attention masks?](../glossary#attention-mask)
 #             encoder_hidden_states (`torch.FloatTensor` of shape `(batch_size, encoder_sequence_length, hidden_size)`, *optional*):
 #                 Sequence of hidden-states at the output of the last layer of the encoder. Used in the cross-attention
@@ -1287,32 +1082,24 @@ class MBartDecoder(MBartPreTrainedModel):
 #             encoder_attention_mask (`torch.LongTensor` of shape `(batch_size, encoder_sequence_length)`, *optional*):
 #                 Mask to avoid performing cross-attention on padding tokens indices of encoder input_ids. Mask values
 #                 selected in `[0, 1]`:
-
 #                 - 1 for tokens that are **not masked**,
 #                 - 0 for tokens that are **masked**.
-
 #                 [What are attention masks?](../glossary#attention-mask)
 #             head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #                 Mask to nullify selected heads of the attention modules. Mask values selected in `[0, 1]`:
-
 #                 - 1 indicates the head is **not masked**,
 #                 - 0 indicates the head is **masked**.
-
 #             cross_attn_head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #                 Mask to nullify selected heads of the cross-attention modules in the decoder to avoid performing
 #                 cross-attention on hidden heads. Mask values selected in `[0, 1]`:
-
 #                 - 1 indicates the head is **not masked**,
 #                 - 0 indicates the head is **masked**.
-
 #             past_key_values (`tuple(tuple(torch.FloatTensor))`, *optional*, returned when `use_cache=True` is passed or when `config.use_cache=True`):
 #                 Tuple of `tuple(torch.FloatTensor)` of length `config.n_layers`, with each tuple having 2 tensors of
 #                 shape `(batch_size, num_heads, sequence_length, embed_size_per_head)`) and 2 additional tensors of
 #                 shape `(batch_size, num_heads, encoder_sequence_length, embed_size_per_head)`.
-
 #                 Contains pre-computed hidden-states (key and values in the self-attention blocks and in the
 #                 cross-attention blocks) that can be used (see `past_key_values` input) to speed up sequential decoding.
-
 #                 If `past_key_values` are used, the user can optionally input only the last `decoder_input_ids` (those
 #                 that dont have their past key value states given to this model) of shape `(batch_size, 1)` instead of
 #                 all `decoder_input_ids` of shape `(batch_size, sequence_length)`. inputs_embeds (`torch.FloatTensor` of
@@ -1328,18 +1115,16 @@ class MBartDecoder(MBartPreTrainedModel):
                 for more detail.
             return_dict (`bool`, *optional*):
 #                 Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 #         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
 #         use_cache = use_cache if use_cache is not None else self.config.use_cache
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         # retrieve input_ids and inputs_embeds
         if input_ids is not None and inputs_embeds is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You cannot specify both decoder_input_ids and decoder_inputs_embeds at the same time")
         elif input_ids is not None:
@@ -1353,19 +1138,16 @@ class MBartDecoder(MBartPreTrainedModel):
 #             input = inputs_embeds[:, :, -1]
         else:
 #             raise ValueError("You have to specify either decoder_input_ids or decoder_inputs_embeds")
-
         # past_key_values_length
 #         past_key_values_length = past_key_values[0][0].shape[2] if past_key_values is not None else 0
-
         if inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             inputs_embeds = self.embed_tokens(input_ids) * self.embed_scale
-
         if self._use_flash_attention_2:
-      pass
-      pass
+    pass
+    pass
     pass
             # 2d mask is passed through the layers
 #             attention_mask = attention_mask if (attention_mask is not None and 0 in attention_mask) else None
@@ -1374,15 +1156,14 @@ class MBartDecoder(MBartPreTrainedModel):
 #             attention_mask = _prepare_4d_causal_attention_mask(
 #                 attention_mask, input_shape, inputs_embeds, past_key_values_length
 #             )
-
         # expand encoder attention mask
         if encoder_hidden_states is not None and encoder_attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if self._use_flash_attention_2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 encoder_attention_mask = encoder_attention_mask if 0 in encoder_attention_mask else None
             else:
@@ -1390,43 +1171,37 @@ class MBartDecoder(MBartPreTrainedModel):
 #                 encoder_attention_mask = _prepare_4d_attention_mask(
 #                     encoder_attention_mask, inputs_embeds.dtype, tgt_len=input_shape[-1]
 #                 )
-
         # embed positions
 #         positions = self.embed_positions(input, past_key_values_length)
-
 #         hidden_states = inputs_embeds + positions.to(inputs_embeds.device)
 #         hidden_states = self.layernorm_embedding(hidden_states)
-
 #         hidden_states = nn.functional.dropout(hidden_states, p=self.dropout, training=self.training)
-
         if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning_once(
 #                     "`use_cache=True` is incompatible with gradient checkpointing`. Setting `use_cache=False`..."
 #                 )
 #                 use_cache = False
-
         # decoder layers
 #         all_hidden_states = () if output_hidden_states else None
 #         all_self_attns = () if output_attentions else None
 #         all_cross_attentions = () if (output_attentions and encoder_hidden_states is not None) else None
 #         next_decoder_cache = () if use_cache else None
-
         # check if head_mask/cross_attn_head_mask has a correct number of layers specified if desired
         for attn_mask, mask_name in zip([head_mask, cross_attn_head_mask], ["head_mask", "cross_attn_head_mask"]):
             if attn_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if attn_mask.size()[0] != len(self.layers):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError(
 #                         f"The `{mask_name}` should be specified for {len(self.layers)} layers, but it is for"
@@ -1435,26 +1210,24 @@ class MBartDecoder(MBartPreTrainedModel):
         for idx, decoder_layer in enumerate(self.layers):
             # add LayerDrop (see https://arxiv.org/abs/1909.11556 for description)
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states += (hidden_states,)
             if self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dropout_probability = torch.rand([])
                 if dropout_probability < self.layerdrop:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
-
 #             past_key_value = past_key_values[idx] if past_key_values is not None else None
-
             if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_outputs = self._gradient_checkpointing_func(
 #                     decoder_layer.__call__,
@@ -1483,38 +1256,32 @@ class MBartDecoder(MBartPreTrainedModel):
 #                     use_cache=use_cache,
 #                 )
 #             hidden_states = layer_outputs[0]
-
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 next_decoder_cache += (layer_outputs[3 if output_attentions else 1],)
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_self_attns += (layer_outputs[1],)
-
                 if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     all_cross_attentions += (layer_outputs[2],)
-
 #         hidden_states = self.layer_norm(hidden_states)
-
         # add hidden states from the last decoder layer
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             all_hidden_states += (hidden_states,)
-
 #         next_cache = next_decoder_cache if use_cache else None
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(
 #                 v
@@ -1528,48 +1295,36 @@ class MBartDecoder(MBartPreTrainedModel):
 #             attentions=all_self_attns,
 #             cross_attentions=all_cross_attentions,
 #         )
-
-
 # @add_start_docstrings(
 #     "The bare MBART Model outputting raw hidden-states without any specific head on top.",
 # )
 class MBartModel(MBartPreTrainedModel):
 #     _tied_weights_keys = ["encoder.embed_tokens.weight", "decoder.embed_tokens.weight"]
-
     def __init__(self, config: MBartConfig):
 #         super().__init__(config)
-
 #         padding_idx, vocab_size = config.pad_token_id, config.vocab_size
 #         self.shared = nn.Embedding(vocab_size, config.d_model, padding_idx)
-
 #         self.encoder = MBartEncoder(config, self.shared)
 #         self.decoder = MBartDecoder(config, self.shared)
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self):
         return self.shared
-
     def set_input_embeddings(self, value):
 #         self.shared = value
 #         self.encoder.embed_tokens = self.shared
 #         self.decoder.embed_tokens = self.shared
-
     def get_encoder(self):
         return self.encoder
-
     def get_decoder(self):
         return self.decoder
-
     def _tie_weights(self):
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._tie_or_clone_weights(self.encoder.embed_tokens, self.get_input_embeddings())
 #             self._tie_or_clone_weights(self.decoder.embed_tokens, self.get_input_embeddings())
-
 #     @add_start_docstrings_to_model_forward(MBART_INPUTS_DOCSTRING)
 #     @add_code_sample_docstrings(
 #         checkpoint=_CHECKPOINT_FOR_DOC,
@@ -1601,18 +1356,16 @@ class MBartModel(MBartPreTrainedModel):
 #         )
 #         use_cache = use_cache if use_cache is not None else self.config.use_cache
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         # different to other models, MBart automatically creates decoder_input_ids from
         # input_ids if no decoder_input_ids are provided
         if decoder_input_ids is None and decoder_inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             decoder_input_ids = shift_tokens_right(input_ids, self.config.pad_token_id)
-
         if encoder_outputs is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoder_outputs = self.encoder(
 #                 input_ids=input_ids,
@@ -1631,7 +1384,6 @@ class MBartModel(MBartPreTrainedModel):
 #                 hidden_states=encoder_outputs[1] if len(encoder_outputs) > 1 else None,
 #                 attentions=encoder_outputs[2] if len(encoder_outputs) > 2 else None,
 #             )
-
         # decoder outputs consists of (dec_features, past_key_value, dec_hidden, dec_attn)
 #         decoder_outputs = self.decoder(
 #             input_ids=decoder_input_ids,
@@ -1647,13 +1399,11 @@ class MBartModel(MBartPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return decoder_outputs + encoder_outputs
-
         return Seq2SeqModelOutput(
 #             last_hidden_state=decoder_outputs.last_hidden_state,
 #             past_key_values=decoder_outputs.past_key_values,
@@ -1664,8 +1414,6 @@ class MBartModel(MBartPreTrainedModel):
 #             encoder_hidden_states=encoder_outputs.hidden_states,
 #             encoder_attentions=encoder_outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
 #     "The MBART Model with a language modeling head. Can be used for summarization, after fine-tuning the pretrained models.",
 # )
@@ -1673,45 +1421,36 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #     base_model_prefix = "model"
 #     _keys_to_ignore_on_load_missing = ["final_logits_bias"]
 #     _tied_weights_keys = ["model.encoder.embed_tokens.weight", "model.decoder.embed_tokens.weight", "lm_head.weight"]
-
     def __init__(self, config: MBartConfig):
 #         super().__init__(config)
 #         self.model = MBartModel(config)
 #         self.register_buffer("final_logits_bias", torch.zeros((1, self.model.shared.num_embeddings)))
 #         self.lm_head = nn.Linear(config.d_model, self.model.shared.num_embeddings, bias=False)
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_encoder(self):
         return self.model.get_encoder()
-
     def get_decoder(self):
         return self.model.get_decoder()
-
     def resize_token_embeddings(self, new_num_tokens: int, pad_to_multiple_of: Optional[int] = None) -> nn.Embedding:
 #         new_embeddings = super().resize_token_embeddings(new_num_tokens, pad_to_multiple_of)
 #         self._resize_final_logits_bias(new_embeddings.weight.shape[0])
         return new_embeddings
-
     def _resize_final_logits_bias(self, new_num_tokens: int) -> None:
 #         old_num_tokens = self.final_logits_bias.shape[-1]
         if new_num_tokens <= old_num_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_bias = self.final_logits_bias[:, :new_num_tokens]
         else:
 #             extra_bias = torch.zeros((1, new_num_tokens - old_num_tokens), device=self.final_logits_bias.device)
 #             new_bias = torch.cat([self.final_logits_bias, extra_bias], dim=1)
 #         self.register_buffer("final_logits_bias", new_bias)
-
     def get_output_embeddings(self):
         return self.lm_head
-
     def set_output_embeddings(self, new_embeddings):
 #         self.lm_head = new_embeddings
-
 #     @add_start_docstrings_to_model_forward(MBART_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=Seq2SeqLMOutput, config_class=_CONFIG_FOR_DOC)
 #     @add_end_docstrings(MBART_GENERATION_EXAMPLE)
@@ -1734,32 +1473,27 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Seq2SeqLMOutput, Tuple[torch.FloatTensor]]:
-
 #         labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Labels for computing the masked language modeling loss. Indices should either be in `[0, ...,
 #             config.vocab_size]` or -100 (see `input_ids` docstring). Tokens with indices set to `-100` are ignored
 #             (masked), the loss is only computed for the tokens with labels in `[0, ..., config.vocab_size]`.
-
 #         Returns:
-
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning("The `use_cache` argument is changed to `False` since `labels` is provided.")
 #             use_cache = False
             if decoder_input_ids is None and decoder_inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 decoder_input_ids = shift_tokens_right(labels, self.config.pad_token_id)
-
 #         outputs = self.model(
 #             input_ids,
 #             attention_mask=attention_mask,
@@ -1778,22 +1512,19 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
             return_dict=return_dict,
 #         )
 #         lm_logits = self.lm_head(outputs[0]) + self.final_logits_bias
-
 #         masked_lm_loss = None
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             loss_fct = CrossEntropyLoss()
 #             masked_lm_loss = loss_fct(lm_logits.view(-1, self.config.vocab_size), labels.view(-1))
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (lm_logits,) + outputs[1:]
             return ((masked_lm_loss,) + output) if masked_lm_loss is not None else output
-
         return Seq2SeqLMOutput(
 #             loss=masked_lm_loss,
 #             logits=lm_logits,
@@ -1805,7 +1536,6 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #             encoder_hidden_states=outputs.encoder_hidden_states,
 #             encoder_attentions=outputs.encoder_attentions,
 #         )
-
     def prepare_inputs_for_generation(
 #         self,
 #         decoder_input_ids,
@@ -1820,23 +1550,20 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #     ):
         # cut decoder_input_ids if past is used
         if past_key_values is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             past_length = past_key_values[0][0].shape[2]
-
             # Some generation methods already pass only the last input ID
             if decoder_input_ids.shape[1] > past_length:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 remove_prefix_length = past_length
             else:
                 # Default to old behavior: keep only final ID
 #                 remove_prefix_length = decoder_input_ids.shape[1] - 1
-
 #             decoder_input_ids = decoder_input_ids[:, remove_prefix_length:]
-
         return {
 #             "input_ids": None,  # encoder_outputs is defined. input_ids not needed
 #             "encoder_outputs": encoder_outputs,
@@ -1848,10 +1575,8 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #             "cross_attn_head_mask": cross_attn_head_mask,
 #             "use_cache": use_cache,  # change this to avoid caching (presumably for debugging)
 #         }
-
     def prepare_decoder_input_ids_from_labels(self, labels: torch.Tensor):
         return shift_tokens_right(labels, self.config.pad_token_id)
-
 #     @staticmethod
     def _reorder_cache(past_key_values, beam_idx):
 #         reordered_past = ()
@@ -1862,17 +1587,13 @@ class MBartForConditionalGeneration(MBartPreTrainedModel):
 #                 + layer_past[2:],
 #             )
         return reordered_past
-
-
 # @add_start_docstrings(
-
 #     MBart model with a sequence classification/head on top (a linear layer on top of the pooled output) e.g. for GLUE
 #     tasks.
 """    """,
 # )
 class MBartForSequenceClassification(MBartPreTrainedModel):
 #     _tied_weights_keys = ["model.encoder.embed_tokens.weight", "model.decoder.embed_tokens.weight"]
-
     def __init__(self, config: MBartConfig, **kwargs):
 #         super().__init__(config, **kwargs)
 #         self.model = MBartModel(config)
@@ -1882,10 +1603,8 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
 #             config.num_labels,
 #             config.classifier_dropout,
 #         )
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
 #     @add_start_docstrings_to_model_forward(MBART_INPUTS_DOCSTRING)
 #     @add_code_sample_docstrings(
 #         checkpoint=_CHECKPOINT_FOR_DOC,
@@ -1915,22 +1634,19 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
 #         labels (`torch.LongTensor` of shape `(batch_size,)`, *optional*):
 #             Labels for computing the sequence classification/regression loss. Indices should be in `[0, ...,
 #             config.num_labels - 1]`. If `config.num_labels > 1` a classification loss is computed (Cross-Entropy).
-
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             use_cache = False
-
         if input_ids is None and inputs_embeds is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise NotImplementedError(
 #                 f"Passing input embeddings is currently not supported for {self.__class__.__name__}"
 #             )
-
 #         outputs = self.model(
 #             input_ids,
 #             attention_mask=attention_mask,
@@ -1948,31 +1664,28 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
             return_dict=return_dict,
 #         )
 #         hidden_states = outputs[0]  # last hidden state
-
 #         eos_mask = input_ids.eq(self.config.eos_token_id).to(hidden_states.device)
-
         if len(torch.unique_consecutive(eos_mask.sum(1))) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("All examples must have the same number of <eos> tokens.")
 #         sentence_representation = hidden_states[eos_mask, :].view(hidden_states.size(0), -1, hidden_states.size(-1))[
 #         ]
 #         logits = self.classification_head(sentence_representation)
-
 #         loss = None
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             labels = labels.to(logits.device)
             if self.config.problem_type is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.config.num_labels == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.config.problem_type = "regression"
                 elif self.config.num_labels > 1 and (labels.dtype == torch.int or labels.dtype == torch.int):
@@ -1980,15 +1693,14 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
 #                     self.config.problem_type = "single_label_classification"
                 else:
 #                     self.config.problem_type = "multi_label_classification"
-
             if self.config.problem_type == "regression":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 loss_fct = MSELoss()
                 if self.config.num_labels == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     loss = loss_fct(logits.squeeze(), labels.squeeze())
                 else:
@@ -2002,12 +1714,11 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
 #                 loss_fct = BCEWithLogitsLoss()
 #                 loss = loss_fct(logits, labels)
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (logits,) + outputs[1:]
             return ((loss,) + output) if loss is not None else output
-
         return Seq2SeqSequenceClassifierOutput(
 #             loss=loss,
 #             logits=logits,
@@ -2019,28 +1730,20 @@ class MBartForSequenceClassification(MBartPreTrainedModel):
 #             encoder_hidden_states=outputs.encoder_hidden_states,
 #             encoder_attentions=outputs.encoder_attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     layer on top of the hidden-states output to compute `span start logits` and `span end logits`).
 """    """,
 # )
 class MBartForQuestionAnswering(MBartPreTrainedModel):
 #     _tied_weights_keys = ["model.encoder.embed_tokens.weight", "model.decoder.embed_tokens.weight"]
-
     def __init__(self, config):
 #         super().__init__(config)
-
 #         config.num_labels = 2
 #         self.num_labels = config.num_labels
-
 #         self.model = MBartModel(config)
 #         self.qa_outputs = nn.Linear(config.hidden_size, config.num_labels)
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
 #     @add_start_docstrings_to_model_forward(MBART_INPUTS_DOCSTRING)
 #     @add_code_sample_docstrings(
 #         checkpoint=_CHECKPOINT_FOR_DOC,
@@ -2067,7 +1770,6 @@ class MBartForQuestionAnswering(MBartPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, Seq2SeqQuestionAnsweringModelOutput]:
-
 #         start_positions (`torch.LongTensor` of shape `(batch_size,)`, *optional*):
 #             Labels for position (index) of the start of the labelled span for computing the token classification loss.
 #             Positions are clamped to the length of the sequence (*sequence_length*). Position outside of the sequence
@@ -2076,14 +1778,12 @@ class MBartForQuestionAnswering(MBartPreTrainedModel):
 #             Labels for position (index) of the end of the labelled span for computing the token classification loss.
 #             Positions are clamped to the length of the sequence (*sequence_length*). Position outside of the sequence
 #             are not taken into account for computing the loss.
-
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
         if start_positions is not None and end_positions is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             use_cache = False
-
 #         outputs = self.model(
 #             input_ids,
 #             attention_mask=attention_mask,
@@ -2100,50 +1800,44 @@ class MBartForQuestionAnswering(MBartPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         sequence_output = outputs[0]
-
 #         logits = self.qa_outputs(sequence_output)
 #         start_logits, end_logits = logits.split(1, dim=-1)
 #         start_logits = start_logits.squeeze(-1).contiguous()
 #         end_logits = end_logits.squeeze(-1).contiguous()
-
 #         total_loss = None
         if start_positions is not None and end_positions is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # If we are on multi-GPU, split add a dimension
             if len(start_positions.size()) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 start_positions = start_positions.squeeze(-1)
             if len(end_positions.size()) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 end_positions = end_positions.squeeze(-1)
             # sometimes the start/end positions are outside our model inputs, we ignore these terms
 #             ignored_index = start_logits.size(1)
 #             start_positions = start_positions.clamp(0, ignored_index)
 #             end_positions = end_positions.clamp(0, ignored_index)
-
 #             loss_fct = CrossEntropyLoss(ignore_index=ignored_index)
 #             start_loss = loss_fct(start_logits, start_positions)
 #             end_loss = loss_fct(end_logits, end_positions)
 #             total_loss = (start_loss + end_loss) / 2
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (
 #                 start_logits,
 #                 end_logits,
 #             ) + outputs[1:]
             return ((total_loss,) + output) if total_loss is not None else output
-
         return Seq2SeqQuestionAnsweringModelOutput(
 #             loss=total_loss,
 #             start_logits=start_logits,
@@ -2156,56 +1850,39 @@ class MBartForQuestionAnswering(MBartPreTrainedModel):
 #             encoder_hidden_states=outputs.encoder_hidden_states,
 #             encoder_attentions=outputs.encoder_attentions,
 #         )
-
-
 # Copied from transformers.models.bart.modeling_bart.BartDecoderWrapper with Bart->MBart
 class MBartDecoderWrapper(MBartPreTrainedModel):
-
 #     This wrapper class is a helper class to correctly load pretrained checkpoints when the causal language model is
 #     used in combination with the [`EncoderDecoderModel`] framework.
-
     def __init__(self, config):
 #         super().__init__(config)
 #         self.decoder = MBartDecoder(config)
-
     def forward(self, *args, **kwargs):
         return self.decoder(*args, **kwargs)
-
-
 # Copied from transformers.models.bart.modeling_bart.BartForCausalLM with Bart->MBart, facebook/bart-base->facebook/mbart-large-cc25
 class MBartForCausalLM(MBartPreTrainedModel):
 #     _tied_weights_keys = ["lm_head.weight"]
-
     def __init__(self, config):
 #         config = copy.deepcopy(config)
 #         config.is_decoder = True
 #         config.is_encoder_decoder = False
 #         super().__init__(config)
 #         self.model = MBartDecoderWrapper(config)
-
 #         self.lm_head = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self):
         return self.model.decoder.embed_tokens
-
     def set_input_embeddings(self, value):
 #         self.model.decoder.embed_tokens = value
-
     def get_output_embeddings(self):
         return self.lm_head
-
     def set_output_embeddings(self, new_embeddings):
 #         self.lm_head = new_embeddings
-
     def set_decoder(self, decoder):
 #         self.model.decoder = decoder
-
     def get_decoder(self):
         return self.model.decoder
-
 #     @replace_return_docstrings(output_type=CausalLMOutputWithCrossAttentions, config_class=_CONFIG_FOR_DOC)
     def forward(
 #         self,
@@ -2228,17 +1905,13 @@ class MBartForCausalLM(MBartPreTrainedModel):
 #             input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #                 Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you
 #                 provide it.
-
 #                 Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #                 [`PreTrainedTokenizer.__call__`] for details.
-
 #                 [What are input IDs?](../glossary#input-ids)
 #             attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #                 Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #                 - 1 for tokens that are **not masked**,
 #                 - 0 for tokens that are **masked**.
-
 #                 [What are attention masks?](../glossary#attention-mask)
 #             encoder_hidden_states  (`torch.FloatTensor` of shape `(batch_size, sequence_length, hidden_size)`, *optional*):
 #                 Sequence of hidden-states at the output of the last layer of the encoder. Used in the cross-attention
@@ -2249,25 +1922,19 @@ class MBartForCausalLM(MBartPreTrainedModel):
     pass
 #             head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #                 Mask to nullify selected heads of the attention modules. Mask values selected in `[0, 1]`:
-
 #                 - 1 indicates the head is **not masked**,
 #                 - 0 indicates the head is **masked**.
-
 #             cross_attn_head_mask (`torch.Tensor` of shape `(decoder_layers, decoder_attention_heads)`, *optional*):
 #                 Mask to nullify selected heads of the cross-attention modules. Mask values selected in `[0, 1]`:
-
 #                 - 1 indicates the head is **not masked**,
 #                 - 0 indicates the head is **masked**.
-
 #             past_key_values (`tuple(tuple(torch.FloatTensor))`, *optional*, returned when `use_cache=True` is passed or when `config.use_cache=True`):
 #                 Tuple of `tuple(torch.FloatTensor)` of length `config.n_layers`, with each tuple having 2 tensors of
 #                 shape `(batch_size, num_heads, sequence_length, embed_size_per_head)`) and 2 additional tensors of
 #                 shape `(batch_size, num_heads, encoder_sequence_length, embed_size_per_head)`. The two additional
 #                 tensors are only required when the model is used as a decoder in a Sequence to Sequence model.
-
 #                 Contains pre-computed hidden-states (key and values in the self-attention blocks and in the
 #                 cross-attention blocks) that can be used (see `past_key_values` input) to speed up sequential decoding.
-
 #                 If `past_key_values` are used, the user can optionally input only the last `decoder_input_ids` (those
 #                 that dont have their past key value states given to this model) of shape `(batch_size, 1)` instead of
 #                 all `decoder_input_ids` of shape `(batch_size, sequence_length)`.
@@ -2278,7 +1945,6 @@ class MBartForCausalLM(MBartPreTrainedModel):
 #             use_cache (`bool`, *optional*):
 #                 If set to `True`, `past_key_values` key value states are returned and can be used to speed up decoding
 #                 (see `past_key_values`).
-
 #                 - 1 for tokens that are **not masked**,
 #                 - 0 for tokens that are **masked**.
 #             output_attentions (`bool`, *optional*):
@@ -2289,32 +1955,25 @@ class MBartForCausalLM(MBartPreTrainedModel):
                 for more detail.
             return_dict (`bool`, *optional*):
 #                 Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 #         Returns:
-
 #         Example:
-
 #         ```python
 #         >>> from transformers import AutoTokenizer, MBartForCausalLM
-
 #         >>> tokenizer = AutoTokenizer.from_pretrained("facebook/mbart-large-cc25")
 #         >>> model = MBartForCausalLM.from_pretrained("facebook/mbart-large-cc25", add_cross_attention=False)
 #         >>> assert model.config.is_decoder, f"{model.__class__} has to be configured as a decoder."
 #         >>> inputs = tokenizer("Hello, my dog is cute", return_tensors="pt")
 #         >>> outputs = model(**inputs)
-
 #         >>> logits = outputs.logits
 #         >>> expected_shape = [1, inputs.input_ids.shape[-1], model.config.vocab_size]
 #         >>> list(logits.shape) == expected_shape
 #         True
 #         ```
-
 #         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
 #         outputs = self.model.decoder(
 #             input_ids=input_ids,
@@ -2330,25 +1989,21 @@ class MBartForCausalLM(MBartPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         logits = self.lm_head(outputs[0])
-
 #         loss = None
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             labels = labels.to(logits.device)
 #             loss_fct = CrossEntropyLoss()
 #             loss = loss_fct(logits.view(-1, self.config.vocab_size), labels.view(-1))
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (logits,) + outputs[1:]
             return (loss,) + output if loss is not None else output
-
         return CausalLMOutputWithCrossAttentions(
 #             loss=loss,
 #             logits=logits,
@@ -2357,33 +2012,29 @@ class MBartForCausalLM(MBartPreTrainedModel):
 #             attentions=outputs.attentions,
 #             cross_attentions=outputs.cross_attentions,
 #         )
-
     def prepare_inputs_for_generation(
 #         self, input_ids, past_key_values=None, attention_mask=None, use_cache=None, **kwargs
 #     ):
         # if model is used as a decoder in encoder-decoder model, the decoder attention mask is created on the fly
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = input_ids.new_ones(input_ids.shape)
-
         if past_key_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             past_length = past_key_values[0][0].shape[2]
-
             # Some generation methods already pass only the last input ID
             if input_ids.shape[1] > past_length:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 remove_prefix_length = past_length
             else:
                 # Default to old behavior: keep only final ID
 #                 remove_prefix_length = input_ids.shape[1] - 1
-
 #             input_ids = input_ids[:, remove_prefix_length:]
         # first step, decoder_cached_states are empty
         return {
@@ -2392,7 +2043,6 @@ class MBartForCausalLM(MBartPreTrainedModel):
 #             "past_key_values": past_key_values,
 #             "use_cache": use_cache,
 #         }
-
 #     @staticmethod
     def _reorder_cache(past_key_values, beam_idx):
 #         reordered_past = ()

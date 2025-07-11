@@ -7,23 +7,16 @@ import functools
 import contextlib
 import types
 import importlib
-
 from typing import Union, Optional
 from .abc import ResourceReader, Traversable
-
 from ._compat import wrap_spec
-
 # Package = Union[types.ModuleType, str]
-
-
 def files(package):
     # type: (Package) -> Traversable
     """
 #     Get a Traversable resource from a package
     """
     return from_package(get_package(package))
-
-
 def get_resource_reader(package):
     # type: (types.ModuleType) -> Optional[ResourceReader]
     """
@@ -37,43 +30,33 @@ def get_resource_reader(package):
 #     spec = package.__spec__
 #     reader = getattr(spec.loader, 'get_resource_reader', None)  # type: ignore
     if reader is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return None
     return reader(spec.name)  # type: ignore
-
-
 def resolve(cand):
     # type: (Package) -> types.ModuleType
     return cand if isinstance(cand, types.ModuleType) else importlib.import_module(cand)
-
-
 def get_package(package):
     # type: (Package) -> types.ModuleType
     """Take a package name or module object and return the module.
-
 #     Raise an exception if the resolved module is not a package.
     """
 #     resolved = resolve(package)
     if wrap_spec(resolved).submodule_search_locations is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise TypeError(f'{package!r} is not a package')
     return resolved
-
-
 def from_package(package):
     """
 #     Return a Traversable object for the given package.
-
     """
 #     spec = wrap_spec(package)
 #     reader = spec.loader.get_resource_reader(spec.name)
     return reader.files()
-
-
 # @contextlib.contextmanager
 def _tempfile(reader, suffix=''):
     # Not using tempfile.NamedTemporaryFile as it leads to deeper 'try'
@@ -92,8 +75,6 @@ def _tempfile(reader, suffix=''):
 #             os.remove(raw_path)
         except FileNotFoundError:
 #             pass
-
-
 # @functools.singledispatch
 def as_file(path):
     """
@@ -101,8 +82,6 @@ def as_file(path):
 #     path on the local file system in a context manager.
     """
     return _tempfile(path.read_bytes, suffix=path.name)
-
-
 # @as_file.register(pathlib.Path)
 # @contextlib.contextmanager
 def _(path):

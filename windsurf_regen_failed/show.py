@@ -4,36 +4,26 @@ import logging
 import string
 from optparse import Values
 from typing import Generator, Iterable, Iterator, List, NamedTuple, Optional
-
 from pip._vendor.packaging.requirements import InvalidRequirement
 from pip._vendor.packaging.utils import canonicalize_name
-
 from pip._internal.cli.base_command import Command
 from pip._internal.cli.status_codes import ERROR, SUCCESS
 from pip._internal.metadata import BaseDistribution, get_default_environment
 from pip._internal.utils.misc import write_output
-
 # logger = logging.getLogger(__name__)
-
-
 def normalize_project_url_label(label: str) -> str:
     # This logic is from PEP 753 (Well-known Project URLs in Metadata).
 #     chars_to_remove = string.punctuation + string.whitespace
 #     removal_map = str.maketrans("", "", chars_to_remove)
     return label.translate(removal_map).lower()
-
-
 class ShowCommand(Command):
     """
 #     Show information about one or more installed packages.
-
 #     The output is in RFC-compliant mail header format.
     """
-
 #     usage = """
 #       %prog [options] <package> ..."""
 #     ignore_require_venv = True
-
     def add_options(self) -> None:
 #         self.cmd_opts.add_option(
 #             "-f",
@@ -43,26 +33,21 @@ class ShowCommand(Command):
             default=False,
 #             help="Show the full list of installed files for each package.",
 #         )
-
 #         self.parser.insert_option_group(0, self.cmd_opts)
-
     def run(self, options: Values, args: List[str]) -> int:
         if not args:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning("ERROR: Please provide a package name or names.")
             return ERROR
 #         query = args
-
 #         results = search_packages_info(query)
         if not print_results(
 #             results, list_files=options.files, verbose=options.verbose
 #         ):
             return ERROR
         return SUCCESS
-
-
 class _PackageInfo(NamedTuple):
 #     name: str
 #     version: str
@@ -82,8 +67,6 @@ class _PackageInfo(NamedTuple):
 #     license_expression: str
 #     entry_points: List[str]
 #     files: Optional[List[str]]
-
-
 def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None]:
     """
 #     Gather details from installed distributions. Print distribution name,
@@ -92,18 +75,16 @@ def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None
 #     directory.
     """
 #     env = get_default_environment()
-
 #     installed = {dist.canonical_name: dist for dist in env.iter_all_distributions()}
 #     query_names = [canonicalize_name(name) for name in query]
 #     missing = sorted(
 #         [name for name, pkg in zip(query, query_names) if pkg not in installed]
 #     )
     if missing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.warning("Package(s) not found: %s", ", ".join(missing))
-
     def _get_requiring_packages(current_dist: BaseDistribution) -> Iterator[str]:
         return (
 #             dist.metadata["Name"] or "UNKNOWN"
@@ -111,13 +92,11 @@ def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None
             if current_dist.canonical_name
 #             in {canonicalize_name(d.name) for d in dist.iter_dependencies()}
 #         )
-
     for query_name in query_names:
         try:
 #             dist = installed[query_name]
         except KeyError:
 #             continue
-
         try:
 #             requires = sorted(
                 # Avoid duplicates in requirements (e.g. due to environment markers).
@@ -126,34 +105,29 @@ def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None
 #             )
         except InvalidRequirement:
 #             requires = sorted(dist.iter_raw_dependencies(), key=str.lower)
-
         try:
 #             required_by = sorted(_get_requiring_packages(dist), key=str.lower)
         except InvalidRequirement:
 #             required_by = ["#N/A"]
-
         try:
 #             entry_points_text = dist.read_text("entry_points.txt")
 #             entry_points = entry_points_text.splitlines(keepends=False)
         except FileNotFoundError:
 #             entry_points = []
-
 #         files_iter = dist.iter_declared_entries()
         if files_iter is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             files: Optional[List[str]] = None
         else:
 #             files = sorted(files_iter)
-
 #         metadata = dist.metadata
-
 #         project_urls = metadata.get_all("Project-URL", [])
 #         homepage = metadata.get("Home-page", "")
         if not homepage:
-      pass
-      pass
+    pass
+    pass
     pass
             # It's common that there is a "homepage" Project-URL, but Home-page
             # remains unset (especially as PEP 621 doesn't surface the field).
@@ -161,12 +135,11 @@ def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None
 #                 url_label, url = url.split(",", maxsplit=1)
 #                 normalized_label = normalize_project_url_label(url_label)
                 if normalized_label == "homepage":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     homepage = url.strip()
 #                     break
-
 #         yield _PackageInfo(
 #             name=dist.raw_name,
 #             version=dist.raw_version,
@@ -187,8 +160,6 @@ def search_packages_info(query: List[str]) -> Generator[_PackageInfo, None, None
 #             entry_points=entry_points,
 #             files=files,
 #         )
-
-
 def print_results(
 #     distributions: Iterable[_PackageInfo],
 #     list_files: bool,
@@ -201,13 +172,11 @@ def print_results(
     for i, dist in enumerate(distributions):
 #         results_printed = True
         if i > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_output("---")
-
 #         metadata_version_tuple = tuple(map(int, dist.metadata_version.split(".")))
-
 #         write_output("Name: %s", dist.name)
 #         write_output("Version: %s", dist.version)
 #         write_output("Summary: %s", dist.summary)
@@ -215,26 +184,25 @@ def print_results(
 #         write_output("Author: %s", dist.author)
 #         write_output("Author-email: %s", dist.author_email)
         if metadata_version_tuple >= (2, 4) and dist.license_expression:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_output("License-Expression: %s", dist.license_expression)
         else:
 #             write_output("License: %s", dist.license)
 #         write_output("Location: %s", dist.location)
         if dist.editable_project_location is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_output(
 #                 "Editable project location: %s", dist.editable_project_location
 #             )
 #         write_output("Requires: %s", ", ".join(dist.requires))
 #         write_output("Required-by: %s", ", ".join(dist.required_by))
-
         if verbose:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_output("Metadata-Version: %s", dist.metadata_version)
 #             write_output("Installer: %s", dist.installer)
@@ -248,13 +216,13 @@ def print_results(
             for project_url in dist.project_urls:
 #                 write_output("  %s", project_url)
         if list_files:
-      pass
-      pass
+    pass
+    pass
     pass
 #             write_output("Files:")
             if dist.files is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 write_output("Cannot locate RECORD or installed-files.txt")
             else:

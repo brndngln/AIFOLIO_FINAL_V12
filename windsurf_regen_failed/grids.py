@@ -1,78 +1,60 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #Copyright ReportLab Europe Ltd. 2000-2017
 #see license.txt for license details
 #history https://hg.reportlab.com/hg-public/reportlab/log/tip/src/reportlab/graphics/widgets/grids.py
 # __version__='3.3.0'
-
 from reportlab.lib import colors
 from reportlab.lib.validators import isNumber, isColorOrNone, isBoolean, isListOfNumbers, OneOf, isListOfColors, isNumberOrNone
 from reportlab.lib.attrmap import AttrMap, AttrMapValue
 from reportlab.graphics.shapes import Drawing, Group, Line, Rect, LineShape, definePath, EmptyClipPath
 from reportlab.graphics.widgetbase import Widget
-
 def frange(start, end=None, inc=None):
 #     "A range function, that does accept float increments..."
-
     if end == None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         end = start + 0.0
 #         start = 0.0
-
     if inc == None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         inc = 1.0
-
 #     L = []
 #     end = end - inc*0.0001  #to avoid numrical problems
     while 1:
 #         next = start + len(L) * inc
         if inc > 0 and next >= end:
-      pass
-      pass
+    pass
+    pass
     pass
 #             break
         elif inc < 0 and next <= end:
     pass
 #             break
 #         L.append(next)
-
     return L
-
-
 def makeDistancesList(list):
 #     Returns a list of distances between adjacent numbers in some input list.
-
 #     E.g. [1, 1, 2, 3, 5, 7] -> [0, 1, 1, 2, 2]
-
 #     d = []
     for i in range(len(list[:-1])):
 #         d.append(list[i+1] - list[i])
-
     return d
-
-
 class Grid(Widget):
 #     This makes a rectangular grid of equidistant stripes.
-
 #     The grid contains an outer border rectangle, and stripes
 #     inside which can be drawn with lines and/or as solid tiles.
 #     The drawing order is: outer rectangle, then lines and tiles.
-
 #     The stripes width is indicated as delta. The sequence of
 #     stripes can have an offset named 'delta0'. Both values need
 #     to be positive!
-
 #     _attrMap = AttrMap(
 #         x = AttrMapValue(isNumber, desc="The grids lower-left x position."),
 #         y = AttrMapValue(isNumber, desc="The grids lower-left y position."),
@@ -101,7 +83,6 @@ class Grid(Widget):
 #         rectStrokeColor = AttrMapValue(isColorOrNone, desc='Color for outer rect stroke.'),
 #         rectStrokeWidth = AttrMapValue(isNumberOrNone, desc='Width for outer rect stroke.'),
 #         )
-
     def __init__(self):
 #         self.x = 0
 #         self.y = 0
@@ -117,22 +98,17 @@ class Grid(Widget):
 #         self.stripeColors = [colors.red, colors.green, colors.blue]
 #         self.strokeColor = colors.black
 #         self.strokeWidth = 2
-
-
     def demo(self):
 #         D = Drawing(100, 100)
-
 #         g = Grid()
 #         D.add(g)
-
         return D
-
     def makeOuterRect(self):
 #         strokeColor = getattr(self,'rectStrokeColor',self.strokeColor)
 #         strokeWidth = getattr(self,'rectStrokeWidth',self.strokeWidth)
         if self.fillColor or (strokeColor and strokeWidth):
-      pass
-      pass
+    pass
+    pass
     pass
 #             rect = Rect(self.x, self.y, self.width, self.height)
 #             rect.fillColor = self.fillColor
@@ -141,28 +117,26 @@ class Grid(Widget):
             return rect
         else:
             return None
-
     def makeLinePosList(self, start, isX=0):
 #         "Returns a list of positions where to place lines."
-
 #         w, h = self.width, self.height
         if isX:
-      pass
-      pass
+    pass
+    pass
     pass
 #             length = w
         else:
 #             length = h
         if self.deltaSteps:
-      pass
-      pass
+    pass
+    pass
     pass
 #             r = [start + self.delta0]
 #             i = 0
             while 1:
                 if r[-1] > start + length:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     del r[-1]
 #                     break
@@ -170,30 +144,25 @@ class Grid(Widget):
 #                 i = i + 1
         else:
 #             r = frange(start + self.delta0, start + length, self.delta)
-
 #         r.append(start + length)
         if self.delta0 != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             r.insert(0, start)
         #print 'Grid.makeLinePosList() -> %s' % r
         return r
-
-
     def makeInnerLines(self):
         # inner grid lines
 #         group = Group()
-
 #         w, h = self.width, self.height
-
         if self.useLines == 1:
-      pass
-      pass
+    pass
+    pass
     pass
             if self.orientation == 'vertical':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 r = self.makeLinePosList(self.x, isX=1)
                 for x in r:
@@ -209,39 +178,31 @@ class Grid(Widget):
 #                     line.strokeColor = self.strokeColor
 #                     line.strokeWidth = self.strokeWidth
 #                     group.add(line)
-
         return group
-
-
     def makeInnerTiles(self):
         # inner grid lines
 #         group = Group()
-
 #         w, h = self.width, self.height
-
         # inner grid stripes (solid rectangles)
         if self.useRects == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cols = self.stripeColors
-
             if self.orientation == 'vertical':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 r = self.makeLinePosList(self.x, isX=1)
             elif self.orientation == 'horizontal':
     pass
 #                 r = self.makeLinePosList(self.y, isX=0)
-
 #             dist = makeDistancesList(r)
-
 #             i = 0
             for j in range(len(dist)):
                 if self.orientation == 'vertical':
-      pass
-      pass
+    pass
+    pass
     pass
 #                     x = r[j]
 #                     stripe = Rect(x, self.y, dist[j], h)
@@ -253,24 +214,16 @@ class Grid(Widget):
 #                 stripe.strokeColor = None
 #                 group.add(stripe)
 #                 i = i + 1
-
         return group
-
-
     def draw(self):
         # general widget bits
 #         group = Group()
-
 #         group.add(self.makeOuterRect())
 #         group.add(self.makeInnerTiles())
 #         group.add(self.makeInnerLines(),name='_gridLines')
-
         return group
-
-
 class DoubleGrid(Widget):
 #     This combines two ordinary Grid objects orthogonal to each other.
-
 #     _attrMap = AttrMap(
 #         x = AttrMapValue(isNumber, desc="The grids lower-left x position."),
 #         y = AttrMapValue(isNumber, desc="The grids lower-left y position."),
@@ -279,13 +232,11 @@ class DoubleGrid(Widget):
 #         grid0 = AttrMapValue(None, desc="The first grid component."),
 #         grid1 = AttrMapValue(None, desc="The second grid component."),
 #         )
-
     def __init__(self):
 #         self.x = 0
 #         self.y = 0
 #         self.width = 100
 #         self.height = 100
-
 #         g0 = Grid()
 #         g0.x = self.x
 #         g0.y = self.y
@@ -301,7 +252,6 @@ class DoubleGrid(Widget):
 #         g0.stripeColors = [colors.red, colors.green, colors.blue]
 #         g0.strokeColor = colors.black
 #         g0.strokeWidth = 1
-
 #         g1 = Grid()
 #         g1.x = self.x
 #         g1.y = self.y
@@ -317,11 +267,8 @@ class DoubleGrid(Widget):
 #         g1.stripeColors = [colors.red, colors.green, colors.blue]
 #         g1.strokeColor = colors.black
 #         g1.strokeWidth = 1
-
 #         self.grid0 = g0
 #         self.grid1 = g1
-
-
 ##    # This gives an AttributeError:
 ##    #   DoubleGrid instance has no attribute 'grid0'
 ##    def __setattr__(self, name, value):
@@ -329,15 +276,11 @@ class DoubleGrid(Widget):
     pass
 ##            setattr(self.grid0, name, value)
 ##            setattr(self.grid1, name, value)
-
-
     def demo(self):
 #         D = Drawing(100, 100)
 #         g = DoubleGrid()
 #         D.add(g)
         return D
-
-
     def draw(self):
 #         group = Group()
 #         g0, g1 = self.grid0, self.grid1
@@ -350,18 +293,13 @@ class DoubleGrid(Widget):
         for g in G:
 #             group.add(g.makeInnerTiles())
 #             group.add(g.makeInnerLines(),name='_gridLines')
-
         return group
-
-
 class ShadedRect(Widget):
 #     This makes a rectangle with shaded colors between two colors.
-
 #     Colors are interpolated linearly between 'fillColorStart'
 #     and 'fillColorEnd', both of which appear at the margins.
 #     If 'numShades' is set to one, though, only 'fillColorStart'
 #     is used.
-
 #     _attrMap = AttrMap(
 #         x = AttrMapValue(isNumber, desc="The grids lower-left x position."),
 #         y = AttrMapValue(isNumber, desc="The grids lower-left y position."),
@@ -375,7 +313,6 @@ class ShadedRect(Widget):
 #         strokeWidth = AttrMapValue(isNumber, desc='Width used for lines.'),
 #         cylinderMode = AttrMapValue(isBoolean, desc='True if shading reverses in middle.'),
 #         )
-
     def __init__(self,**kw):
 #         self.x = 0
 #         self.y = 0
@@ -389,20 +326,17 @@ class ShadedRect(Widget):
 #         self.strokeWidth = 2
 #         self.cylinderMode = 0
 #         self.setProperties(kw)
-
     def demo(self):
 #         D = Drawing(100, 100)
 #         g = ShadedRect()
 #         D.add(g)
-
         return D
-
     def _flipRectCorners(self):
 #         "Flip rectangles corners if width or height is negative."
 #         x, y, width, height, fillColorStart, fillColorEnd = self.x, self.y, self.width, self.height, self.fillColorStart, self.fillColorEnd
         if width < 0 and height > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             x = x + width
 #             width = -width
@@ -419,49 +353,47 @@ class ShadedRect(Widget):
 #             y = y + height
 #             height = -height
         return x, y, width, height, fillColorStart, fillColorEnd
-
     def draw(self):
         # general widget bits
 #         group = Group()
 #         x, y, w, h, c0, c1 = self._flipRectCorners()
 #         numShades = self.numShades
         if self.cylinderMode:
-      pass
-      pass
+    pass
+    pass
     pass
             if not numShades%2: numShades = numShades+1
 #             halfNumShades = int((numShades-1)/2) + 1
 #         num = float(numShades) # must make it float!
 #         vertical = self.orientation == 'vertical'
         if vertical:
-      pass
-      pass
+    pass
+    pass
     pass
             if numShades == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 V = [x]
             else:
 #                 V = frange(x, x + w, w/num)
         else:
             if numShades == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 V = [y]
             else:
 #                 V = frange(y, y + h, h/num)
-
         for v in V:
 #             stripe = vertical and Rect(v, y, w/num, h) or Rect(x, v, w, h/num)
             if self.cylinderMode:
-      pass
-      pass
+    pass
+    pass
     pass
                 if V.index(v)>=halfNumShades:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     col = colors.linearlyInterpolatedColor(c1,c0,V[halfNumShades],V[-1], v)
                 else:
@@ -473,8 +405,8 @@ class ShadedRect(Widget):
 #             stripe.strokeWidth = 1
 #             group.add(stripe)
         if self.strokeColor and self.strokeWidth>=0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rect = Rect(x, y, w, h)
 #             rect.strokeColor = self.strokeColor
@@ -482,23 +414,18 @@ class ShadedRect(Widget):
 #             rect.fillColor = None
 #             group.add(rect)
         return group
-
-
 def colorRange(c0, c1, n):
 #     "Return a range of intermediate colors between c0 and c1"
     if n==1: return [c0]
-
 #     C = []
     if n>1:
-      pass
-      pass
+    pass
+    pass
     pass
 #         lim = n-1
         for i in range(n):
 #             C.append(colors.linearlyInterpolatedColor(c0,c1,0,lim, i))
     return C
-
-
 def centroid(P):
 # '    'compute average point of a set of points
 #     cx = 0
@@ -508,7 +435,6 @@ def centroid(P):
 #         cy+=y
 #     n = float(len(P))
     return cx/n, cy/n
-
 def rotatedEnclosingRect(P, angle, rect):
 """'    """'
 #     given P a sequence P of x,y coordinate pairs and an angle in degrees
@@ -516,9 +442,7 @@ def rotatedEnclosingRect(P, angle, rect):
 #     find the extreme points of P wrt axis parallel distance and axis
 #     orthogonal distance. Then compute the least rectangle that will still
 #     enclose P when rotated by angle.
-
 #     The class R
-
     from math import pi, cos, sin
 #     x0, y0 = centroid(P)
 #     theta = (angle/180.)*pi
@@ -540,7 +464,6 @@ def rotatedEnclosingRect(P, angle, rect):
 #     g = Group(transform=(c,s,-s,c,x0,y0))
 #     g.add(rect)
     return g
-
 class ShadedPolygon(Widget,LineShape):
 #     _attrMap = AttrMap(BASE=LineShape,
 #         angle = AttrMapValue(isNumber,desc="Shading angle"),
@@ -550,7 +473,6 @@ class ShadedPolygon(Widget,LineShape):
 #         cylinderMode = AttrMapValue(isBoolean, desc='True if shading reverses in middle.'),
 #         points = AttrMapValue(isListOfNumbers),
 #         )
-
     def __init__(self,**kw):
 #         self.angle = 90
 #         self.fillColorStart = colors.red
@@ -559,7 +481,6 @@ class ShadedPolygon(Widget,LineShape):
 #         self.numShades = 50
 #         self.points = [-1,-1,2,2,3,-1]
 #         LineShape.__init__(self,kw)
-
     def draw(self):
 #         P = self.points
 #         P = list(map(lambda i, P=P:(P[i],P[i+1]),range(0,len(P),2)))
@@ -571,8 +492,8 @@ class ShadedPolygon(Widget,LineShape):
 #         angle = self.angle
 #         orientation = 'vertical'
         if angle==180:
-      pass
-      pass
+    pass
+    pass
     pass
 #             angle = 0
         elif angle in (90,270):
@@ -590,7 +511,6 @@ class ShadedPolygon(Widget,LineShape):
 #         path.strokeWidth = self.strokeWidth
 #         g.add(path)
         return g
-
 if __name__=='__main__': #noruntests
 #     angle=45
 #     D = Drawing(120,120)

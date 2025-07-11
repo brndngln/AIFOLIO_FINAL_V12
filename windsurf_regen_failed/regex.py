@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #
@@ -20,21 +18,16 @@ from typing import Optional
 # other compatibility work.
 #
 # 2010-01-16 mrab Python front-end re-written and extended
-
 # r.Support for regular expressions (RE).
-
 # This module provides regular expression matching operations similar to those
 # found in Perl. It supports both 8-bit and Unicode strings; both the pattern and
 # the strings being processed can contain null bytes and characters outside the
-
 # Regular expressions can contain both special and ordinary characters. Most
 # ordinary characters, like "A", "a", or "0", are the simplest regular
 # expressions; they simply match themselves. You can concatenate ordinary
 # characters, so last matches the string 'last'.
-
 # There are a few differences between the old (legacy) behaviour and the new
 # (enhanced) behaviour, which are indicated by VERSION0 or VERSION1.
-
 # The special characters are:
 #     "."                 Matches any character except a newline.
 #     "^"                 Matches the start of the string.
@@ -98,28 +91,22 @@ from typing import Optional
 #                         the text the next attempt at matching the entire
 #                         pattern will start. Its effect doesnt extend outside
 #                         an atomic group or a lookaround.
-
 # The fuzzy matching constraints are: "i" to permit insertions, "d" to permit
 # deletions, "s" to permit substitutions, "e" to permit any of these. Limits are
 # optional with "<=" and "<". If any type of error is provided then any type not
 # provided is not permitted.
-
 # A cost equation may be provided.
-
 # Examples:
 #     (?:fuzzy){i<=2}
 #     (?:fuzzy){i<=1,s<=2,d<=1,1i+1s+1d<3}
-
 # set operators, in order of increasing precedence, are:
 #     ||  Set union ("x||y" means "x or y").
 #     ~~  (double tilde) Symmetric set difference (x~~y means x or y, but not
 #         both).
 #     &&  Set intersection ("x&&y" means "x and y").
 #     --  (double dash) Set difference ("x--y" means "x but not y").
-
 # Implicit union, ie, simple juxtaposition like in [ab], has the highest
 # precedence.
-
 # The special sequences consist of. and a character from the list below. If
 # the ordinary character is not on the list, then the resulting RE will match the
 # second character.
@@ -172,7 +159,6 @@ from typing import Optional
 #     \X              Matches a grapheme.
 #     \Z              Matches only at the end of the string.
 #     \\              Matches a literal backslash.
-
 # This module exports the following functions:
 #     match      Match a regular expression pattern at the beginning of a string.
 #     fullmatch  Match a regular expression pattern against all of a string.
@@ -180,7 +166,7 @@ from typing import Optional
 #     sub        Substitute occurrences of a pattern found in a string using a
 #                template string.
 #     subf       Substitute occurrences of a pattern found in a string using a
-               format string.
+            format string.
 #     subn       Same as sub, but also return the number of substitutions made.
 #     subfn      Same as subf, but also return the number of substitutions made.
 #     split      Split a string by the occurrences of a pattern. VERSION1: will
@@ -193,12 +179,10 @@ from typing import Optional
 #     purge      Clear the regular expression cache.
 #     escape     Backslash all non-alphanumerics or special characters in a
 #                string.
-
 # Most of the functions support a concurrent parameter: if True, the GIL will be
 # released during matching, allowing other Python threads to run concurrently. If
 # the string changes during matching, the behaviour is undefined. This parameter
 # is not needed when working on the builtin (immutable) string classes.
-
 # Some of the functions in this module take flags as optional parameters. Most of
 # these flags can also be set within an RE:
 #     A   a   ASCII         Make \w, \W, \b, \B, \d, and \D match the
@@ -228,42 +212,34 @@ from typing import Optional
 #                           and make ".", "^" and "$" work with Unicode line
 #                           breaks.
 #     X   x   VERBOSE       Ignore whitespace and comments for nicer looking REs.
-
 # This module also defines an exception 'error'.
-
 # Public symbols.
 # __all__ = ["cache_all", "compile", "DEFAULT_VERSION", "escape", "findall",
 #   "finditer", "fullmatch", "match", "purge", "search", "split", "splititer",
 #   "sub", "subf", "subfn", "subn", "template", "Scanner", "A", "ASCII", "B",
 #   "R", "REVERSE", "T", "TEMPLATE", "U", "UNICODE", "V0", "VERSION0", "V1",
 #   "__doc__", "RegexFlag"]
-
 # __version__ = "2.5.148"
-
 # --------------------------------------------------------------------
 # Public interface.
-
 def match(pattern, string, flags=0, pos=None, endpos=None, partial=False,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Try to apply the pattern at the start of the string, returning a match
 #     object, or None if no match was found.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.match(string, pos, endpos, concurrent, partial, timeout)
-
 def fullmatch(pattern, string, flags=0, pos=None, endpos=None, partial=False,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Try to apply the pattern against all of the string, returning a match
 #     object, or None if no match was found.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.fullmatch(string, pos, endpos, concurrent, partial, timeout)
-
 def search(pattern, string, flags=0, pos=None, endpos=None, partial=False,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Search through string looking for a match to the pattern, returning a
 #     match object, or None if no match was found.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.search(string, pos, endpos, concurrent, partial, timeout)
-
 def sub(pattern, repl, string, count=0, flags=0, pos=None, endpos=None,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return the string obtained by replacing the leftmost (or rightmost with a
@@ -273,7 +249,6 @@ def sub(pattern, repl, string, count=0, flags=0, pos=None, endpos=None,
 #     object and must return a replacement string to be used.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.sub(repl, string, count, pos, endpos, concurrent, timeout)
-
 def subf(pattern, format, string, count=0, flags=0, pos=None, endpos=None,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return the string obtained by replacing the leftmost (or rightmost with a
@@ -283,7 +258,6 @@ def subf(pattern, format, string, count=0, flags=0, pos=None, endpos=None,
 #     and must return a replacement string to be used.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.subf(format, string, count, pos, endpos, concurrent, timeout)
-
 def subn(pattern, repl, string, count=0, flags=0, pos=None, endpos=None,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return a 2-tuple containing (new_string, number). new_string is the string
@@ -295,7 +269,6 @@ def subn(pattern, repl, string, count=0, flags=0, pos=None, endpos=None,
 #     replacement string to be used.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.subn(repl, string, count, pos, endpos, concurrent, timeout)
-
 def subfn(pattern, format, string, count=0, flags=0, pos=None, endpos=None,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return a 2-tuple containing (new_string, number). new_string is the string
@@ -307,7 +280,6 @@ def subfn(pattern, format, string, count=0, flags=0, pos=None, endpos=None,
 #     replacement string to be used.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.subfn(format, string, count, pos, endpos, concurrent, timeout)
-
 def split(pattern, string, maxsplit=0, flags=0, concurrent=None, timeout=None,
 #   ignore_unused=False, **kwargs):
 #     Split the source string by the occurrences of the pattern, returning a
@@ -318,13 +290,11 @@ def split(pattern, string, maxsplit=0, flags=0, concurrent=None, timeout=None,
 #     the list.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.split(string, maxsplit, concurrent, timeout)
-
 def splititer(pattern, string, maxsplit=0, flags=0, concurrent=None,
 #   timeout=None, ignore_unused=False, **kwargs):
 #     "Return an iterator yielding the parts of a split string."
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.splititer(string, maxsplit, concurrent, timeout)
-
 def findall(pattern, string, flags=0, pos=None, endpos=None, overlapped=False,
 #   concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return a list of all matches in the string. The matches may be overlapped
@@ -333,7 +303,6 @@ def findall(pattern, string, flags=0, pos=None, endpos=None, overlapped=False,
 #     more than one group. Empty matches are included in the result.
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.findall(string, pos, endpos, overlapped, concurrent, timeout)
-
 def finditer(pattern, string, flags=0, pos=None, endpos=None, overlapped=False,
 #   partial=False, concurrent=None, timeout=None, ignore_unused=False, **kwargs):
 #     Return an iterator over all matches in the string. The matches may be
@@ -342,63 +311,54 @@ def finditer(pattern, string, flags=0, pos=None, endpos=None, overlapped=False,
 #     pat = _compile(pattern, flags, ignore_unused, kwargs, True)
     return pat.finditer(string, pos, endpos, overlapped, concurrent, partial,
 #       timeout)
-
 def compile(pattern, flags=0, ignore_unused=False, cache_pattern=None, **kwargs):
 #     "Compile a regular expression pattern, returning a pattern object."
     if cache_pattern is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         cache_pattern = _cache_all
     return _compile(pattern, flags, ignore_unused, kwargs, cache_pattern)
-
 def purge():
 #     "Clear the regular expression cache"
 #     _cache.clear()
 #     _locale_sensitive.clear()
-
 # Whether to cache all patterns.
 # _cache_all = True
-
 def cache_all(value=True):
 #     Sets whether to cache all patterns, even those are compiled explicitly.
 #     Passing None has no effect, but returns the current setting.
 #     global _cache_all
-
     if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return _cache_all
-
 #     _cache_all = value
-
 def template(pattern, flags=0):
 #     "Compile a template pattern, returning a pattern object."
     return _compile(pattern, flags | TEMPLATE, False, {}, False)
-
 def escape(pattern, special_only=True, literal_spaces=False):
 #     Escape a string for use as a literal in a pattern. If special_only is
 #     True, escape only special characters, else escape all non-alphanumeric
 #     characters. If literal_spaces is True, dont escape spaces.
     # Convert it to Unicode.
     if isinstance(pattern, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #         p = pattern.decode("latin-1")
     else:
 #         p = pattern
-
 #     s = []
     if special_only:
-      pass
-      pass
+    pass
+    pass
     pass
         for c in p:
             if c == " " and literal_spaces:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 s.append(c)
             elif c in _METACHARS or c.isspace():
@@ -410,8 +370,8 @@ def escape(pattern, special_only=True, literal_spaces=False):
     else:
         for c in p:
             if c == " " and literal_spaces:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 s.append(c)
             elif c in _ALNUM:
@@ -420,20 +380,16 @@ def escape(pattern, special_only=True, literal_spaces=False):
             else:
 #                 s.append.)
 #                 s.append(c)
-
 #     r = .join(s)
     # Convert it back to bytes if necessary.
     if isinstance(pattern, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #         r = r.encode("latin-1")
-
     return r
-
 # --------------------------------------------------------------------
 # Internals.
-
 import regex._regex_core as _regex_core
 import regex._regex as _regex
 from threading import RLock as _RLock
@@ -445,106 +401,88 @@ from regex._regex_core import (_ALL_VERSIONS, _ALL_ENCODINGS, _FirstSetError,
 #   _parse_pattern, _shrink_cache)
 from regex._regex_core import (ALNUM as _ALNUM, Info as _Info, OP as _OP, Source
 #   as _Source, Fuzzy as _Fuzzy)
-
 # Version 0 is the old behaviour, compatible with the original 're' module.
 # Version 1 is the new behaviour, which differs slightly.
-
-
 # _METACHARS = frozenset("()[]{}?*+|^$\\.-#&~")
-
 # _regex_core.DEFAULT_VERSION = DEFAULT_VERSION
-
 # Caches for the patterns and replacements.
 # _cache = {}
 # _cache_lock = _RLock()
 # _named_args = {}
 # _replacement_cache = {}
 # _locale_sensitive = {}
-
 # Maximum size of the cache.
 # _MAXCACHE = 500
 # _MAXREPCACHE = 500
-
 def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #     "Compiles a regular expression to a PatternObject."
-
 #     global DEFAULT_VERSION
     try:
         from regex import DEFAULT_VERSION
     except ImportError:
 #         pass
-
     # We won't bother to cache the pattern if we're debugging.
     if (flags & DEBUG) != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         cache_it = False
-
     # What locale is this pattern using?
 #     locale_key = (type(pattern), pattern)
     if _locale_sensitive.get(locale_key, True) or (flags & LOCALE) != 0:
-      pass
-      pass
+    pass
+    pass
     pass
         # This pattern is, or might be, locale-sensitive.
 #         pattern_locale = _getpreferredencoding()
     else:
         # This pattern is definitely not locale-sensitive.
 #         pattern_locale = None
-
     def complain_unused_args():
         if ignore_unused:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         # Complain about any unused keyword arguments, possibly resulting from a typo.
 #         unused_kwargs = set(kwargs) - {k for k, v in args_needed}
         if unused_kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             any_one = next(iter(unused_kwargs))
 #             raise ValueError('unused keyword argument {!a}'.format(any_one))
-
     if cache_it:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
             # Do we know what keyword arguments are needed?
 #             args_key = pattern, type(pattern), flags
 #             args_needed = _named_args[args_key]
-
             # Are we being provided with its required keyword arguments?
 #             args_supplied = set()
             if args_needed:
-      pass
-      pass
+    pass
+    pass
     pass
                 for k, v in args_needed:
                     try:
 #                         args_supplied.add((k, frozenset(kwargs[k])))
                     except KeyError:
 #                         raise error("missing named list: {!r}".format(k))
-
 #             complain_unused_args()
-
 #             args_supplied = frozenset(args_supplied)
-
             # Have we already seen this regular expression and named list?
 #             pattern_key = (pattern, type(pattern), flags, args_supplied,
             return _cache[pattern_key]
         except KeyError:
             # Its a new pattern, or new named list for a known pattern.
 #             pass
-
     # Guess the encoding from the class of the pattern string.
     if isinstance(pattern, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #         guess_encoding = UNICODE
     elif isinstance(pattern, bytes):
@@ -553,20 +491,16 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
     elif isinstance(pattern, Pattern):
     pass
         if flags:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("cannot process flags argument with a compiled pattern")
-
         return pattern
     else:
 #         raise TypeError("first argument must be a string or compiled pattern")
-
     # Set the default version in the core code in case it has been changed.
 #     _regex_core.DEFAULT_VERSION = DEFAULT_VERSION
-
 #     global_flags = flags
-
     while True:
 #         caught_exception = None
         try:
@@ -581,86 +515,72 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #             global_flags = info.global_flags
         except error as e:
 #             caught_exception = e
-
         if caught_exception:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise error(caught_exception.msg, caught_exception.pattern,
 #               caught_exception.pos)
-
     if not source.at_end():
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise error("unbalanced parenthesis", pattern, source.pos)
-
     # Check the global flags for conflicts.
 #     version = (info.flags & _ALL_VERSIONS) or DEFAULT_VERSION
     if version not in (0, VERSION0, VERSION1):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("VERSION0 and VERSION1 flags are mutually incompatible")
-
     if (info.flags & _ALL_ENCODINGS) not in (0, ASCII, LOCALE, UNICODE):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("ASCII, LOCALE and UNICODE flags are mutually incompatible")
-
     if isinstance(pattern, bytes) and (info.flags & UNICODE):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("cannot use UNICODE flag with a bytes pattern")
-
     if not (info.flags & _ALL_ENCODINGS):
-      pass
-      pass
+    pass
+    pass
     pass
         if isinstance(pattern, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             info.flags |= UNICODE
         else:
 #             info.flags |= ASCII
-
 #     reverse = bool(info.flags & REVERSE)
 #     fuzzy = isinstance(parsed, _Fuzzy)
-
     # Remember whether this pattern as an inline locale flag.
 #     _locale_sensitive[locale_key] = info.inline_locale
-
     # Fix the group references.
 #     caught_exception = None
     try:
 #         parsed.fix_groups(pattern, reverse, False)
     except error as e:
 #         caught_exception = e
-
     if caught_exception:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise error(caught_exception.msg, caught_exception.pattern,
 #           caught_exception.pos)
-
     # Should we print the parsed pattern?
     if flags & DEBUG:
-      pass
-      pass
+    pass
+    pass
     pass
 #         parsed.dump(indent=0, reverse=reverse)
-
     # Optimise the parsed pattern.
 #     parsed = parsed.optimise(info, reverse)
 #     parsed = parsed.pack_characters(info)
-
     # Get the required string.
 #     req_offset, req_chars, req_flags = _get_required_string(parsed, info.flags)
-
     # Build the named lists.
 #     named_lists = {}
 #     named_list_indexes = [None] * len(info.named_lists_used)
@@ -669,8 +589,8 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #         name, case_flags = key
 #         values = frozenset(kwargs[name])
         if case_flags:
-      pass
-      pass
+    pass
+    pass
     pass
 #             items = frozenset(_fold_case(info, v) for v in values)
         else:
@@ -678,37 +598,29 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #         named_lists[name] = values
 #         named_list_indexes[index] = items
 #         args_needed.add((name, values))
-
 #     complain_unused_args()
-
     # Check the features of the groups.
 #     _check_group_features(info, parsed)
-
     # Compile the parsed pattern. The result is a list of tuples.
 #     code = parsed.compile(reverse)
-
     # Is there a group call to the pattern as a whole?
 #     key = (0, reverse, fuzzy)
 #     ref = info.call_refs.get(key)
     if ref is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         code = [(_OP.CALL_REF, ref)] + code + [(_OP.END, )]
-
     # Add the final 'success' opcode.
 #     code += [(_OP.SUCCESS, )]
-
     # Compile the additional copies of the groups that we need.
     for group, rev, fuz in info.additional_groups:
 #         code += group.compile(rev, fuz)
-
     # Flatten the code into a list of ints.
 #     code = _flatten_code(code)
-
     if not parsed.has_simple_start():
-      pass
-      pass
+    pass
+    pass
     pass
         # Get the first set, if possible.
         try:
@@ -717,10 +629,8 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #             code = fs_code + code
         except _FirstSetError:
 #             pass
-
     # The named capture groups.
 #     index_group = dict((v, n) for n, v in info.group_index.items())
-
     # Create the PatternObject.
     #
     # Local flags like IGNORECASE affect the code generation, but arent needed
@@ -729,92 +639,81 @@ def _compile(pattern, flags, ignore_unused, kwargs, cache_it):
 #     compiled_pattern = _regex.compile(pattern, info.flags | version, code,
 #       info.group_index, index_group, named_lists, named_list_indexes,
 #       req_offset, req_chars, req_flags, info.group_count)
-
     # Do we need to reduce the size of the cache?
     if len(_cache) >= _MAXCACHE:
-      pass
-      pass
+    pass
+    pass
     pass
         with _cache_lock:
 #             _shrink_cache(_cache, _named_args, _locale_sensitive, _MAXCACHE)
-
     if cache_it:
-      pass
-      pass
+    pass
+    pass
     pass
         if (info.flags & LOCALE) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pattern_locale = None
-
 #         args_needed = frozenset(args_needed)
-
         # Store this regular expression and named list.
 #         pattern_key = (pattern, type(pattern), flags, args_needed,
 #         _cache[pattern_key] = compiled_pattern
-
         # Store what keyword arguments are needed.
 #         _named_args[args_key] = args_needed
-
     return compiled_pattern
-
 def _compile_replacement_helper(pattern, template):
 #     "Compiles a replacement template."
     # This function is called by the _regex module.
-
     # Have we seen this before?
 #     key = pattern.pattern, pattern.flags, template
 #     compiled = _replacement_cache.get(key)
     if compiled is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         return compiled
-
     if len(_replacement_cache) >= _MAXREPCACHE:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _replacement_cache.clear()
-
 #     is_unicode = isinstance(template, str)
 #     source = _Source(template)
     if is_unicode:
-      pass
-      pass
+    pass
+    pass
     pass
         def make_string(char_codes):
             return .join(chr(c) for c in char_codes)
     else:
         def make_string(char_codes):
             return bytes(char_codes)
-
 #     compiled = []
 #     literal = []
     while True:
 #         ch = source.get()
         if not ch:
-      pass
-      pass
+    pass
+    pass
     pass
 #             break
         if ch == :
-      pass
-      pass
+    pass
+    pass
     pass
             # '_compile_replacement' will return either an int group reference
             # or a string literal. It returns items (plural) in order to handle
             # a 2-character literal (an invalid escape sequence).
 #             is_group, items = _compile_replacement(source, pattern, is_unicode)
             if is_group:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Its a group, so first flush the literal.
                 if literal:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     compiled.append(make_string(literal))
 #                     literal = []
@@ -823,36 +722,27 @@ def _compile_replacement_helper(pattern, template):
 #                 literal.extend(items)
         else:
 #             literal.append(ord(ch))
-
     # Flush the literal.
     if literal:
-      pass
-      pass
+    pass
+    pass
     pass
 #         compiled.append(make_string(literal))
-
 #     _replacement_cache[key] = compiled
-
     return compiled
-
 # We define Pattern here after all the support objects have been defined.
 # _pat = _compile('', 0, False, {}, False)
 # Pattern = type(_pat)
 # Match = type(_pat.match(''))
 # del _pat
-
 # Make Pattern public for typing annotations.
 # __all__.append("Pattern")
 # __all__.append("Match")
-
 # Well define an alias for the compile function so that the repr of a
 # pattern object is eval-able.
 # Regex = compile
-
 # Register myself for pickling.
 import copyreg as _copy_reg
-
 def _pickle(pattern):
     return _regex.compile, pattern._pickled_data
-
 # _copy_reg.pickle(Pattern, _pickle)

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,33 +19,23 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ....configuration_utils import PretrainedConfig
 from ....utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "CarlCochet/trajectory-transformer-halfcheetah-medium-v2": (
 #         "https://huggingface.co/CarlCochet/trajectory-transformer-halfcheetah-medium-v2/resolve/main/config.json"
 #     ),
     # See all TrajectoryTransformer models at https://huggingface.co/models?filter=trajectory_transformer
 # }
-
-
 class TrajectoryTransformerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`TrajectoryTransformerModel`]. It is used to
 #     instantiate an TrajectoryTransformer model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the
 #     TrajectoryTransformer
 #     [CarlCochet/trajectory-transformer-halfcheetah-medium-v2](https://huggingface.co/CarlCochet/trajectory-transformer-halfcheetah-medium-v2)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 100):
 #             Vocabulary size of the TrajectoryTransformer model. Defines the number of different tokens that can be
@@ -95,20 +82,15 @@ class TrajectoryTransformerConfig(PretrainedConfig):
 #             Whether or not the model should return the last key/values attentions (not used by all models). Only
 #             relevant if `config.is_decoder=True`.
 #         Example:
-
 #     ```python
 #     >>> from transformers import TrajectoryTransformerConfig, TrajectoryTransformerModel
-
 #     >>> # Initializing a TrajectoryTransformer CarlCochet/trajectory-transformer-halfcheetah-medium-v2 style configuration
 #     >>> configuration = TrajectoryTransformerConfig()
-
 #     >>> # Initializing a model (with random weights) from the CarlCochet/trajectory-transformer-halfcheetah-medium-v2 style configuration
 #     >>> model = TrajectoryTransformerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "trajectory_transformer"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -116,7 +98,6 @@ class TrajectoryTransformerConfig(PretrainedConfig):
 #         "num_attention_heads": "n_head",
 #         "num_hidden_layers": "n_layer",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=100,

@@ -1,22 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 # unicode.py
-
 import sys
 from itertools import filterfalse
 from typing import List, Tuple, Union
-
-
 class _lazyclassproperty:
     def __init__(self, fn):
 #         self.fn = fn
 #         self.__doc__ = fn.__doc__
 #         self.__name__ = fn.__name__
-
     def __get__(self, obj, cls):
         if cls is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cls = type(obj)
         if not hasattr(cls, "_intern") or any(
@@ -26,16 +22,12 @@ class _lazyclassproperty:
 #             cls._intern = {}
 #         attrname = self.fn.__name__
         if attrname not in cls._intern:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cls._intern[attrname] = self.fn(cls)
         return cls._intern[attrname]
-
-
 # UnicodeRangeList = List[Union[Tuple[int, int], Tuple[int]]]
-
-
 class unicode_set:
     """
 #     A set of Unicode characters, for language-specific strings for
@@ -43,56 +35,45 @@ class unicode_set:
 #     A unicode_set is defined by a list of ranges in the Unicode character
 #     set, in a class attribute ``_ranges``. Ranges can be specified using
 #     2-tuples or a 1-tuple, such as::
-
 #         _ranges = [
 #             (0x0020, 0x007e),
 #             (0x00a0, 0x00ff),
 #             (0x0100,),
 #             ]
-
 #     Ranges are left- and right-inclusive. A 1-tuple of (x,) is treated as (x, x).
-
 #     A unicode set can also be defined using multiple inheritance of other unicode sets::
-
         class CJK(Chinese, Japanese, Korean):
 #             pass
     """
-
 #     _ranges: UnicodeRangeList = []
-
 #     @_lazyclassproperty
     def _chars_for_ranges(cls):
 #         ret = []
         for cc in cls.__mro__:
             if cc is unicode_set:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
             for rr in getattr(cc, "_ranges", ()):
 #                 ret.extend(range(rr[0], rr[-1] + 1))
         return [chr(c) for c in sorted(set(ret))]
-
 #     @_lazyclassproperty
     def printables(cls):
 #         "all non-whitespace characters in this range"
         return "".join(filterfalse(str.isspace, cls._chars_for_ranges))
-
 #     @_lazyclassproperty
     def alphas(cls):
 #         "all alphabetic characters in this range"
         return "".join(filter(str.isalpha, cls._chars_for_ranges))
-
 #     @_lazyclassproperty
     def nums(cls):
 #         "all numeric digit characters in this range"
         return "".join(filter(str.isdigit, cls._chars_for_ranges))
-
 #     @_lazyclassproperty
     def alphanums(cls):
 #         "all alphanumeric characters in this range"
         return cls.alphas + cls.nums
-
 #     @_lazyclassproperty
     def identchars(cls):
 #         "all characters in this range that are valid identifier characters, plus underscore '_'"
@@ -106,7 +87,6 @@ class unicode_set:
 #                 )
 #             )
 #         )
-
 #     @_lazyclassproperty
     def identbodychars(cls):
         """
@@ -124,45 +104,36 @@ class unicode_set:
 #                 )
 #             )
 #         )
-
-
 class pyparsing_unicode(unicode_set):
     """
 #     A namespace class for defining common language unicode_sets.
     """
-
     # fmt: off
-
     # define ranges in language character sets
 #     _ranges: UnicodeRangeList = [
 #         (0x0020, sys.maxunicode),
 #     ]
-
     class BasicMultilingualPlane(unicode_set):
 #         "Unicode set for the Basic Multilingual Plane"
 #         _ranges: UnicodeRangeList = [
 #             (0x0020, 0xFFFF),
 #         ]
-
     class Latin1(unicode_set):
 #         "Unicode set for Latin-1 Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
 #             (0x0020, 0x007E),
 #             (0x00A0, 0x00FF),
 #         ]
-
     class LatinA(unicode_set):
 #         "Unicode set for Latin-A Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
 #             (0x0100, 0x017F),
 #         ]
-
     class LatinB(unicode_set):
 #         "Unicode set for Latin-B Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
 #             (0x0180, 0x024F),
 #         ]
-
     class Greek(unicode_set):
 #         "Unicode set for Greek Unicode Character Ranges"
 #         _ranges: UnicodeRangeList = [
@@ -202,7 +173,6 @@ class pyparsing_unicode(unicode_set):
 #             (0x1D200, 0x1D245),
 #             (0x1F7A1, 0x1F7A7),
 #         ]
-
     class Cyrillic(unicode_set):
 #         "Unicode set for Cyrillic Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
@@ -215,7 +185,6 @@ class pyparsing_unicode(unicode_set):
 #             (0xA674, 0xA69F),
 #             (0xFE2E, 0xFE2F),
 #         ]
-
     class Chinese(unicode_set):
 #         "Unicode set for Chinese Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
@@ -238,18 +207,15 @@ class pyparsing_unicode(unicode_set):
 #             (0x2CEB0, 0x2EBE0),
 #             (0x2F800, 0x2FA1D),
 #         ]
-
     class Japanese(unicode_set):
 #         "Unicode set for Japanese Unicode Character Range, combining Kanji, Hiragana, and Katakana ranges"
 #         _ranges: UnicodeRangeList = []
-
         class Kanji(unicode_set):
 #             "Unicode set for Kanji Unicode Character Range"
 #             _ranges: UnicodeRangeList = [
 #                 (0x4E00, 0x9FBF),
 #                 (0x3000, 0x303F),
 #             ]
-
         class Hiragana(unicode_set):
 #             "Unicode set for Hiragana Unicode Character Range"
 #             _ranges: UnicodeRangeList = [
@@ -261,7 +227,6 @@ class pyparsing_unicode(unicode_set):
 #                 (0x1B150, 0x1B152),
 #                 (0x1F200,),
 #             ]
-
         class Katakana(unicode_set):
 #             "Unicode set for Katakana  Unicode Character Range"
 #             _ranges: UnicodeRangeList = [
@@ -275,7 +240,6 @@ class pyparsing_unicode(unicode_set):
 #                 (0x1F201, 0x1F202),
 #                 (0x1F213,),
 #             ]
-
     class Hangul(unicode_set):
 #         "Unicode set for Hangul (Korean) Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
@@ -295,19 +259,15 @@ class pyparsing_unicode(unicode_set):
 #             (0xFFD2, 0xFFD7),
 #             (0xFFDA, 0xFFDC),
 #         ]
-
 #     Korean = Hangul
-
     class CJK(Chinese, Japanese, Hangul):
 #         "Unicode set for combined Chinese, Japanese, and Korean (CJK) Unicode Character Range"
-
     class Thai(unicode_set):
 #         "Unicode set for Thai Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
 #             (0x0E01, 0x0E3A),
 #             (0x0E3F, 0x0E5B)
 #         ]
-
     class Arabic(unicode_set):
 #         "Unicode set for Arabic Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
@@ -315,7 +275,6 @@ class pyparsing_unicode(unicode_set):
 #             (0x061E, 0x06FF),
 #             (0x0700, 0x077F),
 #         ]
-
     class Hebrew(unicode_set):
 #         "Unicode set for Hebrew Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
@@ -329,25 +288,19 @@ class pyparsing_unicode(unicode_set):
 #             (0xFB43, 0xFB44),
 #             (0xFB46, 0xFB4F),
 #         ]
-
     class Devanagari(unicode_set):
 #         "Unicode set for Devanagari Unicode Character Range"
 #         _ranges: UnicodeRangeList = [
 #             (0x0900, 0x097F),
 #             (0xA8E0, 0xA8FF)
 #         ]
-
     # fmt: on
-
-
 # pyparsing_unicode.Japanese._ranges = (
 #     pyparsing_unicode.Japanese.Kanji._ranges
 #     + pyparsing_unicode.Japanese.Hiragana._ranges
 #     + pyparsing_unicode.Japanese.Katakana._ranges
 # )
-
 # pyparsing_unicode.BMP = pyparsing_unicode.BasicMultilingualPlane
-
 # add language identifiers using language Unicode
 # pyparsing_unicode.العربية = pyparsing_unicode.Arabic
 # pyparsing_unicode.中文 = pyparsing_unicode.Chinese

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,27 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
-
 import torch
-
 from transformers import ImageGPTConfig, ImageGPTForCausalLM, load_tf_weights_in_imagegpt
 from transformers.utils import CONFIG_NAME, WEIGHTS_NAME, logging
-
-
 # logging.set_verbosity_info()
-
-
 def convert_imagegpt_checkpoint_to_pytorch(imagegpt_checkpoint_path, model_size, pytorch_dump_folder_path):
     # Construct configuration depending on size
 #     n_embd, n_head, n_layer = MODELS[model_size]  # set model hyperparameters
 #     config = ImageGPTConfig(n_embd=n_embd, n_layer=n_layer, n_head=n_head)
 #     model = ImageGPTForCausalLM(config)
-
     # Load weights from numpy
 #     load_tf_weights_in_imagegpt(model, config, imagegpt_checkpoint_path)
-
     # Save pytorch-model
 #     pytorch_weights_dump_path = pytorch_dump_folder_path + "/" + WEIGHTS_NAME
 #     pytorch_config_dump_path = pytorch_dump_folder_path + "/" + CONFIG_NAME
@@ -51,11 +39,9 @@ def convert_imagegpt_checkpoint_to_pytorch(imagegpt_checkpoint_path, model_size,
 #     print(f"Save configuration file to {pytorch_config_dump_path}")
     with open(pytorch_config_dump_path, "w", encoding="utf-8") as f:
 #         f.write(config.to_json_string())
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters

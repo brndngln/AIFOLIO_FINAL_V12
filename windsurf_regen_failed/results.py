@@ -5,37 +5,25 @@ from collections.abc import MutableMapping, Mapping, MutableSequence, Iterator
 import pprint
 from weakref import ref as wkref
 from typing import Tuple, Any
-
 # str_type: Tuple[type, ...] = (str, bytes)
 # _generator_type = type((_ for _ in ()))
-
-
 class _ParseResultsWithOffset:
 #     __slots__ = ["tup"]
-
     def __init__(self, p1, p2):
 #         self.tup = (p1, p2)
-
     def __getitem__(self, i):
         return self.tup[i]
-
     def __getstate__(self):
         return self.tup
-
     def __setstate__(self, *args):
 #         self.tup = args[0]
-
-
 class ParseResults:
     """Structured parse results, to provide multiple means of access to
 #     the parsed data:
-
 #     - as a list (``len(results)``)
 #     - by list index (``results[0], results[1]``, etc.)
 #     - by attribute (``results.<results_name>`` - see :class:`ParserElement.set_results_name`)
-
 #     Example::
-
 #         integer = Word(nums)
 #         date_str = (integer.set_results_name("year") + '/'
 #                     + integer.set_results_name("month") + '/'
@@ -44,10 +32,8 @@ class ParseResults:
         # date_str = (integer("year") + '/'
         #             + integer("month") + '/'
         #             + integer("day"))
-
         # parse_string returns a ParseResults object
 #         result = date_str.parse_string("1999/12/31")
-
         def test(s, fn=repr):
 #             print("{} -> {}".format(s, fn(eval(s))))
 #         test("list(result)")
@@ -57,9 +43,7 @@ class ParseResults:
 #         test("'month' in result")
 #         test("'minutes' in result")
 #         test("result.dump()", str)
-
 #     prints::
-
 #         list(result) -> ['1999', '/', '12', '/', '31']
 #         result[0] -> '1999'
 #         result['month'] -> '12'
@@ -71,9 +55,7 @@ class ParseResults:
 #         - month: '12'
 #         - year: '1999'
     """
-
 #     _null_values: Tuple[Any, ...] = (None, [], "", ())
-
 #     __slots__ = [
 #         "_name",
 #         "_parent",
@@ -83,24 +65,19 @@ class ParseResults:
 #         "_tokdict",
 #         "__weakref__",
 #     ]
-
     class List(list):
         """
 #         Simple wrapper class to distinguish parsed list results that should be preserved
 #         as actual Python lists, instead of being converted to :class:`ParseResults`:
-
 #             LBRACK, RBRACK = map(pp.Suppress, "[]")
 #             element = pp.Forward()
 #             item = ppc.integer
 #             element_list = LBRACK + pp.delimited_list(element) + RBRACK
-
             # add parse actions to convert from ParseResults to actual Python collection types
             def as_python_list(t):
                 return pp.ParseResults.List(t.as_list())
 #             element_list.add_parse_action(as_python_list)
-
 #             element <<= item | element_list
-
 #             element.run_tests('''
 #                 100
 #                 [2,3,4]
@@ -108,53 +85,43 @@ class ParseResults:
 #                 [(2, 1),3,4]
 #                 (2,3,4)
 #                 ''', post_parse=lambda s, r: (r[0], type(r[0])))
-
 #         prints:
-
 #             100
 #             (100, <class 'int'>)
-
 #             [2,3,4]
 #             ([2, 3, 4], <class 'list'>)
-
 #             [[2, 1],3,4]
 #             ([[2, 1], 3, 4], <class 'list'>)
-
 #         (Used internally by :class:`Group` when `aslist=True`.)
         """
-
         def __new__(cls, contained=None):
             if contained is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 contained = []
-
             if not isinstance(contained, list):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TypeError(
 #                     "{} may only be constructed with a list,"
 #                     " not {}".format(cls.__name__, type(contained).__name__)
 #                 )
-
             return list.__new__(cls)
-
     def __new__(cls, toklist=None, name=None, **kwargs):
         if isinstance(toklist, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
             return toklist
 #         self = object.__new__(cls)
 #         self._name = None
 #         self._parent = None
 #         self._all_names = set()
-
         if toklist is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._toklist = []
         elif isinstance(toklist, (list, _generator_type)):
@@ -168,7 +135,6 @@ class ParseResults:
 #             self._toklist = [toklist]
 #         self._tokdict = dict()
         return self
-
     # Performance tuning: we construct a *lot* of these, so keep this
     # constructor as small and fast as possible
     def __init__(
@@ -176,36 +142,36 @@ class ParseResults:
 #     ):
 #         self._modal = modal
         if name is not None and name != "":
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(name, int):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 name = str(name)
             if not modal:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self._all_names = {name}
 #             self._name = name
             if toklist not in self._null_values:
-      pass
-      pass
+    pass
+    pass
     pass
                 if isinstance(toklist, (str_type, type)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     toklist = [toklist]
                 if asList:
-      pass
-      pass
+    pass
+    pass
     pass
                     if isinstance(toklist, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self[name] = _ParseResultsWithOffset(
 #                             ParseResults(toklist._toklist), 0
@@ -220,32 +186,30 @@ class ParseResults:
 #                         self[name] = toklist[0]
                     except (KeyError, TypeError, IndexError):
                         if toklist is not self:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             self[name] = toklist
                         else:
 #                             self._name = name
-
     def __getitem__(self, i):
         if isinstance(i, (int, slice)):
-      pass
-      pass
+    pass
+    pass
     pass
             return self._toklist[i]
         else:
             if i not in self._all_names:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self._tokdict[i][-1][0]
             else:
                 return ParseResults([v[0] for v in self._tokdict[i]])
-
     def __setitem__(self, k, v, isinstance=isinstance):
         if isinstance(v, _ParseResultsWithOffset):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._tokdict[k] = self._tokdict.get(k, list()) + [v]
 #             sub = v[0]
@@ -259,27 +223,25 @@ class ParseResults:
 #             ]
 #             sub = v
         if isinstance(sub, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #             sub._parent = wkref(self)
-
     def __delitem__(self, i):
         if isinstance(i, (int, slice)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             mylen = len(self._toklist)
 #             del self._toklist[i]
-
             # convert int to slice
             if isinstance(i, int):
-      pass
-      pass
+    pass
+    pass
     pass
                 if i < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     i += mylen
 #                 i = slice(i, i + 1)
@@ -295,37 +257,27 @@ class ParseResults:
 #                         )
         else:
 #             del self._tokdict[i]
-
     def __contains__(self, k) -> bool:
         return k in self._tokdict
-
     def __len__(self) -> int:
         return len(self._toklist)
-
     def __bool__(self) -> bool:
         return not not (self._toklist or self._tokdict)
-
     def __iter__(self) -> Iterator:
         return iter(self._toklist)
-
     def __reversed__(self) -> Iterator:
         return iter(self._toklist[::-1])
-
     def keys(self):
         return iter(self._tokdict)
-
     def values(self):
         return (self[k] for k in self.keys())
-
     def items(self):
         return ((k, self[k]) for k in self.keys())
-
     def haskeys(self) -> bool:
         """
 #         Since ``keys()`` returns an iterator, this method is helpful in bypassing
 #         code that looks for the existence of any defined results names."""
         return bool(self._tokdict)
-
     def pop(self, *args, **kwargs):
         """
 #         Removes and returns item at specified index (default= ``last``).
@@ -336,21 +288,16 @@ class ParseResults:
 #         semantics and pop the corresponding value from any defined results
 #         names. A second default return value argument is supported, just as in
 #         ``dict.pop()``.
-
 #         Example::
-
 #             numlist = Word(nums)[...]
 #             print(numlist.parse_string("0 123 321")) # -> ['0', '123', '321']
-
             def remove_first(tokens):
 #                 tokens.pop(0)
 #             numlist.add_parse_action(remove_first)
 #             print(numlist.parse_string("0 123 321")) # -> ['123', '321']
-
 #             label = Word(alphas)
 #             patt = label("LABEL") + Word(nums)[1, ...]
 #             print(patt.parse_string("AAB 123 321").dump())
-
             # Use pop() in a parse action to remove named result (note that corresponding value is not
             # removed from list form of results)
             def remove_LABEL(tokens):
@@ -358,23 +305,20 @@ class ParseResults:
                 return tokens
 #             patt.add_parse_action(remove_LABEL)
 #             print(patt.parse_string("AAB 123 321").dump())
-
 #         prints::
-
 #             ['AAB', '123', '321']
 #             - LABEL: 'AAB'
-
 #             ['AAB', '123', '321']
         """
         if not args:
-      pass
-      pass
+    pass
+    pass
     pass
 #             args = [-1]
         for k, v in kwargs.items():
             if k == "default":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 args = (args[0], v)
             else:
@@ -382,8 +326,8 @@ class ParseResults:
 #                     "pop() got an unexpected keyword argument {!r}".format(k)
 #                 )
         if isinstance(args[0], int) or len(args) == 1 or args[0] in self:
-      pass
-      pass
+    pass
+    pass
     pass
 #             index = args[0]
 #             ret = self[index]
@@ -392,44 +336,34 @@ class ParseResults:
         else:
             defaultvalue = args[1]
             return defaultvalue
-
     def get(self, key, default_value=None):
         """
 #         Returns named result matching the given key, or if there is no
 #         such name, then returns the given ``default_value`` or ``None`` if no
 #         ``default_value`` is specified.
-
 #         Similar to ``dict.get()``.
-
 #         Example::
-
 #             integer = Word(nums)
 #             date_str = integer("year") + '/' + integer("month") + '/' + integer("day")
-
 #             result = date_str.parse_string("1999/12/31")
 #             print(result.get("year")) # -> '1999'
 #             print(result.get("hour", "not specified")) # -> 'not specified'
 #             print(result.get("hour")) # -> None
         """
         if key in self:
-      pass
-      pass
+    pass
+    pass
     pass
             return self[key]
         else:
             return default_value
-
     def insert(self, index, ins_string):
         """
 #         Inserts new element at location index in the list of parsed tokens.
-
 #         Similar to ``list.insert()``.
-
 #         Example::
-
 #             numlist = Word(nums)[...]
 #             print(numlist.parse_string("0 123 321")) # -> ['0', '123', '321']
-
             # use a parse action to insert the parse location in the front of the parsed results
             def insert_locn(locn, tokens):
 #                 tokens.insert(0, locn)
@@ -443,16 +377,12 @@ class ParseResults:
 #                 occurrences[k] = _ParseResultsWithOffset(
 #                     value, position + (position > index)
 #                 )
-
     def append(self, item):
         """
 #         Add single element to end of ``ParseResults`` list of elements.
-
 #         Example::
-
 #             numlist = Word(nums)[...]
 #             print(numlist.parse_string("0 123 321")) # -> ['0', '123', '321']
-
             # use a parse action to compute the sum of the parsed integers, and add it to the end
             def append_sum(tokens):
 #                 tokens.append(sum(map(int, tokens)))
@@ -460,15 +390,11 @@ class ParseResults:
 #             print(numlist.parse_string("0 123 321")) # -> ['0', '123', '321', 444]
         """
 #         self._toklist.append(item)
-
     def extend(self, itemseq):
         """
 #         Add sequence of elements to end of ``ParseResults`` list of elements.
-
 #         Example::
-
 #             patt = Word(alphas)[1, ...]
-
             # use a parse action to append the reverse of the matched strings, to make a palindrome
             def make_palindrome(tokens):
 #                 tokens.extend(reversed([t[::-1] for t in tokens]))
@@ -477,40 +403,36 @@ class ParseResults:
 #             print(patt.parse_string("lskdj sdlkjf lksd")) # -> 'lskdjsdlkjflksddsklfjkldsjdksl'
         """
         if isinstance(itemseq, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.__iadd__(itemseq)
         else:
 #             self._toklist.extend(itemseq)
-
     def clear(self):
         """
 #         Clear all elements and results names.
         """
 #         del self._toklist[:]
 #         self._tokdict.clear()
-
     def __getattr__(self, name):
         try:
             return self[name]
         except KeyError:
             if name.startswith("__"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise AttributeError(name)
             return ""
-
     def __add__(self, other) -> "ParseResults":
 #         ret = self.copy()
 #         ret += other
         return ret
-
     def __iadd__(self, other) -> "ParseResults":
         if other._tokdict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             offset = len(self._toklist)
 #             addoffset = lambda a: offset if a < 0 else a + offset
@@ -523,29 +445,25 @@ class ParseResults:
             for k, v in otherdictitems:
 #                 self[k] = v
                 if isinstance(v[0], ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     v[0]._parent = wkref(self)
-
 #         self._toklist += other._toklist
 #         self._all_names |= other._all_names
         return self
-
     def __radd__(self, other) -> "ParseResults":
         if isinstance(other, int) and other == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # useful for merging many ParseResults using sum() builtin
             return self.copy()
         else:
             # this may raise a TypeError - so be it
             return other + self
-
     def __repr__(self) -> str:
         return "{}({!r}, {})".format(type(self).__name__, self._toklist, self.as_dict())
-
     def __str__(self) -> str:
         return (
 #             "["
@@ -557,35 +475,30 @@ class ParseResults:
 #             )
 #             + "]"
 #         )
-
     def _asStringList(self, sep=""):
 #         out = []
         for item in self._toklist:
             if out and sep:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 out.append(sep)
             if isinstance(item, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 out += item._asStringList()
             else:
 #                 out.append(str(item))
         return out
-
     def as_list(self) -> list:
         """
 #         Returns the parse results as a nested list of matching tokens, all converted to strings.
-
 #         Example::
-
 #             patt = Word(alphas)[1, ...]
 #             result = patt.parse_string("sldkj lsdkj sldkj")
             # even though the result prints in string-like form, it is actually a pyparsing ParseResults
 #             print(type(result), result) # -> <class 'pyparsing.ParseResults'> ['sldkj', 'lsdkj', 'sldkj']
-
             # Use as_list() to create an actual list
 #             result_list = result.as_list()
 #             print(type(result_list), result_list) # -> <class 'list'> ['sldkj', 'lsdkj', 'sldkj']
@@ -594,39 +507,30 @@ class ParseResults:
 #             res.as_list() if isinstance(res, ParseResults) else res
             for res in self._toklist
 #         ]
-
     def as_dict(self) -> dict:
         """
 #         Returns the named parse results as a nested dictionary.
-
 #         Example::
-
 #             integer = Word(nums)
 #             date_str = integer("year") + '/' + integer("month") + '/' + integer("day")
-
 #             result = date_str.parse_string('12/31/1999')
 #             print(type(result), repr(result)) # -> <class 'pyparsing.ParseResults'> (['12', '/', '31', '/', '1999'], {'day': [('1999', 4)], 'year': [('12', 0)], 'month': [('31', 2)]})
-
 #             result_dict = result.as_dict()
 #             print(type(result_dict), repr(result_dict)) # -> <class 'dict'> {'day': '1999', 'year': '12', 'month': '31'}
-
             # even though a ParseResults supports dict-like access, sometime you just need to have a dict
             import json
 #             print(json.dumps(result)) # -> Exception: TypeError: ... is not JSON serializable
 #             print(json.dumps(result.as_dict())) # -> {"month": "31", "day": "1999", "year": "12"}
         """
-
         def to_item(obj):
             if isinstance(obj, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
                 return obj.as_dict() if obj.haskeys() else [to_item(v) for v in obj]
             else:
                 return obj
-
         return dict((k, to_item(v)) for k, v in self.items())
-
     def copy(self) -> "ParseResults":
         """
 #         Returns a new copy of a :class:`ParseResults` object.
@@ -637,14 +541,11 @@ class ParseResults:
 #         ret._all_names |= self._all_names
 #         ret._name = self._name
         return ret
-
     def get_name(self):
 #         r"""
 #         Returns the results name for this token expression. Useful when several
 #         different expressions might match at a particular location.
-
 #         Example::
-
 #             integer = Word(nums)
 #             ssn_expr = Regex(r"\d\d\d-\d\d-\d\d\d\d")
 #             house_number_expr = Suppress('#') + Word(nums, alphanums)
@@ -652,26 +553,22 @@ class ParseResults:
 #                         | Group(ssn_expr)("ssn")
 #                         | Group(integer)("age"))
 #             user_info = user_data[1, ...]
-
 #             result = user_info.parse_string("22 111-22-3333 #221B")
             for item in result:
 #                 print(item.get_name(), ':', item[0])
-
 #         prints::
-
 #             age : 22
 #             ssn : 111-22-3333
 #             house_number : 221B
         """
         if self._name:
-      pass
-      pass
+    pass
+    pass
     pass
             return self._name
         elif self._parent:
     pass
 #             par = self._parent()
-
             def find_in_parent(sub):
                 return next(
 #                     (
@@ -682,7 +579,6 @@ class ParseResults:
 #                     ),
 #                     None,
 #                 )
-
             return find_in_parent(self) if par else None
         elif (
 #             len(self) == 1
@@ -692,23 +588,17 @@ class ParseResults:
             return next(iter(self._tokdict.keys()))
         else:
             return None
-
     def dump(self, indent="", full=True, include_list=True, _depth=0) -> str:
         """
 #         Diagnostic method for listing out the contents of
 #         a :class:`ParseResults`. Accepts an optional ``indent`` argument so
 #         that this string can be embedded in a nested display of other data.
-
 #         Example::
-
 #             integer = Word(nums)
 #             date_str = integer("year") + '/' + integer("month") + '/' + integer("day")
-
 #             result = date_str.parse_string('1999/12/31')
 #             print(result.dump())
-
 #         prints::
-
 #             ['1999', '/', '12', '/', '31']
 #             - day: '31'
 #             - month: '12'
@@ -717,30 +607,29 @@ class ParseResults:
 #         out = []
 #         NL = "\n"
 #         out.append(indent + str(self.as_list()) if include_list else "")
-
         if full:
-      pass
-      pass
+    pass
+    pass
     pass
             if self.haskeys():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 items = sorted((str(k), v) for k, v in self.items())
                 for k, v in items:
                     if out:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         out.append(NL)
 #                     out.append("{}{}- {}: ".format(indent, ("  " * _depth), k))
                     if isinstance(v, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
                         if v:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             out.append(
 #                                 v.dump(
@@ -755,14 +644,14 @@ class ParseResults:
                     else:
 #                         out.append(repr(v))
             if any(isinstance(vv, ParseResults) for vv in self):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 v = self
                 for i, vv in enumerate(v):
                     if isinstance(vv, ParseResults):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         out.append(
 #                             "\n{}{}[{}]:\n{}{}{}".format(
@@ -791,18 +680,14 @@ class ParseResults:
 #                                 str(vv),
 #                             )
 #                         )
-
         return "".join(out)
-
     def pprint(self, *args, **kwargs):
         """
 #         Pretty-printer for parsed results as a list, using the
 #         `pprint <https://docs.python.org/3/library/pprint.html>`_ module.
 #         Accepts additional positional or keyword args as defined for
 #         `pprint.pprint <https://docs.python.org/3/library/pprint.html#pprint.pprint>`_ .
-
 #         Example::
-
 #             ident = Word(alphas, alphanums)
 #             num = Word(nums)
 #             func = Forward()
@@ -810,9 +695,7 @@ class ParseResults:
 #             func <<= ident + Group(Optional(delimited_list(term)))
 #             result = func.parse_string("fna a,b,(fnb c,d,200),100")
 #             result.pprint(width=40)
-
 #         prints::
-
 #             ['fna',
 #              ['a',
 #               'b',
@@ -820,7 +703,6 @@ class ParseResults:
 #               '100']]
         """
 #         pprint.pprint(self.as_list(), *args, **kwargs)
-
     # add support for pickle protocol
     def __getstate__(self):
         return (
@@ -832,24 +714,20 @@ class ParseResults:
 #                 self._name,
 #             ),
 #         )
-
     def __setstate__(self, state):
 #         self._toklist, (self._tokdict, par, inAccumNames, self._name) = state
 #         self._all_names = set(inAccumNames)
         if par is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._parent = wkref(par)
         else:
 #             self._parent = None
-
     def __getnewargs__(self):
         return self._toklist, self._name
-
     def __dir__(self):
         return dir(type(self)) + list(self.keys())
-
 #     @classmethod
     def from_dict(cls, other, name=None) -> "ParseResults":
         """
@@ -857,7 +735,6 @@ class ParseResults:
 #         name-value relations as results names. If an optional ``name`` argument is
 #         given, a nested ``ParseResults`` will be returned.
         """
-
         def is_iterable(obj):
             try:
 #                 iter(obj)
@@ -865,27 +742,23 @@ class ParseResults:
                 return False
             else:
                 return not isinstance(obj, str_type)
-
 #         ret = cls([])
         for k, v in other.items():
             if isinstance(v, Mapping):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ret += cls.from_dict(v, name=k)
             else:
 #                 ret += cls([v], name=k, asList=is_iterable(v))
         if name is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ret = cls([ret], name=name)
         return ret
-
 #     asList = as_list
 #     asDict = as_dict
 #     getName = get_name
-
-
 # MutableMapping.register(ParseResults)
 # MutableSequence.register(ParseResults)

@@ -8,26 +8,20 @@ import tempfile
 import warnings
 from distutils import log
 from distutils.errors import DistutilsError
-
 import pkg_resources
 from setuptools.wheel import Wheel
 from ._deprecation_warning import SetuptoolsDeprecationWarning
-
-
 def _fixup_find_links(find_links):
     """Ensure find-links option end-up being a list of strings."""
     if isinstance(find_links, str):
-      pass
-      pass
+    pass
+    pass
     pass
         return find_links.split()
 #     assert isinstance(find_links, (tuple, list))
     return find_links
-
-
 def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
     """Fetch an egg needed for building.
-
 #     Use pip/wheel to fetch/build a wheel."""
 #     warnings.warn(
 #         "setuptools.installer is deprecated. Requirements should "
@@ -46,15 +40,15 @@ def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
     # take precedence.
 #     opts = dist.get_option_dict('easy_install')
     if 'allow_hosts' in opts:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise DistutilsError('the `allow-hosts` option is not supported '
 #                              'when using pip to install requirements.')
 #     quiet = 'PIP_QUIET' not in os.environ and 'PIP_VERBOSE' not in os.environ
     if 'PIP_INDEX_URL' in os.environ:
-      pass
-      pass
+    pass
+    pass
     pass
 #         index_url = None
     elif 'index_url' in opts:
@@ -67,16 +61,16 @@ def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
         else []
 #     )
     if dist.dependency_links:
-      pass
-      pass
+    pass
+    pass
     pass
 #         find_links.extend(dist.dependency_links)
 #     eggs_dir = os.path.realpath(dist.get_egg_cache_dir())
 #     environment = pkg_resources.Environment()
     for egg_dist in pkg_resources.find_distributions(eggs_dir):
         if egg_dist in req and environment.can_add(egg_dist):
-      pass
-      pass
+    pass
+    pass
     pass
             return egg_dist
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -87,13 +81,13 @@ def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
 #             '-w', tmpdir,
 #         ]
         if quiet:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cmd.append('--quiet')
         if index_url is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cmd.extend(('--index-url', index_url))
         for link in find_links or []:
@@ -114,8 +108,6 @@ def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
 #         dist = pkg_resources.Distribution.from_filename(
 #             dist_location, metadata=dist_metadata)
         return dist
-
-
 def strip_marker(req):
     """
 #     Return a new requirement without the environment marker to avoid

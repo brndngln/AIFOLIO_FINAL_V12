@@ -3,8 +3,6 @@ from typing import Optional
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 def test_authenticate_success():
 #     "Dummy test." ""
     # TODO: Fix import

@@ -1,27 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Automated tests for modularized AIFOLIO dashboard blueprints.
 # Covers reviewer, accessibility, payments, monetization, license, and product generation endpoints.
 # Ensures elite security, ethics, CSRF, and audit logging.
-
 import os
 import tempfile
 import pytest
 from typing import Generator, Optional
 from flask.testing import FlaskClient
 from dashboard.web_dashboard import app
-
-
 # @pytest.fixture
 def client() -> Generator[FlaskClient, None, None]:
 #     db_fd, db_path = tempfile.mkstemp()
@@ -31,49 +24,39 @@ def client() -> Generator[FlaskClient, None, None]:
 #     yield client
 #     os.close(db_fd)
 #     os.unlink(db_path)
-
-
 # --- Utility to get CSRF token from session ---
 def get_csrf(client: FlaskClient) -> Optional[str]:
     with client.session_transaction() as sess:
 #         token = sess.get("csrf_token")
     return token
-
-
 # --- Reviewer Blueprint ---
 def test_reviewer_routes(client: FlaskClient) -> None:
 #     rv = client.get("/reviewer/analytics")
     if rv.status_code == 404:
-      pass
-      pass
+    pass
+    pass
     pass
         import pytest
-
 #         pytest.skip("reviewer/analytics route not implemented")
 #     assert rv.status_code == 200
 #     rv = client.post(
 #         "/reviewer/escalate", data={"csrf_token": get_csrf(client) or "test"}
 #     )
 #     assert rv.status_code in (200, 400)
-
-
 # --- Accessibility Blueprint ---
 def test_accessibility_routes(client: FlaskClient) -> None:
 #     rv = client.get("/accessibility/audit")
     if rv.status_code == 404:
-      pass
-      pass
+    pass
+    pass
     pass
         import pytest
-
 #         pytest.skip("accessibility/audit route not implemented")
 #     assert rv.status_code == 200
 #     rv = client.post(
 #         "/accessibility/run", data={"csrf_token": get_csrf(client) or "test"}
 #     )
 #     assert rv.status_code in (200, 400)
-
-
 # --- Payments Blueprint ---
 def test_payments_routes(client: FlaskClient) -> None:
 #     rv = client.post(
@@ -86,27 +69,20 @@ def test_payments_routes(client: FlaskClient) -> None:
 #         data={"csrf_token": get_csrf(client) or "test", "email": "test@example.com"},
 #     )
 #     assert rv.status_code in (200, 400)
-
-
 # --- Monetization Blueprint ---
 def test_monetization_route(client: FlaskClient) -> None:
 #     rv = client.get("/monetization")
 #     assert rv.status_code == 200
-
-
 # --- License Blueprint ---
 def test_license_route(client: FlaskClient) -> None:
 #     rv = client.get("/license")
 #     assert rv.status_code == 200
-
-
 # --- Product Generation Blueprint ---
 def test_product_gen_route(client: FlaskClient) -> None:
 #     rv = client.get("/generate")
 #     assert rv.status_code == 200
     # Simulate POST with minimal required fields
     import os
-
 #     os.makedirs("../analytics", exist_ok=True)
     with open("../analytics/audit_trail.log", "a"):
 #         pass

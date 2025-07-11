@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ..auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
 # DETA_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "ut/deta": "https://huggingface.co/ut/deta/resolve/main/config.json",
 # }
-
-
 class DetaConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`DetaModel`]. It is used to instantiate a DETA
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the DETA
 #     [SenseTime/deformable-detr](https://huggingface.co/SenseTime/deformable-detr) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         backbone_config (`PretrainedConfig` or `dict`, *optional*, defaults to `ResNetConfig()`):
 #             The configuration of the backbone model.
@@ -117,28 +105,21 @@ class DetaConfig(PretrainedConfig):
 #             based on the predictions from the previous layer.
 #         focal_alpha (`float`, *optional*, defaults to 0.25):
 #             Alpha parameter in the focal loss.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import DetaConfig, DetaModel
-
 #     >>> # Initializing a DETA SenseTime/deformable-detr style configuration
 #     >>> configuration = DetaConfig()
-
 #     >>> # Initializing a model (with random weights) from the SenseTime/deformable-detr style configuration
 #     >>> model = DetaModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "deta"
 #     attribute_map = {
 #         "hidden_size": "d_model",
 #         "num_attention_heads": "encoder_attention_heads",
 #     }
-
     def __init__(
 #         self,
 #         backbone_config=None,
@@ -181,20 +162,19 @@ class DetaConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
         if backbone_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info("`backbone_config` is `None`. Initializing the config with the default `ResNet` backbone.")
 #             backbone_config = CONFIG_MAPPING["resnet"](out_features=["stage2", "stage3", "stage4"])
         else:
             if isinstance(backbone_config, dict):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 backbone_model_type = backbone_config.pop("model_type")
 #                 config_class = CONFIG_MAPPING[backbone_model_type]
 #                 backbone_config = config_class.from_dict(backbone_config)
-
 #         self.backbone_config = backbone_config
 #         self.num_queries = num_queries
 #         self.max_position_embeddings = max_position_embeddings
@@ -223,8 +203,8 @@ class DetaConfig(PretrainedConfig):
 #         self.with_box_refine = with_box_refine
 #         self.assign_first_stage = assign_first_stage
         if two_stage is True and with_box_refine is False:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("If two_stage is True, with_box_refine must be True.")
         # Hungarian matcher
@@ -239,11 +219,9 @@ class DetaConfig(PretrainedConfig):
 #         self.eos_coefficient = eos_coefficient
 #         self.focal_alpha = focal_alpha
 #         super().__init__(is_encoder_decoder=is_encoder_decoder, **kwargs)
-
 #     @property
     def num_attention_heads(self) -> int:
         return self.encoder_attention_heads
-
 #     @property
     def hidden_size(self) -> int:
         return self.d_model

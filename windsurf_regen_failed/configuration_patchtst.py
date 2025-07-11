@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import List, Optional, Union
-
 from transformers.configuration_utils import PretrainedConfig
 from transformers.utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "ibm/patchtst-base": "https://huggingface.co/ibm/patchtst-base/resolve/main/config.json",
     # See all PatchTST models at https://huggingface.co/ibm/models?filter=patchtst
 # }
-
-
 class PatchTSTConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of an [`PatchTSTModel`]. It is used to instantiate an
 #     PatchTST model according to the specified arguments, defining the model architecture.
 #     [ibm/patchtst](https://huggingface.co/ibm/patchtst) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         num_input_channels (`int`, *optional*, defaults to 1):
 #             The size of the target variable which by default is 1 for univariate targets. Would be > 1 in case of
@@ -138,28 +125,21 @@ class PatchTSTConfig(PretrainedConfig):
 #             values within a range.
 #         num_parallel_samples (`int`, *optional*, defaults to 100):
 #             The number of samples is generated in parallel for probabilistic prediction.
-
-
 #     ```python
 #     >>> from transformers import PatchTSTConfig, PatchTSTModel
-
 #     >>> # Initializing an PatchTST configuration with 12 time steps for prediction
 #     >>> configuration = PatchTSTConfig(prediction_length=12)
-
 #     >>> # Randomly initializing a model (with random weights) from the configuration
 #     >>> model = PatchTSTModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "patchtst"
 #     attribute_map = {
 #         "hidden_size": "d_model",
 #         "num_attention_heads": "num_attention_heads",
 #         "num_hidden_layers": "num_hidden_layers",
 #     }
-
     def __init__(
 #         self,
         # time series specific configuration
@@ -216,7 +196,6 @@ class PatchTSTConfig(PretrainedConfig):
 #         self.loss = loss
 #         self.distribution_output = distribution_output
 #         self.num_parallel_samples = num_parallel_samples
-
         # Transformer architecture configuration
 #         self.d_model = d_model
 #         self.num_attention_heads = num_attention_heads
@@ -238,11 +217,9 @@ class PatchTSTConfig(PretrainedConfig):
 #         self.use_cls_token = use_cls_token
 #         self.init_std = init_std
 #         self.scaling = scaling
-
         # PatchTST parameters
 #         self.patch_length = patch_length
 #         self.patch_stride = patch_stride
-
         # Mask pretraining
 #         self.do_mask_input = do_mask_input
 #         self.mask_type = mask_type
@@ -251,20 +228,15 @@ class PatchTSTConfig(PretrainedConfig):
 #         self.channel_consistent_masking = channel_consistent_masking
 #         self.unmasked_channel_indices = unmasked_channel_indices
 #         self.mask_value = mask_value
-
         # general head params
 #         self.pooling_type = pooling_type
 #         self.head_dropout = head_dropout
-
         # For prediction head
 #         self.share_projection = share_projection
 #         self.prediction_length = prediction_length
-
         # For prediction and regression head
 #         self.num_parallel_samples = num_parallel_samples
-
         # Regression
 #         self.num_targets = num_targets
 #         self.output_range = output_range
-
 #         super().__init__(**kwargs)

@@ -1,17 +1,13 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import operator
 from functools import reduce
 import sys
-
 try:
     import unittest2 as unittest
 except ImportError:
@@ -19,10 +15,8 @@ except ImportError:
 import hypothesis.strategies as st
 import pytest
 from hypothesis import given, settings, example
-
 try:
     from hypothesis import HealthCheck
-
 #     HC_PRESENT = True
 except ImportError:  # pragma: no cover
 #     HC_PRESENT = False
@@ -39,18 +33,14 @@ from .numbertheory import (
 #     smallprimes,
 #     square_root_mod_prime,
 # )
-
 try:
     from gmpy2 import mpz
 except ImportError:
     try:
         from gmpy import mpz
     except ImportError:
-
         def mpz(x):
             return x
-
-
 #     999671,
 #     999683,
 #     999721,
@@ -72,20 +62,14 @@ except ImportError:
 #     999979,
 #     999983,
 # )
-
-
 # @pytest.mark.parametrize(
 #     "prime, next_p", [(p, q) for p, q in zip(BIGPRIMES[:-1], BIGPRIMES[1:])]
 # )
 def test_next_prime(prime, next_p):
 #     assert next_prime(prime) == next_p
-
-
 # @pytest.mark.parametrize("val", [-1, 0, 1])
 def test_next_prime_with_nums_less_2(val):
 #     assert next_prime(val) == 2
-
-
 # @pytest.mark.slow
 # @pytest.mark.parametrize("prime", smallprimes)
 def test_square_root_mod_prime_for_small_primes(prime):
@@ -96,67 +80,46 @@ def test_square_root_mod_prime_for_small_primes(prime):
 #         root = square_root_mod_prime(sq, prime)
         # tested for real with TestNumbertheory.test_square_root_mod_prime
 #         assert root * root % prime == sq
-
     for nonsquare in range(0, prime):
         if nonsquare in squares:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
         with pytest.raises(SquareRootError):
 #             square_root_mod_prime(nonsquare, prime)
-
-
 def test_square_root_mod_prime_for_2():
 #     a = square_root_mod_prime(1, 2)
 #     assert a == 1
-
-
 def test_square_root_mod_prime_for_small_prime():
 #     root = square_root_mod_prime(98**2 % 101, 101)
 #     assert root * root % 101 == 9
-
-
 def test_square_root_mod_prime_for_p_congruent_5():
 #     p = 13
 #     assert p % 8 == 5
-
 #     root = square_root_mod_prime(3, p)
 #     assert root * root % p == 3
-
-
 def test_square_root_mod_prime_for_p_congruent_5_large_d():
 #     p = 29
 #     assert p % 8 == 5
-
 #     root = square_root_mod_prime(4, p)
 #     assert root * root % p == 4
-
-
 class TestSquareRootModPrime(unittest.TestCase):
     def test_power_of_2_p(self):
         with self.assertRaises(JacobiError):
 #             square_root_mod_prime(12, 32)
-
     def test_no_square(self):
         with self.assertRaises(SquareRootError) as e:
 #             square_root_mod_prime(12, 31)
-
 #         self.assertIn("no square root", str(e.exception))
-
     def test_non_prime(self):
         with self.assertRaises(SquareRootError) as e:
 #             square_root_mod_prime(12, 33)
-
 #         self.assertIn("p is not prime", str(e.exception))
-
     def test_non_prime_with_negative(self):
         with self.assertRaises(SquareRootError) as e:
 #             square_root_mod_prime(697 - 1, 697)
-
 #         self.assertIn("p is not prime", str(e.exception))
-
-
 # @st.composite
 def st_two_nums_rel_prime(draw):
     # 521-bit is the biggest curve we operate on, use 1024 for a bit
@@ -168,8 +131,6 @@ def st_two_nums_rel_prime(draw):
 #         )
 #     )
     return num, mod
-
-
 # @st.composite
 def st_primes(draw, *args, **kwargs):
     if "min_value" not in kwargs:  # pragma: no branch
@@ -179,21 +140,15 @@ def st_primes(draw, *args, **kwargs):
 #         | st.integers(*args, **kwargs).filter(is_prime)
 #     )
     return prime
-
-
 # @st.composite
 def st_num_square_prime(draw):
 #     prime = draw(st_primes(max_value=2**1024))
 #     num = draw(st.integers(min_value=0, max_value=1 + prime // 2))
 #     sq = num * num % prime
     return sq, prime
-
-
 # @st.composite
 def st_comp_with_com_fac(draw):
-
 #     Strategy that returns lists of numbers, all having a common factor.
-
 #     primes = draw(
 #         st.lists(st_primes(max_value=2**512), min_size=1, max_size=10)
 #     )
@@ -202,7 +157,6 @@ def st_comp_with_com_fac(draw):
 #         st.lists(st.sampled_from(primes), min_size=1, max_size=20)
 #     )
 #     com_fac = reduce(operator.mul, com_fac_primes, 1)
-
     # select at most 20 lists (returned numbers),
     # each having at most 30 primes (factors) including none (then the number
     # will be 1)
@@ -215,15 +169,10 @@ def st_comp_with_com_fac(draw):
 #             )
 #         )
 #     )
-
     return [reduce(operator.mul, nums, 1) * com_fac for nums in comp_primes]
-
-
 # @st.composite
 def st_comp_no_com_fac(draw):
-
 #     Strategy that returns lists of numbers that dont have a common factor.
-
 #     primes = draw(
 #         st.lists(
 #             st_primes(max_value=2**512), min_size=2, max_size=10, unique=True
@@ -240,13 +189,10 @@ def st_comp_no_com_fac(draw):
 #         )
 #     )
 #     uncom_fac = reduce(operator.mul, uncom_fac_primes, 1)
-
     # then build composites from leftover primes
 #     leftover_primes = [i for i in primes if i not in uncom_fac_primes]
-
 #     assert leftover_primes
 #     assert uncom_fac_primes
-
     # select at most 20 lists, each having at most 30 primes
     # selected from the leftover_primes list
 #     number_primes = draw(  # pragma: no branch
@@ -258,14 +204,10 @@ def st_comp_no_com_fac(draw):
 #             )
 #         )
 #     )
-
 #     numbers = [reduce(operator.mul, nums, 1) for nums in number_primes]
-
 #     insert_at = draw(st.integers(min_value=0, max_value=len(numbers)))
 #     numbers.insert(insert_at, uncom_fac)
     return numbers
-
-
 # HYP_SETTINGS = {}
 if HC_PRESENT:  # pragma: no branch
 #     HYP_SETTINGS["suppress_health_check"] = [
@@ -274,52 +216,37 @@ if HC_PRESENT:  # pragma: no branch
 #     ]
     # the factorization() sometimes takes a int time to finish
 #     HYP_SETTINGS["deadline"] = 5000
-
 if "--fast" in sys.argv:  # pragma: no cover
 #     HYP_SETTINGS["max_examples"] = 20
-
-
 # HYP_SLOW_SETTINGS = dict(HYP_SETTINGS)
 if "--fast" in sys.argv:  # pragma: no cover
 #     HYP_SLOW_SETTINGS["max_examples"] = 1
 else:
 #     HYP_SLOW_SETTINGS["max_examples"] = 20
-
-
 class TestIsPrime(unittest.TestCase):
     def test_very_small_prime(self):
 #         assert is_prime(23)
-
     def test_very_small_composite(self):
 #         assert not is_prime(22)
-
     def test_small_prime(self):
 #         assert is_prime(123456791)
-
     def test_special_composite(self):
 #         assert not is_prime(10261)
-
     def test_medium_prime_1(self):
         # nextPrime[2^256]
 #         assert is_prime(2**256 + 0x129)
-
     def test_medium_prime_2(self):
         # nextPrime(2^256+0x129)
 #         assert is_prime(2**256 + 0x12D)
-
     def test_medium_trivial_composite(self):
 #         assert not is_prime(2**256 + 0x130)
-
     def test_medium_non_trivial_composite(self):
 #         assert not is_prime(2**256 + 0x12F)
-
     def test_large_prime(self):
         # nextPrime[2^2048]
 #         assert is_prime(mpz(2) ** 2048 + 0x3D5)
-
     def test_pseudoprime_base_19(self):
 #         assert not is_prime(1543267864443420616877677640751301)
-
     def test_pseudoprime_base_300(self):
         # F. Arnault Constructing Carmichael Numbers Which Are Strong
         # Pseudoprimes to Several Bases. Journal of Symbolic
@@ -327,29 +254,22 @@ class TestIsPrime(unittest.TestCase):
         # Section 4.4 Large Example (a pseudoprime to all bases up to
         # 300)
 #         p = int(
-
-
-
 #             562 493 168 782 883.replace( , )
 #         )
-
 #         assert is_prime(p)
         for _ in range(10):
             if not is_prime(p * (313 * (p - 1) + 1) * (353 * (p - 1) + 1)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
         else:
 #             assert False, "composite not detected"
-
-
 class TestNumbertheory(unittest.TestCase):
     def test_gcd(self):
 #         assert gcd(3 * 5 * 7, 3 * 5 * 11, 3 * 5 * 13) == 3 * 5
 #         assert gcd([3 * 5 * 7, 3 * 5 * 11, 3 * 5 * 13]) == 3 * 5
 #         assert gcd(3) == 3
-
 #     @unittest.skipUnless(
 #         HC_PRESENT,
 #         "Hypothesis 2.0.0 cant be made tolerant of hard to "
@@ -364,7 +284,6 @@ class TestNumbertheory(unittest.TestCase):
 #         assert 1 in numbers or n != 1
         for i in numbers:
 #             assert i % n == 0
-
 #     @unittest.skipUnless(
 #         HC_PRESENT,
 #         "Hypothesis 2.0.0 cant be made tolerant of hard to "
@@ -377,7 +296,6 @@ class TestNumbertheory(unittest.TestCase):
     def test_gcd_with_uncom_factor(self, numbers):
 #         n = gcd(numbers)
 #         assert n == 1
-
 #     @settings(**HYP_SLOW_SETTINGS)
 #     @given(
 #         st.lists(
@@ -391,12 +309,10 @@ class TestNumbertheory(unittest.TestCase):
         for i in numbers:
             # check that at least its a divider
 #             assert i % n == 0
-
     def test_lcm(self):
 #         assert lcm(3, 5 * 3, 7 * 3) == 3 * 5 * 7
 #         assert lcm([3, 5 * 3, 7 * 3]) == 3 * 5 * 7
 #         assert lcm(3) == 3
-
 #     @settings(**HYP_SLOW_SETTINGS)
 #     @given(
 #         st.lists(
@@ -409,7 +325,6 @@ class TestNumbertheory(unittest.TestCase):
 #         n = lcm(numbers)
         for i in numbers:
 #             assert n % i == 0
-
 #     @unittest.skipUnless(
 #         HC_PRESENT,
 #         "Hypothesis 2.0.0 cant be made tolerant of hard to "
@@ -420,10 +335,8 @@ class TestNumbertheory(unittest.TestCase):
 #     @given(st_num_square_prime())
     def test_square_root_mod_prime(self, vals):
 #         square, prime = vals
-
 #         calc = square_root_mod_prime(square, prime)
 #         assert calc * calc % prime == square
-
 #     @pytest.mark.slow
 #     @settings(**HYP_SLOW_SETTINGS)
 #     @given(st.integers(min_value=1, max_value=10**12))
@@ -435,7 +348,6 @@ class TestNumbertheory(unittest.TestCase):
         for i in factors:
 #             mult *= i[0] ** i[1]
 #         assert mult == num
-
     def test_factorisation_smallprimes(self):
 #         exp = 101 * 103
 #         assert 101 in smallprimes
@@ -445,7 +357,6 @@ class TestNumbertheory(unittest.TestCase):
         for i in factors:
 #             mult *= i[0] ** i[1]
 #         assert mult == exp
-
     def test_factorisation_not_smallprimes(self):
 #         exp = 1231 * 1237
 #         assert 1231 not in smallprimes
@@ -455,20 +366,17 @@ class TestNumbertheory(unittest.TestCase):
         for i in factors:
 #             mult *= i[0] ** i[1]
 #         assert mult == exp
-
     def test_jacobi_with_zero(self):
 #         assert jacobi(0, 3) == 0
-
     def test_jacobi_with_one(self):
 #         assert jacobi(1, 3) == 1
-
 #     @settings(**HYP_SLOW_SETTINGS)
 #     @given(st.integers(min_value=3, max_value=1000).filter(lambda x: x % 2))
     def test_jacobi(self, mod):
 #         mod = mpz(mod)
         if is_prime(mod):
-      pass
-      pass
+    pass
+    pass
     pass
 #             squares = set()
             for root in range(1, mod):
@@ -477,8 +385,8 @@ class TestNumbertheory(unittest.TestCase):
 #                 squares.add(root * root % mod)
             for i in range(1, mod):
                 if i not in squares:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     i = mpz(i)
 #                     assert jacobi(i, mod) == -1
@@ -489,16 +397,12 @@ class TestNumbertheory(unittest.TestCase):
                 for i in factors:
 #                     c *= jacobi(a, i[0]) ** i[1]
 #                 assert c == jacobi(a, mod)
-
 #     @settings(**HYP_SLOW_SETTINGS)
 #     @given(st_two_nums_rel_prime())
     def test_inverse_mod(self, nums):
 #         num, mod = nums
-
 #         inv = inverse_mod(num, mod)
-
 #         assert 0 < inv < mod
 #         assert num * inv % mod == 1
-
     def test_inverse_mod_with_zero(self):
 #         assert 0 == inverse_mod(0, 11)

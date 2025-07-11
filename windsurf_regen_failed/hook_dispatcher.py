@@ -1,16 +1,12 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import logging
-
 # errors = []
 from .send_confirmation_email import send_confirmation_email
 from .trigger_upsell_suggestion import trigger_upsell_suggestion
@@ -24,23 +20,16 @@ from .file_tax_compliance import file_tax_compliance
 from .tag_buyer_crm import tag_buyer_crm
 from .affiliate_attribution import affiliate_attribution
 from .fraud_check import fraud_check
-
 from .outbound_webhook import post_sale_event_to_webhooks
-
 from .hook_metrics import hook_metrics
-
-
 def run_all_hooks(sale_data):
-
 #     Run all post-sale hooks. Each hook is retry-safe, logs independently, and cannot block others or delay vault delivery.
 #     After all hooks, triggers outbound webhooks with the full sale_data and hook results.
 #     Records metrics for dashboard analytics.
 #     Returns a summary dict of hook execution results.
-
 #     results = {}
     # Send Confirmation Email
     import time
-
 #     start = time.time()
     try:
 #         results["send_confirmation_email"] = send_confirmation_email(
@@ -221,8 +210,8 @@ def run_all_hooks(sale_data):
 #         logging.exception("fraud_check failed")
 #         errors.append("fraud_check")
     if errors:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logging.error(f"Post-sale hooks completed with errors: {errors}")
     else:

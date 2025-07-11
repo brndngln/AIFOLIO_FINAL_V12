@@ -1,26 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import os
 import requests
 import logging
-
-
 from typing import Any, Optional
-
-
 def send_siem_alert(
 #     event_type: str, detail: Any, webhook_url: Optional[str] = None
 # ) -> bool:
-
 #     Send a SIEM/webhook alert for any critical security or crypto event.
 #     Args:
 #         event_type: Type of the event.
@@ -28,15 +20,14 @@ def send_siem_alert(
 #         webhook_url: Optional webhook URL. If None, uses EMMA_SIEM_WEBHOOK env var.
 #     Returns:
 #         True if alert sent successfully, False otherwise.
-
     if webhook_url is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         webhook_url = os.environ.get("EMMA_SIEM_WEBHOOK")
     if not webhook_url:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logging.warning("No SIEM/webhook URL set. Set EMMA_SIEM_WEBHOOK.")
         return False

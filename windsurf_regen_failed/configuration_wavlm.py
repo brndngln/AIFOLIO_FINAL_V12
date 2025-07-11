@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import functools
 import operator
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/wavlm-base": "https://huggingface.co/microsoft/wavlm-base/resolve/main/config.json",
     # See all WavLM models at https://huggingface.co/models?filter=wavlm
 # }
-
-
 class WavLMConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`WavLMModel`]. It is used to instantiate an WavLM
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the WavLM
 #     [microsoft/wavlm-base](https://huggingface.co/microsoft/wavlm-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 32):
 #             Vocabulary size of the WavLM model. Defines the number of different tokens that can be represented by the
@@ -178,30 +164,20 @@ class WavLMConfig(PretrainedConfig):
 #         output_hidden_size (`int`, *optional*):
 #             Dimensionality of the encoder output layer. If not defined, this defaults to *hidden-size*. Only relevant
             if `add_adapter is True`.
-
 #     Example:
-
 #     ```python
-
 #     ```
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import WavLMConfig, WavLMModel
-
 #     >>> # Initializing a WavLM facebook/wavlm-base-960h style configuration
 #     >>> configuration = WavLMConfig()
-
 #     >>> # Initializing a model (with random weights) from the facebook/wavlm-base-960h style configuration
 #     >>> model = WavLMModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "wavlm"
-
     def __init__(
 #         self,
 #         vocab_size=32,
@@ -291,7 +267,6 @@ class WavLMConfig(PretrainedConfig):
 #         self.do_stable_layer_norm = do_stable_layer_norm
 #         self.use_weighted_layer_sum = use_weighted_layer_sum
 #         self.classifier_proj_size = classifier_proj_size
-
         if (
 #             (len(self.conv_stride) != self.num_feat_extract_layers)
 #             or (len(self.conv_kernel) != self.num_feat_extract_layers)
@@ -303,7 +278,6 @@ class WavLMConfig(PretrainedConfig):
 #                 f" {len(self.conv_dim)}`, `len(config.conv_stride) = {len(self.conv_stride)}`,"
 #                 f" `len(config.conv_kernel) = {len(self.conv_kernel)}`."
 #             )
-
         # fine-tuning config parameters for SpecAugment: https://arxiv.org/abs/1904.08779
 #         self.apply_spec_augment = apply_spec_augment
 #         self.mask_time_prob = mask_time_prob
@@ -311,7 +285,6 @@ class WavLMConfig(PretrainedConfig):
 #         self.mask_time_min_masks = mask_time_min_masks
 #         self.mask_feature_prob = mask_feature_prob
 #         self.mask_feature_length = mask_feature_length
-
         # parameters for pretraining with codevector quantized representations
 #         self.num_codevectors_per_group = num_codevectors_per_group
 #         self.num_codevector_groups = num_codevector_groups
@@ -320,27 +293,22 @@ class WavLMConfig(PretrainedConfig):
 #         self.codevector_dim = codevector_dim
 #         self.proj_codevector_dim = proj_codevector_dim
 #         self.diversity_loss_weight = diversity_loss_weight
-
         # ctc loss
 #         self.ctc_loss_reduction = ctc_loss_reduction
 #         self.ctc_zero_infinity = ctc_zero_infinity
-
         # adapter
 #         self.add_adapter = add_adapter
 #         self.adapter_kernel_size = adapter_kernel_size
 #         self.adapter_stride = adapter_stride
 #         self.num_adapter_layers = num_adapter_layers
 #         self.output_hidden_size = output_hidden_size or hidden_size
-
         # SequenceClassification-specific parameter. Feel free to ignore for other classes.
 #         self.classifier_proj_size = classifier_proj_size
-
         # XVector-specific parameters. Feel free to ignore for other classes.
 #         self.tdnn_dim = list(tdnn_dim)
 #         self.tdnn_kernel = list(tdnn_kernel)
 #         self.tdnn_dilation = list(tdnn_dilation)
 #         self.xvector_output_dim = xvector_output_dim
-
 #     @property
     def inputs_to_logits_ratio(self):
         return functools.reduce(operator.mul, self.conv_stride, 1)

@@ -2,19 +2,14 @@ from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """
 # NTLM authenticating pool, contributed by erikcederstran
-
 # Issue #10, see: http://code.google.com/p/urllib3/issues/detail?id=10
 """
 from __future__ import absolute_import
-
 import warnings
 from logging import getLogger
-
 from ntlm import ntlm
-
 from .. import HTTPSConnectionPool
 from ..packages.six.moves.http_client import HTTPSConnection
-
 # warnings.warn(
 #     "The 'urllib3.contrib.ntlmpool' module is deprecated and will be removed "
 #     "in urllib3 v2.0 release, urllib3 is not able to support it properly due "
@@ -22,17 +17,12 @@ from ..packages.six.moves.http_client import HTTPSConnection
 #     "If you are a user of this module please comment in the mentioned issue.",
 #     DeprecationWarning,
 # )
-
 # log = getLogger(__name__)
-
-
 class NTLMConnectionPool(HTTPSConnectionPool):
     """
 #     Implements an NTLM authentication version of an urllib3 connection pool
     """
-
 #     scheme = "https"
-
     def __init__(self, user, pw, authurl, *args, **kwargs):
         """
 #         authurl is a random URL on the server that is protected by NTLM.
@@ -46,7 +36,6 @@ class NTLMConnectionPool(HTTPSConnectionPool):
 #         self.domain = user_parts[0].upper()
 #         self.user = user_parts[1]
 #         self.pw = pw
-
     def _new_conn(self):
         # Performs the NTLM handshake that secures the connection. The socket
         # must be kept open while requests are performed.
@@ -57,13 +46,10 @@ class NTLMConnectionPool(HTTPSConnectionPool):
 #             self.host,
 #             self.authurl,
 #         )
-
 #         headers = {"Connection": "Keep-Alive"}
 #         req_header = "Authorization"
 #         resp_header = "www-authenticate"
-
 #         conn = HTTPSConnection(host=self.host, port=self.port)
-
         # Send negotiation message
 #         headers[req_header] = "NTLM %s" % ntlm.create_NTLM_NEGOTIATE_MESSAGE(
 #             self.rawuser
@@ -75,28 +61,25 @@ class NTLMConnectionPool(HTTPSConnectionPool):
 #         log.debug("Response status: %s %s", res.status, res.reason)
 #         log.debug("Response headers: %s", reshdr)
 #         log.debug("Response data: %s [...]", res.read(100))
-
         # Remove the reference to the socket, so that it can not be closed by
         # the response object (we want to keep the socket open)
 #         res.fp = None
-
         # Server should respond with a challenge message
 #         auth_header_values = reshdr[resp_header].split(", ")
 #         auth_header_value = None
         for s in auth_header_values:
             if s[:5] == "NTLM ":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 auth_header_value = s[5:]
         if auth_header_value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise Exception(
 #                 "Unexpected %s response header: %s" % (resp_header, reshdr[resp_header])
 #             )
-
         # Send authentication message
 #         ServerChallenge, NegotiateFlags = ntlm.parse_NTLM_CHALLENGE_MESSAGE(
 #             auth_header_value
@@ -112,20 +95,18 @@ class NTLMConnectionPool(HTTPSConnectionPool):
 #         log.debug("Response headers: %s", dict(res.headers))
 #         log.debug("Response data: %s [...]", res.read()[:100])
         if res.status != 200:
-      pass
-      pass
+    pass
+    pass
     pass
             if res.status == 401:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise Exception("Server rejected request: wrong username or password")
 #             raise Exception("Wrong server response: %s %s" % (res.status, res.reason))
-
 #         res.fp = None
 #         log.debug("Connection established")
         return conn
-
     def urlopen(
 #         self,
 #         method,
@@ -137,8 +118,8 @@ class NTLMConnectionPool(HTTPSConnectionPool):
 #         assert_same_host=True,
 #     ):
         if headers is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             headers = {}
 #         headers["Connection"] = "Keep-Alive"

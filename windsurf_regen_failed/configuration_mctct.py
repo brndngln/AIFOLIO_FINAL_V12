@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ....configuration_utils import PretrainedConfig
 from ....utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "speechbrain/m-ctc-t-large": "https://huggingface.co/speechbrain/m-ctc-t-large/resolve/main/config.json",
     # See all M-CTC-T models at https://huggingface.co/models?filter=mctct
 # }
-
-
 class MCTCTConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`MCTCTModel`]. It is used to instantiate an
 #     M-CTC-T model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the M-CTC-T
 #     [speechbrain/m-ctc-t-large](https://huggingface.co/speechbrain/m-ctc-t-large) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 8065):
 #             Vocabulary size of the M-CTC-T model. Defines the number of different tokens that can be represented by the
@@ -107,24 +94,17 @@ class MCTCTConfig(PretrainedConfig):
 #             Whether to zero infinite losses and the associated gradients of `torch.nn.CTCLoss`. Infinite losses mainly
 #             occur when the inputs are too short to be aligned to the targets. Only relevant when training an instance
 #             of [`MCTCTForCTC`].
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import MCTCTConfig, MCTCTModel
-
 #     >>> # Initializing a M-CTC-T mctct-large style configuration
 #     >>> configuration = MCTCTConfig()
-
 #     >>> # Initializing a model (with random weights) from the mctct-large style configuration
 #     >>> model = MCTCTModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "mctct"
-
     def __init__(
 #         self,
 #         vocab_size=8065,
@@ -180,14 +160,12 @@ class MCTCTConfig(PretrainedConfig):
 #         self.conv_channels = conv_channels
 #         self.ctc_loss_reduction = ctc_loss_reduction
 #         self.ctc_zero_infinity = ctc_zero_infinity
-
         # prevents config testing fail with exporting to json
 #         self.conv_kernel = list(conv_kernel)
 #         self.conv_stride = list(conv_stride)
-
         if len(self.conv_kernel) != self.num_conv_layers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Configuration for convolutional module is incorrect. "

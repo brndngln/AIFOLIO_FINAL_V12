@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "facebook/hf-seamless-m4t-medium": "https://huggingface.co/facebook/hf-seamless-m4t-medium/resolve/main/config.json",
     # See all SeamlessM4T models at https://huggingface.co/models?filter=seamless_m4t
 # }
-
-
 class SeamlessM4TConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`~SeamlessM4TModel`]. It is used to instantiate an
 #     SeamlessM4T model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the SeamlessM4T
 #     ["facebook/hf-seamless-m4t-medium"](https://huggingface.co/"facebook/hf-seamless-m4t-medium") architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 256102):
 #             Vocabulary size of the SeamlessM4T model. Defines the number of different tokens that can be represented by
@@ -54,9 +41,7 @@ class SeamlessM4TConfig(PretrainedConfig):
 #             Unit vocabulary size of the SeamlessM4T model. Defines the number of different unit tokens that can be
 #             represented by the `inputs_ids` passed when calling the Text-To-Units sub-model of [`~SeamlessM4TModel`],
 #             [`~SeamlessM4TForSpeechToSpeech`] or [`~SeamlessM4TForTextToSpeech`].
-
 #         > Parameters shared across sub-models
-
 #         hidden_size (`int`, *optional*, defaults to 1024):
 #             Dimensionality of the "intermediate" layers in the architecture.
 #         initializer_range (`float`, *optional*, defaults to 0.02):
@@ -87,9 +72,7 @@ class SeamlessM4TConfig(PretrainedConfig):
 #             The dropout probability for all activation layers in the model.
 #         scale_embedding (`bool`, *optional*, defaults to `True`):
 #             Scale embeddings by diving by sqrt(d_model).
-
 #         > Text encoder and text decoder specific parameters
-
 #         encoder_layers (`int`, *optional*, defaults to 24):
 #             Number of hidden layers in the Transformer text encoder.
 #         encoder_ffn_dim (`int`, *optional*, defaults to 8192):
@@ -113,9 +96,7 @@ class SeamlessM4TConfig(PretrainedConfig):
 #             The id of the _beginning-of-stream_ text token. Only applied to the text-decoder model.
 #         eos_token_id (`int`, *optional*, defaults to 3):
 #             The id of the _end-of-stream_ text token. Only applied to the text-decoder model.
-
 #         > Speech encoder specific parameters
-
 #         speech_encoder_layers (`int`, *optional*, defaults to 24):
 #             Number of hidden layers in the Transformer speech encoder.
 #         speech_encoder_attention_heads (`int`, *optional*, defaults to 16):
@@ -160,9 +141,7 @@ class SeamlessM4TConfig(PretrainedConfig):
 #             the speech encoder.
 #         conv_depthwise_kernel_size (`int`, *optional*, defaults to 31):
 #             Kernel size of convolutional depthwise 1D layer in Conformer blocks. Only applied to the speech encoder.
-
 #         > Text-To-Unit (t2u) model specific parameters
-
 #         t2u_bos_token_id (`int`, *optional*, defaults to 0):
 #             The id of the _beginning-of-stream_ unit token. Only applied to the text-to-unit seq2seq model.
 #         t2u_pad_token_id (`int`, *optional*, defaults to 1):
@@ -190,9 +169,7 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         t2u_max_position_embeddings (`int`, *optional*, defaults to 2048):
 #             The maximum sequence length that this model text-to-unit component might ever be used with. Typically set
 #             this to something large just in case (e.g., 512 or 1024 or 2048).
-
 #          > Hifi-Gan Vocoder specific parameters
-
 #         sampling_rate (`int`, *optional*, defaults to 16000):
 #             The sampling rate at which the output audio will be generated, expressed in hertz (Hz).
 #         upsample_initial_channel (`int`, *optional*, defaults to 512):
@@ -234,22 +211,16 @@ class SeamlessM4TConfig(PretrainedConfig):
 #             The dropout probabilitiy of the duration predictor. Applies to the vocoder only.
 #         vocoder_offset (`int`, *optional*, defaults to 4):
 #             Offset the unit token ids by this number to account for symbol tokens. Applies to the vocoder only.
-
 #     ```python
 #     >>> from transformers import SeamlessM4TModel, SeamlessM4TConfig
-
 #     >>> # Initializing a SeamlessM4T "facebook/hf-seamless-m4t-medium" style configuration
 #     >>> configuration = SeamlessM4TConfig()
-
 #     >>> # Initializing a model from the "facebook/hf-seamless-m4t-medium" style configuration
 #     >>> model = SeamlessM4TModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "seamless_m4t"
-
     def __init__(
 #         self,
 #         vocab_size=256102,
@@ -351,7 +322,6 @@ class SeamlessM4TConfig(PretrainedConfig):
         # for proper config init
 #         self.num_attention_heads = decoder_attention_heads
 #         self.num_hidden_layers = decoder_layers
-
         # text|unit encoder|decoder
 #         self.encoder_layers = encoder_layers
 #         self.encoder_ffn_dim = encoder_ffn_dim
@@ -359,7 +329,6 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         self.decoder_layers = decoder_layers
 #         self.decoder_ffn_dim = decoder_ffn_dim
 #         self.decoder_attention_heads = decoder_attention_heads
-
         # speech_encoder
 #         self.speech_encoder_layers = speech_encoder_layers
 #         self.speech_encoder_hidden_act = speech_encoder_hidden_act
@@ -379,7 +348,6 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         self.max_source_positions = max_source_positions
 #         self.conv_depthwise_kernel_size = conv_depthwise_kernel_size
 #         self.add_adapter = add_adapter
-
         # t2u config
 #         self.t2u_bos_token_id = t2u_bos_token_id
 #         self.t2u_pad_token_id = t2u_pad_token_id
@@ -393,7 +361,6 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         self.t2u_decoder_ffn_dim = t2u_decoder_ffn_dim
 #         self.t2u_decoder_attention_heads = t2u_decoder_attention_heads
 #         self.t2u_max_position_embeddings = t2u_max_position_embeddings
-
         # hifi-gan vocoder config
         # original parameters specific to Hifi-Gan
 #         self.sampling_rate = sampling_rate
@@ -403,7 +370,6 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         self.resblock_kernel_sizes = resblock_kernel_sizes
 #         self.resblock_dilation_sizes = resblock_dilation_sizes
 #         self.leaky_relu_slope = leaky_relu_slope
-
         # specific to Code Hifi-Gan
 #         self.unit_hifi_gan_vocab_size = unit_hifi_gan_vocab_size
 #         self.unit_embed_dim = unit_embed_dim
@@ -414,7 +380,6 @@ class SeamlessM4TConfig(PretrainedConfig):
 #         self.variance_predictor_kernel_size = variance_predictor_kernel_size
 #         self.var_pred_dropout = var_pred_dropout
 #         self.vocoder_offset = vocoder_offset
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,

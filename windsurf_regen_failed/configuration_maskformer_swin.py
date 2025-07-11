@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,26 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ...utils.backbone_utils import BackboneConfigMixin, get_aligned_output_features_output_indices
-
-
 # logger = logging.get_logger(__name__)
-
-
 class MaskFormerSwinConfig(BackboneConfigMixin, PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`MaskFormerSwinModel`]. It is used to instantiate
 #     a Donut model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the Swin
 #     [microsoft/swin-tiny-patch4-window7-224](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 224):
 #             The size (resolution) of each image.
@@ -84,29 +73,21 @@ class MaskFormerSwinConfig(BackboneConfigMixin, PretrainedConfig):
 #             If used as backbone, list of indices of features to output. Can be any of 0, 1, 2, etc. (depending on how
 #             many stages the model has). If unset and `out_features` is set, will default to the corresponding stages.
 #             If unset and `out_features` is unset, will default to the last stage.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import MaskFormerSwinConfig, MaskFormerSwinModel
-
 #     >>> # Initializing a microsoft/swin-tiny-patch4-window7-224 style configuration
 #     >>> configuration = MaskFormerSwinConfig()
-
 #     >>> # Initializing a model (with random weights) from the microsoft/swin-tiny-patch4-window7-224 style configuration
 #     >>> model = MaskFormerSwinModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "maskformer-swin"
-
 #     attribute_map = {
 #         "num_attention_heads": "num_heads",
 #         "num_hidden_layers": "num_layers",
 #     }
-
     def __init__(
 #         self,
 #         image_size=224,
@@ -130,7 +111,6 @@ class MaskFormerSwinConfig(BackboneConfigMixin, PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels

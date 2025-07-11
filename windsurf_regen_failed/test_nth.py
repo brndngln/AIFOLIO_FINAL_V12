@@ -1,16 +1,12 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import numpy as np
 import pytest
-
 import pandas as pd
 from pandas import (
 #     DataFrame,
@@ -21,8 +17,6 @@ from pandas import (
 #     isna,
 # )
 import pandas._testing as tm
-
-
 def test_first_last_nth(df):
     # tests for first / last / nth
 #     grouped = df.groupby("A")
@@ -31,67 +25,52 @@ def test_first_last_nth(df):
 #     expected.index = Index(["bar", "foo"], name="A")
 #     expected = expected.sort_index()
 #     tm.assert_frame_equal(first, expected)
-
 #     nth = grouped.nth(0)
 #     expected = df.loc[[0, 1]]
 #     tm.assert_frame_equal(nth, expected)
-
 #     last = grouped.last()
 #     expected = df.loc[[5, 7], ["B", "C", "D"]]
 #     expected.index = Index(["bar", "foo"], name="A")
 #     tm.assert_frame_equal(last, expected)
-
 #     nth = grouped.nth(-1)
 #     expected = df.iloc[[5, 7]]
 #     tm.assert_frame_equal(nth, expected)
-
 #     nth = grouped.nth(1)
 #     expected = df.iloc[[2, 3]]
 #     tm.assert_frame_equal(nth, expected)
-
     # it works!
 #     grouped["B"].first()
 #     grouped["B"].last()
 #     grouped["B"].nth(0)
-
 #     df.loc[df["A"] == "foo", "B"] = np.nan
 #     assert isna(grouped["B"].first()["foo"])
 #     assert isna(grouped["B"].last()["foo"])
 #     assert isna(grouped["B"].nth(0).iloc[0])
-
     # v0.14.0 whatsnew
 #     df = DataFrame([[1, np.nan], [1, 4], [5, 6]], columns=["A", "B"])
 #     g = df.groupby("A")
 #     result = g.first()
 #     expected = df.iloc[[1, 2]].set_index("A")
 #     tm.assert_frame_equal(result, expected)
-
 #     expected = df.iloc[[1, 2]]
 #     result = g.nth(0, dropna="any")
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("method", ["first", "last"])
 def test_first_last_with_na_object(method, nulls_fixture):
     # https://github.com/pandas-dev/pandas/issues/32123
 #     groups = DataFrame({"a": [1, 1, 2, 2], "b": [1, 2, 3, nulls_fixture]}).groupby("a")
 #     result = getattr(groups, method)()
-
     if method == "first":
-      pass
-      pass
+    pass
+    pass
     pass
 #         values = [1, 3]
     else:
 #         values = [2, 3]
-
 #     values = np.array(values, dtype=result["b"].dtype)
 #     idx = Index([1, 2], name="a")
 #     expected = DataFrame({"b": values}, index=idx)
-
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("index", [0, -1])
 def test_nth_with_na_object(index, nulls_fixture):
     # https://github.com/pandas-dev/pandas/issues/32123
@@ -100,8 +79,6 @@ def test_nth_with_na_object(index, nulls_fixture):
 #     result = groups.nth(index)
 #     expected = df.iloc[[0, 2]] if index == 0 else df.iloc[[1, 3]]
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("method", ["first", "last"])
 def test_first_last_with_None(method):
     # https://github.com/pandas-dev/pandas/issues/32800
@@ -109,10 +86,7 @@ def test_first_last_with_None(method):
 #     df = DataFrame.from_dict({"id": ["a"], "value": [None]})
 #     groups = df.groupby("id", as_index=False)
 #     result = getattr(groups, method)()
-
 #     tm.assert_frame_equal(result, df)
-
-
 # @pytest.mark.parametrize("method", ["first", "last"])
 # @pytest.mark.parametrize(
 #     "df, expected",
@@ -131,13 +105,10 @@ def test_first_last_with_None_expanded(method, df, expected):
     # GH 32800, 38286
 #     result = getattr(df.groupby("id"), method)()
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_first_last_nth_dtypes(df_mixed_floats):
 #     df = df_mixed_floats.copy()
 #     df["E"] = True
 #     df["F"] = 1
-
     # tests for first / last / nth
 #     grouped = df.groupby("A")
 #     first = grouped.first()
@@ -145,17 +116,14 @@ def test_first_last_nth_dtypes(df_mixed_floats):
 #     expected.index = Index(["bar", "foo"], name="A")
 #     expected = expected.sort_index()
 #     tm.assert_frame_equal(first, expected)
-
 #     last = grouped.last()
 #     expected = df.loc[[5, 7], ["B", "C", "D", "E", "F"]]
 #     expected.index = Index(["bar", "foo"], name="A")
 #     expected = expected.sort_index()
 #     tm.assert_frame_equal(last, expected)
-
 #     nth = grouped.nth(1)
 #     expected = df.iloc[[2, 3]]
 #     tm.assert_frame_equal(nth, expected)
-
     # GH 2763, first/last shifting dtypes
 #     idx = list(range(10))
 #     idx.append(9)
@@ -163,22 +131,16 @@ def test_first_last_nth_dtypes(df_mixed_floats):
 #     assert s.dtype == "int64"
 #     f = s.groupby(level=0).first()
 #     assert f.dtype == "int64"
-
-
 def test_first_last_nth_nan_dtype():
     # GH 33591
 #     df = DataFrame({"data": ["A"], "nans": Series([None], dtype=object)})
 #     grouped = df.groupby("data")
-
 #     expected = df.set_index("data").nans
 #     tm.assert_series_equal(grouped.nans.first(), expected)
 #     tm.assert_series_equal(grouped.nans.last(), expected)
-
 #     expected = df.nans
 #     tm.assert_series_equal(grouped.nans.nth(-1), expected)
 #     tm.assert_series_equal(grouped.nans.nth(0), expected)
-
-
 def test_first_strings_timestamps():
     # GH 11244
 #     test = DataFrame(
@@ -196,12 +158,9 @@ def test_first_strings_timestamps():
 #         index=Index(["e"], name="name"),
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_nth():
 #     df = DataFrame([[1, np.nan], [1, 4], [5, 6]], columns=["A", "B"])
 #     g = df.groupby("A")
-
 #     tm.assert_frame_equal(g.nth(0), df.iloc[[0, 2]])
 #     tm.assert_frame_equal(g.nth(1), df.iloc[[1]])
 #     tm.assert_frame_equal(g.nth(2), df.loc[[]])
@@ -211,13 +170,10 @@ def test_nth():
 #     tm.assert_series_equal(g.B.nth(0), df.B.iloc[[0, 2]])
 #     tm.assert_series_equal(g.B.nth(1), df.B.iloc[[1]])
 #     tm.assert_frame_equal(g[["B"]].nth(0), df[["B"]].iloc[[0, 2]])
-
 #     tm.assert_frame_equal(g.nth(0, dropna="any"), df.iloc[[1, 2]])
 #     tm.assert_frame_equal(g.nth(-1, dropna="any"), df.iloc[[1, 2]])
-
 #     tm.assert_frame_equal(g.nth(7, dropna="any"), df.iloc[:0])
 #     tm.assert_frame_equal(g.nth(2, dropna="any"), df.iloc[:0])
-
     # out of bounds, regression from 0.13.1
     # GH 6621
 #     df = DataFrame(
@@ -240,15 +196,12 @@ def test_nth():
 #             },
 #         }
 #     ).set_index(["color", "food"])
-
 #     result = df.groupby(level=0, as_index=False).nth(2)
 #     expected = df.iloc[[-1]]
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(level=0, as_index=False).nth(3)
 #     expected = df.loc[[]]
 #     tm.assert_frame_equal(result, expected)
-
     # GH 7559
     # from the vbench
 #     df = DataFrame(np.random.default_rng(2).integers(1, 10, (100, 2)), dtype="int64")
@@ -259,26 +212,21 @@ def test_nth():
 #     tm.assert_series_equal(expected2, expected, check_names=False)
 #     assert expected.name == 1
 #     assert expected2.name == 1
-
     # validate first
 #     v = s[g == 1].iloc[0]
 #     assert expected.iloc[0] == v
 #     assert expected2.iloc[0] == v
-
     with pytest.raises(ValueError, match="For a DataFrame"):
 #         s.groupby(g, sort=False).nth(0, dropna=True)
-
     # doc example
 #     df = DataFrame([[1, np.nan], [1, 4], [5, 6]], columns=["A", "B"])
 #     g = df.groupby("A")
 #     result = g.B.nth(0, dropna="all")
 #     expected = df.B.iloc[[1, 2]]
 #     tm.assert_series_equal(result, expected)
-
     # test multiple nth values
 #     df = DataFrame([[1, np.nan], [1, 3], [1, 4], [5, 6], [5, 7]], columns=["A", "B"])
 #     g = df.groupby("A")
-
 #     tm.assert_frame_equal(g.nth(0), df.iloc[[0, 3]])
 #     tm.assert_frame_equal(g.nth([0]), df.iloc[[0, 3]])
 #     tm.assert_frame_equal(g.nth([0, 1]), df.iloc[[0, 1, 3, 4]])
@@ -287,7 +235,6 @@ def test_nth():
 #     tm.assert_frame_equal(g.nth([0, 1, -1]), df.iloc[[0, 1, 2, 3, 4]])
 #     tm.assert_frame_equal(g.nth([2]), df.iloc[[2]])
 #     tm.assert_frame_equal(g.nth([3, 4]), df.loc[[]])
-
 #     business_dates = pd.date_range(start="4/1/2014", end="6/30/2014", freq="B")
 #     df = DataFrame(1, index=business_dates, columns=["a", "b"])
     # get the first, fourth and last two business days for each month
@@ -311,8 +258,6 @@ def test_nth():
 #     )
 #     expected = DataFrame(1, columns=["a", "b"], index=expected_dates)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_nth_multi_grouper(three_group):
     # PR 9090, related to issue 8979
     # test nth on multiple groupers
@@ -320,8 +265,6 @@ def test_nth_multi_grouper(three_group):
 #     result = grouped.nth(0)
 #     expected = three_group.iloc[[0, 3, 4, 7]]
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "data, expected_first, expected_last",
 #     [
@@ -375,26 +318,19 @@ def test_first_last_tz(data, expected_first, expected_last):
     # GH15884
     # Test that the timezone is retained when calling first
     # or last on groupby with as_index=False
-
 #     df = DataFrame(data)
-
 #     result = df.groupby("id", as_index=False).first()
 #     expected = DataFrame(expected_first)
 #     cols = ["id", "time", "foo"]
 #     tm.assert_frame_equal(result[cols], expected[cols])
-
 #     result = df.groupby("id", as_index=False)["time"].first()
 #     tm.assert_frame_equal(result, expected[["id", "time"]])
-
 #     result = df.groupby("id", as_index=False).last()
 #     expected = DataFrame(expected_last)
 #     cols = ["id", "time", "foo"]
 #     tm.assert_frame_equal(result[cols], expected[cols])
-
 #     result = df.groupby("id", as_index=False)["time"].last()
 #     tm.assert_frame_equal(result, expected[["id", "time"]])
-
-
 # @pytest.mark.parametrize(
 #     "method, ts, alpha",
 #     [
@@ -423,8 +359,6 @@ def test_first_last_tz_multi_column(method, ts, alpha):
 #         index=Index([1, 2], name="group"),
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "values",
 #     [
@@ -443,14 +377,10 @@ def test_first_last_extension_array_keeps_dtype(values, function):
 #     idx = Index([1, 2], name="a")
 #     expected_series = Series(values, name="b", index=idx)
 #     expected_frame = DataFrame({"b": values}, index=idx)
-
 #     result_series = getattr(grouped["b"], function)()
 #     tm.assert_series_equal(result_series, expected_series)
-
 #     result_frame = grouped.agg({"b": function})
 #     tm.assert_frame_equal(result_frame, expected_frame)
-
-
 def test_nth_multi_index_as_expected():
     # PR 9090, related to issue 8979
     # test nth on MultiIndex
@@ -501,8 +431,6 @@ def test_nth_multi_index_as_expected():
 #     result = grouped.nth(0)
 #     expected = three_group.iloc[[0, 3, 4, 7]]
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "op, n, expected_rows",
 #     [
@@ -523,15 +451,13 @@ def test_groupby_head_tail(op, n, expected_rows, columns, as_index):
 #     g = df.groupby("A", as_index=as_index)
 #     expected = df.iloc[expected_rows]
     if columns is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         g = g[columns]
 #         expected = expected[columns]
 #     result = getattr(g, op)(n)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "op, n, expected_cols",
 #     [
@@ -556,50 +482,39 @@ def test_groupby_head_tail_axis_1(op, n, expected_cols):
 #     expected = df.iloc[:, expected_cols]
 #     result = getattr(g, op)(n)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_group_selection_cache():
     # GH 12839 nth, head, and tail should return same result consistently
 #     df = DataFrame([[1, 2], [1, 4], [5, 6]], columns=["A", "B"])
 #     expected = df.iloc[[0, 2]]
-
 #     g = df.groupby("A")
 #     result1 = g.head(n=2)
 #     result2 = g.nth(0)
 #     tm.assert_frame_equal(result1, df)
 #     tm.assert_frame_equal(result2, expected)
-
 #     g = df.groupby("A")
 #     result1 = g.tail(n=2)
 #     result2 = g.nth(0)
 #     tm.assert_frame_equal(result1, df)
 #     tm.assert_frame_equal(result2, expected)
-
 #     g = df.groupby("A")
 #     result1 = g.nth(0)
 #     result2 = g.head(n=2)
 #     tm.assert_frame_equal(result1, expected)
 #     tm.assert_frame_equal(result2, df)
-
 #     g = df.groupby("A")
 #     result1 = g.nth(0)
 #     result2 = g.tail(n=2)
 #     tm.assert_frame_equal(result1, expected)
 #     tm.assert_frame_equal(result2, df)
-
-
 def test_nth_empty():
     # GH 16064
 #     df = DataFrame(index=[0], columns=["a", "b", "c"])
 #     result = df.groupby("a").nth(10)
 #     expected = df.iloc[:0]
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(["a", "b"]).nth(10)
 #     expected = df.iloc[:0]
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_nth_column_order():
     # GH 20760
     # Check that nth preserves column order
@@ -610,12 +525,9 @@ def test_nth_column_order():
 #     result = df.groupby("A").nth(0)
 #     expected = df.iloc[[0, 3]]
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby("A").nth(-1, dropna="any")
 #     expected = df.iloc[[1, 4]]
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("dropna", [None, "any", "all"])
 def test_nth_nan_in_grouper(dropna):
     # GH 26011
@@ -628,10 +540,7 @@ def test_nth_nan_in_grouper(dropna):
 #     )
 #     result = df.groupby("a").nth(0, dropna=dropna)
 #     expected = df.iloc[[1, 3]]
-
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("dropna", [None, "any", "all"])
 def test_nth_nan_in_grouper_series(dropna):
     # GH 26454
@@ -643,10 +552,7 @@ def test_nth_nan_in_grouper_series(dropna):
 #     )
 #     result = df.groupby("a")["b"].nth(0, dropna=dropna)
 #     expected = df["b"].iloc[[1, 3]]
-
 #     tm.assert_series_equal(result, expected)
-
-
 def test_first_categorical_and_datetime_data_nat():
     # GH 20520
 #     df = DataFrame(
@@ -667,8 +573,6 @@ def test_first_categorical_and_datetime_data_nat():
 #     )
 #     expected.index = Index(["first", "second", "third"], name="group")
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_first_multi_key_groupby_categorical():
     # GH 22512
 #     df = DataFrame(
@@ -693,8 +597,6 @@ def test_first_multi_key_groupby_categorical():
 #         [(1, 100), (1, 200), (2, 100)], names=["A", "B"]
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("method", ["first", "last", "nth"])
 def test_groupby_last_first_nth_with_none(method, nulls_fixture):
     # GH29645
@@ -703,18 +605,14 @@ def test_groupby_last_first_nth_with_none(method, nulls_fixture):
 #         [nulls_fixture, nulls_fixture, nulls_fixture, "y", nulls_fixture],
 #         index=[0, 0, 0, 0, 0],
 #     ).groupby(level=0)
-
     if method == "nth":
-      pass
-      pass
+    pass
+    pass
     pass
 #         result = getattr(data, method)(3)
     else:
 #         result = getattr(data, method)()
-
 #     tm.assert_series_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "arg, expected_rows",
 #     [
@@ -726,48 +624,31 @@ def test_groupby_last_first_nth_with_none(method, nulls_fixture):
 # )
 def test_slice(slice_test_df, slice_test_grouped, arg, expected_rows):
     # Test slices     GH #42947
-
 #     result = slice_test_grouped.nth[arg]
 #     equivalent = slice_test_grouped.nth(arg)
 #     expected = slice_test_df.iloc[expected_rows]
-
 #     tm.assert_frame_equal(result, expected)
 #     tm.assert_frame_equal(equivalent, expected)
-
-
 def test_nth_indexed(slice_test_df, slice_test_grouped):
     # Test index notation     GH #44688
-
 #     result = slice_test_grouped.nth[0, 1, -2:]
 #     equivalent = slice_test_grouped.nth([0, 1, slice(-2, None)])
 #     expected = slice_test_df.iloc[[0, 1, 2, 3, 4, 6, 7]]
-
 #     tm.assert_frame_equal(result, expected)
 #     tm.assert_frame_equal(equivalent, expected)
-
-
 def test_invalid_argument(slice_test_grouped):
     # Test for error on invalid argument
-
     with pytest.raises(TypeError, match="Invalid index"):
 #         slice_test_grouped.nth(3.14)
-
-
 def test_negative_step(slice_test_grouped):
     # Test for error on negative slice step
-
     with pytest.raises(ValueError, match="Invalid step"):
 #         slice_test_grouped.nth(slice(None, None, -1))
-
-
 def test_np_ints(slice_test_df, slice_test_grouped):
     # Test np ints work
-
 #     result = slice_test_grouped.nth(np.array([0, 1]))
 #     expected = slice_test_df.iloc[[0, 1, 2, 3, 4]]
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_groupby_nth_with_column_axis():
     # GH43926
 #     df = DataFrame(
@@ -784,8 +665,6 @@ def test_groupby_nth_with_column_axis():
 #     result = gb.nth(0)
 #     expected = df.iloc[:, [0, 2]]
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_groupby_nth_interval():
     # GH#24205
 #     idx_result = MultiIndex(
@@ -807,8 +686,6 @@ def test_groupby_nth_interval():
 #     )
 #     expected = DataFrame(val_expected, index=idx_expected, columns=["col"])
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "start, stop, expected_values, expected_columns",
 #     [
@@ -836,8 +713,6 @@ def test_nth_slices_with_column_axis(
 #     }[method](start, stop)
 #     expected = DataFrame([expected_values], columns=[expected_columns])
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.filterwarnings(
 #     "ignore:invalid value encountered in remainder:RuntimeWarning"
 # )
@@ -847,32 +722,22 @@ def test_head_tail_dropna_true():
 #         [["a", "z"], ["b", np.nan], ["c", np.nan], ["c", np.nan]], columns=["X", "Y"]
 #     )
 #     expected = DataFrame([["a", "z"]], columns=["X", "Y"])
-
 #     result = df.groupby(["X", "Y"]).head(n=1)
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(["X", "Y"]).tail(n=1)
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(["X", "Y"]).nth(n=0)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_head_tail_dropna_false():
     # GH#45089
 #     df = DataFrame([["a", "z"], ["b", np.nan], ["c", np.nan]], columns=["X", "Y"])
 #     expected = DataFrame([["a", "z"], ["b", np.nan], ["c", np.nan]], columns=["X", "Y"])
-
 #     result = df.groupby(["X", "Y"], dropna=False).head(n=1)
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(["X", "Y"], dropna=False).tail(n=1)
 #     tm.assert_frame_equal(result, expected)
-
 #     result = df.groupby(["X", "Y"], dropna=False).nth(n=0)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("selection", ("b", ["b"], ["b", "c"]))
 # @pytest.mark.parametrize("dropna", ["any", "all", None])
 def test_nth_after_selection(selection, dropna):
@@ -887,8 +752,8 @@ def test_nth_after_selection(selection, dropna):
 #     gb = df.groupby("a")[selection]
 #     result = gb.nth(0, dropna=dropna)
     if dropna == "any" or (dropna == "all" and selection != ["b", "c"]):
-      pass
-      pass
+    pass
+    pass
     pass
 #         locs = [1, 2]
     else:

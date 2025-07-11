@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,34 +18,23 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import functools
 import operator
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/unispeech-large-1500h-cv": (
 #         "https://huggingface.co/microsoft/unispeech-large-1500h-cv/resolve/main/config.json"
 #     ),
     # See all UniSpeech models at https://huggingface.co/models?filter=unispeech
 # }
-
-
 class UniSpeechConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`UniSpeechModel`]. It is used to instantiate an
 #     UniSpeech model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the UniSpeech
 #     [microsoft/unispeech-large-1500h-cv](https://huggingface.co/microsoft/unispeech-large-1500h-cv) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 32):
 #             Vocabulary size of the UniSpeech model. Defines the number of different tokens that can be represented by
@@ -178,24 +165,17 @@ class UniSpeechConfig(PretrainedConfig):
 #             The id of the "end-of-sequence" token.
 #         replace_prob (`float`, *optional*, defaults to 0.5):
 #             Propability that transformer feature is replaced by quantized feature for pretraining.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import UniSpeechConfig, UniSpeechModel
-
 #     >>> # Initializing a UniSpeech facebook/unispeech-base-960h style configuration
 #     >>> configuration = UniSpeechConfig()
-
 #     >>> # Initializing a model (with random weights) from the facebook/unispeech-base-960h style configuration
 #     >>> model = UniSpeechModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "unispeech"
-
     def __init__(
 #         self,
 #         vocab_size=32,
@@ -275,7 +255,6 @@ class UniSpeechConfig(PretrainedConfig):
 #         self.do_stable_layer_norm = do_stable_layer_norm
 #         self.use_weighted_layer_sum = use_weighted_layer_sum
 #         self.classifier_proj_size = classifier_proj_size
-
         if (
 #             (len(self.conv_stride) != self.num_feat_extract_layers)
 #             or (len(self.conv_kernel) != self.num_feat_extract_layers)
@@ -287,7 +266,6 @@ class UniSpeechConfig(PretrainedConfig):
 #                 f" {len(self.conv_dim)}`, `len(config.conv_stride) = {len(self.conv_stride)}`,"
 #                 f" `len(config.conv_kernel) = {len(self.conv_kernel)}`."
 #             )
-
         # fine-tuning config parameters for SpecAugment: https://arxiv.org/abs/1904.08779
 #         self.apply_spec_augment = apply_spec_augment
 #         self.mask_time_prob = mask_time_prob
@@ -296,7 +274,6 @@ class UniSpeechConfig(PretrainedConfig):
 #         self.mask_feature_prob = mask_feature_prob
 #         self.mask_feature_length = mask_feature_length
 #         self.mask_feature_min_masks = mask_feature_min_masks
-
         # parameters for pretraining with codevector quantized representations
 #         self.num_codevectors_per_group = num_codevectors_per_group
 #         self.num_codevector_groups = num_codevector_groups
@@ -306,14 +283,11 @@ class UniSpeechConfig(PretrainedConfig):
 #         self.codevector_dim = codevector_dim
 #         self.proj_codevector_dim = proj_codevector_dim
 #         self.diversity_loss_weight = diversity_loss_weight
-
         # ctc loss
 #         self.ctc_loss_reduction = ctc_loss_reduction
 #         self.ctc_zero_infinity = ctc_zero_infinity
-
         # pretraining loss
 #         self.replace_prob = replace_prob
-
 #     @property
     def inputs_to_logits_ratio(self):
         return functools.reduce(operator.mul, self.conv_stride, 1)

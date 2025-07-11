@@ -1,8 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # engine/create.py
@@ -11,9 +9,7 @@
 #
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
-
 from __future__ import annotations
-
 import inspect
 import typing
 from typing import Any
@@ -25,7 +21,6 @@ from typing import Optional
 from typing import overload
 from typing import Type
 from typing import Union
-
 from . import base
 from . import url as _url
 from .interfaces import DBAPIConnection
@@ -37,10 +32,9 @@ from ..pool import _AdhocProxiedConnection
 from ..pool import ConnectionPoolEntry
 from ..sql import compiler
 from ..util import immutabledict
-
 if typing.TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .base import Engine
     from .interfaces import _ExecuteOptions
@@ -53,8 +47,6 @@ if typing.TYPE_CHECKING:
     from ..pool import _ResetStyleArgType
     from ..pool import Pool
     from ..util.typing import Literal
-
-
 # @overload
 def create_engine(
 #     url: Union[str, URL],
@@ -93,13 +85,9 @@ def create_engine(
 #     **kwargs: Any,
 # ) -> Engine:
 #     ...
-
-
 # @overload
 def create_engine(url: Union[str, URL], **kwargs: Any) -> Engine:
 #     ...
-
-
 # @util.deprecated_params(
 #     strategy=(
 #         "1.4",
@@ -126,202 +114,132 @@ def create_engine(url: Union[str, URL], **kwargs: Any) -> Engine:
 # )
 def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #     Create a new :class:`_engine.Engine` instance.
-
 #     The standard calling form is to send the :ref:`URL <database_urls>` as the
 #     first positional argument, usually a string
 #     that indicates database dialect and connection arguments::
-
 #         engine = create_engine("postgresql+psycopg2://scott:tiger@localhost/test")
-
 #     .. note::
-
 #         Please review :ref:`database_urls` for general guidelines in composing
 #         URL strings.  In particular, special characters, such as those often
 #         part of passwords, must be URL encoded to be properly parsed.
-
 #     Additional keyword arguments may then follow it which
 #     establish various options on the resulting :class:`_engine.Engine`
 #     and its underlying :class:`.Dialect` and :class:`_pool.Pool`
 #     constructs::
-
 #         engine = create_engine("mysql+mysqldb://scott:tiger@hostname/dbname",
 #                                     pool_recycle=3600, echo=True)
-
 #     The string form of the URL is
 #     ``dialect[+driver]://user:password@host/dbname[?key=value..]``, where
 #     ``dialect`` is a database name such as ``mysql``, ``oracle``,
 #     ``postgresql``, etc., and ``driver`` the name of a DBAPI, such as
 #     ``psycopg2``, ``pyodbc``, ``cx_oracle``, etc.  Alternatively,
 #     the URL can be an instance of :class:`~sqlalchemy.engine.url.URL`.
-
 #     ``**kwargs`` takes a wide variety of options which are routed
 #     towards their appropriate components.  Arguments may be specific to
 #     the :class:`_engine.Engine`, the underlying :class:`.Dialect`,
 #     as well as the
 #     are unique to that dialect.   Here, we describe the parameters
 #     that are common to most :func:`_sa.create_engine()` usage.
-
 #     Once established, the newly resulting :class:`_engine.Engine` will
 #     request a connection from the underlying :class:`_pool.Pool` once
 #     such as :meth:`_engine.Engine.execute` is invoked.   The
 #     will establish the first actual DBAPI connection when this request
 #     is received.   The :func:`_sa.create_engine` call itself does **not**
 #     establish any actual DBAPI connections directly.
-
 #     .. seealso::
-
-
-
-
 #         passed directly to the DBAPIs ``connect()`` method as
 #         additional keyword arguments.  See the example
 #         at :ref:`custom_dbapi_args`.
-
 #         This creation function will be passed to the underlying
 #         connection pool and will be used to create all new database
 #         connections. Usage of this function causes connection
 #         parameters specified in the URL argument to be bypassed.
-
 #         This hook is not as flexible as the newer
 #         control over how a connection is made to the database, given the full
 #         set of URL arguments and state beforehand.
-
 #         .. seealso::
-
 #             full control over DBAPI connection mechanics.
-
-
 #         as well as a ``repr()`` of their parameter lists to the default log
 #         handler, which defaults to ``sys.stdout`` for output.   If set to the
 #         string ``"debug"``, result rows will be printed to the standard output
 #         as well. The ``echo`` attribute of ``Engine`` can be modified at any
 #         time to turn logging on and off; direct control of logging is also
 #         available using the standard Python ``logging`` module.
-
 #         .. seealso::
-
 #             logging.
-
-
 #         informational output such as when connections are invalidated
 #         as well as when connections are recycled to the default log handler,
 #         which defaults to ``sys.stdout`` for output.   If set to the string
 #         ``"debug"``, the logging will include pool checkouts and checkins.
 #         Direct control of logging is also available using the standard Python
 #         ``logging`` module.
-
 #         .. seealso::
-
 #             logging.
-
-
 #         "empty set" behavior for IN in all cases.
-
         if a given SELECT statement is found to have un-linked FROM elements
 #         which would cause a cartesian product.
-
 #         .. versionadded:: 1.4
-
 #         .. seealso::
-
-
 #         be applied to all connections.  See
-
-
 #         As of SQLAlchemy 2.0, this parameter is present for backwards
 #         compatibility only and must remain at its default value of ``True``.
-
 #         The :paramref:`_sa.create_engine.future` parameter will be
 #         deprecated in a subsequent 2.x release and eventually removed.
-
 #         .. versionadded:: 1.4
-
 #         .. versionchanged:: 2.0 All :class:`_engine.Engine` objects are
 #            "future" style engines and there is no inter a ``future=False``
 #            mode of operation.
-
 #         .. seealso::
-
-
 #         will not be displayed in INFO logging nor will they be formatted into
 #         the string representation of :class:`.StatementError` objects.
-
 #         .. versionadded:: 1.3.8
-
 #         .. seealso::
-
 #             logging.
-
 #         to True. In SQLAlchemy 2.0, this parameter does nothing. In order to
 #         disable "implicit returning" for statements invoked by the ORM,
 #         configure this on a per-table basis using the
-
-
 #      a paged form of bulk insert that is used for many backends when using
 #      Defaults to 1000, but may also be subject to dialect-specific limiting
 #      factors which may override this value on a per-statement basis.
-
 #      .. versionadded:: 2.0
-
 #      .. seealso::
-
-
-
-
 #         which will be set on all new connections unconditionally.
 #         Isolation levels are typically some subset of the string names
 #         ``"SERIALIZABLE"``, ``"REPEATABLE READ"``,
 #         ``"READ COMMITTED"``, ``"READ UNCOMMITTED"`` and ``"AUTOCOMMIT"``
 #         based on backend.
-
 #         The :paramref:`_sa.create_engine.isolation_level` parameter is
 #         in contrast to the
 #         execution option, which may be set on an individual
 #         multiple engines with different isolation levels that share a common
 #         connection pool and dialect.
-
 #         .. versionchanged:: 2.0 The
 #            parameter has been generalized to work on all dialects which support
 #            the concept of isolation level, and is provided as a more succinct,
 #            up front configuration switch in contrast to the execution option
 #            which is more of an ad-hoc programmatic option.
-
 #         .. seealso::
-
-
 #         datatype, this is a Python callable that will convert a JSON string
 #         to a Python object.  By default, the Python ``json.loads`` function is
 #         used.
-
 #         .. versionchanged:: 1.3.7  The SQLite dialect renamed this from
 #            ``_json_deserializer``.
-
 #         datatype, this is a Python callable that will render a given object
 #         as JSON.   By default, the Python ``json.dumps`` function is used.
-
 #         .. versionchanged:: 1.3.7  The SQLite dialect renamed this from
 #            ``_json_serializer``.
-
-
 #         the size of dynamically generated column labels to that many
 #         characters. If less than 6, labels are generated as
 #         "_(counter)". If ``None``, the value of
 #         ``dialect.max_identifier_length``, which may be affected via the
 #         is used instead.   The value of
 #         may not be larger than that of
-
 #         .. seealso::
-
-
 #         the "name" field of logging records generated within the
 #         "sqlalchemy.engine" logger. Defaults to a hexstring of the
 #         objects id.
-
 #         .. seealso::
-
 #             logging.
-
-
 #         determined by the dialect.  if ``None`` or zero, has no effect.  This
 #         is the databases configured maximum number of characters that may be
 #         used in a SQL identifier such as a table name, column name, or label
@@ -329,23 +247,17 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #         case of a new database version for which this value has changed but
 #         SQLAlchemys dialect has not been adjusted, the value may be passed
 #         here.
-
 #         .. versionadded:: 1.3.9
-
 #         .. seealso::
-
-
 #         connection pool "overflow", that is connections that can be
 #         opened above and beyond the pool_size setting, which defaults
 #         to five. this is only used with :class:`~sqlalchemy.pool.QueuePool`.
-
 #         itself, not its string name).  Specifies an alternate DBAPI module to
 #         be used by the engines dialect.  Each sub-dialect references a
 #         specific DBAPI which will be imported before first connect.  This
 #         parameter causes the import to be bypassed, and the given module to
 #         be used instead. Can be used for testing of DBAPIs as well as to
 #         inject "mock" DBAPI implementations into the :class:`_engine.Engine`.
-
 #         to use when rendering bound parameters.  This style defaults to the
 #         one recommended by the DBAPI itself, which is retrieved from the
 #         ``.paramstyle`` attribute of the DBAPI.  However, most DBAPIs accept
@@ -355,38 +267,27 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #         ``"qmark"``, ``"numeric"``, ``"named"``, ``"format"`` or
 #         ``"pyformat"``, and should correspond to a parameter style known
 #         to be supported by the DBAPI in use.
-
 #         pool will be used directly as the underlying connection pool
         for the engine, bypassing whatever connection parameters are
 #         present in the URL argument. For information on constructing
 #         connection pools manually, see :ref:`pooling_toplevel`.
-
 #         subclass, which will be used to create a connection pool
 #         instance using the connection parameters given in the URL. Note
 #         this differs from ``pool`` in that you dont actually
 #         instantiate the pool in this case, you just indicate what type
 #         of pool to be used.
-
 #        the "name" field of logging records generated within the
 #        "sqlalchemy.pool" logger. Defaults to a hexstring of the objects
 #        id.
-
 #        .. seealso::
-
 #             logging.
-
 #         "pre-ping" feature that tests connections for liveness upon
 #         each checkout.
-
 #         .. versionadded:: 1.2
-
 #         .. seealso::
-
-
 #         inside the connection pool. This used with
 #         well as :class:`~sqlalchemy.pool.SingletonThreadPool`.  With
 #         of 0 indicates no limit; to disable pooling, set ``poolclass`` to
-
 #         connections after the given number of seconds has passed. It
         defaults to -1, or no timeout. For example, setting to 3600
 #         means connections will be recycled after one hour. Note that
@@ -394,45 +295,28 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #         activity is detected on a connection for eight hours (although
 #         this is configurable with the MySQLDB connection itself and the
 #         server configuration as well).
-
 #         .. seealso::
-
-
 #         ``"rollback"``, ``"commit"``, or ``None``.
-
 #         .. seealso::
-
-
 #         up on getting a connection from the pool. This is only used
         with :class:`~sqlalchemy.pool.QueuePool`. This can be a float but is
 #         subject to the limitations of Python time functions which may not be
 #         reliable in the tens of milliseconds.
-
 #         .. note: dont use 30.0 above, it seems to break with the :param tag
-
 #         connections from :class:`.QueuePool` instead of FIFO
 #         (first-in-first-out). Using LIFO, a server-side timeout scheme can
 #         reduce the number of connections used during non- peak   periods of
 #         use.   When planning for server-side timeouts, ensure that a recycle or
 #         pre-ping strategy is in use to gracefully   handle stale connections.
-
 #           .. versionadded:: 1.3
-
 #           .. seealso::
-
-
-
-
 #         .. versionadded:: 1.2.3
-
-     form of queries.  Set to zero to disable caching.
-
+    form of queries.  Set to zero to disable caching.
 #      The cache is pruned of its least recently used items when its size reaches
 #      N * 1.5.  Defaults to 500, meaning the cache will always store at least
 #      500 SQL statements when filled, and will grow up to 750 items at which
 #      point it is pruned back down to 500 by removing the 250 least recently
 #      used items.
-
 #      Caching is accomplished on a per-statement basis by generating a
 #      cache key that represents the statements structure, then generating
 #      string SQL for the current dialect only if that key is not present
@@ -440,97 +324,75 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #      such as an INSERT with a large set of parameters will intentionally
 #      bypass the cache.   SQL logging will indicate statistics for each
 #      statement whether or not it were pull from the cache.
-
 #      .. note:: some ORM functions related to unit-of-work persistence as well
 #         as some attribute loading strategies will make use of individual
 #         per-mapper caches outside of the main cache.
-
-
 #      .. seealso::
-
-
 #      .. versionadded:: 1.4
-
 #     :param use_insertmanyvalues: True by default, use the "insertmanyvalues"
 #      execution style for INSERT..RETURNING statements by default.
-
 #      .. versionadded:: 2.0
-
 #      .. seealso::
-
-
-      # noqa
-
+    # noqa
     if "strategy" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #         strat = kwargs.pop("strategy")
         if strat == "mock":
-      pass
-      pass
+    pass
+    pass
     pass
             # this case is deprecated
             return create_mock_engine(url, **kwargs)  # type: ignore
         else:
 #             raise exc.ArgumentError("unknown strategy: %r" % strat)
-
 #     kwargs.pop("empty_in_strategy", None)
-
     # create url.URL object
 #     u = _url.make_url(url)
-
 #     u, plugins, kwargs = u._instantiate_plugins(kwargs)
-
 #     entrypoint = u._get_entrypoint()
 #     _is_async = kwargs.pop("_is_async", False)
     if _is_async:
-      pass
-      pass
+    pass
+    pass
     pass
 #         dialect_cls = entrypoint.get_async_dialect_cls(u)
     else:
 #         dialect_cls = entrypoint.get_dialect_cls(u)
-
     if kwargs.pop("_coerce_config", False):
-      pass
-      pass
     pass
-
+    pass
+    pass
         def pop_kwarg(key: str, default: Optional[Any] = None) -> Any:
 #             value = kwargs.pop(key, default)
             if key in dialect_cls.engine_config_types:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 value = dialect_cls.engine_config_types[key](value)
             return value
-
     else:
 #         pop_kwarg = kwargs.pop  # type: ignore
-
 #     dialect_args = {}
     # consume dialect arguments from kwargs
     for k in util.get_cls_kwargs(dialect_cls):
         if k in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dialect_args[k] = pop_kwarg(k)
-
 #     dbapi = kwargs.pop("module", None)
     if dbapi is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         dbapi_args = {}
-
         if "import_dbapi" in dialect_cls.__dict__:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dbapi_meth = dialect_cls.import_dbapi
-
         elif hasattr(dialect_cls, "dbapi") and inspect.ismethod(
 #             dialect_cls.dbapi
 #         ):
@@ -545,114 +407,95 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #             dbapi_meth = dialect_cls.dbapi
         else:
 #             dbapi_meth = dialect_cls.import_dbapi
-
         for k in util.get_func_kwargs(dbapi_meth):
             if k in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dbapi_args[k] = pop_kwarg(k)
 #         dbapi = dbapi_meth(**dbapi_args)
-
 #     dialect_args["dbapi"] = dbapi
-
 #     dialect_args.setdefault("compiler_linting", compiler.NO_LINTING)
 #     enable_from_linting = kwargs.pop("enable_from_linting", True)
     if enable_from_linting:
-      pass
-      pass
+    pass
+    pass
     pass
 #         dialect_args["compiler_linting"] ^= compiler.COLLECT_CARTESIAN_PRODUCTS
-
     for plugin in plugins:
 #         plugin.handle_dialect_kwargs(dialect_cls, dialect_args)
-
     # create dialect
 #     dialect = dialect_cls(**dialect_args)
-
     # assemble connection arguments
 #     (cargs_tup, cparams) = dialect.create_connect_args(u)
 #     cparams.update(pop_kwarg("connect_args", {}))
 #     cargs = list(cargs_tup)  # allow mutability
-
     # look for existing pool or create
 #     pool = pop_kwarg("pool", None)
     if pool is None:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def connect(
 #             connection_record: Optional[ConnectionPoolEntry] = None,
 #         ) -> DBAPIConnection:
             if dialect._has_events:
-      pass
-      pass
+    pass
+    pass
     pass
                 for fn in dialect.dispatch.do_connect:
 #                     connection = cast(
 #                         fn(dialect, connection_record, cargs, cparams),
 #                     )
                     if connection is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                         return connection
-
             return dialect.connect(*cargs, **cparams)
-
 #         creator = pop_kwarg("creator", connect)
-
 #         poolclass = pop_kwarg("poolclass", None)
         if poolclass is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             poolclass = dialect.get_dialect_pool_class(u)
 #         pool_args = {"dialect": dialect}
-
         # consume pool arguments from kwargs, translating a few of
         # the arguments
         for k in util.get_cls_kwargs(poolclass):
 #             tk = _pool_translate_kwargs.get(k, k)
             if tk in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 pool_args[k] = pop_kwarg(tk)
-
         for plugin in plugins:
 #             plugin.handle_pool_kwargs(poolclass, pool_args)
-
 #         pool = poolclass(creator, **pool_args)
     else:
 #         pool._dialect = dialect
-
     # create engine.
     if not pop_kwarg("future", True):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise exc.ArgumentError(
 #             "The 'future' parameter passed to "
 #             "create_engine() may only be set to True."
 #         )
-
-
     for k in util.get_cls_kwargs(engineclass):
         if k in kwargs:
-      pass
-      pass
     pass
-
+    pass
+    pass
     # internal flags used by the test suite for instrumenting / proxying
     # engines with mocks etc.
 #     _initialize = kwargs.pop("_initialize", True)
-
     # all kwargs should be consumed
     if kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise TypeError(
 #             "Invalid argument(s) %s sent to create_engine(), "
@@ -665,34 +508,28 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #                 pool.__class__.__name__,
 #             )
 #         )
-
-
     if _initialize:
-      pass
-      pass
+    pass
+    pass
     pass
 #         do_on_connect = dialect.on_connect_url(u)
         if do_on_connect:
-      pass
-      pass
     pass
-
+    pass
+    pass
             def on_connect(
 #                 dbapi_connection: DBAPIConnection,
 #                 connection_record: ConnectionPoolEntry,
 #             ) -> None:
 #                 assert do_on_connect is not None
 #                 do_on_connect(dbapi_connection)
-
 #             event.listen(pool, "connect", on_connect)
-
 #         builtin_on_connect = dialect._builtin_onconnect()
         if builtin_on_connect:
-      pass
-      pass
+    pass
+    pass
     pass
 #             event.listen(pool, "connect", builtin_on_connect)
-
         def first_connect(
 #             dbapi_connection: DBAPIConnection,
 #             connection_record: ConnectionPoolEntry,
@@ -710,21 +547,19 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #                 _allow_autobegin=False,
 #             )
 #             c._execution_options = util.EMPTY_DICT
-
             try:
 #                 dialect.initialize(c)
 #             finally:
                 # note that "invalidated" and "closed" are mutually
                 # exclusive in 1.4 Connection.
                 if not c.invalidated and not c.closed:
-      pass
-      pass
+    pass
+    pass
     pass
                     # transaction is rolled back otherwise, tested by
                     # test/dialect/postgresql/test_dialect.py
                     # ::MiscBackendTest::test_initial_transaction_state
 #                     dialect.do_rollback(c.connection)
-
         # previously, the "first_connect" event was used here, which was then
         # scaled back if the "on_connect" handler were present.  now,
         # since "on_connect" is virtually always present, just use
@@ -733,48 +568,35 @@ def create_engine(url: Union[str, _url.URL], **kwargs: Any) -> Engine:
 #         event.listen(
 #             pool, "connect", first_connect, _once_unless_exception=True
 #         )
-
 #     dialect_cls.engine_created(engine)
     if entrypoint is not dialect_cls:
-      pass
-      pass
+    pass
+    pass
     pass
 #         entrypoint.engine_created(engine)
-
     for plugin in plugins:
 #         plugin.engine_created(engine)
-
     return engine
-
-
 def engine_from_config(
 #     configuration: Dict[str, Any], prefix: str = "sqlalchemy.", **kwargs: Any
 # ) -> Engine:
 #     Create a new Engine instance using a configuration dictionary.
-
 #     The dictionary is typically produced from a config file.
-
 #     The keys of interest to ``engine_from_config()`` should be prefixed, e.g.
 #     ``sqlalchemy.url``, ``sqlalchemy.echo``, etc.  The 'prefix' argument
 #     indicates the prefix to be searched for.  Each matching key (after the
 #     prefix is stripped) is treated as though it were the corresponding keyword
 #     argument to a :func:`_sa.create_engine` call.
-
 #     The only required key is (assuming the default prefix) ``sqlalchemy.url``,
 #     which provides the :ref:`database URL <database_urls>`.
-
 #     A select set of keyword arguments will be "coerced" to their
 #     expected type based on string values.    The set of arguments
 #     is extensible per-dialect using the ``engine_config_types`` accessor.
-
 #         but this is not a requirement).  Items whose keys start with the value
 #         of 'prefix' will have that prefix stripped, and will then be passed to
-
 #         in 'configuration'.
-
 #         overrides the corresponding item taken from the 'configuration'
 #         dictionary.  Keyword arguments should *not* be prefixed.
-
 #     options = {
 #         key[len(prefix) :]: configuration[key]
         for key in configuration
@@ -784,8 +606,6 @@ def engine_from_config(
 #     options.update(kwargs)
 #     url = options.pop("url")
     return create_engine(url, **options)
-
-
 # @overload
 def create_pool_from_url(
 #     url: Union[str, URL],
@@ -801,35 +621,24 @@ def create_pool_from_url(
 #     **kwargs: Any,
 # ) -> Pool:
 #     ...
-
-
 # @overload
 def create_pool_from_url(url: Union[str, URL], **kwargs: Any) -> Pool:
 #     ...
-
-
 def create_pool_from_url(url: Union[str, URL], **kwargs: Any) -> Pool:
 #     Create a pool instance from the given url.
-
 #     If ``poolclass`` is not provided the pool class used
 #     is selected using the dialect specified in the URL.
-
 #     The arguments passed to :func:`_sa.create_pool_from_url` are
 #     identical to the pool argument passed to the :func:`_sa.create_engine`
 #     function.
-
 #     .. versionadded:: 2.0.10
-
     for key in _pool_translate_kwargs:
         if key in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kwargs[_pool_translate_kwargs[key]] = kwargs.pop(key)
-
     return engine.pool
-
-
 # _pool_translate_kwargs = immutabledict(
 #     {
 #         "logging_name": "pool_logging_name",

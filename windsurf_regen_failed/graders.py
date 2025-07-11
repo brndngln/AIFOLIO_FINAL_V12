@@ -1,19 +1,13 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from __future__ import annotations
-
 import httpx
-
 from .... import _legacy_response
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ...._utils import maybe_transform, async_maybe_transform
@@ -24,30 +18,19 @@ from ...._base_client import make_request_options
 from ....types.fine_tuning.alpha import grader_run_params, grader_validate_params
 from ....types.fine_tuning.alpha.grader_run_response import GraderRunResponse
 from ....types.fine_tuning.alpha.grader_validate_response import GraderValidateResponse
-
 # __all__ = ["Graders", "AsyncGraders"]
-
-
 class Graders(SyncAPIResource):
 #     @cached_property
     def with_raw_response(self) -> GradersWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return GradersWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> GradersWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return GradersWithStreamingResponse(self)
-
     def run(
 #         self,
 #         *,
@@ -61,30 +44,21 @@ class Graders(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> GraderRunResponse:
-
 #         Run a grader.
-
 #         Args:
 #           grader: The grader used for the fine-tuning job.
-
 #           model_sample: The model sample to be evaluated. This value will be used to populate the
 #               `sample` namespace. See
 #               [the guide](https://platform.openai.com/docs/guides/graders) for more details.
 #               The `output_json` variable will be populated if the model sample is a valid JSON
 #               string.
-
 #           item: The dataset item provided to the grader. This will be used to populate the
 #               `item` namespace. See
 #               [the guide](https://platform.openai.com/docs/guides/graders) for more details.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._post(
 #             "/fine_tuning/alpha/graders/run",
 #             body=maybe_transform(
@@ -100,7 +74,6 @@ class Graders(SyncAPIResource):
 #             ),
 #             cast_to=GraderRunResponse,
 #         )
-
     def validate(
 #         self,
 #         *,
@@ -112,20 +85,13 @@ class Graders(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> GraderValidateResponse:
-
 #         Validate a grader.
-
 #         Args:
 #           grader: The grader used for the fine-tuning job.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._post(
 #             "/fine_tuning/alpha/graders/validate",
 #             body=maybe_transform({"grader": grader}, grader_validate_params.GraderValidateParams),
@@ -134,28 +100,18 @@ class Graders(SyncAPIResource):
 #             ),
 #             cast_to=GraderValidateResponse,
 #         )
-
-
 class AsyncGraders(AsyncAPIResource):
 #     @cached_property
     def with_raw_response(self) -> AsyncGradersWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return AsyncGradersWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> AsyncGradersWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return AsyncGradersWithStreamingResponse(self)
-
 #     async def run(
 #         self,
 #         *,
@@ -169,30 +125,21 @@ class AsyncGraders(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> GraderRunResponse:
-
 #         Run a grader.
-
 #         Args:
 #           grader: The grader used for the fine-tuning job.
-
 #           model_sample: The model sample to be evaluated. This value will be used to populate the
 #               `sample` namespace. See
 #               [the guide](https://platform.openai.com/docs/guides/graders) for more details.
 #               The `output_json` variable will be populated if the model sample is a valid JSON
 #               string.
-
 #           item: The dataset item provided to the grader. This will be used to populate the
 #               `item` namespace. See
 #               [the guide](https://platform.openai.com/docs/guides/graders) for more details.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return await self._post(
 #             "/fine_tuning/alpha/graders/run",
 #             body=await async_maybe_transform(
@@ -208,7 +155,6 @@ class AsyncGraders(AsyncAPIResource):
 #             ),
 #             cast_to=GraderRunResponse,
 #         )
-
 #     async def validate(
 #         self,
 #         *,
@@ -220,20 +166,13 @@ class AsyncGraders(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> GraderValidateResponse:
-
 #         Validate a grader.
-
 #         Args:
 #           grader: The grader used for the fine-tuning job.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return await self._post(
 #             "/fine_tuning/alpha/graders/validate",
 #             body=await async_maybe_transform({"grader": grader}, grader_validate_params.GraderValidateParams),
@@ -242,48 +181,36 @@ class AsyncGraders(AsyncAPIResource):
 #             ),
 #             cast_to=GraderValidateResponse,
 #         )
-
-
 class GradersWithRawResponse:
     def __init__(self, graders: Graders) -> None:
 #         self._graders = graders
-
 #         self.run = _legacy_response.to_raw_response_wrapper(
 #             graders.run,
 #         )
 #         self.validate = _legacy_response.to_raw_response_wrapper(
 #             graders.validate,
 #         )
-
-
 class AsyncGradersWithRawResponse:
     def __init__(self, graders: AsyncGraders) -> None:
 #         self._graders = graders
-
 #         self.run = _legacy_response.async_to_raw_response_wrapper(
 #             graders.run,
 #         )
 #         self.validate = _legacy_response.async_to_raw_response_wrapper(
 #             graders.validate,
 #         )
-
-
 class GradersWithStreamingResponse:
     def __init__(self, graders: Graders) -> None:
 #         self._graders = graders
-
 #         self.run = to_streamed_response_wrapper(
 #             graders.run,
 #         )
 #         self.validate = to_streamed_response_wrapper(
 #             graders.validate,
 #         )
-
-
 class AsyncGradersWithStreamingResponse:
     def __init__(self, graders: AsyncGraders) -> None:
 #         self._graders = graders
-
 #         self.run = async_to_streamed_response_wrapper(
 #             graders.run,
 #         )

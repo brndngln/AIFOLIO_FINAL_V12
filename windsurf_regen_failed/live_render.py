@@ -1,34 +1,26 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 import sys
 from typing import Optional, Tuple
-
 if sys.version_info >= (3, 8):
-      pass
-      pass
+    pass
+    pass
     pass
     from typing import Literal
 else:
     from pip._vendor.typing_extensions import Literal  # pragma: no cover
-
-
 from ._loop import loop_last
 from .console import Console, ConsoleOptions, RenderableType, RenderResult
 from .control import Control
 from .segment import ControlType, Segment
 from .style import StyleType
 from .text import Text
-
 # VerticalOverflowMethod = Literal["crop", "ellipsis", "visible"]
-
-
 class LiveRender:
     """Creates a renderable that may be updated.
-
 #     Args:
 #         renderable (RenderableType): Any renderable object.
 #         style (StyleType, optional): An optional style to apply to the renderable. Defaults to "".
     """
-
     def __init__(
 #         self,
 #         renderable: RenderableType,
@@ -39,24 +31,20 @@ class LiveRender:
 #         self.style = style
 #         self.vertical_overflow = vertical_overflow
 #         self._shape: Optional[Tuple[int, int]] = None
-
     def set_renderable(self, renderable: RenderableType) -> None:
         """Set a new renderable.
-
 #         Args:
 #             renderable (RenderableType): Any renderable object, including str.
         """
 #         self.renderable = renderable
-
     def position_cursor(self) -> Control:
         """Get control codes to move cursor to beginning of live render.
-
 #         Returns:
 #             Control: A control instance that may be printed.
         """
         if self._shape is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _, height = self._shape
             return Control(
@@ -71,16 +59,14 @@ class LiveRender:
 #                 )
 #             )
         return Control()
-
     def restore_cursor(self) -> Control:
         """Get control codes to clear the render and restore the cursor to its previous position.
-
 #         Returns:
 #             Control: A Control instance that may be printed.
         """
         if self._shape is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _, height = self._shape
             return Control(
@@ -88,7 +74,6 @@ class LiveRender:
 #                 *((ControlType.CURSOR_UP, 1), (ControlType.ERASE_IN_LINE, 2)) * height
 #             )
         return Control()
-
     def __rich_console__(
 #         self, console: Console, options: ConsoleOptions
 #     ) -> RenderResult:
@@ -96,15 +81,14 @@ class LiveRender:
 #         style = console.get_style(self.style)
 #         lines = console.render_lines(renderable, options, style=style, pad=False)
 #         shape = Segment.get_shape(lines)
-
 #         _, height = shape
         if height > options.size.height:
-      pass
-      pass
+    pass
+    pass
     pass
             if self.vertical_overflow == "crop":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 lines = lines[: options.size.height]
 #                 shape = Segment.get_shape(lines)
@@ -121,12 +105,11 @@ class LiveRender:
 #                 lines.append(list(console.render(overflow_text)))
 #                 shape = Segment.get_shape(lines)
 #         self._shape = shape
-
 #         new_line = Segment.line()
         for last, line in loop_last(lines):
 #             yield from line
             if not last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield new_line

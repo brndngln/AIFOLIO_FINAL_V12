@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2019 The TensorFlow Authors, The Hugging Face Team. All Rights Reserved.
@@ -22,23 +19,15 @@ from typing import Optional
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
 import re
 from typing import Callable, List, Optional, Union
-
 import tensorflow as tf
-
-
 try:
     from tensorflow.keras.optimizers.legacy import Adam
 except ImportError:
     from tensorflow.keras.optimizers import Adam
-
-
 class WarmUp(tf.keras.optimizers.schedules.LearningRateSchedule):
-
 #     Applies a warmup schedule on a given learning rate decay schedule.
-
 #     Args:
 #         initial_learning_rate (`float`):
 #             The initial learning rate for the schedule after the warmup (so this will be the learning rate at the end
@@ -51,7 +40,6 @@ class WarmUp(tf.keras.optimizers.schedules.LearningRateSchedule):
 #             The power to use for the polynomial warmup (defaults is a linear warmup).
 #         name (`str`, *optional*):
 #             Optional name prefix for the returned tensors during the schedule.
-
     def __init__(
 #         self,
 #         initial_learning_rate: float,
@@ -66,7 +54,6 @@ class WarmUp(tf.keras.optimizers.schedules.LearningRateSchedule):
 #         self.power = power
 #         self.decay_schedule_fn = decay_schedule_fn
 #         self.name = name
-
     def __call__(self, step):
         with tf.name_scope(self.name or "WarmUp") as name:
             # Implements polynomial warmup. i.e., if global_step < warmup_steps, the
@@ -81,7 +68,6 @@ class WarmUp(tf.keras.optimizers.schedules.LearningRateSchedule):
 #                 lambda: self.decay_schedule_fn(step - self.warmup_steps),
 #                 name=name,
 #             )
-
     def get_config(self):
         return {
 #             "initial_learning_rate": self.initial_learning_rate,
@@ -90,8 +76,6 @@ class WarmUp(tf.keras.optimizers.schedules.LearningRateSchedule):
 #             "power": self.power,
 #             "name": self.name,
 #         }
-
-
 def create_optimizer(
 #     init_lr: float,
 #     num_train_steps: int,
@@ -106,9 +90,7 @@ def create_optimizer(
 #     power: float = 1.0,
 #     include_in_weight_decay: Optional[List[str]] = None,
 # ):
-
 #     Creates an optimizer with a learning rate schedule using a warmup phase followed by a linear decay.
-
 #     Args:
 #         init_lr (`float`):
 #             The desired learning rate at the end of the warmup phase.
@@ -136,7 +118,6 @@ def create_optimizer(
 #         include_in_weight_decay (`List[str]`, *optional*):
 #             List of the parameter names (or re patterns) to apply weight decay to. If none is passed, weight decay is
 #             applied to all parameters except bias and layer norm parameters.
-
     # Implements linear decay of the learning rate.
 #     lr_schedule = tf.keras.optimizers.schedules.PolynomialDecay(
 #         initial_learning_rate=init_lr,
@@ -145,8 +126,8 @@ def create_optimizer(
 #         power=power,
 #     )
     if num_warmup_steps:
-      pass
-      pass
+    pass
+    pass
     pass
 #         lr_schedule = WarmUp(
 #             initial_learning_rate=init_lr,
@@ -154,8 +135,8 @@ def create_optimizer(
 #             warmup_steps=num_warmup_steps,
 #         )
     if weight_decay_rate > 0.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         optimizer = AdamWeightDecay(
 #             learning_rate=lr_schedule,
@@ -180,18 +161,13 @@ def create_optimizer(
     # We return the optimizer and the LR scheduler in order to better track the
     # evolution of the LR independently of the optimizer.
     return optimizer, lr_schedule
-
-
 class AdamWeightDecay(Adam):
-
 #     Adam enables L2 weight decay and clip_by_global_norm on gradients. Just adding the square of the weights to the
 #     loss function is *not* the correct way of using L2 regularization/weight decay with Adam, since that will interact
     with the m and v parameters in strange ways as shown in [Decoupled Weight Decay
 #     Regularization](https://arxiv.org/abs/1711.05101).
-
 #     Instead we want to decay the weights in a manner that doesnt interact with the m/v parameters. This is equivalent
 #     to adding the square of the weights to the loss with plain (non-momentum) SGD.
-
 #     Args:
 #         learning_rate (`Union[float, tf.keras.optimizers.schedules.LearningRateSchedule]`, *optional*, defaults to 0.001):
 #             The learning rate to use or a schedule.
@@ -219,7 +195,6 @@ class AdamWeightDecay(Adam):
 #             norm; `clipvalue` is clip gradients by value, `decay` is included for backward compatibility to allow time
 #             inverse decay of learning rate. `lr` is included for backward compatibility, recommended to use
 #             `learning_rate` instead.
-
     def __init__(
 #         self,
 #         learning_rate: Union[float, tf.keras.optimizers.schedules.LearningRateSchedule] = 0.001,
@@ -237,125 +212,101 @@ class AdamWeightDecay(Adam):
 #         self.weight_decay_rate = weight_decay_rate
 #         self._include_in_weight_decay = include_in_weight_decay
 #         self._exclude_from_weight_decay = exclude_from_weight_decay
-
 #     @classmethod
     def from_config(cls, config):
-
 #         custom_objects = {"WarmUp": WarmUp}
         return super(AdamWeightDecay, cls).from_config(config, custom_objects=custom_objects)
-
     def _prepare_local(self, var_device, var_dtype, apply_state):
 #         super(AdamWeightDecay, self)._prepare_local(var_device, var_dtype, apply_state)
 #         apply_state[(var_device, var_dtype)]["weight_decay_rate"] = tf.constant(
 #             self.weight_decay_rate, name="adam_weight_decay_rate"
 #         )
-
     def _decay_weights_op(self, var, learning_rate, apply_state):
 #         do_decay = self._do_use_weight_decay(var.name)
         if do_decay:
-      pass
-      pass
+    pass
+    pass
     pass
             return var.assign_sub(
 #                 learning_rate * var * apply_state[(var.device, var.dtype.base_dtype)]["weight_decay_rate"],
 #                 use_locking=self._use_locking,
 #             )
         return tf.no_op()
-
     def apply_gradients(self, grads_and_vars, name=None, **kwargs):
 #         grads, tvars = list(zip(*grads_and_vars))
         return super(AdamWeightDecay, self).apply_gradients(zip(grads, tvars), name=name, **kwargs)
-
     def _get_lr(self, var_device, var_dtype, apply_state):
-
         if apply_state is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return self._decayed_lr_t[var_dtype], {}
-
 #         apply_state = apply_state or {}
 #         coefficients = apply_state.get((var_device, var_dtype))
         if coefficients is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             coefficients = self._fallback_apply_state(var_device, var_dtype)
 #             apply_state[(var_device, var_dtype)] = coefficients
-
         return coefficients["lr_t"], {"apply_state": apply_state}
-
     def _resource_apply_dense(self, grad, var, apply_state=None):
 #         lr_t, kwargs = self._get_lr(var.device, var.dtype.base_dtype, apply_state)
 #         decay = self._decay_weights_op(var, lr_t, apply_state)
         with tf.control_dependencies([decay]):
             return super(AdamWeightDecay, self)._resource_apply_dense(grad, var, **kwargs)
-
     def _resource_apply_sparse(self, grad, var, indices, apply_state=None):
 #         lr_t, kwargs = self._get_lr(var.device, var.dtype.base_dtype, apply_state)
 #         decay = self._decay_weights_op(var, lr_t, apply_state)
         with tf.control_dependencies([decay]):
             return super(AdamWeightDecay, self)._resource_apply_sparse(grad, var, indices, **kwargs)
-
     def get_config(self):
 #         config = super().get_config()
 #         config.update({"weight_decay_rate": self.weight_decay_rate})
         return config
-
     def _do_use_weight_decay(self, param_name):
-
         if self.weight_decay_rate == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return False
-
         if self._include_in_weight_decay:
-      pass
-      pass
+    pass
+    pass
     pass
             for r in self._include_in_weight_decay:
                 if re.search(r, param_name) is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     return True
-
         if self._exclude_from_weight_decay:
-      pass
-      pass
+    pass
+    pass
     pass
             for r in self._exclude_from_weight_decay:
                 if re.search(r, param_name) is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     return False
         return True
-
-
 # Extracted from https://github.com/OpenNMT/OpenNMT-tf/blob/master/opennmt/optimizers/utils.py
 class GradientAccumulator(object):
-
 #     Gradient accumulation utility. When used with a distribution strategy, the accumulator should be called in a
 #     replica context. Gradients will be accumulated locally on each replica and without synchronization. Users should
 #     then call `.gradients`, scale the gradients if required, and pass the result to `apply_gradients`.
-
     # We use the ON_READ synchronization policy so that no synchronization is
     # performed on assignment. To get the value, we call .value() which returns the
     # value on the current replica without synchronization.
-
     def __init__(self):
-
 #         self._gradients = []
 #         self._accum_steps = None
-
 #     @property
     def step(self):
-
         if self._accum_steps is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._accum_steps = tf.Variable(
 #                 tf.constant(0, dtype=tf.int64),
@@ -363,24 +314,19 @@ class GradientAccumulator(object):
 #                 synchronization=tf.VariableSynchronization.ON_READ,
 #                 aggregation=tf.VariableAggregation.ONLY_FIRST_REPLICA,
 #             )
-
         return self._accum_steps.value()
-
 #     @property
     def gradients(self):
-
         if not self._gradients:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("The accumulator should be called first to initialize the gradients")
         return [gradient.value() if gradient is not None else gradient for gradient in self._gradients]
-
     def __call__(self, gradients):
-
         if not self._gradients:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _ = self.step  # Create the step variable.
 #             self._gradients.extend(
@@ -397,31 +343,27 @@ class GradientAccumulator(object):
 #                 ]
 #             )
         if len(gradients) != len(self._gradients):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected {len(self._gradients)} gradients, but got {len(gradients)}")
-
         for accum_gradient, gradient in zip(self._gradients, gradients):
             if accum_gradient is not None and gradient is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 accum_gradient.assign_add(gradient)
-
 #         self._accum_steps.assign_add(1)
-
     def reset(self):
-
         if not self._gradients:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         self._accum_steps.assign(0)
         for gradient in self._gradients:
             if gradient is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 gradient.assign(tf.zeros_like(gradient))

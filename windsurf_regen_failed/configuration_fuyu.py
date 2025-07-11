@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ..auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
 # FUYU_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "adept/fuyu-8b": "https://huggingface.co/adept/fuyu-8b/resolve/main/config.json",
 # }
-
-
 class FuyuConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`FuyuForCausalLM`]. It is used to instantiate an
 #     Fuyu model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the
 #     [adept/fuyu-8b](https://huggingface.co/adept/fuyu-8b).
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 262144):
 #             Vocabulary size of the Fuyu model. Defines the number of different tokens that can be represented by the
@@ -95,7 +82,6 @@ class FuyuConfig(PretrainedConfig):
 #             The dropout ratio after computing the attention scores.
 #         partial_rotary_factor (`float`, *optional*, defaults to 0.5):
 #             Percentage of the query and keys which will have rotary embedding.
-
 #         pad_token_id (`int`, *optional*):
 #             The id of the *padding* token.
 #         bos_token_id (`int`, *optional*, defaults to 1):
@@ -104,17 +90,13 @@ class FuyuConfig(PretrainedConfig):
 #             The id of the *end-of-sequence* token. Optionally, use a list to set multiple *end-of-sequence* tokens.
 #         text_config (`dict`, *optional*):
 #             Dictionary of configuration options used to initialize the `language``[`Aut`].
-
 #     ```python
 #     >>> from transformers import FuyuConfig
-
 #     >>> # Initializing a Fuyu fuyu-7b style configuration
 #     >>> configuration = FuyuConfig()
 #     ```
-
 #     model_type = "fuyu"
 #     keys_to_ignore_at_inference = ["past_key_values"]
-
     def __init__(
 #         self,
 #         vocab_size=262144,
@@ -144,8 +126,8 @@ class FuyuConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
         if text_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text_config = {
 #                 "vocab_size": vocab_size,
@@ -172,7 +154,6 @@ class FuyuConfig(PretrainedConfig):
 #             logger.info("text_config is None. initializing the text model with default values.")
 #         text_model_type = text_config["model_type"] if "model_type" in text_config else "persimmon"
 #         self.text_config = CONFIG_MAPPING[text_model_type](**text_config)
-
 #         self.vocab_size = vocab_size
 #         self.max_position_embeddings = max_position_embeddings
 #         self.image_size = image_size
@@ -193,7 +174,6 @@ class FuyuConfig(PretrainedConfig):
 #         self.attention_dropout = attention_dropout
 #         self.partial_rotary_factor = partial_rotary_factor
 #         self._rope_scaling_validation()
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,
@@ -201,21 +181,17 @@ class FuyuConfig(PretrainedConfig):
 #             tie_word_embeddings=tie_word_embeddings,
 #             **kwargs,
 #         )
-
     # Copied from transformers.models.llama.configuration_llama.LlamaConfig._rope_scaling_validation
     def _rope_scaling_validation(self):
-
 #         Validate the `rope_scaling` configuration.
-
         if self.rope_scaling is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         if not isinstance(self.rope_scaling, dict) or len(self.rope_scaling) != 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`rope_scaling` must be a dictionary with with two fields, `type` and `factor`, "
@@ -224,14 +200,14 @@ class FuyuConfig(PretrainedConfig):
 #         rope_scaling_type = self.rope_scaling.get("type", None)
 #         rope_scaling_factor = self.rope_scaling.get("factor", None)
         if rope_scaling_type is None or rope_scaling_type not in ["linear", "dynamic"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"`rope_scaling`s type field must be one of [linear, dynamic], got {rope_scaling_type}"
 #             )
         if rope_scaling_factor is None or not isinstance(rope_scaling_factor, float) or rope_scaling_factor <= 1.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"`rope_scaling`s factor field must be a float > 1, got {rope_scaling_factor}")

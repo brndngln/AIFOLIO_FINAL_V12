@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # GLPN_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "vinvino02/glpn-kitti": "https://huggingface.co/vinvino02/glpn-kitti/resolve/main/config.json",
     # See all GLPN models at https://huggingface.co/models?filter=glpn
 # }
-
-
 class GLPNConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`GLPNModel`]. It is used to instantiate an GLPN
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the GLPN
 #     [vinvino02/glpn-kitti](https://huggingface.co/vinvino02/glpn-kitti) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         num_channels (`int`, *optional*, defaults to 3):
 #             The number of input channels.
@@ -84,24 +72,17 @@ class GLPNConfig(PretrainedConfig):
 #             The maximum depth of the decoder.
 #         head_in_index (`int`, *optional*, defaults to -1):
 #             The index of the features to use in the head.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import GLPNModel, GLPNConfig
-
 #     >>> # Initializing a GLPN vinvino02/glpn-kitti style configuration
 #     >>> configuration = GLPNConfig()
-
 #     >>> # Initializing a model from the vinvino02/glpn-kitti style configuration
 #     >>> model = GLPNModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "glpn"
-
     def __init__(
 #         self,
 #         num_channels=3,
@@ -125,7 +106,6 @@ class GLPNConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.num_channels = num_channels
 #         self.num_encoder_blocks = num_encoder_blocks
 #         self.depths = depths

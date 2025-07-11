@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,27 +19,17 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
     # See all MEGATRON_BERT models at https://huggingface.co/models?filter=bert
 # }
-
-
 class MegatronBertConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`MegatronBertModel`]. It is used to instantiate a
 #     configuration with the defaults will yield a similar configuration to that of the MEGATRON_BERT
 #     [nvidia/megatron-bert-uncased-345m](https://huggingface.co/nvidia/megatron-bert-uncased-345m) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 29056):
 #             Vocabulary size of the MEGATRON_BERT model. Defines the number of different tokens that can be represented
@@ -82,24 +69,17 @@ class MegatronBertConfig(PretrainedConfig):
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models). Only
 #             relevant if `config.is_decoder=True`.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import MegatronBertConfig, MegatronBertModel
-
 #     >>> # Initializing a MEGATRON_BERT bert-base-uncased style configuration
 #     >>> configuration = MegatronBertConfig()
-
 #     >>> # Initializing a model (with random weights) from the bert-base-uncased style configuration
 #     >>> model = MegatronBertModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "megatron-bert"
-
     def __init__(
 #         self,
 #         vocab_size=29056,
@@ -120,7 +100,6 @@ class MegatronBertConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers

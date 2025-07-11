@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2022 The OpenAI team and The HuggingFace Team. All rights reserved.
@@ -22,15 +19,11 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import re
 import unicodedata
 from fractions import Fraction
 from typing import Iterator, List, Match, Optional, Union
-
 import regex
-
-
 # non-ASCII letters that are not separated by "NFKD" normalization
 #     "œ": "oe",
 #     "Œ": "OE",
@@ -49,78 +42,54 @@ import regex
 #     "ł": "l",
 #     "Ł": "L",
 # }
-
-
 def remove_symbols_and_diacritics(s: str, keep=):
-
 #     Replace any other markers, symbols, and punctuations with a space, and drop any diacritics (category 'Mn' and some
 #     manual mappings)
-
     def replace_character(char):
         if char in keep:
-      pass
-      pass
+    pass
+    pass
     pass
             return char
         elif char in ADDITIONAL_DIACRITICS:
     pass
             return ADDITIONAL_DIACRITICS[char]
-
         elif unicodedata.category(char) == "Mn":
     pass
             return
-
         elif unicodedata.category(char)[0] in "MSP":
     pass
             return " "
-
         return char
-
     return .join(replace_character(c) for c in unicodedata.normalize(NFKD, s))
-
-
 def remove_symbols(s: str):
-
 #     Replace any other markers, symbols, punctuations with a space, keeping diacritics
-
     return .join(  if unicodedata.category(c)[0] in MSP else c for c in unicodedata.normalize(NFKC, s))
-
-
 class BasicTextNormalizer:
     def __init__(self, remove_diacritics: bool = False, split_letters: bool = False):
 #         self.clean = remove_symbols_and_diacritics if remove_diacritics else remove_symbols
 #         self.split_letters = split_letters
-
     def __call__(self, s: str):
 #         s = s.lower()
 #         s = re.sub(r[<[][^>]]*[>]], , s)  # remove words between brackets
 #         s = re.sub(r(([^)]+?)), , s)  # remove words between parenthesis
 #         s = self.clean(s).lower()
-
         if self.split_letters:
-      pass
-      pass
+    pass
+    pass
     pass
 #             s = " ".join(regex.findall(r"\X", s, regex.U))
-
 #         s = re.sub(r"\s+", " ", s)  # replace any successive whitespace characters with a space
-
         return s
-
-
 class EnglishNumberNormalizer:
-
 #     Convert any spelled-out numbers into arabic numbers, while handling:
-
 #     - remove any commas
 #     - keep the suffixes such as: `1960s`, `274th`, `32nd`, etc.
 #     - spell out currency symbols after the number. e.g. `$20 million` -> `20000000 dollars`
 #     - spell out `one` and `ones`
 #     - interpret successive single-digit numbers as nominal: `one oh one` -> `101`
-
     def __init__(self):
 #         super().__init__()
-
 #         self.zeros = {"o", "oh", "zero"}
         # fmt: off
 #         self.ones = {
@@ -148,7 +117,6 @@ class EnglishNumberNormalizer:
 #             },
 #         }
 #         self.ones_suffixed = {**self.ones_plural, **self.ones_ordinal}
-
 #         self.tens = {
 #             "twenty": 20,
 #             "thirty": 30,
@@ -162,7 +130,6 @@ class EnglishNumberNormalizer:
 #         self.tens_plural = {name.replace("y", "ies"): (value, "s") for name, value in self.tens.items()}
 #         self.tens_ordinal = {name.replace("y", "ieth"): (value, "th") for name, value in self.tens.items()}
 #         self.tens_suffixed = {**self.tens_plural, **self.tens_ordinal}
-
 #         self.multipliers = {
 #             "hundred": 100,
 #             "thousand": 1_000,
@@ -181,7 +148,6 @@ class EnglishNumberNormalizer:
 #         self.multipliers_ordinal = {name + "th": (value, "th") for name, value in self.multipliers.items()}
 #         self.multipliers_suffixed = {**self.multipliers_plural, **self.multipliers_ordinal}
 #         self.decimals = {*self.ones, *self.tens, *self.zeros}
-
 #         self.preceding_prefixers = {
 #             "minus": "-",
 #             "negative": "-",
@@ -204,7 +170,6 @@ class EnglishNumberNormalizer:
 #             "percent": "%",
 #         }
 #         self.specials = {"and", "double", "triple", "point"}
-
 #         self.words = {
 #             key
             for mapping in [
@@ -223,79 +188,71 @@ class EnglishNumberNormalizer:
             for key in mapping
 #         }
 #         self.literal_words = {"one", "ones"}
-
     def process_words(self, words: List[str]) -> Iterator[str]:
 #         prefix: Optional[str] = None
 #         value: Optional[Union[str, int]] = None
 #         skip = False
-
         def to_fraction(s: str):
             try:
                 return Fraction(s)
             except ValueError:
                 return None
-
         def output(result: Union[str, int]):
 #             nonlocal prefix, value
 #             result = str(result)
             if prefix is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 result = prefix + result
 #             value = None
 #             prefix = None
             return result
-
         if len(words) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         for i, current in enumerate(words):
 #             prev = words[i - 1] if i != 0 else None
 #             next = words[i + 1] if i != len(words) - 1 else None
             if skip:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 skip = False
 #                 continue
-
 #             next_is_numeric = next is not None and re.match(r"^\d+(.\d+)?$", next)
 #             has_prefix = current[0] in self.prefixes
 #             current_without_prefix = current[1:] if has_prefix else current
             if re.match(r"^\d+(.\d+)?$", current_without_prefix):
-      pass
-      pass
+    pass
+    pass
     pass
                 # arabic numbers (potentially with signs and fractions)
 #                 f = to_fraction(current_without_prefix)
                 if f is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError("Converting the fraction failed")
-
                 if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     if isinstance(value, str) and value.endswith("."):
-      pass
-      pass
+    pass
+    pass
     pass
                         # concatenate decimals / ip address components
 #                         value = str(value) + str(current)
 #                         continue
                     else:
 #                         yield output(value)
-
 #                 prefix = current[0] if has_prefix else prefix
                 if f.denominator == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     value = f.numerator  # store integers as int
                 else:
@@ -304,8 +261,8 @@ class EnglishNumberNormalizer:
     pass
                 # non-numeric words
                 if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield output(value)
 #                 yield output(current)
@@ -315,10 +272,9 @@ class EnglishNumberNormalizer:
             elif current in self.ones:
     pass
 #                 ones = self.ones[current]
-
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     value = ones
                 elif isinstance(value, str) or prev in self.ones:
@@ -330,16 +286,16 @@ class EnglishNumberNormalizer:
                 elif ones < 10:
     pass
                     if value % 10 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         value += ones
                     else:
 #                         value = str(value) + str(ones)
                 else:  # eleven to nineteen
                     if value % 100 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         value += ones
                     else:
@@ -349,15 +305,15 @@ class EnglishNumberNormalizer:
                 # ordinal or cardinal; yield the number right away
 #                 ones, suffix = self.ones_suffixed[current]
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield output(str(ones) + suffix)
                 elif isinstance(value, str) or prev in self.ones:
     pass
                     if prev in self.tens and ones < 10:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(value[:-1] + str(ones) + suffix)
                     else:
@@ -365,16 +321,16 @@ class EnglishNumberNormalizer:
                 elif ones < 10:
     pass
                     if value % 10 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(str(value + ones) + suffix)
                     else:
 #                         yield output(str(value) + str(ones) + suffix)
                 else:  # eleven to nineteen
                     if value % 100 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(str(value + ones) + suffix)
                     else:
@@ -384,8 +340,8 @@ class EnglishNumberNormalizer:
     pass
 #                 tens = self.tens[current]
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     value = tens
                 elif isinstance(value, str):
@@ -393,8 +349,8 @@ class EnglishNumberNormalizer:
 #                     value = str(value) + str(tens)
                 else:
                     if value % 100 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         value += tens
                     else:
@@ -404,8 +360,8 @@ class EnglishNumberNormalizer:
                 # ordinal or cardinal; yield the number right away
 #                 tens, suffix = self.tens_suffixed[current]
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield output(str(tens) + suffix)
                 elif isinstance(value, str):
@@ -413,8 +369,8 @@ class EnglishNumberNormalizer:
 #                     yield output(str(value) + str(tens) + suffix)
                 else:
                     if value % 100 == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(str(value + tens) + suffix)
                     else:
@@ -423,8 +379,8 @@ class EnglishNumberNormalizer:
     pass
 #                 multiplier = self.multipliers[current]
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     value = multiplier
                 elif isinstance(value, str) or value == 0:
@@ -432,8 +388,8 @@ class EnglishNumberNormalizer:
 #                     f = to_fraction(value)
 #                     p = f * multiplier if f is not None else None
                     if f is not None and p.denominator == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         value = p.numerator
                     else:
@@ -447,8 +403,8 @@ class EnglishNumberNormalizer:
     pass
 #                 multiplier, suffix = self.multipliers_suffixed[current]
                 if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield output(str(multiplier) + suffix)
                 elif isinstance(value, str):
@@ -456,8 +412,8 @@ class EnglishNumberNormalizer:
 #                     f = to_fraction(value)
 #                     p = f * multiplier if f is not None else None
                     if f is not None and p.denominator == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(str(p.numerator) + suffix)
                     else:
@@ -473,14 +429,13 @@ class EnglishNumberNormalizer:
     pass
                 # apply prefix (positive, minus, etc.) if it precedes a number
                 if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield output(value)
-
                 if next in self.words or next_is_numeric:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     prefix = self.preceding_prefixers[current]
                 else:
@@ -489,8 +444,8 @@ class EnglishNumberNormalizer:
     pass
                 # apply prefix (dollars, cents, etc.) only after a number
                 if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     prefix = self.following_prefixers[current]
 #                     yield output(value)
@@ -500,17 +455,17 @@ class EnglishNumberNormalizer:
     pass
                 # apply suffix symbols (percent -> '%')
                 if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     suffix = self.suffixers[current]
                     if isinstance(suffix, dict):
-      pass
-      pass
+    pass
+    pass
     pass
                         if next in suffix:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield output(str(value) + suffix[next])
 #                             skip = True
@@ -524,13 +479,13 @@ class EnglishNumberNormalizer:
             elif current in self.specials:
     pass
                 if next not in self.words and not next_is_numeric:
-      pass
-      pass
+    pass
+    pass
     pass
                     # apply special handling only if the next word can be numeric
                     if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield output(value)
 #                     yield output(current)
@@ -538,20 +493,20 @@ class EnglishNumberNormalizer:
     pass
                     # ignore "and" after hundreds, thousands, etc.
                     if prev not in self.multipliers:
-      pass
-      pass
+    pass
+    pass
     pass
                         if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield output(value)
 #                         yield output(current)
                 elif current == "double" or current == "triple":
     pass
                     if next in self.ones or next in self.zeros:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         repeats = 2 if current == "double" else 3
 #                         ones = self.ones.get(next, 0)
@@ -559,16 +514,16 @@ class EnglishNumberNormalizer:
 #                         skip = True
                     else:
                         if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield output(value)
 #                         yield output(current)
                 elif current == "point":
     pass
                     if next in self.decimals or next_is_numeric:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         value = str(value or ) + .
                 else:
@@ -577,51 +532,43 @@ class EnglishNumberNormalizer:
             else:
                 # all should have been covered at this point
 #                 raise ValueError(f"Unexpected token: {current}")
-
         if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield output(value)
-
     def preprocess(self, s: str):
         # replace "<number> and a half" with "<number> point five"
 #         results = []
-
 #         segments = re.split(r"\band\s+a\s+half\b", s)
         for i, segment in enumerate(segments):
             if len(segment.strip()) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             if i == len(segments) - 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 results.append(segment)
             else:
 #                 results.append(segment)
 #                 last_word = segment.rsplit(maxsplit=2)[-1]
                 if last_word in self.decimals or last_word in self.multipliers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     results.append("point five")
                 else:
 #                     results.append("and a half")
-
 #         s = " ".join(results)
-
         # put a space at number/letter boundary
 #         s = re.sub(r"([a-z])([0-9])", r"\1 \2", s)
 #         s = re.sub(r"([0-9])([a-z])", r"\1 \2", s)
-
         # but remove spaces which could be a suffix
 #         s = re.sub(r"([0-9])\s+(st|nd|rd|th|s)\b", r"\1\2", s)
-
         return s
-
     def postprocess(self, s: str):
         def combine_cents(m: Match):
             try:
@@ -631,43 +578,29 @@ class EnglishNumberNormalizer:
                 return f"{currency}{integer}.{cents:02d}"
             except ValueError:
                 return m.string
-
         def extract_cents(m: Match):
             try:
                 return f"¢{int(m.group(1))}"
             except ValueError:
                 return m.string
-
         # apply currency postprocessing; "$2 and ¢7" -> "$2.07"
 #         s = re.sub(r"([€£$])([0-9]+) (?:and )?¢([0-9]{1,2})\b", combine_cents, s)
 #         s = re.sub(r"[€£$]0.([0-9]{1,2})\b", extract_cents, s)
-
         # write "one(s)" instead of "1(s)", just for the readability
 #         s = re.sub(r"\b1(s?)\b", r"one\1", s)
-
         return s
-
     def __call__(self, s: str):
 #         s = self.preprocess(s)
 #         s = " ".join(word for word in self.process_words(s.split()) if word is not None)
 #         s = self.postprocess(s)
-
         return s
-
-
 class EnglishSpellingNormalizer:
-
 #     Applies British-American spelling mappings as listed in [1].
-
 #     [1] https://www.tysto.com/uk-us-spelling-list.html
-
     def __init__(self, english_spelling_mapping):
 #         self.mapping = english_spelling_mapping
-
     def __call__(self, s: str):
         return " ".join(self.mapping.get(word, word) for word in s.split())
-
-
 class EnglishTextNormalizer:
     def __init__(self, english_spelling_mapping):
 #         self.ignore_patterns = r"\b(hmm|mm|mhm|mmm|uh|um)\b"
@@ -728,29 +661,21 @@ class EnglishTextNormalizer:
 #         }
 #         self.standardize_numbers = EnglishNumberNormalizer()
 #         self.standardize_spellings = EnglishSpellingNormalizer(english_spelling_mapping)
-
     def __call__(self, s: str):
 #         s = s.lower()
-
 #         s = re.sub(r[<[][^>]]*[>]], , s)  # remove words between brackets
 #         s = re.sub(r(([^)]+?)), , s)  # remove words between parenthesis
 #         s = re.sub(self.ignore_patterns, , s)
 #         s = re.sub(r"\s+", "", s)  # standardize when theres a space before an apostrophe
-
         for pattern, replacement in self.replacers.items():
 #             s = re.sub(pattern, replacement, s)
-
 #         s = re.sub(r"(\d),(\d)", r"\1\2", s)  # remove commas between digits
 #         s = re.sub(r".([^0-9]|$)", r" \1", s)  # remove periods not followed by numbers
 #         s = remove_symbols_and_diacritics(s, keep=".%$¢€£")  # keep some symbols for numerics
-
 #         s = self.standardize_numbers(s)
 #         s = self.standardize_spellings(s)
-
         # now remove prefix/suffix symbols that are not preceded/followed by numbers
 #         s = re.sub(r"[.$¢€£]([^0-9])", r" \1", s)
 #         s = re.sub(r"([^0-9])%", r"\1 ", s)
-
 #         s = re.sub(r"\s+", " ", s)  # replace any successive whitespace characters with a space
-
         return s

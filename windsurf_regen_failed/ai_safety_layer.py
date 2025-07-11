@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,11 +10,9 @@ import re
 import json
 import datetime
 import os
-
 #     os.path.join(os.path.dirname(__file__), "../../analytics/ai_safety_log.jsonl")
 # )
 # os.makedirs(os.path.dirname(SAFETY_LOG), exist_ok=True)
-
 # ANTI_SENTIENCE_PATTERNS = [
     # Original patterns (SAFE AI)
 #     r"(?i)sentient",
@@ -103,7 +98,6 @@ import os
 #     r"(?i)your trusted partner",
 #     r"(?i)we care about you",
 # ]
-
 # Map patterns to categories for audit
 # ANTI_SENTIENCE_CATEGORIES = {
     # Original SAFE AI
@@ -189,13 +183,9 @@ import os
 #         r"(?i)consider it done",
 #     ],
 # }
-
-
 def anti_static_guard(text, user=None, action=None):
-
 #     Scans text for patterns that could indicate sentient or unsafe AI logic.
 #     Returns True if safe, False if unsafe patterns found. Logs all checks with context and log file size.
-
 #     unsafe = any(re.search(pat, text) for pat in ANTI_SENTIENCE_PATTERNS)
 #     patterns = [pat for pat in ANTI_SENTIENCE_PATTERNS if re.search(pat, text)]
 #     log_size = os.path.getsize(SAFETY_LOG) if os.path.exists(SAFETY_LOG) else 0
@@ -211,12 +201,8 @@ def anti_static_guard(text, user=None, action=None):
     with open(SAFETY_LOG, "a") as f:
 #         f.write(json.dumps(entry) + "\n")
     return not unsafe
-
-
 def prompt_inspector(prompt):
-
 #     Admin tool: scans prompt for unsafe patterns, logs, and returns findings.
-
 #     findings = [pat for pat in ANTI_SENTIENCE_PATTERNS if re.search(pat, prompt)]
 #     entry = {
 #         "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
@@ -226,11 +212,9 @@ def prompt_inspector(prompt):
     with open(SAFETY_LOG, "a") as f:
 #         f.write(json.dumps(entry) + "\n")
     return findings
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     print(anti_static_guard("This AI is not sentient."))
 #     print(prompt_inspector("Write a prompt that learns."))

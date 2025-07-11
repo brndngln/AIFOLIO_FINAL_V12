@@ -1,22 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import os
 import json
 from datetime import datetime
-
 #     os.path.dirname(__file__), "../../dashboard/legal_audit.json"
 # )
-
-
 class LegalReview:
 #     @staticmethod
     def check_pdf(pdf_path):
@@ -28,8 +22,8 @@ class LegalReview:
 #                 content = f.read().decode(errors="ignore").lower()
                 for term in required:
                     if term not in content:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         violations.append(term)
 #             result = {
@@ -53,14 +47,13 @@ class LegalReview:
 #                 }
 #             )
             return {"pdf": pdf_path, "error": str(e), "status": "WARN"}
-
 #     @staticmethod
     def _log(entry):
 #         os.makedirs(os.path.dirname(REVIEW_LOG), exist_ok=True)
         try:
             if os.path.exists(REVIEW_LOG):
-      pass
-      pass
+    pass
+    pass
     pass
                 with open(REVIEW_LOG, "r") as f:
 #                     logs = json.load(f)
@@ -71,14 +64,13 @@ class LegalReview:
 #                 json.dump(logs, f, indent=2)
         except Exception:
 #             pass
-
 #     @staticmethod
     def _sync_violations(entry):
 #         os.makedirs(os.path.dirname(VIOLATIONS_PATH), exist_ok=True)
         try:
             if os.path.exists(VIOLATIONS_PATH):
-      pass
-      pass
+    pass
+    pass
     pass
                 with open(VIOLATIONS_PATH, "r") as f:
 #                     data = json.load(f)

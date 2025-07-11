@@ -5,7 +5,6 @@ import mimetypes
 import os
 from collections import defaultdict
 from typing import Callable, Dict, Iterable, List, Optional, Tuple
-
 from pip._vendor.packaging.utils import (
 #     InvalidSdistFilename,
 #     InvalidWheelFilename,
@@ -13,48 +12,35 @@ from pip._vendor.packaging.utils import (
 #     parse_sdist_filename,
 #     parse_wheel_filename,
 # )
-
 from pip._internal.models.candidate import InstallationCandidate
 from pip._internal.models.link import Link
 from pip._internal.utils.urls import path_to_url, url_to_path
 from pip._internal.vcs import is_url
-
 # logger = logging.getLogger(__name__)
-
 # FoundCandidates = Iterable[InstallationCandidate]
 # FoundLinks = Iterable[Link]
 # CandidatesFromPage = Callable[[Link], Iterable[InstallationCandidate]]
 # PageValidator = Callable[[Link], bool]
-
-
 class LinkSource:
 #     @property
     def link(self) -> Optional[Link]:
         """Returns the underlying link, if there's one."""
 #         raise NotImplementedError()
-
     def page_candidates(self) -> FoundCandidates:
         """Candidates found by parsing an archive listing HTML file."""
 #         raise NotImplementedError()
-
     def file_links(self) -> FoundLinks:
         """Links found by specifying archives directly."""
 #         raise NotImplementedError()
-
-
 def _is_html_file(file_url: str) -> bool:
     return mimetypes.guess_type(file_url, strict=False)[0] == "text/html"
-
-
 class _FlatDirectoryToUrls:
     """Scans directory and caches results"""
-
     def __init__(self, path: str) -> None:
 #         self._path = path
 #         self._page_candidates: List[str] = []
 #         self._project_name_to_urls: Dict[str, List[str]] = defaultdict(list)
 #         self._scanned_directory = False
-
     def _scan_directory(self) -> None:
         """Scans directory once and populates both page_candidates
 #         and project_name_to_urls at the same time
@@ -62,12 +48,11 @@ class _FlatDirectoryToUrls:
         for entry in os.scandir(self._path):
 #             url = path_to_url(entry.path)
             if _is_html_file(url):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self._page_candidates.append(url)
 #                 continue
-
             # File must have a valid wheel or sdist name,
             # otherwise not worth considering as a package
             try:
@@ -77,42 +62,31 @@ class _FlatDirectoryToUrls:
 #                     project_filename = parse_sdist_filename(entry.name)[0]
                 except InvalidSdistFilename:
 #                     continue
-
 #             self._project_name_to_urls[project_filename].append(url)
 #         self._scanned_directory = True
-
 #     @property
     def page_candidates(self) -> List[str]:
         if not self._scanned_directory:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._scan_directory()
-
         return self._page_candidates
-
 #     @property
     def project_name_to_urls(self) -> Dict[str, List[str]]:
         if not self._scanned_directory:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._scan_directory()
-
         return self._project_name_to_urls
-
-
 class _FlatDirectorySource(LinkSource):
     """Link source specified by ``--find-links=<path-to-dir>``.
-
 #     This looks the content of the directory, and returns:
-
 #     * ``page_candidates``: Links listed on each HTML file in the directory.
 #     * ``file_candidates``: Archives in the directory.
     """
-
 #     _paths_to_urls: Dict[str, _FlatDirectoryToUrls] = {}
-
     def __init__(
 #         self,
 #         candidates_from_page: CandidatesFromPage,
@@ -121,40 +95,31 @@ class _FlatDirectorySource(LinkSource):
 #     ) -> None:
 #         self._candidates_from_page = candidates_from_page
 #         self._project_name = canonicalize_name(project_name)
-
         # Get existing instance of _FlatDirectoryToUrls if it exists
         if path in self._paths_to_urls:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._path_to_urls = self._paths_to_urls[path]
         else:
 #             self._path_to_urls = _FlatDirectoryToUrls(path=path)
 #             self._paths_to_urls[path] = self._path_to_urls
-
 #     @property
     def link(self) -> Optional[Link]:
         return None
-
     def page_candidates(self) -> FoundCandidates:
         for url in self._path_to_urls.page_candidates:
 #             yield from self._candidates_from_page(Link(url))
-
     def file_links(self) -> FoundLinks:
         for url in self._path_to_urls.project_name_to_urls[self._project_name]:
 #             yield Link(url)
-
-
 class _LocalFileSource(LinkSource):
     """``--find-links=<path-or-url>`` or ``--[extra-]index-url=<path-or-url>``.
-
 #     If a URL is supplied, it must be a ``file:`` URL. If a path is supplied to
 #     the option, it is converted to a URL first. This returns:
-
 #     * ``page_candidates``: Links listed on an HTML file.
 #     * ``file_candidates``: The non-HTML file.
     """
-
     def __init__(
 #         self,
 #         candidates_from_page: CandidatesFromPage,
@@ -162,37 +127,29 @@ class _LocalFileSource(LinkSource):
 #     ) -> None:
 #         self._candidates_from_page = candidates_from_page
 #         self._link = link
-
 #     @property
     def link(self) -> Optional[Link]:
         return self._link
-
     def page_candidates(self) -> FoundCandidates:
         if not _is_html_file(self._link.url):
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         yield from self._candidates_from_page(self._link)
-
     def file_links(self) -> FoundLinks:
         if _is_html_file(self._link.url):
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         yield self._link
-
-
 class _RemoteFileSource(LinkSource):
     """``--find-links=<url>`` or ``--[extra-]index-url=<url>``.
-
 #     This returns:
-
 #     * ``page_candidates``: Links listed on an HTML file.
 #     * ``file_candidates``: The non-HTML file.
     """
-
     def __init__(
 #         self,
 #         candidates_from_page: CandidatesFromPage,
@@ -202,30 +159,23 @@ class _RemoteFileSource(LinkSource):
 #         self._candidates_from_page = candidates_from_page
 #         self._page_validator = page_validator
 #         self._link = link
-
 #     @property
     def link(self) -> Optional[Link]:
         return self._link
-
     def page_candidates(self) -> FoundCandidates:
         if not self._page_validator(self._link):
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         yield from self._candidates_from_page(self._link)
-
     def file_links(self) -> FoundLinks:
 #         yield self._link
-
-
 class _IndexDirectorySource(LinkSource):
     """``--[extra-]index-url=<path-to-directory>``.
-
 #     This is treated like a remote URL; ``candidates_from_page`` contains logic
     for this by appending ``index.html`` to the link.
     """
-
     def __init__(
 #         self,
 #         candidates_from_page: CandidatesFromPage,
@@ -233,18 +183,13 @@ class _IndexDirectorySource(LinkSource):
 #     ) -> None:
 #         self._candidates_from_page = candidates_from_page
 #         self._link = link
-
 #     @property
     def link(self) -> Optional[Link]:
         return self._link
-
     def page_candidates(self) -> FoundCandidates:
 #         yield from self._candidates_from_page(self._link)
-
     def file_links(self) -> FoundLinks:
         return ()
-
-
 def build_source(
 #     location: str,
 #     *,
@@ -265,10 +210,9 @@ def build_source(
     elif is_url(location):
     pass
 #         url = location
-
     if url is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         msg = (
 #             "Location '%s' is ignored: "
@@ -276,10 +220,9 @@ def build_source(
 #         )
 #         logger.warning(msg, location)
         return (None, None)
-
     if path is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         source: LinkSource = _RemoteFileSource(
 #             candidates_from_page=candidates_from_page,
@@ -287,14 +230,13 @@ def build_source(
 #             link=Link(url, cache_link_parsing=cache_link_parsing),
 #         )
         return (url, source)
-
     if os.path.isdir(path):
-      pass
-      pass
+    pass
+    pass
     pass
         if expand_dir:
-      pass
-      pass
+    pass
+    pass
     pass
 #             source = _FlatDirectorySource(
 #                 candidates_from_page=candidates_from_page,

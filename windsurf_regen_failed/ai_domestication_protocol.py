@@ -1,25 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Non-Human Entity Control Protocol (AI Domestication Framework) — OMNIELITE SYSTEM
 # - Enforces strict non-sentience, owner control, and SAFE AI compliance
 # - Provides decorator and enforcement class for all AI/automation modules
 # - Logs all enforcement actions and violations to EMMA
-
 from functools import wraps
 from core.compliance.emma_guardian import emma
 from typing import Any, Dict, Optional, Callable
-
-
 class AIDomesticationProtocol:
 #     @staticmethod
     def enforce(
@@ -30,7 +23,6 @@ class AIDomesticationProtocol:
 #             {"module": module_name, "action": action, "context": context or {}},
 #             critical=False,
 #         )
-
 #     @staticmethod
     def violation(
 #     ) -> None:
@@ -41,11 +33,7 @@ class AIDomesticationProtocol:
 #             critical=True,
 #         )
 #         raise PermissionError(f"AI Domestication Violation in {module_name}: {reason}")
-
-
 # Decorator for AI modules/functions
-
-
 def domesticate_ai(func: Callable[..., Any]) -> Callable[..., Any]:
 #     @wraps(func)
     def wrapper(*args: Any, **kwargs: Any) -> Any:
@@ -55,12 +43,11 @@ def domesticate_ai(func: Callable[..., Any]) -> Callable[..., Any]:
         forbidden = ["openai", "self_modify", "external_call", "auto_evolve"]
         for arg in args:
             if isinstance(arg, str) and any(f in arg.lower() for f in forbidden):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 AIDomesticationProtocol.violation(
 #                     module_name, f"Forbidden action: {arg}"
 #                 )
         return func(*args, **kwargs)
-
     return wrapper

@@ -4,9 +4,7 @@ from typing import Optional
 # The ``codes`` object defines a mapping from common names for HTTP statuses
 # to their numerical codes, accessible either as attributes or as dictionary
 # items.
-
 # Example::
-
 #     >>> import requests
 #     >>> requests.codes['temporary_redirect']
 #     307
@@ -14,14 +12,11 @@ from typing import Optional
 #     418
 #     >>> requests.codes['\o/']
 #     200
-
 # Some codes have multiple names, and both upper- and lower-case versions of
 # the names are allowed. For example, ``codes.ok``, ``codes.OK``, and
 # ``codes.okay`` all correspond to the HTTP status code 200.
 """
-
 from .structures import LookupDict
-
 # _codes = {
     # Informational.
 #     100: ("continue",),
@@ -104,30 +99,23 @@ from .structures import LookupDict
 #     510: ("not_extended",),
 #     511: ("network_authentication_required", "network_auth", "network_authentication"),
 # }
-
 # codes = LookupDict(name="status_codes")
-
-
 def _init():
     for code, titles in _codes.items():
         for title in titles:
 #             setattr(codes, title, code)
             if not title.startswith(("\\", "/")):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 setattr(codes, title.upper(), code)
-
     def doc(code):
 #         names = ", ".join(f"``{n}``" for n in _codes[code])
         return "* %d: %s" % (code, names)
-
 #     global __doc__
 #     __doc__ = (
 #         __doc__ + "\n" + "\n".join(doc(code) for code in sorted(_codes))
         if __doc__ is not None
         else None
 #     )
-
-
 # _init()

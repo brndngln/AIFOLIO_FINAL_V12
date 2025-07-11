@@ -1,8 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # orm/bulk_persistence.py
@@ -12,13 +10,9 @@
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
 # mypy: ignore-errors
-
-
 # additional ORM persistence classes related to bulk operations,
 # specifically outside of the flush() process.
-
 from __future__ import annotations
-
 from typing import Any
 from typing import cast
 from typing import Dict
@@ -28,7 +22,6 @@ from typing import overload
 from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
-
 from . import attributes
 from . import context
 from . import evaluator
@@ -58,10 +51,9 @@ from ..sql.dml import InsertDMLState
 from ..sql.dml import UpdateDMLState
 from ..util import EMPTY_DICT
 from ..util.typing import Literal
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ._typing import DMLStrategyArgument
     from ._typing import OrmExecuteOptionsParameter
@@ -75,10 +67,7 @@ if TYPE_CHECKING:
     from ..engine import Connection
     from ..engine import cursor
     from ..engine.interfaces import _CoreAnyExecuteParams
-
 # _O = TypeVar("_O", bound=object)
-
-
 # @overload
 def _bulk_insert(
 #     mapper: Mapper[_O],
@@ -91,8 +80,6 @@ def _bulk_insert(
 #     execution_options: Optional[OrmExecuteOptionsParameter] = ...,
 # ) -> None:
 #     ...
-
-
 # @overload
 def _bulk_insert(
 #     mapper: Mapper[_O],
@@ -105,8 +92,6 @@ def _bulk_insert(
 #     execution_options: Optional[OrmExecuteOptionsParameter] = ...,
 # ) -> cursor.CursorResult[Any]:
 #     ...
-
-
 def _bulk_insert(
 #     mapper: Mapper[_O],
 #     mappings: Union[Iterable[InstanceState[_O]], Iterable[Dict[str, Any]]],
@@ -118,23 +103,21 @@ def _bulk_insert(
 #     execution_options: Optional[OrmExecuteOptionsParameter] = None,
 # ) -> Optional[cursor.CursorResult[Any]]:
 #     base_mapper = mapper.base_mapper
-
     if session_transaction.session.connection_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise NotImplementedError(
 #             "connection_callable / per-instance sharding "
 #             "not supported in bulk_insert()"
 #         )
-
     if isstates:
-      pass
-      pass
+    pass
+    pass
     pass
         if return_defaults:
-      pass
-      pass
+    pass
+    pass
     pass
 #             states = [(state, state.dict) for state in mappings]
 #             mappings = [dict_ for (state, dict_) in states]
@@ -143,20 +126,16 @@ def _bulk_insert(
     else:
 #         mappings = [dict(m) for m in mappings]
 #         _expand_composites(mapper, mappings)
-
 #     connection = session_transaction.connection(base_mapper)
-
     return_result: Optional[cursor.CursorResult[Any]] = None
-
 #     mappers_to_run = [
 #         (table, mp)
         for table, mp in base_mapper._sorted_tables.items()
         if table in mapper._pks_by_table
 #     ]
-
     if return_defaults:
-      pass
-      pass
+    pass
+    pass
     pass
         # not used by new-style bulk inserts, only used for legacy
 #         bookkeeping = True
@@ -168,7 +147,6 @@ def _bulk_insert(
 #         bookkeeping = True
     else:
 #         bookkeeping = False
-
     for table, super_mapper in mappers_to_run:
         # find bindparams in the statement. For bulk, we dont really know if
         # a key in the params applies to a different table since we are
@@ -186,7 +164,6 @@ def _bulk_insert(
             if use_orm_insert_stmt is not None
             else ()
 #         )
-
 #         records = (
 #             (
 #                 None,
@@ -216,7 +193,6 @@ def _bulk_insert(
 #                 include_bulk_keys=extra_bp_names,
 #             )
 #         )
-
 #         result = persistence._emit_insert_statements(
 #             base_mapper,
 #             None,
@@ -228,22 +204,21 @@ def _bulk_insert(
 #             execution_options=execution_options,
 #         )
         if use_orm_insert_stmt is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if not use_orm_insert_stmt._returning or return_result is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return_result = result
             elif result.returns_rows:
     pass
 #                 assert bookkeeping
                 return_result = return_result.splice_horizontally(result)
-
     if return_defaults and isstates:
-      pass
-      pass
+    pass
+    pass
     pass
 #         identity_cls = mapper._identity_class
 #         identity_props = [p.key for p in mapper._identity_key_props]
@@ -252,15 +227,12 @@ def _bulk_insert(
 #                 identity_cls,
 #                 tuple([dict_[key] for key in identity_props]),
 #             )
-
     if use_orm_insert_stmt is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         assert return_result is not None
         return return_result
-
-
 # @overload
 def _bulk_update(
 #     mapper: Mapper[Any],
@@ -272,8 +244,6 @@ def _bulk_update(
 #     enable_check_rowcount: bool = True,
 # ) -> None:
 #     ...
-
-
 # @overload
 def _bulk_update(
 #     mapper: Mapper[Any],
@@ -285,8 +255,6 @@ def _bulk_update(
 #     enable_check_rowcount: bool = True,
 # ) -> _result.Result[Any]:
 #     ...
-
-
 def _bulk_update(
 #     mapper: Mapper[Any],
 #     mappings: Union[Iterable[InstanceState[_O]], Iterable[Dict[str, Any]]],
@@ -297,28 +265,25 @@ def _bulk_update(
 #     enable_check_rowcount: bool = True,
 # ) -> Optional[_result.Result[Any]]:
 #     base_mapper = mapper.base_mapper
-
 #     search_keys = mapper._primary_key_propkeys
     if mapper._version_id_prop:
-      pass
-      pass
+    pass
+    pass
     pass
 #         search_keys = {mapper._version_id_prop.key}.union(search_keys)
-
     def _changed_dict(mapper, state):
         return {
 #             k: v
             for k, v in state.dict.items()
             if k in state.committed_state or k in search_keys
 #         }
-
     if isstates:
-      pass
-      pass
+    pass
+    pass
     pass
         if update_changed_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #             mappings = [_changed_dict(mapper, state) for state in mappings]
         else:
@@ -326,18 +291,15 @@ def _bulk_update(
     else:
 #         mappings = [dict(m) for m in mappings]
 #         _expand_composites(mapper, mappings)
-
     if session_transaction.session.connection_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise NotImplementedError(
 #             "connection_callable / per-instance sharding "
 #             "not supported in bulk_update()"
 #         )
-
 #     connection = session_transaction.connection(base_mapper)
-
     # find bindparams in the statement. see _bulk_insert for similar
     # notes for the insert case
 #     extra_bp_names = (
@@ -349,14 +311,12 @@ def _bulk_update(
         if use_orm_update_stmt is not None
         else ()
 #     )
-
     for table, super_mapper in base_mapper._sorted_tables.items():
         if not mapper.isa(super_mapper) or table not in mapper._pks_by_table:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
-
 #         records = persistence._collect_update_commands(
 #             None,
 #             table,
@@ -388,22 +348,18 @@ def _bulk_update(
 #             use_orm_update_stmt=use_orm_update_stmt,
 #             enable_check_rowcount=enable_check_rowcount,
 #         )
-
     if use_orm_update_stmt is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         return _result.null_result()
-
-
 def _expand_composites(mapper, mappings):
 #     composite_attrs = mapper.composites
     if not composite_attrs:
-      pass
-      pass
+    pass
+    pass
     pass
         return
-
 #     composite_keys = set(composite_attrs.keys())
 #     populators = {
 #         key: composite_attrs[key]._populate_composite_bulk_save_mappings_fn()
@@ -412,29 +368,24 @@ def _expand_composites(mapper, mappings):
     for mapping in mappings:
         for key in composite_keys.intersection(mapping):
 #             populators[key](mapping)
-
-
 class ORMDMLState(AbstractORMCompileState):
 #     is_dml_returning = True
     from_statement_ctx: Optional[ORMFromStatementCompileState] = None
-
 #     @classmethod
     def _get_orm_crud_kv_pairs(
 #         cls, mapper, statement, kv_iterator, needs_to_be_cacheable
 #     ):
 #         core_get_crud_kv_pairs = UpdateDMLState._get_crud_kv_pairs
-
         for k, v in kv_iterator:
 #             k = coercions.expect(roles.DMLColumnRole, k)
-
             if isinstance(k, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 desc = _entity_namespace_key(mapper, k, default=NO_VALUE)
                 if desc is NO_VALUE:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield (
 #                         coercions.expect(roles.DMLColumnRole, k),
@@ -476,19 +427,16 @@ class ORMDMLState(AbstractORMCompileState):
 #                         is_crud=True,
 #                     ),
 #                 )
-
 #     @classmethod
     def _get_multi_crud_kv_pairs(cls, statement, kv_iterator):
 #         plugin_subject = statement._propagate_attrs["plugin_subject"]
-
         if not plugin_subject or not plugin_subject.mapper:
-      pass
-      pass
+    pass
+    pass
     pass
             return UpdateDMLState._get_multi_crud_kv_pairs(
 #                 statement, kv_iterator
 #             )
-
         return [
 #             dict(
 #                 cls._get_orm_crud_kv_pairs(
@@ -497,23 +445,19 @@ class ORMDMLState(AbstractORMCompileState):
 #             )
             for value_dict in kv_iterator
 #         ]
-
 #     @classmethod
     def _get_crud_kv_pairs(cls, statement, kv_iterator, needs_to_be_cacheable):
 #         assert (
 #             needs_to_be_cacheable
 #         ), "no test coverage for needs_to_be_cacheable=False"
-
 #         plugin_subject = statement._propagate_attrs["plugin_subject"]
-
         if not plugin_subject or not plugin_subject.mapper:
-      pass
-      pass
+    pass
+    pass
     pass
             return UpdateDMLState._get_crud_kv_pairs(
 #                 statement, kv_iterator, needs_to_be_cacheable
 #             )
-
         return list(
 #             cls._get_orm_crud_kv_pairs(
 #                 plugin_subject.mapper,
@@ -522,19 +466,17 @@ class ORMDMLState(AbstractORMCompileState):
 #                 needs_to_be_cacheable,
 #             )
 #         )
-
 #     @classmethod
     def get_entity_description(cls, statement):
 #         ext_info = statement.table._annotations["parententity"]
 #         mapper = ext_info.mapper
         if ext_info.is_aliased_class:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _label_name = ext_info.name
         else:
 #             _label_name = mapper.class_.__name__
-
         return {
 #             "name": _label_name,
 #             "type": mapper.class_,
@@ -542,27 +484,24 @@ class ORMDMLState(AbstractORMCompileState):
 #             "entity": ext_info.entity,
 #             "table": mapper.local_table,
 #         }
-
 #     @classmethod
     def get_returning_column_descriptions(cls, statement):
         def _ent_for_col(c):
             return c._annotations.get("parententity", None)
-
         def _attr_for_col(c, ent):
             if ent is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return c
 #             proxy_key = c._annotations.get("proxy_key", None)
             if not proxy_key:
-      pass
-      pass
+    pass
+    pass
     pass
                 return c
             else:
                 return getattr(ent.entity, proxy_key, c)
-
         return [
 #             {
 #                 "name": c.key,
@@ -575,7 +514,6 @@ class ORMDMLState(AbstractORMCompileState):
 #                 (c, _ent_for_col(c)) for c in statement._all_selected_columns
 #             ]
 #         ]
-
     def _setup_orm_returning(
 #         self,
 #         compiler,
@@ -587,16 +525,13 @@ class ORMDMLState(AbstractORMCompileState):
 #     ):
 #         establish ORM column handlers for an INSERT, UPDATE, or DELETE
 #         which uses explicit returning().
-
 #         called within compilation level create_for_statement.
-
 #         The _return_orm_returning() method then receives the Result
 #         after the statement was executed, and applies ORM loading to the
 #         state that we first established here.
-
         if orm_level_statement._returning:
-      pass
-      pass
+    pass
+    pass
     pass
 #             fs = FromStatement(
 #                 orm_level_statement._returning,
@@ -610,23 +545,19 @@ class ORMDMLState(AbstractORMCompileState):
 #                 fsc
 #             ) = ORMFromStatementCompileState.create_for_statement(fs, compiler)
 #             fsc.setup_dml_returning_compile_state(dml_mapper)
-
 #             dml_level_statement = dml_level_statement._generate()
 #             dml_level_statement._returning = ()
-
 #             cols_to_return = [c for c in fsc.primary_columns if c is not None]
-
             # since we are splicing result sets together, make sure there
             # are columns of some kind returned in each result set
             if not cols_to_return:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 cols_to_return.extend(dml_mapper.primary_key)
-
             if use_supplemental_cols:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dml_level_statement = dml_level_statement.return_defaults(
                     # this is a little weird looking, but by passing
@@ -647,9 +578,7 @@ class ORMDMLState(AbstractORMCompileState):
 #                 dml_level_statement = dml_level_statement.returning(
 #                     *cols_to_return
 #                 )
-
         return dml_level_statement
-
 #     @classmethod
     def _return_orm_returning(
 #         cls,
@@ -662,7 +591,6 @@ class ORMDMLState(AbstractORMCompileState):
 #     ):
 #         execution_context = result.context
 #         compile_state = execution_context.compiled.compile_state
-
         if (
 #             compile_state.from_statement_ctx
 #             and not compile_state.from_statement_ctx.compile_options._is_star
@@ -670,7 +598,6 @@ class ORMDMLState(AbstractORMCompileState):
 #             load_options = execution_options.get(
 #                 "_sa_orm_load_options", QueryContext.default_load_options
 #             )
-
 #             querycontext = QueryContext(
 #                 compile_state.from_statement_ctx,
 #                 compile_state.select_statement,
@@ -683,8 +610,6 @@ class ORMDMLState(AbstractORMCompileState):
             return loading.instances(result, querycontext)
         else:
             return result
-
-
 class BulkUDCompileState(ORMDMLState):
     class default_update_options(Options):
 #         _dml_strategy: DMLStrategyArgument = "auto"
@@ -698,7 +623,6 @@ class BulkUDCompileState(ORMDMLState):
 #         _eval_condition = None
 #         _matched_rows = None
 #         _identity_token = None
-
 #     @classmethod
     def can_use_returning(
 #         cls,
@@ -711,7 +635,6 @@ class BulkUDCompileState(ORMDMLState):
 #         is_executemany: bool = False,
 #     ) -> bool:
 #         raise NotImplementedError()
-
 #     @classmethod
     def orm_pre_session_exec(
 #         cls,
@@ -745,22 +668,21 @@ class BulkUDCompileState(ORMDMLState):
 #             assert False, "statement had 'orm' plugin but no plugin_subject"
         else:
             if plugin_subject:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 bind_arguments["mapper"] = plugin_subject.mapper
 #                 update_options += {"_subject_mapper": plugin_subject.mapper}
-
         if "parententity" not in statement.table._annotations:
-      pass
-      pass
+    pass
+    pass
     pass
 #             update_options += {"_dml_strategy": "core_only"}
         elif not isinstance(params, list):
     pass
             if update_options._dml_strategy == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 update_options += {"_dml_strategy": "orm"}
             elif update_options._dml_strategy == "bulk":
@@ -771,50 +693,47 @@ class BulkUDCompileState(ORMDMLState):
 #                 )
         else:
             if update_options._dml_strategy == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 update_options += {"_dml_strategy": "bulk"}
-
 #         sync = update_options._synchronize_session
         if sync is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if sync not in ("auto", "evaluate", "fetch", False):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise sa_exc.ArgumentError(
 #                     "Valid strategies for session synchronization "
 #                     "are 'auto', 'evaluate', 'fetch', False"
 #                 )
             if update_options._dml_strategy == "bulk" and sync == "fetch":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise sa_exc.InvalidRequestError(
 #                     "The 'fetch' synchronization strategy is not available "
 #                     "for 'bulk' ORM updates (i.e. multiple parameter sets)"
 #                 )
-
         if not is_pre_event:
-      pass
-      pass
+    pass
+    pass
     pass
             if update_options._autoflush:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 session._autoflush()
-
             if update_options._dml_strategy == "orm":
-      pass
-      pass
+    pass
+    pass
     pass
                 if update_options._synchronize_session == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     update_options = cls._do_pre_synchronize_auto(
 #                         session,
@@ -847,11 +766,10 @@ class BulkUDCompileState(ORMDMLState):
             elif update_options._dml_strategy == "bulk":
     pass
                 if update_options._synchronize_session == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     update_options += {"_synchronize_session": "evaluate"}
-
             # indicators from the "pre exec" step that are then
             # added to the DML statement, which will also be part of the cache
             # key.  The compile level create_for_statement() method will then
@@ -865,14 +783,12 @@ class BulkUDCompileState(ORMDMLState):
 #                     "can_use_returning": update_options._can_use_returning,
 #                 }
 #             )
-
         return (
 #             statement,
 #             util.immutabledict(execution_options).union(
 #                 {"_sa_orm_update_options": update_options}
 #             ),
 #         )
-
 #     @classmethod
     def orm_setup_cursor_result(
 #         cls,
@@ -890,15 +806,14 @@ class BulkUDCompileState(ORMDMLState):
         # and will occur for each backend individually.
         # the sharding extension then returns its own merged result from the
         # individual ones we return here.
-
 #         update_options = execution_options["_sa_orm_update_options"]
         if update_options._dml_strategy == "orm":
-      pass
-      pass
+    pass
+    pass
     pass
             if update_options._synchronize_session == "evaluate":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 cls._do_post_synchronize_evaluate(
 #                     session, statement, result, update_options
@@ -911,14 +826,13 @@ class BulkUDCompileState(ORMDMLState):
         elif update_options._dml_strategy == "bulk":
     pass
             if update_options._synchronize_session == "evaluate":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 cls._do_post_synchronize_bulk_evaluate(
 #                     session, params, result, update_options
 #                 )
             return result
-
         return cls._return_orm_returning(
 #             session,
 #             statement,
@@ -927,22 +841,16 @@ class BulkUDCompileState(ORMDMLState):
 #             bind_arguments,
 #             result,
 #         )
-
 #     @classmethod
     def _adjust_for_extra_criteria(cls, global_attributes, ext_info):
 #         Apply extra criteria filtering.
-
 #         For all distinct single-table-inheritance mappers represented in the
 #         table being updated or deleted, produce additional WHERE criteria such
 #         that only the appropriate subtypes are selected from the total results.
-
 #         Additionally, add WHERE criteria originating from LoaderCriteriaOptions
 #         collected from the statement.
-
         return_crit = ()
-
 #         adapter = ext_info._adapter if ext_info.is_aliased_class else None
-
         if (
 #             "additional_entity_criteria",
 #             ext_info.mapper,
@@ -954,65 +862,53 @@ class BulkUDCompileState(ORMDMLState):
 #                 ]
                 if ae.include_aliases or ae.entity is ext_info
 #             )
-
         if ext_info.mapper._single_table_criterion is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return_crit += (ext_info.mapper._single_table_criterion,)
-
         if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
             return_crit = tuple(adapter.traverse(crit) for crit in return_crit)
-
         return return_crit
-
 #     @classmethod
     def _interpret_returning_rows(cls, mapper, rows):
 #         translate from local inherited table columns to base mapper
 #         primary key columns.
-
 #         Joined inheritance mappers always establish the primary key in terms of
 #         the base table.   When we UPDATE a sub-table, we can only get
-
 #         Here, we create a lookup from the local sub tables primary key
 #         columns to the base table PK columns so that we can get identity
 #         key values from RETURNING thats against the joined inheritance
 #         sub-table.
-
 #         the complexity here is to support more than one level deep of
 #         inheritance, where we have to link columns to each other across
 #         the inheritance hierarchy.
-
         if mapper.local_table is not mapper.base_mapper.local_table:
-      pass
-      pass
+    pass
+    pass
     pass
             return rows
-
         # this starts as a mapping of
         # local_pk_col: local_pk_col.
         # we will then iteratively rewrite the "value" of the dict with
         # each successive superclass column
 #         local_pk_to_base_pk = {pk: pk for pk in mapper.local_table.primary_key}
-
         for mp in mapper.iterate_to_root():
             if mp.inherits is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
             elif mp.local_table is mp.inherits.local_table:
     pass
 #                 continue
-
 #             t_to_e = dict(mp._table_to_equated[mp.inherits.local_table])
 #             col_to_col = {sub_pk: super_pk for super_pk, sub_pk in t_to_e[mp]}
             for pk, super_ in local_pk_to_base_pk.items():
 #                 local_pk_to_base_pk[pk] = col_to_col[super_]
-
 #         lookup = {
 #             local_pk_to_base_pk[lpk]: idx
             for idx, lpk in enumerate(mapper.local_table.primary_key)
@@ -1021,33 +917,28 @@ class BulkUDCompileState(ORMDMLState):
 #             lookup[bpk] for bpk in mapper.base_mapper.primary_key
 #         ]
         return [tuple(row[idx] for idx in primary_key_convert) for row in rows]
-
 #     @classmethod
     def _get_matched_objects_on_criteria(cls, update_options, states):
 #         mapper = update_options._subject_mapper
 #         eval_condition = update_options._eval_condition
-
 #         raw_data = [
 #             (state.obj(), state, state.dict)
             for state in states
             if state.mapper.isa(mapper) and not state.expired
 #         ]
-
 #         identity_token = update_options._identity_token
         if identity_token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raw_data = [
 #                 (obj, state, dict_)
                 for obj, state, dict_ in raw_data
                 if state.identity_token == identity_token
 #             ]
-
 #         result = []
         for obj, state, dict_ in raw_data:
 #             evaled_condition = eval_condition(obj)
-
             # caution: dont use "in ()" or == here, _EXPIRE_OBJECT
             # evaluates as True for all comparisons
             if (
@@ -1063,48 +954,40 @@ class BulkUDCompileState(ORMDMLState):
 #                     )
 #                 )
         return result
-
 #     @classmethod
     def _eval_condition_from_statement(cls, update_options, statement):
 #         mapper = update_options._subject_mapper
 #         target_cls = mapper.class_
-
 #         evaluator_compiler = evaluator._EvaluatorCompiler(target_cls)
 #         crit = ()
         if statement._where_criteria:
-      pass
-      pass
+    pass
+    pass
     pass
 #             crit += statement._where_criteria
-
 #         global_attributes = {}
         for opt in statement._with_options:
             if opt._is_criteria_option:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 opt.get_global_criteria(global_attributes)
-
         if global_attributes:
-      pass
-      pass
+    pass
+    pass
     pass
 #             crit += cls._adjust_for_extra_criteria(global_attributes, mapper)
-
         if crit:
-      pass
-      pass
+    pass
+    pass
     pass
 #             eval_condition = evaluator_compiler.process(*crit)
         else:
             # workaround for mypy https://github.com/python/mypy/issues/14027
             def _eval_condition(obj):
                 return True
-
 #             eval_condition = _eval_condition
-
         return eval_condition
-
 #     @classmethod
     def _do_pre_synchronize_auto(
 #         cls,
@@ -1116,22 +999,16 @@ class BulkUDCompileState(ORMDMLState):
 #         update_options,
 #     ):
 #         setup auto sync strategy
-
-
 #         "auto" checks if we can use "evaluate" first, then falls back
 #         to "fetch"
-
 #         evaluate is vastly more efficient for the common case
 #         where session is empty, only has a few objects, and the UPDATE
 #         statement can potentially match thousands/millions of rows.
-
 #         we would hope usually correlates with fewer net rows.
-
         try:
 #             eval_condition = cls._eval_condition_from_statement(
 #                 update_options, statement
 #             )
-
         except evaluator.UnevaluatableError:
 #             pass
         else:
@@ -1139,7 +1016,6 @@ class BulkUDCompileState(ORMDMLState):
 #                 "_eval_condition": eval_condition,
 #                 "_synchronize_session": "evaluate",
 #             }
-
 #         update_options += {"_synchronize_session": "fetch"}
         return cls._do_pre_synchronize_fetch(
 #             session,
@@ -1149,7 +1025,6 @@ class BulkUDCompileState(ORMDMLState):
 #             bind_arguments,
 #             update_options,
 #         )
-
 #     @classmethod
     def _do_pre_synchronize_evaluate(
 #         cls,
@@ -1164,23 +1039,20 @@ class BulkUDCompileState(ORMDMLState):
 #             eval_condition = cls._eval_condition_from_statement(
 #                 update_options, statement
 #             )
-
         except evaluator.UnevaluatableError as err:
 #             raise sa_exc.InvalidRequestError(
 #                 'Could not evaluate current criteria in Python: "%s". '
 #                 "Specify 'fetch' or False for the "
 #                 "synchronize_session execution option." % err
 #             ) from err
-
         return update_options + {
 #             "_eval_condition": eval_condition,
 #         }
-
 #     @classmethod
     def _get_resolved_values(cls, mapper, statement):
         if statement._multi_values:
-      pass
-      pass
+    pass
+    pass
     pass
             return []
         elif statement._ordered_values:
@@ -1191,14 +1063,13 @@ class BulkUDCompileState(ORMDMLState):
             return list(statement._values.items())
         else:
             return []
-
 #     @classmethod
     def _resolved_keys_as_propnames(cls, mapper, resolved_values):
 #         values = []
         for k, v in resolved_values:
             if mapper and isinstance(k, expression.ColumnElement):
-      pass
-      pass
+    pass
+    pass
     pass
                 try:
 #                     attr = mapper._columntoproperty[k]
@@ -1212,7 +1083,6 @@ class BulkUDCompileState(ORMDMLState):
 #                     "synchronized back to objects: %r" % k
 #                 )
         return values
-
 #     @classmethod
     def _do_pre_synchronize_fetch(
 #         cls,
@@ -1224,14 +1094,12 @@ class BulkUDCompileState(ORMDMLState):
 #         update_options,
 #     ):
 #         mapper = update_options._subject_mapper
-
 #         select_stmt = (
 #             select(*(mapper.primary_key + (mapper.select_identity_token,)))
 #             .select_from(mapper)
 #             .options(*statement._with_options)
 #         )
 #         select_stmt._where_criteria = statement._where_criteria
-
         # conditionally run the SELECT statement for pre-fetch, testing the
         # "bind" for if we can use RETURNING or not using the do_orm_execute
         # event.  If RETURNING is available, the do_orm_execute event
@@ -1244,13 +1112,10 @@ class BulkUDCompileState(ORMDMLState):
         # as the horizontal sharding extention that "multiplexes" an individual
         # statement run through multiple engines, and it uses
         # do_orm_execute() to do that.
-
 #         can_use_returning = None
-
         def skip_for_returning(orm_context: ORMExecuteState) -> Any:
 #             bind = orm_context.session.get_bind(**orm_context.bind_arguments)
 #             nonlocal can_use_returning
-
 #             per_bind_result = cls.can_use_returning(
 #                 bind.dialect,
 #                 mapper,
@@ -1258,14 +1123,13 @@ class BulkUDCompileState(ORMDMLState):
 #                 is_delete_using=update_options._is_delete_using,
 #                 is_executemany=orm_context.is_executemany,
 #             )
-
             if can_use_returning is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if can_use_returning != per_bind_result:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise sa_exc.InvalidRequestError(
 #                         "For synchronize_session=fetch, cant mix multiple "
@@ -1281,15 +1145,13 @@ class BulkUDCompileState(ORMDMLState):
 #                 )
             else:
 #                 can_use_returning = per_bind_result
-
             if per_bind_result:
-      pass
-      pass
+    pass
+    pass
     pass
                 return _result.null_result()
             else:
                 return None
-
 #         result = session.execute(
 #             select_stmt,
 #             params,
@@ -1298,13 +1160,10 @@ class BulkUDCompileState(ORMDMLState):
 #             _add_event=skip_for_returning,
 #         )
 #         matched_rows = result.fetchall()
-
         return update_options + {
 #             "_matched_rows": matched_rows,
 #             "_can_use_returning": can_use_returning,
 #         }
-
-
 # @CompileState.plugin_for("orm", "insert")
 class BulkORMInsert(ORMDMLState, InsertDMLState):
     class default_insert_options(Options):
@@ -1314,9 +1173,7 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #         _subject_mapper: Optional[Mapper[Any]] = None
 #         _autoflush: bool = True
 #         _populate_existing: bool = False
-
 #     select_statement: Optional[FromStatement] = None
-
 #     @classmethod
     def orm_pre_session_exec(
 #         cls,
@@ -1343,19 +1200,18 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             assert False, "statement had 'orm' plugin but no plugin_subject"
         else:
             if plugin_subject:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 bind_arguments["mapper"] = plugin_subject.mapper
 #                 insert_options += {"_subject_mapper": plugin_subject.mapper}
-
         if not params:
-      pass
-      pass
+    pass
+    pass
     pass
             if insert_options._dml_strategy == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 insert_options += {"_dml_strategy": "orm"}
             elif insert_options._dml_strategy == "bulk":
@@ -1366,14 +1222,13 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #                 )
         else:
             if insert_options._dml_strategy == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 insert_options += {"_dml_strategy": "bulk"}
-
         if insert_options._dml_strategy != "raw":
-      pass
-      pass
+    pass
+    pass
     pass
             # for ORM object loading, like ORMContext, we have to disable
             # result set adapt_to_context, because we will be generating a
@@ -1381,32 +1236,28 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
             # an ORMFromStatementCompileState, which we will re-use for
             # each result.
             if not execution_options:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 execution_options = context._orm_load_exec_options
             else:
 #                 execution_options = execution_options.union(
 #                     context._orm_load_exec_options
 #                 )
-
         if not is_pre_event and insert_options._autoflush:
-      pass
-      pass
+    pass
+    pass
     pass
 #             session._autoflush()
-
 #         statement = statement._annotate(
 #             {"dml_strategy": insert_options._dml_strategy}
 #         )
-
         return (
 #             statement,
 #             util.immutabledict(execution_options).union(
 #                 {"_sa_orm_insert_options": insert_options}
 #             ),
 #         )
-
 #     @classmethod
     def orm_execute_statement(
 #         cls,
@@ -1420,7 +1271,6 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #         insert_options = execution_options.get(
 #             "_sa_orm_insert_options", cls.default_insert_options
 #         )
-
         if insert_options._dml_strategy not in (
 #             "raw",
 #             "bulk",
@@ -1431,24 +1281,20 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #                 "Valid strategies for ORM insert strategy "
 #                 "are raw, orm, bulk, auto"
 #             )
-
 #         result: _result.Result[Any]
-
         if insert_options._dml_strategy == "raw":
-      pass
-      pass
+    pass
+    pass
     pass
 #             result = conn.execute(
 #                 statement, params or {}, execution_options=execution_options
 #             )
             return result
-
         if insert_options._dml_strategy == "bulk":
-      pass
-      pass
+    pass
+    pass
     pass
 #             mapper = insert_options._subject_mapper
-
             if (
 #                 statement._post_values_clause is not None
 #                 and mapper._multiple_persistence_tables
@@ -1458,7 +1304,6 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #                     "(typically upsert) not supported for multi-table "
 #                     f"mapper {mapper}"
 #                 )
-
 #             assert mapper is not None
 #             assert session._transaction is not None
 #             result = _bulk_insert(
@@ -1481,16 +1326,14 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             )
         else:
 #             raise AssertionError()
-
         if not bool(statement._returning):
-      pass
-      pass
+    pass
+    pass
     pass
             return result
-
         if insert_options._populate_existing:
-      pass
-      pass
+    pass
+    pass
     pass
 #             load_options = execution_options.get(
 #                 "_sa_orm_load_options", QueryContext.default_load_options
@@ -1499,7 +1342,6 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             execution_options = execution_options.union(
 #                 {"_sa_orm_load_options": load_options}
 #             )
-
         return cls._return_orm_returning(
 #             session,
 #             statement,
@@ -1508,40 +1350,35 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             bind_arguments,
 #             result,
 #         )
-
 #     @classmethod
     def create_for_statement(cls, statement, compiler, **kw) -> BulkORMInsert:
 #         self = cast(
 #             BulkORMInsert,
 #             super().create_for_statement(statement, compiler, **kw),
 #         )
-
         if compiler is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             toplevel = not compiler.stack
         else:
 #             toplevel = True
         if not toplevel:
-      pass
-      pass
+    pass
+    pass
     pass
             return self
-
 #         mapper = statement._propagate_attrs["plugin_subject"]
 #         dml_strategy = statement._annotations.get("dml_strategy", "raw")
         if dml_strategy == "bulk":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._setup_for_bulk_insert(compiler)
         elif dml_strategy == "orm":
     pass
 #             self._setup_for_orm_insert(compiler, mapper)
-
         return self
-
 #     @classmethod
     def _resolved_keys_as_col_keys(cls, mapper, resolved_value_dict):
         return {
@@ -1550,10 +1387,8 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #                 (mapper.c.get(k), k, v) for k, v in resolved_value_dict.items()
 #             )
 #         }
-
     def _setup_for_orm_insert(self, compiler, mapper):
 #         statement = orm_level_statement = cast(dml.Insert, self.statement)
-
 #         statement = self._setup_orm_returning(
 #             compiler,
 #             orm_level_statement,
@@ -1562,35 +1397,28 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             use_supplemental_cols=False,
 #         )
 #         self.statement = statement
-
     def _setup_for_bulk_insert(self, compiler):
 #         establish an INSERT statement within the context of
 #         bulk insert.
-
 #         This method will be within the "conn.execute()" call that is invoked
 #         by persistence._emit_insert_statement().
-
 #         statement = orm_level_statement = cast(dml.Insert, self.statement)
 #         an = statement._annotations
-
 #         emit_insert_table, emit_insert_mapper = (
 #             an["_emit_insert_table"],
 #             an["_emit_insert_mapper"],
 #         )
-
 #         statement = statement._clone()
-
 #         statement.table = emit_insert_table
         if self._dict_parameters:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._dict_parameters = {
 #                 col: val
                 for col, val in self._dict_parameters.items()
                 if col.table is emit_insert_table
 #             }
-
 #         statement = self._setup_orm_returning(
 #             compiler,
 #             orm_level_statement,
@@ -1598,7 +1426,6 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #             dml_mapper=emit_insert_mapper,
 #             use_supplemental_cols=True,
 #         )
-
         if (
 #             self.from_statement_ctx is not None
 #             and self.from_statement_ctx.compile_options._is_star
@@ -1608,25 +1435,19 @@ class BulkORMInsert(ORMDMLState, InsertDMLState):
 #                 "Please use a different INSERT form, such as INSERT..VALUES "
 #                 "or INSERT with a Core Connection"
 #             )
-
 #         self.statement = statement
-
-
 # @CompileState.plugin_for("orm", "update")
 class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #     @classmethod
     def create_for_statement(cls, statement, compiler, **kw):
 #         self = cls.__new__(cls)
-
 #         dml_strategy = statement._annotations.get(
 #             "dml_strategy", "unspecified"
 #         )
-
 #         toplevel = not compiler.stack
-
         if toplevel and dml_strategy == "bulk":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._setup_for_bulk_update(statement, compiler)
         elif (
@@ -1638,70 +1459,54 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
         elif not toplevel or dml_strategy in ("orm", "unspecified"):
     pass
 #             self._setup_for_orm_update(statement, compiler)
-
         return self
-
     def _setup_for_orm_update(self, statement, compiler, **kw):
 #         orm_level_statement = statement
-
 #         toplevel = not compiler.stack
-
 #         ext_info = statement.table._annotations["parententity"]
-
 #         self.mapper = mapper = ext_info.mapper
-
 #         self._resolved_values = self._get_resolved_values(mapper, statement)
-
 #         self._init_global_attributes(
 #             statement,
 #             compiler,
 #             toplevel=toplevel,
 #             process_criteria_for_toplevel=toplevel,
 #         )
-
         if statement._values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._resolved_values = dict(self._resolved_values)
-
 #         new_stmt = statement._clone()
-
         # note if the statement has _multi_values, these
         # are passed through to the new statement, which will then raise
         # InvalidRequestError because UPDATE doesnt support multi_values
         # right now.
         if statement._ordered_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_stmt._ordered_values = self._resolved_values
         elif statement._values:
     pass
 #             new_stmt._values = self._resolved_values
-
 #         new_crit = self._adjust_for_extra_criteria(
 #             self.global_attributes, mapper
 #         )
         if new_crit:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_stmt = new_stmt.where(*new_crit)
-
         # if we are against a lambda statement we might not be the
         # topmost object that received per-execute annotations
-
         # do this first as we need to determine if there is
         # UPDATE..FROM
-
 #         UpdateDMLState.__init__(self, new_stmt, compiler, **kw)
-
 #         use_supplemental_cols = False
-
         if not toplevel:
-      pass
-      pass
+    pass
+    pass
     pass
 #             synchronize_session = None
         else:
@@ -1712,8 +1517,8 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #             "can_use_returning", None
 #         )
         if can_use_returning is not False:
-      pass
-      pass
+    pass
+    pass
     pass
             # even though pre_exec has determined basic
             # can_use_returning for the dialect, if we are to use
@@ -1726,13 +1531,11 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                     compiler.dialect, mapper, is_multitable=self.is_multitable
 #                 )
 #             )
-
         if synchronize_session == "fetch" and can_use_returning:
-      pass
-      pass
+    pass
+    pass
     pass
 #             use_supplemental_cols = True
-
             # NOTE: we might want to RETURNING the actual columns to be
             # synchronized also.  however this is complicated and difficult
             # to align against the behavior of "evaluate".  Additionally,
@@ -1743,10 +1546,9 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
             # the elements that were based on a SQL expression and not
             # a constant.   For now it doesnt quite seem worth it
 #             new_stmt = new_stmt.return_defaults(*new_stmt.table.primary_key)
-
         if toplevel:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_stmt = self._setup_orm_returning(
 #                 compiler,
@@ -1755,42 +1557,33 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 dml_mapper=mapper,
 #                 use_supplemental_cols=use_supplemental_cols,
 #             )
-
 #         self.statement = new_stmt
-
     def _setup_for_bulk_update(self, statement, compiler, **kw):
 #         establish an UPDATE statement within the context of
 #         bulk insert.
-
 #         This method will be within the "conn.execute()" call that is invoked
 #         by persistence._emit_update_statement().
-
 #         statement = cast(dml.Update, statement)
 #         an = statement._annotations
-
 #         emit_update_table, _ = (
 #             an["_emit_update_table"],
 #             an["_emit_update_mapper"],
 #         )
-
 #         statement = statement._clone()
 #         statement.table = emit_update_table
-
 #         UpdateDMLState.__init__(self, statement, compiler, **kw)
-
         if self._ordered_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise sa_exc.InvalidRequestError(
 #                 "bulk ORM UPDATE does not support ordered_values() for "
 #                 "custom UPDATE statements with bulk parameter sets.  Use a "
 #                 "non-bulk UPDATE statement or use values()."
 #             )
-
         if self._dict_parameters:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._dict_parameters = {
 #                 col: val
@@ -1798,7 +1591,6 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
                 if col.table is emit_update_table
 #             }
 #         self.statement = statement
-
 #     @classmethod
     def orm_execute_statement(
 #         cls,
@@ -1812,7 +1604,6 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #         update_options = execution_options.get(
 #             "_sa_orm_update_options", cls.default_update_options
 #         )
-
         if update_options._dml_strategy not in (
 #             "orm",
 #             "auto",
@@ -1823,17 +1614,13 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 "Valid strategies for ORM UPDATE strategy "
 #                 "are 'orm', 'auto', 'bulk', 'core_only'"
 #             )
-
 #         result: _result.Result[Any]
-
         if update_options._dml_strategy == "bulk":
-      pass
-      pass
+    pass
+    pass
     pass
 #             enable_check_rowcount = not statement._where_criteria
-
 #             assert update_options._synchronize_session != "fetch"
-
             if (
 #                 statement._where_criteria
 #                 and update_options._synchronize_session == "evaluate"
@@ -1877,7 +1664,6 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 bind_arguments,
 #                 conn,
 #             )
-
 #     @classmethod
     def can_use_returning(
 #         cls,
@@ -1894,25 +1680,22 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #             dialect.update_returning and mapper.local_table.implicit_returning
 #         )
         if not normal_answer:
-      pass
-      pass
+    pass
+    pass
     pass
             return False
-
         if is_executemany:
-      pass
-      pass
+    pass
+    pass
     pass
             return dialect.update_executemany_returning
-
         # these workarounds are currently hypothetical for UPDATE,
         # unlike DELETE where they impact MariaDB
         if is_update_from:
-      pass
-      pass
+    pass
+    pass
     pass
             return dialect.update_returning_multifrom
-
         elif is_multitable and not dialect.update_returning_multifrom:
     pass
 #             raise sa_exc.CompileError(
@@ -1922,24 +1705,19 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 "'is_update_from=True' to the statement to indicate that "
 #                 "a separate SELECT should be used for this backend."
 #             )
-
         return True
-
 #     @classmethod
     def _do_post_synchronize_bulk_evaluate(
 #         cls, session, params, result, update_options
 #     ):
         if not params:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
 #         mapper = update_options._subject_mapper
 #         pk_keys = [prop.key for prop in mapper._identity_key_props]
-
 #         identity_map = session.identity_map
-
         for param in params:
 #             identity_key = mapper.identity_key_from_primary_key(
 #                 (param[key] for key in pk_keys),
@@ -1947,27 +1725,22 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #             )
 #             state = identity_map.fast_get_state(identity_key)
             if not state:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
-
 #             evaluated_keys = set(param).difference(pk_keys)
-
 #             dict_ = state.dict
             # only evaluate unmodified attributes
 #             to_evaluate = state.unmodified.intersection(evaluated_keys)
             for key in to_evaluate:
                 if key in dict_:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     dict_[key] = param[key]
-
 #             state.manager.dispatch.refresh(state, None, to_evaluate)
-
 #             state._commit(dict_, list(to_evaluate))
-
             # attributes that were formerly modified instead get expired.
             # this only gets hit if the session had pending changes
             # and autoflush were set to False.
@@ -1975,11 +1748,10 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 to_evaluate
 #             )
             if to_expire:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state._expire_attributes(dict_, to_expire)
-
 #     @classmethod
     def _do_post_synchronize_evaluate(
 #         cls, session, statement, result, update_options
@@ -1988,36 +1760,31 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #             update_options,
 #             session.identity_map.all_states(),
 #         )
-
 #         cls._apply_update_set_values_to_objects(
 #             session,
 #             update_options,
 #             statement,
 #             [(obj, state, dict_) for obj, state, dict_, _ in matched_objects],
 #         )
-
 #     @classmethod
     def _do_post_synchronize_fetch(
 #         cls, session, statement, result, update_options
 #     ):
 #         target_mapper = update_options._subject_mapper
-
         returned_defaults_rows = result.returned_defaults_rows
         if returned_defaults_rows:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pk_rows = cls._interpret_returning_rows(
 #                 target_mapper, returned_defaults_rows
 #             )
-
 #             matched_rows = [
 #                 tuple(row) + (update_options._identity_token,)
                 for row in pk_rows
 #             ]
         else:
 #             matched_rows = update_options._matched_rows
-
 #         objs = [
 #             session.identity_map[identity_key]
             for identity_key in [
@@ -2033,13 +1800,11 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #             ]
             if identity_key in session.identity_map
 #         ]
-
         if not objs:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
 #         cls._apply_update_set_values_to_objects(
 #             session,
 #             update_options,
@@ -2053,13 +1818,11 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
                 for obj in objs
 #             ],
 #         )
-
 #     @classmethod
     def _apply_update_set_values_to_objects(
 #         cls, session, update_options, statement, matched_objects
 #     ):
 #         apply values to objects derived from an update statement, e.g.
-
 #         mapper = update_options._subject_mapper
 #         target_cls = mapper.class_
 #         evaluator_compiler = evaluator._EvaluatorCompiler(target_cls)
@@ -2077,50 +1840,39 @@ class BulkORMUpdate(BulkUDCompileState, UpdateDMLState):
 #                 pass
             else:
 #                 value_evaluators[key] = _evaluator
-
 #         evaluated_keys = list(value_evaluators.keys())
 #         attrib = {k for k, v in resolved_keys_as_propnames}
-
 #         states = set()
         for obj, state, dict_ in matched_objects:
 #             to_evaluate = state.unmodified.intersection(evaluated_keys)
-
             for key in to_evaluate:
                 if key in dict_:
-      pass
-      pass
+    pass
+    pass
     pass
                     # only run eval for attributes that are present.
 #                     dict_[key] = value_evaluators[key](obj)
-
 #             state.manager.dispatch.refresh(state, None, to_evaluate)
-
 #             state._commit(dict_, list(to_evaluate))
-
             # attributes that were formerly modified instead get expired.
             # this only gets hit if the session had pending changes
             # and autoflush were set to False.
 #             to_expire = attrib.intersection(dict_).difference(to_evaluate)
             if to_expire:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state._expire_attributes(dict_, to_expire)
-
 #             states.add(state)
 #         session._register_altered(states)
-
-
 # @CompileState.plugin_for("orm", "delete")
 class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #     @classmethod
     def create_for_statement(cls, statement, compiler, **kw):
 #         self = cls.__new__(cls)
-
 #         dml_strategy = statement._annotations.get(
 #             "dml_strategy", "unspecified"
 #         )
-
         if (
 #             dml_strategy == "core_only"
 #             or dml_strategy == "unspecified"
@@ -2128,41 +1880,32 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #         ):
 #             DeleteDMLState.__init__(self, statement, compiler, **kw)
             return self
-
 #         toplevel = not compiler.stack
-
 #         orm_level_statement = statement
-
 #         ext_info = statement.table._annotations["parententity"]
 #         self.mapper = mapper = ext_info.mapper
-
 #         self._init_global_attributes(
 #             statement,
 #             compiler,
 #             toplevel=toplevel,
 #             process_criteria_for_toplevel=toplevel,
 #         )
-
 #         new_stmt = statement._clone()
-
 #         new_crit = cls._adjust_for_extra_criteria(
 #             self.global_attributes, mapper
 #         )
         if new_crit:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_stmt = new_stmt.where(*new_crit)
-
         # do this first as we need to determine if there is
         # DELETE..FROM
 #         DeleteDMLState.__init__(self, new_stmt, compiler, **kw)
-
 #         use_supplemental_cols = False
-
         if not toplevel:
-      pass
-      pass
+    pass
+    pass
     pass
 #             synchronize_session = None
         else:
@@ -2173,8 +1916,8 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #             "can_use_returning", None
 #         )
         if can_use_returning is not False:
-      pass
-      pass
+    pass
+    pass
     pass
             # even though pre_exec has determined basic
             # can_use_returning for the dialect, if we are to use
@@ -2192,18 +1935,15 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #                     ),
 #                 )
 #             )
-
         if can_use_returning:
-      pass
-      pass
+    pass
+    pass
     pass
 #             use_supplemental_cols = True
-
 #             new_stmt = new_stmt.return_defaults(*new_stmt.table.primary_key)
-
         if toplevel:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_stmt = self._setup_orm_returning(
 #                 compiler,
@@ -2212,11 +1952,8 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #                 dml_mapper=mapper,
 #                 use_supplemental_cols=use_supplemental_cols,
 #             )
-
 #         self.statement = new_stmt
-
         return self
-
 #     @classmethod
     def orm_execute_statement(
 #         cls,
@@ -2230,10 +1967,9 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #         update_options = execution_options.get(
 #             "_sa_orm_update_options", cls.default_update_options
 #         )
-
         if update_options._dml_strategy == "bulk":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise sa_exc.InvalidRequestError(
 #                 "Bulk ORM DELETE not supported right now. "
@@ -2241,20 +1977,17 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #                 "Core level using "
 #                 "session.connection().execute(stmt, parameters)"
 #             )
-
         if update_options._dml_strategy not in ("orm", "auto", "core_only"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise sa_exc.ArgumentError(
 #                 "Valid strategies for ORM DELETE strategy are 'orm', 'auto', "
 #                 "'core_only'"
 #             )
-
         return super().orm_execute_statement(
 #             session, statement, params, execution_options, bind_arguments, conn
 #         )
-
 #     @classmethod
     def can_use_returning(
 #         cls,
@@ -2271,28 +2004,25 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #             dialect.delete_returning and mapper.local_table.implicit_returning
 #         )
         if not normal_answer:
-      pass
-      pass
+    pass
+    pass
     pass
             return False
-
         # now get into special workarounds because MariaDB supports
         # DELETE...RETURNING but not DELETE...USING...RETURNING.
         if is_delete_using:
-      pass
-      pass
+    pass
+    pass
     pass
             # is_delete_using hint was passed.   use
             # additional dialect feature (True for PG, False for MariaDB)
             return dialect.delete_returning_multifrom
-
         elif is_multitable and not dialect.delete_returning_multifrom:
     pass
             # is_delete_using hint was not passed, but we determined
             # at compile time that this is in fact a DELETE..USING.
             # its too late to continue since we did not pre-SELECT.
             # raise that we need that hint up front.
-
 #             raise sa_exc.CompileError(
 #                 f'Dialect "{dialect.name}" does not support RETURNING '
 #                 "with DELETE..USING; for synchronize_session='fetch', "
@@ -2300,9 +2030,7 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #                 "'is_delete_using=True' to the statement to indicate that "
 #                 "a separate SELECT should be used for this backend."
 #             )
-
         return True
-
 #     @classmethod
     def _do_post_synchronize_evaluate(
 #         cls, session, statement, result, update_options
@@ -2311,51 +2039,42 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #             update_options,
 #             session.identity_map.all_states(),
 #         )
-
 #         to_delete = []
-
         for _, state, dict_, is_partially_expired in matched_objects:
             if is_partially_expired:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state._expire(dict_, session.identity_map._modified)
             else:
 #                 to_delete.append(state)
-
         if to_delete:
-      pass
-      pass
+    pass
+    pass
     pass
 #             session._remove_newly_deleted(to_delete)
-
 #     @classmethod
     def _do_post_synchronize_fetch(
 #         cls, session, statement, result, update_options
 #     ):
 #         target_mapper = update_options._subject_mapper
-
         returned_defaults_rows = result.returned_defaults_rows
-
         if returned_defaults_rows:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pk_rows = cls._interpret_returning_rows(
 #                 target_mapper, returned_defaults_rows
 #             )
-
 #             matched_rows = [
 #                 tuple(row) + (update_options._identity_token,)
                 for row in pk_rows
 #             ]
         else:
 #             matched_rows = update_options._matched_rows
-
         for row in matched_rows:
 #             primary_key = row[0:-1]
 #             identity_token = row[-1]
-
             # TODO: inline this and call remove_newly_deleted
             # once
 #             identity_key = target_mapper.identity_key_from_primary_key(
@@ -2363,8 +2082,8 @@ class BulkORMDelete(BulkUDCompileState, DeleteDMLState):
 #                 identity_token=identity_token,
 #             )
             if identity_key in session.identity_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 session._remove_newly_deleted(
 #                     [

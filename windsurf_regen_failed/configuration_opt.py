@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,13 +19,9 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # OPT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "facebook/opt-125m": "https://huggingface.co/facebook/opt-125m/blob/main/config.json",
 #     "facebook/opt-350m": "https://huggingface.co/facebook/opt-350m/blob/main/config.json",
@@ -37,19 +30,13 @@ from ...utils import logging
 #     "facebook/opt-6.7b": "https://huggingface.co/facebook/opt-6.7b/blob/main/config.json",
 #     "facebook/opt-13b": "https://huggingface.co/facebook/opt-13b/blob/main/config.json",
 # }
-
-
 class OPTConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`OPTModel`]. It is used to instantiate a OPT model
 #     according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the OPT
 #     [facebook/opt-350m](https://huggingface.co/facebook/opt-350m) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50272):
 #             Vocabulary size of the OPT model. Defines the number of different tokens that can be represented by the
@@ -88,25 +75,18 @@ class OPTConfig(PretrainedConfig):
 #             Whether or not if the linear layers in the attention blocks should use the bias term.
 #         layer_norm_elementwise_affine (`bool`, *optional*, defaults to `True`):
 #             Whether or not if the layer norms should have learnable parameters.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import OPTConfig, OPTModel
-
 #     >>> # Initializing a OPT facebook/opt-large style configuration
 #     >>> configuration = OPTConfig()
-
 #     >>> # Initializing a model (with random weights) from the facebook/opt-large style configuration
 #     >>> model = OPTModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "opt"
 #     keys_to_ignore_at_inference = ["past_key_values"]
-
     def __init__(
 #         self,
 #         vocab_size=50272,
@@ -154,7 +134,6 @@ class OPTConfig(PretrainedConfig):
         # We keep these variables at `True` for backward compatibility.
 #         self.enable_bias = enable_bias
 #         self.layer_norm_elementwise_affine = layer_norm_elementwise_affine
-
         # Note that the only purpose of `_remove_final_layer_norm` is to keep backward compatibility
         # with checkpoints that have been fine-tuned before transformers v4.20.1
         # see https://github.com/facebookresearch/metaseq/pull/164

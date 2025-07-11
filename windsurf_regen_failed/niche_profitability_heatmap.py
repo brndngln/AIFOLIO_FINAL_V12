@@ -1,26 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import json
 import datetime
 import os
-
 #     os.path.join(
 #         os.path.dirname(__file__),
 #         "../../analytics/niche_profitability_heatmap_log.jsonl",
 #     )
 # )
 # os.makedirs(os.path.dirname(HEATMAP_LOG), exist_ok=True)
-
-
 # --- AI Niche Profitability Heatmap (Visualization Only) ---
 def generate_heatmap(niche_stats):
     # Example: create a simple data structure for visualization

@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless.
-
 from __future__ import annotations
-
 from typing import TYPE_CHECKING, Dict, List, Union, Optional, overload
 from typing_extensions import Literal
-
 import httpx
-
 from ..types import Completion, completion_create_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import required_args, maybe_transform
@@ -24,23 +17,17 @@ from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from .._streaming import Stream, AsyncStream
 from .._base_client import make_request_options
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .._client import OpenAI, AsyncOpenAI
-
 # __all__ = ["Completions", "AsyncCompletions"]
-
-
 class Completions(SyncAPIResource):
     with_raw_response: CompletionsWithRawResponse
-
     def __init__(self, client: OpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = CompletionsWithRawResponse(self)
-
 #     @overload
     def create(
 #         self,
@@ -83,43 +70,31 @@ class Completions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Completion:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -128,81 +103,56 @@ class Completions(SyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @overload
     def create(
 #         self,
@@ -245,50 +195,37 @@ class Completions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Stream[Completion]:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -297,74 +234,50 @@ class Completions(SyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @overload
     def create(
 #         self,
@@ -407,50 +320,37 @@ class Completions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Completion | Stream[Completion]:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -459,74 +359,50 @@ class Completions(SyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @required_args(["model", "prompt"], ["model", "prompt", "stream"])
     def create(
 #         self,
@@ -600,15 +476,11 @@ class Completions(SyncAPIResource):
 #             stream=stream or False,
 #             stream_cls=Stream[Completion],
 #         )
-
-
 class AsyncCompletions(AsyncAPIResource):
     with_raw_response: AsyncCompletionsWithRawResponse
-
     def __init__(self, client: AsyncOpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = AsyncCompletionsWithRawResponse(self)
-
 #     @overload
 #     async def create(
 #         self,
@@ -651,43 +523,31 @@ class AsyncCompletions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Completion:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -696,81 +556,56 @@ class AsyncCompletions(AsyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @overload
 #     async def create(
 #         self,
@@ -813,50 +648,37 @@ class AsyncCompletions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> AsyncStream[Completion]:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -865,74 +687,50 @@ class AsyncCompletions(AsyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @overload
 #     async def create(
 #         self,
@@ -975,50 +773,37 @@ class AsyncCompletions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> Completion | AsyncStream[Completion]:
-
 #         Creates a completion for the provided prompt and parameters.
-
 #         Args:
 #           model: ID of the model to use. You can use the
 #               [List models](https://platform.openai.com/docs/api-reference/models/list) API to
 #               see all of your available models, or see our
 #               [Model overview](https://platform.openai.com/docs/models/overview) for
 #               descriptions of them.
-
 #           prompt: The prompt(s) to generate completions for, encoded as a string, array of
 #               strings, array of tokens, or array of token arrays.
-
 #               Note that <|endoftext|> is the document separator that the model sees during
 #               training, so if a prompt is not specified the model will generate as if from the
 #               beginning of a new document.
-
 #           stream: Whether to stream back partial progress. If set, tokens will be sent as
 #               data-only
 #               [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
 #               as they become available, with the stream terminated by a `data: [DONE]`
 #               message.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).
-
 #           best_of: Generates `best_of` completions server-side and returns the "best" (the one with
 #               the highest log probability per token). Results cannot be streamed.
-
 #               When used with `n`, `best_of` controls the number of candidate completions and
 #               `n` specifies how many to return - `best_of` must be greater than `n`.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           echo: Echo back the prompt in addition to the completion
-
 #           frequency_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on their
 #               existing frequency in the text so far, decreasing the models likelihood to
 #               repeat the same line verbatim.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           logit_bias: Modify the likelihood of specified tokens appearing in the completion.
-
 #               Accepts a JSON object that maps tokens (specified by their token ID in the GPT
 #               tokenizer) to an associated bias value from -100 to 100. You can use this
 #               [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to
@@ -1027,74 +812,50 @@ class AsyncCompletions(AsyncAPIResource):
 #               but values between -1 and 1 should decrease or increase likelihood of selection;
 #               values like -100 or 100 should result in a ban or exclusive selection of the
 #               relevant token.
-
 #               As an example, you can pass `{"50256": -100}` to prevent the <|endoftext|> token
-              from being generated.
-
+            from being generated.
 #           logprobs: Include the log probabilities on the `logprobs` most likely tokens, as well the
 #               chosen tokens. For example, if `logprobs` is 5, the API will return a list of
 #               the 5 most likely tokens. The API will always return the `logprob` of the
 #               sampled token, so there may be up to `logprobs+1` elements in the response.
-
 #               The maximum value for `logprobs` is 5.
-
 #           max_tokens: The maximum number of [tokens](/tokenizer) to generate in the completion.
-
 #               The token count of your prompt plus `max_tokens` cannot exceed the models
 #               context length.
 #               [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken)
-              for counting tokens.
-
+            for counting tokens.
 #           n: How many completions to generate for each prompt.
-
 #               **Note:** Because this parameter generates many completions, it can quickly
 #               consume your token quota. Use carefully and ensure that you have reasonable
 #               settings for `max_tokens` and `stop`.
-
 #           presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on
 #               whether they appear in the text so far, increasing the models likelihood to
 #               talk about new topics.
-
 #               [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/gpt/parameter-details)
-
 #           seed: If specified, our system will make a best effort to sample deterministically,
 #               such that repeated requests with the same `seed` and parameters should return
 #               the same result.
-
 #               Determinism is not guaranteed, and you should refer to the `system_fingerprint`
 #               response parameter to monitor changes in the backend.
-
 #           stop: Up to 4 sequences where the API will stop generating further tokens. The
-              returned text will not contain the stop sequence.
-
+            returned text will not contain the stop sequence.
 #           suffix: The suffix that comes after a completion of inserted text.
-
 #           temperature: What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
 #               make the output more random, while lower values like 0.2 will make it more
 #               focused and deterministic.
-
 #               We generally recommend altering this or `top_p` but not both.
-
 #           top_p: An alternative to sampling with temperature, called nucleus sampling, where the
 #               model considers the results of the tokens with top_p probability mass. So 0.1
 #               means only the tokens comprising the top 10% probability mass are considered.
-
 #               We generally recommend altering this or `temperature` but not both.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         ...
-
 #     @required_args(["model", "prompt"], ["model", "prompt", "stream"])
 #     async def create(
 #         self,
@@ -1168,15 +929,11 @@ class AsyncCompletions(AsyncAPIResource):
 #             stream=stream or False,
 #             stream_cls=AsyncStream[Completion],
 #         )
-
-
 class CompletionsWithRawResponse:
     def __init__(self, completions: Completions) -> None:
 #         self.create = to_raw_response_wrapper(
 #             completions.create,
 #         )
-
-
 class AsyncCompletionsWithRawResponse:
     def __init__(self, completions: AsyncCompletions) -> None:
 #         self.create = async_to_raw_response_wrapper(

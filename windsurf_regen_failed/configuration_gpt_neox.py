@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # GPT_NEOX_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "EleutherAI/gpt-neox-20b": "https://huggingface.co/EleutherAI/gpt-neox-20b/resolve/main/config.json",
     # See all GPTNeoX models at https://huggingface.co/models?filter=gpt_neox
 # }
-
-
 class GPTNeoXConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`GPTNeoXModel`]. It is used to instantiate an
 #     GPTNeoX model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the GPTNeoX
 #     [EleutherAI/gpt-neox-20b](https://huggingface.co/EleutherAI/gpt-neox-20b) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50432):
 #             Vocabulary size of the GPTNeoX model. Defines the number of different tokens that can be represented by the
@@ -72,7 +59,6 @@ class GPTNeoXConfig(PretrainedConfig):
 #             hidden states.
         classifier_dropout (`float`, *optional*, defaults to 0.1):
 #             Argument used when doing token classification, used in the model [`GPTNeoXForTokenClassification`].
-
 #             The dropout ratio for the hidden layer.
 #         max_position_embeddings (`int`, *optional*, defaults to 2048):
 #             The maximum sequence length that this model might ever be used with. Typically set this to something large
@@ -95,24 +81,17 @@ class GPTNeoXConfig(PretrainedConfig):
 #             these scaling strategies behave:
 #             https://www.reddit.com/r/LocalLLaMA/comments/14mrgpr/dynamically_scaled_rope_further_increases/. This is an
 #             experimental feature, subject to breaking API changes in future versions.
-
 #         Example:
-
 #     ```python
 #     >>> from transformers import GPTNeoXConfig, GPTNeoXModel
-
 #     >>> # Initializing a GPTNeoX gpt-neox-20b style configuration
 #     >>> configuration = GPTNeoXConfig()
-
 #     >>> # Initializing a model (with random weights) from the gpt-neox-20b style configuration
 #     >>> model = GPTNeoXModel(configuration)  # doctest: +SKIP
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config  # doctest: +SKIP
 #     ```
-
 #     model_type = "gpt_neox"
-
     def __init__(
 #         self,
 #         vocab_size=50432,
@@ -157,29 +136,24 @@ class GPTNeoXConfig(PretrainedConfig):
 #         self.use_parallel_residual = use_parallel_residual
 #         self.rope_scaling = rope_scaling
 #         self._rope_scaling_validation()
-
         if self.hidden_size % self.num_attention_heads != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "The hidden size is not divisble by the number of attention heads! Make sure to update them!"
 #             )
-
     # Copied from transformers.models.llama.configuration_llama.LlamaConfig._rope_scaling_validation
     def _rope_scaling_validation(self):
-
 #         Validate the `rope_scaling` configuration.
-
         if self.rope_scaling is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         if not isinstance(self.rope_scaling, dict) or len(self.rope_scaling) != 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`rope_scaling` must be a dictionary with with two fields, `type` and `factor`, "
@@ -188,14 +162,14 @@ class GPTNeoXConfig(PretrainedConfig):
 #         rope_scaling_type = self.rope_scaling.get("type", None)
 #         rope_scaling_factor = self.rope_scaling.get("factor", None)
         if rope_scaling_type is None or rope_scaling_type not in ["linear", "dynamic"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"`rope_scaling`s type field must be one of [linear, dynamic], got {rope_scaling_type}"
 #             )
         if rope_scaling_factor is None or not isinstance(rope_scaling_factor, float) or rope_scaling_factor <= 1.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"`rope_scaling`s factor field must be a float > 1, got {rope_scaling_factor}")

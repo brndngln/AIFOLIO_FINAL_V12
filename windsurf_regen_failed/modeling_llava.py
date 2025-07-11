@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,14 +18,11 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from dataclasses import dataclass
 from typing import List, Optional, Tuple, Union
-
 import torch
 import torch.utils.checkpoint
 from torch import nn
-
 from ... import PreTrainedModel
 from ...activations import ACT2FN
 from ...cache_utils import Cache
@@ -40,25 +35,17 @@ from ...utils import (
 # )
 from ..auto import AutoModel, AutoModelForCausalLM
 from .configuration_llava import LlavaConfig
-
-
 # logger = logging.get_logger(__name__)
-
 # _CONFIG_FOR_DOC = "LlavaConfig"
-
 #     "llava-hf/llava-1.5-7b-hf",
 #     "llava-hf/llava-1.5-13b-hf",
 #     "llava-hf/bakLlava-v1-hf",
     # See all Llava models at https://huggingface.co/models?filter=llava
 # ]
-
-
 # @dataclass
 # Copied from transformers.models.idefics.modeling_idefics.IdeficsCausalLMOutputWithPast with Idefics->Llava
 class LlavaCausalLMOutputWithPast(ModelOutput):
-
 #     Base class for Llava causal language model (or autoregressive) outputs.
-
 #     Args:
 #         loss (`torch.FloatTensor` of shape `(1,)`, *optional*, returned when `labels` is provided):
 #             Language modeling loss (for next-token prediction).
@@ -67,63 +54,49 @@ class LlavaCausalLMOutputWithPast(ModelOutput):
 #         past_key_values (`tuple(tuple(torch.FloatTensor))`, *optional*, returned when `use_cache=True` is passed or when `config.use_cache=True`):
 #             Tuple of `tuple(torch.FloatTensor)` of length `config.n_layers`, with each tuple having 2 tensors of shape
 #             `(batch_size, num_heads, sequence_length, embed_size_per_head)`)
-
 #             Contains pre-computed hidden-states (key and values in the self-attention blocks) that can be used (see
 #             `past_key_values` input) to speed up sequential decoding.
 #         hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
 #             Tuple of `torch.FloatTensor` (one for the output of the embeddings, if the model has an embedding layer, +
 #             one for the output of each layer) of shape `(batch_size, sequence_length, hidden_size)`.
-
 #             Hidden-states of the model at the output of each layer plus the optional initial embedding outputs.
 #         attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
 #             Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
 #             sequence_length)`.
-
 #             Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
 #             heads.
 #         image_hidden_states (`tuple(torch.FloatTensor)`, *optional*):
 #             Tuple of `torch.FloatTensor` (one for the output of the image embeddings, `(batch_size, num_images,
 #             sequence_length, hidden_size)`.
-
 #             image_hidden_states of the model produced by the vision encoder, and optionally by the perceiver
-
 #     loss: Optional[torch.FloatTensor] = None
 #     logits: torch.FloatTensor = None
 #     past_key_values: Optional[List[torch.FloatTensor]] = None
 #     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
 #     attentions: Optional[Tuple[torch.FloatTensor]] = None
 #     image_hidden_states: Optional[Tuple[torch.FloatTensor]] = None
-
-
 class LlavaMultiModalProjector(nn.Module):
     def __init__(self, config: LlavaConfig):
 #         super().__init__()
-
 #         self.linear_1 = nn.Linear(config.vision_config.hidden_size, config.text_config.hidden_size, bias=True)
 #         self.act = ACT2FN[config.projector_hidden_act]
 #         self.linear_2 = nn.Linear(config.text_config.hidden_size, config.text_config.hidden_size, bias=True)
-
     def forward(self, image_features):
 #         hidden_states = self.linear_1(image_features)
 #         hidden_states = self.act(hidden_states)
 #         hidden_states = self.linear_2(hidden_states)
         return hidden_states
-
-
 #     This model inherits from [`PreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading or saving, resizing the input embeddings, pruning heads
 #     etc.)
-
 #     This model is also a PyTorch [torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module) subclass.
 #     Use it as a regular PyTorch Module and refer to the PyTorch documentation for all matter related to general usage
 #     and behavior.
-
 #     Parameters:
 #         config ([`LlavaConfig`] or [`LlavaVisionConfig`]):
 #             Model configuration class with all the parameters of the model. Initializing with a config file does not
 #             load the weights associated with the model, only the configuration. Check out the
 #             [`~PreTrainedModel.from_pretrained`] method to load the model weights.
-
 # @add_start_docstrings(
 #     "The bare LLaMA Model outputting raw hidden-states without any specific head on top.",
 # )
@@ -133,7 +106,6 @@ class LlavaPreTrainedModel(PreTrainedModel):
 #     supports_gradient_checkpointing = True
 #     _no_split_modules = ["LlavaVisionAttention"]
 #     _supports_flash_attn_2 = True
-
     def _init_weights(self, module):
         # important: this ported version of Llava isnt meant for training from scratch - only
         # inference and fine-tuning - so the proper init weights code has been removed - the original codebase
@@ -143,36 +115,30 @@ class LlavaPreTrainedModel(PreTrainedModel):
             if hasattr(self.config, "initializer_range")
             else self.config.text_config.initializer_range
 #         )
-
         if hasattr(module, "class_embedding"):
-      pass
-      pass
     pass
-
+    pass
+    pass
         if isinstance(module, (nn.Linear, nn.Conv2d)):
-      pass
-      pass
+    pass
+    pass
     pass
             if module.bias is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         elif isinstance(module, nn.Embedding):
     pass
             if module.padding_idx is not None:
-      pass
-      pass
     pass
-
-
+    pass
+    pass
 #     Args:
 #         input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         pixel_values (`torch.FloatTensor` of shape `(batch_size, num_channels, image_size, image_size)):
 #             The tensors corresponding to the input images. Pixel values can be obtained using
@@ -180,22 +146,16 @@ class LlavaPreTrainedModel(PreTrainedModel):
 #             [`CLIPImageProcessor`] for processing images).
 #         attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             If `past_key_values` is used, optionally only the last `decoder_input_ids` have to be input (see
 #             `past_key_values`).
-
 #             If you want to change padding behavior, you should read [`modeling_opt._prepare_decoder_attention_mask`]
 #             and modify to your needs. See diagram 1 in [the paper](https://arxiv.org/abs/1910.13461) for more
 #             information on the default strategy.
-
 #             - 1 indicates the head is **not masked**,
 #             - 0 indicates the head is **masked**.
 #         position_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
@@ -205,10 +165,8 @@ class LlavaPreTrainedModel(PreTrainedModel):
 #             Tuple of `tuple(torch.FloatTensor)` of length `config.n_layers`, with each tuple having 2 tensors of shape
 #             `(batch_size, num_heads, sequence_length, embed_size_per_head)`) and 2 additional tensors of shape
 #             `(batch_size, num_heads, encoder_sequence_length, embed_size_per_head)`.
-
 #             Contains pre-computed hidden-states (key and values in the self-attention blocks and in the cross-attention
 #             blocks) that can be used (see `past_key_values` input) to speed up sequential decoding.
-
 #             If `past_key_values` are used, the user can optionally input only the last `decoder_input_ids` (those that
 #             dont have their past key value states given to this model) of shape `(batch_size, 1)` instead of all
 #             `decoder_input_ids` of shape `(batch_size, sequence_length)`.
@@ -227,7 +185,6 @@ class LlavaPreTrainedModel(PreTrainedModel):
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 # @add_start_docstrings(
     """The LLAVA model which consists of a vision backbone and a language model.""",
 # )
@@ -235,7 +192,6 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
     def __init__(self, config: LlavaConfig):
 #         super().__init__(config)
 #         self.vision_tower = AutoModel.from_config(config.vision_config)
-
 #         self.multi_modal_projector = LlavaMultiModalProjector(config)
 #         self.vocab_size = config.vocab_size
 #         self.language_model = AutoModelForCausalLM.from_config(
@@ -243,28 +199,20 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #         )
 #         self.pad_token_id = self.config.pad_token_id if self.config.pad_token_id is not None else -1
 #         self.post_init()
-
     def get_input_embeddings(self):
         return self.language_model.get_input_embeddings()
-
     def set_input_embeddings(self, value):
 #         self.language_model.set_input_embeddings(value)
-
     def get_output_embeddings(self):
         return self.language_model.get_output_embeddings()
-
     def set_output_embeddings(self, new_embeddings):
 #         self.language_model.set_output_embeddings(new_embeddings)
-
     def set_decoder(self, decoder):
 #         self.language_model.set_decoder(decoder)
-
     def get_decoder(self):
         return self.language_model.get_decoder()
-
     def tie_weights(self):
         return self.language_model.tie_weights()
-
     def resize_token_embeddings(self, new_num_tokens: Optional[int] = None, pad_to_multiple_of=None) -> nn.Embedding:
 #         model_embeds = self.language_model.resize_token_embeddings(new_num_tokens, pad_to_multiple_of)
         # update vocab size
@@ -272,7 +220,6 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #         self.config.vocab_size = model_embeds.num_embeddings
 #         self.vocab_size = model_embeds.num_embeddings
         return model_embeds
-
     def _merge_input_ids_with_image_features(
 #         self, image_features, inputs_embeds, input_ids, attention_mask, position_ids
 #     ):
@@ -285,7 +232,6 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
         # Compute the maximum embed dimension
 #         max_embed_dim = (num_special_image_tokens.max() * (num_image_patches - 1)) + sequence_length
 #         batch_indices, non_image_indices = torch.where(input_ids != self.config.image_token_index)
-
         # 2. Compute the positions where text should be written
         # Calculate new positions for text tokens in merged image-text sequence.
         # `special_image_token_mask` identifies image tokens. Each image token will be replaced by `nb_text_tokens_per_images - 1` text tokens.
@@ -294,12 +240,11 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #         new_token_positions = torch.cumsum((special_image_token_mask * (num_image_patches - 1) + 1), -1) - 1
 #         nb_image_pad = max_embed_dim - 1 - new_token_positions[:, -1]
         if left_padding:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_token_positions += nb_image_pad[:, None]  # offset for left padding
 #         text_to_overwrite = new_token_positions[batch_indices, non_image_indices]
-
         # 3. Create the full embedding, already padded to the maximum position
 #         final_embedding = torch.zeros(
 #             batch_size, max_embed_dim, embed_dim, dtype=inputs_embeds.dtype, device=inputs_embeds.device
@@ -307,30 +252,25 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #         final_attention_mask = torch.zeros(
 #             batch_size, max_embed_dim, dtype=attention_mask.dtype, device=inputs_embeds.device
 #         )
-
         # 4. Fill the embeddings based on the mask. If we have ["hey" "<image>", "how", "are"]
         # we need to index copy on [0, 577, 578, 579] for the text and [1:576] for the image features
 #         final_embedding[batch_indices, text_to_overwrite] = inputs_embeds[batch_indices, non_image_indices]
 #         final_attention_mask[batch_indices, text_to_overwrite] = attention_mask[batch_indices, non_image_indices]
-
         # 5. Fill the embeddings corresponding to the images. Anything that is still zeros needs filling
 #         image_to_overwrite = torch.all(final_embedding == 0, dim=-1)
 #         image_to_overwrite &= image_to_overwrite.cumsum(-1) - 1 >= nb_image_pad[:, None]
-
         if image_to_overwrite.sum() != image_features.shape[:-1].numel():
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"The input provided to the model are wrong. The number of image tokens is {torch.sum(special_image_token_mask)} while"
 #                 f" the number of image given to the model is {num_images}. This prevents correct indexing and breaks batch generation."
 #             )
-
 #         final_embedding[image_to_overwrite] = image_features.contiguous().reshape(-1, embed_dim)
 #         final_attention_mask |= image_to_overwrite
 #         position_ids = (final_attention_mask.cumsum(-1) - 1).masked_fill_((final_attention_mask == 0), 1)
         return final_embedding, final_attention_mask, position_ids
-
 #     @add_start_docstrings_to_model_forward(LLAVA_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=LlavaCausalLMOutputWithPast, config_class=_CONFIG_FOR_DOC)
     def forward(
@@ -349,37 +289,28 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, LlavaCausalLMOutputWithPast]:
-
 #         Args:
 #             labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
 #                 Labels for computing the masked language modeling loss. Indices should either be in `[0, ...,
 #                 config.vocab_size]` or -100 (see `input_ids` docstring). Tokens with indices set to `-100` are ignored
 #                 (masked), the loss is only computed for the tokens with labels in `[0, ..., config.vocab_size]`.
-
 #         Returns:
-
 #         Example:
-
 #         ```python
 #         >>> from PIL import Image
 #         >>> import requests
 #         >>> from transformers import AutoProcessor, LlavaForConditionalGeneration
-
 #         >>> model = LlavaForConditionalGeneration.from_pretrained("llava-hf/llava-1.5-7b-hf")
 #         >>> processor = AutoProcessor.from_pretrained("llava-hf/llava-1.5-7b-hf")
-
 #         >>> prompt = "<image>\nUSER: Whats the content of the image?\nASSISTANT:"
 #         >>> url = "https://www.ilankelman.org/stopsigns/australia.jpg"
 #         >>> image = Image.open(requests.get(url, stream=True).raw)
-
 #         >>> inputs = processor(text=text, images=image, return_tensors="pt")
-
 #         >>> # Generate
 #         >>> generate_ids = model.generate(**inputs, max_length=30)
 #         >>> tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 #         "There seems to be a stop sign"
 #         ```
-
 #         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
@@ -393,26 +324,23 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
             if vision_feature_select_strategy is not None
             else self.config.vision_feature_select_strategy
 #         )
-
         if inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # 1. Extra the input embeddings
 #             inputs_embeds = self.get_input_embeddings()(input_ids)
-
             # 2. Merge text and images
             if pixel_values is not None and input_ids.shape[1] != 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 image_outputs = self.vision_tower(pixel_values, output_hidden_states=True)
                 # this is not memory efficient at all (output_hidden_states=True) will save all the hidden stated.
 #                 selected_image_feature = image_outputs.hidden_states[vision_feature_layer]
-
                 if vision_feature_select_strategy == "default":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     selected_image_feature = selected_image_feature[:, 1:]
                 elif vision_feature_select_strategy == "full":
@@ -422,22 +350,21 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #                     raise ValueError(
 #                         f"Unexpected select feature strategy: {self.config.vision_feature_select_strategy}"
 #                     )
-
 #                 image_features = self.multi_modal_projector(selected_image_feature)
 #                 inputs_embeds, attention_mask, position_ids = self._merge_input_ids_with_image_features(
 #                     image_features, inputs_embeds, input_ids, attention_mask, position_ids
 #                 )
                 if labels is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     labels = torch.full_like(attention_mask, self.config.ignore_index).to(torch.int)
             else:
                 # In case input_ids.shape[1] == 1 & pixel_values==None & past_key_values != None, we are in the case of
                 # generation with cache
                 if past_key_values is not None and pixel_values is not None and input_ids.shape[1] == 1:
-      pass
-      pass
+    pass
+    pass
     pass
                     # Retrieve the first layer to inspect the logits and mask out the hidden states
                     # that are set to 0
@@ -445,19 +372,15 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #                     batch_index, non_attended_tokens = torch.where(first_layer_past_key_value == 0)
                     # Get the target length
 #                     target_seqlen = first_layer_past_key_value.shape[-1] + 1
-
 #                     extended_attention_mask = torch.ones(
 #                         (attention_mask.shape[0], target_seqlen - attention_mask.shape[1]),
 #                         dtype=attention_mask.dtype,
 #                         device=attention_mask.device,
 #                     )
-
                     # Zero-out the places where we dont need to attend
 #                     extended_attention_mask[batch_index, non_attended_tokens] = 0
-
 #                     attention_mask = torch.cat((attention_mask, extended_attention_mask), dim=1)
 #                     position_ids = torch.sum(attention_mask, dim=1).unsqueeze(-1) - 1
-
 #         outputs = self.language_model(
 #             attention_mask=attention_mask,
 #             position_ids=position_ids,
@@ -468,18 +391,16 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         logits = outputs[0]
-
 #         loss = None
         if labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Shift so that tokens < n predict n
             if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 shift_attention_mask = attention_mask[..., 1:]
 #                 shift_logits = logits[..., :-1, :][shift_attention_mask.to(logits.device) != 0].contiguous()
@@ -492,14 +413,12 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #             loss = loss_fct(
 #                 shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1).to(shift_logits.device)
 #             )
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (logits,) + outputs[1:]
             return (loss,) + output if loss is not None else output
-
         return LlavaCausalLMOutputWithPast(
 #             loss=loss,
 #             logits=logits,
@@ -507,30 +426,28 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
     def prepare_inputs_for_generation(
 #         self, input_ids, past_key_values=None, inputs_embeds=None, pixel_values=None, attention_mask=None, **kwargs
 #     ):
         if past_key_values is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(past_key_values, Cache):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 cache_length = past_key_values.get_seq_length()
 #                 past_length = past_key_values.seen_tokens
             else:
 #                 cache_length = past_length = past_key_values[0][0].shape[2]
-
             # Keep only the unprocessed tokens:
             # 1 - If the length of the attention_mask exceeds the length of input_ids, then we are in a setting where
             # some of the inputs are exclusivelly passed as part of the cache (e.g. when passing input_embeds as
             # input)
             if attention_mask is not None and attention_mask.shape[1] > input_ids.shape[1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 input_ids = input_ids[:, -(attention_mask.shape[1] - past_length) :]
             # 2 - If the past_length is smaller than input_ids, then input_ids holds all input tokens. We can discard
@@ -545,34 +462,31 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
             # If the cache has seen more tokens than it can hold, then the cache has a size limit. Lets discard the
             # older attention values, as their corresponding values are not part of the input.
             if cache_length < past_length and attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 attention_mask = attention_mask[:, -(cache_length + input_ids.shape[1]) :]
-
 #         position_ids = kwargs.get("position_ids", None)
         if attention_mask is not None and position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # create position_ids on the fly for batch generation
 #             position_ids = attention_mask.int().cumsum(-1) - 1
 #             position_ids.masked_fill_(attention_mask == 0, 1)
             if past_key_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 position_ids = position_ids[:, -input_ids.shape[1] :]
-
         # if `inputs_embeds` are passed, we only want to use them in the 1st generation step
         if inputs_embeds is not None and past_key_values is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             model_inputs = {"inputs_embeds": inputs_embeds}
         else:
 #             model_inputs = {"input_ids": input_ids}
-
 #         model_inputs.update(
 #             {
 #                 "position_ids": position_ids,
@@ -583,6 +497,5 @@ class LlavaForConditionalGeneration(LlavaPreTrainedModel):
 #             }
 #         )
         return model_inputs
-
     def _reorder_cache(self, *args, **kwargs):
         return self.language_model._reorder_cache(*args, **kwargs)

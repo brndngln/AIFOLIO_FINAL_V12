@@ -1,16 +1,12 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import numpy as np
 import pytest
-
 from pandas import (
 #     DataFrame,
 #     Series,
@@ -18,8 +14,6 @@ from pandas import (
 #     get_dummies,
 # )
 import pandas._testing as tm
-
-
 # @pytest.fixture
 def dummies_basic():
     return DataFrame(
@@ -31,8 +25,6 @@ def dummies_basic():
 #             "col2_c": [0, 0, 1],
 #         },
 #     )
-
-
 # @pytest.fixture
 def dummies_with_unassigned():
     return DataFrame(
@@ -44,8 +36,6 @@ def dummies_with_unassigned():
 #             "col2_c": [0, 0, 1],
 #         },
 #     )
-
-
 def test_error_wrong_data_type():
 #     dummies = [0, 1, 0]
     with pytest.raises(
@@ -53,8 +43,6 @@ def test_error_wrong_data_type():
 #         match=r"Expected 'data' to be a 'DataFrame'; Received 'data' of type: list",
 #     ):
         from_dummies(dummies)
-
-
 def test_error_no_prefix_contains_unassigned():
 #     dummies = DataFrame({"a": [1, 0, 0], "b": [0, 1, 0]})
     with pytest.raises(
@@ -65,8 +53,6 @@ def test_error_no_prefix_contains_unassigned():
 #         ),
 #     ):
         from_dummies(dummies)
-
-
 def test_error_no_prefix_wrong_default_category_type():
 #     dummies = DataFrame({"a": [1, 0, 1], "b": [0, 1, 1]})
     with pytest.raises(
@@ -77,8 +63,6 @@ def test_error_no_prefix_wrong_default_category_type():
 #         ),
 #     ):
         from_dummies(dummies, default_category=["c", "d"])
-
-
 def test_error_no_prefix_multi_assignment():
 #     dummies = DataFrame({"a": [1, 0, 1], "b": [0, 1, 1]})
     with pytest.raises(
@@ -89,16 +73,12 @@ def test_error_no_prefix_multi_assignment():
 #         ),
 #     ):
         from_dummies(dummies)
-
-
 def test_error_no_prefix_contains_nan():
 #     dummies = DataFrame({"a": [1, 0, 0], "b": [0, 1, np.nan]})
     with pytest.raises(
 #         ValueError, match=r"Dummy DataFrame contains NA value in column: 'b'"
 #     ):
         from_dummies(dummies)
-
-
 def test_error_contains_non_dummies():
 #     dummies = DataFrame(
 #         {"a": [1, 6, 3, 1], "b": [0, 1, 0, 2], "c": ["c1", "c2", "c3", "c4"]}
@@ -108,8 +88,6 @@ def test_error_contains_non_dummies():
 #         match=r"Passed DataFrame contains non-dummy data",
 #     ):
         from_dummies(dummies)
-
-
 def test_error_with_prefix_multiple_seperators():
 #     dummies = DataFrame(
 #         {
@@ -124,8 +102,6 @@ def test_error_with_prefix_multiple_seperators():
 #         match=(r"Separator not specified for column: col2-a"),
 #     ):
         from_dummies(dummies, sep="_")
-
-
 def test_error_with_prefix_sep_wrong_type(dummies_basic):
     with pytest.raises(
 #         TypeError,
@@ -135,8 +111,6 @@ def test_error_with_prefix_sep_wrong_type(dummies_basic):
 #         ),
 #     ):
         from_dummies(dummies_basic, sep=["_"])
-
-
 def test_error_with_prefix_contains_unassigned(dummies_with_unassigned):
     with pytest.raises(
 #         ValueError,
@@ -146,8 +120,6 @@ def test_error_with_prefix_contains_unassigned(dummies_with_unassigned):
 #         ),
 #     ):
         from_dummies(dummies_with_unassigned, sep="_")
-
-
 def test_error_with_prefix_default_category_wrong_type(dummies_with_unassigned):
     with pytest.raises(
 #         TypeError,
@@ -157,8 +129,6 @@ def test_error_with_prefix_default_category_wrong_type(dummies_with_unassigned):
 #         ),
 #     ):
         from_dummies(dummies_with_unassigned, sep="_", default_category=["x", "y"])
-
-
 def test_error_with_prefix_default_category_dict_not_complete(
 #     dummies_with_unassigned,
 # ):
@@ -170,8 +140,6 @@ def test_error_with_prefix_default_category_dict_not_complete(
 #         ),
 #     ):
         from_dummies(dummies_with_unassigned, sep="_", default_category={"col1": "x"})
-
-
 def test_error_with_prefix_contains_nan(dummies_basic):
     # Set float64 dtype to avoid upcast when setting np.nan
 #     dummies_basic["col2_c"] = dummies_basic["col2_c"].astype("float64")
@@ -180,16 +148,12 @@ def test_error_with_prefix_contains_nan(dummies_basic):
 #         ValueError, match=r"Dummy DataFrame contains NA value in column: 'col2_c'"
 #     ):
         from_dummies(dummies_basic, sep="_")
-
-
 def test_error_with_prefix_contains_non_dummies(dummies_basic):
     # Set object dtype to avoid upcast when setting "str"
 #     dummies_basic["col2_c"] = dummies_basic["col2_c"].astype(object)
 #     dummies_basic.loc[2, "col2_c"] = "str"
     with pytest.raises(TypeError, match=r"Passed DataFrame contains non-dummy data"):
         from_dummies(dummies_basic, sep="_")
-
-
 def test_error_with_prefix_double_assignment():
 #     dummies = DataFrame(
 #         {
@@ -208,39 +172,29 @@ def test_error_with_prefix_double_assignment():
 #         ),
 #     ):
         from_dummies(dummies, sep="_")
-
-
 def test_roundtrip_series_to_dataframe():
 #     categories = Series(["a", "b", "c", "a"])
 #     dummies = get_dummies(categories)
 #     result = from_dummies(dummies)
 #     expected = DataFrame({: [a, b, c, a]})
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_roundtrip_single_column_dataframe():
 #     categories = DataFrame({: [a, b, c, a]})
 #     dummies = get_dummies(categories)
 #     result = from_dummies(dummies, sep="_")
 #     expected = categories
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_roundtrip_with_prefixes():
 #     categories = DataFrame({"col1": ["a", "b", "a"], "col2": ["b", "a", "c"]})
 #     dummies = get_dummies(categories)
 #     result = from_dummies(dummies, sep="_")
 #     expected = categories
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_string_cats_basic():
 #     dummies = DataFrame({"a": [1, 0, 0, 1], "b": [0, 1, 0, 0], "c": [0, 0, 1, 0]})
 #     expected = DataFrame({: [a, b, c, a]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_string_cats_basic_bool_values():
 #     dummies = DataFrame(
 #         {
@@ -252,8 +206,6 @@ def test_no_prefix_string_cats_basic_bool_values():
 #     expected = DataFrame({: [a, b, c, a]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_string_cats_basic_mixed_bool_values():
 #     dummies = DataFrame(
 #         {"a": [1, 0, 0, 1], "b": [False, True, False, False], "c": [0, 0, 1, 0]}
@@ -261,8 +213,6 @@ def test_no_prefix_string_cats_basic_mixed_bool_values():
 #     expected = DataFrame({: [a, b, c, a]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_int_cats_basic():
 #     dummies = DataFrame(
 #         {1: [1, 0, 0, 0], 25: [0, 1, 0, 0], 2: [0, 0, 1, 0], 5: [0, 0, 0, 1]}
@@ -270,8 +220,6 @@ def test_no_prefix_int_cats_basic():
 #     expected = DataFrame({: [1, 25, 2, 5]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_float_cats_basic():
 #     dummies = DataFrame(
 #         {1.0: [1, 0, 0, 0], 25.0: [0, 1, 0, 0], 2.5: [0, 0, 1, 0], 5.84: [0, 0, 0, 1]}
@@ -279,8 +227,6 @@ def test_no_prefix_float_cats_basic():
 #     expected = DataFrame({: [1.0, 25.0, 2.5, 5.84]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_mixed_cats_basic():
 #     dummies = DataFrame(
 #         {
@@ -294,15 +240,11 @@ def test_no_prefix_mixed_cats_basic():
 #     expected = DataFrame({: [1.23, c, 2, False, None]}, dtype=object)
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_no_prefix_string_cats_contains_get_dummies_NaN_column():
 #     dummies = DataFrame({"a": [1, 0, 0], "b": [0, 1, 0], "NaN": [0, 0, 1]})
 #     expected = DataFrame({: [a, b, NaN]})
 #     result = from_dummies(dummies)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "default_category, expected",
 #     [
@@ -342,14 +284,10 @@ def test_no_prefix_string_cats_default_category(default_category, expected):
 #     dummies = DataFrame({"a": [1, 0, 0], "b": [0, 1, 0]})
 #     result = from_dummies(dummies, default_category=default_category)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_with_prefix_basic(dummies_basic):
 #     expected = DataFrame({"col1": ["a", "b", "a"], "col2": ["b", "a", "c"]})
 #     result = from_dummies(dummies_basic, sep="_")
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_with_prefix_contains_get_dummies_NaN_column():
 #     dummies = DataFrame(
 #         {
@@ -365,8 +303,6 @@ def test_with_prefix_contains_get_dummies_NaN_column():
 #     expected = DataFrame({"col1": ["a", "b", "NaN"], "col2": ["NaN", "a", "c"]})
 #     result = from_dummies(dummies, sep="_")
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "default_category, expected",
 #     [
@@ -409,8 +345,6 @@ def test_with_prefix_default_category(
 #         dummies_with_unassigned, sep="_", default_category=default_category
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_ea_categories():
     # GH 54300
 #     df = DataFrame({"a": [1, 0, 0, 1], "b": [0, 1, 0, 0], "c": [0, 0, 1, 0]})
@@ -418,8 +352,6 @@ def test_ea_categories():
 #     result = from_dummies(df)
 #     expected = DataFrame({: Series(list(abca), dtype=string[python])})
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_ea_categories_with_sep():
     # GH 54300
 #     df = DataFrame(
@@ -441,8 +373,6 @@ def test_ea_categories_with_sep():
 #     )
 #     expected.columns = expected.columns.astype("string[python]")
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_maintain_original_index():
     # GH 54300
 #     df = DataFrame(

@@ -1,26 +1,21 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from fontTools.misc import sstruct
 from fontTools.misc.fixedTools import floatToFixedToStr
 from fontTools.misc.textTools import byteord, safeEval
-
 # from itertools import *
 from . import DefaultTable
 from . import grUtils
 from array import array
 from functools import reduce
 import struct, re, sys
-
 # Silf_hdr_format =
 #     >
 #     version:            16.16F
-
 # Silf_hdr_format_3 =
 #     >
 #     version:            16.16F
@@ -28,13 +23,11 @@ import struct, re, sys
 #     numSilf:            H
 #                         x
 #                         x
-
 # Silf_part1_format_v3 =
 #     >
 #     ruleVersion:        16.16F
 #     passOffset:         H
 #     pseudosOffset:      H
-
 # Silf_part1_format =
 #     >
 #     maxGlyphID:         H
@@ -54,7 +47,6 @@ import struct, re, sys
 #     attrMirroring:      B
 #     attrSkipPasses:     B
 #     numJLevels:         B
-
 # Silf_justify_format =
 #     >
 #     attrStretch:        B
@@ -65,7 +57,6 @@ import struct, re, sys
 #                         x
 #                         x
 #                         x
-
 # Silf_part2_format =
 #     >
 #     numLigComp:         H
@@ -77,34 +68,28 @@ import struct, re, sys
 #                         x
 #                         x
 #     numCritFeatures:    B
-
 # Silf_pseudomap_format =
 #     >
 #     unicode:            L
 #     nPseudo:            H
-
 # Silf_pseudomap_format_h =
 #     >
 #     unicode:            H
 #     nPseudo:            H
-
 # Silf_classmap_format =
 #     >
 #     numClass:           H
 #     numLinear:          H
-
 # Silf_lookupclass_format =
 #     >
 #     numIDs:             H
 #     searchRange:        H
 #     entrySelector:      H
 #     rangeShift:         H
-
 # Silf_lookuppair_format =
 #     >
 #     glyphId:            H
 #     index:              H
-
 # Silf_pass_format =
 #     >
 #     flags:              B
@@ -121,7 +106,6 @@ import struct, re, sys
 #     numTransitional:    H
 #     numSuccess:         H
 #     numColumns:         H
-
 # aCode_info = (
 #     ("NOP", 0),
 #     ("PUSH_BYTE", "b"),
@@ -192,8 +176,6 @@ import struct, re, sys
 #     ("SET_FEAT", "Bb"),
 # )
 # aCode_map = dict([(x[0], (i, x[1])) for i, x in enumerate(aCode_info)])
-
-
 def disassemble(aCode):
 #     codelen = len(aCode)
 #     pc = 0
@@ -201,21 +183,21 @@ def disassemble(aCode):
     while pc < codelen:
 #         opcode = byteord(aCode[pc : pc + 1])
         if opcode > len(aCode_info):
-      pass
-      pass
+    pass
+    pass
     pass
 #             instr = aCode_info[0]
         else:
 #             instr = aCode_info[opcode]
 #         pc += 1
         if instr[1] != 0 and pc >= codelen:
-      pass
-      pass
+    pass
+    pass
     pass
             return res
         if instr[1] == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             count = byteord(aCode[pc])
 #             fmt = "%dB" % count
@@ -226,8 +208,8 @@ def disassemble(aCode):
         else:
 #             fmt = instr[1]
         if fmt == :
-      pass
-      pass
+    pass
+    pass
     pass
 #             res.append(instr[0])
 #             continue
@@ -235,43 +217,37 @@ def disassemble(aCode):
 #         res.append(instr[0] + "(, ".join(map(str, parms)) + ")")
 #         pc += struct.calcsize(fmt)
     return res
-
-
 # instre = re.compile(r"^\s*([^(]+)\s*(?:(([^)]+)))?")
-
-
 def assemble(instrs):
 #     res = b
     for inst in instrs:
 #         m = instre.match(inst)
         if not m or not m.group(1) in aCode_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         opcode, parmfmt = aCode_map[m.group(1)]
 #         res += struct.pack("B", opcode)
         if m.group(2):
-      pass
-      pass
+    pass
+    pass
     pass
             if parmfmt == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
 #             parms = [int(x) for x in re.split(r",\s*", m.group(2))]
             if parmfmt == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 l = len(parms)
 #                 res += struct.pack(("%dB" % (l + 1)), l, *parms)
             else:
 #                 res += struct.pack(parmfmt, *parms)
     return res
-
-
 def writecode(tag, writer, instrs):
 #     writer.begintag(tag)
 #     writer.newline()
@@ -280,21 +256,17 @@ def writecode(tag, writer, instrs):
 #         writer.newline()
 #     writer.endtag(tag)
 #     writer.newline()
-
-
 def readcode(content):
 #     res = []
     for e in content_string(content).split("\n"):
 #         e = e.strip()
         if not len(e):
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         res.append(e)
     return assemble(res)
-
-
 # attrs_info = (
 #     "flags",
 #     "extraAscent",
@@ -326,73 +298,58 @@ def readcode(content):
 #     "collisionThreshold",
 # )
 # pass_attrs_fsm = ("numRows", "numTransitional", "numSuccess", "numColumns")
-
-
 def writesimple(tag, self, writer, *attrkeys):
 #     attrs = dict([(k, getattr(self, k)) for k in attrkeys])
 #     writer.simpletag(tag, **attrs)
 #     writer.newline()
-
-
 def getSimple(self, attrs, *attr_list):
     for k in attr_list:
         if k in attrs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             setattr(self, k, int(safeEval(attrs[k])))
-
-
 def content_string(contents):
 #     res =
     for element in contents:
         if isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         res += element
     return res.strip()
-
-
 def wrapline(writer, dat, length=80):
 #     currline =
     for d in dat:
         if len(currline) > length:
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.write(currline[:-1])
 #             writer.newline()
 #             currline =
 #         currline += d + " "
     if len(currline):
-      pass
-      pass
+    pass
+    pass
     pass
 #         writer.write(currline[:-1])
 #         writer.newline()
-
-
 class _Object:
 #     pass
-
-
 class table_S__i_l_f(DefaultTable.DefaultTable):
 #     Graphite Rules table
-
 #     See also https://graphite.sil.org/graphite_techAbout#graphite-font-tables
-
     def __init__(self, tag=None):
 #         DefaultTable.DefaultTable.__init__(self, tag)
 #         self.silfs = []
-
     def decompile(self, data, ttFont):
 #         sstruct.unpack2(Silf_hdr_format, data, self)
 #         self.version = float(floatToFixedToStr(self.version, precisionBits=16))
         if self.version >= 5.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             (data, self.scheme) = grUtils.decompress(data)
 #             sstruct.unpack2(Silf_hdr_format_3, data, self)
@@ -407,18 +364,16 @@ class table_S__i_l_f(DefaultTable.DefaultTable):
 #             self.scheme = 0
 #             sstruct.unpack2(Silf_hdr_format_3, data, self)
 #             base = sstruct.calcsize(Silf_hdr_format_3)
-
 #         silfoffsets = struct.unpack_from((">%dL" % self.numSilf), data[base:])
         for offset in silfoffsets:
 #             s = Silf()
 #             self.silfs.append(s)
 #             s.decompile(data[offset:], ttFont, self.version)
-
     def compile(self, ttFont):
 #         self.numSilf = len(self.silfs)
         if self.version < 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hdr = sstruct.pack(Silf_hdr_format, self)
 #             hdr += struct.pack(">HH", self.numSilf, 0)
@@ -432,12 +387,11 @@ class table_S__i_l_f(DefaultTable.DefaultTable):
 #             offset += len(subdata)
 #             data += subdata
         if self.version >= 5.0:
-      pass
-      pass
+    pass
+    pass
     pass
             return grUtils.compress(self.scheme, hdr + data)
         return hdr + data
-
     def toXML(self, writer, ttFont):
 #         writer.comment("Attributes starting with _ are informative only")
 #         writer.newline()
@@ -454,45 +408,40 @@ class table_S__i_l_f(DefaultTable.DefaultTable):
 #             s.toXML(writer, ttFont, self.version)
 #             writer.endtag("silf")
 #             writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont):
         if name == "version":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.scheme = int(safeEval(attrs["compressionScheme"]))
 #             self.version = float(safeEval(attrs["version"]))
 #             self.compilerVersion = int(safeEval(attrs["compilerVersion"]))
             return
         if name == "silf":
-      pass
-      pass
+    pass
+    pass
     pass
 #             s = Silf()
 #             self.silfs.append(s)
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, attrs, subcontent = element
 #                 s.fromXML(tag, attrs, subcontent, ttFont, self.version)
-
-
 class Silf(object):
-
     def __init__(self):
 #         self.passes = []
 #         self.scriptTags = []
 #         self.critFeatures = []
 #         self.jLevels = []
 #         self.pMap = {}
-
     def decompile(self, data, ttFont, version=2.0):
         if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _, data = sstruct.unpack2(Silf_part1_format_v3, data, self)
 #             self.ruleVersion = float(
@@ -504,8 +453,8 @@ class Silf(object):
 #             self.jLevels.append(j)
 #         _, data = sstruct.unpack2(Silf_part2_format, data, self)
         if self.numCritFeatures:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.critFeatures = struct.unpack_from(
 #                 (">%dH" % self.numCritFeatures), data
@@ -513,8 +462,8 @@ class Silf(object):
 #         data = data[self.numCritFeatures * 2 + 1 :]
 #         (numScriptTag,) = struct.unpack_from("B", data)
         if numScriptTag:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.scriptTags = [
 #                 struct.unpack("4s", data[x : x + 4])[0].decode("ascii")
@@ -523,8 +472,8 @@ class Silf(object):
 #         data = data[1 + 4 * numScriptTag :]
 #         (self.lbGID,) = struct.unpack(">H", data[:2])
         if self.numPasses:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.oPasses = struct.unpack(
 #                 (">%dL" % (self.numPasses + 1)), data[2 : 6 + 4 * self.numPasses]
@@ -533,8 +482,8 @@ class Silf(object):
 #         (numPseudo,) = struct.unpack(">H", data[:2])
         for i in range(numPseudo):
             if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 pseudo = sstruct.unpack(
 #                     Silf_pseudomap_format, data[8 + 6 * i : 14 + 6 * i], _Object()
@@ -559,8 +508,8 @@ class Silf(object):
 #             + 6 * numPseudo
 #         )
         if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             currpos += sstruct.calcsize(Silf_part1_format_v3)
 #         self.classes = Classes()
@@ -573,7 +522,6 @@ class Silf(object):
 #                 ttFont,
 #                 version,
 #             )
-
     def compile(self, ttFont, version=2.0):
 #         self.numPasses = len(self.passes)
 #         self.numJLevels = len(self.jLevels)
@@ -581,8 +529,8 @@ class Silf(object):
 #         numPseudo = len(self.pMap)
 #         data = b
         if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hdroffset = sstruct.calcsize(Silf_part1_format_v3)
         else:
@@ -592,20 +540,19 @@ class Silf(object):
 #             data += sstruct.pack(Silf_justify_format, j)
 #         data += sstruct.pack(Silf_part2_format, self)
         if self.numCritFeatures:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data += struct.pack((">%dH" % self.numCritFeaturs), *self.critFeatures)
 #         data += struct.pack("BB", 0, len(self.scriptTags))
         if len(self.scriptTags):
-      pass
-      pass
+    pass
+    pass
     pass
 #             tdata = [struct.pack("4s", x.encode("ascii")) for x in self.scriptTags]
 #             data += b.join(tdata)
 #         data += struct.pack(">H", self.lbGID)
 #         self.passOffset = len(data)
-
 #         data1 = grUtils.bininfo(numPseudo, 6)
 #         currpos = hdroffset + len(data) + 4 * (self.numPasses + 1)
 #         self.pseudosOffset = currpos + len(data1)
@@ -622,20 +569,18 @@ class Silf(object):
 #             datao += struct.pack(">L", base)
 #             data2 += p.compile(ttFont, base, version)
 #         datao += struct.pack(">L", currpos + len(data2))
-
         if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data3 = sstruct.pack(Silf_part1_format_v3, self)
         else:
 #             data3 = b
         return data3 + data + datao + data1 + data2
-
     def toXML(self, writer, ttFont, version=2.0):
         if version >= 3.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.simpletag("version", ruleVersion=self.ruleVersion)
 #             writer.newline()
@@ -644,8 +589,8 @@ class Silf(object):
 #         writesimple("contexts", self, writer, *attrs_contexts)
 #         writesimple("attributes", self, writer, *attrs_attributes)
         if len(self.jLevels):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("justifications")
 #             writer.newline()
@@ -657,8 +602,8 @@ class Silf(object):
 #             writer.endtag("justifications")
 #             writer.newline()
         if len(self.critFeatures):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("critFeatures")
 #             writer.newline()
@@ -667,8 +612,8 @@ class Silf(object):
 #             writer.endtag("critFeatures")
 #             writer.newline()
         if len(self.scriptTags):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("scriptTags")
 #             writer.newline()
@@ -677,8 +622,8 @@ class Silf(object):
 #             writer.endtag("scriptTags")
 #             writer.newline()
         if self.pMap:
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("pseudoMap")
 #             writer.newline()
@@ -689,8 +634,8 @@ class Silf(object):
 #             writer.newline()
 #         self.classes.toXML(writer, ttFont, version)
         if len(self.passes):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("passes")
 #             writer.newline()
@@ -702,16 +647,15 @@ class Silf(object):
 #                 writer.newline()
 #             writer.endtag("passes")
 #             writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont, version=2.0):
         if name == "version":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.ruleVersion = float(safeEval(attrs.get("ruleVersion", "0")))
         if name == "info":
-      pass
-      pass
+    pass
+    pass
     pass
 #             getSimple(self, attrs, *attrs_info)
         elif name == "passindexes":
@@ -727,14 +671,14 @@ class Silf(object):
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 (tag, attrs, subcontent) = element
                 if tag == "justify":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     j = _Object()
                     for k, v in attrs.items():
@@ -756,14 +700,14 @@ class Silf(object):
 #             self.pMap = {}
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 (tag, attrs, subcontent) = element
                 if tag == "pseudo":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     k = int(attrs["unicode"], 16)
 #                     v = attrs["pseudo"]
@@ -773,8 +717,8 @@ class Silf(object):
 #             self.classes = Classes()
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, attrs, subcontent = element
@@ -783,36 +727,33 @@ class Silf(object):
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, attrs, subcontent = element
                 if tag == "pass":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     p = Pass()
                     for e in subcontent:
                         if not isinstance(e, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             continue
 #                         p.fromXML(e[0], e[1], e[2], ttFont, version)
 #                     self.passes.append(p)
-
-
 class Classes(object):
     def __init__(self):
 #         self.linear = []
 #         self.nonLinear = []
-
     def decompile(self, data, ttFont, version=2.0):
 #         sstruct.unpack2(Silf_classmap_format, data, self)
         if version >= 4.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             oClasses = struct.unpack(
 #                 (">%dL" % (self.numClass + 1)), data[4 : 8 + 4 * self.numClass]
@@ -835,13 +776,12 @@ class Classes(object):
 #             ]
 #             nonLin = dict([(ttFont.getGlyphName(x[0]), x[1]) for x in nonLinids])
 #             self.nonLinear.append(nonLin)
-
     def compile(self, ttFont, version=2.0):
 #         data = b
 #         oClasses = []
         if version >= 4.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             offset = 8 + 4 * (len(self.linear) + len(self.nonLinear))
         else:
@@ -865,7 +805,6 @@ class Classes(object):
 #             )
 #             + data
 #         )
-
     def toXML(self, writer, ttFont, version=2.0):
 #         writer.begintag("classes")
 #         writer.newline()
@@ -893,22 +832,21 @@ class Classes(object):
 #         writer.newline()
 #         writer.endtag("classes")
 #         writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont, version=2.0):
         if name == "linearClasses":
-      pass
-      pass
+    pass
+    pass
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, attrs, subcontent = element
                 if tag == "linear":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     l = content_string(subcontent).split()
 #                     self.linear.append(l)
@@ -916,31 +854,29 @@ class Classes(object):
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, attrs, subcontent = element
                 if tag == "nonLinear":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     l = {}
                     for e in subcontent:
                         if not isinstance(e, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             continue
 #                         tag, attrs, subsubcontent = e
                         if tag == "map":
-      pass
-      pass
+    pass
+    pass
     pass
 #                             l[attrs["glyph"]] = int(safeEval(attrs["index"]))
 #                     self.nonLinear.append(l)
-
-
 class Pass(object):
     def __init__(self):
 #         self.colMap = {}
@@ -952,7 +888,6 @@ class Pass(object):
 #         self.actions = []
 #         self.stateTrans = []
 #         self.startStates = []
-
     def decompile(self, data, ttFont, version=2.0):
 #         _, data = sstruct.unpack2(Silf_pass_format, data, self)
 #         (numRange, _, _, _) = struct.unpack(">4H", data[:8])
@@ -997,8 +932,8 @@ class Pass(object):
 #                 "H", data[i * self.numColumns * 2 : (i + 1) * self.numColumns * 2]
 #             )
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 a.byteswap()
 #             self.stateTrans.append(a)
@@ -1007,8 +942,8 @@ class Pass(object):
 #         data = data[pConstraint:]
         for i in range(len(oConstraints) - 2, -1, -1):
             if oConstraints[i] == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 oConstraints[i] = oConstraints[i + 1]
 #         self.ruleConstraints = [
@@ -1021,7 +956,6 @@ class Pass(object):
 #         ]
 #         data = data[oActions[-1] :]
         # not using debug
-
     def compile(self, ttFont, base, version=2.0):
         # build it all up backwards
 #         oActions = reduce(
@@ -1036,19 +970,19 @@ class Pass(object):
 #         transes = []
         for t in self.stateTrans:
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 t.byteswap()
 #             transes.append(t.tobytes())
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 t.byteswap()
         if not len(transes):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.startStates = [0]
 #         oRuleMap = reduce(
@@ -1058,8 +992,8 @@ class Pass(object):
 #         gidcolmap = dict([(ttFont.getGlyphID(x[0]), x[1]) for x in self.colMap.items()])
         for e in grUtils.entries(gidcolmap, sameval=True):
             if e[1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 passRanges.append((e[0], e[0] + e[1] - 1, e[2][0]))
 #         self.numRules = len(self.actions)
@@ -1104,7 +1038,6 @@ class Pass(object):
 #             + constraintCode
 #             + b.join(self.actions)
 #         )
-
     def toXML(self, writer, ttFont, version=2.0):
 #         writesimple("info", self, writer, *pass_attrs_info)
 #         writesimple("fsminfo", self, writer, *pass_attrs_fsm)
@@ -1143,8 +1076,8 @@ class Pass(object):
 #             )
 #             writer.newline()
             if len(self.ruleConstraints[i]):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 writecode("constraint", writer, self.ruleConstraints[i])
 #             writecode("action", writer, self.actions[i])
@@ -1153,13 +1086,13 @@ class Pass(object):
 #         writer.endtag("rules")
 #         writer.newline()
         if len(self.passConstraints):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writecode("passConstraint", writer, self.passConstraints)
         if len(self.stateTrans):
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.begintag("fsm")
 #             writer.newline()
@@ -1175,11 +1108,10 @@ class Pass(object):
 #                 writer.newline()
 #             writer.endtag("fsm")
 #             writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont, version=2.0):
         if name == "info":
-      pass
-      pass
+    pass
+    pass
     pass
 #             getSimple(self, attrs, *pass_attrs_info)
         elif name == "fsminfo":
@@ -1191,8 +1123,8 @@ class Pass(object):
             for w in e.split():
 #                 x = w.split("=")
                 if len(x) != 2 or x[0] == " or x[1] == ":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 self.colMap[x[0]] = int(x[1])
@@ -1200,28 +1132,28 @@ class Pass(object):
     pass
             for e in content:
                 if not isinstance(e, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, a, c = e
                 if tag == "state":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.rules.append([int(x) for x in a["rules"].split(" ")])
         elif name == "rules":
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, a, c = element
                 if tag != "rule":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 self.rulePreContexts.append(int(a["precontext"]))
@@ -1230,14 +1162,14 @@ class Pass(object):
 #                 act = b
                 for e in c:
                     if not isinstance(e, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         continue
 #                     tag, a, subc = e
                     if tag == "constraint":
-      pass
-      pass
+    pass
+    pass
     pass
 #                         con = readcode(subc)
                     elif tag == "action":
@@ -1252,14 +1184,14 @@ class Pass(object):
     pass
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 tag, a, c = element
                 if tag == "row":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     s = array("H")
 #                     e = content_string(c)

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import json
 from pathlib import Path
-
 import requests
 import torch
 from huggingface_hub import hf_hub_download
 from PIL import Image
-
 from transformers import DetrConfig, DetrForObjectDetection, DetrForSegmentation, DetrImageProcessor, ResNetConfig
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger(__name__)
-
-
 def get_detr_config(model_name):
     # initialize config
     if "resnet-50" in model_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         backbone_config = ResNetConfig.from_pretrained("microsoft/resnet-50")
     elif "resnet-101" in model_name:
@@ -52,14 +42,12 @@ def get_detr_config(model_name):
 #         backbone_config = ResNetConfig.from_pretrained("microsoft/resnet-101")
     else:
 #         raise ValueError("Model name should include either resnet50 or resnet101")
-
 #     config = DetrConfig(use_timm_backbone=False, backbone_config=backbone_config)
-
     # set label attributes
 #     is_panoptic = "panoptic" in model_name
     if is_panoptic:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.num_labels = 250
     else:
@@ -70,14 +58,10 @@ def get_detr_config(model_name):
 #         id2label = {int(k): v for k, v in id2label.items()}
 #         config.id2label = id2label
 #         config.label2id = {v: k for k, v in id2label.items()}
-
     return config, is_panoptic
-
-
 def create_rename_keys(config):
     # here we list all keys to be renamed (original name on the left, our name on the right)
 #     rename_keys = []
-
     # stem
     # fmt: off
 #     rename_keys.append(("backbone.0.body.conv1.weight", "backbone.conv_encoder.model.embedder.embedder.convolution.weight"))
@@ -90,8 +74,8 @@ def create_rename_keys(config):
         for layer_idx in range(config.backbone_config.depths[stage_idx]):
             # shortcut
             if layer_idx == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 rename_keys.append(
 #                     (
@@ -156,7 +140,6 @@ def create_rename_keys(config):
 #                     )
 #                 )
     # fmt: on
-
     for i in range(config.encoder_layers):
         # encoder layers: output projection, 2 feedforward neural networks and 2 layernorms
 #         rename_keys.append(
@@ -224,7 +207,6 @@ def create_rename_keys(config):
 #             (f"transformer.decoder.layers.{i}.norm3.weight", f"decoder.layers.{i}.final_layer_norm.weight")
 #         )
 #         rename_keys.append((f"transformer.decoder.layers.{i}.norm3.bias", f"decoder.layers.{i}.final_layer_norm.bias"))
-
     # convolutional projection + query embeddings + layernorm of decoder + class and bounding box heads
 #     rename_keys.extend(
 #         [
@@ -243,23 +225,17 @@ def create_rename_keys(config):
 #             ("bbox_embed.layers.2.bias", "bbox_predictor.layers.2.bias"),
 #         ]
 #     )
-
     return rename_keys
-
-
 def rename_key(state_dict, old, new):
 #     val = state_dict.pop(old)
 #     state_dict[new] = val
-
-
 def read_in_q_k_v(state_dict, is_panoptic=False):
 #     prefix =
     if is_panoptic:
-      pass
-      pass
+    pass
+    pass
     pass
 #         prefix = "detr."
-
     # first: transformer encoder
     for i in range(6):
         # read in weights + bias of input projection layer (in PyTorchs MultiHeadAttention, this is a single matrix + bias)
@@ -296,24 +272,16 @@ def read_in_q_k_v(state_dict, is_panoptic=False):
 #         state_dict[f"decoder.layers.{i}.encoder_attn.k_proj.bias"] = in_proj_bias_cross_attn[256:512]
 #         state_dict[f"decoder.layers.{i}.encoder_attn.v_proj.weight"] = in_proj_weight_cross_attn[-256:, :]
 #         state_dict[f"decoder.layers.{i}.encoder_attn.v_proj.bias"] = in_proj_bias_cross_attn[-256:]
-
-
 # We will verify our results on an image of cute cats
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     im = Image.open(requests.get(url, stream=True).raw)
-
     return im
-
-
 # @torch.no_grad()
 def convert_detr_checkpoint(model_name, pytorch_dump_folder_path=None, push_to_hub=False):
-
 #     Copy/paste/tweak models weights to our DETR structure.
-
     # load default config
 #     config, is_panoptic = get_detr_config(model_name)
-
     # load original model from torch hub
 #     model_name_to_original_name = {
 #         "detr-resnet-50": "detr_resnet50",
@@ -325,8 +293,8 @@ def convert_detr_checkpoint(model_name, pytorch_dump_folder_path=None, push_to_h
     # rename keys
     for src, dest in create_rename_keys(config):
         if is_panoptic:
-      pass
-      pass
+    pass
+    pass
     pass
 #             src = "detr." + src
 #         rename_key(state_dict, src, dest)
@@ -336,8 +304,8 @@ def convert_detr_checkpoint(model_name, pytorch_dump_folder_path=None, push_to_h
 #     prefix = "detr.model." if is_panoptic else "model."
     for key in state_dict.copy().keys():
         if is_panoptic:
-      pass
-      pass
+    pass
+    pass
     pass
             if (
 #                 key.startswith("detr")
@@ -358,62 +326,52 @@ def convert_detr_checkpoint(model_name, pytorch_dump_folder_path=None, push_to_h
 #                 state_dict[prefix + key] = val
         else:
             if not key.startswith("class_labels_classifier") and not key.startswith("bbox_predictor"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 val = state_dict.pop(key)
 #                 state_dict[prefix + key] = val
-
     # finally, create HuggingFace model and load state dict
 #     model = DetrForSegmentation(config) if is_panoptic else DetrForObjectDetection(config)
 #     model.load_state_dict(state_dict)
 #     model.eval()
-
     # verify our conversion on an image
     format = "coco_panoptic" if is_panoptic else "coco_detection"
 #     processor = DetrImageProcessor(format=format)
-
 #     encoding = processor(images=prepare_img(), return_tensors="pt")
 #     pixel_values = encoding["pixel_values"]
-
 #     original_outputs = detr(pixel_values)
 #     outputs = model(pixel_values)
-
 #     assert torch.allclose(outputs.logits, original_outputs["pred_logits"], atol=1e-3)
 #     assert torch.allclose(outputs.pred_boxes, original_outputs["pred_boxes"], atol=1e-3)
     if is_panoptic:
-      pass
-      pass
+    pass
+    pass
     pass
 #         assert torch.allclose(outputs.pred_masks, original_outputs["pred_masks"], atol=1e-4)
 #     print("Looks ok!")
-
     if pytorch_dump_folder_path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         # Save model and image processor
 #         logger.info(f"Saving PyTorch model and image processor to {pytorch_dump_folder_path}...")
 #         Path(pytorch_dump_folder_path).mkdir(exist_ok=True)
 #         model.save_pretrained(pytorch_dump_folder_path)
 #         processor.save_pretrained(pytorch_dump_folder_path)
-
     if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
         # Upload model and image processor to the hub
 #         logger.info("Uploading PyTorch model and image processor to the hub...")
 #         model.push_to_hub(f"nielsr/{model_name}")
 #         processor.push_to_hub(f"nielsr/{model_name}")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
-
 #     parser.add_argument(
 #         "--model_name",
         default="detr-resnet-50",

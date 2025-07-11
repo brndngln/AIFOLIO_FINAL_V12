@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,40 +19,28 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Any, Mapping, Optional
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ... import FeatureExtractionMixin, TensorType
-
 # logger = logging.get_logger(__name__)
-
 #     openai/imagegpt-small: ,
 #     openai/imagegpt-medium: ,
 #     openai/imagegpt-large: ,
 # }
-
-
 class ImageGPTConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`ImageGPTModel`] or a [`TFImageGPTModel`]. It is
 #     used to instantiate a GPT-2 model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the ImageGPT
 #     [openai/imagegpt-small](https://huggingface.co/openai/imagegpt-small) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 512):
 #             Vocabulary size of the GPT-2 model. Defines the number of different tokens that can be represented by the
@@ -93,22 +78,16 @@ class ImageGPTConfig(PretrainedConfig):
 #         reorder_and_upcast_attn (`bool`, *optional*, defaults to `False`):
 #             Whether to scale keys (K) prior to computing attention (dot-product) and upcast attention
 #             dot-product/softmax to float() when training with mixed precision.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import ImageGPTConfig, ImageGPTModel
-
 #     >>> # Initializing a ImageGPT configuration
 #     >>> configuration = ImageGPTConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = ImageGPTModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "imagegpt"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -117,7 +96,6 @@ class ImageGPTConfig(PretrainedConfig):
 #         "num_attention_heads": "n_head",
 #         "num_hidden_layers": "n_layer",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=512 + 1,  # add one for start of sentence (sos) token
@@ -156,10 +134,7 @@ class ImageGPTConfig(PretrainedConfig):
 #         self.scale_attn_by_inverse_layer_idx = scale_attn_by_inverse_layer_idx
 #         self.reorder_and_upcast_attn = reorder_and_upcast_attn
 #         self.tie_word_embeddings = tie_word_embeddings
-
 #         super().__init__(tie_word_embeddings=tie_word_embeddings, **kwargs)
-
-
 class ImageGPTOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
@@ -168,7 +143,6 @@ class ImageGPTOnnxConfig(OnnxConfig):
 #                 ("input_ids", {0: "batch", 1: "sequence"}),
 #             ]
 #         )
-
     def generate_dummy_inputs(
 #         self,
 #         preprocessor: "FeatureExtractionMixin",
@@ -180,9 +154,7 @@ class ImageGPTOnnxConfig(OnnxConfig):
 #         image_width: int = 32,
 #         image_height: int = 32,
 #     ) -> Mapping[str, Any]:
-
 #         Generate inputs to provide to the ONNX exporter for the specific framework
-
 #         Args:
 #             preprocessor ([`PreTrainedTokenizerBase`] or [`FeatureExtractionMixin`]):
 #                 The preprocessor associated with this model configuration.
@@ -202,11 +174,8 @@ class ImageGPTOnnxConfig(OnnxConfig):
 #                 The width of the generated images.
 #             image_height (`int`, *optional*, defaults to 40):
 #                 The height of the generated images.
-
 #         Returns:
 #             Mapping[str, Tensor] holding the kwargs to provide to the models forward function
-
 #         input_image = self._generate_dummy_images(batch_size, num_channels, image_height, image_width)
 #         inputs = dict(preprocessor(images=input_image, return_tensors=framework))
-
         return inputs

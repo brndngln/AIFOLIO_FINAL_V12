@@ -1,17 +1,13 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import sys
 from http import HTTPStatus
 from typing import Mapping, Tuple
-
 from . import __version__
 from .http_exceptions import HttpProcessingError as HttpProcessingError
 from .http_parser import (
@@ -41,7 +37,6 @@ from .http_writer import (
 #     HttpVersion11 as HttpVersion11,
 #     StreamWriter as StreamWriter,
 # )
-
 # __all__ = (
 #     "HttpProcessingError",
     # .http_writer
@@ -69,10 +64,7 @@ from .http_writer import (
 #     "WSMsgType",
 #     "WSCloseCode",
 # )
-
-
 #     sys.version_info, __version__
 # )
-
 #     v: (v.phrase, v.description) for v in HTTPStatus.__members__.values()
 # }

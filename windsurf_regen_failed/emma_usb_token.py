@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -16,21 +13,15 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
 import json
-
 # EMMA_USB_PATH = "/Volumes/EMMA_KEY/"
-
 # AES256 encryption using Emma Fingerprint ID
-
-
 def encrypt_file(data: bytes, key: bytes) -> bytes:
-
 #     Encrypts data using AES256 CBC with PKCS7 padding.
 #     Args:
 #         data: Data to encrypt.
 #         key: 32-byte encryption key.
 #     Returns:
 #         Encrypted bytes (IV + ciphertext).
-
 #     backend = default_backend()
 #     iv = os.urandom(16)
 #     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=backend)
@@ -39,12 +30,9 @@ def encrypt_file(data: bytes, key: bytes) -> bytes:
 #     encryptor = cipher.encryptor()
 #     encrypted = encryptor.update(padded) + encryptor.finalize()
     return iv + encrypted
-
-
 def export_to_usb_token(
 #     fingerprint_id: str, key_share: str, meta: Dict[str, Any], biometric: str
 # ) -> None:
-
 #     Exports key material and metadata to a USB token, encrypting each file.
 #     Args:
 #         fingerprint_id: User fingerprint for key derivation.
@@ -53,7 +41,6 @@ def export_to_usb_token(
 #         biometric: Biometric authentication string.
 #     Raises:
 #         AssertionError if USB device is not mounted.
-
 #     assert os.path.ismount(EMMA_USB_PATH), "EMMA_KEY USB not mounted!"
 #     key = fingerprint_id.encode("utf-8").ljust(32, b"0")[:32]
 #     files = {

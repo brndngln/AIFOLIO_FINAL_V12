@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,19 +19,14 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Any, Mapping, Optional
-
 from ... import PreTrainedTokenizer
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig, OnnxConfigWithPast, OnnxSeq2SeqConfigWithPast
 from ...onnx.utils import compute_effective_axis_dimension
 from ...utils import TensorType, is_torch_available, logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "google/bigbird-pegasus-large-arxiv": (
 #         "https://huggingface.co/google/bigbird-pegasus-large-arxiv/resolve/main/config.json"
 #     ),
@@ -46,19 +38,13 @@ from ...utils import TensorType, is_torch_available, logging
 #     ),
     # See all BigBirdPegasus models at https://huggingface.co/models?filter=bigbird_pegasus
 # }
-
-
 class BigBirdPegasusConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`BigBirdPegasusModel`]. It is used to instantiate
 #     an BigBirdPegasus model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the BigBirdPegasus
 #     [google/bigbird-pegasus-large-arxiv](https://huggingface.co/google/bigbird-pegasus-large-arxiv) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 96103):
 #             Vocabulary size of the BigBirdPegasus model. Defines the number of different tokens that can be represented
@@ -113,22 +99,16 @@ class BigBirdPegasusConfig(PretrainedConfig):
 #             "block_sparse"`.
 #         scale_embeddings (`bool`, *optional*, defaults to `True`)
 #             Whether to rescale embeddings with (hidden_size ** 0.5).
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import BigBirdPegasusConfig, BigBirdPegasusModel
-
 #     >>> # Initializing a BigBirdPegasus bigbird-pegasus-base style configuration
 #     >>> configuration = BigBirdPegasusConfig()
-
 #     >>> # Initializing a model (with random weights) from the bigbird-pegasus-base style configuration
 #     >>> model = BigBirdPegasusModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "bigbird_pegasus"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -136,7 +116,6 @@ class BigBirdPegasusConfig(PretrainedConfig):
 #         "hidden_size": "d_model",
 #         "attention_probs_dropout_prob": "attention_dropout",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=96103,
@@ -189,13 +168,11 @@ class BigBirdPegasusConfig(PretrainedConfig):
 #         self.use_cache = use_cache
 #         self.num_hidden_layers = encoder_layers
 #         self.scale_embedding = scale_embedding  # scale factor will be sqrt(d_model) if True
-
         # extra config
 #         self.attention_type = attention_type
 #         self.block_size = block_size
 #         self.num_random_blocks = num_random_blocks
 #         self.use_bias = use_bias
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,
@@ -204,15 +181,13 @@ class BigBirdPegasusConfig(PretrainedConfig):
 #             decoder_start_token_id=decoder_start_token_id,
 #             **kwargs,
 #         )
-
-
 # Copied from transformers.models.bart.configuration_bart.BartOnnxConfig
 class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task in ["default", "seq2seq-lm"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             common_inputs = OrderedDict(
 #                 [
@@ -220,20 +195,18 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                     ("attention_mask", {0: "batch", 1: "encoder_sequence"}),
 #                 ]
 #             )
-
             if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 common_inputs["decoder_input_ids"] = {0: "batch"}
 #                 common_inputs["decoder_attention_mask"] = {0: "batch", 1: "past_decoder_sequence + sequence"}
             else:
 #                 common_inputs["decoder_input_ids"] = {0: "batch", 1: "decoder_sequence"}
 #                 common_inputs["decoder_attention_mask"] = {0: "batch", 1: "decoder_sequence"}
-
             if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.fill_with_past_key_values_(common_inputs, direction="inputs")
         elif self.task == "causal-lm":
@@ -246,8 +219,8 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                 ]
 #             )
             if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 num_encoder_layers, _ = self.num_layers
                 for i in range(num_encoder_layers):
@@ -262,28 +235,25 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                     ("decoder_attention_mask", {0: "batch", 1: "decoder_sequence"}),
 #                 ]
 #             )
-
         return common_inputs
-
 #     @property
     def outputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task in ["default", "seq2seq-lm"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             common_outputs = super().outputs
         else:
 #             common_outputs = super(OnnxConfigWithPast, self).outputs
             if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 num_encoder_layers, _ = self.num_layers
                 for i in range(num_encoder_layers):
 #                     common_outputs[f"present.{i}.key"] = {0: "batch", 2: "past_sequence + sequence"}
 #                     common_outputs[f"present.{i}.value"] = {0: "batch", 2: "past_sequence + sequence"}
         return common_outputs
-
     def _generate_dummy_inputs_for_default_and_seq2seq_lm(
 #         self,
 #         tokenizer: PreTrainedTokenizer,
@@ -295,7 +265,6 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         encoder_inputs = self._generate_dummy_inputs_for_sequence_classification_and_question_answering(
 #             tokenizer, batch_size, seq_length, is_pair, framework
 #         )
-
         # Generate decoder inputs
 #         decoder_seq_length = seq_length if not self.use_past else 1
 #         decoder_inputs = self._generate_dummy_inputs_for_sequence_classification_and_question_answering(
@@ -303,14 +272,13 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         )
 #         decoder_inputs = {f"decoder_{name}": tensor for name, tensor in decoder_inputs.items()}
 #         common_inputs = dict(**encoder_inputs, **decoder_inputs)
-
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
             if not is_torch_available():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Cannot generate dummy past_keys inputs without PyTorch installed.")
             else:
@@ -331,18 +299,15 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                 decoder_past_length,
 #                 self._config.hidden_size // num_decoder_attention_heads,
 #             )
-
 #             common_inputs["decoder_attention_mask"] = torch.cat(
 #                 [common_inputs["decoder_attention_mask"], torch.ones(batch, decoder_past_length)], dim=1
 #             )
-
 #             common_inputs["past_key_values"] = []
             # If the number of encoder and decoder layers are present in the model configuration, both are considered
 #             num_encoder_layers, num_decoder_layers = self.num_layers
 #             min_num_layers = min(num_encoder_layers, num_decoder_layers)
 #             max_num_layers = max(num_encoder_layers, num_decoder_layers) - min_num_layers
 #             remaining_side_name = "encoder" if num_encoder_layers > num_decoder_layers else "decoder"
-
             for _ in range(min_num_layers):
 #                 common_inputs["past_key_values"].append(
 #                     (
@@ -357,7 +322,6 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
             for _ in range(min_num_layers, max_num_layers):
 #                 common_inputs["past_key_values"].append((torch.zeros(shape), torch.zeros(shape)))
         return common_inputs
-
     def _generate_dummy_inputs_for_causal_lm(
 #         self,
 #         tokenizer: PreTrainedTokenizer,
@@ -369,14 +333,13 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         common_inputs = self._generate_dummy_inputs_for_sequence_classification_and_question_answering(
 #             tokenizer, batch_size, seq_length, is_pair, framework
 #         )
-
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
             if not is_torch_available():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Cannot generate dummy past_keys inputs without PyTorch installed.")
             else:
@@ -392,7 +355,6 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                 past_key_values_length,
 #                 self._config.hidden_size // num_encoder_attention_heads,
 #             )
-
 #             mask_dtype = common_inputs["attention_mask"].dtype
 #             common_inputs["attention_mask"] = torch.cat(
 #                 [common_inputs["attention_mask"], torch.ones(batch, past_key_values_length, dtype=mask_dtype)], dim=1
@@ -401,7 +363,6 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #                 (torch.zeros(past_shape), torch.zeros(past_shape)) for _ in range(num_encoder_layers)
 #             ]
         return common_inputs
-
     def _generate_dummy_inputs_for_sequence_classification_and_question_answering(
 #         self,
 #         tokenizer: PreTrainedTokenizer,
@@ -416,18 +377,15 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         batch_size = compute_effective_axis_dimension(
 #             batch_size, fixed_dimension=OnnxConfig.default_fixed_batch, num_token_to_add=0
 #         )
-
         # If dynamic axis (-1) we forward with a fixed dimension of 8 tokens to avoid optimizations made by ONNX
 #         token_to_add = tokenizer.num_special_tokens_to_add(is_pair)
 #         seq_length = compute_effective_axis_dimension(
 #             seq_length, fixed_dimension=OnnxConfig.default_fixed_sequence, num_token_to_add=token_to_add
 #         )
-
         # Generate dummy inputs according to compute batch and sequence
 #         dummy_input = [" ".join([tokenizer.unk_token]) * seq_length] * batch_size
 #         common_inputs = dict(tokenizer(dummy_input, return_tensors=framework))
         return common_inputs
-
     def generate_dummy_inputs(
 #         self,
 #         tokenizer: PreTrainedTokenizer,
@@ -437,13 +395,12 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         framework: Optional[TensorType] = None,
 #     ) -> Mapping[str, Any]:
         if self.task in ["default", "seq2seq-lm"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             common_inputs = self._generate_dummy_inputs_for_default_and_seq2seq_lm(
 #                 tokenizer, batch_size=batch_size, seq_length=seq_length, is_pair=is_pair, framework=framework
 #             )
-
         elif self.task == "causal-lm":
     pass
 #             common_inputs = self._generate_dummy_inputs_for_causal_lm(
@@ -453,13 +410,11 @@ class BigBirdPegasusOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #             common_inputs = self._generate_dummy_inputs_for_sequence_classification_and_question_answering(
 #                 tokenizer, batch_size=batch_size, seq_length=seq_length, is_pair=is_pair, framework=framework
 #             )
-
         return common_inputs
-
     def _flatten_past_key_values_(self, flattened_output, name, idx, t):
         if self.task in ["default", "seq2seq-lm"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             flattened_output = super()._flatten_past_key_values_(flattened_output, name, idx, t)
         else:

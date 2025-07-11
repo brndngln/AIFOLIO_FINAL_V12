@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Adapted from original paddlenlp repository.(https://github.com/PaddlePaddle/PaddleNLP/blob/develop/paddlenlp/transformers/ernie_m/configuration.py)
-
 from __future__ import annotations
-
 from typing import Dict
-
 from ...configuration_utils import PretrainedConfig
-
-
 #     "susnato/ernie-m-base_pytorch": "https://huggingface.co/susnato/ernie-m-base_pytorch/blob/main/config.json",
 #     "susnato/ernie-m-large_pytorch": "https://huggingface.co/susnato/ernie-m-large_pytorch/blob/main/config.json",
 # }
-
-
 class ErnieMConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`ErnieMModel`]. It is used to instantiate a
 #     Ernie-M model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the `Ernie-M`
 #     [susnato/ernie-m-base_pytorch](https://huggingface.co/susnato/ernie-m-base_pytorch) architecture.
-
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 250002):
 #             Vocabulary size of `inputs_ids` in [`ErnieMModel`]. Also is the vocab size of token embedding matrix.
@@ -83,13 +69,10 @@ class ErnieMConfig(PretrainedConfig):
 #             The standard deviation of the normal initializer for initializing all weight matrices.
 #         pad_token_id(`int`, *optional*, defaults to 1):
 #             The index of padding token in the token vocabulary.
-
 #     A normal_initializer initializes weight matrices as normal distributions. See
 #     `ErnieMPretrainedModel._init_weights()` for how weights are initialized in `ErnieMModel`.
-
 #     model_type = "ernie_m"
 #     attribute_map: Dict[str, str] = {"dropout": "classifier_dropout", "num_classes": "num_labels"}
-
     def __init__(
 #         self,
 #         vocab_size: int = 250002,

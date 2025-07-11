@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,24 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import json
 import os
 import re
 import sys
 import unicodedata
 from typing import List, Optional, Tuple
-
 from ...tokenization_utils import PreTrainedTokenizer
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "vocab_file": "vocab.json",
 #     "merges_file": "merges.txt",
 # }
-
 #     "vocab_file": {
 #         "xlm-mlm-en-2048": "https://huggingface.co/xlm-mlm-en-2048/resolve/main/vocab.json",
 #         "xlm-mlm-ende-1024": "https://huggingface.co/xlm-mlm-ende-1024/resolve/main/vocab.json",
@@ -65,7 +56,6 @@ from ...utils import logging
 #         "xlm-mlm-100-1280": "https://huggingface.co/xlm-mlm-100-1280/resolve/main/merges.txt",
 #     },
 # }
-
 #     "xlm-mlm-en-2048": 512,
 #     "xlm-mlm-ende-1024": 512,
 #     "xlm-mlm-enfr-1024": 512,
@@ -77,7 +67,6 @@ from ...utils import logging
 #     "xlm-mlm-17-1280": 512,
 #     "xlm-mlm-100-1280": 512,
 # }
-
 #     "xlm-mlm-en-2048": {"do_lowercase_and_remove_accent": True},
 #     "xlm-mlm-ende-1024": {
 #         "do_lowercase_and_remove_accent": True,
@@ -427,26 +416,18 @@ from ...utils import logging
 #         },
 #     },
 # }
-
-
 def get_pairs(word):
-
 #     Return set of symbol pairs in a word. word is represented as tuple of symbols (symbols being variable-length
 #     strings)
-
 #     pairs = set()
 #     prev_char = word[0]
     for char in word[1:]:
 #         pairs.add((prev_char, char))
 #         prev_char = char
     return pairs
-
-
 def lowercase_and_remove_accent(text):
-
 #     Lowercase and strips accents from a piece of text based on
 #     https://github.com/facebookresearch/XLM/blob/master/tools/lowercase_and_remove_accent.py
-
 #     text = " ".join(text)
 #     text = text.lower()
 #     text = unicodedata.normalize("NFD", text)
@@ -454,18 +435,14 @@ def lowercase_and_remove_accent(text):
     for char in text:
 #         cat = unicodedata.category(char)
         if cat == "Mn":
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         output.append(char)
     return .join(output).lower().split( )
-
-
 def replace_unicode_punct(text):
-
 #     Port of https://github.com/moses-smt/mosesdecoder/blob/master/scripts/tokenizer/replace-unicode-punctuation.perl
-
 #     text = text.replace("，", ",")
 #     text = re.sub(r"。\s*", ". ", text)
 #     text = text.replace("、", ",")
@@ -503,26 +480,19 @@ def replace_unicode_punct(text):
 #     text = text.replace("】", "]")
 #     text = text.replace("％", "%")
     return text
-
-
 def remove_non_printing_char(text):
-
 #     Port of https://github.com/moses-smt/mosesdecoder/blob/master/scripts/tokenizer/remove-non-printing-char.perl
-
 #     output = []
     for char in text:
 #         cat = unicodedata.category(char)
         if cat.startswith("C"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         output.append(char)
     return .join(output)
-
-
 def romanian_preprocessing(text):
-
     # https://github.com/rsennrich/wmt16-scripts/blob/master/preprocess/normalise-romanian.py
 #     text = text.replace("\u015e", "\u0218").replace("\u015f", "\u0219")
 #     text = text.replace("\u0162", "\u021a").replace("\u0163", "\u021b")
@@ -533,24 +503,18 @@ def romanian_preprocessing(text):
 #     text = text.replace("\u00C2", "A").replace("\u00E2", "a")
 #     text = text.replace("\u00CE", "I").replace("\u00EE", "i")
     return text
-
-
 class XLMTokenizer(PreTrainedTokenizer):
-
 #     Construct an XLM tokenizer. Based on Byte-Pair Encoding. The tokenization process is the following:
-
 #     - Moses preprocessing and tokenization for most supported languages.
 #     - Language specific tokenization for Chinese (Jieba), Japanese (KyTea) and Thai (PyThaiNLP).
 #     - Optionally lowercases and normalizes all inputs text.
 #     - The arguments `special_tokens` and the function `set_special_tokens`, can be used to add additional symbols (like
 #       "__classify__") to a vocabulary.
 #     - The `lang2id` attribute maps the languages supported by the model with their IDs if provided (automatically set
-      for pretrained vocabularies).
+    for pretrained vocabularies).
 #     - The `id2lang` attributes does reverse mapping if provided (automatically set for pretrained vocabularies).
-
 #     This tokenizer inherits from [`PreTrainedTokenizer`] which contains most of the main methods. Users should refer to
 #     this superclass for more information regarding those methods.
-
 #     Args:
 #         vocab_file (`str`):
 #             Vocabulary file.
@@ -561,14 +525,10 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             token instead.
 #         bos_token (`str`, *optional*, defaults to `"<s>"`):
 #             The beginning of sequence token that was used during pretraining. Can be used a sequence classifier token.
-
 #             <Tip>
-
 #             When building a sequence using special tokens, this is not the token that is used for the beginning of
 #             sequence. The token used is the `cls_token`.
-
 #             </Tip>
-
 #         sep_token (`str`, *optional*, defaults to `"</s>"`):
 #             The separator token, which is used when building a sequence from multiple sequences, e.g. two sequences for
 #             sequence classification or for a text and a question for question answering. It is also used as the last
@@ -589,12 +549,10 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             Dictionary mapping language IDs to their string identifiers.
 #         do_lowercase_and_remove_accent (`bool`, *optional*, defaults to `True`):
 #             Whether to lowercase and remove accents when tokenizing.
-
 #     vocab_files_names = VOCAB_FILES_NAMES
 #     pretrained_vocab_files_map = PRETRAINED_VOCAB_FILES_MAP
 #     pretrained_init_configuration = PRETRAINED_INIT_CONFIGURATION
 #     max_model_input_sizes = PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES
-
     def __init__(
 #         self,
 #         vocab_file,
@@ -629,9 +587,7 @@ class XLMTokenizer(PreTrainedTokenizer):
 #                 "You need to install sacremoses to use XLMTokenizer. "
 #                 "See https://pypi.org/project/sacremoses/ for installation."
 #             )
-
 #         self.sm = sacremoses
-
         # cache of sm.MosesPunctNormalizer instance
 #         self.cache_moses_punct_normalizer = {}
         # cache of sm.MosesTokenizer instance
@@ -642,14 +598,12 @@ class XLMTokenizer(PreTrainedTokenizer):
 #         self.lang2id = lang2id
 #         self.id2lang = id2lang
         if lang2id is not None and id2lang is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert len(lang2id) == len(id2lang)
-
 #         self.ja_word_tokenizer = None
 #         self.zh_word_tokenizer = None
-
         with open(vocab_file, encoding="utf-8") as vocab_handle:
 #             self.encoder = json.load(vocab_handle)
 #         self.decoder = {v: k for k, v in self.encoder.items()}
@@ -671,47 +625,41 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             do_lowercase_and_remove_accent=do_lowercase_and_remove_accent,
 #             **kwargs,
 #         )
-
 #     @property
     def do_lower_case(self):
         return self.do_lowercase_and_remove_accent
-
     def moses_punct_norm(self, text, lang):
         if lang not in self.cache_moses_punct_normalizer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             punct_normalizer = self.sm.MosesPunctNormalizer(lang=lang)
 #             self.cache_moses_punct_normalizer[lang] = punct_normalizer
         else:
 #             punct_normalizer = self.cache_moses_punct_normalizer[lang]
         return punct_normalizer.normalize(text)
-
     def moses_tokenize(self, text, lang):
         if lang not in self.cache_moses_tokenizer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             moses_tokenizer = self.sm.MosesTokenizer(lang=lang)
 #             self.cache_moses_tokenizer[lang] = moses_tokenizer
         else:
 #             moses_tokenizer = self.cache_moses_tokenizer[lang]
         return moses_tokenizer.tokenize(text, return_str=False, escape=False)
-
     def moses_pipeline(self, text, lang):
 #         text = replace_unicode_punct(text)
 #         text = self.moses_punct_norm(text, lang)
 #         text = remove_non_printing_char(text)
         return text
-
     def ja_tokenize(self, text):
         if self.ja_word_tokenizer is None:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
                 import Mykytea
-
 #                 self.ja_word_tokenizer = Mykytea.Mykytea(
 #                     f"-model {os.path.expanduser('~')}/local/share/kytea/model.bin"
 #                 )
@@ -727,34 +675,29 @@ class XLMTokenizer(PreTrainedTokenizer):
 #                 logger.error("5. pip install kytea")
 #                 raise
         return list(self.ja_word_tokenizer.getWS(text))
-
 #     @property
     def vocab_size(self):
         return len(self.encoder)
-
     def get_vocab(self):
         return dict(self.encoder, **self.added_tokens_encoder)
-
     def bpe(self, token):
 #         word = tuple(token[:-1]) + (token[-1] + "</w>",)
         if token in self.cache:
-      pass
-      pass
+    pass
+    pass
     pass
             return self.cache[token]
 #         pairs = get_pairs(word)
-
         if not pairs:
-      pass
-      pass
+    pass
+    pass
     pass
             return token + "</w>"
-
         while True:
 #             bigram = min(pairs, key=lambda pair: self.bpe_ranks.get(pair, float("inf")))
             if bigram not in self.bpe_ranks:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
 #             first, second = bigram
@@ -769,10 +712,9 @@ class XLMTokenizer(PreTrainedTokenizer):
                 else:
 #                     new_word.extend(word[i:j])
 #                     i = j
-
                 if word[i] == first and i < len(word) - 1 and word[i + 1] == second:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     new_word.append(first + second)
 #                     i += 2
@@ -782,28 +724,24 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             new_word = tuple(new_word)
 #             word = new_word
             if len(word) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
             else:
 #                 pairs = get_pairs(word)
 #         word = " ".join(word)
         if word == "\n  </w>":
-      pass
-      pass
+    pass
+    pass
     pass
 #             word = "\n</w>"
 #         self.cache[token] = word
         return word
-
     def _tokenize(self, text, lang="en", bypass_tokenizer=False):
-
 #         Tokenize a string given language code. For Chinese, Japanese and Thai, we use a language specific tokenizer.
 #         Otherwise, we use Moses.
-
 #         Details of tokenization:
-
 #             - [sacremoses](https://github.com/alvations/sacremoses): port of Moses
 #             - Install with `pip install sacremoses`
 #             - [pythainlp](https://github.com/PyThaiNLP/pythainlp): Thai tokenizer
@@ -811,14 +749,10 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             - [kytea](https://github.com/chezou/Mykytea-python): Japanese tokenizer, wrapper of
 #               [KyTea](https://github.com/neubig/kytea)
 #             - Install with the following steps:
-
-
 #                 git clone git@github.com:neubig/kytea.git && cd kytea autoreconf -i ./configure --prefix=$HOME/local
 #                 make && make install pip install kytea
-
 #             - [jieba](https://github.com/fxsjy/jieba): Chinese tokenizer (*)
 #             - Install with `pip install jieba`
-
 #         (*) The original XLM used [Stanford
 #         Segmenter](https://nlp.stanford.edu/software/stanford-segmenter-2018-10-16.zip). However, the wrapper
 #         (`nltk.tokenize.stanford_segmenter`) is slow due to JVM overhead, and it will be deprecated. Jieba is a lot
@@ -826,27 +760,24 @@ class XLMTokenizer(PreTrainedTokenizer):
 #         fine-tune the model with Chinese supervisionself. If you want the same exact behaviour, use the original XLM
 #         [preprocessing script](https://github.com/facebookresearch/XLM/tree/master/tools) to tokenize the sentence
 #         externally, and set `bypass_tokenizer=True` to bypass the tokenizer.
-
 #         Args:
 #             - lang: ISO language code (default = 'en') (string). Languages should beint of the model supported
 #               languages. However, we dont enforce it.
 #             - bypass_tokenizer: Allow users to preprocess and tokenize the sentences externally (default = False)
 #               (bool). If True, we only apply BPE.
-
 #         Returns:
 #             List of tokens.
-
         if lang and self.lang2id and lang not in self.lang2id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.error(
 #                 "Supplied language code not found in lang2id mapping. Please check that your language is supported by"
 #                 " the loaded pretrained model."
 #             )
         if bypass_tokenizer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = text.split()
         elif lang not in self.lang_with_custom_tokenizer:
@@ -854,8 +785,8 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             text = self.moses_pipeline(text, lang=lang)
             # TODO: make sure we are using `xlm-mlm-enro-1024`, since XLM-100 doesnt have this step
             if lang == "ro":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 text = romanian_preprocessing(text)
 #             text = self.moses_tokenize(text, lang=lang)
@@ -864,8 +795,8 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             text = self.moses_pipeline(text, lang=lang)
             try:
                 if "pythainlp" not in sys.modules:
-      pass
-      pass
+    pass
+    pass
     pass
                     from pythainlp.tokenize import word_tokenize as th_word_tokenize
                 else:
@@ -881,8 +812,8 @@ class XLMTokenizer(PreTrainedTokenizer):
     pass
             try:
                 if "jieba" not in sys.modules:
-      pass
-      pass
+    pass
+    pass
     pass
                     import jieba
                 else:
@@ -900,72 +831,53 @@ class XLMTokenizer(PreTrainedTokenizer):
 #             text = self.ja_tokenize(text)
         else:
 #             raise ValueError("It should not reach here")
-
         if self.do_lowercase_and_remove_accent and not bypass_tokenizer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = lowercase_and_remove_accent(text)
-
 #         split_tokens = []
         for token in text:
             if token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 split_tokens.extend(list(self.bpe(token).split(" ")))
-
         return split_tokens
-
     def _convert_token_to_id(self, token):
-
         return self.encoder.get(token, self.encoder.get(self.unk_token))
-
     def _convert_id_to_token(self, index):
-
         return self.decoder.get(index, self.unk_token)
-
     def convert_tokens_to_string(self, tokens):
-
 #         out_string = .join(tokens).replace(</w>,  ).strip()
         return out_string
-
     def build_inputs_with_special_tokens(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None
 #     ) -> List[int]:
-
 #         Build model inputs from a sequence or a pair of sequence for sequence classification tasks by concatenating and
 #         adding special tokens. An XLM sequence has the following format:
-
 #         - single sequence: `<s> X </s>`
 #         - pair of sequences: `<s> A </s> B </s>`
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs to which the special tokens will be added.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: List of [input IDs](../glossary#input-ids) with the appropriate special tokens.
-
 #         bos = [self.bos_token_id]
 #         sep = [self.sep_token_id]
-
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return bos + token_ids_0 + sep
         return bos + token_ids_0 + sep + token_ids_1 + sep
-
     def get_special_tokens_mask(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None, already_has_special_tokens: bool = False
 #     ) -> List[int]:
-
 #         Retrieve sequence ids from a token list that has no special tokens added. This method is called when adding
 #         special tokens using the tokenizer `prepare_for_model` method.
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs.
@@ -973,61 +885,50 @@ class XLMTokenizer(PreTrainedTokenizer):
 #                 Optional second list of IDs for sequence pairs.
 #             already_has_special_tokens (`bool`, *optional*, defaults to `False`):
 #                 Whether or not the token list is already formatted with special tokens for the model.
-
 #         Returns:
 #             `List[int]`: A list of integers in the range [0, 1]: 1 for a special token, 0 for a sequence token.
-
         if already_has_special_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
             return super().get_special_tokens_mask(
 #                 token_ids_0=token_ids_0, token_ids_1=token_ids_1, already_has_special_tokens=True
 #             )
-
         if token_ids_1 is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return [1] + ([0] * len(token_ids_0)) + [1] + ([0] * len(token_ids_1)) + [1]
         return [1] + ([0] * len(token_ids_0)) + [1]
-
     def create_token_type_ids_from_sequences(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None
 #     ) -> List[int]:
-
 #         Create a mask from the two sequences passed to be used in a sequence-pair classification task. An XLM sequence
 #         pair mask has the following format:
-
 #         ```
 #         0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1
 #         | first sequence    | second sequence |
 #         ```
-
 #         If `token_ids_1` is `None`, this method only returns the first portion of the mask (0s).
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: List of [token type IDs](../glossary#token-type-ids) according to the given sequence(s).
-
 #         sep = [self.sep_token_id]
 #         cls = [self.cls_token_id]
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return len(cls + token_ids_0 + sep) * [0]
         return len(cls + token_ids_0 + sep) * [0] + len(token_ids_1 + sep) * [1]
-
     def save_vocabulary(self, save_directory: str, filename_prefix: Optional[str] = None) -> Tuple[str]:
         if not os.path.isdir(save_directory):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.error(f"Vocabulary path ({save_directory}) should be a directory")
             return
@@ -1037,16 +938,14 @@ class XLMTokenizer(PreTrainedTokenizer):
 #         merge_file = os.path.join(
 #             save_directory, (filename_prefix + - if filename_prefix else ) + VOCAB_FILES_NAMES[merges_file]
 #         )
-
         with open(vocab_file, "w", encoding="utf-8") as f:
 #             f.write(json.dumps(self.encoder, indent=2, sort_keys=True, ensure_ascii=False) + "\n")
-
 #         index = 0
         with open(merge_file, "w", encoding="utf-8") as writer:
             for bpe_tokens, token_index in sorted(self.bpe_ranks.items(), key=lambda kv: kv[1]):
                 if index != token_index:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logger.warning(
 #                         f"Saving vocabulary to {merge_file}: BPE merge indices are not consecutive."
@@ -1055,17 +954,13 @@ class XLMTokenizer(PreTrainedTokenizer):
 #                     index = token_index
 #                 writer.write(" ".join(bpe_tokens) + "\n")
 #                 index += 1
-
         return vocab_file, merge_file
-
     def __getstate__(self):
 #         state = self.__dict__.copy()
 #         state["sm"] = None
         return state
-
     def __setstate__(self, d):
 #         self.__dict__ = d
-
         try:
             import sacremoses
         except ImportError:
@@ -1073,5 +968,4 @@ class XLMTokenizer(PreTrainedTokenizer):
 #                 "You need to install sacremoses to use XLMTokenizer. "
 #                 "See https://pypi.org/project/sacremoses/ for installation."
 #             )
-
 #         self.sm = sacremoses

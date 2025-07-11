@@ -1,18 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import print_function
 import sys
 import hypothesis.strategies as st
 from hypothesis import given, settings, note, example
-
 try:
     import unittest2 as unittest
 except ImportError:
@@ -38,54 +34,41 @@ from .ecdsa import (
 #     int_to_string,
 # )
 from .ellipticcurve import Point
-
-
 # HYP_SETTINGS = {}
 # old hypothesis doesnt have the "deadline" setting
 if sys.version_info > (2, 7):  # pragma: no branch
     # SEC521p is slow, allow int execution for it
 #     HYP_SETTINGS["deadline"] = 5000
-
-
 class TestP192FromX9_62(unittest.TestCase):
-
 #     @classmethod
     def setUpClass(cls):
 #         cls.d = 651056770906015076056810763456358567190100156695615665659
 #         cls.Q = cls.d * generator_192
 #         cls.k = 6140507067065001063065065565667405560006161556565665656654
 #         cls.R = cls.k * generator_192
-
 #         cls.msg = 968236873715988614170569073515315707566766479517
 #         cls.pubk = Public_key(generator_192, generator_192 * cls.d)
 #         cls.privk = Private_key(cls.pubk, cls.d)
 #         cls.sig = cls.privk.sign(cls.msg, cls.k)
-
     def test_point_multiplication(self):
 #         assert self.Q.x() == 0x62B12D60690CDCF330BABAB6E69763B471F994DD702D16A5
-
     def test_point_multiplication_2(self):
 #         assert self.R.x() == 0x885052380FF147B734C330C43D39B2C4A89F29B0F749FEAD
 #         assert self.R.y() == 0x9CF9FA1CBEFEFB917747A3BB29C072B9289C2547884FD835
-
     def test_mult_and_addition(self):
 #         u1 = 2563697409189434185194736134579731015366492496392189760599
 #         u2 = 6266643813348617967186477710235785849136406323338782220568
 #         temp = u1 * generator_192 + u2 * self.Q
 #         assert temp.x() == 0x885052380FF147B734C330C43D39B2C4A89F29B0F749FEAD
 #         assert temp.y() == 0x9CF9FA1CBEFEFB917747A3BB29C072B9289C2547884FD835
-
     def test_signature(self):
 #         r, s = self.sig.r, self.sig.s
 #         assert r == 3342403536405981729393488334694600415596881826869351677613
 #         assert s == 5735822328888155254683894997897571951568553642892029982342
-
     def test_verification(self):
 #         assert self.pubk.verifies(self.msg, self.sig)
-
     def test_rejection(self):
 #         assert not self.pubk.verifies(self.msg - 1, self.sig)
-
     def test_verification_with_regular_point(self):
 #         pubk = Public_key(
 #             Point(
@@ -96,10 +79,7 @@ class TestP192FromX9_62(unittest.TestCase):
 #             ),
 #             self.pubk.point,
 #         )
-
 #         assert pubk.verifies(self.msg, self.sig)
-
-
 class TestPublicKey(unittest.TestCase):
     def test_equality_public_keys(self):
 #         gen = generator_192
@@ -109,35 +89,28 @@ class TestPublicKey(unittest.TestCase):
 #         pub_key1 = Public_key(gen, point)
 #         pub_key2 = Public_key(gen, point)
 #         self.assertEqual(pub_key1, pub_key2)
-
     def test_inequality_public_key(self):
 #         gen = generator_192
 #         x1 = 0xC58D61F88D905293BCD4CD0080BCB1B7F811F2FFA41979F6
 #         y1 = 0x8804DC7A7C4C7F8B5D437F5156F3312CA7D6DE8A0E11867F
 #         point1 = ellipticcurve.Point(gen.curve(), x1, y1)
-
 #         x2 = 0x6A223D00BD22C52833409A163E057E5B5DA1DEF2A197DD15
 #         y2 = 0x7B482604199367F1F303F9EF627F922F97023E90EAE08ABF
 #         point2 = ellipticcurve.Point(gen.curve(), x2, y2)
-
 #         pub_key1 = Public_key(gen, point1)
 #         pub_key2 = Public_key(gen, point2)
 #         self.assertNotEqual(pub_key1, pub_key2)
-
     def test_inequality_different_curves(self):
 #         gen = generator_192
 #         x1 = 0xC58D61F88D905293BCD4CD0080BCB1B7F811F2FFA41979F6
 #         y1 = 0x8804DC7A7C4C7F8B5D437F5156F3312CA7D6DE8A0E11867F
 #         point1 = ellipticcurve.Point(gen.curve(), x1, y1)
-
 #         x2 = 0x722BA0FB6B8FC8898A4C6AB49E66
 #         y2 = 0x2B7344BB57A7ABC8CA0F1A398C7D
 #         point2 = ellipticcurve.Point(generator_112r2.curve(), x2, y2)
-
 #         pub_key1 = Public_key(gen, point1)
 #         pub_key2 = Public_key(generator_112r2, point2)
 #         self.assertNotEqual(pub_key1, pub_key2)
-
     def test_inequality_public_key_not_implemented(self):
 #         gen = generator_192
 #         x = 0xC58D61F88D905293BCD4CD0080BCB1B7F811F2FFA41979F6
@@ -145,76 +118,52 @@ class TestPublicKey(unittest.TestCase):
 #         point = ellipticcurve.Point(gen.curve(), x, y)
 #         pub_key = Public_key(gen, point)
 #         self.assertNotEqual(pub_key, None)
-
     def test_public_key_with_generator_without_order(self):
 #         gen = ellipticcurve.PointJacobi(
 #             generator_192.curve(), generator_192.x(), generator_192.y(), 1
 #         )
-
 #         x = 0xC58D61F88D905293BCD4CD0080BCB1B7F811F2FFA41979F6
 #         y = 0x8804DC7A7C4C7F8B5D437F5156F3312CA7D6DE8A0E11867F
 #         point = ellipticcurve.Point(gen.curve(), x, y)
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(gen, point)
-
 #         self.assertIn("Generator point must have order", str(e.exception))
-
     def test_public_point_on_curve_not_scalar_multiple_of_base_point(self):
 #         x = 2
 #         y = 0xBE6AA4938EF7CFE6FE29595B6B00
         # we need a curve with cofactor != 1
 #         point = ellipticcurve.PointJacobi(curve_112r2, x, y, 1)
-
 #         self.assertTrue(curve_112r2.contains_point(x, y))
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(generator_112r2, point)
-
 #         self.assertIn("Generator point order", str(e.exception))
-
     def test_point_is_valid_with_not_scalar_multiple_of_base_point(self):
 #         x = 2
 #         y = 0xBE6AA4938EF7CFE6FE29595B6B00
-
 #         self.assertFalse(point_is_valid(generator_112r2, x, y))
-
     # the tests to verify the extensiveness of tests in ecdsa.ecdsa
     # if PointJacobi gets modified to calculate the x and y mod p the tests
     # below will need to use a fake/mock object
     def test_invalid_point_x_negative(self):
 #         pt = ellipticcurve.PointJacobi(curve_192, -1, 0, 1)
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(generator_192, pt)
-
 #         self.assertIn("The public point has x or y", str(e.exception))
-
     def test_invalid_point_x_equal_p(self):
 #         pt = ellipticcurve.PointJacobi(curve_192, curve_192.p(), 0, 1)
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(generator_192, pt)
-
 #         self.assertIn("The public point has x or y", str(e.exception))
-
     def test_invalid_point_y_negative(self):
 #         pt = ellipticcurve.PointJacobi(curve_192, 0, -1, 1)
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(generator_192, pt)
-
 #         self.assertIn("The public point has x or y", str(e.exception))
-
     def test_invalid_point_y_equal_p(self):
 #         pt = ellipticcurve.PointJacobi(curve_192, 0, curve_192.p(), 1)
-
         with self.assertRaises(InvalidPointError) as e:
 #             Public_key(generator_192, pt)
-
 #         self.assertIn("The public point has x or y", str(e.exception))
-
-
 class TestPublicKeyVerifies(unittest.TestCase):
     # test all the different ways that a signature can be publicly invalid
 #     @classmethod
@@ -223,30 +172,19 @@ class TestPublicKeyVerifies(unittest.TestCase):
 #         x = 0xC58D61F88D905293BCD4CD0080BCB1B7F811F2FFA41979F6
 #         y = 0x8804DC7A7C4C7F8B5D437F5156F3312CA7D6DE8A0E11867F
 #         point = ellipticcurve.Point(gen.curve(), x, y)
-
 #         cls.pub_key = Public_key(gen, point)
-
     def test_sig_with_r_zero(self):
 #         sig = Signature(0, 1)
-
 #         self.assertFalse(self.pub_key.verifies(1, sig))
-
     def test_sig_with_r_order(self):
 #         sig = Signature(generator_192.order(), 1)
-
 #         self.assertFalse(self.pub_key.verifies(1, sig))
-
     def test_sig_with_s_zero(self):
 #         sig = Signature(1, 0)
-
 #         self.assertFalse(self.pub_key.verifies(1, sig))
-
     def test_sig_with_s_order(self):
 #         sig = Signature(1, generator_192.order())
-
 #         self.assertFalse(self.pub_key.verifies(1, sig))
-
-
 class TestPrivateKey(unittest.TestCase):
 #     @classmethod
     def setUpClass(cls):
@@ -255,22 +193,17 @@ class TestPrivateKey(unittest.TestCase):
 #         y = 0x8804DC7A7C4C7F8B5D437F5156F3312CA7D6DE8A0E11867F
 #         point = ellipticcurve.Point(gen.curve(), x, y)
 #         cls.pub_key = Public_key(gen, point)
-
     def test_equality_private_keys(self):
 #         pr_key1 = Private_key(self.pub_key, 100)
 #         pr_key2 = Private_key(self.pub_key, 100)
 #         self.assertEqual(pr_key1, pr_key2)
-
     def test_inequality_private_keys(self):
 #         pr_key1 = Private_key(self.pub_key, 100)
 #         pr_key2 = Private_key(self.pub_key, 200)
 #         self.assertNotEqual(pr_key1, pr_key2)
-
     def test_inequality_private_keys_not_implemented(self):
 #         pr_key = Private_key(self.pub_key, 100)
 #         self.assertNotEqual(pr_key, None)
-
-
 # Testing point validity, as per ECDSAVS.pdf B.2.2:
 # P192_POINTS = [
 #     (
@@ -346,17 +279,11 @@ class TestPrivateKey(unittest.TestCase):
 #         False,
 #     ),
 # ]
-
-
 # @pytest.mark.parametrize("generator,x,y,expected", P192_POINTS)
 def test_point_validity(generator, x, y, expected):
-
 #     `generator` defines the curve; is `(x, y)` a point on
 #     this curve? `expected` is True if the right answer is Yes.
-
 #     assert point_is_valid(generator, x, y) == expected
-
-
 # Trying signature-verification tests from ECDSAVS.pdf B.2.4:
 #     (
 #         generator_192,
@@ -597,11 +524,8 @@ def test_point_validity(generator, x, y, expected):
 #         False,
 #     ),
 # ]
-
-
 # @pytest.mark.parametrize("gen,msg,qx,qy,r,s,expected", CURVE_192_KATS)
 def test_signature_validity(gen, msg, qx, qy, r, s, expected):
-
 #     `msg` = message, `qx` and `qy` represent the base point on
 #     elliptic curve of `gen`, `r` and `s` are the signature, and
 #     `expected` is True iff the signature is expected to be valid.
@@ -613,8 +537,6 @@ def test_signature_validity(gen, msg, qx, qy, r, s, expected):
 #     assert "unused" in warns[1].message.args[0]
 #     assert "unused" in warns[2].message.args[0]
 #     assert expected == pubk.verifies(msg_dgst, Signature(r, s))
-
-
 # @pytest.mark.parametrize(
 #     "gen,msg,qx,qy,r,s,expected", [x for x in CURVE_192_KATS if x[6]]
 # )
@@ -628,23 +550,17 @@ def test_pk_recovery(gen, msg, r, s, qx, qy, expected):
 #     assert "unused" in warns[1].message.args[0]
 #     assert "unused" in warns[2].message.args[0]
 #     pks = sign.recover_public_keys(msg_dgst, gen)
-
 #     assert pks
-
     # Test if the signature is valid for all found public keys
     for pk in pks:
 #         q = pk.point
 #         test_signature_validity(gen, msg, q.x(), q.y(), r, s, True)
-
     # Test if the original public key is in the set of found keys
 #     original_q = ellipticcurve.Point(gen.curve(), qx, qy)
 #     points = [pk.point for pk in pks]
 #     assert original_q in points
-
-
 # @st.composite
 def st_random_gen_key_msg_nonce(draw):
-
 #     name_gen = {
 #         "generator_192": generator_192,
 #         "generator_224": generator_224,
@@ -657,7 +573,6 @@ def st_random_gen_key_msg_nonce(draw):
 #     note("Generator used: {0}".format(name))
 #     generator = name_gen[name]
 #     order = int(generator.order()) - 1
-
 #     key = draw(st.integers(min_value=1, max_value=order))
 #     msg = draw(st.integers(min_value=1, max_value=order))
 #     nonce = draw(
@@ -665,38 +580,25 @@ def st_random_gen_key_msg_nonce(draw):
 #         | st.integers(min_value=order >> 1, max_value=order)
 #     )
     return generator, key, msg, nonce
-
-
 # SIG_VER_SETTINGS = dict(HYP_SETTINGS)
 if "--fast" in sys.argv:  # pragma: no cover
 #     SIG_VER_SETTINGS["max_examples"] = 1
 else:
 #     SIG_VER_SETTINGS["max_examples"] = 10
-
-
 # @settings(**SIG_VER_SETTINGS)
 # @example((generator_224, 4, 1, 1))
 # @given(st_random_gen_key_msg_nonce())
 def test_sig_verify(args):
-
 #     Check if signing and verification works for arbitrary messages and
 #     that signatures for other messages are rejected.
-
 #     generator, sec_mult, msg, nonce = args
-
 #     pubkey = Public_key(generator, generator * sec_mult)
 #     privkey = Private_key(pubkey, sec_mult)
-
 #     signature = privkey.sign(msg, nonce)
-
 #     assert pubkey.verifies(msg, signature)
-
 #     assert not pubkey.verifies(msg - 1, signature)
-
-
 def test_int_to_string_with_zero():
     with pytest.warns(DeprecationWarning) as warns:
 #         assert int_to_string(0) == b"\x00"
-
 #     assert len(warns) == 1
 #     assert "unused" in warns[0].message.args[0]

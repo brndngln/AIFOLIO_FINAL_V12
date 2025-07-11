@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,31 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/trocr-base-handwritten": (
 #         "https://huggingface.co/microsoft/trocr-base-handwritten/resolve/main/config.json"
 #     ),
     # See all TrOCR models at https://huggingface.co/models?filter=trocr
 # }
-
-
 class TrOCRConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`TrOCRForCausalLM`]. It is used to instantiate an
 #     TrOCR model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the TrOCR
 #     [microsoft/trocr-base-handwritten](https://huggingface.co/microsoft/trocr-base-handwritten) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50265):
 #             Vocabulary size of the TrOCR model. Defines the number of different tokens that can be represented by the
@@ -84,22 +71,16 @@ class TrOCRConfig(PretrainedConfig):
 #             Whether or not to use learned position embeddings. If not, sinusoidal position embeddings will be used.
 #         layernorm_embedding (`bool`, *optional*, defaults to `True`):
 #             Whether or not to use a layernorm after the word + position embeddings.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import TrOCRConfig, TrOCRForCausalLM
-
 #     >>> # Initializing a TrOCR-base style configuration
 #     >>> configuration = TrOCRConfig()
-
 #     >>> # Initializing a model (with random weights) from the TrOCR-base style configuration
 #     >>> model = TrOCRForCausalLM(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "trocr"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -107,7 +88,6 @@ class TrOCRConfig(PretrainedConfig):
 #         "hidden_size": "d_model",
 #         "num_hidden_layers": "decoder_layers",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=50265,
@@ -148,7 +128,6 @@ class TrOCRConfig(PretrainedConfig):
 #         self.scale_embedding = scale_embedding
 #         self.use_learned_position_embeddings = use_learned_position_embeddings
 #         self.layernorm_embedding = layernorm_embedding
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,

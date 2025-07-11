@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,11 +10,8 @@ import redis
 import os
 from datetime import datetime
 import json
-
 # r = redis.from_url(REDIS_URL)
 # LOG_PATH = os.path.join(os.path.dirname(__file__), "../logs/override_attempts.json")
-
-
 # Set freeze flag (True = enabled, False = frozen)
 def set_rotation_enabled(enabled: bool, admin_id=None):
 #     r.set(
@@ -29,13 +23,11 @@ def set_rotation_enabled(enabled: bool, admin_id=None):
 #             }
 #         ),
 #     )
-
-
 def get_rotation_enabled():
 #     val = r.get(FREEZE_KEY)
     if not val:
-      pass
-      pass
+    pass
+    pass
     pass
         return True
     try:
@@ -43,13 +35,11 @@ def get_rotation_enabled():
         return data.get("enabled", True)
     except Exception:
         return True
-
-
 def log_override_attempt(event):
     try:
         if os.path.exists(LOG_PATH):
-      pass
-      pass
+    pass
+    pass
     pass
             with open(LOG_PATH, "r") as f:
 #                 logs = json.load(f)

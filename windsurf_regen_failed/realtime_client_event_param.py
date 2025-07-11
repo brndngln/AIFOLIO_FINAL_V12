@@ -1,20 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from __future__ import annotations
-
 from typing import Union
 from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
 from .session_update_event_param import SessionUpdateEventParam
 from .response_cancel_event_param import ResponseCancelEventParam
 from .response_create_event_param import ResponseCreateEventParam
@@ -26,15 +20,10 @@ from .input_audio_buffer_append_event_param import InputAudioBufferAppendEventPa
 from .input_audio_buffer_commit_event_param import InputAudioBufferCommitEventParam
 from .conversation_item_retrieve_event_param import ConversationItemRetrieveEventParam
 from .conversation_item_truncate_event_param import ConversationItemTruncateEventParam
-
 # __all__ = ["RealtimeClientEventParam", "OutputAudioBufferClear"]
-
-
 class OutputAudioBufferClear(TypedDict, total=False):
 #     type: Required[Literal["output_audio_buffer.clear"]]
-
 #     event_id: str
-
 # RealtimeClientEventParam: TypeAlias = Union[
 #     ConversationItemCreateEventParam,
 #     ConversationItemDeleteEventParam,

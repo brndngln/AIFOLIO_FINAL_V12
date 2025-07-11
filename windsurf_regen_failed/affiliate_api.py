@@ -1,21 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # FastAPI REST API for AffiliateBooster simulation and reporting
 # - Each simulation result is automatically exported to Google Sheets and Airtable
 # - A Zapier webhook is triggered after each simulation or batch
-
 # To use real integrations, set your API keys/environment variables in your `.env` file or environment (see integrations/third_party_integrations.py)
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
@@ -32,17 +26,13 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 import os
-
 # app = FastAPI(
 #     title="AffiliateBooster API",
 #     description="Elite Affiliate API (static, SAFE AI, owner-controlled)",
 #     version="1.0",
 # )
 # booster = AffiliateBooster()
-
 # Example IDs for export (replace with your real IDs or set as env vars)
-
-
 class AffiliateSimRequest(BaseModel):
 #     product_id: str
 #     product_name: str
@@ -50,12 +40,8 @@ class AffiliateSimRequest(BaseModel):
 #     affiliate_id: str
 #     affiliate_name: str
 #     address_or_ip: str = None  # For real-time jurisdiction lookup
-
-
 class BatchSimRequest(BaseModel):
 #     requests: List[AffiliateSimRequest]
-
-
 # @app.post("/simulate-affiliate")
 def simulate_affiliate(req: AffiliateSimRequest):
     # OMNIPROOF: Threat feed check before affiliate registration
@@ -80,8 +66,8 @@ def simulate_affiliate(req: AffiliateSimRequest):
 #         affiliate_name=req.affiliate_name,
 #     )
     if not elements:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise HTTPException(status_code=400, detail="Simulation failed.")
 #     dashboard = elements.get("simulated_dashboard_snapshot", {})
@@ -146,8 +132,6 @@ def simulate_affiliate(req: AffiliateSimRequest):
     except Exception as e:
 #         print(f"[Zapier] Trigger failed: {e}")
     return {"elements": elements, "report": report, "tax_report": tax_report}
-
-
 # @app.post("/batch-simulate")
 def batch_simulate(batch: BatchSimRequest):
 #     results = []
@@ -160,8 +144,8 @@ def batch_simulate(batch: BatchSimRequest):
 #             affiliate_name=req.affiliate_name,
 #         )
         if elements:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dashboard = elements.get("simulated_dashboard_snapshot", {})
 #             report = booster.generate_affiliate_report(

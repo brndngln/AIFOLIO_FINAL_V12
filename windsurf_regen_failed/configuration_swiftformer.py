@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,33 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # }
-
-
 class SwiftFormerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SwiftFormerModel`]. It is used to instantiate an
 #     SwiftFormer model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the SwiftFormer
 #     [MBZUAI/swiftformer-xs](https://huggingface.co/MBZUAI/swiftformer-xs) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         num_channels (`int`, *optional*, defaults to 3):
 #             The number of input channels
@@ -76,25 +61,17 @@ class SwiftFormerConfig(PretrainedConfig):
 #             Factor by which outputs from token mixers are scaled.
 #         batch_norm_eps (`float`, *optional*, defaults to 1e-05):
 #             The epsilon used by the batch normalization layers.
-
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import SwiftFormerConfig, SwiftFormerModel
-
 #     >>> # Initializing a SwiftFormer swiftformer-base-patch16-224 style configuration
 #     >>> configuration = SwiftFormerConfig()
-
 #     >>> # Initializing a model (with random weights) from the swiftformer-base-patch16-224 style configuration
 #     >>> model = SwiftFormerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "swiftformer"
-
     def __init__(
 #         self,
 #         num_channels=3,
@@ -126,11 +103,8 @@ class SwiftFormerConfig(PretrainedConfig):
 #         self.use_layer_scale = use_layer_scale
 #         self.layer_scale_init_value = layer_scale_init_value
 #         self.batch_norm_eps = batch_norm_eps
-
-
 class SwiftFormerOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -138,7 +112,6 @@ class SwiftFormerOnnxConfig(OnnxConfig):
 #                 ("pixel_values", {0: "batch", 1: "num_channels", 2: "height", 3: "width"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4

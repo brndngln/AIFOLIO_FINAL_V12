@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -23,37 +20,28 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "google/reformer-crime-and-punishment": (
 #         "https://huggingface.co/google/reformer-crime-and-punishment/resolve/main/config.json"
 #     ),
 #     "google/reformer-enwik8": "https://huggingface.co/google/reformer-enwik8/resolve/main/config.json",
 # }
-
-
 class ReformerConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`ReformerModel`]. It is used to instantiate a
 #     Reformer model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the ReFormer
 #     [google/reformer-crime-and-punishment](https://huggingface.co/google/reformer-crime-and-punishment) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         attention_head_size (`int`, *optional*, defaults to 64):
 #             Dimensionality of the projected key, query and value vectors
 #         attn_layers (`List[str]`, *optional*, defaults to `["local", "lsh", "local", "lsh", "local", "lsh"]`):
 #             List of attention layer types in ascending order. It can be chosen between a LSHSelfAttention layer
 #             (`"lsh"`) and a LocalSelfAttention layer (`"local"`).
-
 #             For more information on LSHSelfAttention layer, see [LSH Self Attention](reformer#lsh-self-attention). For
 #             more information on LocalSelfAttention layer, see [Local Self Attention](reformer#local-self-attention).
 #         axial_pos_embds (`bool`, *optional*, defaults to `True`):
@@ -65,20 +53,17 @@ class ReformerConfig(PretrainedConfig):
 #         axial_pos_shape (`List[int]`, *optional*, defaults to `[64, 64]`):
 #             The position dims of the axial position encodings. During training, the product of the position dims has to
 #             be equal to the sequence length.
-
 #             For more information on how axial position embeddings work, see [Axial Position
 #             Encodings](reformer#axial-positional-encodings).
 #         axial_pos_embds_dim (`List[int]`, *optional*, defaults to `[64, 192]`):
 #             The embedding dims of the axial position encodings. The sum of the embedding dims has to be equal to the
 #             hidden size.
-
 #             For more information on how axial position embeddings work, see [Axial Position
 #             Encodings](reformer#axial-positional-encodings).
 #         chunk_size_lm_head (`int`, *optional*, defaults to 0):
 #             The chunk size of the final language model feed forward head layer. A chunk size of 0 means that the feed
             forward layer is not chunked. A chunk size of n means that the feed forward layer processes n <
 #             sequence_length embeddings at a time.
-
 #             For more information on feed forward chunking, see [How does Feed Forward Chunking
 #             work?](../glossary#feed-forward-chunking).
 #         eos_token_id (`int`, *optional*, defaults to 2):
@@ -150,26 +135,19 @@ class ReformerConfig(PretrainedConfig):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
         classifier_dropout (`float`, *optional*):
 #             The dropout ratio for the classification head.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import ReformerConfig, ReformerModel
-
 #     >>> # Initializing a Reformer configuration
 #     >>> configuration = ReformerConfig()
-
 #     >>> # Initializing a Reformer model (with random weights)
 #     >>> model = ReformerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "reformer"
 #     keys_to_ignore_at_inference = ["past_buckets_states"]
 #     attribute_map = {}
-
     def __init__(
 #         self,
 #         attention_head_size=64,

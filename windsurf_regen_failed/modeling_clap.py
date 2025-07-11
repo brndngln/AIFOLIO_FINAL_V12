@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,16 +18,13 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import collections
 import math
 from dataclasses import dataclass
 from typing import Any, List, Optional, Tuple, Union
-
 import torch
 import torch.nn.functional as F
 from torch import nn
-
 from ...activations import ACT2FN
 from ...modeling_outputs import (
 #     BaseModelOutputWithPastAndCrossAttentions,
@@ -46,60 +41,42 @@ from ...utils import (
 #     replace_return_docstrings,
 # )
 from .configuration_clap import ClapAudioConfig, ClapConfig, ClapTextConfig
-
-
 # logger = logging.get_logger(__name__)
-
 # _CHECKPOINT_FOR_DOC = "laion/clap-htsat-fused"
-
 # CLAP_PRETRAINED_MODEL_ARCHIVE_LIST = [
 #     "laion/clap-htsat-fused",
 #     "laion/clap-htsat-unfused",
     # See all clap models at https://huggingface.co/models?filter=clap
 # ]
-
-
 # Adapted from: https://github.com/LAION-AI/CLAP/blob/6ad05a971ba0622f6acee8c41993e0d02bbed639/src/open_clip/utils.py#L191
 def interpolate(hidden_states, ratio):
-
 #     Interpolate data in time domain. This is used to compensate the resolution reduction in downsampling of a CNN.
-
 #     Args:
 #         hidden_states (`torch.FloatTensor` of shape (batch_size, time_length, classes_num)):
 #             Input hidden states
 #         ratio (`int`):
 #             The ratio of the length of the output to the length of the input.
-
 #     (batch_size, time_length, classes_num) = hidden_states.shape
 #     upsampled = hidden_states[:, :, None, :].repeat(1, 1, ratio, 1)
 #     upsampled = upsampled.reshape(batch_size, time_length * ratio, classes_num)
     return upsampled
-
-
 # Adapted from https://github.com/LAION-AI/CLAP/blob/6ad05a971ba0622f6acee8c41993e0d02bbed639/src/open_clip/htsat.py#L249
 def window_partition(hidden_states, window_size):
-
 #     Returns the resized hidden states. The output shape should be `(batch_size * num_windows, window_size, window_size,
 #     num_channels)`
-
 #     Args:
 #         hidden_states (`torch.FloatTensor` of shape `(batch_size, height, width, num_channels)`):
 #             Input hidden states
 #         window_size (`int`):
 #             Window size
-
 #     batch_size, height, width, num_channels = hidden_states.shape
-
 #     hidden_states = hidden_states.view(
 #         batch_size, height // window_size, window_size, width // window_size, window_size, num_channels
 #     )
 #     windows = hidden_states.permute(0, 1, 3, 2, 4, 5).contiguous().view(-1, window_size, window_size, num_channels)
     return windows
-
-
 # Adapted from https://github.com/LAION-AI/CLAP/blob/6ad05a971ba0622f6acee8c41993e0d02bbed639/src/open_clip/htsat.py#L263
 def window_reverse(windows, window_size, height, width):
-
 #     Merges windows to produce higher resolution features.
 #     Args:
 #         windows (`torch.FloatTensor` of shape `(num_windows * batch_size, window_size, window_size, num_channels)`):
@@ -110,43 +87,30 @@ def window_reverse(windows, window_size, height, width):
 #             Height of the resized audio
 #         width (`int`):
 #             Width of the resized audio
-
 #     num_channels = windows.shape[-1]
 #     windows = windows.view(-1, height // window_size, width // window_size, window_size, window_size, num_channels)
 #     windows = windows.permute(0, 1, 3, 2, 4, 5).contiguous().view(-1, height, width, num_channels)
     return windows
-
-
 # Copied from transformers.models.roberta.modeling_roberta.create_position_ids_from_input_ids
 def create_position_ids_from_input_ids(input_ids, padding_idx, past_key_values_length=0):
-
 #     Replace non-padding symbols with their position numbers. Position numbers begin at padding_idx+1. Padding symbols
 #     are ignored. This is modified from fairseqs `utils.make_positions`.
-
 #     Args:
 #         x: torch.Tensor x:
-
 #     Returns: torch.Tensor
-
     # The series of casts and type-conversions here are carefully balanced to both work with ONNX export and XLA.
 #     mask = input_ids.ne(padding_idx).int()
 #     incremental_indices = (torch.cumsum(mask, dim=1).type_as(mask) + past_key_values_length) * mask
     return incremental_indices.int() + padding_idx
-
-
 # contrastive loss function, adapted from
 # https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html#CLIP-loss-function
 def contrastive_loss(logits: torch.Tensor) -> torch.Tensor:
 #     labels = torch.arange(len(logits), device=logits.device)
     return nn.functional.cross_entropy(logits, labels)
-
-
 # @dataclass
 # Copied from transformers.models.clip.modeling_clip.CLIPTextModelOutput with CLIP->Clap
 class ClapTextModelOutput(ModelOutput):
-
 #     Base class for text models outputs that also contains a pooling of the last hidden states.
-
 #     Args:
 #         text_embeds (`torch.FloatTensor` of shape `(batch_size, output_dim)` *optional* returned when model is initialized with `with_projection=True`):
 #             The text embeddings obtained by applying the projection layer to the pooler_output.
@@ -155,26 +119,19 @@ class ClapTextModelOutput(ModelOutput):
 #         hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
 #             Tuple of `torch.FloatTensor` (one for the output of the embeddings, if the model has an embedding layer, +
 #             one for the output of each layer) of shape `(batch_size, sequence_length, hidden_size)`.
-
 #             Hidden-states of the model at the output of each layer plus the optional initial embedding outputs.
 #         attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
 #             Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
 #             sequence_length)`.
-
 #             Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
 #             heads.
-
 #     text_embeds: Optional[torch.FloatTensor] = None
 #     last_hidden_state: torch.FloatTensor = None
 #     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
 #     attentions: Optional[Tuple[torch.FloatTensor]] = None
-
-
 # @dataclass
 class ClapAudioModelOutput(ModelOutput):
-
 #     ClapAudio model output to mimic the output of the original implementation.
-
 #     Args:
 #         audio_embeds (`torch.FloatTensor` of shape `(batch_size, hidden_size)`):
 #             The Audio embeddings obtained by applying the projection layer to the pooler_output.
@@ -183,25 +140,19 @@ class ClapAudioModelOutput(ModelOutput):
 #         attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
 #             Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
 #             sequence_length)`.
-
 #             Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
 #             heads.
 #         hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
 #             Tuple of `torch.FloatTensor` (one for the output of the embeddings, if the model has an embedding layer, +
 #             one for the output of each layer) of shape `(batch_size, sequence_length, hidden_size)`.
-
 #             Hidden-states of the model at the output of each layer plus the optional initial embedding outputs.
-
 #     audio_embeds: Optional[torch.FloatTensor] = None
 #     last_hidden_state: torch.FloatTensor = None
 #     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
 #     attentions: Optional[Tuple[torch.FloatTensor]] = None
-
-
 # @dataclass
 # Copied from transformers.models.clip.modeling_clip.CLIPOutput with CLIP->Clap, vision->audio, Vision->Audio, image->audio
 class ClapOutput(ModelOutput):
-
 #     Args:
 #         loss (`torch.FloatTensor` of shape `(1,)`, *optional*, returned when `return_loss` is `True`):
 #             Contrastive loss for audio-text similarity.
@@ -219,7 +170,6 @@ class ClapOutput(ModelOutput):
 #             The output of the [`ClapTextModel`].
 #         audio_model_output(`BaseModelOutputWithPooling`):
 #             The output of the [`ClapAudioModel`].
-
 #     loss: Optional[torch.FloatTensor] = None
 #     logits_per_audio: torch.FloatTensor = None
 #     logits_per_text: torch.FloatTensor = None
@@ -227,52 +177,39 @@ class ClapOutput(ModelOutput):
 #     audio_embeds: torch.FloatTensor = None
 #     text_model_output: BaseModelOutputWithPooling = None
 #     audio_model_output: BaseModelOutputWithPooling = None
-
     def to_tuple(self) -> Tuple[Any]:
         return tuple(
 #             self[k] if k not in ["text_model_output", "audio_model_output"] else getattr(self, k).to_tuple()
             for k in self.keys()
 #         )
-
-
 # Adapted from transformers.models.swin.modeling_swin.SwinDropPath
 class ClapDropPath(nn.Module):
-
 #     Drop paths (Stochastic Depth) per sample (when applied in main path of residual blocks). This is a slightly
 #     refactored version of the `SwinDropPath` implementation.
-
     def __init__(self, drop_prob=None):
 #         super().__init__()
 #         self.drop_prob = drop_prob
-
     def forward(self, hidden_states):
         if self.drop_prob == 0.0 or not self.training:
-      pass
-      pass
+    pass
+    pass
     pass
             return hidden_states
-
 #         keep_prob = 1 - self.drop_prob
         # work with diff dim tensors, not just 2D ConvNets
 #         shape = (hidden_states.shape[0],) + (1,) * (hidden_states.ndim - 1)
-
 #         random_tensor = keep_prob + torch.rand(shape, dtype=hidden_states.dtype, device=hidden_states.device)
 #         random_tensor.floor_()  # binarize
 #         output = hidden_states.div(keep_prob) * random_tensor
         return output
-
-
 # Adapted from https://github.com/LAION-AI/CLAP/blob/6ad05a971ba0622f6acee8c41993e0d02bbed639/src/open_clip/feature_fusion.py#L133
 class ClapAudioAFFBlock(nn.Module):
-
 #     the 1D version.
-
     def __init__(self, config: ClapAudioConfig):
 #         super().__init__()
 #         channels = config.patch_embeds_hidden_size
 #         downsize_ratio = config.aff_block_r
 #         inter_channels = int(channels // downsize_ratio)
-
 #         self.local_att = nn.Sequential(
 #             nn.Conv2d(channels, inter_channels, kernel_size=1, stride=1, padding=0),
 #             nn.BatchNorm2d(inter_channels),
@@ -288,24 +225,16 @@ class ClapAudioAFFBlock(nn.Module):
 #             nn.Conv2d(inter_channels, channels, kernel_size=1, stride=1, padding=0),
 #             nn.BatchNorm2d(channels),
 #         )
-
 #         self.sigmoid = nn.Sigmoid()
-
     def forward(self, hidden_states, residual):
 #         attention_input = hidden_states + residual
-
 #         fused_layer_output = self.local_att(attention_input) + self.global_att(attention_input)
 #         fused_layer_output = self.sigmoid(fused_layer_output)
-
 #         output = 2 * hidden_states * fused_layer_output + 2 * residual * (1 - fused_layer_output)
         return output
-
-
 class ClapAudioPatchEmbed(nn.Module):
-
 #     This module converts the hidden states reshaped as an image to patch embeddings ready to be passed to the
 #     Transformer block.
-
     def __init__(self, config: ClapAudioConfig):
 #         super().__init__()
 #         img_size = (config.spec_size, config.spec_size) if isinstance(config.spec_size, int) else config.spec_size
@@ -315,20 +244,14 @@ class ClapAudioPatchEmbed(nn.Module):
 #         patch_stride = (
 #             (config.patch_stride, config.patch_stride) if isinstance(config.patch_stride, int) else config.patch_stride
 #         )
-
 #         self.img_size = img_size
 #         self.patch_stride = patch_stride
-
 #         self.grid_size = (img_size[0] // patch_stride[0], img_size[1] // patch_stride[1])
 #         self.num_patches = self.grid_size[0] * self.grid_size[1]
-
 #         self.flatten = config.flatten_patch_embeds
 #         self.enable_fusion = config.enable_fusion
-
 #         padding = ((patch_size[0] - patch_stride[0]) // 2, (patch_size[1] - patch_stride[1]) // 2)
-
 #         scale_factor = 4 if (self.enable_fusion) and (config.fusion_type == "channel_map") else 1
-
 #         self.proj = nn.Conv2d(
 #             config.patch_embed_input_channels * scale_factor,
 #             config.patch_embeds_hidden_size,
@@ -336,11 +259,10 @@ class ClapAudioPatchEmbed(nn.Module):
 #             stride=patch_stride,
 #             padding=padding,
 #         )
-
 #         self.norm = nn.LayerNorm(config.patch_embeds_hidden_size) if config.enable_patch_layer_norm else nn.Identity()
         if self.enable_fusion:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.fusion_model = ClapAudioAFFBlock(config)
 #             self.mel_conv2d = nn.Conv2d(
@@ -350,48 +272,40 @@ class ClapAudioPatchEmbed(nn.Module):
 #                 stride=(patch_stride[0], patch_stride[1] * 3),
 #                 padding=padding,
 #             )
-
     def forward(self, hidden_states, is_inter_idx=None):
         if self.enable_fusion:
-      pass
-      pass
+    pass
+    pass
     pass
             # retrieve the last mel as we have transposed the input
 #             global_hidden_states = hidden_states[:, 0:1, :, :]
-
             # global processing
 #             batch_size, num_channels, height, width = global_hidden_states.shape
-
             if height != self.img_size[0] or width != self.img_size[1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Input audio size ({height}*{width}) doesnt match model ({self.img_size[0]}*{self.img_size[1]})."
 #                 )
-
 #             global_hidden_states = self.proj(global_hidden_states)
 #             output_width = global_hidden_states.size(-1)
             if len(is_inter_idx) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 # local processing
 #                 local_hidden_states = hidden_states[is_inter_idx, 1:, :, :].contiguous()
 #                 batch_size, num_channels, height, width = local_hidden_states.shape
 #                 local_hidden_states = local_hidden_states.view(batch_size * num_channels, 1, height, width)
-
 #                 local_hidden_states = self.mel_conv2d(local_hidden_states)
-
 #                 _, features, height, width = local_hidden_states.shape
 #                 local_hidden_states = local_hidden_states.view(batch_size, num_channels, features, height, width)
 #                 local_hidden_states = local_hidden_states.permute((0, 2, 3, 1, 4)).contiguous().flatten(3)
-
 #                 local_width = local_hidden_states.size(-1)
 #                 local_hidden_states = torch.nn.functional.pad(
 #                     local_hidden_states, (0, output_width - local_width), "constant", 0
 #                 )
-
 #                 global_hidden_states[is_inter_idx] = self.fusion_model(
 #                     global_hidden_states[is_inter_idx], local_hidden_states
 #                 )
@@ -399,46 +313,40 @@ class ClapAudioPatchEmbed(nn.Module):
         else:
 #             _, _, height, width = hidden_states.shape
             if height != self.img_size[0] or width != self.img_size[1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Input audio size ({height}*{width}) doesnt match model ({self.img_size[0]}*{self.img_size[1]})."
 #                 )
 #             hidden_states = self.proj(hidden_states)
-
         if self.flatten:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hidden_states = hidden_states.flatten(2).transpose(1, 2)
 #         hidden_states = self.norm(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinSelfAttention with Swin->ClapAudio
 class ClapAudioSelfAttention(nn.Module):
     def __init__(self, config, dim, num_heads, window_size):
 #         super().__init__()
         if dim % num_heads != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"The hidden size ({dim}) is not a multiple of the number of attention heads ({num_heads})"
 #             )
-
 #         self.num_attention_heads = num_heads
 #         self.attention_head_size = int(dim / num_heads)
 #         self.all_head_size = self.num_attention_heads * self.attention_head_size
 #         self.window_size = (
 #             window_size if isinstance(window_size, collections.abc.Iterable) else (window_size, window_size)
 #         )
-
 #         self.relative_position_bias_table = nn.Parameter(
 #             torch.zeros((2 * self.window_size[0] - 1) * (2 * self.window_size[1] - 1), num_heads)
 #         )
-
         # get pair-wise relative position index for each token inside the window
 #         coords_h = torch.arange(self.window_size[0])
 #         coords_w = torch.arange(self.window_size[1])
@@ -451,18 +359,14 @@ class ClapAudioSelfAttention(nn.Module):
 #         relative_coords[:, :, 0] *= 2 * self.window_size[1] - 1
 #         relative_position_index = relative_coords.sum(-1)
 #         self.register_buffer("relative_position_index", relative_position_index)
-
 #         self.query = nn.Linear(self.all_head_size, self.all_head_size, bias=config.qkv_bias)
 #         self.key = nn.Linear(self.all_head_size, self.all_head_size, bias=config.qkv_bias)
 #         self.value = nn.Linear(self.all_head_size, self.all_head_size, bias=config.qkv_bias)
-
 #         self.dropout = nn.Dropout(config.attention_probs_dropout_prob)
-
     def transpose_for_scores(self, x):
 #         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)
 #         x = x.view(new_x_shape)
         return x.permute(0, 2, 1, 3)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -472,27 +376,21 @@ class ClapAudioSelfAttention(nn.Module):
 #     ) -> Tuple[torch.Tensor]:
 #         batch_size, dim, num_channels = hidden_states.shape
 #         mixed_query_layer = self.query(hidden_states)
-
 #         key_layer = self.transpose_for_scores(self.key(hidden_states))
 #         value_layer = self.transpose_for_scores(self.value(hidden_states))
 #         query_layer = self.transpose_for_scores(mixed_query_layer)
-
         # Take the dot product between "query" and "key" to get the raw attention scores.
 #         attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
-
 #         attention_scores = attention_scores / math.sqrt(self.attention_head_size)
-
 #         relative_position_bias = self.relative_position_bias_table[self.relative_position_index.view(-1)]
 #         relative_position_bias = relative_position_bias.view(
 #             self.window_size[0] * self.window_size[1], self.window_size[0] * self.window_size[1], -1
 #         )
-
 #         relative_position_bias = relative_position_bias.permute(2, 0, 1).contiguous()
 #         attention_scores = attention_scores + relative_position_bias.unsqueeze(0)
-
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Apply the attention mask is (precomputed for all layers in ClapAudioModel forward() function)
 #             mask_shape = attention_mask.shape[0]
@@ -501,45 +399,33 @@ class ClapAudioSelfAttention(nn.Module):
 #             )
 #             attention_scores = attention_scores + attention_mask.unsqueeze(1).unsqueeze(0)
 #             attention_scores = attention_scores.view(-1, self.num_attention_heads, dim, dim)
-
         # Normalize the attention scores to probabilities.
 #         attention_probs = nn.functional.softmax(attention_scores, dim=-1)
-
         # This is actually dropping out entire tokens to attend to, which might
         # seem a bit unusual, but is taken from the original Transformer paper.
 #         attention_probs = self.dropout(attention_probs)
-
         # Mask heads if we want to
         if head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_probs = attention_probs * head_mask
-
 #         context_layer = torch.matmul(attention_probs, value_layer)
 #         context_layer = context_layer.permute(0, 2, 1, 3).contiguous()
 #         new_context_layer_shape = context_layer.size()[:-2] + (self.all_head_size,)
 #         context_layer = context_layer.view(new_context_layer_shape)
-
 #         outputs = (context_layer, attention_probs) if output_attentions else (context_layer,)
-
         return outputs
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinSelfOutput with Swin->ClapAudio
 class ClapAudioSelfOutput(nn.Module):
     def __init__(self, config, dim):
 #         super().__init__()
 #         self.dense = nn.Linear(dim, dim)
 #         self.dropout = nn.Dropout(config.attention_probs_dropout_prob)
-
     def forward(self, hidden_states: torch.Tensor, input_tensor: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states)
-
         return hidden_states
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinAttention with Swin->ClapAudio
 class ClapAudioAttention(nn.Module):
     def __init__(self, config, dim, num_heads, window_size):
@@ -547,28 +433,24 @@ class ClapAudioAttention(nn.Module):
 #         self.self = ClapAudioSelfAttention(config, dim, num_heads, window_size)
 #         self.output = ClapAudioSelfOutput(config, dim)
 #         self.pruned_heads = set()
-
     def prune_heads(self, heads):
         if len(heads) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         heads, index = find_pruneable_heads_and_indices(
 #             heads, self.self.num_attention_heads, self.self.attention_head_size, self.pruned_heads
 #         )
-
         # Prune linear layers
 #         self.self.query = prune_linear_layer(self.self.query, index)
 #         self.self.key = prune_linear_layer(self.self.key, index)
 #         self.self.value = prune_linear_layer(self.self.value, index)
 #         self.output.dense = prune_linear_layer(self.output.dense, index, dim=1)
-
         # Update hyper params and store pruned heads
 #         self.self.num_attention_heads = self.self.num_attention_heads - len(heads)
 #         self.self.all_head_size = self.self.attention_head_size * self.self.num_attention_heads
 #         self.pruned_heads = self.pruned_heads.union(heads)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -580,40 +462,32 @@ class ClapAudioAttention(nn.Module):
 #         attention_output = self.output(self_outputs[0], hidden_states)
 #         outputs = (attention_output,) + self_outputs[1:]  # add attentions if we output them
         return outputs
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinIntermediate with Swin->ClapAudio
 class ClapAudioIntermediate(nn.Module):
     def __init__(self, config, dim):
 #         super().__init__()
 #         self.dense = nn.Linear(dim, int(config.mlp_ratio * dim))
         if isinstance(config.hidden_act, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.intermediate_act_fn = ACT2FN[config.hidden_act]
         else:
 #             self.intermediate_act_fn = config.hidden_act
-
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.intermediate_act_fn(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinOutput with Swin->ClapAudio
 class ClapAudioOutput(nn.Module):
     def __init__(self, config, dim):
 #         super().__init__()
 #         self.dense = nn.Linear(int(config.mlp_ratio * dim), dim)
 #         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinLayer with SwinDropPath->ClapDropPath, Swin->ClapAudio
 class ClapAudioLayer(nn.Module):
     def __init__(self, config, dim, input_resolution, num_heads, shift_size=0):
@@ -628,20 +502,18 @@ class ClapAudioLayer(nn.Module):
 #         self.layernorm_after = nn.LayerNorm(dim, eps=config.layer_norm_eps)
 #         self.intermediate = ClapAudioIntermediate(config, dim)
 #         self.output = ClapAudioOutput(config, dim)
-
     def set_shift_and_window_size(self, input_resolution):
         if min(input_resolution) <= self.window_size:
-      pass
-      pass
+    pass
+    pass
     pass
             # if window size is larger than input resolution, we dont partition windows
 #             self.shift_size = 0
 #             self.window_size = min(input_resolution)
-
     def get_attn_mask(self, height, width, dtype):
         if self.shift_size > 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # calculate attention mask for SW-MSA
 #             img_mask = torch.zeros((1, height, width, 1), dtype=dtype)
@@ -660,7 +532,6 @@ class ClapAudioLayer(nn.Module):
                 for width_slice in width_slices:
 #                     img_mask[:, height_slice, width_slice, :] = count
 #                     count += 1
-
 #             mask_windows = window_partition(img_mask, self.window_size)
 #             mask_windows = mask_windows.view(-1, self.window_size * self.window_size)
 #             attn_mask = mask_windows.unsqueeze(1) - mask_windows.unsqueeze(2)
@@ -668,14 +539,12 @@ class ClapAudioLayer(nn.Module):
         else:
 #             attn_mask = None
         return attn_mask
-
     def maybe_pad(self, hidden_states, height, width):
 #         pad_right = (self.window_size - width % self.window_size) % self.window_size
 #         pad_bottom = (self.window_size - height % self.window_size) % self.window_size
 #         pad_values = (0, 0, 0, pad_right, 0, pad_bottom)
 #         hidden_states = nn.functional.pad(hidden_states, pad_values)
         return hidden_states, pad_values
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -685,8 +554,8 @@ class ClapAudioLayer(nn.Module):
 #         always_partition: Optional[bool] = False,
 #     ) -> Tuple[torch.Tensor, torch.Tensor]:
         if not always_partition:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.set_shift_and_window_size(input_dimensions)
         else:
@@ -694,71 +563,55 @@ class ClapAudioLayer(nn.Module):
 #         height, width = input_dimensions
 #         batch_size, _, channels = hidden_states.size()
 #         shortcut = hidden_states
-
 #         hidden_states = self.layernorm_before(hidden_states)
-
 #         hidden_states = hidden_states.view(batch_size, height, width, channels)
-
         # pad hidden_states to multiples of window size
 #         hidden_states, pad_values = self.maybe_pad(hidden_states, height, width)
-
 #         _, height_pad, width_pad, _ = hidden_states.shape
         # cyclic shift
         if self.shift_size > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shifted_hidden_states = torch.roll(hidden_states, shifts=(-self.shift_size, -self.shift_size), dims=(1, 2))
         else:
 #             shifted_hidden_states = hidden_states
-
         # partition windows
 #         hidden_states_windows = window_partition(shifted_hidden_states, self.window_size)
 #         hidden_states_windows = hidden_states_windows.view(-1, self.window_size * self.window_size, channels)
 #         attn_mask = self.get_attn_mask(height_pad, width_pad, dtype=hidden_states.dtype)
         if attn_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attn_mask = attn_mask.to(hidden_states_windows.device)
-
 #         attention_outputs = self.attention(
 #             hidden_states_windows, attn_mask, head_mask, output_attentions=output_attentions
 #         )
-
 #         attention_output = attention_outputs[0]
-
 #         attention_windows = attention_output.view(-1, self.window_size, self.window_size, channels)
 #         shifted_windows = window_reverse(attention_windows, self.window_size, height_pad, width_pad)
-
         # reverse cyclic shift
         if self.shift_size > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_windows = torch.roll(shifted_windows, shifts=(self.shift_size, self.shift_size), dims=(1, 2))
         else:
 #             attention_windows = shifted_windows
-
 #         was_padded = pad_values[3] > 0 or pad_values[5] > 0
         if was_padded:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_windows = attention_windows[:, :height, :width, :].contiguous()
-
 #         attention_windows = attention_windows.view(batch_size, height * width, channels)
-
 #         hidden_states = shortcut + self.drop_path(attention_windows)
-
 #         layer_output = self.layernorm_after(hidden_states)
 #         layer_output = self.intermediate(layer_output)
 #         layer_output = hidden_states + self.output(layer_output)
-
 #         layer_outputs = (layer_output, attention_outputs[1]) if output_attentions else (layer_output,)
         return layer_outputs
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinStage with Swin->ClapAudio
 class ClapAudioStage(nn.Module):
     def __init__(self, config, dim, input_resolution, depth, num_heads, drop_path, downsample):
@@ -777,18 +630,15 @@ class ClapAudioStage(nn.Module):
                 for i in range(depth)
 #             ]
 #         )
-
         # patch merging layer
         if downsample is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.downsample = downsample(input_resolution, dim=dim, norm_layer=nn.LayerNorm)
         else:
 #             self.downsample = None
-
 #         self.pointing = False
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -800,39 +650,30 @@ class ClapAudioStage(nn.Module):
 #         height, width = input_dimensions
         for i, layer_module in enumerate(self.blocks):
 #             layer_head_mask = head_mask[i] if head_mask is not None else None
-
 #             layer_outputs = layer_module(
 #                 hidden_states, input_dimensions, layer_head_mask, output_attentions, always_partition
 #             )
-
 #             hidden_states = layer_outputs[0]
-
 #         hidden_states_before_downsampling = hidden_states
         if self.downsample is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             height_downsampled, width_downsampled = (height + 1) // 2, (width + 1) // 2
 #             output_dimensions = (height, width, height_downsampled, width_downsampled)
 #             hidden_states = self.downsample(hidden_states_before_downsampling, input_dimensions)
         else:
 #             output_dimensions = (height, width, height, width)
-
 #         stage_outputs = (hidden_states, hidden_states_before_downsampling, output_dimensions)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             stage_outputs += layer_outputs[1:]
         return stage_outputs
-
-
 # Copied from transformers.models.swin.modeling_swin.SwinPatchMerging with Swin->ClapAudio
 class ClapAudioPatchMerging(nn.Module):
-
 #     Patch Merging Layer.
-
 #     Args:
 #         input_resolution (`Tuple[int]`):
 #             Resolution of input feature.
@@ -840,30 +681,25 @@ class ClapAudioPatchMerging(nn.Module):
 #             Number of input channels.
 #         norm_layer (`nn.Module`, *optional*, defaults to `nn.LayerNorm`):
 #             Normalization layer class.
-
     def __init__(self, input_resolution: Tuple[int], dim: int, norm_layer: nn.Module = nn.LayerNorm) -> None:
 #         super().__init__()
 #         self.input_resolution = input_resolution
 #         self.dim = dim
 #         self.reduction = nn.Linear(4 * dim, 2 * dim, bias=False)
 #         self.norm = norm_layer(4 * dim)
-
     def maybe_pad(self, input_feature, height, width):
 #         should_pad = (height % 2 == 1) or (width % 2 == 1)
         if should_pad:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pad_values = (0, 0, 0, width % 2, 0, height % 2)
 #             input_feature = nn.functional.pad(input_feature, pad_values)
-
         return input_feature
-
     def forward(self, input_feature: torch.Tensor, input_dimensions: Tuple[int, int]) -> torch.Tensor:
 #         height, width = input_dimensions
         # `dim` is height * width
 #         batch_size, dim, num_channels = input_feature.shape
-
 #         input_feature = input_feature.view(batch_size, height, width, num_channels)
         # pad input to be disible by width and height, if needed
 #         input_feature = self.maybe_pad(input_feature, height, width)
@@ -878,32 +714,23 @@ class ClapAudioPatchMerging(nn.Module):
         # batch_size height/2 width/2 4*num_channels
 #         input_feature = torch.cat([input_feature_0, input_feature_1, input_feature_2, input_feature_3], -1)
 #         input_feature = input_feature.view(batch_size, -1, 4 * num_channels)  # batch_size height/2*width/2 4*C
-
 #         input_feature = self.norm(input_feature)
 #         input_feature = self.reduction(input_feature)
-
         return input_feature
-
-
 class ClapAudioEncoder(nn.Module):
     def __init__(self, config):
 #         super().__init__()
 #         self.num_layers = len(config.depths)
-
 #         self.config = config
 #         self.patch_embed = ClapAudioPatchEmbed(config)
 #         self.enable_fusion = config.enable_fusion
 #         self.patch_stride = self.patch_embed.patch_stride
 #         self.spec_size = config.spec_size
 #         self.freq_ratio = config.spec_size // config.num_mel_bins
-
 #         self.num_features = int(config.patch_embeds_hidden_size * 2 ** (self.num_layers - 1))
-
 #         drop_path_rate = [x.item() for x in torch.linspace(0, config.drop_path_rate, sum(config.depths))]
-
 #         grid_size = self.patch_embed.grid_size
 #         self.input_resolutions = [(grid_size[0] // (2**i), grid_size[1] // (2**i)) for i in range(self.num_layers)]
-
 #         self.layers = nn.ModuleList(
 #             [
 #                 ClapAudioStage(
@@ -918,48 +745,38 @@ class ClapAudioEncoder(nn.Module):
                 for i_layer in range(self.num_layers)
 #             ]
 #         )
-
 #         self.gradient_checkpointing = False
-
 #         self.batch_norm = nn.BatchNorm2d(config.num_mel_bins)
 #         self.norm = nn.LayerNorm(self.num_features)
 #         self.depths = config.depths
 #         self.avgpool = nn.AdaptiveAvgPool1d(1)
-
     def reshape_mel2img(self, normalized_input_features):
-
 #         The input is 4 normalized log mel spectrograms. It is reshape to the common shape of images. Each channel
 #         should represent 1 of the 4 crops of the spectrogram. For more details, refer to the [`ClapFeatureExtractor`].
-
 #         _, _, time_length, freq_length = normalized_input_features.shape
-
 #         spec_width = int(self.spec_size * self.freq_ratio)
 #         spec_heigth = self.spec_size // self.freq_ratio
-
         if time_length > spec_width or freq_length > spec_heigth:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("the wav size should be less than or equal to the swin input size")
-
         # to avoid bicubic zero error
         if time_length < spec_width:
-      pass
-      pass
+    pass
+    pass
     pass
 #             normalized_input_features = nn.functional.interpolate(
 #                 normalized_input_features, (spec_width, freq_length), mode="bicubic", align_corners=True
 #             )
         if freq_length < spec_heigth:
-      pass
-      pass
+    pass
+    pass
     pass
 #             normalized_input_features = nn.functional.interpolate(
 #                 normalized_input_features, (time_length, spec_heigth), mode="bicubic", align_corners=True
 #             )
-
 #         batch, channels, time, freq = normalized_input_features.shape
-
         # batch_size, channels, spec_width, spec_heigth --> batch_size, channels, spec_heigth * freq_ratio, spec_width // freq_ratio
 #         normalized_input_features = normalized_input_features.reshape(
 #             batch, channels * self.freq_ratio, time // self.freq_ratio, freq
@@ -968,9 +785,7 @@ class ClapAudioEncoder(nn.Module):
 #         normalized_input_features = normalized_input_features.reshape(
 #             batch, channels, freq * self.freq_ratio, time // self.freq_ratio
 #         )
-
         return normalized_input_features
-
     def forward(
 #         self,
 #         input_features,
@@ -985,30 +800,23 @@ class ClapAudioEncoder(nn.Module):
 #         input_features = input_features.transpose(1, 3)
 #         normalized_input_features = self.batch_norm(input_features)
 #         normalized_input_features = normalized_input_features.transpose(1, 3)
-
 #         is_inter_list_idx = None
         if self.enable_fusion:
-      pass
-      pass
+    pass
+    pass
     pass
 #             is_inter_list = is_inter.to(input_features.device)
 #             is_inter_list_idx = torch.where(is_inter_list == 1)[0]
-
 #         hidden_states = self.reshape_mel2img(normalized_input_features)
-
 #         frames_num = hidden_states.shape[2]
-
 #         hidden_states = self.patch_embed(hidden_states, is_inter_list_idx)
-
 #         all_hidden_states = () if output_hidden_states else None
 #         all_reshaped_hidden_states = () if output_hidden_states else None
 #         all_self_attentions = () if output_attentions else None
-
 #         input_dimensions = self.input_resolutions[0]
-
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, _, hidden_size = hidden_states.shape
             # rearrange batch_size (height width) channels -> batch_size channel height width
@@ -1016,15 +824,12 @@ class ClapAudioEncoder(nn.Module):
 #             reshaped_hidden_state = reshaped_hidden_state.permute(0, 3, 1, 2)
 #             all_hidden_states += (hidden_states,)
 #             all_reshaped_hidden_states += (reshaped_hidden_state,)
-
         for i, layer_module in enumerate(self.layers):
 #             layer_head_mask = head_mask[i] if head_mask is not None else None
-
 #             input_dimensions = self.input_resolutions[i]
-
             if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_outputs = self._gradient_checkpointing_func(
 #                     layer_module.__call__, hidden_states, input_dimensions, layer_head_mask, output_attentions
@@ -1033,17 +838,13 @@ class ClapAudioEncoder(nn.Module):
 #                 layer_outputs = layer_module(
 #                     hidden_states, input_dimensions, layer_head_mask, output_attentions, always_partition
 #                 )
-
 #             hidden_states = layer_outputs[0]
-
 #             hidden_states_before_downsampling = layer_outputs[1]
 #             output_dimensions = layer_outputs[2]
-
 #             input_dimensions = (output_dimensions[-2], output_dimensions[-1])
-
             if output_hidden_states and output_hidden_states_before_downsampling:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 batch_size, _, hidden_size = hidden_states_before_downsampling.shape
                 # rearrange batch_size (height width) channels -> batch_size channel height width
@@ -1062,24 +863,18 @@ class ClapAudioEncoder(nn.Module):
 #                 reshaped_hidden_state = reshaped_hidden_state.permute(0, 3, 1, 2)
 #                 all_hidden_states += (hidden_states,)
 #                 all_reshaped_hidden_states += (reshaped_hidden_state,)
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_self_attentions += layer_outputs[3:]
-
 #         last_hidden_state = self.norm(hidden_states)
-
 #         batch_size, _, n_channels = last_hidden_state.shape
-
 #         freq_shape = frames_num // (2 ** (len(self.depths) - 1)) // self.patch_stride[0]
 #         temporal_shape = frames_num // (2 ** (len(self.depths) - 1)) // self.patch_stride[1]
-
 #         last_hidden_state = (
 #             last_hidden_state.permute(0, 2, 1).contiguous().reshape(batch_size, n_channels, freq_shape, temporal_shape)
 #         )
-
 #         batch_size, n_channels, n_frequencies, n_temp = last_hidden_state.shape
         # group 2D CNN
 #         c_freq_bin = n_frequencies // self.freq_ratio
@@ -1091,10 +886,9 @@ class ClapAudioEncoder(nn.Module):
 #         )
 #         latent_output = self.avgpool(torch.flatten(last_hidden_state, 2))
 #         latent_output = torch.flatten(latent_output, 1)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(
 #                 v
@@ -1106,50 +900,39 @@ class ClapAudioEncoder(nn.Module):
 #                 ]
                 if v is not None
 #             )
-
         return BaseModelOutputWithPooling(
 #             last_hidden_state=last_hidden_state,
 #             pooler_output=latent_output,
 #             hidden_states=all_reshaped_hidden_states,
 #             attentions=all_self_attentions,
 #         )
-
-
 # CLAP_START_DOCSTRING = r
 #     This model inherits from [`PreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading or saving, resizing the input embeddings, pruning heads
 #     etc.)
-
 #     This model is also a PyTorch [torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module) subclass.
 #     Use it as a regular PyTorch Module and refer to the PyTorch documentation for all matter related to general usage
 #     and behavior.
-
 #     Parameters:
 #         config ([`ClapConfig`]): Model configuration class with all the parameters of the model.
 #             Initializing with a config file does not load the weights associated with the model, only the
 #             configuration. Check out the [`~PreTrainedModel.from_pretrained`] method to load the model weights.
-
 # CLAP_TEXT_INPUTS_DOCSTRING =
 #     Args:
 #         input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         position_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Indices of positions of each input sequence tokens in the position embeddings. Selected in the range `[0,
 #             config.max_position_embeddings - 1]`.
-
 #             [What are position IDs?](../glossary#position-ids)
 #         output_attentions (`bool`, *optional*):
 #             Whether or not to return the attentions tensors of all attention layers. See `attentions` under returned
@@ -1159,7 +942,6 @@ class ClapAudioEncoder(nn.Module):
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 # CLAP_AUDIO_INPUTS_DOCSTRING = r
 #     Args:
 #         input_features (`torch.FloatTensor` of shape `(batch_size, num_channels, height, width)`):
@@ -1176,28 +958,22 @@ class ClapAudioEncoder(nn.Module):
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 # CLAP_INPUTS_DOCSTRING =
 #     Args:
 #         input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`torch.Tensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         position_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
 #             Indices of positions of each input sequence tokens in the position embeddings. Selected in the range `[0,
 #             config.max_position_embeddings - 1]`.
-
 #             [What are position IDs?](../glossary#position-ids)
 #         input_features (`torch.FloatTensor` of shape `(batch_size, num_channels, height, width)`):
 #             Input audio features. This should be returnes by the [`ClapFeatureExtractor`] class that you can also
@@ -1212,37 +988,29 @@ class ClapAudioEncoder(nn.Module):
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 class ClapProjectionLayer(nn.Module):
     def __init__(self, config: Union[ClapAudioConfig, ClapTextConfig]):
 #         super().__init__()
 #         self.config = config
 #         hidden_size = config.hidden_size
 #         projection_dim = config.projection_dim
-
 #         self.linear1 = nn.Linear(hidden_size, projection_dim)
 #         self.activation = ACT2FN[config.projection_hidden_act]
 #         self.linear2 = nn.Linear(projection_dim, projection_dim)
-
     def forward(self, hidden_states):
 #         hidden_states = self.linear1(hidden_states)
 #         hidden_states = self.activation(hidden_states)
 #         hidden_states = self.linear2(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.roberta.modeling_roberta.RobertaEmbeddings with Roberta->ClapText, persistent=False->persistent=True
 class ClapTextEmbeddings(nn.Module):
-
 #     Same as BertEmbeddings with a tiny tweak for positional embeddings indexing.
-
     # Copied from transformers.models.bert.modeling_bert.BertEmbeddings.__init__
     def __init__(self, config):
 #         super().__init__()
 #         self.word_embeddings = nn.Embedding(config.vocab_size, config.hidden_size, padding_idx=config.pad_token_id)
 #         self.position_embeddings = nn.Embedding(config.max_position_embeddings, config.hidden_size)
 #         self.token_type_embeddings = nn.Embedding(config.type_vocab_size, config.hidden_size)
-
         # self.LayerNorm is not snake-cased to stick with TensorFlow model variable name and be able to load
         # any TensorFlow checkpoint file
 #         self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
@@ -1255,131 +1023,110 @@ class ClapTextEmbeddings(nn.Module):
 #         self.register_buffer(
 #             "token_type_ids", torch.zeros(self.position_ids.size(), dtype=torch.int), persistent=True
 #         )
-
         # End copy
 #         self.padding_idx = config.pad_token_id
 #         self.position_embeddings = nn.Embedding(
 #             config.max_position_embeddings, config.hidden_size, padding_idx=self.padding_idx
 #         )
-
     def forward(
 #         self, input_ids=None, token_type_ids=None, position_ids=None, inputs_embeds=None, past_key_values_length=0
 #     ):
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if input_ids is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Create the position ids from the input token ids. Any padded tokens remain padded.
 #                 position_ids = create_position_ids_from_input_ids(input_ids, self.padding_idx, past_key_values_length)
             else:
 #                 position_ids = self.create_position_ids_from_inputs_embeds(inputs_embeds)
-
         if input_ids is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             input_shape = input_ids.size()
         else:
 #             input_shape = inputs_embeds.size()[:-1]
-
 #         seq_length = input_shape[1]
-
         # Setting the token_type_ids to the registered buffer in constructor where it is all zeros, which usually occurs
         # when its auto-generated, registered buffer helps users when tracing the model without passing token_type_ids, solves
         # issue #5664
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if hasattr(self, "token_type_ids"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 buffered_token_type_ids = self.token_type_ids[:, :seq_length]
 #                 buffered_token_type_ids_expanded = buffered_token_type_ids.expand(input_shape[0], seq_length)
 #                 token_type_ids = buffered_token_type_ids_expanded
             else:
 #                 token_type_ids = torch.zeros(input_shape, dtype=torch.int, device=self.position_ids.device)
-
         if inputs_embeds is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             inputs_embeds = self.word_embeddings(input_ids)
 #         token_type_embeddings = self.token_type_embeddings(token_type_ids)
-
 #         embeddings = inputs_embeds + token_type_embeddings
         if self.position_embedding_type == "absolute":
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_embeddings = self.position_embeddings(position_ids)
 #             embeddings += position_embeddings
 #         embeddings = self.LayerNorm(embeddings)
 #         embeddings = self.dropout(embeddings)
         return embeddings
-
     def create_position_ids_from_inputs_embeds(self, inputs_embeds):
-
 #         We are provided embeddings directly. We cannot infer which are padded so just generate sequential position ids.
-
 #         Args:
 #             inputs_embeds: torch.Tensor
-
 #         Returns: torch.Tensor
-
 #         input_shape = inputs_embeds.size()[:-1]
 #         sequence_length = input_shape[1]
-
 #         position_ids = torch.arange(
 #             self.padding_idx + 1, sequence_length + self.padding_idx + 1, dtype=torch.int, device=inputs_embeds.device
 #         )
         return position_ids.unsqueeze(0).expand(input_shape)
-
-
 # Copied from transformers.models.bert.modeling_bert.BertSelfAttention with Bert->ClapText
 class ClapTextSelfAttention(nn.Module):
     def __init__(self, config, position_embedding_type=None):
 #         super().__init__()
         if config.hidden_size % config.num_attention_heads != 0 and not hasattr(config, "embedding_size"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"The hidden size ({config.hidden_size}) is not a multiple of the number of attention "
 #                 f"heads ({config.num_attention_heads})"
 #             )
-
 #         self.num_attention_heads = config.num_attention_heads
 #         self.attention_head_size = int(config.hidden_size / config.num_attention_heads)
 #         self.all_head_size = self.num_attention_heads * self.attention_head_size
-
 #         self.query = nn.Linear(config.hidden_size, self.all_head_size)
 #         self.key = nn.Linear(config.hidden_size, self.all_head_size)
 #         self.value = nn.Linear(config.hidden_size, self.all_head_size)
-
 #         self.dropout = nn.Dropout(config.attention_probs_dropout_prob)
 #         self.position_embedding_type = position_embedding_type or getattr(
 #             config, "position_embedding_type", "absolute"
 #         )
         if self.position_embedding_type == "relative_key" or self.position_embedding_type == "relative_key_query":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.max_position_embeddings = config.max_position_embeddings
 #             self.distance_embedding = nn.Embedding(2 * config.max_position_embeddings - 1, self.attention_head_size)
-
 #         self.is_decoder = config.is_decoder
-
     def transpose_for_scores(self, x: torch.Tensor) -> torch.Tensor:
 #         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)
 #         x = x.view(new_x_shape)
         return x.permute(0, 2, 1, 3)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -1391,15 +1138,13 @@ class ClapTextSelfAttention(nn.Module):
 #         output_attentions: Optional[bool] = False,
 #     ) -> Tuple[torch.Tensor]:
 #         mixed_query_layer = self.query(hidden_states)
-
         # If this is instantiated as a cross-attention module, the keys
         # and values come from an encoder; the attention mask needs to be
         # such that the encoders padding tokens are not attended to.
 #         is_cross_attention = encoder_hidden_states is not None
-
         if is_cross_attention and past_key_value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # reuse k,v, cross_attentions
 #             key_layer = past_key_value[0]
@@ -1419,13 +1164,11 @@ class ClapTextSelfAttention(nn.Module):
         else:
 #             key_layer = self.transpose_for_scores(self.key(hidden_states))
 #             value_layer = self.transpose_for_scores(self.value(hidden_states))
-
 #         query_layer = self.transpose_for_scores(mixed_query_layer)
-
 #         use_cache = past_key_value is not None
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
             # if cross_attention save Tuple(torch.Tensor, torch.Tensor) of all cross attention key/value_states.
             # Further calls to cross_attention layer can then reuse all cross-attention
@@ -1435,18 +1178,16 @@ class ClapTextSelfAttention(nn.Module):
             # can concat previous decoder key/value_states to current projected key/value_states (third "elif" case)
             # if encoder bi-directional self-attention `past_key_value` is always `None`
 #             past_key_value = (key_layer, value_layer)
-
         # Take the dot product between "query" and "key" to get the raw attention scores.
 #         attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
-
         if self.position_embedding_type == "relative_key" or self.position_embedding_type == "relative_key_query":
-      pass
-      pass
+    pass
+    pass
     pass
 #             query_length, key_length = query_layer.shape[2], key_layer.shape[2]
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 position_ids_l = torch.tensor(key_length - 1, dtype=torch.int, device=hidden_states.device).view(
 #                     -1, 1
@@ -1455,13 +1196,11 @@ class ClapTextSelfAttention(nn.Module):
 #                 position_ids_l = torch.arange(query_length, dtype=torch.int, device=hidden_states.device).view(-1, 1)
 #             position_ids_r = torch.arange(key_length, dtype=torch.int, device=hidden_states.device).view(1, -1)
 #             distance = position_ids_l - position_ids_r
-
 #             positional_embedding = self.distance_embedding(distance + self.max_position_embeddings - 1)
 #             positional_embedding = positional_embedding.to(dtype=query_layer.dtype)  # fp16 compatibility
-
             if self.position_embedding_type == "relative_key":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 relative_position_scores = torch.einsum("bhld,lrd->bhlr", query_layer, positional_embedding)
 #                 attention_scores = attention_scores + relative_position_scores
@@ -1470,45 +1209,35 @@ class ClapTextSelfAttention(nn.Module):
 #                 relative_position_scores_query = torch.einsum("bhld,lrd->bhlr", query_layer, positional_embedding)
 #                 relative_position_scores_key = torch.einsum("bhrd,lrd->bhlr", key_layer, positional_embedding)
 #                 attention_scores = attention_scores + relative_position_scores_query + relative_position_scores_key
-
 #         attention_scores = attention_scores / math.sqrt(self.attention_head_size)
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Apply the attention mask is (precomputed for all layers in ClapTextModel forward() function)
 #             attention_scores = attention_scores + attention_mask
-
         # Normalize the attention scores to probabilities.
 #         attention_probs = nn.functional.softmax(attention_scores, dim=-1)
-
         # This is actually dropping out entire tokens to attend to, which might
         # seem a bit unusual, but is taken from the original Transformer paper.
 #         attention_probs = self.dropout(attention_probs)
-
         # Mask heads if we want to
         if head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_probs = attention_probs * head_mask
-
 #         context_layer = torch.matmul(attention_probs, value_layer)
-
 #         context_layer = context_layer.permute(0, 2, 1, 3).contiguous()
 #         new_context_layer_shape = context_layer.size()[:-2] + (self.all_head_size,)
 #         context_layer = context_layer.view(new_context_layer_shape)
-
 #         outputs = (context_layer, attention_probs) if output_attentions else (context_layer,)
-
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = outputs + (past_key_value,)
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_bert.BertSelfOutput
 class ClapTextSelfOutput(nn.Module):
     def __init__(self, config):
@@ -1516,14 +1245,11 @@ class ClapTextSelfOutput(nn.Module):
 #         self.dense = nn.Linear(config.hidden_size, config.hidden_size)
 #         self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
 #         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-
     def forward(self, hidden_states: torch.Tensor, input_tensor: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states)
 #         hidden_states = self.LayerNorm(hidden_states + input_tensor)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_bert.BertAttention with Bert->ClapText
 class ClapTextAttention(nn.Module):
     def __init__(self, config, position_embedding_type=None):
@@ -1531,28 +1257,24 @@ class ClapTextAttention(nn.Module):
 #         self.self = ClapTextSelfAttention(config, position_embedding_type=position_embedding_type)
 #         self.output = ClapTextSelfOutput(config)
 #         self.pruned_heads = set()
-
     def prune_heads(self, heads):
         if len(heads) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         heads, index = find_pruneable_heads_and_indices(
 #             heads, self.self.num_attention_heads, self.self.attention_head_size, self.pruned_heads
 #         )
-
         # Prune linear layers
 #         self.self.query = prune_linear_layer(self.self.query, index)
 #         self.self.key = prune_linear_layer(self.self.key, index)
 #         self.self.value = prune_linear_layer(self.self.value, index)
 #         self.output.dense = prune_linear_layer(self.output.dense, index, dim=1)
-
         # Update hyper params and store pruned heads
 #         self.self.num_attention_heads = self.self.num_attention_heads - len(heads)
 #         self.self.all_head_size = self.self.attention_head_size * self.self.num_attention_heads
 #         self.pruned_heads = self.pruned_heads.union(heads)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -1575,27 +1297,22 @@ class ClapTextAttention(nn.Module):
 #         attention_output = self.output(self_outputs[0], hidden_states)
 #         outputs = (attention_output,) + self_outputs[1:]  # add attentions if we output them
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_bert.BertIntermediate
 class ClapTextIntermediate(nn.Module):
     def __init__(self, config):
 #         super().__init__()
 #         self.dense = nn.Linear(config.hidden_size, config.intermediate_size)
         if isinstance(config.hidden_act, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.intermediate_act_fn = ACT2FN[config.hidden_act]
         else:
 #             self.intermediate_act_fn = config.hidden_act
-
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.intermediate_act_fn(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_bert.BertOutput
 class ClapTextOutput(nn.Module):
     def __init__(self, config):
@@ -1603,14 +1320,11 @@ class ClapTextOutput(nn.Module):
 #         self.dense = nn.Linear(config.intermediate_size, config.hidden_size)
 #         self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
 #         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-
     def forward(self, hidden_states: torch.Tensor, input_tensor: torch.Tensor) -> torch.Tensor:
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states)
 #         hidden_states = self.LayerNorm(hidden_states + input_tensor)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_bert.BertLayer with Bert->ClapText
 class ClapTextLayer(nn.Module):
     def __init__(self, config):
@@ -1621,18 +1335,17 @@ class ClapTextLayer(nn.Module):
 #         self.is_decoder = config.is_decoder
 #         self.add_cross_attention = config.add_cross_attention
         if self.add_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
             if not self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(f"{self} should be used as a decoder model if cross attention is added")
 #             self.crossattention = ClapTextAttention(config, position_embedding_type="absolute")
 #         self.intermediate = ClapTextIntermediate(config)
 #         self.output = ClapTextOutput(config)
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -1653,31 +1366,28 @@ class ClapTextLayer(nn.Module):
 #             past_key_value=self_attn_past_key_value,
 #         )
 #         attention_output = self_attention_outputs[0]
-
         # if decoder, the last output is tuple of self-attn cache
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = self_attention_outputs[1:-1]
 #             present_key_value = self_attention_outputs[-1]
         else:
 #             outputs = self_attention_outputs[1:]  # add self attentions if we output attention weights
-
 #         cross_attn_present_key_value = None
         if self.is_decoder and encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if not hasattr(self, "crossattention"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"If `encoder_hidden_states` are passed, {self} has to be instantiated with cross-attention layers"
 #                     " by setting `config.add_cross_attention=True`"
 #                 )
-
             # cross_attn cached key/values tuple is at positions 3,4 of past_key_value tuple
 #             cross_attn_past_key_value = past_key_value[-2:] if past_key_value is not None else None
 #             cross_attention_outputs = self.crossattention(
@@ -1691,31 +1401,24 @@ class ClapTextLayer(nn.Module):
 #             )
 #             attention_output = cross_attention_outputs[0]
 #             outputs = outputs + cross_attention_outputs[1:-1]  # add cross attentions if we output attention weights
-
             # add cross-attn cache to positions 3,4 of present_key_value tuple
 #             cross_attn_present_key_value = cross_attention_outputs[-1]
 #             present_key_value = present_key_value + cross_attn_present_key_value
-
 #         layer_output = apply_chunking_to_forward(
 #             self.feed_forward_chunk, self.chunk_size_feed_forward, self.seq_len_dim, attention_output
 #         )
 #         outputs = (layer_output,) + outputs
-
         # if decoder, return the attn key/values as the last output
         if self.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = outputs + (present_key_value,)
-
         return outputs
-
     def feed_forward_chunk(self, attention_output):
 #         intermediate_output = self.intermediate(attention_output)
 #         layer_output = self.output(intermediate_output, attention_output)
         return layer_output
-
-
 # Copied from transformers.models.bert.modeling_bert.BertEncoder with Bert->ClapText
 class ClapTextEncoder(nn.Module):
     def __init__(self, config):
@@ -1723,7 +1426,6 @@ class ClapTextEncoder(nn.Module):
 #         self.config = config
 #         self.layer = nn.ModuleList([ClapTextLayer(config) for _ in range(config.num_hidden_layers)])
 #         self.gradient_checkpointing = False
-
     def forward(
 #         self,
 #         hidden_states: torch.Tensor,
@@ -1740,34 +1442,30 @@ class ClapTextEncoder(nn.Module):
 #         all_hidden_states = () if output_hidden_states else None
 #         all_self_attentions = () if output_attentions else None
 #         all_cross_attentions = () if output_attentions and self.config.add_cross_attention else None
-
         if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning_once(
 #                     "`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`..."
 #                 )
 #                 use_cache = False
-
 #         next_decoder_cache = () if use_cache else None
         for i, layer_module in enumerate(self.layer):
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states = all_hidden_states + (hidden_states,)
-
 #             layer_head_mask = head_mask[i] if head_mask is not None else None
 #             past_key_value = past_key_values[i] if past_key_values is not None else None
-
             if self.gradient_checkpointing and self.training:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_outputs = self._gradient_checkpointing_func(
 #                     layer_module.__call__,
@@ -1789,33 +1487,30 @@ class ClapTextEncoder(nn.Module):
 #                     past_key_value,
 #                     output_attentions,
 #                 )
-
 #             hidden_states = layer_outputs[0]
             if use_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 next_decoder_cache += (layer_outputs[-1],)
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_self_attentions = all_self_attentions + (layer_outputs[1],)
                 if self.config.add_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     all_cross_attentions = all_cross_attentions + (layer_outputs[2],)
-
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             all_hidden_states = all_hidden_states + (hidden_states,)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(
 #                 v
@@ -1835,15 +1530,12 @@ class ClapTextEncoder(nn.Module):
 #             attentions=all_self_attentions,
 #             cross_attentions=all_cross_attentions,
 #         )
-
-
 # Copied from transformers.models.bert.modeling_bert.BertPooler
 class ClapTextPooler(nn.Module):
     def __init__(self, config):
 #         super().__init__()
 #         self.dense = nn.Linear(config.hidden_size, config.hidden_size)
 #         self.activation = nn.Tanh()
-
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
         # We "pool" the model by simply taking the hidden state corresponding
         # to the first token.
@@ -1851,24 +1543,17 @@ class ClapTextPooler(nn.Module):
 #         pooled_output = self.dense(first_token_tensor)
 #         pooled_output = self.activation(pooled_output)
         return pooled_output
-
-
 class ClapPreTrainedModel(PreTrainedModel):
-
 #     An abstract class to handle weights initialization and a simple interface for downloading and loading pretrained
 #     models.
-
 #     config_class = ClapConfig
 #     base_model_prefix = "clap"
 #     supports_gradient_checkpointing = False
-
     def _init_weights(self, module):
-
 #         factor = self.config.initializer_factor
-
         if isinstance(module, ClapTextEmbeddings):
-      pass
-      pass
+    pass
+    pass
     pass
         elif isinstance(module, ClapModel):
     pass
@@ -1876,7 +1561,6 @@ class ClapPreTrainedModel(PreTrainedModel):
 #             nn.init.normal_(module.logit_scale_t, std=factor * 0.02)
         elif isinstance(module, nn.Embedding):
     pass
-
         elif isinstance(module, nn.LayerNorm):
     pass
         elif isinstance(module, (nn.Conv2d, nn.Linear)):
@@ -1884,24 +1568,19 @@ class ClapPreTrainedModel(PreTrainedModel):
 #             in_proj_std = (self.config.hidden_size**-0.5) * ((2 * self.config.num_hidden_layers) ** -0.5) * factor
 #             nn.init.normal_(module.weight, std=in_proj_std)
             if module.bias is not None:
-      pass
-      pass
     pass
-
-
+    pass
+    pass
 class ClapAudioModel(ClapPreTrainedModel):
 #     config_class = ClapAudioConfig
 #     main_input_name = "input_features"
-
     def __init__(self, config: ClapAudioConfig):
 #         super().__init__(config)
 #         self.audio_encoder = ClapAudioEncoder(config)
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self) -> nn.Module:
         return self.audio_encoder.patch_embed.proj
-
 #     @add_start_docstrings_to_model_forward(CLAP_AUDIO_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=BaseModelOutputWithPooling, config_class=ClapAudioConfig)
     def forward(
@@ -1914,21 +1593,15 @@ class ClapAudioModel(ClapPreTrainedModel):
 #     ) -> Union[Tuple, BaseModelOutputWithPooling]:
 #         r
 #         Returns:
-
 #         Examples:
-
 #         ```python
 #         >>> from datasets import load_dataset
 #         >>> from transformers import AutoProcessor, ClapAudioModel
-
 #         >>> dataset = load_dataset("ashraq/esc50")
 #         >>> audio_sample = dataset["train"]["audio"][0]["array"]
-
 #         >>> model = ClapAudioModel.from_pretrained("laion/clap-htsat-fused")
 #         >>> processor = AutoProcessor.from_pretrained("laion/clap-htsat-fused")
-
 #         >>> inputs = processor(audios=audio_sample, return_tensors="pt")
-
 #         >>> outputs = model(**inputs)
 #         >>> last_hidden_state = outputs.last_hidden_state
 #         ```
@@ -1937,7 +1610,6 @@ class ClapAudioModel(ClapPreTrainedModel):
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
-
         return self.audio_encoder(
 #             input_features=input_features,
 #             is_inter=is_inter,
@@ -1945,42 +1617,29 @@ class ClapAudioModel(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
-
 class ClapTextModel(ClapPreTrainedModel):
-
 #     The model can behave as an encoder (with only self-attention) as well as a decoder, in which case a layer of
 #     cross-attention is added between the self-attention layers, following the architecture described in *Attention is
 #     all you need*_ by Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz
 #     Kaiser and Illia Polosukhin.
-
 #     To behave as an decoder the model needs to be initialized with the `is_decoder` argument of the configuration set
 #     to `True`. To be used in a Seq2Seq model, the model needs to initialized with both `is_decoder` argument and
 #     `add_cross_attention` set to `True`; an `encoder_hidden_states` is then expected as an input to the forward pass.
-
 #     .. _*Attention is all you need*: https://arxiv.org/abs/1706.03762
-
 #     config_class = ClapTextConfig
-
     # Copied from transformers.models.bert.modeling_bert.BertModel.__init__ with Bert->ClapText
     def __init__(self, config, add_pooling_layer=True):
 #         super().__init__(config)
 #         self.config = config
-
 #         self.embeddings = ClapTextEmbeddings(config)
 #         self.encoder = ClapTextEncoder(config)
-
 #         self.pooler = ClapTextPooler(config) if add_pooling_layer else None
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self):
         return self.embeddings.word_embeddings
-
     def set_input_embeddings(self, value):
 #         self.embeddings.word_embeddings = value
-
     # Copied from transformers.models.bert.modeling_bert.BertModel.forward
     def forward(
 #         self,
@@ -2006,36 +1665,31 @@ class ClapTextModel(ClapPreTrainedModel):
 #             Mask to avoid performing attention on the padding token indices of the encoder input. This mask is used in
 #             the cross-attention if the model is configured as a decoder. Mask values selected in `[0, 1]`:
     pass
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
 #         past_key_values (`tuple(tuple(torch.FloatTensor))` of length `config.n_layers` with each tuple having 4 tensors of shape `(batch_size, num_heads, sequence_length - 1, embed_size_per_head)`):
 #             Contains precomputed key and value hidden states of the attention blocks. Can be used to speed up decoding.
-
 #             If `past_key_values` are used, the user can optionally input only the last `decoder_input_ids` (those that
 #             dont have their past key value states given to this model) of shape `(batch_size, 1)` instead of all
 #             `decoder_input_ids` of shape `(batch_size, sequence_length)`.
 #         use_cache (`bool`, *optional*):
 #             If set to `True`, `past_key_values` key value states are returned and can be used to speed up decoding (see
 #             `past_key_values`).
-
 #         output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
         if self.config.is_decoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #             use_cache = use_cache if use_cache is not None else self.config.use_cache
         else:
 #             use_cache = False
-
         if input_ids is not None and inputs_embeds is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You cannot specify both input_ids and inputs_embeds at the same time")
         elif input_ids is not None:
@@ -2047,61 +1701,53 @@ class ClapTextModel(ClapPreTrainedModel):
 #             input_shape = inputs_embeds.size()[:-1]
         else:
 #             raise ValueError("You have to specify either input_ids or inputs_embeds")
-
 #         batch_size, seq_length = input_shape
 #         device = input_ids.device if input_ids is not None else inputs_embeds.device
-
         # past_key_values_length
 #         past_key_values_length = past_key_values[0][0].shape[2] if past_key_values is not None else 0
-
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = torch.ones(((batch_size, seq_length + past_key_values_length)), device=device)
-
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if hasattr(self.embeddings, "token_type_ids"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 buffered_token_type_ids = self.embeddings.token_type_ids[:, :seq_length]
 #                 buffered_token_type_ids_expanded = buffered_token_type_ids.expand(batch_size, seq_length)
 #                 token_type_ids = buffered_token_type_ids_expanded
             else:
 #                 token_type_ids = torch.zeros(input_shape, dtype=torch.int, device=device)
-
         # We can provide a self-attention mask of dimensions [batch_size, from_seq_length, to_seq_length]
         # ourselves in which case we just need to make it broadcastable to all heads.
 #         extended_attention_mask: torch.Tensor = self.get_extended_attention_mask(attention_mask, input_shape)
-
         # If a 2D or 3D attention mask is provided for the cross-attention
         # we need to make broadcastable to [batch_size, num_heads, seq_length, seq_length]
         if self.config.is_decoder and encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoder_batch_size, encoder_sequence_length, _ = encoder_hidden_states.size()
 #             encoder_hidden_shape = (encoder_batch_size, encoder_sequence_length)
             if encoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 encoder_attention_mask = torch.ones(encoder_hidden_shape, device=device)
 #             encoder_extended_attention_mask = self.invert_attention_mask(encoder_attention_mask)
         else:
 #             encoder_extended_attention_mask = None
-
         # Prepare head mask if needed
         # 1.0 in head_mask indicate we keep the head
         # attention_probs has shape bsz x n_heads x N x N
         # input head_mask has shape [num_heads] or [num_hidden_layers x num_heads]
         # and head_mask is converted to shape [num_hidden_layers x batch x num_heads x seq_length x seq_length]
 #         head_mask = self.get_head_mask(head_mask, self.config.num_hidden_layers)
-
 #         embedding_output = self.embeddings(
 #             input_ids=input_ids,
 #             position_ids=position_ids,
@@ -2123,13 +1769,11 @@ class ClapTextModel(ClapPreTrainedModel):
 #         )
 #         sequence_output = encoder_outputs[0]
 #         pooled_output = self.pooler(sequence_output) if self.pooler is not None else None
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (sequence_output, pooled_output) + encoder_outputs[1:]
-
         return BaseModelOutputWithPoolingAndCrossAttentions(
 #             last_hidden_state=sequence_output,
 #             pooler_output=pooled_output,
@@ -2138,50 +1782,38 @@ class ClapTextModel(ClapPreTrainedModel):
 #             attentions=encoder_outputs.attentions,
 #             cross_attentions=encoder_outputs.cross_attentions,
 #         )
-
-
 # @add_start_docstrings(CLAP_START_DOCSTRING)
 class ClapModel(ClapPreTrainedModel):
 #     config_class = ClapConfig
-
     def __init__(self, config: ClapConfig):
 #         super().__init__(config)
-
         if not isinstance(config.text_config, ClapTextConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "config.text_config is expected to be of type ClapTextConfig but is of type"
 #                 f" {type(config.text_config)}."
 #             )
-
         if not isinstance(config.audio_config, ClapAudioConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "config.audio_config is expected to be of type ClapAudioConfig but is of type"
 #                 f" {type(config.audio_config)}."
 #             )
-
 #         text_config = config.text_config
 #         audio_config = config.audio_config
-
 #         self.logit_scale_a = nn.Parameter(torch.tensor(math.log(config.logit_scale_init_value)))
 #         self.logit_scale_t = nn.Parameter(torch.tensor(math.log(config.logit_scale_init_value)))
-
 #         self.projection_dim = config.projection_dim
-
 #         self.text_model = ClapTextModel(text_config)
 #         self.text_projection = ClapProjectionLayer(text_config)
-
 #         self.audio_model = ClapAudioModel(audio_config)
 #         self.audio_projection = ClapProjectionLayer(audio_config)
-
         # Initialize weights and apply final processing
 #         self.post_init()
-
 #     @add_start_docstrings_to_model_forward(CLAP_TEXT_INPUTS_DOCSTRING)
     def get_text_features(
 #         self,
@@ -2192,19 +1824,14 @@ class ClapModel(ClapPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> torch.FloatTensor:
-
 #         Returns:
 #             text_features (`torch.FloatTensor` of shape `(batch_size, output_dim`): The text embeddings obtained by
 #             applying the projection layer to the pooled output of [`ClapTextModel`].
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import AutoTokenizer, ClapModel
-
 #         >>> model = ClapModel.from_pretrained("laion/clap-htsat-unfused")
 #         >>> tokenizer = AutoTokenizer.from_pretrained("laion/clap-htsat-unfused")
-
 #         >>> inputs = tokenizer(["the sound of a cat", "the sound of a dog"], padding=True, return_tensors="pt")
 #         >>> text_features = model.get_text_features(**inputs)
 #         ```
@@ -2214,7 +1841,6 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
 #         text_outputs = self.text_model(
 #             input_ids=input_ids,
 #             attention_mask=attention_mask,
@@ -2223,13 +1849,10 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = text_outputs[1] if return_dict is not None else text_outputs.pooler_output
 #         text_features = self.text_projection(pooled_output)
 #         text_features = F.normalize(text_features, dim=-1)
-
         return text_features
-
 #     @add_start_docstrings_to_model_forward(CLAP_AUDIO_INPUTS_DOCSTRING)
     def get_audio_features(
 #         self,
@@ -2240,17 +1863,13 @@ class ClapModel(ClapPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> torch.FloatTensor:
-
 #         Returns:
 #             audio_features (`torch.FloatTensor` of shape `(batch_size, output_dim`): The audio embeddings obtained by
 #             applying the projection layer to the pooled output of [`ClapAudioModel`].
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import AutoFeatureExtractor, ClapModel
 #         >>> import torch
-
 #         >>> model = ClapModel.from_pretrained("laion/clap-htsat-unfused")
 #         >>> feature_extractor = AutoFeatureExtractor.from_pretrained("laion/clap-htsat-unfused")
 #         >>> random_audio = torch.rand((16_000))
@@ -2262,20 +1881,15 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
 #         audio_outputs = self.audio_model(
 #             input_features=input_features,
 #             is_inter=is_inter,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = audio_outputs[1] if not return_dict else audio_outputs.pooler_output
-
 #         audio_features = self.audio_projection(pooled_output)
 #         audio_features = F.normalize(audio_features, dim=-1)
-
         return audio_features
-
 #     @add_start_docstrings_to_model_forward(CLAP_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=ClapOutput, config_class=ClapConfig)
     def forward(
@@ -2290,25 +1904,17 @@ class ClapModel(ClapPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, ClapOutput]:
-
 #         Returns:
-
 #         Examples:
-
 #         ```python
 #         >>> from datasets import load_dataset
 #         >>> from transformers import AutoProcessor, ClapModel
-
 #         >>> dataset = load_dataset("ashraq/esc50")
 #         >>> audio_sample = dataset["train"]["audio"][0]["array"]
-
 #         >>> model = ClapModel.from_pretrained("laion/clap-htsat-unfused")
 #         >>> processor = AutoProcessor.from_pretrained("laion/clap-htsat-unfused")
-
 #         >>> input_text = ["Sound of a dog", "Sound of vaccum cleaner"]
-
 #         >>> inputs = processor(text=input_text, audios=audio_sample, return_tensors="pt", padding=True)
-
 #         >>> outputs = model(**inputs)
 #         >>> logits_per_audio = outputs.logits_per_audio  # this is the audio-text similarity score
 #         >>> probs = logits_per_audio.softmax(dim=-1)  # we can take the softmax to get the label probabilities
@@ -2319,7 +1925,6 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
 #         audio_outputs = self.audio_model(
 #             input_features=input_features,
 #             is_inter=is_inter,
@@ -2327,7 +1932,6 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         text_outputs = self.text_model(
 #             input_ids=input_ids,
 #             attention_mask=attention_mask,
@@ -2336,39 +1940,32 @@ class ClapModel(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         audio_embeds = audio_outputs[1] if not return_dict else audio_outputs.pooler_output
 #         audio_embeds = self.audio_projection(audio_embeds)
-
 #         text_embeds = text_outputs[1] if not return_dict else text_outputs.pooler_output
 #         text_embeds = self.text_projection(text_embeds)
-
         # normalized features
 #         audio_embeds = audio_embeds / audio_embeds.norm(p=2, dim=-1, keepdim=True)
 #         text_embeds = text_embeds / text_embeds.norm(p=2, dim=-1, keepdim=True)
-
         # cosine similarity as logits
 #         logit_scale_text = self.logit_scale_t.exp()
 #         logit_scale_audio = self.logit_scale_a.exp()
 #         logits_per_text = torch.matmul(text_embeds, audio_embeds.t()) * logit_scale_text
 #         logits_per_audio = torch.matmul(audio_embeds, text_embeds.t()) * logit_scale_audio
-
 #         loss = None
         if return_loss:
-      pass
-      pass
+    pass
+    pass
     pass
 #             caption_loss = contrastive_loss(logits_per_text)
 #             audio_loss = contrastive_loss(logits_per_audio.t())
 #             loss = (caption_loss + audio_loss) / 2.0
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (logits_per_audio, logits_per_text, text_embeds, audio_embeds, text_outputs, audio_outputs)
             return ((loss,) + output) if loss is not None else output
-
         return ClapOutput(
 #             loss=loss,
 #             logits_per_audio=logits_per_audio,
@@ -2378,29 +1975,22 @@ class ClapModel(ClapPreTrainedModel):
 #             text_model_output=text_outputs,
 #             audio_model_output=audio_outputs,
 #         )
-
-
 # @add_start_docstrings(
-
 """    """,
 #     CLAP_START_DOCSTRING,
 # )
 class ClapTextModelWithProjection(ClapPreTrainedModel):
 #     config_class = ClapTextConfig
-
     def __init__(self, config: ClapTextConfig):
 #         super().__init__(config)
 #         self.text_model = ClapTextModel(config)
 #         self.text_projection = ClapProjectionLayer(config)
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self) -> nn.Module:
         return self.text_model.embeddings.word_embeddings
-
     def set_input_embeddings(self, value):
 #         self.text_model.embeddings.word_embeddings = value
-
 #     @add_start_docstrings_to_model_forward(CLAP_TEXT_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=ClapTextModelOutput, config_class=ClapTextConfig)
     def forward(
@@ -2412,24 +2002,17 @@ class ClapTextModelWithProjection(ClapPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, ClapTextModelOutput]:
-
 #         Returns:
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import AutoTokenizer, ClapTextModelWithProjection
-
 #         >>> model = ClapTextModelWithProjection.from_pretrained("laion/clap-htsat-unfused")
 #         >>> tokenizer = AutoTokenizer.from_pretrained("laion/clap-htsat-unfused")
-
 #         >>> inputs = tokenizer(["a sound of a cat", "a sound of a dog"], padding=True, return_tensors="pt")
-
 #         >>> outputs = model(**inputs)
 #         >>> text_embeds = outputs.text_embeds
 #         ```
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
 #         text_outputs = self.text_model(
 #             input_ids=input_ids,
 #             attention_mask=attention_mask,
@@ -2438,45 +2021,35 @@ class ClapTextModelWithProjection(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = text_outputs[1] if not return_dict else text_outputs.pooler_output
-
 #         text_embeds = self.text_projection(pooled_output)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = (text_embeds, text_outputs[0]) + text_outputs[2:]
             return tuple(output for output in outputs if output is not None)
-
         return ClapTextModelOutput(
 #             text_embeds=text_embeds,
 #             last_hidden_state=text_outputs.last_hidden_state,
 #             hidden_states=text_outputs.hidden_states,
 #             attentions=text_outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 """    """,
 #     CLAP_START_DOCSTRING,
 # )
 class ClapAudioModelWithProjection(ClapPreTrainedModel):
 #     config_class = ClapAudioConfig
 #     main_input_name = "input_features"
-
     def __init__(self, config: ClapAudioConfig):
 #         super().__init__(config)
 #         self.audio_model = ClapAudioModel(config)
 #         self.audio_projection = ClapProjectionLayer(config)
         # Initialize weights and apply final processing
 #         self.post_init()
-
     def get_input_embeddings(self) -> nn.Module:
         return self.audio_model.audio_encoder.patch_embed.proj
-
 #     @add_start_docstrings_to_model_forward(CLAP_AUDIO_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=ClapAudioModelOutput, config_class=ClapAudioConfig)
     def forward(
@@ -2487,21 +2060,15 @@ class ClapAudioModelWithProjection(ClapPreTrainedModel):
 #         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 #     ) -> Union[Tuple, ClapAudioModelOutput]:
-
 #         Returns:
-
 #         Examples:
-
 #         ```python
 #         >>> from datasets import load_dataset
 #         >>> from transformers import ClapAudioModelWithProjection, ClapProcessor
-
 #         >>> model = ClapAudioModelWithProjection.from_pretrained("laion/clap-htsat-fused")
 #         >>> processor = ClapProcessor.from_pretrained("laion/clap-htsat-fused")
-
 #         >>> dataset = load_dataset("ashraq/esc50")
 #         >>> audio_sample = dataset["train"]["audio"][0]["array"]
-
 #         >>> inputs = processor(audios=audio_sample, return_tensors="pt")
 #         >>> outputs = model(**inputs)
 #         >>> audio_embeds = outputs.audio_embeds
@@ -2511,7 +2078,6 @@ class ClapAudioModelWithProjection(ClapPreTrainedModel):
 #         output_hidden_states = (
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
-
 #         audio_outputs = self.audio_model(
 #             input_features=input_features,
 #             is_inter=is_inter,
@@ -2519,18 +2085,14 @@ class ClapAudioModelWithProjection(ClapPreTrainedModel):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = audio_outputs[1] if not return_dict else audio_outputs.pooler_output
-
 #         audio_embeds = self.audio_projection(pooled_output)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = (audio_embeds, audio_outputs[0]) + audio_outputs[2:]
             return tuple(output for output in outputs if output is not None)
-
         return ClapAudioModelOutput(
 #             audio_embeds=audio_embeds,
 #             last_hidden_state=audio_outputs.last_hidden_state,

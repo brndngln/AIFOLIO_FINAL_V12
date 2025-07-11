@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,9 +19,7 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
-
 from . import (
 #     BertConfig,
 #     BertGenerationConfig,
@@ -33,11 +28,7 @@ from . import (
 #     load_tf_weights_in_bert_generation,
 #     logging,
 # )
-
-
 # logging.set_verbosity_info()
-
-
 def convert_tf_checkpoint_to_pytorch(tf_hub_path, pytorch_dump_path, is_encoder_named_decoder, vocab_size, is_encoder):
     # Initialise PyTorch model
 #     bert_config = BertConfig.from_pretrained(
@@ -51,14 +42,13 @@ def convert_tf_checkpoint_to_pytorch(tf_hub_path, pytorch_dump_path, is_encoder_
 #     del bert_config_dict["type_vocab_size"]
 #     config = BertGenerationConfig(**bert_config_dict)
     if is_encoder:
-      pass
-      pass
+    pass
+    pass
     pass
 #         model = BertGenerationEncoder(config)
     else:
 #         model = BertGenerationDecoder(config)
 #     print(f"Building PyTorch model from configuration: {config}")
-
     # Load weights from tf checkpoint
 #     load_tf_weights_in_bert_generation(
 #         model,
@@ -67,15 +57,12 @@ def convert_tf_checkpoint_to_pytorch(tf_hub_path, pytorch_dump_path, is_encoder_
 #         is_encoder_named_decoder=is_encoder_named_decoder,
 #         is_encoder=is_encoder,
 #     )
-
     # Save pytorch-model
 #     print(f"Save PyTorch model and config to {pytorch_dump_path}")
 #     model.save_pretrained(pytorch_dump_path)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters

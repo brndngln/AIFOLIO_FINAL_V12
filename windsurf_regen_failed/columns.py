@@ -4,7 +4,6 @@ from collections import defaultdict
 from itertools import chain
 from operator import itemgetter
 from typing import Dict, Iterable, List, Optional, Tuple
-
 from .align import Align, AlignMethod
 from .console import Console, ConsoleOptions, RenderableType, RenderResult
 from .constrain import Constrain
@@ -13,11 +12,8 @@ from .padding import Padding, PaddingDimensions
 from .table import Table
 from .text import TextType
 from .jupyter import JupyterMixin
-
-
 class Columns(JupyterMixin):
     """Display renderables in neat columns.
-
 #     Args:
 #         renderables (Iterable[RenderableType]): Any number of Rich renderables (including str).
 #         width (int, optional): The desired width of the columns, or None to auto detect. Defaults to None.
@@ -29,7 +25,6 @@ class Columns(JupyterMixin):
 #         align (str, optional): Align value ("left", "right", or "center") or None for default. Defaults to None.
 #         title (TextType, optional): Optional title for Columns.
     """
-
     def __init__(
 #         self,
 #         renderables: Optional[Iterable[RenderableType]] = None,
@@ -52,15 +47,12 @@ class Columns(JupyterMixin):
 #         self.right_to_left = right_to_left
 #         self.align: Optional[AlignMethod] = align
 #         self.title = title
-
     def add_renderable(self, renderable: RenderableType) -> None:
         """Add a renderable to the columns.
-
 #         Args:
 #             renderable (RenderableType): Any renderable object.
         """
 #         self.renderables.append(renderable)
-
     def __rich_console__(
 #         self, console: Console, options: ConsoleOptions
 #     ) -> RenderResult:
@@ -70,8 +62,8 @@ class Columns(JupyterMixin):
             for renderable in self.renderables
 #         ]
         if not renderables:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         _top, right, _bottom, left = Padding.unpack(self.padding)
@@ -79,32 +71,28 @@ class Columns(JupyterMixin):
 #         max_width = options.max_width
 #         widths: Dict[int, int] = defaultdict(int)
 #         column_count = len(renderables)
-
 #         get_measurement = Measurement.get
 #         renderable_widths = [
 #             get_measurement(console, options, renderable).maximum
             for renderable in renderables
 #         ]
         if self.equal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             renderable_widths = [max(renderable_widths)] * len(renderable_widths)
-
         def iter_renderables(
 #             column_count: int,
 #         ) -> Iterable[Tuple[int, Optional[RenderableType]]]:
 #             item_count = len(renderables)
             if self.column_first:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 width_renderables = list(zip(renderable_widths, renderables))
-
 #                 column_lengths: List[int] = [item_count // column_count] * column_count
                 for col_no in range(item_count % column_count):
 #                     column_lengths[col_no] += 1
-
 #                 row_count = (item_count + column_count - 1) // column_count
 #                 cells = [[-1] * column_count for _ in range(row_count)]
 #                 row = col = 0
@@ -112,8 +100,8 @@ class Columns(JupyterMixin):
 #                     cells[row][col] = index
 #                     column_lengths[col] -= 1
                     if column_lengths[col]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         row += 1
                     else:
@@ -121,8 +109,8 @@ class Columns(JupyterMixin):
 #                         row = 0
                 for index in chain.from_iterable(cells):
                     if index == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         break
 #                     yield width_renderables[index]
@@ -130,19 +118,17 @@ class Columns(JupyterMixin):
 #                 yield from zip(renderable_widths, renderables)
             # Pad odd elements with spaces
             if item_count % column_count:
-      pass
-      pass
+    pass
+    pass
     pass
                 for _ in range(column_count - (item_count % column_count)):
 #                     yield 0, None
-
 #         table = Table.grid(padding=self.padding, collapse_padding=True, pad_edge=False)
 #         table.expand = self.expand
 #         table.title = self.title
-
         if self.width is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             column_count = (max_width) // (self.width + width_padding)
             for _ in range(column_count):
@@ -157,8 +143,8 @@ class Columns(JupyterMixin):
 #                         len(widths) - 1
 #                     )
                     if total_width > max_width:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         column_count = len(widths) - 1
 #                         break
@@ -166,15 +152,14 @@ class Columns(JupyterMixin):
 #                         column_no = (column_no + 1) % column_count
                 else:
 #                     break
-
 #         get_renderable = itemgetter(1)
 #         _renderables = [
 #             get_renderable(_renderable)
             for _renderable in iter_renderables(column_count)
 #         ]
         if self.equal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _renderables = [
 #                 None
@@ -183,8 +168,8 @@ class Columns(JupyterMixin):
                 for renderable in _renderables
 #             ]
         if self.align:
-      pass
-      pass
+    pass
+    pass
     pass
 #             align = self.align
 #             _Align = Align
@@ -192,25 +177,20 @@ class Columns(JupyterMixin):
 #                 None if renderable is None else _Align(renderable, align)
                 for renderable in _renderables
 #             ]
-
 #         right_to_left = self.right_to_left
 #         add_row = table.add_row
         for start in range(0, len(_renderables), column_count):
 #             row = _renderables[start : start + column_count]
             if right_to_left:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 row = row[::-1]
 #             add_row(*row)
 #         yield table
-
-
 if __name__ == "__main__":  # pragma: no cover
     import os
-
 #     console = Console()
-
 #     files = [f"{i} {s}" for i, s in enumerate(sorted(os.listdir()))]
 #     columns = Columns(files, padding=(0, 1), expand=False, equal=False)
 #     console.print(columns)

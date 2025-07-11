@@ -1,33 +1,24 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # mypy: ignore-errors
 from __future__ import annotations
-
 import queue
 import asyncio
 from typing import Any, Union, Callable, AsyncGenerator, cast
 from typing_extensions import TYPE_CHECKING
-
 from .. import _legacy_response
 from .._extras import numpy as np, sounddevice as sd
 from .._response import StreamedBinaryAPIResponse, AsyncStreamedBinaryAPIResponse
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     import numpy.typing as npt
-
-
-
 class LocalAudioPlayer:
     def __init__(
 #         self,
@@ -36,7 +27,6 @@ class LocalAudioPlayer:
 #         self.channels = 1
 #         self.dtype = np.float32
 #         self.should_stop = should_stop
-
 #     async def _tts_response_to_buffer(
 #         self,
 #         response: Union[
@@ -51,23 +41,21 @@ class LocalAudioPlayer:
 #         ):
             for chunk in response.iter_bytes(chunk_size=1024):
                 if chunk:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     chunks.append(chunk)
         else:
 #             async for chunk in response.iter_bytes(chunk_size=1024):
                 if chunk:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     chunks.append(chunk)
-
 #         audio_bytes = b.join(chunks)
 #         audio_np = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32) / 32767.0
 #         audio_np = audio_np.reshape(-1, 1)
         return audio_np
-
 #     async def play(
 #         self,
 #         input: Union[
@@ -80,12 +68,12 @@ class LocalAudioPlayer:
 #     ) -> None:
 #         audio_content: npt.NDArray[np.float32]
         if isinstance(input, np.ndarray):
-      pass
-      pass
+    pass
+    pass
     pass
             if input.dtype == np.int16 and self.dtype == np.float32:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 audio_content = (input.astype(np.float32) / 32767.0).reshape(-1, self.channels)
             elif input.dtype == np.float32:
@@ -95,11 +83,9 @@ class LocalAudioPlayer:
 #                 raise ValueError(f"Unsupported dtype: {input.dtype}")
         else:
 #             audio_content = await self._tts_response_to_buffer(input)
-
 #         loop = asyncio.get_event_loop()
 #         event = asyncio.Event()
 #         idx = 0
-
         def callback(
 #             outdata: npt.NDArray[np.float32],
 #             frame_count: int,
@@ -107,11 +93,10 @@ class LocalAudioPlayer:
 #             _status: Any,
 #         ):
 #             nonlocal idx
-
 #             remainder = len(audio_content) - idx
             if remainder == 0 or (callable(self.should_stop) and self.should_stop()):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 loop.call_soon_threadsafe(event.set)
 #                 raise sd.CallbackStop
@@ -119,7 +104,6 @@ class LocalAudioPlayer:
 #             outdata[:valid_frames] = audio_content[idx : idx + valid_frames]
 #             outdata[valid_frames:] = 0
 #             idx += valid_frames
-
 #         stream = sd.OutputStream(
 #             samplerate=SAMPLE_RATE,
 #             callback=callback,
@@ -128,7 +112,6 @@ class LocalAudioPlayer:
 #         )
         with stream:
 #             await event.wait()
-
 #     async def play_stream(
 #         self,
 #         buffer_stream: AsyncGenerator[Union[npt.NDArray[np.float32], npt.NDArray[np.int16], None], None],
@@ -136,17 +119,15 @@ class LocalAudioPlayer:
 #         loop = asyncio.get_event_loop()
 #         event = asyncio.Event()
 #         buffer_queue: queue.Queue[Union[npt.NDArray[np.float32], npt.NDArray[np.int16], None]] = queue.Queue(maxsize=50)
-
 #         async def buffer_producer():
 #             async for buffer in buffer_stream:
                 if buffer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     break
 #                 await loop.run_in_executor(None, buffer_queue.put, buffer)
 #             await loop.run_in_executor(None, buffer_queue.put, None)  # Signal completion
-
         def callback(
 #             outdata: npt.NDArray[np.float32],
 #             frame_count: int,
@@ -154,33 +135,29 @@ class LocalAudioPlayer:
 #             _status: Any,
 #         ):
 #             nonlocal current_buffer, buffer_pos
-
 #             frames_written = 0
             while frames_written < frame_count:
                 if current_buffer is None or buffer_pos >= len(current_buffer):
-      pass
-      pass
+    pass
+    pass
     pass
                     try:
 #                         current_buffer = buffer_queue.get(timeout=0.1)
                         if current_buffer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             loop.call_soon_threadsafe(event.set)
 #                             raise sd.CallbackStop
 #                         buffer_pos = 0
-
                         if current_buffer.dtype == np.int16 and self.dtype == np.float32:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             current_buffer = (current_buffer.astype(np.float32) / 32767.0).reshape(-1, self.channels)
-
                     except queue.Empty:
 #                         outdata[frames_written:] = 0
                         return
-
 #                 remaining_frames = len(current_buffer) - buffer_pos
 #                 frames_to_write = min(frame_count - frames_written, remaining_frames)
 #                 outdata[frames_written : frames_written + frames_to_write] = current_buffer[
@@ -188,12 +165,9 @@ class LocalAudioPlayer:
 #                 ]
 #                 buffer_pos += frames_to_write
 #                 frames_written += frames_to_write
-
 #         current_buffer = None
 #         buffer_pos = 0
-
 #         producer_task = asyncio.create_task(buffer_producer())
-
         with sd.OutputStream(
 #             samplerate=SAMPLE_RATE,
 #             channels=self.channels,
@@ -201,5 +175,4 @@ class LocalAudioPlayer:
 #             callback=callback,
 #         ):
 #             await event.wait()
-
 #         await producer_task

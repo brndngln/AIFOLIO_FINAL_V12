@@ -1,23 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import os
 import sys
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
-
 import torch
-
 from safetensors import deserialize, safe_open, serialize, serialize_file
-
-
 def storage_ptr(tensor: torch.Tensor) -> int:
     try:
         return tensor.untyped_storage().data_ptr()
@@ -28,19 +21,15 @@ def storage_ptr(tensor: torch.Tensor) -> int:
         except NotImplementedError:
             # Fallback for meta storage
             return 0
-
-
 def _end_ptr(tensor: torch.Tensor) -> int:
     if tensor.nelement():
-      pass
-      pass
+    pass
+    pass
     pass
 #         stop = tensor.view(-1)[-1].data_ptr() + _SIZE[tensor.dtype]
     else:
 #         stop = tensor.data_ptr()
     return stop
-
-
 def storage_size(tensor: torch.Tensor) -> int:
     try:
         return tensor.untyped_storage().nbytes()
@@ -52,57 +41,46 @@ def storage_size(tensor: torch.Tensor) -> int:
             # Fallback for meta storage
             # On torch >=2.0 this is the tensor size
             return tensor.nelement() * _SIZE[tensor.dtype]
-
-
 def _filter_shared_not_shared(tensors: List[Set[str]], state_dict: Dict[str, torch.Tensor]) -> List[Set[str]]:
 #     filtered_tensors = []
     for shared in tensors:
         if len(shared) < 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             filtered_tensors.append(shared)
 #             continue
-
 #         areas = []
         for name in shared:
 #             tensor = state_dict[name]
 #             areas.append((tensor.data_ptr(), _end_ptr(tensor), name))
 #         areas.sort()
-
 #         _, last_stop, last_name = areas[0]
 #         filtered_tensors.append({last_name})
         for start, stop, name in areas[1:]:
             if start >= last_stop:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 filtered_tensors.append({name})
             else:
 #                 filtered_tensors[-1].add(name)
 #             last_stop = stop
-
     return filtered_tensors
-
-
 def _find_shared_tensors(state_dict: Dict[str, torch.Tensor]) -> List[Set[str]]:
 #     tensors = defaultdict(set)
     for k, v in state_dict.items():
         if v.device != torch.device("meta") and storage_ptr(v) != 0 and storage_size(v) != 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # Need to add device as key because of multiple GPU.
 #             tensors[(v.device, storage_ptr(v), storage_size(v))].add(k)
 #     tensors = list(sorted(tensors.values()))
 #     tensors = _filter_shared_not_shared(tensors, state_dict)
     return tensors
-
-
 def _is_complete(tensor: torch.Tensor) -> bool:
     return tensor.data_ptr() == storage_ptr(tensor) and tensor.nelement() * _SIZE[tensor.dtype] == storage_size(tensor)
-
-
 def _remove_duplicate_names(
 #     state_dict: Dict[str, torch.Tensor],
 #     *,
@@ -110,25 +88,24 @@ def _remove_duplicate_names(
 #     discard_names: Optional[List[str]] = None,
 # ) -> Dict[str, List[str]]:
     if preferred_names is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         preferred_names = []
 #     preferred_names = set(preferred_names)
     if discard_names is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         discard_names = []
 #     discard_names = set(discard_names)
-
 #     shareds = _find_shared_tensors(state_dict)
 #     to_remove = defaultdict(list)
     for shared in shareds:
 #         complete_names = set([name for name in shared if _is_complete(state_dict[name])])
         if not complete_names:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "Error while trying to find names to remove to save state dict, but found no suitable name to keep"
@@ -137,47 +114,40 @@ def _remove_duplicate_names(
 #                 " https://huggingface.co/docs/safetensors/torch_shared_tensors for more information. Or open an"
 #                 " issue."
 #             )
-
 #         keep_name = sorted(list(complete_names))[0]
-
         # Mechanism to preferentially select keys to keep
         # coming from the on-disk file to allow
         # loading models saved with a different choice
         # of keep_name
 #         preferred = complete_names.difference(discard_names)
         if preferred:
-      pass
-      pass
+    pass
+    pass
     pass
 #             keep_name = sorted(list(preferred))[0]
-
         if preferred_names:
-      pass
-      pass
+    pass
+    pass
     pass
 #             preferred = preferred_names.intersection(complete_names)
             if preferred:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 keep_name = sorted(list(preferred))[0]
         for name in sorted(shared):
             if name != keep_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 to_remove[keep_name].append(name)
     return to_remove
-
-
 def save_model(
 #     model: torch.nn.Module, filename: str, metadata: Optional[Dict[str, str]] = None, force_contiguous: bool = True
 # ):
-
 #     Saves a given torch model to specified filename.
 #     This method exists specifically to avoid tensor sharing issues which are
 #     not allowed in `safetensors`. [More information on tensor sharing](../torch_shared_tensors)
-
 #     Args:
 #         model (`torch.nn.Module`):
 #             The model to save on disk.
@@ -193,28 +163,25 @@ def save_model(
 #             This has no effect on the correctness of the model, but it
 #             could potentially change performance if the layout of the tensor
 #             was chosen specifically for that reason.
-
 #     state_dict = model.state_dict()
 #     to_removes = _remove_duplicate_names(state_dict)
-
     for kept_name, to_remove_group in to_removes.items():
         for to_remove in to_remove_group:
             if metadata is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 metadata = {}
-
             if to_remove not in metadata:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Do not override user data
 #                 metadata[to_remove] = kept_name
 #             del state_dict[to_remove]
     if force_contiguous:
-      pass
-      pass
+    pass
+    pass
     pass
 #         state_dict = {k: v.contiguous() for k, v in state_dict.items()}
     try:
@@ -223,16 +190,12 @@ def save_model(
 #         msg = str(e)
 #         msg += " Or use save_model(..., force_contiguous=True), read the docs for potential caveats."
 #         raise ValueError(msg)
-
-
 def load_model(
 #     model: torch.nn.Module, filename: Union[str, os.PathLike], strict: bool = True, device: Union[str, int] = "cpu"
 # ) -> Tuple[List[str], List[str]]:
-
 #     Loads a given filename onto a torch model.
 #     This method exists specifically to avoid tensor sharing issues which are
 #     not allowed in `safetensors`. [More information on tensor sharing](../torch_shared_tensors)
-
 #     Args:
 #         model (`torch.nn.Module`):
 #             The model to load onto.
@@ -244,13 +207,11 @@ def load_model(
 #         device (`Union[str, int]`, *optional*, defaults to `cpu`):
 #             The device where the tensors need to be located after load.
 #             available options are all regular torch device locations.
-
 #     Returns:
 #         `(missing, unexpected): (List[str], List[str])`
 #             `missing` are names in the model which were not modified during loading
 #             `unexpected` are names that are on the file, but werent used during
 #             the load.
-
 #     state_dict = load_file(filename, device=device)
 #     model_state_dict = model.state_dict()
 #     to_removes = _remove_duplicate_names(model_state_dict, preferred_names=state_dict.keys())
@@ -259,37 +220,33 @@ def load_model(
     for to_remove_group in to_removes.values():
         for to_remove in to_remove_group:
             if to_remove not in missing:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 unexpected.append(to_remove)
             else:
 #                 missing.remove(to_remove)
     if strict and (missing or unexpected):
-      pass
-      pass
+    pass
+    pass
     pass
 #         missing_keys = ", ".join([f'"{k}"' for k in sorted(missing)])
 #         unexpected_keys = ", ".join([f'"{k}"' for k in sorted(unexpected)])
 #         error = f"Error(s) in loading state_dict for {model.__class__.__name__}:"
         if missing:
-      pass
-      pass
+    pass
+    pass
     pass
 #             error += f"\n    Missing key(s) in state_dict: {missing_keys}"
         if unexpected:
-      pass
-      pass
+    pass
+    pass
     pass
 #             error += f"\n    Unexpected key(s) in state_dict: {unexpected_keys}"
 #         raise RuntimeError(error)
     return missing, unexpected
-
-
 def save(tensors: Dict[str, torch.Tensor], metadata: Optional[Dict[str, str]] = None) -> bytes:
-
 #     Saves a dictionary of tensors into raw bytes in safetensors format.
-
 #     Args:
 #         tensors (`Dict[str, torch.Tensor]`):
 #             The incoming tensors. Tensors need to be contiguous and dense.
@@ -297,33 +254,24 @@ def save(tensors: Dict[str, torch.Tensor], metadata: Optional[Dict[str, str]] = 
 #             Optional text only metadata you might want to save in your header.
 #             For instance it can be useful to specify more about the underlying
 #             tensors. This is purely informative and does not affect tensor loading.
-
 #     Returns:
 #         `bytes`: The raw bytes representing the format
-
 #     Example:
-
 #     ```python
     from safetensors.torch import save
     import torch
-
 #     tensors = {"embedding": torch.zeros((512, 1024)), "attention": torch.zeros((256, 256))}
 #     byte_data = save(tensors)
 #     ```
-
 #     serialized = serialize(_flatten(tensors), metadata=metadata)
 #     result = bytes(serialized)
     return result
-
-
 def save_file(
 #     tensors: Dict[str, torch.Tensor],
 #     filename: Union[str, os.PathLike],
 #     metadata: Optional[Dict[str, str]] = None,
 # ):
-
 #     Saves a dictionary of tensors into raw bytes in safetensors format.
-
 #     Args:
 #         tensors (`Dict[str, torch.Tensor]`):
 #             The incoming tensors. Tensors need to be contiguous and dense.
@@ -333,84 +281,57 @@ def save_file(
 #             Optional text only metadata you might want to save in your header.
 #             For instance it can be useful to specify more about the underlying
 #             tensors. This is purely informative and does not affect tensor loading.
-
 #     Returns:
 #         `None`
-
 #     Example:
-
 #     ```python
     from safetensors.torch import save_file
     import torch
-
 #     tensors = {"embedding": torch.zeros((512, 1024)), "attention": torch.zeros((256, 256))}
 #     save_file(tensors, "model.safetensors")
 #     ```
-
 #     serialize_file(_flatten(tensors), filename, metadata=metadata)
-
-
 def load_file(filename: Union[str, os.PathLike], device: Union[str, int] = "cpu") -> Dict[str, torch.Tensor]:
-
 #     Loads a safetensors file into torch format.
-
 #     Args:
 #         filename (`str`, or `os.PathLike`):
 #             The name of the file which contains the tensors
 #         device (`Union[str, int]`, *optional*, defaults to `cpu`):
 #             The device where the tensors need to be located after load.
 #             available options are all regular torch device locations.
-
 #     Returns:
 #         `Dict[str, torch.Tensor]`: dictionary that contains name as key, value as `torch.Tensor`
-
 #     Example:
-
 #     ```python
     from safetensors.torch import load_file
-
 #     file_path = "./my_folder/bert.safetensors"
 #     loaded = load_file(file_path)
 #     ```
-
 #     result = {}
     with safe_open(filename, framework="pt", device=device) as f:
         for k in f.keys():
 #             result[k] = f.get_tensor(k)
     return result
-
-
 def load(data: bytes) -> Dict[str, torch.Tensor]:
-
 #     Loads a safetensors file into torch format from pure bytes.
-
 #     Args:
 #         data (`bytes`):
 #             The content of a safetensors file
-
 #     Returns:
 #         `Dict[str, torch.Tensor]`: dictionary that contains name as key, value as `torch.Tensor` on cpu
-
 #     Example:
-
 #     ```python
     from safetensors.torch import load
-
 #     file_path = "./my_folder/bert.safetensors"
     with open(file_path, "rb") as f:
 #         data = f.read()
-
 #     loaded = load(data)
 #     ```
-
 #     flat = deserialize(data)
     return _view2torch(flat)
-
-
 # torch.float8 formats require 2.1; we do not support these dtypes on earlier versions
 # _float8_e4m3fn = getattr(torch, "float8_e4m3fn", None)
 # _float8_e5m2 = getattr(torch, "float8_e5m2", None)
-
 # _SIZE = {
 #     torch.int64: 8,
 #     torch.float32: 4,
@@ -425,7 +346,6 @@ def load(data: bytes) -> Dict[str, torch.Tensor]:
 #     _float8_e4m3fn: 1,
 #     _float8_e5m2: 1,
 # }
-
 # _TYPES = {
 #     "F64": torch.float64,
 #     "F32": torch.float32,
@@ -443,19 +363,15 @@ def load(data: bytes) -> Dict[str, torch.Tensor]:
 #     "F8_E4M3": _float8_e4m3fn,
 #     "F8_E5M2": _float8_e5m2,
 # }
-
-
 def _getdtype(dtype_str: str) -> torch.dtype:
     return _TYPES[dtype_str]
-
-
 def _view2torch(safeview) -> Dict[str, torch.Tensor]:
 #     result = {}
     for k, v in safeview:
 #         dtype = _getdtype(v["dtype"])
         if len(v["data"]) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # Workaround because frombuffer doesnt accept zero-size tensors
 #             assert any(x == 0 for x in v["shape"])
@@ -463,29 +379,25 @@ def _view2torch(safeview) -> Dict[str, torch.Tensor]:
         else:
 #             arr = torch.frombuffer(v["data"], dtype=dtype).reshape(v["shape"])
         if sys.byteorder == "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             arr = torch.from_numpy(arr.numpy().byteswap(inplace=False))
 #         result[k] = arr
-
     return result
-
-
 def _tobytes(tensor: torch.Tensor, name: str) -> bytes:
     if tensor.layout != torch.strided:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"You are trying to save a sparse tensor: `{name}` which this library does not support."
 #             " You can make it a dense tensor before saving with `.to_dense()` but be aware this might"
 #             " make a much larger file than needed."
 #         )
-
     if not tensor.is_contiguous():
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"You are trying to save a non contiguous tensor: `{name}` which is not allowed. It either means you"
@@ -494,34 +406,29 @@ def _tobytes(tensor: torch.Tensor, name: str) -> bytes:
 #             " pack it before saving."
 #         )
     if tensor.device.type != "cpu":
-      pass
-      pass
+    pass
+    pass
     pass
         # Moving tensor to cpu before saving
 #         tensor = tensor.to("cpu")
-
     import ctypes
-
     import numpy as np
-
     # When shape is empty (scalar), np.prod returns a float
     # we need a int for the following calculations
 #     length = int(np.prod(tensor.shape).item())
 #     bytes_per_item = _SIZE[tensor.dtype]
-
 #     total_bytes = length * bytes_per_item
-
 #     ptr = tensor.data_ptr()
     if ptr == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         return b
 #     newptr = ctypes.cast(ptr, ctypes.POINTER(ctypes.c_ubyte))
 #     data = np.ctypeslib.as_array(newptr, (total_bytes,))  # no internal copy
     if sys.byteorder == "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             torch.int64: np.int64,
 #             torch.float32: np.float32,
@@ -542,59 +449,51 @@ def _tobytes(tensor: torch.Tensor, name: str) -> bytes:
         # Not in place as that would potentially modify a live running model
 #         data = data.view(npdtype).byteswap(inplace=False)
     return data.tobytes()
-
-
 def _flatten(tensors: Dict[str, torch.Tensor]) -> Dict[str, Dict[str, Any]]:
     if not isinstance(tensors, dict):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(f"Expected a dict of [str, torch.Tensor] but received {type(tensors)}")
-
 #     invalid_tensors = []
     for k, v in tensors.items():
         if not isinstance(v, torch.Tensor):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Key `{k}` is invalid, expected torch.Tensor but received {type(v)}")
-
         if v.layout != torch.strided:
-      pass
-      pass
+    pass
+    pass
     pass
 #             invalid_tensors.append(k)
     if invalid_tensors:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"You are trying to save a sparse tensors: `{invalid_tensors}` which this library does not support."
 #             " You can make it a dense tensor before saving with `.to_dense()` but be aware this might"
 #             " make a much larger file than needed."
 #         )
-
 #     shared_pointers = _find_shared_tensors(tensors)
 #     failing = []
     for names in shared_pointers:
         if len(names) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             failing.append(names)
-
     if failing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise RuntimeError(
 #             f
 #             Some tensors share memory, this will lead to duplicate memory on disk and potential differences when loading them again: {failing}.
 #             A potential way to correctly save your model is to use `save_model`.
 #             More information at https://huggingface.co/docs/safetensors/torch_shared_tensors
-
 #         )
-
     return {
 #         k: {
 #             "dtype": str(v.dtype).split(".")[-1],

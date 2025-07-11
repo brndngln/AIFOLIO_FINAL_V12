@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -20,54 +17,41 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from backend.integrations.webhook_alerts import send_webhook
-
-
-
-
 # Utility to get webhook URL by event type
 def get_webhook_url(event_type):
     if not WEBHOOKS_PATH.exists():
-      pass
-      pass
+    pass
+    pass
     pass
         return None
     with open(WEBHOOKS_PATH, "r") as f:
 #         endpoints = json.load(f)
     return endpoints.get(event_type)
-
-
 # Modular rules loaded from external JSON file for each platform/category
-
 # _platform_rules_cache = None
 # _rules_mtime = None
-
-
 def load_platform_rules():
 #     global _platform_rules_cache, _rules_mtime
     if not RULES_FILE.exists():
-      pass
-      pass
+    pass
+    pass
     pass
         return {}
 #     mtime = RULES_FILE.stat().st_mtime
     if _platform_rules_cache is not None and mtime == _rules_mtime:
-      pass
-      pass
+    pass
+    pass
     pass
         return _platform_rules_cache
     with open(RULES_FILE, "r") as f:
 #         _platform_rules_cache = json.load(f)
 #     _rules_mtime = mtime
     return _platform_rules_cache
-
-
 def scan_pdf_text(text, platforms=None):
-
 #     Scan text for violations using modular, externalized rules loaded from JSON.
 #     Platforms is a list of platform keys (e.g. ['kdp','etsy','gdpr'])
 #     Returns: list of violations
 #     Rules are editable in backend/compliance/rules/violation_rules.json
-
     # OMNIPROOF: Threat feed check before violation scan
 #     parse_threat_feed({})
     # OMNIPROOF: Blockchain anchor for scan hash (static)
@@ -82,19 +66,18 @@ def scan_pdf_text(text, platforms=None):
 #     )
     # OMNIPROOF: Monetization signal detection
 #     detect_signals({"text": text, "platforms": platforms})
-
 #     platform_rules = load_platform_rules()
     if platforms is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         platforms = list(platform_rules.keys())
 #     violations = []
     for platform in platforms:
         for rule in platform_rules.get(platform, []):
             if re.search(rule["pattern"], text, re.IGNORECASE):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 violations.append(
 #                     {
@@ -107,12 +90,10 @@ def scan_pdf_text(text, platforms=None):
 #                     }
 #                 )
     return violations
-
-
 def log_violations(doc_id, violations, detected_by):
     if VIOLATION_LOG.exists():
-      pass
-      pass
+    pass
+    pass
     pass
         with open(VIOLATION_LOG, "r") as f:
 #             logs = json.load(f)
@@ -128,8 +109,8 @@ def log_violations(doc_id, violations, detected_by):
         # --- Automated webhook for violation detected ---
 #         url = get_webhook_url("violation_detected")
         if url:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 send_webhook(
@@ -151,14 +132,12 @@ def log_violations(doc_id, violations, detected_by):
     with open(VIOLATION_LOG, "w") as f:
 #         json.dump(logs, f, indent=2)
     return violations
-
-
 # --- Helper for SLA breach webhook ---
 def send_sla_breach_webhook(violation):
 #     url = get_webhook_url("sla_breach")
     if url:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             send_webhook(
@@ -175,14 +154,12 @@ def send_sla_breach_webhook(violation):
 #             )
         except Exception:
 #             pass
-
-
 # --- Helper for remediation applied webhook ---
 def send_remediation_webhook(violation, admin_id):
 #     url = get_webhook_url("report_ready")
     if url:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             send_webhook(
@@ -197,25 +174,23 @@ def send_remediation_webhook(violation, admin_id):
 #             )
         except Exception:
 #             pass
-
-
 def get_violations(doc_id=None, status=None):
     if not VIOLATION_LOG.exists():
-      pass
-      pass
+    pass
+    pass
     pass
         return []
     with open(VIOLATION_LOG, "r") as f:
 #         logs = json.load(f)
 #     result = logs
     if doc_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         result = [v for v in result if v["doc_id"] == doc_id]
     if status:
-      pass
-      pass
+    pass
+    pass
     pass
 #         result = [v for v in result if v["status"] == status]
     return result

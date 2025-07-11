@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import List, Optional
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "huggingface/autoformer-tourism-monthly": "https://huggingface.co/huggingface/autoformer-tourism-monthly/resolve/main/config.json",
 # }
-
-
 class AutoformerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of an [`AutoformerModel`]. It is used to instantiate an
 #     Autoformer model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the Autoformer
 #     [huggingface/autoformer-tourism-monthly](https://huggingface.co/huggingface/autoformer-tourism-monthly)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         prediction_length (`int`):
 #             The prediction length for the decoder. In other words, the prediction horizon of the model.
@@ -123,30 +110,22 @@ class AutoformerConfig(PretrainedConfig):
 #         autocorrelation_factor (`int`, defaults to 3):
 #             "Attention" (i.e. AutoCorrelation mechanism) factor which is used to find top k autocorrelations delays.
 #             Its recommended in the paper to set it to a number between 1 and 5.
-
-
 #         Example:
-
 #     ```python
 #     >>> from transformers import AutoformerConfig, AutoformerModel
-
 #     >>> # Initializing a default Autoformer configuration
 #     >>> configuration = AutoformerConfig()
-
 #     >>> # Randomly initializing a model (with random weights) from the configuration
 #     >>> model = AutoformerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "autoformer"
 #     attribute_map = {
 #         "hidden_size": "d_model",
 #         "num_attention_heads": "encoder_attention_heads",
 #         "num_hidden_layers": "encoder_layers",
 #     }
-
     def __init__(
 #         self,
 #         prediction_length: Optional[int] = None,
@@ -198,12 +177,12 @@ class AutoformerConfig(PretrainedConfig):
 #         self.num_static_real_features = num_static_real_features
 #         self.num_static_categorical_features = num_static_categorical_features
         if cardinality is not None and num_static_categorical_features > 0:
-      pass
-      pass
+    pass
+    pass
     pass
             if len(cardinality) != num_static_categorical_features:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "The cardinality should be a list of the same length as `num_static_categorical_features`"
@@ -212,12 +191,12 @@ class AutoformerConfig(PretrainedConfig):
         else:
 #             self.cardinality = [0]
         if embedding_dimension is not None and num_static_categorical_features > 0:
-      pass
-      pass
+    pass
+    pass
     pass
             if len(embedding_dimension) != num_static_categorical_features:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "The embedding dimension should be a list of the same length as `num_static_categorical_features`"
@@ -226,7 +205,6 @@ class AutoformerConfig(PretrainedConfig):
         else:
 #             self.embedding_dimension = [min(50, (cat + 1) // 2) for cat in self.cardinality]
 #         self.num_parallel_samples = num_parallel_samples
-
         # Transformer architecture configuration
 #         self.feature_size = input_size * len(self.lags_sequence) + self._number_of_features
 #         self.d_model = d_model
@@ -236,25 +214,19 @@ class AutoformerConfig(PretrainedConfig):
 #         self.decoder_ffn_dim = decoder_ffn_dim
 #         self.encoder_layers = encoder_layers
 #         self.decoder_layers = decoder_layers
-
 #         self.dropout = dropout
 #         self.attention_dropout = attention_dropout
 #         self.activation_dropout = activation_dropout
 #         self.encoder_layerdrop = encoder_layerdrop
 #         self.decoder_layerdrop = decoder_layerdrop
-
 #         self.activation_function = activation_function
 #         self.init_std = init_std
-
 #         self.use_cache = use_cache
-
         # Autoformer
 #         self.label_length = label_length
 #         self.moving_average = moving_average
 #         self.autocorrelation_factor = autocorrelation_factor
-
 #         super().__init__(is_encoder_decoder=is_encoder_decoder, **kwargs)
-
 #     @property
     def _number_of_features(self) -> int:
         return (

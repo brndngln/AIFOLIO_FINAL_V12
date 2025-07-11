@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,27 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "MCG-NJU/videomae-base": "https://huggingface.co/MCG-NJU/videomae-base/resolve/main/config.json",
 # }
-
-
 class VideoMAEConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`VideoMAEModel`]. It is used to instantiate a
 #     VideoMAE model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the VideoMAE
 #     [MCG-NJU/videomae-base](https://huggingface.co/MCG-NJU/videomae-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 224):
 #             The size (resolution) of each image.
@@ -87,24 +75,17 @@ class VideoMAEConfig(PretrainedConfig):
 #             Dimensionality of the "intermediate" (i.e., feed-forward) layer in the decoder.
 #         norm_pix_loss (`bool`, *optional*, defaults to `True`):
 #             Whether to normalize the target patch pixels.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import VideoMAEConfig, VideoMAEModel
-
 #     >>> # Initializing a VideoMAE videomae-base style configuration
 #     >>> configuration = VideoMAEConfig()
-
 #     >>> # Randomly initializing a model from the configuration
 #     >>> model = VideoMAEModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "videomae"
-
     def __init__(
 #         self,
 #         image_size=224,
@@ -131,13 +112,11 @@ class VideoMAEConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels
 #         self.num_frames = num_frames
 #         self.tubelet_size = tubelet_size
-
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
 #         self.num_attention_heads = num_attention_heads
@@ -149,7 +128,6 @@ class VideoMAEConfig(PretrainedConfig):
 #         self.layer_norm_eps = layer_norm_eps
 #         self.qkv_bias = qkv_bias
 #         self.use_mean_pooling = use_mean_pooling
-
 #         self.decoder_num_attention_heads = decoder_num_attention_heads
 #         self.decoder_hidden_size = decoder_hidden_size
 #         self.decoder_num_hidden_layers = decoder_num_hidden_layers

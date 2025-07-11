@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,39 +19,28 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
 from ...utils.backbone_utils import BackboneConfigMixin, get_aligned_output_features_output_indices
-
-
 # logger = logging.get_logger(__name__)
-
 # SWIN_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "microsoft/swin-tiny-patch4-window7-224": (
 #         "https://huggingface.co/microsoft/swin-tiny-patch4-window7-224/resolve/main/config.json"
 #     ),
     # See all Swin models at https://huggingface.co/models?filter=swin
 # }
-
-
 class SwinConfig(BackboneConfigMixin, PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SwinModel`]. It is used to instantiate a Swin
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the Swin
 #     [microsoft/swin-tiny-patch4-window7-224](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 224):
 #             The size (resolution) of each image.
@@ -99,29 +85,21 @@ class SwinConfig(BackboneConfigMixin, PretrainedConfig):
 #             If used as backbone, list of indices of features to output. Can be any of 0, 1, 2, etc. (depending on how
 #             many stages the model has). If unset and `out_features` is set, will default to the corresponding stages.
 #             If unset and `out_features` is unset, will default to the last stage.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import SwinConfig, SwinModel
-
 #     >>> # Initializing a Swin microsoft/swin-tiny-patch4-window7-224 style configuration
 #     >>> configuration = SwinConfig()
-
 #     >>> # Initializing a model (with random weights) from the microsoft/swin-tiny-patch4-window7-224 style configuration
 #     >>> model = SwinModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "swin"
-
 #     attribute_map = {
 #         "num_attention_heads": "num_heads",
 #         "num_hidden_layers": "num_layers",
 #     }
-
     def __init__(
 #         self,
 #         image_size=224,
@@ -146,7 +124,6 @@ class SwinConfig(BackboneConfigMixin, PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels
@@ -172,11 +149,8 @@ class SwinConfig(BackboneConfigMixin, PretrainedConfig):
 #         self._out_features, self._out_indices = get_aligned_output_features_output_indices(
 #             out_features=out_features, out_indices=out_indices, stage_names=self.stage_names
 #         )
-
-
 class SwinOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -184,7 +158,6 @@ class SwinOnnxConfig(OnnxConfig):
 #                 ("pixel_values", {0: "batch", 1: "num_channels", 2: "height", 3: "width"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4

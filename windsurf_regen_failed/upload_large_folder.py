@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,22 +19,15 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from argparse import Namespace, _SubParsersAction
 from typing import List, Optional
-
 from huggingface_hub import logging
 from huggingface_hub.commands import BaseHuggingfaceCLICommand
 from huggingface_hub.hf_api import HfApi
 from huggingface_hub.utils import disable_progress_bars
-
 from ._cli_utils import ANSI
-
-
 # logger = logging.get_logger(__name__)
-
-
 class UploadLargeFolderCommand(BaseHuggingfaceCLICommand):
 #     @staticmethod
     def register_subcommand(parser: _SubParsersAction):
@@ -74,32 +64,25 @@ class UploadLargeFolderCommand(BaseHuggingfaceCLICommand):
 #         subparser.add_argument("--no-report", action="store_true", help="Whether to disable regular status report.")
 #         subparser.add_argument("--no-bars", action="store_true", help="Whether to disable progress bars.")
 #         subparser.set_defaults(func=UploadLargeFolderCommand)
-
     def __init__(self, args: Namespace) -> None:
 #         self.repo_id: str = args.repo_id
 #         self.local_path: str = args.local_path
 #         self.repo_type: str = args.repo_type
 #         self.revision: Optional[str] = args.revision
 #         self.private: bool = args.private
-
 #         self.include: Optional[List[str]] = args.include
 #         self.exclude: Optional[List[str]] = args.exclude
-
 #         self.api: HfApi = HfApi(token=args.token, library_name="huggingface-cli")
-
 #         self.num_workers: Optional[int] = args.num_workers
 #         self.no_report: bool = args.no_report
 #         self.no_bars: bool = args.no_bars
-
         if not os.path.isdir(self.local_path):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Large upload is only supported for folders.")
-
     def run(self) -> None:
 #         logging.set_verbosity_info()
-
 #         print(
 #             ANSI.yellow(
 #                 "You are about to upload a large folder to the Hub using `huggingface-cli upload-large-folder`. "
@@ -124,13 +107,11 @@ class UploadLargeFolderCommand(BaseHuggingfaceCLICommand):
 #                 "https://huggingface.co/docs/huggingface_hub/guides/upload#upload-a-large-folder."
 #             )
 #         )
-
         if self.no_bars:
-      pass
-      pass
+    pass
+    pass
     pass
 #             disable_progress_bars()
-
 #         self.api.upload_large_folder(
 #             repo_id=self.repo_id,
 #             folder_path=self.local_path,

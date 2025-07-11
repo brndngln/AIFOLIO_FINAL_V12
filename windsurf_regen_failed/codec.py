@@ -3,67 +3,54 @@ from typing import Optional
 import codecs
 import re
 from typing import Any, Optional, Tuple
-
 from .core import IDNAError, alabel, decode, encode, ulabel
-
 # _unicode_dots_re = re.compile("[\u002e\u3002\uff0e\uff61]")
-
-
 class Codec(codecs.Codec):
     def encode(self, data: str, errors: str = "strict") -> Tuple[bytes, int]:
         if errors != "strict":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise IDNAError('Unsupported error handling "{}"'.format(errors))
-
         if not data:
-      pass
-      pass
+    pass
+    pass
     pass
             return b"", 0
-
         return encode(data), len(data)
-
     def decode(self, data: bytes, errors: str = "strict") -> Tuple[str, int]:
         if errors != "strict":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise IDNAError('Unsupported error handling "{}"'.format(errors))
-
         if not data:
-      pass
-      pass
+    pass
+    pass
     pass
             return "", 0
-
         return decode(data), len(data)
-
-
 class IncrementalEncoder(codecs.BufferedIncrementalEncoder):
     def _buffer_encode(self, data: str, errors: str, final: bool) -> Tuple[bytes, int]:
         if errors != "strict":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise IDNAError('Unsupported error handling "{}"'.format(errors))
-
         if not data:
-      pass
-      pass
+    pass
+    pass
     pass
             return b"", 0
-
 #         labels = _unicode_dots_re.split(data)
 #         trailing_dot = b""
         if labels:
-      pass
-      pass
+    pass
+    pass
     pass
             if not labels[-1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 trailing_dot = b"."
 #                 del labels[-1]
@@ -72,57 +59,50 @@ class IncrementalEncoder(codecs.BufferedIncrementalEncoder):
                 # Keep potentially unfinished label until the next call
 #                 del labels[-1]
                 if labels:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     trailing_dot = b"."
-
 #         result = []
 #         size = 0
         for label in labels:
 #             result.append(alabel(label))
             if size:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 size += 1
 #             size += len(label)
-
         # Join with U+002E
 #         result_bytes = b".".join(result) + trailing_dot
 #         size += len(trailing_dot)
         return result_bytes, size
-
-
 class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
     def _buffer_decode(self, data: Any, errors: str, final: bool) -> Tuple[str, int]:
         if errors != "strict":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise IDNAError('Unsupported error handling "{}"'.format(errors))
-
         if not data:
-      pass
-      pass
+    pass
+    pass
     pass
             return ("", 0)
-
         if not isinstance(data, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             data = str(data, "ascii")
-
 #         labels = _unicode_dots_re.split(data)
 #         trailing_dot = ""
         if labels:
-      pass
-      pass
+    pass
+    pass
     pass
             if not labels[-1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 trailing_dot = "."
 #                 del labels[-1]
@@ -131,39 +111,31 @@ class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
                 # Keep potentially unfinished label until the next call
 #                 del labels[-1]
                 if labels:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     trailing_dot = "."
-
 #         result = []
 #         size = 0
         for label in labels:
 #             result.append(ulabel(label))
             if size:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 size += 1
 #             size += len(label)
-
 #         result_str = ".".join(result) + trailing_dot
 #         size += len(trailing_dot)
         return (result_str, size)
-
-
 class StreamWriter(Codec, codecs.StreamWriter):
 #     pass
-
-
 class StreamReader(Codec, codecs.StreamReader):
 #     pass
-
-
 def search_function(name: str) -> Optional[codecs.CodecInfo]:
     if name != "idna2008":
-      pass
-      pass
+    pass
+    pass
     pass
         return None
     return codecs.CodecInfo(
@@ -175,6 +147,4 @@ def search_function(name: str) -> Optional[codecs.CodecInfo]:
 #         streamwriter=StreamWriter,
 #         streamreader=StreamReader,
 #     )
-
-
 # codecs.register(search_function)

@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless.
-
 from __future__ import annotations
-
 from typing import TYPE_CHECKING, Union, Mapping, Optional, cast
 from typing_extensions import Literal
-
 import httpx
-
 from ..types import (
 #     ImagesResponse,
 #     image_edit_params,
@@ -28,23 +21,17 @@ from .._utils import extract_files, maybe_transform, deepcopy_minimal
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import to_raw_response_wrapper, async_to_raw_response_wrapper
 from .._base_client import make_request_options
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .._client import OpenAI, AsyncOpenAI
-
 # __all__ = ["Images", "AsyncImages"]
-
-
 class Images(SyncAPIResource):
     with_raw_response: ImagesWithRawResponse
-
     def __init__(self, client: OpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = ImagesWithRawResponse(self)
-
     def create_variation(
 #         self,
 #         *,
@@ -61,37 +48,25 @@ class Images(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates a variation of a given image.
-
 #         Args:
 #           image: The image to use as the basis for the variation(s). Must be a valid PNG file,
 #               less than 4MB, and square.
-
 #           model: The model to use for image generation. Only `dall-e-2` is supported at this
 #               time.
-
 #           n: The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only
 #               `n=1` is supported.
-
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "image": image,
@@ -104,14 +79,13 @@ class Images(SyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["image"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return self._post(
 #             "/images/variations",
 #             body=maybe_transform(body, image_create_variation_params.ImageCreateVariationParams),
@@ -121,7 +95,6 @@ class Images(SyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
     def edit(
 #         self,
 #         *,
@@ -140,43 +113,29 @@ class Images(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates an edited or extended image given an original image and a prompt.
-
 #         Args:
 #           image: The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask
 #               is not provided, image must have transparency, which will be used as the mask.
-
 #           prompt: A text description of the desired image(s). The maximum length is 1000
 #               characters.
-
 #           mask: An additional image whose fully transparent areas (e.g. where alpha is zero)
 #               indicate where `image` should be edited. Must be a valid PNG file, less than
 #               4MB, and have the same dimensions as `image`.
-
 #           model: The model to use for image generation. Only `dall-e-2` is supported at this
 #               time.
-
 #           n: The number of images to generate. Must be between 1 and 10.
-
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "image": image,
@@ -191,14 +150,13 @@ class Images(SyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["image"], ["mask"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return self._post(
 #             "/images/edits",
 #             body=maybe_transform(body, image_edit_params.ImageEditParams),
@@ -208,7 +166,6 @@ class Images(SyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
     def generate(
 #         self,
 #         *,
@@ -227,46 +184,32 @@ class Images(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates an image given a prompt.
-
 #         Args:
 #           prompt: A text description of the desired image(s). The maximum length is 1000
 #               characters for `dall-e-2` and 4000 characters for `dall-e-3`.
-
 #           model: The model to use for image generation.
-
 #           n: The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only
 #               `n=1` is supported.
-
 #           quality: The quality of the image that will be generated. `hd` creates images with finer
 #               details and greater consistency across the image. This param is only supported
-              for `dall-e-3`.
-
+            for `dall-e-3`.
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024` for `dall-e-2`. Must be one of `1024x1024`, `1792x1024`, or
 #               `1024x1792` for `dall-e-3` models.
-
 #           style: The style of the generated images. Must be one of `vivid` or `natural`. Vivid
 #               causes the model to lean towards generating hyper-real and dramatic images.
 #               Natural causes the model to produce more natural, less hyper-real looking
 #               images. This param is only supported for `dall-e-3`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._post(
 #             "/images/generations",
 #             body=maybe_transform(
@@ -287,15 +230,11 @@ class Images(SyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
-
 class AsyncImages(AsyncAPIResource):
     with_raw_response: AsyncImagesWithRawResponse
-
     def __init__(self, client: AsyncOpenAI) -> None:
 #         super().__init__(client)
 #         self.with_raw_response = AsyncImagesWithRawResponse(self)
-
 #     async def create_variation(
 #         self,
 #         *,
@@ -312,37 +251,25 @@ class AsyncImages(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates a variation of a given image.
-
 #         Args:
 #           image: The image to use as the basis for the variation(s). Must be a valid PNG file,
 #               less than 4MB, and square.
-
 #           model: The model to use for image generation. Only `dall-e-2` is supported at this
 #               time.
-
 #           n: The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only
 #               `n=1` is supported.
-
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "image": image,
@@ -355,14 +282,13 @@ class AsyncImages(AsyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["image"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return await self._post(
 #             "/images/variations",
 #             body=maybe_transform(body, image_create_variation_params.ImageCreateVariationParams),
@@ -372,7 +298,6 @@ class AsyncImages(AsyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
 #     async def edit(
 #         self,
 #         *,
@@ -391,43 +316,29 @@ class AsyncImages(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates an edited or extended image given an original image and a prompt.
-
 #         Args:
 #           image: The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask
 #               is not provided, image must have transparency, which will be used as the mask.
-
 #           prompt: A text description of the desired image(s). The maximum length is 1000
 #               characters.
-
 #           mask: An additional image whose fully transparent areas (e.g. where alpha is zero)
 #               indicate where `image` should be edited. Must be a valid PNG file, less than
 #               4MB, and have the same dimensions as `image`.
-
 #           model: The model to use for image generation. Only `dall-e-2` is supported at this
 #               time.
-
 #           n: The number of images to generate. Must be between 1 and 10.
-
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
 #         body = deepcopy_minimal(
 #             {
 #                 "image": image,
@@ -442,14 +353,13 @@ class AsyncImages(AsyncAPIResource):
 #         )
 #         files = extract_files(cast(Mapping[str, object], body), paths=[["image"], ["mask"]])
         if files:
-      pass
-      pass
+    pass
+    pass
     pass
             # It should be noted that the actual Content-Type header that will be
             # sent to the server will contain a `boundary` parameter, e.g.
             # multipart/form-data; boundary=---abc--
 #             extra_headers = {"Content-Type": "multipart/form-data", **(extra_headers or {})}
-
         return await self._post(
 #             "/images/edits",
 #             body=maybe_transform(body, image_edit_params.ImageEditParams),
@@ -459,7 +369,6 @@ class AsyncImages(AsyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
 #     async def generate(
 #         self,
 #         *,
@@ -478,46 +387,32 @@ class AsyncImages(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> ImagesResponse:
-
 #         Creates an image given a prompt.
-
 #         Args:
 #           prompt: A text description of the desired image(s). The maximum length is 1000
 #               characters for `dall-e-2` and 4000 characters for `dall-e-3`.
-
 #           model: The model to use for image generation.
-
 #           n: The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only
 #               `n=1` is supported.
-
 #           quality: The quality of the image that will be generated. `hd` creates images with finer
 #               details and greater consistency across the image. This param is only supported
-              for `dall-e-3`.
-
+            for `dall-e-3`.
 #           response_format: The format in which the generated images are returned. Must be one of `url` or
 #               `b64_json`.
-
 #           size: The size of the generated images. Must be one of `256x256`, `512x512`, or
 #               `1024x1024` for `dall-e-2`. Must be one of `1024x1024`, `1792x1024`, or
 #               `1024x1792` for `dall-e-3` models.
-
 #           style: The style of the generated images. Must be one of `vivid` or `natural`. Vivid
 #               causes the model to lean towards generating hyper-real and dramatic images.
 #               Natural causes the model to produce more natural, less hyper-real looking
 #               images. This param is only supported for `dall-e-3`.
-
 #           user: A unique identifier representing your end-user, which can help OpenAI to monitor
 #               and detect abuse.
 #               [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return await self._post(
 #             "/images/generations",
 #             body=maybe_transform(
@@ -538,8 +433,6 @@ class AsyncImages(AsyncAPIResource):
 #             ),
 #             cast_to=ImagesResponse,
 #         )
-
-
 class ImagesWithRawResponse:
     def __init__(self, images: Images) -> None:
 #         self.create_variation = to_raw_response_wrapper(
@@ -551,8 +444,6 @@ class ImagesWithRawResponse:
 #         self.generate = to_raw_response_wrapper(
 #             images.generate,
 #         )
-
-
 class AsyncImagesWithRawResponse:
     def __init__(self, images: AsyncImages) -> None:
 #         self.create_variation = async_to_raw_response_wrapper(

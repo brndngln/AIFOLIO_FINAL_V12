@@ -1,20 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
-
 import asyncio
 from types import TracebackType
 from typing import TYPE_CHECKING, Any, Generic, TypeVar, Callable, Iterable, Iterator, cast
 from typing_extensions import Awaitable, AsyncIterable, AsyncIterator, assert_never
-
 import httpx
-
 from ..._utils import is_dict, is_list, consume_sync_iterator, consume_async_iterator
 from ..._compat import model_dump
 from ..._models import construct_type
@@ -31,21 +26,16 @@ from ...types.beta.threads import (
 #     MessageContentDelta,
 # )
 from ...types.beta.threads.runs import RunStep, ToolCall, RunStepDelta, ToolCallDelta
-
-
 class AssistantEventHandler:
 #     text_deltas: Iterable[str]
 #     Iterator over just the text deltas in the stream.
-
 #     This corresponds to the `thread.message.delta` event
 #     in the API.
-
 #     ```py
     for text in stream.text_deltas:
 #         print(text, end=, flush=True)
 #     print()
 #     ```
-
     def __init__(self) -> None:
 #         self._current_event: AssistantStreamEvent | None = None
 #         self._current_message_content_index: int | None = None
@@ -57,137 +47,99 @@ class AssistantEventHandler:
 #         self.__run_step_snapshots: dict[str, RunStep] = {}
 #         self.__message_snapshots: dict[str, Message] = {}
 #         self.__current_message_snapshot: Message | None = None
-
 #         self.text_deltas = self.__text_deltas__()
 #         self._iterator = self.__stream__()
 #         self.__stream: Stream[AssistantStreamEvent] | None = None
-
     def _init(self, stream: Stream[AssistantStreamEvent]) -> None:
         if self.__stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "A single event handler cannot be shared between multiple streams; You will need to construct a new event handler instance"
 #             )
-
 #         self.__stream = stream
-
     def __next__(self) -> AssistantStreamEvent:
         return self._iterator.__next__()
-
     def __iter__(self) -> Iterator[AssistantStreamEvent]:
         for item in self._iterator:
 #             yield item
-
 #     @property
     def current_event(self) -> Optional[AssistantStreamEvent]:
         return self._current_event
-
 #     @property
     def current_run(self) -> Optional[Run]:
         return self.__current_run
-
 #     @property
     def current_run_step_snapshot(self) -> Optional[RunStep]:
         if not self.__current_run_step_id:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         return self.__run_step_snapshots[self.__current_run_step_id]
-
 #     @property
     def current_message_snapshot(self) -> Optional[Message]:
         return self.__current_message_snapshot
-
     def close(self) -> None:
-
 #         Close the response and release the connection.
-
 #         Automatically called when the context manager exits.
-
         if self.__stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.__stream.close()
-
     def until_done(self) -> None:
-
 #         consume_sync_iterator(self)
-
     def get_final_run(self) -> Run:
-
 #         self.until_done()
-
         if not self.__current_run:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No final run object found")
-
         return self.__current_run
-
     def get_final_run_steps(self) -> list[RunStep]:
-
 #         self.until_done()
-
         if not self.__run_step_snapshots:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No run steps found")
-
         return [step for step in self.__run_step_snapshots.values()]
-
     def get_final_messages(self) -> list[Message]:
-
 #         self.until_done()
-
         if not self.__message_snapshots:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No messages found")
-
         return [message for message in self.__message_snapshots.values()]
-
     def __text_deltas__(self) -> Iterator[str]:
         for event in self:
             if event.event != "thread.message.delta":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
-
             for content_delta in event.data.delta.content or []:
                 if content_delta.type == "text" and content_delta.text and content_delta.text.value:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield content_delta.text.value
-
     # event handlers
-
     def on_end(self) -> None:
 #         Fires when the stream has finished.
-
 #         This happens if the stream is read to completion
 #         or if an exception occurs during iteration.
-
     def on_event(self, event: AssistantStreamEvent) -> None:
-
     def on_run_step_created(self, run_step: RunStep) -> None:
-
     def on_run_step_delta(self, delta: RunStepDelta, snapshot: RunStep) -> None:
 #         Callback that is fired whenever a run step delta is returned from the API
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the run step. For example, a tool calls event may
 #         look like this:
-
         # delta
 #         tool_calls=[
 #             RunStepDeltaToolCallsCodeInterpreter(
@@ -206,28 +158,18 @@ class AssistantEventHandler:
 #                 index=0
 #             )
 #         ],
-
     def on_run_step_done(self, run_step: RunStep) -> None:
-
     def on_tool_call_created(self, tool_call: ToolCall) -> None:
-
     def on_tool_call_delta(self, delta: ToolCallDelta, snapshot: ToolCall) -> None:
-
     def on_tool_call_done(self, tool_call: ToolCall) -> None:
-
     def on_exception(self, exception: Exception) -> None:
-
     def on_timeout(self) -> None:
-
     def on_message_created(self, message: Message) -> None:
-
     def on_message_delta(self, delta: MessageDelta, snapshot: Message) -> None:
 #         Callback that is fired whenever a message delta is returned from the API
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the message. For example, a text content event may
 #         look like this:
-
         # delta
 #         MessageDeltaText(
 #             index=0,
@@ -244,57 +186,44 @@ class AssistantEventHandler:
 #                 value='Certainly, Jane'
 #             ),
 #         )
-
     def on_message_done(self, message: Message) -> None:
-
     def on_text_created(self, text: Text) -> None:
-
     def on_text_delta(self, delta: TextDelta, snapshot: Text) -> None:
 #         Callback that is fired whenever a text content delta is returned
 #         by the API.
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the text. For example:
-
 #         on_text_delta(TextDelta(value="The"), Text(value="The")),
 #         on_text_delta(TextDelta(value=" solution"), Text(value="The solution")),
 #         on_text_delta(TextDelta(value=" to"), Text(value="The solution to")),
 #         on_text_delta(TextDelta(value=" the"), Text(value="The solution to the")),
 #         on_text_delta(TextDelta(value=" equation"), Text(value="The solution to the equation")),
-
     def on_text_done(self, text: Text) -> None:
-
     def on_image_file_done(self, image_file: ImageFile) -> None:
-
     def _emit_sse_event(self, event: AssistantStreamEvent) -> None:
 #         self._current_event = event
 #         self.on_event(event)
-
 #         self.__current_message_snapshot, new_content = accumulate_event(
 #             event=event,
 #             current_message_snapshot=self.__current_message_snapshot,
 #         )
         if self.__current_message_snapshot is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.__message_snapshots[self.__current_message_snapshot.id] = self.__current_message_snapshot
-
 #         accumulate_run_step(
 #             event=event,
 #             run_step_snapshots=self.__run_step_snapshots,
 #         )
-
         for content_delta in new_content:
 #             assert self.__current_message_snapshot is not None
-
 #             block = self.__current_message_snapshot.content[content_delta.index]
             if block.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.on_text_created(block.text)
-
         if (
 #             event.event == "thread.run.completed"
 #             or event.event == "thread.run.cancelled"
@@ -305,8 +234,8 @@ class AssistantEventHandler:
 #         ):
 #             self.__current_run = event.data
             if self._current_tool_call:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.on_tool_call_done(self._current_tool_call)
         elif (
@@ -323,67 +252,60 @@ class AssistantEventHandler:
     pass
 #             snapshot = self.__current_message_snapshot
 #             assert snapshot is not None
-
 #             message_delta = event.data.delta
             if message_delta.content is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 for content_delta in message_delta.content:
                     if content_delta.type == "text" and content_delta.text:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         snapshot_content = snapshot.content[content_delta.index]
 #                         assert snapshot_content.type == "text"
 #                         self.on_text_delta(content_delta.text, snapshot_content.text)
-
                     # If the delta is for a new message content:
                     # - emit on_text_done/on_image_file_done for the previous message content
                     # - emit on_text_created/on_image_created for the new message content
                     if content_delta.index != self._current_message_content_index:
-      pass
-      pass
+    pass
+    pass
     pass
                         if self._current_message_content is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                             if self._current_message_content.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 self.on_text_done(self._current_message_content.text)
                             elif self._current_message_content.type == "image_file":
     pass
 #                                 self.on_image_file_done(self._current_message_content.image_file)
-
 #                         self._current_message_content_index = content_delta.index
 #                         self._current_message_content = snapshot.content[content_delta.index]
-
                     # Update the current_message_content (delta event is correctly emitted already)
 #                     self._current_message_content = snapshot.content[content_delta.index]
-
 #             self.on_message_delta(event.data.delta, snapshot)
         elif event.event == "thread.message.completed" or event.event == "thread.message.incomplete":
     pass
 #             self.__current_message_snapshot = event.data
 #             self.__message_snapshots[event.data.id] = event.data
-
             if self._current_message_content_index is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 content = event.data.content[self._current_message_content_index]
                 if content.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.on_text_done(content.text)
                 elif content.type == "image_file":
     pass
 #                     self.on_image_file_done(content.image_file)
-
 #             self.on_message_done(event.data)
         elif event.event == "thread.run.step.created":
     pass
@@ -395,7 +317,6 @@ class AssistantEventHandler:
         elif event.event == "thread.run.step.delta":
     pass
 #             step_snapshot = self.__run_step_snapshots[event.data.id]
-
 #             run_step_delta = event.data.delta
             if (
 #                 run_step_delta.step_details
@@ -405,34 +326,30 @@ class AssistantEventHandler:
 #                 assert step_snapshot.step_details.type == "tool_calls"
                 for tool_call_delta in run_step_delta.step_details.tool_calls:
                     if tool_call_delta.index == self._current_tool_call_index:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.on_tool_call_delta(
 #                             tool_call_delta,
 #                             step_snapshot.step_details.tool_calls[tool_call_delta.index],
 #                         )
-
                     # If the delta is for a new tool call:
                     # - emit on_tool_call_done for the previous tool_call
                     # - emit on_tool_call_created for the new tool_call
                     if tool_call_delta.index != self._current_tool_call_index:
-      pass
-      pass
+    pass
+    pass
     pass
                         if self._current_tool_call is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             self.on_tool_call_done(self._current_tool_call)
-
 #                         self._current_tool_call_index = tool_call_delta.index
 #                         self._current_tool_call = step_snapshot.step_details.tool_calls[tool_call_delta.index]
 #                         self.on_tool_call_created(self._current_tool_call)
-
                     # Update the current_tool_call (delta event is correctly emitted already)
 #                     self._current_tool_call = step_snapshot.step_details.tool_calls[tool_call_delta.index]
-
 #             self.on_run_step_delta(
 #                 event.data.delta,
 #                 step_snapshot,
@@ -444,11 +361,10 @@ class AssistantEventHandler:
 #             or event.event == "thread.run.step.failed"
 #         ):
             if self._current_tool_call:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.on_tool_call_done(self._current_tool_call)
-
 #             self.on_run_step_done(event.data)
 #             self.__current_run_step_id = None
         elif event.event == "thread.created" or event.event == "thread.message.in_progress" or event.event == "error":
@@ -459,21 +375,17 @@ class AssistantEventHandler:
             # we only want to error at build-time
             if TYPE_CHECKING:  # type: ignore[unreachable]
 #                 assert_never(event)
-
 #         self._current_event = None
-
     def __stream__(self) -> Iterator[AssistantStreamEvent]:
 #         stream = self.__stream
         if not stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("Stream has not been started yet")
-
         try:
             for event in stream:
 #                 self._emit_sse_event(event)
-
 #                 yield event
         except (httpx.TimeoutException, asyncio.TimeoutError) as exc:
 #             self.on_timeout()
@@ -484,21 +396,15 @@ class AssistantEventHandler:
 #             raise
 #         finally:
 #             self.on_end()
-
-
 # AssistantEventHandlerT = TypeVar("AssistantEventHandlerT", bound=AssistantEventHandler)
-
-
 class AssistantStreamManager(Generic[AssistantEventHandlerT]):
 #     Wrapper over AssistantStreamEventHandler that is returned by `.stream()`
 #     so that a context manager can be used.
-
 #     ```py
     with client.threads.create_and_run_stream(...) as stream:
         for event in stream:
 #             ...
 #     ```
-
     def __init__(
 #         self,
 #         api_request: Callable[[], Stream[AssistantStreamEvent]],
@@ -508,12 +414,10 @@ class AssistantStreamManager(Generic[AssistantEventHandlerT]):
 #         self.__stream: Stream[AssistantStreamEvent] | None = None
 #         self.__event_handler = event_handler
 #         self.__api_request = api_request
-
     def __enter__(self) -> AssistantEventHandlerT:
 #         self.__stream = self.__api_request()
 #         self.__event_handler._init(self.__stream)
         return self.__event_handler
-
     def __exit__(
 #         self,
 #         exc_type: type[BaseException] | None,
@@ -521,25 +425,20 @@ class AssistantStreamManager(Generic[AssistantEventHandlerT]):
 #         exc_tb: TracebackType | None,
 #     ) -> None:
         if self.__stream is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.__stream.close()
-
-
 class AsyncAssistantEventHandler:
 #     text_deltas: AsyncIterable[str]
 #     Iterator over just the text deltas in the stream.
-
 #     This corresponds to the `thread.message.delta` event
 #     in the API.
-
 #     ```py
 #     async for text in stream.text_deltas:
 #         print(text, end=, flush=True)
 #     print()
 #     ```
-
     def __init__(self) -> None:
 #         self._current_event: AssistantStreamEvent | None = None
 #         self._current_message_content_index: int | None = None
@@ -551,137 +450,99 @@ class AsyncAssistantEventHandler:
 #         self.__run_step_snapshots: dict[str, RunStep] = {}
 #         self.__message_snapshots: dict[str, Message] = {}
 #         self.__current_message_snapshot: Message | None = None
-
 #         self.text_deltas = self.__text_deltas__()
 #         self._iterator = self.__stream__()
 #         self.__stream: AsyncStream[AssistantStreamEvent] | None = None
-
     def _init(self, stream: AsyncStream[AssistantStreamEvent]) -> None:
         if self.__stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "A single event handler cannot be shared between multiple streams; You will need to construct a new event handler instance"
 #             )
-
 #         self.__stream = stream
-
 #     async def __anext__(self) -> AssistantStreamEvent:
         return await self._iterator.__anext__()
-
 #     async def __aiter__(self) -> AsyncIterator[AssistantStreamEvent]:
 #         async for item in self._iterator:
 #             yield item
-
 #     async def close(self) -> None:
-
 #         Close the response and release the connection.
-
 #         Automatically called when the context manager exits.
-
         if self.__stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             await self.__stream.close()
-
 #     @property
     def current_event(self) -> Optional[AssistantStreamEvent]:
         return self._current_event
-
 #     @property
     def current_run(self) -> Optional[Run]:
         return self.__current_run
-
 #     @property
     def current_run_step_snapshot(self) -> Optional[RunStep]:
         if not self.__current_run_step_id:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         return self.__run_step_snapshots[self.__current_run_step_id]
-
 #     @property
     def current_message_snapshot(self) -> Optional[Message]:
         return self.__current_message_snapshot
-
 #     async def until_done(self) -> None:
-
 #         await consume_async_iterator(self)
-
 #     async def get_final_run(self) -> Run:
-
 #         await self.until_done()
-
         if not self.__current_run:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No final run object found")
-
         return self.__current_run
-
 #     async def get_final_run_steps(self) -> list[RunStep]:
-
 #         await self.until_done()
-
         if not self.__run_step_snapshots:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No run steps found")
-
         return [step for step in self.__run_step_snapshots.values()]
-
 #     async def get_final_messages(self) -> list[Message]:
-
 #         await self.until_done()
-
         if not self.__message_snapshots:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("No messages found")
-
         return [message for message in self.__message_snapshots.values()]
-
 #     async def __text_deltas__(self) -> AsyncIterator[str]:
 #         async for event in self:
             if event.event != "thread.message.delta":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
-
             for content_delta in event.data.delta.content or []:
                 if content_delta.type == "text" and content_delta.text and content_delta.text.value:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield content_delta.text.value
-
     # event handlers
-
 #     async def on_end(self) -> None:
 #         Fires when the stream has finished.
-
 #         This happens if the stream is read to completion
 #         or if an exception occurs during iteration.
-
 #     async def on_event(self, event: AssistantStreamEvent) -> None:
-
 #     async def on_run_step_created(self, run_step: RunStep) -> None:
-
 #     async def on_run_step_delta(self, delta: RunStepDelta, snapshot: RunStep) -> None:
 #         Callback that is fired whenever a run step delta is returned from the API
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the run step. For example, a tool calls event may
 #         look like this:
-
         # delta
 #         tool_calls=[
 #             RunStepDeltaToolCallsCodeInterpreter(
@@ -700,28 +561,18 @@ class AsyncAssistantEventHandler:
 #                 index=0
 #             )
 #         ],
-
 #     async def on_run_step_done(self, run_step: RunStep) -> None:
-
 #     async def on_tool_call_created(self, tool_call: ToolCall) -> None:
-
 #     async def on_tool_call_delta(self, delta: ToolCallDelta, snapshot: ToolCall) -> None:
-
 #     async def on_tool_call_done(self, tool_call: ToolCall) -> None:
-
 #     async def on_exception(self, exception: Exception) -> None:
-
 #     async def on_timeout(self) -> None:
-
 #     async def on_message_created(self, message: Message) -> None:
-
 #     async def on_message_delta(self, delta: MessageDelta, snapshot: Message) -> None:
 #         Callback that is fired whenever a message delta is returned from the API
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the message. For example, a text content event may
 #         look like this:
-
         # delta
 #         MessageDeltaText(
 #             index=0,
@@ -738,57 +589,44 @@ class AsyncAssistantEventHandler:
 #                 value='Certainly, Jane'
 #             ),
 #         )
-
 #     async def on_message_done(self, message: Message) -> None:
-
 #     async def on_text_created(self, text: Text) -> None:
-
 #     async def on_text_delta(self, delta: TextDelta, snapshot: Text) -> None:
 #         Callback that is fired whenever a text content delta is returned
 #         by the API.
-
 #         The first argument is just the delta as sent by the API and the second argument
 #         is the accumulated snapshot of the text. For example:
-
 #         on_text_delta(TextDelta(value="The"), Text(value="The")),
 #         on_text_delta(TextDelta(value=" solution"), Text(value="The solution")),
 #         on_text_delta(TextDelta(value=" to"), Text(value="The solution to")),
 #         on_text_delta(TextDelta(value=" the"), Text(value="The solution to the")),
 #         on_text_delta(TextDelta(value=" equation"), Text(value="The solution to the equivalent")),
-
 #     async def on_text_done(self, text: Text) -> None:
-
 #     async def on_image_file_done(self, image_file: ImageFile) -> None:
-
 #     async def _emit_sse_event(self, event: AssistantStreamEvent) -> None:
 #         self._current_event = event
 #         await self.on_event(event)
-
 #         self.__current_message_snapshot, new_content = accumulate_event(
 #             event=event,
 #             current_message_snapshot=self.__current_message_snapshot,
 #         )
         if self.__current_message_snapshot is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.__message_snapshots[self.__current_message_snapshot.id] = self.__current_message_snapshot
-
 #         accumulate_run_step(
 #             event=event,
 #             run_step_snapshots=self.__run_step_snapshots,
 #         )
-
         for content_delta in new_content:
 #             assert self.__current_message_snapshot is not None
-
 #             block = self.__current_message_snapshot.content[content_delta.index]
             if block.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 await self.on_text_created(block.text)
-
         if (
 #             event.event == "thread.run.completed"
 #             or event.event == "thread.run.cancelled"
@@ -799,8 +637,8 @@ class AsyncAssistantEventHandler:
 #         ):
 #             self.__current_run = event.data
             if self._current_tool_call:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 await self.on_tool_call_done(self._current_tool_call)
         elif (
@@ -817,67 +655,60 @@ class AsyncAssistantEventHandler:
     pass
 #             snapshot = self.__current_message_snapshot
 #             assert snapshot is not None
-
 #             message_delta = event.data.delta
             if message_delta.content is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 for content_delta in message_delta.content:
                     if content_delta.type == "text" and content_delta.text:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         snapshot_content = snapshot.content[content_delta.index]
 #                         assert snapshot_content.type == "text"
 #                         await self.on_text_delta(content_delta.text, snapshot_content.text)
-
                     # If the delta is for a new message content:
                     # - emit on_text_done/on_image_file_done for the previous message content
                     # - emit on_text_created/on_image_created for the new message content
                     if content_delta.index != self._current_message_content_index:
-      pass
-      pass
+    pass
+    pass
     pass
                         if self._current_message_content is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                             if self._current_message_content.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 await self.on_text_done(self._current_message_content.text)
                             elif self._current_message_content.type == "image_file":
     pass
 #                                 await self.on_image_file_done(self._current_message_content.image_file)
-
 #                         self._current_message_content_index = content_delta.index
 #                         self._current_message_content = snapshot.content[content_delta.index]
-
                     # Update the current_message_content (delta event is correctly emitted already)
 #                     self._current_message_content = snapshot.content[content_delta.index]
-
 #             await self.on_message_delta(event.data.delta, snapshot)
         elif event.event == "thread.message.completed" or event.event == "thread.message.incomplete":
     pass
 #             self.__current_message_snapshot = event.data
 #             self.__message_snapshots[event.data.id] = event.data
-
             if self._current_message_content_index is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 content = event.data.content[self._current_message_content_index]
                 if content.type == "text":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     await self.on_text_done(content.text)
                 elif content.type == "image_file":
     pass
 #                     await self.on_image_file_done(content.image_file)
-
 #             await self.on_message_done(event.data)
         elif event.event == "thread.run.step.created":
     pass
@@ -889,7 +720,6 @@ class AsyncAssistantEventHandler:
         elif event.event == "thread.run.step.delta":
     pass
 #             step_snapshot = self.__run_step_snapshots[event.data.id]
-
 #             run_step_delta = event.data.delta
             if (
 #                 run_step_delta.step_details
@@ -899,34 +729,30 @@ class AsyncAssistantEventHandler:
 #                 assert step_snapshot.step_details.type == "tool_calls"
                 for tool_call_delta in run_step_delta.step_details.tool_calls:
                     if tool_call_delta.index == self._current_tool_call_index:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         await self.on_tool_call_delta(
 #                             tool_call_delta,
 #                             step_snapshot.step_details.tool_calls[tool_call_delta.index],
 #                         )
-
                     # If the delta is for a new tool call:
                     # - emit on_tool_call_done for the previous tool_call
                     # - emit on_tool_call_created for the new tool_call
                     if tool_call_delta.index != self._current_tool_call_index:
-      pass
-      pass
+    pass
+    pass
     pass
                         if self._current_tool_call is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             await self.on_tool_call_done(self._current_tool_call)
-
 #                         self._current_tool_call_index = tool_call_delta.index
 #                         self._current_tool_call = step_snapshot.step_details.tool_calls[tool_call_delta.index]
 #                         await self.on_tool_call_created(self._current_tool_call)
-
                     # Update the current_tool_call (delta event is correctly emitted already)
 #                     self._current_tool_call = step_snapshot.step_details.tool_calls[tool_call_delta.index]
-
 #             await self.on_run_step_delta(
 #                 event.data.delta,
 #                 step_snapshot,
@@ -938,11 +764,10 @@ class AsyncAssistantEventHandler:
 #             or event.event == "thread.run.step.failed"
 #         ):
             if self._current_tool_call:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 await self.on_tool_call_done(self._current_tool_call)
-
 #             await self.on_run_step_done(event.data)
 #             self.__current_run_step_id = None
         elif event.event == "thread.created" or event.event == "thread.message.in_progress" or event.event == "error":
@@ -953,21 +778,17 @@ class AsyncAssistantEventHandler:
             # we only want to error at build-time
             if TYPE_CHECKING:  # type: ignore[unreachable]
 #                 assert_never(event)
-
 #         self._current_event = None
-
 #     async def __stream__(self) -> AsyncIterator[AssistantStreamEvent]:
 #         stream = self.__stream
         if not stream:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("Stream has not been started yet")
-
         try:
 #             async for event in stream:
 #                 await self._emit_sse_event(event)
-
 #                 yield event
         except (httpx.TimeoutException, asyncio.TimeoutError) as exc:
 #             await self.on_timeout()
@@ -978,22 +799,16 @@ class AsyncAssistantEventHandler:
 #             raise
 #         finally:
 #             await self.on_end()
-
-
 # AsyncAssistantEventHandlerT = TypeVar("AsyncAssistantEventHandlerT", bound=AsyncAssistantEventHandler)
-
-
 class AsyncAssistantStreamManager(Generic[AsyncAssistantEventHandlerT]):
 #     Wrapper over AsyncAssistantStreamEventHandler that is returned by `.stream()`
 #     so that an async context manager can be used without `await`ing the
 #     original client call.
-
 #     ```py
 #     async with client.threads.create_and_run_stream(...) as stream:
 #         async for event in stream:
 #             ...
 #     ```
-
     def __init__(
 #         self,
 #         api_request: Awaitable[AsyncStream[AssistantStreamEvent]],
@@ -1003,12 +818,10 @@ class AsyncAssistantStreamManager(Generic[AsyncAssistantEventHandlerT]):
 #         self.__stream: AsyncStream[AssistantStreamEvent] | None = None
 #         self.__event_handler = event_handler
 #         self.__api_request = api_request
-
 #     async def __aenter__(self) -> AsyncAssistantEventHandlerT:
 #         self.__stream = await self.__api_request
 #         self.__event_handler._init(self.__stream)
         return self.__event_handler
-
 #     async def __aexit__(
 #         self,
 #         exc_type: type[BaseException] | None,
@@ -1016,34 +829,30 @@ class AsyncAssistantStreamManager(Generic[AsyncAssistantEventHandlerT]):
 #         exc_tb: TracebackType | None,
 #     ) -> None:
         if self.__stream is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             await self.__stream.close()
-
-
 def accumulate_run_step(
 #     *,
 #     event: AssistantStreamEvent,
 #     run_step_snapshots: dict[str, RunStep],
 # ) -> None:
     if event.event == "thread.run.step.created":
-      pass
-      pass
+    pass
+    pass
     pass
 #         run_step_snapshots[event.data.id] = event.data
         return
-
     if event.event == "thread.run.step.delta":
-      pass
-      pass
+    pass
+    pass
     pass
 #         data = event.data
 #         snapshot = run_step_snapshots[data.id]
-
         if data.delta:
-      pass
-      pass
+    pass
+    pass
     pass
 #             merged = accumulate_delta(
 #                 cast(
@@ -1056,40 +865,32 @@ def accumulate_run_step(
 #                 ),
 #             )
 #             run_step_snapshots[snapshot.id] = cast(RunStep, construct_type(type_=RunStep, value=merged))
-
     return None
-
-
 def accumulate_event(
 #     *,
 #     event: AssistantStreamEvent,
 #     current_message_snapshot: Message | None,
 # ) -> tuple[Message | None, list[MessageContentDelta]]:
-
     if event.event == "thread.message.created":
-      pass
-      pass
+    pass
+    pass
     pass
         return event.data, []
-
 #     new_content: list[MessageContentDelta] = []
-
     if event.event != "thread.message.delta":
-      pass
-      pass
+    pass
+    pass
     pass
         return current_message_snapshot, []
-
     if not current_message_snapshot:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise RuntimeError("Encountered a message delta with no previous snapshot")
-
 #     data = event.data
     if data.delta.content:
-      pass
-      pass
+    pass
+    pass
     pass
         for content_delta in data.delta.content:
             try:
@@ -1126,27 +927,22 @@ def accumulate_event(
 #                         value=merged,
 #                     ),
 #                 )
-
     return current_message_snapshot, new_content
-
-
 def accumulate_delta(acc: dict[object, object], delta: dict[object, object]) -> dict[object, object]:
     for key, delta_value in delta.items():
         if key not in acc:
-      pass
-      pass
+    pass
+    pass
     pass
 #             acc[key] = delta_value
 #             continue
-
 #         acc_value = acc[key]
         if acc_value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             acc[key] = delta_value
 #             continue
-
         # the `index` property is used in arrays of objects so it should
         # not be accumulated like other values e.g.
         # [{'foo': 'bar', 'index': 0}]
@@ -1154,15 +950,14 @@ def accumulate_delta(acc: dict[object, object], delta: dict[object, object]) -> 
         # the same applies to `type` properties as theyre used for
         # discriminated unions
         if key == "index" or key == "type":
-      pass
-      pass
+    pass
+    pass
     pass
 #             acc[key] = delta_value
 #             continue
-
         if isinstance(acc_value, str) and isinstance(delta_value, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             acc_value += delta_value
         elif isinstance(acc_value, (int, float)) and isinstance(delta_value, (int, float)):
@@ -1176,43 +971,36 @@ def accumulate_delta(acc: dict[object, object], delta: dict[object, object]) -> 
             # for lists of non-dictionary items well only ever get new entries
             # in the array, existing entries will never be changed
             if all(isinstance(x, (str, int, float)) for x in acc_value):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 acc_value.extend(delta_value)
 #                 continue
-
             for delta_entry in delta_value:
                 if not is_dict(delta_entry):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TypeError(f"Unexpected list delta entry is not a dictionary: {delta_entry}")
-
                 try:
 #                     index = delta_entry["index"]
                 except KeyError as exc:
 #                     raise RuntimeError(f"Expected list delta entry to have an `index` key; {delta_entry}") from exc
-
                 if not isinstance(index, int):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TypeError(f"Unexpected, list delta entry `index` value is not an integer; {index}")
-
                 try:
 #                     acc_entry = acc_value[index]
                 except IndexError:
 #                     acc_value.insert(index, delta_entry)
                 else:
                     if not is_dict(acc_entry):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise TypeError("not handled yet")
-
 #                     acc_value[index] = accumulate_delta(acc_entry, delta_entry)
-
 #         acc[key] = acc_value
-
     return acc

@@ -3,9 +3,7 @@ from typing import Optional
 import logging
 from optparse import Values
 from typing import List
-
 from pip._vendor.packaging.utils import canonicalize_name
-
 from pip._internal.cli import cmdoptions
 from pip._internal.cli.base_command import Command
 from pip._internal.cli.index_command import SessionCommandMixin
@@ -21,25 +19,18 @@ from pip._internal.utils.misc import (
 #     protect_pip_from_modification_on_windows,
 #     warn_if_run_as_root,
 # )
-
 # logger = logging.getLogger(__name__)
-
-
 class UninstallCommand(Command, SessionCommandMixin):
     """
 #     Uninstall packages.
-
 #     pip is able to uninstall most installed packages. Known exceptions are:
-
 #     - Pure distutils packages installed with ``python setup.py install``, which
 #       leave behind no metadata to determine what files were installed.
 #     - Script wrappers installed by ``python setup.py develop``.
     """
-
 #     usage = """
 #       %prog [options] <package> ...
 #       %prog [options] -r <requirements file> ..."""
-
     def add_options(self) -> None:
 #         self.cmd_opts.add_option(
 #             "-r",
@@ -63,10 +54,8 @@ class UninstallCommand(Command, SessionCommandMixin):
 #         self.cmd_opts.add_option(cmdoptions.root_user_action())
 #         self.cmd_opts.add_option(cmdoptions.override_externally_managed())
 #         self.parser.insert_option_group(0, self.cmd_opts)
-
     def run(self, options: Values, args: List[str]) -> int:
 #         session = self.get_default_session(options)
-
 #         reqs_to_uninstall = {}
         for name in args:
 #             req = install_req_from_line(
@@ -74,8 +63,8 @@ class UninstallCommand(Command, SessionCommandMixin):
 #                 isolated=options.isolated_mode,
 #             )
             if req.name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 reqs_to_uninstall[canonicalize_name(req.name)] = req
             else:
@@ -93,42 +82,39 @@ class UninstallCommand(Command, SessionCommandMixin):
 #                     parsed_req, isolated=options.isolated_mode
 #                 )
                 if req.name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     reqs_to_uninstall[canonicalize_name(req.name)] = req
         if not reqs_to_uninstall:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise InstallationError(
 #                 f"You must give at least one requirement to {self.name} (see "
 #                 f'"pip help {self.name}")'
 #             )
-
         if not options.override_externally_managed:
-      pass
-      pass
+    pass
+    pass
     pass
 #             check_externally_managed()
-
 #         protect_pip_from_modification_on_windows(
 #             modifying_pip="pip" in reqs_to_uninstall
 #         )
-
         for req in reqs_to_uninstall.values():
 #             uninstall_pathset = req.uninstall(
 #                 auto_confirm=options.yes,
 #                 verbose=self.verbosity > 0,
 #             )
             if uninstall_pathset:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 uninstall_pathset.commit()
         if options.root_user_action == "warn":
-      pass
-      pass
+    pass
+    pass
     pass
 #             warn_if_run_as_root()
         return SUCCESS

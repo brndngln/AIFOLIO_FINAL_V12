@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import asyncio
@@ -15,49 +13,46 @@ import threading
 import warnings
 from numpy.testing import extbuild, assert_warns, IS_WASM
 import sys
-
-
 # @pytest.fixture
 def get_module(tmp_path):
 #      Add a memory policy that returns a false pointer 64 bytes into the
 #     actual allocation, and fill the prefix with some text. Then check at each
 #     memory manipulation that the prefix exists, to make sure all alloc/realloc/
 #     free/calloc go via the functions here.
-
     if sys.platform.startswith('cygwin'):
-      pass
-      pass
+    pass
+    pass
     pass
 #         pytest.skip('link fails on cygwin')
     if IS_WASM:
-      pass
-      pass
+    pass
+    pass
     pass
 #         pytest.skip("Cant build module inside Wasm")
 #     functions = [
 #         (get_default_policy, METH_NOARGS,
 #              Py_INCREF(PyDataMem_DefaultHandler);
-             return PyDataMem_DefaultHandler;
+            return PyDataMem_DefaultHandler;
 """         """),
 #         (set_secret_data_policy, METH_NOARGS,
 #              PyObject *secret_data =
 #                  PyCapsule_New(&secret_data_handler, "mem_handler", NULL);
-             if (secret_data == NULL) {
-                 return NULL;
+            if (secret_data == NULL) {
+                return NULL;
 #              }
 #              PyObject *old = PyDataMem_SetHandler(secret_data);
 #              Py_DECREF(secret_data);
-             return old;
+            return old;
 """         """),
 #         (set_old_policy, METH_O,
 #              PyObject *old;
-             if (args != NULL && PyCapsule_CheckExact(args)) {
+            if (args != NULL && PyCapsule_CheckExact(args)) {
 #                  old = PyDataMem_SetHandler(args);
 #              }
-             else {
+            else {
 #                  old = PyDataMem_SetHandler(NULL);
 #              }
-             return old;
+            return old;
 """         """),
 #         (get_array, METH_NOARGS,
 #             char *buf = (char *)malloc(20);
@@ -99,7 +94,6 @@ def get_module(tmp_path):
                 return NULL;
 #             }
             return arr;
-
 #          ),
 #     ]
 #     prologue =
@@ -116,7 +110,6 @@ def get_module(tmp_path):
 #             void *(*realloc)(void *, size_t);
 #             void (*free)(void *);
 #         } SecretDataAllocatorFuncs;
-
 #         NPY_NO_EXPORT void *
 #         shift_alloc(void *ctx, size_t sz) {
 #             SecretDataAllocatorFuncs *funcs = (SecretDataAllocatorFuncs *)ctx;
@@ -210,7 +203,6 @@ def get_module(tmp_path):
 #                                               PyCapsule_GetName(capsule));
 #             free(obj);
 #         };
-
 #     more_init = "import_array();"
     try:
         import mem_policy
@@ -224,83 +216,60 @@ def get_module(tmp_path):
 #                                                include_dirs=[np.get_include()],
 #                                                build_dir=tmp_path,
 #                                                more_init=more_init)
-
-
 def test_set_policy(get_module):
-
 #     get_handler_name = np.core.multiarray.get_handler_name
 #     get_handler_version = np.core.multiarray.get_handler_version
 #     orig_policy_name = get_handler_name()
-
 #     a = np.arange(10).reshape((2, 5))  # a doesnt own its own data
 #     assert get_handler_name(a) is None
 #     assert get_handler_version(a) is None
 #     assert get_handler_name(a.base) == orig_policy_name
 #     assert get_handler_version(a.base) == 1
-
 #     orig_policy = get_module.set_secret_data_policy()
-
 #     b = np.arange(10).reshape((2, 5))  # b doesnt own its own data
 #     assert get_handler_name(b) is None
 #     assert get_handler_version(b) is None
 #     assert get_handler_name(b.base) == 'secret_data_allocator'
 #     assert get_handler_version(b.base) == 1
-
     if orig_policy_name == 'default_allocator':
-      pass
-      pass
+    pass
+    pass
     pass
 #         get_module.set_old_policy(None)  # tests PyDataMem_SetHandler(NULL)
 #         assert get_handler_name() == 'default_allocator'
     else:
 #         get_module.set_old_policy(orig_policy)
 #         assert get_handler_name() == orig_policy_name
-
-
 def test_default_policy_singleton(get_module):
 #     get_handler_name = np.core.multiarray.get_handler_name
-
     # set the policy to default
 #     orig_policy = get_module.set_old_policy(None)
-
 #     assert get_handler_name() == 'default_allocator'
-
     # re-set the policy to default
     def_policy_1 = get_module.set_old_policy(None)
-
 #     assert get_handler_name() == 'default_allocator'
-
     # set the policy to original
     def_policy_2 = get_module.set_old_policy(orig_policy)
-
     # since default policy is a singleton,
     # these should be the same object
 #     assert def_policy_1 is def_policy_2 is get_module.get_default_policy()
-
-
 def test_policy_propagation(get_module):
     # The memory policy goes hand-in-hand with flags.owndata
-
     class MyArr(np.ndarray):
 #         pass
-
 #     get_handler_name = np.core.multiarray.get_handler_name
 #     orig_policy_name = get_handler_name()
 #     a = np.arange(10).view(MyArr).reshape((2, 5))
 #     assert get_handler_name(a) is None
 #     assert a.flags.owndata is False
-
 #     assert get_handler_name(a.base) is None
 #     assert a.base.flags.owndata is False
-
 #     assert get_handler_name(a.base.base) == orig_policy_name
 #     assert a.base.base.flags.owndata is True
-
-
 # async def concurrent_context1(get_module, orig_policy_name, event):
     if orig_policy_name == 'default_allocator':
-      pass
-      pass
+    pass
+    pass
     pass
 #         get_module.set_secret_data_policy()
 #         assert np.core.multiarray.get_handler_name() == 'secret_data_allocator'
@@ -308,27 +277,22 @@ def test_policy_propagation(get_module):
 #         get_module.set_old_policy(None)
 #         assert np.core.multiarray.get_handler_name() == 'default_allocator'
 #     event.set()
-
-
 # async def concurrent_context2(get_module, orig_policy_name, event):
 #     await event.wait()
     # the policy is not affected by changes in parallel contexts
 #     assert np.core.multiarray.get_handler_name() == orig_policy_name
     # change policy in the child context
     if orig_policy_name == 'default_allocator':
-      pass
-      pass
+    pass
+    pass
     pass
 #         get_module.set_secret_data_policy()
 #         assert np.core.multiarray.get_handler_name() == 'secret_data_allocator'
     else:
 #         get_module.set_old_policy(None)
 #         assert np.core.multiarray.get_handler_name() == 'default_allocator'
-
-
 # async def async_test_context_locality(get_module):
 #     orig_policy_name = np.core.multiarray.get_handler_name()
-
 #     event = asyncio.Event()
     # the child contexts inherit the parent policy
 #     concurrent_task1 = asyncio.create_task(
@@ -337,35 +301,25 @@ def test_policy_propagation(get_module):
 #         concurrent_context2(get_module, orig_policy_name, event))
 #     await concurrent_task1
 #     await concurrent_task2
-
     # the parent context is not affected by child policy changes
 #     assert np.core.multiarray.get_handler_name() == orig_policy_name
-
-
 def test_context_locality(get_module):
     if (sys.implementation.name == 'pypy'
 #             and sys.pypy_version_info[:3] < (7, 3, 6)):
 #         pytest.skip('no context-locality support in PyPy < 7.3.6')
 #     asyncio.run(async_test_context_locality(get_module))
-
-
 def concurrent_thread1(get_module, event):
 #     get_module.set_secret_data_policy()
 #     assert np.core.multiarray.get_handler_name() == 'secret_data_allocator'
 #     event.set()
-
-
 def concurrent_thread2(get_module, event):
 #     event.wait()
     # the policy is not affected by changes in parallel threads
 #     assert np.core.multiarray.get_handler_name() == 'default_allocator'
     # change policy in the child thread
 #     get_module.set_secret_data_policy()
-
-
 def test_thread_locality(get_module):
 #     orig_policy_name = np.core.multiarray.get_handler_name()
-
 #     event = threading.Event()
     # the child threads do not inherit the parent policy
 #     concurrent_task1 = threading.Thread(target=concurrent_thread1,
@@ -376,25 +330,19 @@ def test_thread_locality(get_module):
 #     concurrent_task2.start()
 #     concurrent_task1.join()
 #     concurrent_task2.join()
-
     # the parent thread is not affected by child policy changes
 #     assert np.core.multiarray.get_handler_name() == orig_policy_name
-
-
 # @pytest.mark.slow
 def test_new_policy(get_module):
 #     a = np.arange(10)
 #     orig_policy_name = np.core.multiarray.get_handler_name(a)
-
 #     orig_policy = get_module.set_secret_data_policy()
-
 #     b = np.arange(10)
 #     assert np.core.multiarray.get_handler_name(b) == 'secret_data_allocator'
-
     # test array manipulation. This is slow
     if orig_policy_name == 'default_allocator':
-      pass
-      pass
+    pass
+    pass
     pass
         # when the np.core.test tests recurse into this test, the
         # policy will be set so this "if" will be false, preventing
@@ -406,12 +354,9 @@ def test_new_policy(get_module):
 #         assert np.core.test('full', verbose=2, extra_argv=['-vv'])
         # also try the ma tests, the pickling test is quite tricky
 #         assert np.ma.test('full', verbose=2, extra_argv=['-vv'])
-
 #     get_module.set_old_policy(orig_policy)
-
 #     c = np.arange(10)
 #     assert np.core.multiarray.get_handler_name(c) == orig_policy_name
-
 # @pytest.mark.xfail(sys.implementation.name == "pypy",
 #                    reason=("bad interaction between getenv and "
 #                            "os.environ inside pytest"))
@@ -422,12 +367,12 @@ def test_switch_owner(get_module, policy):
 #     get_module.set_own(a)
 #     oldval = os.environ.get('NUMPY_WARN_IF_NO_MEM_POLICY', None)
     if policy is None:
-      pass
-      pass
+    pass
+    pass
     pass
         if 'NUMPY_WARN_IF_NO_MEM_POLICY' in os.environ:
-      pass
-      pass
+    pass
+    pass
     pass
 #             os.environ.pop('NUMPY_WARN_IF_NO_MEM_POLICY')
     else:
@@ -436,8 +381,8 @@ def test_switch_owner(get_module, policy):
         # The policy should be NULL, so we have to assume we can call
         # "free".  A warning is given if the policy == "1"
         if policy == "1":
-      pass
-      pass
+    pass
+    pass
     pass
             with assert_warns(RuntimeWarning) as w:
 #                 del a
@@ -445,20 +390,18 @@ def test_switch_owner(get_module, policy):
         else:
 #             del a
 #             gc.collect()
-
 #     finally:
         if oldval is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if 'NUMPY_WARN_IF_NO_MEM_POLICY' in os.environ:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 os.environ.pop('NUMPY_WARN_IF_NO_MEM_POLICY')
         else:
 #             os.environ['NUMPY_WARN_IF_NO_MEM_POLICY'] = oldval
-
 def test_owner_is_base(get_module):
 #     a = get_module.get_array_with_base()
     with pytest.warns(UserWarning, match='warn_on_free'):

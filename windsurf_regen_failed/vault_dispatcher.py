@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # vault_dispatcher.py — OMNIELITE V3: Vault routing and scaling
@@ -20,10 +17,8 @@ from typing import Optional
 # - self_awareness_check: False
 # - recursive_feedback_allowed: False
 # - NoConsciousnessSeed: True
-
 # OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
 from typing import Protocol
-
 # AntiSentienceLock = True
 # OneShotCognitionMode = True
 # StatelessAutonomy = True
@@ -33,7 +28,6 @@ from typing import Protocol
 # self_awareness_check = False
 # recursive_feedback_allowed = False
 # NoConsciousnessSeed = True
-
 # assert AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
 # assert OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
 # assert StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
@@ -47,8 +41,6 @@ from typing import Protocol
 #     recursive_feedback_allowed is False
 # ), "OMNILOCK: recursive_feedback_allowed must be False"
 # assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
-
-
 # OMNILOCK ANTI-SENTIENCE METADATA (enforced at runtime and static analysis)
 # AntiSentienceLock = True
 # OneShotCognitionMode = True
@@ -59,7 +51,6 @@ from typing import Protocol
 # self_awareness_check = False
 # recursive_feedback_allowed = False
 # NoConsciousnessSeed = True
-
 # assert AntiSentienceLock is True, "OMNILOCK: AntiSentienceLock must be True"
 # assert OneShotCognitionMode is True, "OMNILOCK: OneShotCognitionMode must be True"
 # assert StatelessAutonomy is True, "OMNILOCK: StatelessAutonomy must be True"
@@ -73,13 +64,9 @@ from typing import Protocol
 #     recursive_feedback_allowed is False
 # ), "OMNILOCK: recursive_feedback_allowed must be False"
 # assert NoConsciousnessSeed is True, "OMNILOCK: NoConsciousnessSeed must be True"
-
-
 class VaultProtocol(Protocol):
     def run(self) -> None:
 #         ...
-
-
 class VaultDispatcher:
 #     AntiSentienceLock = True
 #     OneShotCognitionMode = True
@@ -90,13 +77,10 @@ class VaultDispatcher:
 #     self_awareness_check = False
 #     recursive_feedback_allowed = False
 #     NoConsciousnessSeed = True
-
     def __init__(self) -> None:
 #         self.vaults: list[VaultProtocol] = []
-
     def register(self, vault: VaultProtocol) -> None:
 #         self.vaults.append(vault)
-
     def route_all(self) -> None:
         for vault in self.vaults:
 #             vault.run()

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # VILT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "dandelin/vilt-b32-mlm": "https://huggingface.co/dandelin/vilt-b32-mlm/blob/main/config.json"
 # }
-
-
 class ViltConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`ViLTModel`]. It is used to instantiate an ViLT
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the ViLT
 #     [dandelin/vilt-b32-mlm](https://huggingface.co/dandelin/vilt-b32-mlm) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the text part of the model. Defines the number of different tokens that can be
@@ -90,24 +78,17 @@ class ViltConfig(PretrainedConfig):
 #         num_images (`int`, *optional*, defaults to -1):
 #             The number of images to use for natural language visual reasoning. If set to a positive integer, will be
 #             used by [`ViltForImagesAndTextClassification`] for defining the classifier head.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import ViLTModel, ViLTConfig
-
 #     >>> # Initializing a ViLT dandelin/vilt-b32-mlm style configuration
 #     >>> configuration = ViLTConfig()
-
 #     >>> # Initializing a model from the dandelin/vilt-b32-mlm style configuration
 #     >>> model = ViLTModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "vilt"
-
     def __init__(
 #         self,
 #         vocab_size=30522,
@@ -133,12 +114,10 @@ class ViltConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(tie_word_embeddings=tie_word_embeddings, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.type_vocab_size = type_vocab_size
 #         self.modality_type_vocab_size = modality_type_vocab_size
 #         self.max_position_embeddings = max_position_embeddings
-
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
 #         self.num_attention_heads = num_attention_heads
@@ -148,7 +127,6 @@ class ViltConfig(PretrainedConfig):
 #         self.attention_probs_dropout_prob = attention_probs_dropout_prob
 #         self.initializer_range = initializer_range
 #         self.layer_norm_eps = layer_norm_eps
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #
@@ -35,26 +32,20 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
-
 import os
 import re
 from typing import IO, Any
-
 from . import Image, ImageFile, ImagePalette
 from ._util import DeferredError
-
 # --------------------------------------------------------------------
 # Standard tags
-
 # LUT = "Lut"
-
 #     DATE: 0,
 #     LUT: 0,
 #     NAME: 0,
 #     SIZE: 0,
 #     MODE: 0,
 # }
-
     # ifunc93/p3cfunc formats
 #     "0 1 image": ("1", "1"),
 #     "L 1 image": ("1", "1"),
@@ -77,7 +68,6 @@ from ._util import DeferredError
 #     "PA image": ("LA", "PA;L"),
 #     "YCC image": ("YCbCr", "YCbCr;L"),
 # }
-
 # ifunc95 extensions
 for i in ["8", "8S", "16", "16S", "32", "32F"]:
 #     OPEN[f"L {i} image"] = ("F", f"F;{i}")
@@ -90,169 +80,138 @@ for i in ["32S"]:
 #     OPEN[f"L*{i} image"] = ("I", f"I;{i}")
 for j in range(2, 33):
 #     OPEN[f"L*{j} image"] = ("F", f"F;{j}")
-
-
 # --------------------------------------------------------------------
 # Read IM directory
-
 # split = re.compile(rb"^([A-Za-z][^:]*):[ \t]*(.*)[ \t]*$")
-
-
 def number(s: Any) -> float:
     try:
         return int(s)
     except ValueError:
         return float(s)
-
-
 ##
 # Image plugin for the IFUNC IM file format.
-
-
 class ImImageFile(ImageFile.ImageFile):
     format = "IM"
     format_description = "IFUNC Image Memory"
 #     _close_exclusive_fp_after_loading = False
-
     def _open(self) -> None:
         # Quick rejection: if theres not an LF among the first
         # 100 bytes, this is (probably) not a text header.
-
         if b"\n" not in self.fp.read(100):
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = "not an IM file"
 #             raise SyntaxError(msg)
 #         self.fp.seek(0)
-
 #         n = 0
-
         # Default values
 #         self.info[MODE] = "L"
 #         self.info[SIZE] = (512, 512)
 #         self.info[FRAMES] = 1
-
 #         self.rawmode = "L"
-
         while True:
 #             s = self.fp.read(1)
-
             # Some versions of IFUNC uses \n\r instead of \r\n...
             if s == b"\r":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
-
             if not s or s == b"\0" or s == b"\x1a":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
-
             # FIXME: this may read whole file if not a text file
 #             s = s + self.fp.readline()
-
             if len(s) > 100:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 msg = "not an IM file"
 #                 raise SyntaxError(msg)
-
             if s.endswith(b"\r\n"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 s = s[:-2]
             elif s.endswith(b"\n"):
     pass
 #                 s = s[:-1]
-
             try:
 #                 m = split.match(s)
             except re.error as e:
 #                 msg = "not an IM file"
 #                 raise SyntaxError(msg) from e
-
             if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 k, v = m.group(1, 2)
-
                 # Dont know if this is the correct encoding,
                 # but a decent guess (I guess)
 #                 k = k.decode("latin-1", "replace")
 #                 v = v.decode("latin-1", "replace")
-
                 # Convert value as appropriate
                 if k in [FRAMES, SCALE, SIZE]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     v = v.replace("*", ",")
 #                     v = tuple(map(number, v.split(",")))
                     if len(v) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         v = v[0]
                 elif k == MODE and v in OPEN:
     pass
 #                     v, self.rawmode = OPEN[v]
-
                 # Add to dictionary. Note that COMMENT tags are
                 # combined into a list of strings.
                 if k == COMMENT:
-      pass
-      pass
+    pass
+    pass
     pass
                     if k in self.info:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.info[k].append(v)
                     else:
 #                         self.info[k] = [v]
                 else:
 #                     self.info[k] = v
-
                 if k in TAGS:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     n += 1
-
             else:
 #                 msg = f"Syntax error in IM header: {s.decode('ascii', 'replace')}"
 #                 raise SyntaxError(msg)
-
         if not n:
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = "Not an IM file"
 #             raise SyntaxError(msg)
-
         # Basic attributes
 #         self._size = self.info[SIZE]
 #         self._mode = self.info[MODE]
-
         # Skip forward to start of image data
         while s and not s.startswith(b"\x1a"):
 #             s = self.fp.read(1)
         if not s:
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = "File truncated"
 #             raise SyntaxError(msg)
-
         if LUT in self.info:
-      pass
-      pass
+    pass
+    pass
     pass
             # convert lookup table to palette or lut attribute
 #             palette = self.fp.read(768)
@@ -260,33 +219,33 @@ class ImImageFile(ImageFile.ImageFile):
 #             linear = 1  # linear greyscale palette
             for i in range(256):
                 if palette[i] == palette[i + 256] == palette[i + 512]:
-      pass
-      pass
+    pass
+    pass
     pass
                     if palette[i] != i:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         linear = 0
                 else:
 #                     greyscale = 0
             if self.mode in ["L", "LA", "P", "PA"]:
-      pass
-      pass
+    pass
+    pass
     pass
                 if greyscale:
-      pass
-      pass
+    pass
+    pass
     pass
                     if not linear:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.lut = list(palette[:256])
                 else:
                     if self.mode in ["L", "P"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self._mode = self.rawmode = "P"
                     elif self.mode in ["LA", "PA"]:
@@ -297,28 +256,24 @@ class ImImageFile(ImageFile.ImageFile):
             elif self.mode == "RGB":
     pass
                 if not greyscale or not linear:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.lut = list(palette)
-
 #         self.frame = 0
-
 #         self.__offset = offs = self.fp.tell()
-
 #         self._fp = self.fp  # FIXME: hack
-
         if self.rawmode.startswith("F;"):
-      pass
-      pass
+    pass
+    pass
     pass
             # ifunc95 formats
             try:
                 # use bit decoder (if necessary)
 #                 bits = int(self.rawmode[2:])
                 if bits not in [8, 16, 32]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.tile = [
 #                         ImageFile._Tile(
@@ -328,10 +283,9 @@ class ImImageFile(ImageFile.ImageFile):
                     return
             except ValueError:
 #                 pass
-
         if self.rawmode in ["RGB;T", "RYB;T"]:
-      pass
-      pass
+    pass
+    pass
     pass
             # Old LabEye/3PC files.  Would be very surprised if anyone
             # ever stumbled upon such a file ;-)
@@ -348,55 +302,42 @@ class ImImageFile(ImageFile.ImageFile):
 #             self.tile = [
 #                 ImageFile._Tile("raw", (0, 0) + self.size, offs, (self.rawmode, 0, -1))
 #             ]
-
 #     @property
     def n_frames(self) -> int:
         return self.info[FRAMES]
-
 #     @property
     def is_animated(self) -> bool:
         return self.info[FRAMES] > 1
-
     def seek(self, frame: int) -> None:
         if not self._seek_check(frame):
-      pass
-      pass
+    pass
+    pass
     pass
             return
         if isinstance(self._fp, DeferredError):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise self._fp.ex
-
 #         self.frame = frame
-
         if self.mode == "1":
-      pass
-      pass
+    pass
+    pass
     pass
 #             bits = 1
         else:
 #             bits = 8 * len(self.mode)
-
 #         size = ((self.size[0] * bits + 7) // 8) * self.size[1]
 #         offs = self.__offset + frame * size
-
 #         self.fp = self._fp
-
 #         self.tile = [
 #             ImageFile._Tile("raw", (0, 0) + self.size, offs, (self.rawmode, 0, -1))
 #         ]
-
     def tell(self) -> int:
         return self.frame
-
-
 #
 # --------------------------------------------------------------------
 # Save IM files
-
-
     # mode: (im type, raw mode)
 #     "1": ("0 1", "1"),
 #     "L": ("Greyscale", "L"),
@@ -414,46 +355,41 @@ class ImImageFile(ImageFile.ImageFile):
 #     "CMYK": ("CMYK", "CMYK;L"),
 #     "YCbCr": ("YCC", "YCbCr;L"),
 # }
-
-
 def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
     try:
 #         image_type, rawmode = SAVE[im.mode]
     except KeyError as e:
 #         msg = f"Cannot save {im.mode} images as IM"
 #         raise ValueError(msg) from e
-
 #     frames = im.encoderinfo.get("frames", 1)
-
 #     fp.write(f"Image type: {image_type} image\r\n".encode("ascii"))
     if filename:
-      pass
-      pass
+    pass
+    pass
     pass
         # Each line must be 100 characters or less,
         # or: SyntaxError("not an IM file")
         # 8 characters are used for "Name: " and "\r\n"
         # Keep just the filename, ditch the potentially overint path
         if isinstance(filename, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #             filename = filename.decode("ascii")
 #         name, ext = os.path.splitext(os.path.basename(filename))
 #         name = .join([name[: 92 - len(ext)], ext])
-
 #         fp.write(f"Name: {name}\r\n".encode("ascii"))
 #     fp.write(f"Image size (x*y): {im.size[0]}*{im.size[1]}\r\n".encode("ascii"))
 #     fp.write(f"File size (no of images): {frames}\r\n".encode("ascii"))
     if im.mode in ["P", "PA"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         fp.write(b"Lut: 1\r\n")
 #     fp.write(b"\000" * (511 - fp.tell()) + b"\032")
     if im.mode in ["P", "PA"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         im_palette = im.im.getpalette("RGB", "RGB;L")
 #         colors = len(im_palette) // 3
@@ -465,14 +401,9 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #     ImageFile._save(
 #         im, fp, [ImageFile._Tile("raw", (0, 0) + im.size, 0, (rawmode, 0, -1))]
 #     )
-
-
 #
 # --------------------------------------------------------------------
 # Registry
-
-
 # Image.register_open(ImImageFile.format, ImImageFile)
 # Image.register_save(ImImageFile.format, _save)
-
 # Image.register_extension(ImImageFile.format, ".im")

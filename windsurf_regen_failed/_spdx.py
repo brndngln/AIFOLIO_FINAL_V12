@@ -1,21 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
-
 from __future__ import annotations
-
 from typing import TypedDict
-
 class SPDXLicense(TypedDict):
 #     id: str
 #     deprecated: bool
-
 class SPDXException(TypedDict):
 #     id: str
 #     deprecated: bool
-
-
 # VERSION = '3.25.0'
-
 # LICENSES: dict[str, SPDXLicense] = {
 #     '0bsd': {'id': '0BSD', 'deprecated': False},
 #     '3d-slicer-1.0': {'id': '3D-Slicer-1.0', 'deprecated': False},
@@ -684,7 +677,6 @@ class SPDXException(TypedDict):
 #     'zpl-2.0': {'id': 'ZPL-2.0', 'deprecated': False},
 #     'zpl-2.1': {'id': 'ZPL-2.1', 'deprecated': False},
 # }
-
 # EXCEPTIONS: dict[str, SPDXException] = {
 #     '389-exception': {'id': '389-exception', 'deprecated': False},
 #     'asterisk-exception': {'id': 'Asterisk-exception', 'deprecated': False},

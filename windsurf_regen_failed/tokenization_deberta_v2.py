@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,19 +19,13 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 import unicodedata
 from typing import Any, Dict, List, Optional, Tuple
-
 import sentencepiece as sp
-
 from ...tokenization_utils import AddedToken, PreTrainedTokenizer
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "vocab_file": {
 #         "microsoft/deberta-v2-xlarge": "https://huggingface.co/microsoft/deberta-v2-xlarge/resolve/main/spm.model",
 #         "microsoft/deberta-v2-xxlarge": "https://huggingface.co/microsoft/deberta-v2-xxlarge/resolve/main/spm.model",
@@ -46,25 +37,18 @@ from ...utils import logging
 #         ),
 #     }
 # }
-
 #     "microsoft/deberta-v2-xlarge": 512,
 #     "microsoft/deberta-v2-xxlarge": 512,
 #     "microsoft/deberta-v2-xlarge-mnli": 512,
 #     "microsoft/deberta-v2-xxlarge-mnli": 512,
 # }
-
 #     "microsoft/deberta-v2-xlarge": {"do_lower_case": False},
 #     "microsoft/deberta-v2-xxlarge": {"do_lower_case": False},
 #     "microsoft/deberta-v2-xlarge-mnli": {"do_lower_case": False},
 #     "microsoft/deberta-v2-xxlarge-mnli": {"do_lower_case": False},
 # }
-
-
-
 class DebertaV2Tokenizer(PreTrainedTokenizer):
-
 #     Constructs a DeBERTa-v2 tokenizer. Based on [SentencePiece](https://github.com/google/sentencepiece).
-
 #     Args:
 #         vocab_file (`str`):
 #             [SentencePiece](https://github.com/google/sentencepiece) file (generally has a *.spm* extension) that
@@ -97,23 +81,18 @@ class DebertaV2Tokenizer(PreTrainedTokenizer):
 #             Will be passed to the `SentencePieceProcessor.__init__()` method. The [Python wrapper for
 #             SentencePiece](https://github.com/google/sentencepiece/tree/master/python) can be used, among other things,
 #             to set:
-
 #             - `enable_sampling`: Enable subword regularization.
 #             - `nbest_size`: Sampling parameters for unigram. Invalid for BPE-Dropout.
-
 #               - `nbest_size = {0,1}`: No sampling is performed.
 #               - `nbest_size > 1`: samples from the nbest_size results.
 #               - `nbest_size < 0`: assuming that nbest_size is infinite and samples from the all hypothesis (lattice)
 #                 using forward-filtering-and-backward-sampling algorithm.
-
 #             - `alpha`: Smoothing parameter for unigram sampling, and dropout probability of merge operations for
 #               BPE-dropout.
-
 #     vocab_files_names = VOCAB_FILES_NAMES
 #     pretrained_vocab_files_map = PRETRAINED_VOCAB_FILES_MAP
 #     pretrained_init_configuration = PRETRAINED_INIT_CONFIGURATION
 #     max_model_input_sizes = PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES
-
     def __init__(
 #         self,
 #         vocab_file,
@@ -130,10 +109,9 @@ class DebertaV2Tokenizer(PreTrainedTokenizer):
 #         **kwargs,
 #     ) -> None:
 #         self.sp_model_kwargs = {} if sp_model_kwargs is None else sp_model_kwargs
-
         if not os.path.isfile(vocab_file):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Cant find a vocabulary file at path {vocab_file}. To load the vocabulary from a Google pretrained"
@@ -160,72 +138,52 @@ class DebertaV2Tokenizer(PreTrainedTokenizer):
 #             **kwargs,
 #         )
 #         self._tokenizer.special_tokens = self.all_special_tokens
-
 #     @property
     def vocab_size(self):
         return len(self.vocab)
-
 #     @property
     def vocab(self):
         return self._tokenizer.vocab
-
     def get_vocab(self):
 #         vocab = self.vocab.copy()
 #         vocab.update(self.get_added_vocab())
         return vocab
-
     def _tokenize(self, text: str) -> List[str]:
-
         if self.do_lower_case:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = text.lower()
         return self._tokenizer.tokenize(text)
-
     def _convert_token_to_id(self, token):
-
         return self._tokenizer.spm.PieceToId(token)
-
     def _convert_id_to_token(self, index):
-
         return self._tokenizer.spm.IdToPiece(index) if index < self.vocab_size else self.unk_token
-
     def convert_tokens_to_string(self, tokens):
-
         return self._tokenizer.decode(tokens)
-
     def build_inputs_with_special_tokens(self, token_ids_0, token_ids_1=None):
-
 #         Build model inputs from a sequence or a pair of sequence for sequence classification tasks by concatenating and
 #         adding special tokens. A DeBERTa sequence has the following format:
-
 #         - single sequence: [CLS] X [SEP]
 #         - pair of sequences: [CLS] A [SEP] B [SEP]
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs to which the special tokens will be added.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: List of [input IDs](../glossary#input-ids) with the appropriate special tokens.
-
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return [self.cls_token_id] + token_ids_0 + [self.sep_token_id]
 #         cls = [self.cls_token_id]
 #         sep = [self.sep_token_id]
         return cls + token_ids_0 + sep + token_ids_1 + sep
-
     def get_special_tokens_mask(self, token_ids_0, token_ids_1=None, already_has_special_tokens=False):
-
 #         Retrieves sequence ids from a token list that has no special tokens added. This method is called when adding
 #         special tokens using the tokenizer `prepare_for_model` or `encode_plus` methods.
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs.
@@ -233,72 +191,57 @@ class DebertaV2Tokenizer(PreTrainedTokenizer):
 #                 Optional second list of IDs for sequence pairs.
 #             already_has_special_tokens (`bool`, *optional*, defaults to `False`):
 #                 Whether or not the token list is already formatted with special tokens for the model.
-
 #         Returns:
 #             `List[int]`: A list of integers in the range [0, 1]: 1 for a special token, 0 for a sequence token.
-
         if already_has_special_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
             return super().get_special_tokens_mask(
 #                 token_ids_0=token_ids_0, token_ids_1=token_ids_1, already_has_special_tokens=True
 #             )
-
         if token_ids_1 is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return [1] + ([0] * len(token_ids_0)) + [1] + ([0] * len(token_ids_1)) + [1]
         return [1] + ([0] * len(token_ids_0)) + [1]
-
     def create_token_type_ids_from_sequences(self, token_ids_0, token_ids_1=None):
-
 #         Create a mask from the two sequences passed to be used in a sequence-pair classification task. A DeBERTa
 #         sequence pair mask has the following format:
-
 #         ```
 #         0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1
 #         | first sequence    | second sequence |
 #         ```
-
 #         If `token_ids_1` is `None`, this method only returns the first portion of the mask (0s).
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: List of [token type IDs](../glossary#token-type-ids) according to the given sequence(s).
-
 #         sep = [self.sep_token_id]
 #         cls = [self.cls_token_id]
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return len(cls + token_ids_0 + sep) * [0]
         return len(cls + token_ids_0 + sep) * [0] + len(token_ids_1 + sep) * [1]
-
     def prepare_for_tokenization(self, text, is_split_into_words=False, **kwargs):
 #         add_prefix_space = kwargs.pop("add_prefix_space", False)
         if is_split_into_words or add_prefix_space:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = " " + text
         return (text, kwargs)
-
     def save_vocabulary(self, save_directory: str, filename_prefix: Optional[str] = None) -> Tuple[str]:
         return self._tokenizer.save_pretrained(save_directory, filename_prefix=filename_prefix)
-
-
 class SPMTokenizer:
 #     r
 #     Constructs a tokenizer based on [SentencePiece](https://github.com/google/sentencepiece).
-
 #     Args:
 #         vocab_file (`str`):
 #             [SentencePiece](https://github.com/google/sentencepiece) file (generally has a *.spm* extension) that
@@ -307,18 +250,14 @@ class SPMTokenizer:
 #             Will be passed to the `SentencePieceProcessor.__init__()` method. The [Python wrapper for
 #             SentencePiece](https://github.com/google/sentencepiece/tree/master/python) can be used, among other things,
 #             to set:
-
 #             - `enable_sampling`: Enable subword regularization.
 #             - `nbest_size`: Sampling parameters for unigram. Invalid for BPE-Dropout.
-
 #               - `nbest_size = {0,1}`: No sampling is performed.
 #               - `nbest_size > 1`: samples from the nbest_size results.
 #               - `nbest_size < 0`: assuming that nbest_size is infinite and samples from the all hypothesis (lattice)
 #                 using forward-filtering-and-backward-sampling algorithm.
-
 #             - `alpha`: Smoothing parameter for unigram sampling, and dropout probability of merge operations for
 #               BPE-dropout.
-
     def __init__(
 #         self, vocab_file, special_tokens, split_by_punct=False, sp_model_kwargs: Optional[Dict[str, Any]] = None
 #     ):
@@ -327,8 +266,8 @@ class SPMTokenizer:
 #         self.sp_model_kwargs = {} if sp_model_kwargs is None else sp_model_kwargs
 #         spm = sp.SentencePieceProcessor(**self.sp_model_kwargs)
         if not os.path.exists(vocab_file):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise FileNotFoundError(f"{vocab_file} does not exist!")
 #         spm.load(vocab_file)
@@ -343,41 +282,33 @@ class SPMTokenizer:
         # self.vocab['[CLS]'] = 1
         # self.vocab['[SEP]'] = 2
         # self.vocab['[UNK]'] = 3
-
 #         self.spm = spm
 #         self.special_tokens = special_tokens
-
     def __getstate__(self):
 #         state = self.__dict__.copy()
 #         state["spm"] = None
         return state
-
     def __setstate__(self, d):
 #         self.__dict__ = d
-
         # for backward compatibility
         if not hasattr(self, "sp_model_kwargs"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.sp_model_kwargs = {}
-
 #         self.spm = sp.SentencePieceProcessor(**self.sp_model_kwargs)
 #         self.spm.Load(self.vocab_file)
-
     def tokenize(self, text):
         return self._encode_as_pieces(text)
-
     def convert_ids_to_tokens(self, ids):
 #         tokens = []
         for i in ids:
 #             tokens.append(self.ids_to_tokens[i])
         return tokens
-
     def decode(self, tokens, start=-1, end=-1, raw_text=None):
         if raw_text is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             current_sub_tokens = []
 #             out_string =
@@ -385,12 +316,12 @@ class SPMTokenizer:
             for token in tokens:
                 # make sure that special tokens are not decoded using sentencepiece model
                 if token in self.special_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
                     if not prev_is_special:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         out_string += " "
 #                     out_string += self.spm.decode_pieces(current_sub_tokens) + token
@@ -414,29 +345,27 @@ class SPMTokenizer:
 #             word_end = token2words[end] if end < len(tokens) else len(words)
 #             text = .join(words[word_start:word_end])
             return text
-
     # TODO add a deprecation cycle as this can have different behaviour from our API
     def add_special_token(self, token):
         if token not in self.special_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.special_tokens.append(token)
             if token not in self.vocab:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.vocab[token] = len(self.vocab) - 1
 #                 self.ids_to_tokens.append(token)
         return self.id(token)
-
     def part_of_whole_word(self, token, is_bos=False):
 #         logger.warning_once(
 #             "The `DebertaTokenizer.part_of_whole_word` method is deprecated and will be removed in `transformers==4.35`"
 #         )
         if is_bos:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
         if (
@@ -444,46 +373,36 @@ class SPMTokenizer:
 #             and (_is_whitespace(list(token)[0]) or _is_control(list(token)[0]) or _is_punctuation(list(token)[0]))
 #         ) or token in self.special_tokens:
             return False
-
 #         word_start = b"\xe2\x96\x81".decode("utf-8")
         return not token.startswith(word_start)
-
     def pad(self):
         return "[PAD]"
-
     def bos(self):
         return "[CLS]"
-
     def eos(self):
         return "[SEP]"
-
     def unk(self):
         return "[UNK]"
-
     def mask(self):
         return "[MASK]"
-
     def sym(self, id):
         return self.ids_to_tokens[id]
-
     def id(self, sym):
 #         logger.warning_once(
 #             "The `DebertaTokenizer.id` method is deprecated and will be removed in `transformers==4.35`"
 #         )
         return self.vocab[sym] if sym in self.vocab else 1
-
     def _encode_as_pieces(self, text):
 #         text = convert_to_unicode(text)
         if self.split_by_punct:
-      pass
-      pass
+    pass
+    pass
     pass
 #             words = self._run_split_on_punc(text)
 #             pieces = [self.spm.encode(w, out_type=str) for w in words]
             return [p for w in pieces for p in w]
         else:
             return self.spm.encode(text, out_type=str)
-
     def split_to_words(self, text):
 #         pieces = self._encode_as_pieces(text)
 #         word_start = b"\xe2\x96\x81".decode("utf-8")
@@ -492,12 +411,12 @@ class SPMTokenizer:
 #         prev_end = 0
         for i, p in enumerate(pieces):
             if p.startswith(word_start):
-      pass
-      pass
+    pass
+    pass
     pass
                 if offset > prev_end:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     words.append(text[prev_end:offset])
 #                 prev_end = offset
@@ -511,32 +430,27 @@ class SPMTokenizer:
                 while k < len(pieces):
 #                     pn = pieces[k].replace(word_start, )
                     if len(pn) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         break
 #                     k += 1
-
                 if len(pn) > 0 and pn in text[offset:s]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     offset = offset + 1
                 else:
 #                     offset = s + len(w)
             except Exception:
 #                 offset = offset + 1
-
         if prev_end < offset:
-      pass
-      pass
+    pass
+    pass
     pass
 #             words.append(text[prev_end:offset])
-
         return words
-
     def _run_split_on_punc(self, text):
-
 #         chars = list(text)
 #         i = 0
 #         start_new_word = True
@@ -544,98 +458,84 @@ class SPMTokenizer:
         while i < len(chars):
 #             char = chars[i]
             if _is_punctuation(char):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 output.append([char])
 #                 start_new_word = True
             else:
                 if start_new_word:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     output.append([])
 #                 start_new_word = False
 #                 output[-1].append(char)
 #             i += 1
-
         return [.join(x) for x in output]
-
     def save_pretrained(self, path: str, filename_prefix: str = None):
 #         filename = VOCAB_FILES_NAMES[list(VOCAB_FILES_NAMES.keys())[0]]
         if filename_prefix is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             filename = filename_prefix + "-" + filename
 #         full_path = os.path.join(path, filename)
         with open(full_path, "wb") as fs:
 #             fs.write(self.spm.serialized_model_proto())
         return (full_path,)
-
-
 def _is_whitespace(char):
-
     # \t, \n, and \r are technically control characters but we treat them
     # as whitespace since they are generally considered as such.
     if char == " " or char == "\t" or char == "\n" or char == "\r":
-      pass
-      pass
+    pass
+    pass
     pass
         return True
 #     cat = unicodedata.category(char)
     if cat == "Zs":
-      pass
-      pass
+    pass
+    pass
     pass
         return True
     return False
-
-
 def _is_control(char):
-
     # These are technically control characters but we count them as whitespace
     # characters.
     if char == "\t" or char == "\n" or char == "\r":
-      pass
-      pass
+    pass
+    pass
     pass
         return False
 #     cat = unicodedata.category(char)
     if cat.startswith("C"):
-      pass
-      pass
+    pass
+    pass
     pass
         return True
     return False
-
-
 def _is_punctuation(char):
-
 #     cp = ord(char)
     # We treat all non-letter/number ASCII as punctuation.
     # Characters such as "^", "$", and "`" are not in the Unicode
     # Punctuation class but we treat them as punctuation anyways, for
     # consistency.
     if (cp >= 33 and cp <= 47) or (cp >= 58 and cp <= 64) or (cp >= 91 and cp <= 96) or (cp >= 123 and cp <= 126):
-      pass
-      pass
+    pass
+    pass
     pass
         return True
 #     cat = unicodedata.category(char)
     if cat.startswith("P"):
-      pass
-      pass
+    pass
+    pass
     pass
         return True
     return False
-
-
 def convert_to_unicode(text):
-
     if isinstance(text, str):
-      pass
-      pass
+    pass
+    pass
     pass
         return text
     elif isinstance(text, bytes):

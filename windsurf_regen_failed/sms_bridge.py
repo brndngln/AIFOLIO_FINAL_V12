@@ -1,19 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import os
 import requests
 import logging
-
-
 def send_sms_alert(payload):
 #     url = os.getenv("TWILIO_API_URL")
 #     sid = os.getenv("TWILIO_ACCOUNT_SID")
@@ -22,8 +17,8 @@ def send_sms_alert(payload):
 #     to_num = payload.get("to")
 #     body = payload.get("body")
     if not url or not sid or not token or not from_num or not to_num or not body:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logging.warning("Twilio SMS config missing")
         return

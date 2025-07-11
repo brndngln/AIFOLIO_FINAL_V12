@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "edbeeching/decision-transformer-gym-hopper-medium": (
 #         "https://huggingface.co/edbeeching/decision-transformer-gym-hopper-medium/resolve/main/config.json"
 #     ),
     # See all DecisionTransformer models at https://huggingface.co/models?filter=decision_transformer
 # }
-
-
 class DecisionTransformerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`DecisionTransformerModel`]. It is used to
 #     instantiate a Decision Transformer model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the standard
 #     DecisionTransformer architecture. Many of the config options are used to instatiate the GPT2 model that is used as
 #     part of the architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         state_dim (`int`, *optional*, defaults to 17):
 #             The state size for the RL environment
@@ -92,22 +79,16 @@ class DecisionTransformerConfig(PretrainedConfig):
 #         reorder_and_upcast_attn (`bool`, *optional*, defaults to `False`):
 #             Whether to scale keys (K) prior to computing attention (dot-product) and upcast attention
 #             dot-product/softmax to float() when training with mixed precision.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import DecisionTransformerConfig, DecisionTransformerModel
-
 #     >>> # Initializing a DecisionTransformer configuration
 #     >>> configuration = DecisionTransformerConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = DecisionTransformerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "decision_transformer"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -115,7 +96,6 @@ class DecisionTransformerConfig(PretrainedConfig):
 #         "num_attention_heads": "n_head",
 #         "num_hidden_layers": "n_layer",
 #     }
-
     def __init__(
 #         self,
 #         state_dim=17,
@@ -162,8 +142,6 @@ class DecisionTransformerConfig(PretrainedConfig):
 #         self.use_cache = use_cache
 #         self.scale_attn_by_inverse_layer_idx = scale_attn_by_inverse_layer_idx
 #         self.reorder_and_upcast_attn = reorder_and_upcast_attn
-
 #         self.bos_token_id = bos_token_id
 #         self.eos_token_id = eos_token_id
-
 #         super().__init__(bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)

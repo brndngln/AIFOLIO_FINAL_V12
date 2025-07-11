@@ -2,20 +2,14 @@ from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from datetime import datetime
 from typing import Iterable, List, Optional, TYPE_CHECKING, Union, Callable
-
-
 from .text import Text, TextType
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .console import Console, ConsoleRenderable, RenderableType
     from .table import Table
-
 # FormatTimeCallable = Callable[[datetime], Text]
-
-
 class LogRender:
     def __init__(
 #         self,
@@ -33,7 +27,6 @@ class LogRender:
 #         self.omit_repeated_times = omit_repeated_times
 #         self.level_width = level_width
 #         self._last_time: Optional[Text] = None
-
     def __call__(
 #         self,
 #         console: "Console",
@@ -47,65 +40,63 @@ class LogRender:
 #     ) -> "Table":
         from .containers import Renderables
         from .table import Table
-
 #         output = Table.grid(padding=(0, 1))
 #         output.expand = True
         if self.show_time:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output.add_column(style="log.time")
         if self.show_level:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output.add_column(style="log.level", width=self.level_width)
 #         output.add_column(ratio=1, style="log.message", overflow="fold")
         if self.show_path and path:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output.add_column(style="log.path")
 #         row: List["RenderableType"] = []
         if self.show_time:
-      pass
-      pass
+    pass
+    pass
     pass
 #             log_time = log_time or console.get_datetime()
 #             time_format = time_format or self.time_format
             if callable(time_format):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 log_time_display = time_format(log_time)
             else:
 #                 log_time_display = Text(log_time.strftime(time_format))
             if log_time_display == self._last_time and self.omit_repeated_times:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 row.append(Text(" " * len(log_time_display)))
             else:
 #                 row.append(log_time_display)
 #                 self._last_time = log_time_display
         if self.show_level:
-      pass
-      pass
+    pass
+    pass
     pass
 #             row.append(level)
-
 #         row.append(Renderables(renderables))
         if self.show_path and path:
-      pass
-      pass
+    pass
+    pass
     pass
 #             path_text = Text()
 #             path_text.append(
 #                 path, style=f"link file://{link_path}" if link_path else ""
 #             )
             if line_no:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 path_text.append(":")
 #                 path_text.append(
@@ -113,14 +104,10 @@ class LogRender:
 #                     style=f"link file://{link_path}#{line_no}" if link_path else "",
 #                 )
 #             row.append(path_text)
-
 #         output.add_row(*row)
         return output
-
-
 if __name__ == "__main__":  # pragma: no cover
     from pip._vendor.rich.console import Console
-
 #     c = Console()
 #     c.print("[on blue]Hello", justify="right")
 #     c.log("[on blue]hello", justify="right")

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,39 +19,28 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Processor class for Bros.
-
 from typing import List, Optional, Union
-
 from ...processing_utils import ProcessorMixin
 from ...tokenization_utils_base import BatchEncoding, PaddingStrategy, PreTokenizedInput, TextInput, TruncationStrategy
 from ...utils import TensorType
-
-
 class BrosProcessor(ProcessorMixin):
 #     r
 #     Constructs a Bros processor which wraps a BERT tokenizer.
-
 #     [`BrosProcessor`] offers all the functionalities of [`BertTokenizerFast`]. See the docstring of
 #     [`~BrosProcessor.__call__`] and [`~BrosProcessor.decode`] for more information.
-
 #     Args:
 #         tokenizer (`BertTokenizerFast`, *optional*):
 #             An instance of [BertTokenizerFast`]. The tokenizer is a required input.
-
 #     attributes = ["tokenizer"]
 #     tokenizer_class = ("BertTokenizer", "BertTokenizerFast")
-
     def __init__(self, tokenizer=None, **kwargs):
         if tokenizer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to specify a `tokenizer`.")
-
 #         super().__init__(tokenizer)
-
     def __call__(
 #         self,
 #         text: Union[TextInput, PreTokenizedInput, List[TextInput], List[PreTokenizedInput]] = None,
@@ -74,11 +60,8 @@ class BrosProcessor(ProcessorMixin):
         return_tensors: Optional[Union[str, TensorType]] = None,
 #         **kwargs,
 #     ) -> BatchEncoding:
-
 #         This method uses [`BertTokenizerFast.__call__`] to prepare text for the model.
-
 #         Please refer to the docstring of the above two methods for more information.
-
 #         encoding = self.tokenizer(
 #             text=text,
 #             add_special_tokens=add_special_tokens,
@@ -97,23 +80,15 @@ class BrosProcessor(ProcessorMixin):
             return_tensors=return_tensors,
 #             **kwargs,
 #         )
-
         return encoding
-
     def batch_decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to BertTokenizerFasts [`~PreTrainedTokenizer.batch_decode`]. Please
 #         refer to the docstring of this method for more information.
-
         return self.tokenizer.batch_decode(*args, **kwargs)
-
     def decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to BertTokenizerFasts [`~PreTrainedTokenizer.decode`]. Please refer to
 #         the docstring of this method for more information.
-
         return self.tokenizer.decode(*args, **kwargs)
-
 #     @property
     def model_input_names(self):
 #         tokenizer_input_names = self.tokenizer.model_input_names

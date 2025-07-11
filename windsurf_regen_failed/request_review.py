@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -14,15 +11,11 @@ import logging
 import requests
 import json
 from .retry_utils import retry_safe_hook
-
-
 class request_review:
 #     @staticmethod
 #     @retry_safe_hook(max_attempts=3, backoff_tier="short")
     def schedule_email(buyer_email, delay_hours=24):
-
 #         Schedules a review request email to the buyer after a vault sale. Retries up to 3 times on failure, logs all exceptions.
-
 #         api_key = os.environ.get("SENDGRID_API_KEY")
 #         sender = os.environ.get("SENDGRID_FROM_EMAIL", "noreply@aifolio.com")
 #         subject = "How was your AIFOLIO experience?"
@@ -33,8 +26,8 @@ class request_review:
 #         entry = {"buyer_email": buyer_email, "delay_hours": delay_hours}
         try:
             if api_key:
-      pass
-      pass
+    pass
+    pass
     pass
                 # In production, schedule via Celery or similar. Here, just
                 # send immediately for demo.
@@ -53,8 +46,8 @@ class request_review:
 #                     timeout=10,
 #                 )
                 if resp.status_code == 202:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logging.info(f"[AIFOLIO] Review request sent to {buyer_email}.")
                 else:
@@ -63,8 +56,8 @@ class request_review:
 #                     )
             else:
                 if os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
                     with open(log_path, "r+") as f:
 #                         logs = json.load(f)

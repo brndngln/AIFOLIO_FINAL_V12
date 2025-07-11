@@ -1,26 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import json
 import os
 from collections import Counter
-
 #     os.path.join(os.path.dirname(__file__), "../../analytics/ai_safety_log.jsonl")
 # )
-
-
 def summarize_guard_blocks():
     if not os.path.exists(SAFETY_LOG):
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("No ai_safety_log.jsonl found.")
         return
@@ -30,8 +24,8 @@ def summarize_guard_blocks():
         for line in f:
 #             entry = json.loads(line)
             if not entry.get("safe", True):
-      pass
-      pass
+    pass
+    pass
     pass
                 for pat in entry.get("patterns_detected", []):
 #                     pattern_counts[pat] += 1

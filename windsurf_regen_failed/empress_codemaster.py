@@ -1,25 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # AIFOLIO
 # Persona: Mature, charismatic Australian-accented assistant; elite in all coding domains; visual/voice avatar configurable.
 # All logic is static, deterministic, SAFE AI-compliant, and OWNER-controlled.
-
 import logging
 from typing import Any, Dict, Optional
 from empress_avatar import EmpressAvatar, EmotionalIntelligenceLayer
 from owner_lockdown import owner_approval_required, never_without_you
-
-
 class EmpressCodeMaster:
     def __init__(
 #         self,
@@ -70,19 +63,16 @@ class EmpressCodeMaster:
 #             "Emerging",
 #         ]
 #         self.ide = None  # To be linked with codemaster_ide
-
 #     @owner_approval_required("Code Generation")
     def generate_code(self, spec: Dict[str, Any], language: str = "Python") -> str:
 #         logging.info(f"[CodeMaster] Generating {language} code for spec: {spec}")
         # Static SAFE AI: returns stub code
         return f'# {language} code for: {spec.get("description", "No Description")}\npass\n'
-
 #     @owner_approval_required("Code Review")
     def review_code(self, code: str, language: str = "Python") -> Dict[str, Any]:
 #         logging.info(f"[CodeMaster] Reviewing {language} code.")
         # Static SAFE AI: returns stub review
         return {"issues": [], "suggestions": ["Code is clean and SAFE AI-compliant."]}
-
 #     @owner_approval_required("Refactor Code")
     def refactor_code(
 #         self, code: str, language: str = "Python", style: Optional[str] = None
@@ -91,15 +81,12 @@ class EmpressCodeMaster:
 #             f"[CodeMaster] Refactoring {language} code to style: {style or self.coding_style}"
 #         )
         return code + f"\n# Refactored to {style or self.coding_style} style."
-
     def set_coding_style(self, style: str) -> str:
 #         self.coding_style = style
         return self.coding_style
-
     def set_avatar(self, style: str, voice: str) -> dict[str, Any]:
 #         self.avatar.set_style(style)
 #         self.avatar.set_voice(voice)
         return self.avatar.describe()
-
     def adapt_ei(self, mood: str, stress: str, energy: str, goals: str) -> Any:
         return self.ei_layer.adapt_to_owner(mood, stress, energy, goals)

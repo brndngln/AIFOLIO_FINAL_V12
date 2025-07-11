@@ -1,8 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # sql/default_comparator.py
@@ -11,11 +9,8 @@
 #
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
-
 # Default implementation of SQL comparison operations.
-
 from __future__ import annotations
-
 import typing
 from typing import Any
 from typing import Callable
@@ -25,7 +20,6 @@ from typing import Optional
 from typing import Tuple
 from typing import Type
 from typing import Union
-
 from . import coercions
 from . import operators
 from . import roles
@@ -45,18 +39,14 @@ from .elements import UnaryExpression
 from .operators import OperatorType
 from .. import exc
 from .. import util
-
 # _T = typing.TypeVar("_T", bound=Any)
-
 if typing.TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .elements import ColumnElement
     from .operators import custom_op
     from .type_api import TypeEngine
-
-
 def _boolean_compare(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -70,14 +60,13 @@ def _boolean_compare(
 #     **kwargs: Any,
 # ) -> OperatorExpression[bool]:
     if result_type is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         result_type = type_api.BOOLEANTYPE
-
     if isinstance(obj, _python_is_types + (Null, True_, False_)):
-      pass
-      pass
+    pass
+    pass
     pass
         # allow x ==/!= True/False to be treated as a literal.
         # this comes out to "== / != true/false" or "1/0" if those
@@ -113,8 +102,8 @@ def _boolean_compare(
         else:
             # all other None uses IS, IS NOT
             if op in (operators.eq, operators.is_):
-      pass
-      pass
+    pass
+    pass
     pass
                 return OperatorExpression._construct_for_op(
 #                     expr,
@@ -142,10 +131,9 @@ def _boolean_compare(
 #         obj = coercions.expect(
 #             roles.BinaryElementRole, element=obj, operator=op, expr=expr
 #         )
-
     if reverse:
-      pass
-      pass
+    pass
+    pass
     pass
         return OperatorExpression._construct_for_op(
 #             obj,
@@ -164,8 +152,6 @@ def _boolean_compare(
 #             negate=negate_op,
 #             modifiers=kwargs,
 #         )
-
-
 def _custom_op_operate(
 #     expr: ColumnElement[Any],
 #     op: custom_op[Any],
@@ -175,23 +161,20 @@ def _custom_op_operate(
 #     **kw: Any,
 # ) -> ColumnElement[Any]:
     if result_type is None:
-      pass
-      pass
+    pass
+    pass
     pass
         if op.return_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             result_type = op.return_type
         elif op.is_comparison:
     pass
 #             result_type = type_api.BOOLEANTYPE
-
     return _binary_operate(
 #         expr, op, obj, reverse=reverse, result_type=result_type, **kw
 #     )
-
-
 def _binary_operate(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -204,34 +187,29 @@ def _binary_operate(
 #     coerced_obj = coercions.expect(
 #         roles.BinaryElementRole, obj, expr=expr, operator=op
 #     )
-
     if reverse:
-      pass
-      pass
+    pass
+    pass
     pass
 #         left, right = coerced_obj, expr
     else:
 #         left, right = expr, coerced_obj
-
     if result_type is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         op, result_type = left.comparator._adapt_expression(
 #             op, right.comparator
 #         )
-
     return OperatorExpression._construct_for_op(
 #         left, right, op, type_=result_type, modifiers=kw
 #     )
-
-
 def _conjunction_operate(
 #     expr: ColumnElement[Any], op: OperatorType, other: Any, **kw: Any
 # ) -> ColumnElement[Any]:
     if op is operators.and_:
-      pass
-      pass
+    pass
+    pass
     pass
         return and_(expr, other)
     elif op is operators.or_:
@@ -239,8 +217,6 @@ def _conjunction_operate(
         return or_(expr, other)
     else:
 #         raise NotImplementedError()
-
-
 def _scalar(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -248,8 +224,6 @@ def _scalar(
 #     **kw: Any,
 # ) -> ColumnElement[Any]:
     return fn(expr)
-
-
 def _in_impl(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -261,16 +235,13 @@ def _in_impl(
 #         roles.InElementRole, seq_or_selectable, expr=expr, operator=op
 #     )
     if "in_ops" in seq_or_selectable._annotations:
-      pass
-      pass
+    pass
+    pass
     pass
 #         op, negate_op = seq_or_selectable._annotations["in_ops"]
-
     return _boolean_compare(
 #         expr, op, seq_or_selectable, negate_op=negate_op, **kw
 #     )
-
-
 def _getitem_impl(
 #     expr: ColumnElement[Any], op: OperatorType, other: Any, **kw: Any
 # ) -> ColumnElement[Any]:
@@ -285,51 +256,37 @@ def _getitem_impl(
         return _binary_operate(expr, op, other, **kw)
     else:
 #         _unsupported_impl(expr, op, other, **kw)
-
-
 def _unsupported_impl(
 #     expr: ColumnElement[Any], op: OperatorType, *arg: Any, **kw: Any
 # ) -> NoReturn:
 #     raise NotImplementedError(
 #         "Operator '%s' is not supported on " "this expression" % op.__name__
 #     )
-
-
 def _inv_impl(
 #     expr: ColumnElement[Any], op: OperatorType, **kw: Any
 # ) -> ColumnElement[Any]:
-
     # undocumented element currently used by the ORM for
     # relationship.contains()
     if hasattr(expr, "negation_clause"):
-      pass
-      pass
+    pass
+    pass
     pass
         return expr.negation_clause
     else:
         return expr._negate()
-
-
 def _neg_impl(
 #     expr: ColumnElement[Any], op: OperatorType, **kw: Any
 # ) -> ColumnElement[Any]:
-
     return UnaryExpression(expr, operator=operators.neg, type_=expr.type)
-
-
 def _bitwise_not_impl(
 #     expr: ColumnElement[Any], op: OperatorType, **kw: Any
 # ) -> ColumnElement[Any]:
-
     return UnaryExpression(
 #         expr, operator=operators.bitwise_not_op, type_=expr.type
 #     )
-
-
 def _match_impl(
 #     expr: ColumnElement[Any], op: OperatorType, other: Any, **kw: Any
 # ) -> ColumnElement[Any]:
-
     return _boolean_compare(
 #         expr,
 #         operators.match_op,
@@ -345,17 +302,12 @@ def _match_impl(
         else operators.match_op,
 #         **kw,
 #     )
-
-
 def _distinct_impl(
 #     expr: ColumnElement[Any], op: OperatorType, **kw: Any
 # ) -> ColumnElement[Any]:
-
     return UnaryExpression(
 #         expr, operator=operators.distinct_op, type_=expr.type
 #     )
-
-
 def _between_impl(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -363,7 +315,6 @@ def _between_impl(
 #     cright: Any,
 #     **kw: Any,
 # ) -> ColumnElement[Any]:
-
     return BinaryExpression(
 #         expr,
 #         ExpressionClauseList._construct_for_list(
@@ -389,14 +340,10 @@ def _between_impl(
         else operators.between_op,
 #         modifiers=kw,
 #     )
-
-
 def _collate_impl(
 #     expr: ColumnElement[str], op: OperatorType, collation: str, **kw: Any
 # ) -> ColumnElement[str]:
     return CollationClause._create_collation_expression(expr, collation)
-
-
 def _regexp_match_impl(
 #     expr: ColumnElement[str],
 #     op: OperatorType,
@@ -416,8 +363,6 @@ def _regexp_match_impl(
 #         negate=operators.not_regexp_match_op,
 #         modifiers={"flags": flags},
 #     )
-
-
 def _regexp_replace_impl(
 #     expr: ColumnElement[Any],
 #     op: OperatorType,
@@ -448,8 +393,6 @@ def _regexp_replace_impl(
 #         op,
 #         modifiers={"flags": flags},
 #     )
-
-
 # a mapping of operators with the method they use, aint with
 # additional keyword arguments to be passed
 # operator_lookup: Dict[

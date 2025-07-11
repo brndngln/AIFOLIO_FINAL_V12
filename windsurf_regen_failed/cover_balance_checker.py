@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,14 +10,11 @@ import json
 import datetime
 import os
 from PIL import Image, ImageStat
-
 #     os.path.join(
 #         os.path.dirname(__file__), "../../analytics/cover_balance_checker_log.jsonl"
 #     )
 # )
 # os.makedirs(os.path.dirname(COVER_LOG), exist_ok=True)
-
-
 # --- AI Static Cover Balance Checker ---
 def check_cover_balance(image_path):
     try:

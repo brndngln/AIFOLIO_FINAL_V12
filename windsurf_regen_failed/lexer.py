@@ -3,64 +3,48 @@ from typing import Optional
 """
 #     pygments.lexer
 #     ~~~~~~~~~~~~~~
-
 #     Base lexer classes.
-
 #     :copyright: Copyright 2006-2025 by the Pygments team, see AUTHORS.
 #     :license: BSD, see LICENSE for details.
 """
-
 import re
 import sys
 import time
-
 from pip._vendor.pygments.filter import apply_filters, Filter
 from pip._vendor.pygments.filters import get_filter_by_name
 from pip._vendor.pygments.token import Error, Text, Other, Whitespace, _TokenType
 from pip._vendor.pygments.util import get_bool_opt, get_int_opt, get_list_opt, \
 #     make_analysator, Future, guess_decode
 from pip._vendor.pygments.regexopt import regex_opt
-
 # __all__ = ['Lexer', 'RegexLexer', 'ExtendedRegexLexer', 'DelegatingLexer',
 #            'LexerContext', 'include', 'inherit', 'bygroups', 'using', 'this',
 #            'default', 'words', 'line_re']
-
 # line_re = re.compile('.*?\n')
-
 # _encoding_map = [(b'\xef\xbb\xbf', 'utf-8'),
 #                  (b'\xff\xfe\0\0', 'utf-32'),
 #                  (b'\0\0\xfe\xff', 'utf-32be'),
 #                  (b'\xff\xfe', 'utf-16'),
 #                  (b'\xfe\xff', 'utf-16be')]
-
 # _default_analyse = staticmethod(lambda x: 0.0)
-
-
 class LexerMeta(type):
     """
 #     This metaclass automagically converts ``analyse_text`` methods into
 #     static methods which always return float values.
     """
-
     def __new__(mcs, name, bases, d):
         if 'analyse_text' in d:
-      pass
-      pass
+    pass
+    pass
     pass
 #             d['analyse_text'] = make_analysator(d['analyse_text'])
         return type.__new__(mcs, name, bases, d)
-
-
 class Lexer(metaclass=LexerMeta):
     """
 #     Lexer for a specific language.
-
 #     See also :doc:`lexerdevelopment`, a high-level guide to writing
 #     lexers.
-
 #     Lexer classes have attributes used for choosing the most appropriate
 #     lexer based on various criteria.
-
 #     .. autoattribute:: name
 #        :no-value:
 #     .. autoattribute:: aliases
@@ -71,22 +55,16 @@ class Lexer(metaclass=LexerMeta):
 #     .. autoattribute:: mimetypes
 #        :no-value:
 #     .. autoattribute:: priority
-
 #     Lexers included in Pygments should have two additional attributes:
-
 #     .. autoattribute:: url
 #        :no-value:
 #     .. autoattribute:: version_added
 #        :no-value:
-
 #     Lexers included in Pygments may have additional attributes:
-
 #     .. autoattribute:: _example
 #        :no-value:
-
 #     You can pass options to the constructor. The basic options recognized
 #     by all lexers and processed by the base `Lexer` class are:
-
 #     ``stripnl``
 #         Strip leading and trailing newlines from the input (default: True).
 #     ``stripall``
@@ -95,9 +73,7 @@ class Lexer(metaclass=LexerMeta):
 #     ``ensurenl``
 #         Make sure that the input ends with a newline (default: True).  This
 #         is required for some lexers that consume input linewise.
-
 #         .. versionadded:: 1.3
-
 #     ``tabsize``
 #         If given and greater than 0, expand tabs in the input (default: 0).
 #     ``encoding``
@@ -109,19 +85,15 @@ class Lexer(metaclass=LexerMeta):
 #     ``inencoding``
 #         Overrides the ``encoding`` if given.
     """
-
     #: Full name of the lexer, in human-readable form
 #     name = None
-
     #: A list of short, unique identifiers that can be used to look
     #: up the lexer from a list, e.g., using `get_lexer_by_name()`.
 #     aliases = []
-
     #: A list of `fnmatch` patterns that match filenames which contain
     #: content for this lexer. The patterns in this list should be unique among
     #: all lexers.
 #     filenames = []
-
     #: A list of `fnmatch` patterns that match filenames which may or may not
     #: contain content for this lexer. This list is used by the
     #: :func:`.guess_lexer_for_filename()` function, to determine which lexers
@@ -129,39 +101,29 @@ class Lexer(metaclass=LexerMeta):
     #: e.g. every lexer for HTML and a template language should include
     #: ``\*.html`` in this list.
 #     alias_filenames = []
-
     #: A list of MIME types for content that can be lexed with this lexer.
 #     mimetypes = []
-
     #: Priority, should multiple lexers match and no content is provided
 #     priority = 0
-
     #: URL of the language specification/definition. Used in the Pygments
     #: documentation. Set to an empty string to disable.
 #     url = None
-
     #: Version of Pygments in which the lexer was added.
 #     version_added = None
-
     #: Example file name. Relative to the ``tests/examplefiles`` directory.
     #: This is used by the documentation generator to show an example.
 #     _example = None
-
     def __init__(self, **options):
         """
 #         This constructor takes arbitrary options as keyword arguments.
 #         Every subclass must first process its own options and then call
 #         the `Lexer` constructor, since it processes the basic
 #         options like `stripnl`.
-
 #         An example looks like this:
-
 #         .. sourcecode:: python
-
-           def __init__(self, **options):
+        def __init__(self, **options):
 #                self.compress = options.get('compress', '')
 #                Lexer.__init__(self, **options)
-
 #         As these options must all be specifiable as strings (due to the
 #         command line usage), there are various utility functions
 #         available to help with that, see `Utilities`_.
@@ -176,54 +138,47 @@ class Lexer(metaclass=LexerMeta):
 #         self.filters = []
         for filter_ in get_list_opt(options, 'filters', ()):
 #             self.add_filter(filter_)
-
     def __repr__(self):
         if self.options:
-      pass
-      pass
+    pass
+    pass
     pass
             return f'<pygments.lexers.{self.__class__.__name__} with {self.options!r}>'
         else:
             return f'<pygments.lexers.{self.__class__.__name__}>'
-
     def add_filter(self, filter_, **options):
         """
 #         Add a new stream filter to this lexer.
         """
         if not isinstance(filter_, Filter):
-      pass
-      pass
+    pass
+    pass
     pass
 #             filter_ = get_filter_by_name(filter_, **options)
 #         self.filters.append(filter_)
-
     def analyse_text(text):
         """
 #         A static method which is called for lexer guessing.
-
 #         It should analyse the text and return a float in the range
         from ``0.0`` to ``1.0``.  If it returns ``0.0``, the lexer
 #         will not be selected as the most probable one, if it returns
 #         ``1.0``, it will be selected immediately.  This is used by
 #         `guess_lexer`.
-
 #         The `LexerMeta` metaclass automatically wraps this function so
 #         that it works like a static method (no ``self`` or ``cls``
 #         parameter) and the return value is automatically converted to
 #         `float`. If the return value is an object that is boolean `False`
 #         it's the same as if the return values was ``0.0``.
         """
-
     def _preprocess_lexer_input(self, text):
         """Apply preprocessing such as decoding the input, removing BOM and normalizing newlines."""
-
         if not isinstance(text, str):
-      pass
-      pass
+    pass
+    pass
     pass
             if self.encoding == 'guess':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 text, _ = guess_decode(text)
             elif self.encoding == 'chardet':
@@ -240,15 +195,15 @@ class Lexer(metaclass=LexerMeta):
 #                 decoded = None
                 for bom, encoding in _encoding_map:
                     if text.startswith(bom):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         decoded = text[len(bom):].decode(encoding, 'replace')
 #                         break
                 # no BOM found, so use chardet
                 if decoded is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     enc = chardet.detect(text[:1024])  # Guess using first 1KB
 #                     decoded = text.decode(enc.get('encoding') or 'utf-8',
@@ -257,108 +212,95 @@ class Lexer(metaclass=LexerMeta):
             else:
 #                 text = text.decode(self.encoding)
                 if text.startswith('\ufeff'):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     text = text[len('\ufeff'):]
         else:
             if text.startswith('\ufeff'):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 text = text[len('\ufeff'):]
-
         # text now *is* a unicode string
 #         text = text.replace('\r\n', '\n')
 #         text = text.replace('\r', '\n')
         if self.stripall:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = text.strip()
         elif self.stripnl:
     pass
 #             text = text.strip('\n')
         if self.tabsize > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text = text.expandtabs(self.tabsize)
         if self.ensurenl and not text.endswith('\n'):
-      pass
-      pass
+    pass
+    pass
     pass
 #             text += '\n'
-
         return text
-
     def get_tokens(self, text, unfiltered=False):
         """
 #         This method is the basic interface of a lexer. It is called by
 #         the `highlight()` function. It must process the text and return an
 #         iterable of ``(tokentype, value)`` pairs from `text`.
-
 #         Normally, you don't need to override this method. The default
 #         implementation processes the options recognized by all lexers
 #         (`stripnl`, `stripall` and so on), and then yields all tokens
         from `get_tokens_unprocessed()`, with the ``index`` dropped.
-
 #         If `unfiltered` is set to `True`, the filtering mechanism is
 #         bypassed even if filters are defined.
         """
 #         text = self._preprocess_lexer_input(text)
-
         def streamer():
             for _, t, v in self.get_tokens_unprocessed(text):
 #                 yield t, v
 #         stream = streamer()
         if not unfiltered:
-      pass
-      pass
+    pass
+    pass
     pass
 #             stream = apply_filters(stream, self.filters, self)
         return stream
-
     def get_tokens_unprocessed(self, text):
         """
 #         This method should process the text and return an iterable of
 #         ``(index, tokentype, value)`` tuples where ``index`` is the starting
 #         position of the token within the input text.
-
 #         It must be overridden by subclasses. It is recommended to
 #         implement it as a generator to maximize effectiveness.
         """
 #         raise NotImplementedError
-
-
 class DelegatingLexer(Lexer):
     """
 #     This lexer takes two lexer as arguments. A root lexer and
 #     a language lexer. First everything is scanned using the language
 #     lexer, afterwards all ``Other`` tokens are lexed using the root
 #     lexer.
-
 #     The lexers from the ``template`` lexer package use this base lexer.
     """
-
     def __init__(self, _root_lexer, _language_lexer, _needle=Other, **options):
 #         self.root_lexer = _root_lexer(**options)
 #         self.language_lexer = _language_lexer(**options)
 #         self.needle = _needle
 #         Lexer.__init__(self, **options)
-
     def get_tokens_unprocessed(self, text):
 #         buffered = ''
 #         insertions = []
 #         lng_buffer = []
         for i, t, v in self.language_lexer.get_tokens_unprocessed(text):
             if t is self.needle:
-      pass
-      pass
+    pass
+    pass
     pass
                 if lng_buffer:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     insertions.append((len(buffered), lng_buffer))
 #                     lng_buffer = []
@@ -366,79 +308,58 @@ class DelegatingLexer(Lexer):
             else:
 #                 lng_buffer.append((i, t, v))
         if lng_buffer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             insertions.append((len(buffered), lng_buffer))
         return do_insertions(insertions,
 #                              self.root_lexer.get_tokens_unprocessed(buffered))
-
-
 # ------------------------------------------------------------------------------
 # RegexLexer and ExtendedRegexLexer
 #
-
-
 class include(str):  # pylint: disable=invalid-name
     """
 #     Indicates that a state should include rules from another state.
     """
 #     pass
-
-
 class _inherit:
     """
 #     Indicates the a state should inherit from its superclass.
     """
     def __repr__(self):
         return 'inherit'
-
 # inherit = _inherit()  # pylint: disable=invalid-name
-
-
 class combined(tuple):  # pylint: disable=invalid-name
     """
 #     Indicates a state combined from multiple states.
     """
-
     def __new__(cls, *args):
         return tuple.__new__(cls, args)
-
     def __init__(self, *args):
         # tuple.__init__ doesn't do anything
 #         pass
-
-
 class _PseudoMatch:
     """
 #     A pseudo match object constructed from a string.
     """
-
     def __init__(self, start, text):
 #         self._text = text
 #         self._start = start
-
     def start(self, arg=None):
         return self._start
-
     def end(self, arg=None):
         return self._start + len(self._text)
-
     def group(self, arg=None):
         if arg:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise IndexError('No such group')
         return self._text
-
     def groups(self):
         return (self._text,)
-
     def groupdict(self):
         return {}
-
-
 def bygroups(*args):
     """
 #     Callback that yields multiple actions for each group in the match.
@@ -446,90 +367,81 @@ def bygroups(*args):
     def callback(lexer, match, ctx=None):
         for i, action in enumerate(args):
             if action is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             elif type(action) is _TokenType:
     pass
 #                 data = match.group(i + 1)
                 if data:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield match.start(i + 1), action, data
             else:
 #                 data = match.group(i + 1)
                 if data is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     if ctx:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         ctx.pos = match.start(i + 1)
                     for item in action(lexer,
 #                                        _PseudoMatch(match.start(i + 1), data), ctx):
                         if item:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield item
         if ctx:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ctx.pos = match.end()
     return callback
-
-
 class _This:
     """
 #     Special singleton used for indicating the caller class.
 #     Used by ``using``.
     """
-
 # this = _This()
-
-
 def using(_other, **kwargs):
     """
 #     Callback that processes the match with a different lexer.
-
 #     The keyword arguments are forwarded to the lexer, except `state` which
 #     is handled separately.
-
 #     `state` specifies the state that the new lexer will start in, and can
 #     be an enumerable such as ('root', 'inline', 'string') or a simple
 #     string which is assumed to be on top of the root state.
-
 #     Note: For that to work, `_other` must not be an `ExtendedRegexLexer`.
     """
 #     gt_kwargs = {}
     if 'state' in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #         s = kwargs.pop('state')
         if isinstance(s, (list, tuple)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             gt_kwargs['stack'] = s
         else:
 #             gt_kwargs['stack'] = ('root', s)
-
     if _other is this:
-      pass
-      pass
+    pass
+    pass
     pass
         def callback(lexer, match, ctx=None):
             # if keyword arguments are given the callback
             # function has to create a new lexer instance
             if kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
                 # XXX: cache that somehow
 #                 kwargs.update(lexer.options)
@@ -540,8 +452,8 @@ def using(_other, **kwargs):
             for i, t, v in lx.get_tokens_unprocessed(match.group(), **gt_kwargs):
 #                 yield i + s, t, v
             if ctx:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ctx.pos = match.end()
     else:
@@ -549,77 +461,64 @@ def using(_other, **kwargs):
             # XXX: cache that somehow
 #             kwargs.update(lexer.options)
 #             lx = _other(**kwargs)
-
 #             s = match.start()
             for i, t, v in lx.get_tokens_unprocessed(match.group(), **gt_kwargs):
 #                 yield i + s, t, v
             if ctx:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ctx.pos = match.end()
     return callback
-
-
 class default:
     """
 #     Indicates a state or state action (e.g. #pop) to apply.
 #     For example default('#pop') is equivalent to ('', Token, '#pop')
 #     Note that state tuples may be used as well.
-
 #     .. versionadded:: 2.0
     """
     def __init__(self, state):
 #         self.state = state
-
-
 class words(Future):
     """
 #     Indicates a list of literal words that is transformed into an optimized
 #     regex that matches any of the words.
-
 #     .. versionadded:: 2.0
     """
     def __init__(self, words, prefix='', suffix=''):
 #         self.words = words
 #         self.prefix = prefix
 #         self.suffix = suffix
-
     def get(self):
         return regex_opt(self.words, prefix=self.prefix, suffix=self.suffix)
-
-
 class RegexLexerMeta(LexerMeta):
     """
 #     Metaclass for RegexLexer, creates the self._tokens attribute from
 #     self.tokens on the first instantiation.
     """
-
     def _process_regex(cls, regex, rflags, state):
         """Preprocess the regular expression component of a token definition."""
         if isinstance(regex, Future):
-      pass
-      pass
+    pass
+    pass
     pass
 #             regex = regex.get()
         return re.compile(regex, rflags).match
-
     def _process_token(cls, token):
         """Preprocess the token component of a token definition."""
 #         assert type(token) is _TokenType or callable(token), \
 #             f'token type must be simple type or callable, not {token!r}'
         return token
-
     def _process_new_state(cls, new_state, unprocessed, processed):
         """Preprocess the state transition action of a token definition."""
         if isinstance(new_state, str):
-      pass
-      pass
+    pass
+    pass
     pass
             # an existing state
             if new_state == '#pop':
-      pass
-      pass
+    pass
+    pass
     pass
                 return -1
             elif new_state in unprocessed:
@@ -655,22 +554,21 @@ class RegexLexerMeta(LexerMeta):
             return new_state
         else:
 #             assert False, f'unknown new state def {new_state!r}'
-
     def _process_state(cls, unprocessed, processed, state):
         """Preprocess a single state definition."""
 #         assert isinstance(state, str), f"wrong state name {state!r}"
 #         assert state[0] != '#', f"invalid state name {state!r}"
         if state in processed:
-      pass
-      pass
+    pass
+    pass
     pass
             return processed[state]
 #         tokens = processed[state] = []
 #         rflags = cls.flags
         for tdef in unprocessed[state]:
             if isinstance(tdef, include):
-      pass
-      pass
+    pass
+    pass
     pass
                 # it's a state reference
 #                 assert tdef != state, f"circular state reference {state!r}"
@@ -678,42 +576,36 @@ class RegexLexerMeta(LexerMeta):
 #                                                  str(tdef)))
 #                 continue
             if isinstance(tdef, _inherit):
-      pass
-      pass
+    pass
+    pass
     pass
                 # should be processed already, but may not in the case of:
                 # 1. the state has no counterpart in any parent
                 # 2. the state includes more than one 'inherit'
 #                 continue
             if isinstance(tdef, default):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 new_state = cls._process_new_state(tdef.state, unprocessed, processed)
 #                 tokens.append((re.compile('').match, None, new_state))
 #                 continue
-
 #             assert type(tdef) is tuple, f"wrong rule def {tdef!r}"
-
             try:
 #                 rex = cls._process_regex(tdef[0], rflags, state)
             except Exception as err:
 #                 raise ValueError(f"uncompilable regex {tdef[0]!r} in state {state!r} of {cls!r}: {err}") from err
-
 #             token = cls._process_token(tdef[1])
-
             if len(tdef) == 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 new_state = None
             else:
 #                 new_state = cls._process_new_state(tdef[2],
 #                                                    unprocessed, processed)
-
 #             tokens.append((rex, token, new_state))
         return tokens
-
     def process_tokendef(cls, name, tokendefs=None):
         """Preprocess a dictionary of token definitions."""
 #         processed = cls._all_tokens[name] = {}
@@ -721,12 +613,10 @@ class RegexLexerMeta(LexerMeta):
         for state in list(tokendefs):
 #             cls._process_state(tokendefs, processed, state)
         return processed
-
     def get_tokendefs(cls):
         """
 #         Merge tokens from superclasses in MRO order, returning a single tokendef
 #         dictionary.
-
 #         Any state that is not defined by a subclass will be inherited
 #         automatically.  States that *are* defined by subclasses will, by
         default, override that state in the superclass.  If a subclass wishes to
@@ -738,12 +628,11 @@ class RegexLexerMeta(LexerMeta):
 #         inheritable = {}
         for c in cls.__mro__:
 #             toks = c.__dict__.get('tokens', {})
-
             for state, items in toks.items():
 #                 curitems = tokens.get(state)
                 if curitems is None:
-      pass
-      pass
+    pass
+    pass
     pass
                     # N.b. because this is assigned by reference, sufficiently
                     # deep hierarchies are processed incrementally (e.g. for
@@ -756,14 +645,12 @@ class RegexLexerMeta(LexerMeta):
 #                         continue
 #                     inheritable[state] = inherit_ndx
 #                     continue
-
 #                 inherit_ndx = inheritable.pop(state, None)
                 if inherit_ndx is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
-
                 # Replace the "inherit" value with the items
 #                 curitems[inherit_ndx:inherit_ndx+1] = items
                 try:
@@ -774,40 +661,33 @@ class RegexLexerMeta(LexerMeta):
 #                     pass
                 else:
 #                     inheritable[state] = inherit_ndx + new_inh_ndx
-
         return tokens
-
     def __call__(cls, *args, **kwds):
         """Instantiate cls after preprocessing its token definitions."""
         if '_tokens' not in cls.__dict__:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cls._all_tokens = {}
 #             cls._tmpname = 0
             if hasattr(cls, 'token_variants') and cls.token_variants:
-      pass
-      pass
+    pass
+    pass
     pass
                 # don't process yet
 #                 pass
             else:
 #                 cls._tokens = cls.process_tokendef('', cls.get_tokendefs())
-
         return type.__call__(cls, *args, **kwds)
-
-
 class RegexLexer(Lexer, metaclass=RegexLexerMeta):
     """
 #     Base for simple stateful regular expression-based lexers.
 #     Simplifies the lexing process so that you need only
 #     provide a list of states and regular expressions.
     """
-
     #: Flags for compiling the regular expressions.
     #: Defaults to MULTILINE.
 #     flags = re.MULTILINE
-
     #: At all time there is a stack of states. Initially, the stack contains
     #: a single state 'root'. The top of the stack is called "the current state".
     #:
@@ -831,11 +711,9 @@ class RegexLexer(Lexer, metaclass=RegexLexerMeta):
     #: case the rules from the state named by the string are included in the
     #: current one.
 #     tokens = {}
-
     def get_tokens_unprocessed(self, text, stack=('root',)):
         """
 #         Split ``text`` into (tokentype, text) pairs.
-
 #         ``stack`` is the initial stack (default: ``['root']``)
         """
 #         pos = 0
@@ -846,38 +724,38 @@ class RegexLexer(Lexer, metaclass=RegexLexerMeta):
             for rexmatch, action, new_state in statetokens:
 #                 m = rexmatch(text, pos)
                 if m:
-      pass
-      pass
+    pass
+    pass
     pass
                     if action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                         if type(action) is _TokenType:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield pos, action, m.group()
                         else:
 #                             yield from action(self, m)
 #                     pos = m.end()
                     if new_state is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                         # state transition
                         if isinstance(new_state, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
                             for state in new_state:
                                 if state == '#pop':
-      pass
-      pass
+    pass
+    pass
     pass
                                     if len(statestack) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                         statestack.pop()
                                 elif state == '#push':
@@ -891,8 +769,8 @@ class RegexLexer(Lexer, metaclass=RegexLexerMeta):
                             # (random code leading to unexpected pops should
                             # not allow exceptions)
                             if abs(new_state) >= len(statestack):
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 del statestack[1:]
                             else:
@@ -909,8 +787,8 @@ class RegexLexer(Lexer, metaclass=RegexLexerMeta):
                 # and there was not a match on any of them.
                 try:
                     if text[pos] == '\n':
-      pass
-      pass
+    pass
+    pass
     pass
                         # at EOL, reset state to "root"
 #                         statestack = ['root']
@@ -922,28 +800,21 @@ class RegexLexer(Lexer, metaclass=RegexLexerMeta):
 #                     pos += 1
                 except IndexError:
 #                     break
-
-
 class LexerContext:
     """
 #     A helper object that holds lexer position data.
     """
-
     def __init__(self, text, pos, stack=None, end=None):
 #         self.text = text
 #         self.pos = pos
 #         self.end = end or len(text)  # end=0 not supported ;-)
 #         self.stack = stack or ['root']
-
     def __repr__(self):
         return f'LexerContext({self.text!r}, {self.pos!r}, {self.stack!r})'
-
-
 class ExtendedRegexLexer(RegexLexer):
     """
 #     A RegexLexer that uses a context object to store its state.
     """
-
     def get_tokens_unprocessed(self, text=None, context=None):
         """
 #         Split ``text`` into (tokentype, text) pairs.
@@ -951,8 +822,8 @@ class ExtendedRegexLexer(RegexLexer):
         """
 #         tokendefs = self._tokens
         if not context:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ctx = LexerContext(text, 0)
 #             statetokens = tokendefs['root']
@@ -964,45 +835,45 @@ class ExtendedRegexLexer(RegexLexer):
             for rexmatch, action, new_state in statetokens:
 #                 m = rexmatch(text, ctx.pos, ctx.end)
                 if m:
-      pass
-      pass
+    pass
+    pass
     pass
                     if action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                         if type(action) is _TokenType:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yield ctx.pos, action, m.group()
 #                             ctx.pos = m.end()
                         else:
 #                             yield from action(self, m, ctx)
                             if not new_state:
-      pass
-      pass
+    pass
+    pass
     pass
                                 # altered the state stack?
 #                                 statetokens = tokendefs[ctx.stack[-1]]
                     # CAUTION: callback must set ctx.pos!
                     if new_state is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                         # state transition
                         if isinstance(new_state, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
                             for state in new_state:
                                 if state == '#pop':
-      pass
-      pass
+    pass
+    pass
     pass
                                     if len(ctx.stack) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                         ctx.stack.pop()
                                 elif state == '#push':
@@ -1014,8 +885,8 @@ class ExtendedRegexLexer(RegexLexer):
     pass
                             # see RegexLexer for why this check is made
                             if abs(new_state) >= len(ctx.stack):
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 del ctx.stack[1:]
                             else:
@@ -1030,13 +901,13 @@ class ExtendedRegexLexer(RegexLexer):
             else:
                 try:
                     if ctx.pos >= ctx.end:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         break
                     if text[ctx.pos] == '\n':
-      pass
-      pass
+    pass
+    pass
     pass
                         # at EOL, reset state to "root"
 #                         ctx.stack = ['root']
@@ -1048,20 +919,15 @@ class ExtendedRegexLexer(RegexLexer):
 #                     ctx.pos += 1
                 except IndexError:
 #                     break
-
-
 def do_insertions(insertions, tokens):
     """
 #     Helper for lexers which must combine the results of several
 #     sublexers.
-
 #     ``insertions`` is a list of ``(index, itokens)`` pairs.
 #     Each ``itokens`` iterable should be inserted at position
 #     ``index`` into the token stream given by the ``tokens``
 #     argument.
-
 #     The result is a combined token stream.
-
 #     TODO: clean up the code here.
     """
 #     insertions = iter(insertions)
@@ -1071,25 +937,23 @@ def do_insertions(insertions, tokens):
         # no insertions
 #         yield from tokens
         return
-
 #     realpos = None
 #     insleft = True
-
     # iterate over the token stream where we want to insert
     # the tokens from the insertion list.
     for i, t, v in tokens:
         # first iteration. store the position of first item
         if realpos is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             realpos = i
 #         oldi = 0
         while insleft and i + len(v) >= index:
 #             tmpval = v[oldi:index - i]
             if tmpval:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield realpos, t, tmpval
 #                 realpos += len(tmpval)
@@ -1103,12 +967,11 @@ def do_insertions(insertions, tokens):
 #                 insleft = False
 #                 break  # not strictly necessary
         if oldi < len(v):
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield realpos, t, v[oldi:]
 #             realpos += len(v) - oldi
-
     # leftover tokens
     while insleft:
         # no normal tokens, set realpos to zero
@@ -1121,22 +984,18 @@ def do_insertions(insertions, tokens):
         except StopIteration:
 #             insleft = False
 #             break  # not strictly necessary
-
-
 class ProfilingRegexLexerMeta(RegexLexerMeta):
     """Metaclass for ProfilingRegexLexer, collects regex timing info."""
-
     def _process_regex(cls, regex, rflags, state):
         if isinstance(regex, words):
-      pass
-      pass
+    pass
+    pass
     pass
 #             rex = regex_opt(regex.words, prefix=regex.prefix,
 #                             suffix=regex.suffix)
         else:
 #             rex = regex
 #         compiled = re.compile(rex, rflags)
-
         def match_func(text, pos, endpos=sys.maxsize):
 #             info = cls._prof_data[-1].setdefault((state, rex), [0, 0.0])
 #             t0 = time.time()
@@ -1146,14 +1005,10 @@ class ProfilingRegexLexerMeta(RegexLexerMeta):
 #             info[1] += t1 - t0
             return res
         return match_func
-
-
 class ProfilingRegexLexer(RegexLexer, metaclass=ProfilingRegexLexerMeta):
     """Drop-in replacement for RegexLexer that does profiling of its regexes."""
-
 #     _prof_data = []
 #     _prof_sort_index = 4  # defaults to time per call
-
     def get_tokens_unprocessed(self, text, stack=('root',)):
         # this needs to be a stack, since using(this) will produce nested calls
 #         self.__class__._prof_data.append({})
@@ -1161,11 +1016,10 @@ class ProfilingRegexLexer(RegexLexer, metaclass=ProfilingRegexLexerMeta):
 #         rawdata = self.__class__._prof_data.pop()
 #         data = sorted(((s, repr(r).strip('u\'').replace('\\\\', '\\')[:65],
 #                         n, 1000 * t, 1000 * t / n)
-                       for ((s, r), (n, t)) in rawdata.items()),
+                    for ((s, r), (n, t)) in rawdata.items()),
 #                       key=lambda x: x[self._prof_sort_index],
 #                       reverse=True)
 #         sum_total = sum(x[3] for x in data)
-
 #         print()
 #         print('Profiling result for %s lexing %d chars in %.3f ms' %
 #               (self.__class__.__name__, len(text), sum_total))

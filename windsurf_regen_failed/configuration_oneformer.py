@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,23 +19,16 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Dict, Optional
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ..auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
 #     "shi-labs/oneformer_ade20k_swin_tiny": (
 #         "https://huggingface.co/shi-labs/oneformer_ade20k_swin_tiny/blob/main/config.json"
 #     ),
     # See all OneFormer models at https://huggingface.co/models?filter=oneformer
 # }
-
-
 class OneFormerConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`OneFormerModel`]. It is used to instantiate a
@@ -46,10 +36,8 @@ class OneFormerConfig(PretrainedConfig):
 #     configuration with the defaults will yield a similar configuration to that of the OneFormer
 #     [shi-labs/oneformer_ade20k_swin_tiny](https://huggingface.co/shi-labs/oneformer_ade20k_swin_tiny) architecture
 #     trained on [ADE20k-150](https://huggingface.co/datasets/scene_parse_150).
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         backbone_config (`PretrainedConfig`, *optional*, defaults to `SwinConfig`):
 #             The configuration of the backbone model.
@@ -133,11 +121,9 @@ class OneFormerConfig(PretrainedConfig):
 #             Number of layers in query transformer.
 #         common_stride (`int`, *optional*, defaults to 4):
 #             Common stride used for features in pixel decoder.
-
 #     Examples:
 #     ```python
 #     >>> from transformers import OneFormerConfig, OneFormerModel
-
 #     >>> # Initializing a OneFormer shi-labs/oneformer_ade20k_swin_tiny configuration
 #     >>> configuration = OneFormerConfig()
 #     >>> # Initializing a model (with random weights) from the shi-labs/oneformer_ade20k_swin_tiny style configuration
@@ -145,10 +131,8 @@ class OneFormerConfig(PretrainedConfig):
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "oneformer"
 #     attribute_map = {"hidden_size": "hidden_dim"}
-
     def __init__(
 #         self,
 #         backbone_config: Optional[Dict] = None,
@@ -195,8 +179,8 @@ class OneFormerConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
         if backbone_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info("`backbone_config` is unset. Initializing the config with the default `Swin` backbone.")
 #             backbone_config = CONFIG_MAPPING["swin"](
@@ -216,9 +200,7 @@ class OneFormerConfig(PretrainedConfig):
 #             backbone_model_type = backbone_config.get("model_type")
 #             config_class = CONFIG_MAPPING[backbone_model_type]
 #             backbone_config = config_class.from_dict(backbone_config)
-
 #         self.backbone_config = backbone_config
-
 #         self.ignore_value = ignore_value
 #         self.num_queries = num_queries
 #         self.no_object_weight = no_object_weight
@@ -260,5 +242,4 @@ class OneFormerConfig(PretrainedConfig):
 #         self.query_dec_layers = query_dec_layers
 #         self.common_stride = common_stride
 #         self.num_hidden_layers = decoder_layers
-
 #         super().__init__(**kwargs)

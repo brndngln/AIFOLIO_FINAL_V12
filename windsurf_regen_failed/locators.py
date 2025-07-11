@@ -6,7 +6,6 @@ from typing import Optional
 # Licensed to the Python Software Foundation under a contributor agreement.
 # See LICENSE.txt and CONTRIBUTORS.txt.
 #
-
 import gzip
 from io import BytesIO
 import json
@@ -19,7 +18,6 @@ try:
 except ImportError:  # pragma: no cover
     import dummy_threading as threading
 import zlib
-
 from . import DistlibException
 from .compat import (urljoin, urlparse, urlunparse, url2pathname, pathname2url, queue, quote, unescape, build_opener,
 #                      HTTPRedirectHandler as BaseRedirectHandler, text_type, Request, HTTPError, URLError)
@@ -29,15 +27,11 @@ from .util import (cached_property, ensure_slash, split_filename, get_project_da
 #                    parse_name_and_version, ServerProxy, normalize_name)
 from .version import get_scheme, UnsupportedVersionError
 from .wheel import Wheel, is_compatible
-
 # logger = logging.getLogger(__name__)
-
 # HASHER_HASH = re.compile(r'^(\w+)=([a-f0-9]+)')
 # CHARSET = re.compile(r';\s*charset\s*=\s*(.*)\s*$', re.I)
 # HTML_CONTENT_TYPE = re.compile('text/html|application/x(ht)?ml')
 # DEFAULT_INDEX = 'https://pypi.org/pypi'
-
-
 def get_all_distribution_names(url=None):
     """
 #     Return all distribution names known by an index.
@@ -45,8 +39,8 @@ def get_all_distribution_names(url=None):
 #     :return: A list of all known distribution names.
     """
     if url is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         url = DEFAULT_INDEX
 #     client = ServerProxy(url, timeout=3.0)
@@ -54,13 +48,10 @@ def get_all_distribution_names(url=None):
         return client.list_packages()
 #     finally:
 #         client('close')()
-
-
 class RedirectHandler(BaseRedirectHandler):
     """
 #     A class to work around a bug in some Python 3.2.x releases.
     """
-
     # There's a bug in the base version for some 3.2.x
     # (e.g. 3.2.2 on Ubuntu Oneiric). If a Location header
     # returns e.g. /abc, it bails because it says the scheme ''
@@ -72,8 +63,8 @@ class RedirectHandler(BaseRedirectHandler):
 #         newurl = None
         for key in ('location', 'uri'):
             if key in headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 newurl = headers[key]
 #                 break
@@ -81,22 +72,19 @@ class RedirectHandler(BaseRedirectHandler):
             return
 #         urlparts = urlparse(newurl)
         if urlparts.scheme == '':
-      pass
-      pass
+    pass
+    pass
     pass
 #             newurl = urljoin(req.get_full_url(), newurl)
             if hasattr(headers, 'replace_header'):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 headers.replace_header(key, newurl)
             else:
 #                 headers[key] = newurl
         return BaseRedirectHandler.http_error_302(self, req, fp, code, msg, headers)
-
 #     http_error_301 = http_error_303 = http_error_307 = http_error_302
-
-
 class Locator(object):
     """
 #     A base class for locators - things that locate distributions.
@@ -104,22 +92,19 @@ class Locator(object):
 #     source_extensions = ('.tar.gz', '.tar.bz2', '.tar', '.zip', '.tgz', '.tbz')
 #     binary_extensions = ('.egg', '.exe', '.whl')
 #     excluded_extensions = ('.pdf', )
-
     # A list of tags indicating which wheels you want to match. The default
     # value of None matches against the tags compatible with the running
     # Python. If you want to match other values, set wheel_tags on a locator
     # instance to a list of tuples (pyver, abi, arch) which you want to match.
 #     wheel_tags = None
-
 #     downloadable_extensions = source_extensions + ('.whl', )
-
     def __init__(self, scheme='default'):
         """
 #         Initialise an instance.
 #         :param scheme: Because locators look for most recent versions, they
 #                        need to know the version scheme to use. This specifies
 #                        the current PEP-recommended scheme - use ``'legacy'``
-                       if you need to support existing distributions on PyPI.
+                    if you need to support existing distributions on PyPI.
         """
 #         self._cache = {}
 #         self.scheme = scheme
@@ -131,7 +116,6 @@ class Locator(object):
         # why this can be useful to know.
 #         self.matcher = None
 #         self.errors = queue.Queue()
-
     def get_errors(self):
         """
 #         Return any errors which have occurred.
@@ -145,48 +129,37 @@ class Locator(object):
 #                 continue
 #             self.errors.task_done()
         return result
-
     def clear_errors(self):
         """
 #         Clear any errors which may have been logged.
         """
         # Just get the errors and throw them away
 #         self.get_errors()
-
     def clear_cache(self):
 #         self._cache.clear()
-
     def _get_scheme(self):
         return self._scheme
-
     def _set_scheme(self, value):
 #         self._scheme = value
-
 #     scheme = property(_get_scheme, _set_scheme)
-
     def _get_project(self, name):
         """
 #         For a given project, get a dictionary mapping available versions to Distribution
 #         instances.
-
 #         This should be implemented in subclasses.
-
 #         If called from a locate() request, self.matcher will be set to a
 #         matcher for the requirement to satisfy, otherwise it will be None.
         """
 #         raise NotImplementedError('Please implement in the subclass')
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
         """
 #         raise NotImplementedError('Please implement in the subclass')
-
     def get_project(self, name):
         """
 #         For a given project, get a dictionary mapping available versions to Distribution
 #         instances.
-
 #         This calls _get_project to do all the work, and just implements a caching layer on top.
         """
         if self._cache is None:  # pragma: no cover
@@ -199,7 +172,6 @@ class Locator(object):
 #             result = self._get_project(name)
 #             self._cache[name] = result
         return result
-
     def score_url(self, url):
         """
 #         Give an url a score which can be used to choose preferred URLs
@@ -211,69 +183,62 @@ class Locator(object):
 #         is_wheel = basename.endswith('.whl')
 #         is_downloadable = basename.endswith(self.downloadable_extensions)
         if is_wheel:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compatible = is_compatible(Wheel(basename), self.wheel_tags)
         return (t.scheme == 'https', 'pypi.org' in t.netloc, is_downloadable, is_wheel, compatible, basename)
-
     def prefer_url(self, url1, url2):
         """
 #         Choose one of two URLs where both are candidates for distribution
 #         archives for the same version of a distribution (for example,
 #         .tar.gz vs. zip).
-
 #         The current implementation favours https:// URLs over http://, archives
         from PyPI over those from other locations, wheel compatibility (if a
 #         wheel) and then the archive name.
         """
 #         result = url2
         if url1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             s1 = self.score_url(url1)
 #             s2 = self.score_url(url2)
             if s1 > s2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 result = url1
             if result != url2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.debug('Not replacing %r with %r', url1, url2)
             else:
 #                 logger.debug('Replacing %r with %r', url1, url2)
         return result
-
     def split_filename(self, filename, project_name):
         """
 #         Attempt to split a filename in project name, version and Python version.
         """
         return split_filename(filename, project_name)
-
     def convert_url_to_download_info(self, url, project_name):
         """
 #         See if a URL is a candidate for a download URL for a project (the URL
 #         has typically been scraped from an HTML page).
-
 #         If it is, a dictionary is returned with keys "name", "version",
 #         "filename" and "url"; otherwise, None is returned.
         """
-
         def same_project(name1, name2):
             return normalize_name(name1) == normalize_name(name2)
-
 #         result = None
 #         scheme, netloc, path, params, query, frag = urlparse(url)
         if frag.lower().startswith('egg='):  # pragma: no cover
 #             logger.debug('%s: version hint in fragment: %r', project_name, frag)
 #         m = HASHER_HASH.match(frag)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             algo, digest = m.groups()
         else:
@@ -282,27 +247,27 @@ class Locator(object):
         if path and path[-1] == '/':  # pragma: no cover
 #             path = path[:-1]
         if path.endswith('.whl'):
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 wheel = Wheel(path)
                 if not is_compatible(wheel, self.wheel_tags):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logger.debug('Wheel not compatible: %s', path)
                 else:
                     if project_name is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         include = True
                     else:
 #                         include = same_project(wheel.name, project_name)
                     if include:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         result = {
 #                             'name': wheel.name,
@@ -319,8 +284,8 @@ class Locator(object):
 #             path = filename = posixpath.basename(path)
             for ext in self.downloadable_extensions:
                 if path.endswith(ext):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     path = path[:-len(ext)]
 #                     t = self.split_filename(path, project_name)
@@ -329,8 +294,8 @@ class Locator(object):
                     else:
 #                         name, version, pyver = t
                         if not project_name or same_project(project_name, name):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             result = {
 #                                 'name': name,
@@ -342,47 +307,44 @@ class Locator(object):
 #                                 result['python-version'] = pyver
 #                     break
         if result and algo:
-      pass
-      pass
+    pass
+    pass
     pass
 #             result['%s_digest' % algo] = digest
         return result
-
     def _get_digest(self, info):
         """
 #         Get a digest from a dictionary by looking at a "digests" dictionary
 #         or keys of the form 'algo_digest'.
-
 #         Returns a 2-tuple (algo, digest) if found, else None. Currently
 #         looks only for SHA256, then MD5.
         """
 #         result = None
         if 'digests' in info:
-      pass
-      pass
+    pass
+    pass
     pass
 #             digests = info['digests']
             for algo in ('sha256', 'md5'):
                 if algo in digests:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     result = (algo, digests[algo])
 #                     break
         if not result:
-      pass
-      pass
+    pass
+    pass
     pass
             for algo in ('sha256', 'md5'):
 #                 key = '%s_digest' % algo
                 if key in info:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     result = (algo, info[key])
 #                     break
         return result
-
     def _update_version_data(self, result, info):
         """
 #         Update a result dictionary (the final result from _get_project) with a
@@ -392,8 +354,8 @@ class Locator(object):
 #         name = info.pop('name')
 #         version = info.pop('version')
         if version in result:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dist = result[version]
 #             md = dist.metadata
@@ -404,19 +366,17 @@ class Locator(object):
 #         url = info['url']
 #         result['digests'][url] = digest
         if md.source_url != info['url']:
-      pass
-      pass
+    pass
+    pass
     pass
 #             md.source_url = self.prefer_url(md.source_url, url)
 #             result['urls'].setdefault(version, set()).add(url)
 #         dist.locator = self
 #         result[version] = dist
-
     def locate(self, requirement, prereleases=False):
         """
 #         Find the most recent distribution which matches the given
 #         requirement.
-
 #         :param requirement: A requirement of the form 'foo (1.0)' or perhaps
 #                             'foo (>= 1.0, < 2.0, != 1.3)'
 #         :param prereleases: If ``True``, allow pre-release versions
@@ -439,44 +399,44 @@ class Locator(object):
 #             vcls = matcher.version_class
             for k in versions:
                 if k in ('urls', 'digests'):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
                 try:
                     if not matcher.match(k):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         pass  # logger.debug('%s did not match %r', matcher, k)
                     else:
                         if prereleases or not vcls(k).is_prerelease:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             slist.append(k)
                 except Exception:  # pragma: no cover
 #                     logger.warning('error matching %s with %r', matcher, k)
 #                     pass  # slist.append(k)
             if len(slist) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 slist = sorted(slist, key=scheme.key)
             if slist:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.debug('sorted list: %s', slist)
 #                 version = slist[-1]
 #                 result = versions[version]
         if result:
-      pass
-      pass
+    pass
+    pass
     pass
             if r.extras:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 result.extras = r.extras
 #             result.download_urls = versions.get('urls', {}).get(version, set())
@@ -488,31 +448,25 @@ class Locator(object):
 #             result.digests = d
 #         self.matcher = None
         return result
-
-
 class PyPIRPCLocator(Locator):
     """
 #     This locator uses XML-RPC to locate distributions. It therefore
 #     cannot be used with simple mirrors (that only mirror file content).
     """
-
     def __init__(self, url, **kwargs):
         """
 #         Initialise an instance.
-
 #         :param url: The URL to use for XML-RPC.
 #         :param kwargs: Passed to the superclass constructor.
         """
 #         super(PyPIRPCLocator, self).__init__(**kwargs)
 #         self.base_url = url
 #         self.client = ServerProxy(url, timeout=3.0)
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
         """
         return set(self.client.list_packages())
-
     def _get_project(self, name):
 #         result = {'urls': {}, 'digests': {}}
 #         versions = self.client.package_releases(name, True)
@@ -527,8 +481,8 @@ class PyPIRPCLocator(Locator):
 #             metadata.summary = data.get('summary')
 #             dist = Distribution(metadata)
             if urls:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 info = urls[0]
 #                 metadata.source_url = info['url']
@@ -541,24 +495,19 @@ class PyPIRPCLocator(Locator):
 #                     result['urls'].setdefault(v, set()).add(url)
 #                     result['digests'][url] = digest
         return result
-
-
 class PyPIJSONLocator(Locator):
     """
 #     This locator uses PyPI's JSON interface. It's very limited in functionality
 #     and probably not worth using.
     """
-
     def __init__(self, url, **kwargs):
 #         super(PyPIJSONLocator, self).__init__(**kwargs)
 #         self.base_url = ensure_slash(url)
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
         """
 #         raise NotImplementedError('Not available from this locator')
-
     def _get_project(self, name):
 #         result = {'urls': {}, 'digests': {}}
 #         url = urljoin(self.base_url, '%s/json' % quote(name))
@@ -586,8 +535,8 @@ class PyPIJSONLocator(Locator):
             # Now get other releases
             for version, infos in d['releases'].items():
                 if version == md.version:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue  # already done
 #                 omd = Metadata(scheme=self.scheme)
@@ -602,8 +551,6 @@ class PyPIJSONLocator(Locator):
 #                     odist.digests[url] = self._get_digest(info)
 #                     result['urls'].setdefault(version, set()).add(url)
 #                     result['digests'][url] = self._get_digest(info)
-
-
 #            for info in urls:
 #                md.source_url = info['url']
 #                dist.digest = self._get_digest(info)
@@ -616,8 +563,6 @@ class PyPIJSONLocator(Locator):
 #             self.errors.put(text_type(e))
 #             logger.exception('JSON fetch failed: %s', e)
         return result
-
-
 class Page(object):
     """
 #     This class represents a scraped HTML page.
@@ -634,7 +579,6 @@ class Page(object):
 # (\\s+rel\\s*=\\s*(?:"(?P<rel4>[^"]*)"|'(?P<rel5>[^']*)'|(?P<rel6>[^>\\s\n]*)))?
 """, re.I | re.S | re.X)
 #     _base = re.compile(r"""<base\s+href\s*=\s*['"]?([^'">]+)""", re.I | re.S)
-
     def __init__(self, data, url):
         """
 #         Initialise an instance with the Unicode page contents and the URL they
@@ -644,13 +588,11 @@ class Page(object):
 #         self.base_url = self.url = url
 #         m = self._base.search(self.data)
         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.base_url = m.group(1)
-
 #     _clean_re = re.compile(r'[^a-z0-9$&+,/:;=?@.#%_\\|-]', re.I)
-
 #     @cached_property
     def links(self):
         """
@@ -658,12 +600,10 @@ class Page(object):
 #         about their "rel" attribute, for determining which ones to treat as
 #         downloads and which ones to queue for further scraping.
         """
-
         def clean(url):
 #             "Tidy up an URL."
 #             scheme, netloc, path, params, query, frag = urlparse(url)
             return urlunparse((scheme, netloc, quote(path), params, query, frag))
-
 #         result = set()
         for match in self._href.finditer(self.data):
 #             d = match.groupdict('')
@@ -677,22 +617,18 @@ class Page(object):
         # to the front
 #         result = sorted(result, key=lambda t: t[0], reverse=True)
         return result
-
-
 class SimpleScrapingLocator(Locator):
     """
 #     A locator which scrapes HTML pages to locate downloads for a distribution.
 #     This runs multiple threads to do the I/O; performance is at least as good
 #     as pip's PackageFinder, which works in an analogous fashion.
     """
-
     # These are used to deal with various Content-Encoding schemes.
 #     decoders = {
 #         'deflate': zlib.decompress,
 #         'gzip': lambda b: gzip.GzipFile(fileobj=BytesIO(b)).read(),
 #         'none': lambda b: b,
 #     }
-
     def __init__(self, url, timeout=None, num_workers=10, **kwargs):
         """
 #         Initialise an instance.
@@ -719,7 +655,6 @@ class SimpleScrapingLocator(Locator):
         # in _prepare_threads.
 #         self._gplock = threading.RLock()
 #         self.platform_check = False  # See issue #112
-
     def _prepare_threads(self):
         """
 #         Threads are created only when get_project is called, and terminate
@@ -732,7 +667,6 @@ class SimpleScrapingLocator(Locator):
 #             t.daemon = True
 #             t.start()
 #             self._threads.append(t)
-
     def _wait_threads(self):
         """
 #         Tell all the threads to terminate (by sending a sentinel value) and
@@ -745,7 +679,6 @@ class SimpleScrapingLocator(Locator):
         for t in self._threads:
 #             t.join()
 #         self._threads = []
-
     def _get_project(self, name):
 #         result = {'urls': {}, 'digests': {}}
         with self._gplock:
@@ -763,42 +696,36 @@ class SimpleScrapingLocator(Locator):
 #                 self._wait_threads()
 #             del self.result
         return result
-
 #     platform_dependent = re.compile(r'\b(linux_(i\d86|x86_64|arm\w+)|'
 #                                     r'win(32|_amd64)|macosx_?\d+)\b', re.I)
-
     def _is_platform_dependent(self, url):
         """
 #         Does an URL refer to a platform-specific download?
         """
         return self.platform_dependent.search(url)
-
     def _process_download(self, url):
         """
 #         See if an URL is a suitable download for a project.
-
 #         If it is, register information in the result dictionary (for
 #         _get_project) about the specific version it's for.
-
 #         Note that the return value isn't actually used other than as a boolean
 #         value.
         """
         if self.platform_check and self._is_platform_dependent(url):
-      pass
-      pass
+    pass
+    pass
     pass
 #             info = None
         else:
 #             info = self.convert_url_to_download_info(url, self.project_name)
 #         logger.debug('process_download: %s -> %s', url, info)
         if info:
-      pass
-      pass
+    pass
+    pass
     pass
             with self._lock:  # needed because self.result is shared
 #                 self._update_version_data(self.result, info)
         return info
-
     def _should_queue(self, link, referrer, rel):
         """
 #         Determine whether a link URL from a referring page and with a
@@ -806,8 +733,8 @@ class SimpleScrapingLocator(Locator):
         """
 #         scheme, netloc, path, _, _, _ = urlparse(link)
         if path.endswith(self.source_extensions + self.binary_extensions + self.excluded_extensions):
-      pass
-      pass
+    pass
+    pass
     pass
 #             result = False
         elif self.skip_externals and not link.startswith(self.base_url):
@@ -828,42 +755,40 @@ class SimpleScrapingLocator(Locator):
         else:
 #             host = netloc.split(':', 1)[0]
             if host.lower() == 'localhost':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 result = False
             else:
 #                 result = True
 #         logger.debug('should_queue: %s (%s) from %s -> %s', link, rel, referrer, result)
         return result
-
     def _fetch(self):
         """
 #         Get a URL to fetch from the work queue, get the HTML page, examine its
 #         links for download candidates and candidates for further scraping.
-
 #         This is a handy method to run in a thread.
         """
         while True:
 #             url = self._to_fetch.get()
             try:
                 if url:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     page = self.get_page(url)
                     if page is None:  # e.g. after an error
 #                         continue
                     for link, rel in page.links:
                         if link not in self._seen:
-      pass
-      pass
+    pass
+    pass
     pass
                             try:
 #                                 self._seen.add(link)
                                 if (not self._process_download(link) and self._should_queue(link, url, rel)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                                     logger.debug('Queueing %s from %s', link, url)
 #                                     self._to_fetch.put(link)
@@ -875,16 +800,14 @@ class SimpleScrapingLocator(Locator):
                 # always do this, to avoid hangs :-)
 #                 self._to_fetch.task_done()
             if not url:
-      pass
-      pass
+    pass
+    pass
     pass
                 # logger.debug('Sentinel seen, quitting.')
 #                 break
-
     def get_page(self, url):
         """
 #         Get the HTML for an URL, possibly from an in-memory cache.
-
 #         XXX TODO Note: this cache is never actually cleared. It's assumed that
 #         the data won't get stale over the lifetime of a locator instance (not
 #         necessarily true for the default_locator).
@@ -892,14 +815,13 @@ class SimpleScrapingLocator(Locator):
         # http://peak.telecommunity.com/DevCenter/EasyInstall#package-index-api
 #         scheme, netloc, path, _, _, _ = urlparse(url)
         if scheme == 'file' and os.path.isdir(url2pathname(path)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             url = urljoin(ensure_slash(url), 'index.html')
-
         if url in self._page_cache:
-      pass
-      pass
+    pass
+    pass
     pass
 #             result = self._page_cache[url]
 #             logger.debug('Returning %s from cache: %s', url, result)
@@ -907,8 +829,8 @@ class SimpleScrapingLocator(Locator):
 #             host = netloc.split(':', 1)[0]
 #             result = None
             if host in self._bad_hosts:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.debug('Skipping %s due to bad host %s', url, host)
             else:
@@ -920,23 +842,23 @@ class SimpleScrapingLocator(Locator):
 #                     headers = resp.info()
 #                     content_type = headers.get('Content-Type', '')
                     if HTML_CONTENT_TYPE.match(content_type):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         final_url = resp.geturl()
 #                         data = resp.read()
 #                         encoding = headers.get('Content-Encoding')
                         if encoding:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             decoder = self.decoders[encoding]  # fail if not found
 #                             data = decoder(data)
 #                         encoding = 'utf-8'
 #                         m = CHARSET.search(content_type)
                         if m:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             encoding = m.group(1)
                         try:
@@ -947,8 +869,8 @@ class SimpleScrapingLocator(Locator):
 #                         self._page_cache[final_url] = result
                 except HTTPError as e:
                     if e.code != 404:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         logger.exception('Fetch failed: %s: %s', url, e)
                 except URLError as e:  # pragma: no cover
@@ -960,9 +882,7 @@ class SimpleScrapingLocator(Locator):
 #                 finally:
 #                     self._page_cache[url] = result  # even if None (failure)
         return result
-
 #     _distname_re = re.compile('<a href=[^>]*>([^<]+)<')
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
@@ -970,26 +890,23 @@ class SimpleScrapingLocator(Locator):
 #         result = set()
 #         page = self.get_page(self.base_url)
         if not page:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise DistlibException('Unable to get %s' % self.base_url)
         for match in self._distname_re.finditer(page.data):
 #             result.add(match.group(1))
         return result
-
-
 class DirectoryLocator(Locator):
     """
 #     This class locates distributions in a directory tree.
     """
-
     def __init__(self, path, **kwargs):
         """
 #         Initialise an instance.
 #         :param path: The root of the directory tree to search.
 #         :param kwargs: Passed to the superclass constructor,
-                       except for:
+                    except for:
 #                        * recursive - if True (the default), subdirectories are
 #                          recursed into. If False, only the top-level directory
 #                          is searched,
@@ -1000,7 +917,6 @@ class DirectoryLocator(Locator):
         if not os.path.isdir(path):  # pragma: no cover
 #             raise DistlibException('Not a directory: %r' % path)
 #         self.base_dir = path
-
     def should_include(self, filename, parent):
         """
 #         Should a filename be considered as a candidate for a distribution
@@ -1008,30 +924,28 @@ class DirectoryLocator(Locator):
 #         is provided, though not used by the current implementation.
         """
         return filename.endswith(self.downloadable_extensions)
-
     def _get_project(self, name):
 #         result = {'urls': {}, 'digests': {}}
         for root, dirs, files in os.walk(self.base_dir):
             for fn in files:
                 if self.should_include(fn, root):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     fn = os.path.join(root, fn)
 #                     url = urlunparse(('file', '', pathname2url(os.path.abspath(fn)), '', '', ''))
 #                     info = self.convert_url_to_download_info(url, name)
                     if info:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self._update_version_data(result, info)
             if not self.recursive:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
         return result
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
@@ -1040,25 +954,23 @@ class DirectoryLocator(Locator):
         for root, dirs, files in os.walk(self.base_dir):
             for fn in files:
                 if self.should_include(fn, root):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     fn = os.path.join(root, fn)
 #                     url = urlunparse(('file', '', pathname2url(os.path.abspath(fn)), '', '', ''))
 #                     info = self.convert_url_to_download_info(url, None)
                     if info:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         result.add(info['name'])
             if not self.recursive:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
         return result
-
-
 class JSONLocator(Locator):
     """
 #     This locator uses special extended metadata (not available on PyPI) and is
@@ -1066,24 +978,22 @@ class JSONLocator(Locator):
 #     require archive downloads before dependencies can be determined! As you
 #     might imagine, that can be slow.
     """
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
         """
 #         raise NotImplementedError('Not available from this locator')
-
     def _get_project(self, name):
 #         result = {'urls': {}, 'digests': {}}
 #         data = get_project_data(name)
         if data:
-      pass
-      pass
+    pass
+    pass
     pass
             for info in data.get('files', []):
                 if info['ptype'] != 'sdist' or info['pyversion'] != 'source':
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
                 # We don't store summary in project metadata as it makes
@@ -1097,8 +1007,8 @@ class JSONLocator(Locator):
 #                 md.source_url = info['url']
                 # TODO SHA256 digest
                 if 'digest' in info and info['digest']:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     dist.digest = ('md5', info['digest'])
 #                 md.dependencies = info.get('requirements', {})
@@ -1106,29 +1016,24 @@ class JSONLocator(Locator):
 #                 result[dist.version] = dist
 #                 result['urls'].setdefault(dist.version, set()).add(info['url'])
         return result
-
-
 class DistPathLocator(Locator):
     """
 #     This locator finds installed distributions in a path. It can be useful for
 #     adding to an :class:`AggregatingLocator`.
     """
-
     def __init__(self, distpath, **kwargs):
         """
 #         Initialise an instance.
-
 #         :param distpath: A :class:`DistributionPath` instance to search.
         """
 #         super(DistPathLocator, self).__init__(**kwargs)
 #         assert isinstance(distpath, DistributionPath)
 #         self.distpath = distpath
-
     def _get_project(self, name):
 #         dist = self.distpath.get_distribution(name)
         if dist is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             result = {'urls': {}, 'digests': {}}
         else:
@@ -1142,20 +1047,16 @@ class DistPathLocator(Locator):
 #                 }
 #             }
         return result
-
-
 class AggregatingLocator(Locator):
     """
 #     This class allows you to chain and/or merge a list of locators.
     """
-
     def __init__(self, *locators, **kwargs):
         """
 #         Initialise an instance.
-
 #         :param locators: The list of locators to search.
 #         :param kwargs: Passed to the superclass constructor,
-                       except for:
+                    except for:
 #                        * merge - if False (the default), the first successful
 #                          search from any of the locators is returned. If True,
 #                          the results from all locators are merged (this can be
@@ -1164,30 +1065,26 @@ class AggregatingLocator(Locator):
 #         self.merge = kwargs.pop('merge', False)
 #         self.locators = locators
 #         super(AggregatingLocator, self).__init__(**kwargs)
-
     def clear_cache(self):
 #         super(AggregatingLocator, self).clear_cache()
         for locator in self.locators:
 #             locator.clear_cache()
-
     def _set_scheme(self, value):
 #         self._scheme = value
         for locator in self.locators:
 #             locator.scheme = value
-
 #     scheme = property(Locator.scheme.fget, _set_scheme)
-
     def _get_project(self, name):
 #         result = {}
         for locator in self.locators:
 #             d = locator.get_project(name)
             if d:
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.merge:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     files = result.get('urls', {})
 #                     digests = result.get('digests', {})
@@ -1195,21 +1092,21 @@ class AggregatingLocator(Locator):
 #                     result.update(d)
 #                     df = result.get('urls')
                     if files and df:
-      pass
-      pass
+    pass
+    pass
     pass
                         for k, v in files.items():
                             if k in df:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 df[k] |= v
                             else:
 #                                 df[k] = v
 #                     dd = result.get('digests')
                     if digests and dd:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         dd.update(digests)
                 else:
@@ -1224,27 +1121,26 @@ class AggregatingLocator(Locator):
                     # weren't searched. Note that this only matters when
                     # merge=False.
                     if self.matcher is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         found = True
                     else:
 #                         found = False
                         for k in d:
                             if self.matcher.match(k):
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 found = True
 #                                 break
                     if found:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         result = d
 #                         break
         return result
-
     def get_distribution_names(self):
         """
 #         Return all the distribution names known to this locator.
@@ -1256,23 +1152,17 @@ class AggregatingLocator(Locator):
             except NotImplementedError:
 #                 pass
         return result
-
-
 # We use a legacy scheme simply because most of the dists on PyPI use legacy
 # versions which don't conform to PEP 440.
 default_locator = AggregatingLocator(
     # JSONLocator(), # don't use as PEP 426 is withdrawn
 #     SimpleScrapingLocator('https://pypi.org/simple/', timeout=3.0),
 #     scheme='legacy')
-
 # locate = default_locator.locate
-
-
 class DependencyFinder(object):
     """
 #     Locate dependencies for distributions.
     """
-
     def __init__(self, locator=None):
         """
 #         Initialise an instance, using the specified locator
@@ -1280,7 +1170,6 @@ class DependencyFinder(object):
         """
 #         self.locator = locator or default_locator
 #         self.scheme = get_scheme(self.locator.scheme)
-
     def add_distribution(self, dist):
         """
 #         Add a distribution to the finder. This will update internal information
@@ -1295,7 +1184,6 @@ class DependencyFinder(object):
 #             name, version = parse_name_and_version(p)
 #             logger.debug('Add to provided: %s, %s, %s', name, version, dist)
 #             self.provided.setdefault(name, set()).add((version, dist))
-
     def remove_distribution(self, dist):
         """
 #         Remove a distribution from the finder. This will update internal
@@ -1312,11 +1200,10 @@ class DependencyFinder(object):
 #             s = self.provided[name]
 #             s.remove((version, dist))
             if not s:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 del self.provided[name]
-
     def get_matcher(self, reqt):
         """
 #         Get a version matcher for a requirement.
@@ -1332,11 +1219,9 @@ class DependencyFinder(object):
 #             name = reqt.split()[0]
 #             matcher = self.scheme.matcher(name)
         return matcher
-
     def find_providers(self, reqt):
         """
 #         Find the distributions which can fulfill a requirement.
-
 #         :param reqt: The requirement.
 #          :type reqt: str
 #         :return: A set of distribution which can fulfill the requirement.
@@ -1346,32 +1231,28 @@ class DependencyFinder(object):
 #         result = set()
 #         provided = self.provided
         if name in provided:
-      pass
-      pass
+    pass
+    pass
     pass
             for version, provider in provided[name]:
                 try:
 #                     match = matcher.match(version)
                 except UnsupportedVersionError:
 #                     match = False
-
                 if match:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     result.add(provider)
 #                     break
         return result
-
     def try_to_replace(self, provider, other, problems):
         """
 #         Attempt to replace one provider with another. This is typically used
 #         when resolving dependencies from multiple sources, e.g. A requires
 #         (B >= 1.0) while C requires (B >= 1.1).
-
 #         For successful replacement, ``provider`` must meet all the requirements
 #         which ``other`` fulfills.
-
 #         :param provider: The provider we are trying to replace with.
 #         :param other: The provider we're trying to replace.
 #         :param problems: If False is returned, this will contain what
@@ -1387,13 +1268,13 @@ class DependencyFinder(object):
         for s in rlist:
 #             matcher = self.get_matcher(s)
             if not matcher.match(provider.version):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 unmatched.add(s)
         if unmatched:
-      pass
-      pass
+    pass
+    pass
     pass
             # can't replace other with provider
 #             problems.add(('cantreplace', provider, other, frozenset(unmatched)))
@@ -1407,11 +1288,9 @@ class DependencyFinder(object):
 #             self.add_distribution(provider)
 #             result = True
         return result
-
     def find(self, requirement, meta_extras=None, prereleases=False):
         """
 #         Find a distribution and all distributions it depends on.
-
 #         :param requirement: The requirement specifying the distribution to
 #                             find, or a Distribution instance.
 #         :param meta_extras: A list of meta extras such as :test:, :build: and
@@ -1419,46 +1298,40 @@ class DependencyFinder(object):
 #         :param prereleases: If ``True``, allow pre-release versions to be
                             returned - otherwise, don't return prereleases
 #                             unless they're all that's available.
-
 #         Return a set of :class:`Distribution` instances and a set of
 #         problems.
-
 #         The distributions returned should be such that they have the
 #         :attr:`required` attribute set to ``True`` if they were
         from the ``requirement`` passed to ``find()``, and they have the
 #         :attr:`build_time_dependency` attribute set to ``True`` unless they
 #         are post-installation dependencies of the ``requirement``.
-
 #         The problems should be a tuple consisting of the string
 #         ``'unsatisfied'`` and the requirement which couldn't be satisfied
 #         by any distribution known to the locator.
         """
-
 #         self.provided = {}
 #         self.dists = {}
 #         self.dists_by_name = {}
 #         self.reqts = {}
-
 #         meta_extras = set(meta_extras or [])
         if ':*:' in meta_extras:
-      pass
-      pass
+    pass
+    pass
     pass
 #             meta_extras.remove(':*:')
             # :meta: and :run: are implicitly included
 #             meta_extras |= set([':test:', ':build:', ':dev:'])
-
         if isinstance(requirement, Distribution):
-      pass
-      pass
+    pass
+    pass
     pass
 #             dist = odist = requirement
 #             logger.debug('passed %s as requirement', odist)
         else:
 #             dist = odist = self.locator.locate(requirement, prereleases=prereleases)
             if dist is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise DistlibException('Unable to locate %r' % requirement)
 #             logger.debug('located %s', odist)
@@ -1470,91 +1343,89 @@ class DependencyFinder(object):
 #             dist = todo.pop()
 #             name = dist.key  # case-insensitive
             if name not in self.dists_by_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.add_distribution(dist)
             else:
                 # import pdb; pdb.set_trace()
 #                 other = self.dists_by_name[name]
                 if other != dist:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.try_to_replace(dist, other, problems)
-
 #             ireqts = dist.run_requires | dist.meta_requires
 #             sreqts = dist.build_requires
 #             ereqts = set()
             if meta_extras and dist in install_dists:
-      pass
-      pass
+    pass
+    pass
     pass
                 for key in ('test', 'build', 'dev'):
 #                     e = ':%s:' % key
                     if e in meta_extras:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         ereqts |= getattr(dist, '%s_requires' % key)
 #             all_reqts = ireqts | sreqts | ereqts
             for r in all_reqts:
 #                 providers = self.find_providers(r)
                 if not providers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logger.debug('No providers found for %r', r)
 #                     provider = self.locator.locate(r, prereleases=prereleases)
                     # If no provider is found and we didn't consider
                     # prereleases, consider them now.
                     if provider is None and not prereleases:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         provider = self.locator.locate(r, prereleases=True)
                     if provider is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         logger.debug('Cannot satisfy %r', r)
 #                         problems.add(('unsatisfied', r))
                     else:
 #                         n, v = provider.key, provider.version
                         if (n, v) not in self.dists:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             todo.add(provider)
 #                         providers.add(provider)
                         if r in ireqts and dist in install_dists:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             install_dists.add(provider)
 #                             logger.debug('Adding %s to install_dists', provider.name_and_version)
                 for p in providers:
 #                     name = p.key
                     if name not in self.dists_by_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.reqts.setdefault(p, set()).add(r)
                     else:
 #                         other = self.dists_by_name[name]
                         if other != p:
-      pass
-      pass
+    pass
+    pass
     pass
                             # see if other can be replaced by p
 #                             self.try_to_replace(p, other, problems)
-
 #         dists = set(self.dists.values())
         for dist in dists:
 #             dist.build_time_dependency = dist not in install_dists
             if dist.build_time_dependency:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.debug('%s is a build-time dependency only.', dist.name_and_version)
 #         logger.debug('find done for %s', odist)

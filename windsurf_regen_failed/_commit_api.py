@@ -1,14 +1,10 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # Type definitions and utilities for the `create_commit` API
-
 import base64
 import io
 import math
@@ -20,9 +16,7 @@ from dataclasses import dataclass, field
 from itertools import groupby
 from pathlib import Path, PurePosixPath
 from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Iterable, Iterator, List, Literal, Optional, Tuple, Union
-
 from tqdm.contrib.concurrent import thread_map
-
 from . import constants
 from .errors import EntryNotFoundError, HfHubHTTPError, XetAuthorizationError, XetRefreshTokenError
 from .file_download import hf_hub_url
@@ -40,33 +34,21 @@ from .utils import (
 # )
 from .utils import tqdm as hf_tqdm
 from .utils.tqdm import _get_progress_bar_context
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .hf_api import RepoFile
-
-
 # logger = logging.get_logger(__name__)
-
-
 # UploadMode = Literal["lfs", "regular"]
-
 # Max is 1,000 per request on the Hub for HfApi.get_paths_info
 # Otherwise we get:
 # HfHubHTTPError: 413 Client Error: Payload Too Large for url: https://huggingface.co/api/datasets/xxx (Request ID: xxx)\n\ntoo many parameters
 # See https://github.com/huggingface/huggingface_hub/issues/1503
-
-
-
 # @dataclass
 class CommitOperationDelete:
-
 #     Data structure holding necessary info to delete a file or a folder from a repository
 #     on the Hub.
-
 #     Args:
 #         path_in_repo (`str`):
 #             Relative filepath in the repo, for example: `"checkpoints/1fec34a/weights.bin"`
@@ -76,38 +58,29 @@ class CommitOperationDelete:
 #             type (file or folder) is guessed automatically by looking if path ends with
 #             a "/" (folder) or not (file). To explicitly set the path type, you can set
 #             `is_folder=True` or `is_folder=False`.
-
 #     path_in_repo: str
 #     is_folder: Union[bool, Literal["auto"]] = "auto"
-
     def __post_init__(self):
 #         self.path_in_repo = _validate_path_in_repo(self.path_in_repo)
-
         if self.is_folder == "auto":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.is_folder = self.path_in_repo.endswith("/")
         if not isinstance(self.is_folder, bool):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Wrong value for `is_folder`. Must be one of [`True`, `False`, `'auto'`]. Got '{self.is_folder}'."
 #             )
-
-
 # @dataclass
 class CommitOperationCopy:
-
 #     Data structure holding necessary info to copy a file in a repository on the Hub.
-
 #     Limitations:
 #       - Only LFS files can be copied. To copy a regular file, you need to download it locally and re-upload it
 #       - Cross-repository copies are not supported.
-
 #     Note: you can combine a [`CommitOperationCopy`] and a [`CommitOperationDelete`] to rename an LFS file on the Hub.
-
 #     Args:
 #         src_path_in_repo (`str`):
 #             Relative filepath in the repo of the file to be copied, e.g. `"checkpoints/1fec34a/weights.bin"`.
@@ -116,7 +89,6 @@ class CommitOperationCopy:
 #         src_revision (`str`, *optional*):
 #             The git revision of the file to be copied. Can be any valid git revision.
 #             Default to the target commit revision.
-
 #     src_path_in_repo: str
 #     path_in_repo: str
 #     src_revision: Optional[str] = None
@@ -126,17 +98,12 @@ class CommitOperationCopy:
     # set to the OID of the file to copy to if it has already been uploaded
     # useful to determine if a commit will be empty or not.
 #     _dest_oid: Optional[str] = None
-
     def __post_init__(self):
 #         self.src_path_in_repo = _validate_path_in_repo(self.src_path_in_repo)
 #         self.path_in_repo = _validate_path_in_repo(self.path_in_repo)
-
-
 # @dataclass
 class CommitOperationAdd:
-
 #     Data structure holding necessary info to upload a file to a repository on the Hub.
-
 #     Args:
 #         path_in_repo (`str`):
 #             Relative filepath in the repo, for example: `"checkpoints/1fec34a/weights.bin"`
@@ -146,7 +113,6 @@ class CommitOperationAdd:
 #             - a buffer of bytes (`bytes`) holding the content of the file to upload
 #             - a "file object" (subclass of `io.BufferedIOBase`), typically obtained
                 with `open(path, "rb")`. It must support `seek()` and `tell()` methods.
-
 #     Raises:
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If `path_or_fileobj` is not one of `str`, `Path`, `bytes` or `io.BufferedIOBase`.
@@ -155,48 +121,38 @@ class CommitOperationAdd:
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If `path_or_fileobj` is a `io.BufferedIOBase` but it doesnt support both
 #             `seek()` and `tell()`.
-
 #     path_in_repo: str
 #     path_or_fileobj: Union[str, Path, bytes, BinaryIO]
 #     upload_info: UploadInfo = field(init=False, repr=False)
-
     # Internal attributes
-
     # set to "lfs" or "regular" once known
 #     _upload_mode: Optional[UploadMode] = field(init=False, repr=False, default=None)
-
     # set to True if .gitignore rules prevent the file from being uploaded as LFS
     # (server-side check)
 #     _should_ignore: Optional[bool] = field(init=False, repr=False, default=None)
-
     # set to the remote OID of the file if it has already been uploaded
     # useful to determine if a commit will be empty or not
 #     _remote_oid: Optional[str] = field(init=False, repr=False, default=None)
-
     # set to True once the file has been uploaded as LFS
 #     _is_uploaded: bool = field(init=False, repr=False, default=False)
-
     # set to True once the file has been committed
 #     _is_committed: bool = field(init=False, repr=False, default=False)
-
     def __post_init__(self) -> None:
-
 #         self.path_in_repo = _validate_path_in_repo(self.path_in_repo)
-
         # Validate `path_or_fileobj` value
         if isinstance(self.path_or_fileobj, Path):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.path_or_fileobj = str(self.path_or_fileobj)
         if isinstance(self.path_or_fileobj, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             path_or_fileobj = os.path.normpath(os.path.expanduser(self.path_or_fileobj))
             if not os.path.isfile(path_or_fileobj):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(f"Provided path: '{path_or_fileobj}' is not a file on the local file system")
         elif not isinstance(self.path_or_fileobj, (io.BufferedIOBase, bytes)):
@@ -208,8 +164,8 @@ class CommitOperationAdd:
 #                 " in binary mode."
 #             )
         if isinstance(self.path_or_fileobj, io.BufferedIOBase):
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 self.path_or_fileobj.tell()
@@ -218,11 +174,10 @@ class CommitOperationAdd:
 #                 raise ValueError(
 #                     "path_or_fileobj is a file-like object but does not implement seek() and tell()"
 #                 ) from exc
-
         # Compute "upload_info" attribute
         if isinstance(self.path_or_fileobj, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.upload_info = UploadInfo.from_path(self.path_or_fileobj)
         elif isinstance(self.path_or_fileobj, bytes):
@@ -230,31 +185,24 @@ class CommitOperationAdd:
 #             self.upload_info = UploadInfo.from_bytes(self.path_or_fileobj)
         else:
 #             self.upload_info = UploadInfo.from_fileobj(self.path_or_fileobj)
-
 #     @contextmanager
     def as_file(self, with_tqdm: bool = False) -> Iterator[BinaryIO]:
-
 #         A context manager that yields a file-like object allowing to read the underlying
 #         data behind `path_or_fileobj`.
-
 #         Args:
             with_tqdm (`bool`, *optional*, defaults to `False`):
 #                 If True, iterating over the file object will display a progress bar. Only
 #                 works if the file-like object is a path to a file. Pure bytes and buffers
 #                 are not supported.
-
 #         Example:
-
 #         ```python
 #         >>> operation = CommitOperationAdd(
 #         ...        path_in_repo="remote/dir/weights.h5",
 #         ...        path_or_fileobj="./local/weights.h5",
 #         ... )
 #         CommitOperationAdd(path_in_repo='remote/dir/weights.h5', path_or_fileobj='./local/weights.h5')
-
 #         >>> with operation.as_file() as file:
 #         ...     content = file.read()
-
 #         >>> with operation.as_file(with_tqdm=True) as file:
 #         ...     while True:
 #         ...         data = file.read(1024)
@@ -262,19 +210,17 @@ class CommitOperationAdd:
     pass
 #         ...              break
 #         config.json: 100%|█████████████████████████| 8.19k/8.19k [00:02<00:00, 3.72kB/s]
-
 #         >>> with operation.as_file(with_tqdm=True) as file:
 #         ...     requests.put(..., data=file)
 #         config.json: 100%|█████████████████████████| 8.19k/8.19k [00:02<00:00, 3.72kB/s]
 #         ```
-
         if isinstance(self.path_or_fileobj, str) or isinstance(self.path_or_fileobj, Path):
-      pass
-      pass
+    pass
+    pass
     pass
             if with_tqdm:
-      pass
-      pass
+    pass
+    pass
     pass
                 with tqdm_stream_file(self.path_or_fileobj) as file:
 #                     yield file
@@ -289,32 +235,24 @@ class CommitOperationAdd:
 #             prev_pos = self.path_or_fileobj.tell()
 #             yield self.path_or_fileobj
 #             self.path_or_fileobj.seek(prev_pos, io.SEEK_SET)
-
     def b64content(self) -> bytes:
-
 #         The base64-encoded content of `path_or_fileobj`
-
 #         Returns: `bytes`
-
         with self.as_file() as file:
             return base64.b64encode(file.read())
-
 #     @property
     def _local_oid(self) -> Optional[str]:
 #         Return the OID of the local file.
-
 #         This OID is then compared to `self._remote_oid` to check if the file has changed compared to the remote one.
 #         If the file did not change, we wont upload it again to prevent empty commits.
-
 #         For LFS files, the OID corresponds to the SHA256 of the file content (used a LFS ref).
 #         For regular files, the OID corresponds to the SHA1 of the file content.
 #         Note: this is slightly different to git OID computation since the oid of an LFS file is usually the git-SHA1 of the
 #               pointer file content (not the actual file content). However, using the SHA256 is enough to detect changes
 #               and more convenient client-side.
-
         if self._upload_mode is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         elif self._upload_mode == "lfs":
@@ -325,45 +263,37 @@ class CommitOperationAdd:
             # => no need to read by chunk since the file is guaranteed to be <=5MB.
             with self.as_file() as file:
                 return sha.git_hash(file.read())
-
-
 def _validate_path_in_repo(path_in_repo: str) -> str:
     # Validate `path_in_repo` value to prevent a server-side issue
     if path_in_repo.startswith("/"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         path_in_repo = path_in_repo[1:]
     if path_in_repo == "." or path_in_repo == ".." or path_in_repo.startswith("../"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(f"Invalid `path_in_repo` in CommitOperation: '{path_in_repo}'")
     if path_in_repo.startswith("./"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         path_in_repo = path_in_repo[2:]
     for forbidden in FORBIDDEN_FOLDERS:
         if any(part == forbidden for part in path_in_repo.split("/")):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Invalid `path_in_repo` in CommitOperation: cannot update files under a '{forbidden}/' folder (path:"
 #                 f" '{path_in_repo}')."
 #             )
     return path_in_repo
-
-
 # CommitOperation = Union[CommitOperationAdd, CommitOperationCopy, CommitOperationDelete]
-
-
 def _warn_on_overwriting_operations(operations: List[CommitOperation]) -> None:
-
 #     Warn user when a list of operations is expected to overwrite itself in a single
 #     commit.
-
 #     Rules:
 #     - If a filepath is updated by multiple `CommitOperationAdd` operations, a warning
 #       message is triggered.
@@ -373,17 +303,16 @@ def _warn_on_overwriting_operations(operations: List[CommitOperation]) -> None:
 #       `CommitOperationAdd`, no warning is triggered. This is usually useless (no need to
 #       delete before upload) but can happen if a user deletes an entire folder and then
 #       add new files to it.
-
 #     nb_additions_per_path: Dict[str, int] = defaultdict(int)
     for operation in operations:
 #         path_in_repo = operation.path_in_repo
         if isinstance(operation, CommitOperationAdd):
-      pass
-      pass
+    pass
+    pass
     pass
             if nb_additions_per_path[path_in_repo] > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 warnings.warn(
 #                     "About to update multiple times the same file in the same commit:"
@@ -396,16 +325,16 @@ def _warn_on_overwriting_operations(operations: List[CommitOperation]) -> None:
                 # => warns if deleting a folder overwrite some contained files
 #                 nb_additions_per_path[str(parent)] += 1
         if isinstance(operation, CommitOperationDelete):
-      pass
-      pass
+    pass
+    pass
     pass
             if nb_additions_per_path[str(PurePosixPath(path_in_repo))] > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 if operation.is_folder:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     warnings.warn(
 #                         "About to delete a folder containing files that have just been"
@@ -418,8 +347,6 @@ def _warn_on_overwriting_operations(operations: List[CommitOperation]) -> None:
 #                         f" same commit: '{path_in_repo}'. This can cause undesired"
 #                         " inconsistencies in your repo."
 #                     )
-
-
 # @validate_hf_hub_args
 def _upload_lfs_files(
 #     *,
@@ -431,12 +358,9 @@ def _upload_lfs_files(
 #     num_threads: int = 5,
 #     revision: Optional[str] = None,
 # ):
-
 #     Uploads the content of `additions` to the Hub using the large file storage protocol.
-
 #     Relevant external documentation:
 #         - LFS Batch API: https://github.com/git-lfs/git-lfs/blob/main/docs/api/batch.md
-
 #     Args:
 #         additions (`List` of `CommitOperationAdd`):
 #             The files to be uploaded
@@ -451,7 +375,6 @@ def _upload_lfs_files(
 #             The number of concurrent threads to use when uploading. Defaults to 5.
 #         revision (`str`, *optional*):
 #             The git revision to upload to.
-
 #     Raises:
 #         [`EnvironmentError`](https://docs.python.org/3/library/exceptions.html#EnvironmentError)
 #             If an upload failed for any reason
@@ -459,7 +382,6 @@ def _upload_lfs_files(
 #             If the server returns malformed responses
 #         [`HTTPError`](https://requests.readthedocs.io/en/latest/api/#requests.HTTPError)
 #             If the LFS batch endpoint returned an HTTP error.
-
     # Step 1: retrieve upload instructions from the LFS batch endpoint.
     #         Upload instructions are retrieved by chunk of 256 files to avoid reaching
     #         the payload limit.
@@ -474,11 +396,10 @@ def _upload_lfs_files(
 #             headers=headers,
 #             token=None,  # already passed in 'headers'
 #         )
-
         # If at least 1 error, we do not retrieve information for other chunks
         if batch_errors_chunk:
-      pass
-      pass
+    pass
+    pass
     pass
 #             message = "\n".join(
 #                 [
@@ -487,16 +408,14 @@ def _upload_lfs_files(
 #                 ]
 #             )
 #             raise ValueError(f"LFS batch endpoint returned errors:\n{message}")
-
 #         batch_actions += batch_actions_chunk
 #     oid2addop = {add_op.upload_info.sha256.hex(): add_op for add_op in additions}
-
     # Step 2: ignore files that have already been uploaded
 #     filtered_actions = []
     for action in batch_actions:
         if action.get("actions") is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.debug(
 #                 f"Content of file {oid2addop[action['oid']].path_in_repo} is already"
@@ -504,14 +423,12 @@ def _upload_lfs_files(
 #             )
         else:
 #             filtered_actions.append(action)
-
     if len(filtered_actions) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.debug("No LFS files to upload.")
         return
-
     # Step 3: upload files concurrently according to these instructions
     def _wrapped_lfs_upload(batch_action) -> None:
         try:
@@ -519,10 +436,9 @@ def _upload_lfs_files(
 #             lfs_upload(operation=operation, lfs_batch_action=batch_action, headers=headers, endpoint=endpoint)
         except Exception as exc:
 #             raise RuntimeError(f"Error while uploading '{operation.path_in_repo}' to the Hub.") from exc
-
     if constants.HF_HUB_ENABLE_HF_TRANSFER:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.debug(f"Uploading {len(filtered_actions)} LFS files to the Hub using `hf_transfer`.")
         for action in hf_tqdm(filtered_actions, name="huggingface_hub.lfs_upload"):
@@ -542,8 +458,6 @@ def _upload_lfs_files(
 #             max_workers=num_threads,
 #             tqdm_class=hf_tqdm,
 #         )
-
-
 # @validate_hf_hub_args
 def _upload_xet_files(
 #     *,
@@ -555,10 +469,8 @@ def _upload_xet_files(
 #     revision: Optional[str] = None,
 #     create_pr: Optional[bool] = None,
 # ):
-
 #     Uploads the content of `additions` to the Hub using the xet storage protocol.
 #     This chunks the files and deduplicates the chunks before uploading them to xetcas storage.
-
 #     Args:
 #         additions (`List` of `CommitOperationAdd`):
 #             The files to be uploaded.
@@ -575,7 +487,6 @@ def _upload_xet_files(
 #             The git revision to upload to.
 #         create_pr (`bool`, *optional*):
 #             Whether or not to create a Pull Request with that commit.
-
 #     Raises:
 #         [`EnvironmentError`](https://docs.python.org/3/library/exceptions.html#EnvironmentError)
 #             If an upload failed for any reason.
@@ -583,17 +494,14 @@ def _upload_xet_files(
 #             If the server returns malformed responses or if the user is unauthorized to upload to xet storage.
 #         [`HTTPError`](https://requests.readthedocs.io/en/latest/api/#requests.HTTPError)
 #             If the LFS batch endpoint returned an HTTP error.
-
 #     **How it works:**
 #         The file download system uses Xet storage, which is a content-addressable storage system that breaks files into chunks
             for efficient storage and transfer.
-
 #         `hf_xet.upload_files` manages uploading files by:
 #             - Taking a list of file paths to upload
 #             - Breaking files into smaller chunks for efficient storage
 #             - Avoiding duplicate storage by recognizing identical chunks across files
 #             - Connecting to a storage server (CAS server) that manages these chunks
-
 #         The upload process works like this:
 #         1. Create a local folder at ~/.cache/huggingface/xet/chunk-cache to store file chunks for reuse.
 #         2. Process files in parallel (up to 8 files at once):
@@ -606,15 +514,13 @@ def _upload_xet_files(
 #             2.5. Upload these blocks to the storage server.
 #             2.6. Create and upload information about how the file is structured.
 #         3. Return reference files that contain information about the uploaded files, which can be used later to download them.
-
     if len(additions) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         return
     # at this point, we know that hf_xet is installed
     from hf_xet import upload_bytes, upload_files
-
     try:
 #         xet_connection_info = fetch_xet_connection_info_from_repo_info(
 #             token_type=XetTokenType.WRITE,
@@ -627,18 +533,16 @@ def _upload_xet_files(
 #         )
     except HfHubHTTPError as e:
         if e.response.status_code == 401:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise XetAuthorizationError(
 #                 f"You are unauthorized to upload to xet storage for {repo_type}/{repo_id}. "
 #                 f"Please check that you have configured your access token with write access to the repo."
 #             ) from e
 #         raise
-
 #     xet_endpoint = xet_connection_info.endpoint
 #     access_token_info = (xet_connection_info.access_token, xet_connection_info.expiration_unix_epoch)
-
     def token_refresher() -> Tuple[str, int]:
 #         new_xet_connection = fetch_xet_connection_info_from_repo_info(
 #             token_type=XetTokenType.WRITE,
@@ -650,24 +554,21 @@ def _upload_xet_files(
 #             params={"create_pr": "1"} if create_pr else None,
 #         )
         if new_xet_connection is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise XetRefreshTokenError("Failed to refresh xet token")
         return new_xet_connection.access_token, new_xet_connection.expiration_unix_epoch
-
 #     num_chunks = math.ceil(len(additions) / UPLOAD_BATCH_MAX_NUM_FILES)
 #     num_chunks_num_digits = int(math.log10(num_chunks)) + 1
     for i, chunk in enumerate(chunk_iterable(additions, chunk_size=UPLOAD_BATCH_MAX_NUM_FILES)):
 #         _chunk = [op for op in chunk]
-
 #         bytes_ops = [op for op in _chunk if isinstance(op.path_or_fileobj, bytes)]
 #         paths_ops = [op for op in _chunk if isinstance(op.path_or_fileobj, (str, Path))]
 #         expected_size = sum(op.upload_info.size for op in bytes_ops + paths_ops)
-
         if num_chunks > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             description = f"Uploading Batch [{str(i + 1).zfill(num_chunks_num_digits)}/{num_chunks}]..."
         else:
@@ -682,13 +583,11 @@ def _upload_xet_files(
 #             log_level=logger.getEffectiveLevel(),
 #         )
         with progress_cm as progress:
-
             def update_progress(increment: int):
 #                 progress.update(increment)
-
             if len(paths_ops) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 upload_files(
 #                     [str(op.path_or_fileobj) for op in paths_ops],
@@ -699,8 +598,8 @@ def _upload_xet_files(
 #                     repo_type,
 #                 )
             if len(bytes_ops) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 upload_bytes(
 #                     [op.path_or_fileobj for op in bytes_ops],
@@ -711,13 +610,11 @@ def _upload_xet_files(
 #                     repo_type,
 #                 )
     return
-
-
 def _validate_preupload_info(preupload_info: dict):
 #     files = preupload_info.get("files")
     if not isinstance(files, list):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("preupload_info is improperly formatted")
     for file_info in files:
@@ -729,8 +626,6 @@ def _validate_preupload_info(preupload_info: dict):
 #         ):
 #             raise ValueError("preupload_info is improperly formatted:")
     return preupload_info
-
-
 # @validate_hf_hub_args
 def _fetch_upload_modes(
 #     additions: Iterable[CommitOperationAdd],
@@ -742,10 +637,8 @@ def _fetch_upload_modes(
 #     create_pr: bool = False,
 #     gitignore_content: Optional[str] = None,
 # ) -> None:
-
 #     Requests the Hub "preupload" endpoint to determine whether each input file should be uploaded as a regular git blob,
 #     as a git LFS blob, or as a XET file. Input `additions` are mutated in-place with the upload mode.
-
 #     Args:
 #         additions (`Iterable` of :class:`CommitOperationAdd`):
 #             Iterable of :class:`CommitOperationAdd` describing the files to
@@ -769,14 +662,11 @@ def _fetch_upload_modes(
 #             If the Hub API returned an error.
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If the Hub API response is improperly formatted.
-
 #     endpoint = endpoint if endpoint is not None else constants.ENDPOINT
-
     # Fetch upload mode (LFS or regular) chunk by chunk.
 #     upload_modes: Dict[str, UploadMode] = {}
 #     should_ignore_info: Dict[str, bool] = {}
 #     oid_info: Dict[str, Optional[str]] = {}
-
     for chunk in chunk_iterable(additions, 256):
 #         payload: Dict = {
 #             "files": [
@@ -789,11 +679,10 @@ def _fetch_upload_modes(
 #             ]
 #         }
         if gitignore_content is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             payload["gitIgnore"] = gitignore_content
-
 #         resp = get_session().post(
 #             f"{endpoint}/api/{repo_type}s/{repo_id}/preupload/{revision}",
 #             json=payload,
@@ -805,23 +694,19 @@ def _fetch_upload_modes(
 #         upload_modes.update(**{file["path"]: file["uploadMode"] for file in preupload_info["files"]})
 #         should_ignore_info.update(**{file["path"]: file["shouldIgnore"] for file in preupload_info["files"]})
 #         oid_info.update(**{file["path"]: file.get("oid") for file in preupload_info["files"]})
-
     # Set upload mode for each addition operation
     for addition in additions:
 #         addition._upload_mode = upload_modes[addition.path_in_repo]
 #         addition._should_ignore = should_ignore_info[addition.path_in_repo]
 #         addition._remote_oid = oid_info[addition.path_in_repo]
-
     # Empty files cannot be uploaded as LFS (S3 would fail with a 501 Not Implemented)
     # => empty files are uploaded as "regular" to still allow users to commit them.
     for addition in additions:
         if addition.upload_info.size == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             addition._upload_mode = "regular"
-
-
 # @validate_hf_hub_args
 def _fetch_files_to_copy(
 #     copies: Iterable[CommitOperationCopy],
@@ -831,12 +716,9 @@ def _fetch_files_to_copy(
 #     revision: str,
 #     endpoint: Optional[str] = None,
 # ) -> Dict[Tuple[str, Optional[str]], Union["RepoFile", bytes]]:
-
 #     Fetch information about the files to copy.
-
 #     For LFS files, we only need their metadata (file size and sha256) while for regular files
 #     we need to download the raw content from the Hub.
-
 #     Args:
 #         copies (`Iterable` of :class:`CommitOperationCopy`):
 #             Iterable of :class:`CommitOperationCopy` describing the files to
@@ -850,19 +732,15 @@ def _fetch_files_to_copy(
 #             Headers to use for the request, including authorization headers and user agent.
 #         revision (`str`):
 #             The git revision to upload the files to. Can be any valid git revision.
-
 #     Returns: `Dict[Tuple[str, Optional[str]], Union[RepoFile, bytes]]]`
 #         Key is the file path and revision of the file to copy.
 #         Value is the raw content as bytes (for regular files) or the file information as a RepoFile (for LFS files).
-
 #     Raises:
 #         [`~utils.HfHubHTTPError`]
 #             If the Hub API returned an error.
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If the Hub API response is improperly formatted.
-
     from .hf_api import HfApi, RepoFolder
-
 #     hf_api = HfApi(endpoint=endpoint, headers=headers)
 #     files_to_copy: Dict[Tuple[str, Optional[str]], Union["RepoFile", bytes]] = {}
     # Store (path, revision) -> oid mapping
@@ -878,11 +756,10 @@ def _fetch_files_to_copy(
 #         )
         for file in dest_repo_files:
             if not isinstance(file, RepoFolder):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 oid_info[(file.path, revision)] = file.blob_id
-
     # 2. Group by source revision and fetch source file info in batches.
     for src_revision, operations in groupby(copies, key=lambda op: op.src_revision):
 #         operations = list(operations)  # type: ignore
@@ -894,18 +771,17 @@ def _fetch_files_to_copy(
 #                 revision=src_revision or revision,
 #                 repo_type=repo_type,
 #             )
-
             for src_repo_file in src_repo_files:
                 if isinstance(src_repo_file, RepoFolder):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise NotImplementedError("Copying a folder is not implemented.")
 #                 oid_info[(src_repo_file.path, src_revision)] = src_repo_file.blob_id
                 # If its an LFS file, store the RepoFile object. Otherwise, download raw bytes.
                 if src_repo_file.lfs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     files_to_copy[(src_repo_file.path, src_revision)] = src_repo_file
                 else:
@@ -924,8 +800,8 @@ def _fetch_files_to_copy(
         #  and track src/dest OIDs for each operation.
         for operation in operations:
             if (operation.src_path_in_repo, src_revision) not in files_to_copy:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise EntryNotFoundError(
 #                     f"Cannot copy {operation.src_path_in_repo} at revision "
@@ -934,8 +810,6 @@ def _fetch_files_to_copy(
 #             operation._src_oid = oid_info.get((operation.src_path_in_repo, operation.src_revision))
 #             operation._dest_oid = oid_info.get((operation.path_in_repo, revision))
     return files_to_copy
-
-
 def _prepare_commit_payload(
 #     operations: Iterable[CommitOperation],
 #     files_to_copy: Dict[Tuple[str, Optional[str]], Union["RepoFile", bytes]],
@@ -943,43 +817,35 @@ def _prepare_commit_payload(
 #     commit_description: Optional[str] = None,
 #     parent_commit: Optional[str] = None,
 # ) -> Iterable[Dict[str, Any]]:
-
 #     Builds the payload to POST to the `/commit` API of the Hub.
-
 #     Payload is returned as an iterator so that it can be streamed as a ndjson in the
-
 #     For more information, see:
 #         - https://github.com/huggingface/huggingface_hub/issues/1085#issuecomment-1265208073
 #         - http://ndjson.org/
-
 #     commit_description = commit_description if commit_description is not None else
-
     # 1. Send a header item with the commit metadata
 #     header_value = {"summary": commit_message, "description": commit_description}
     if parent_commit is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         header_value["parentCommit"] = parent_commit
 #     yield {"key": "header", "value": header_value}
-
 #     nb_ignored_files = 0
-
     # 2. Send operations, one per line
     for operation in operations:
         # Skip ignored files
         if isinstance(operation, CommitOperationAdd) and operation._should_ignore:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.debug(f"Skipping file '{operation.path_in_repo}' in commit (ignored by gitignore file).")
 #             nb_ignored_files += 1
 #             continue
-
         # 2.a. Case adding a regular file
         if isinstance(operation, CommitOperationAdd) and operation._upload_mode == "regular":
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield {
 #                 "key": "file",
@@ -1013,8 +879,8 @@ def _prepare_commit_payload(
     pass
 #             file_to_copy = files_to_copy[(operation.src_path_in_repo, operation.src_revision)]
             if isinstance(file_to_copy, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield {
 #                     "key": "file",
@@ -1044,9 +910,8 @@ def _prepare_commit_payload(
 #                 f"Unknown operation to commit. Operation: {operation}. Upload mode:"
 #                 f" {getattr(operation, '_upload_mode', None)}"
 #             )
-
     if nb_ignored_files > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.info(f"Skipped {nb_ignored_files} file(s) in commit (ignored by gitignore file).")

@@ -6,15 +6,12 @@ import itertools
 from importlib.machinery import EXTENSION_SUFFIXES
 from importlib.util import cache_from_source as _compiled_file_name
 from typing import Dict, Iterator, List, Tuple
-
 from distutils.command.build_ext import build_ext as _du_build_ext
 from distutils.ccompiler import new_compiler
 from distutils.sysconfig import customize_compiler, get_config_var
 from distutils import log
-
 from setuptools.errors import BaseError
 from setuptools.extension import Extension, Library
-
 try:
     # Attempt to use Cython for building extensions, if available
     from Cython.Distutils.build_ext import build_ext as _build_ext
@@ -23,16 +20,13 @@ try:
 #     __import__('Cython.Compiler.Main')
 except ImportError:
 #     _build_ext = _du_build_ext
-
 # make sure _config_vars is initialized
 # get_config_var("LDSHARED")
 from distutils.sysconfig import _config_vars as _CONFIG_VARS  # noqa
-
-
 def _customize_compiler_for_shlib(compiler):
     if sys.platform == "darwin":
-      pass
-      pass
+    pass
+    pass
     pass
         # building .dylib requires additional compiler flags on OSX; here we
         # temporarily substitute the pyconfig.h variables so that distutils'
@@ -50,15 +44,12 @@ def _customize_compiler_for_shlib(compiler):
 #             _CONFIG_VARS.update(tmp)
     else:
 #         customize_compiler(compiler)
-
-
 # have_rtld = False
 # use_stubs = False
 # libtype = 'shared'
-
 if sys.platform == "darwin":
-      pass
-      pass
+    pass
+    pass
     pass
 #     use_stubs = True
 elif os.name != 'nt':
@@ -68,12 +59,8 @@ elif os.name != 'nt':
 #         use_stubs = have_rtld = hasattr(dl, 'RTLD_NOW')
     except ImportError:
 #         pass
-
-
 def if_dl(s):
     return s if have_rtld else ''
-
-
 def get_abi3_suffix():
     """Return the file extension for an abi3-compliant Extension()"""
     for suffix in EXTENSION_SUFFIXES:
@@ -81,23 +68,19 @@ def get_abi3_suffix():
             return suffix
         elif suffix == '.pyd':  # Windows
             return suffix
-
-
 class build_ext(_build_ext):
 #     editable_mode: bool = False
 #     inplace: bool = False
-
     def run(self):
         """Build extensions in build directory, then copy if --inplace"""
 #         old_inplace, self.inplace = self.inplace, 0
 #         _build_ext.run(self)
 #         self.inplace = old_inplace
         if old_inplace:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.copy_extensions_to_source()
-
     def _get_inplace_equivalent(self, build_py, ext: Extension) -> Tuple[str, str]:
 #         fullname = self.get_ext_fullname(ext.name)
 #         filename = self.get_ext_filename(fullname)
@@ -107,52 +90,44 @@ class build_ext(_build_ext):
 #         inplace_file = os.path.join(package_dir, os.path.basename(filename))
 #         regular_file = os.path.join(self.build_lib, filename)
         return (inplace_file, regular_file)
-
     def copy_extensions_to_source(self):
 #         build_py = self.get_finalized_command('build_py')
         for ext in self.extensions:
 #             inplace_file, regular_file = self._get_inplace_equivalent(build_py, ext)
-
             # Always copy, even if source is older than destination, to ensure
             # that the right extensions for the current Python/platform are
             # used.
             if os.path.exists(regular_file) or not ext.optional:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.copy_file(regular_file, inplace_file, level=self.verbose)
-
             if ext._needs_stub:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 inplace_stub = self._get_equivalent_stub(ext, inplace_file)
 #                 self._write_stub_file(inplace_stub, ext, compile=True)
                 # Always compile stub and remove the original (leave the cache behind)
                 # (this behaviour was observed in previous iterations of the code)
-
     def _get_equivalent_stub(self, ext: Extension, output_file: str) -> str:
 #         dir_ = os.path.dirname(output_file)
 #         _, _, name = ext.name.rpartition(".")
         return f"{os.path.join(dir_, name)}.py"
-
     def _get_output_mapping(self) -> Iterator[Tuple[str, str]]:
         if not self.inplace:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
 #         build_py = self.get_finalized_command('build_py')
 #         opt = self.get_finalized_command('install_lib').optimize or ""
-
         for ext in self.extensions:
 #             inplace_file, regular_file = self._get_inplace_equivalent(build_py, ext)
 #             yield (regular_file, inplace_file)
-
             if ext._needs_stub:
-      pass
-      pass
+    pass
+    pass
     pass
                 # This version of `build_ext` always builds artifacts in another dir,
                 # when "inplace=True" is given it just copies them back.
@@ -160,40 +135,37 @@ class build_ext(_build_ext):
                 # always compile stub files via `_compile_and_remove_stub`.
                 # At the end of the process, a `.pyc` stub file is created without the
                 # corresponding `.py`.
-
 #                 inplace_stub = self._get_equivalent_stub(ext, inplace_file)
 #                 regular_stub = self._get_equivalent_stub(ext, regular_file)
 #                 inplace_cache = _compiled_file_name(inplace_stub, optimization=opt)
 #                 output_cache = _compiled_file_name(regular_stub, optimization=opt)
 #                 yield (output_cache, inplace_cache)
-
     def get_ext_filename(self, fullname):
 #         so_ext = os.getenv('SETUPTOOLS_EXT_SUFFIX')
         if so_ext:
-      pass
-      pass
+    pass
+    pass
     pass
 #             filename = os.path.join(*fullname.split('.')) + so_ext
         else:
 #             filename = _build_ext.get_ext_filename(self, fullname)
 #             so_ext = get_config_var('EXT_SUFFIX')
-
         if fullname in self.ext_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ext = self.ext_map[fullname]
 #             use_abi3 = getattr(ext, 'py_limited_api') and get_abi3_suffix()
             if use_abi3:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 filename = filename[:-len(so_ext)]
 #                 so_ext = get_abi3_suffix()
 #                 filename = filename + so_ext
             if isinstance(ext, Library):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 fn, ext = os.path.splitext(filename)
                 return self.shlib_compiler.library_filename(fn, libtype)
@@ -202,23 +174,21 @@ class build_ext(_build_ext):
 #                 d, fn = os.path.split(filename)
                 return os.path.join(d, 'dl-' + fn)
         return filename
-
     def initialize_options(self):
 #         _build_ext.initialize_options(self)
 #         self.shlib_compiler = None
 #         self.shlibs = []
 #         self.ext_map = {}
 #         self.editable_mode = False
-
     def finalize_options(self):
 #         _build_ext.finalize_options(self)
 #         self.extensions = self.extensions or []
 #         self.check_extensions_list(self.extensions)
 #         self.shlibs = [ext for ext in self.extensions
-                       if isinstance(ext, Library)]
+                    if isinstance(ext, Library)]
         if self.shlibs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.setup_shlib_compiler()
         for ext in self.extensions:
@@ -226,11 +196,9 @@ class build_ext(_build_ext):
         for ext in self.extensions:
 #             fullname = ext._full_name
 #             self.ext_map[fullname] = ext
-
             # distutils 3.1 will also ask for module names
             # XXX what to do with conflicts?
 #             self.ext_map[fullname.split('.')[-1]] = ext
-
 #             ltd = self.shlibs and self.links_to_dynamic(ext) or False
 #             ns = ltd and use_stubs and not isinstance(ext, Library)
 #             ext._links_to_dynamic = ltd
@@ -238,97 +206,90 @@ class build_ext(_build_ext):
 #             filename = ext._file_name = self.get_ext_filename(fullname)
 #             libdir = os.path.dirname(os.path.join(self.build_lib, filename))
             if ltd and libdir not in ext.library_dirs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ext.library_dirs.append(libdir)
             if ltd and use_stubs and os.curdir not in ext.runtime_library_dirs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ext.runtime_library_dirs.append(os.curdir)
-
         if self.editable_mode:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.inplace = True
-
     def setup_shlib_compiler(self):
 #         compiler = self.shlib_compiler = new_compiler(
 #             compiler=self.compiler, dry_run=self.dry_run, force=self.force
 #         )
 #         _customize_compiler_for_shlib(compiler)
-
         if self.include_dirs is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compiler.set_include_dirs(self.include_dirs)
         if self.define is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # 'define' option is a list of (name,value) tuples
             for (name, value) in self.define:
 #                 compiler.define_macro(name, value)
         if self.undef is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             for macro in self.undef:
 #                 compiler.undefine_macro(macro)
         if self.libraries is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compiler.set_libraries(self.libraries)
         if self.library_dirs is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compiler.set_library_dirs(self.library_dirs)
         if self.rpath is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compiler.set_runtime_library_dirs(self.rpath)
         if self.link_objects is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compiler.set_link_objects(self.link_objects)
-
         # hack so distutils' build_extension() builds a library instead
 #         compiler.link_shared_object = link_shared_object.__get__(compiler)
-
     def get_export_symbols(self, ext):
         if isinstance(ext, Library):
-      pass
-      pass
+    pass
+    pass
     pass
             return ext.export_symbols
         return _build_ext.get_export_symbols(self, ext)
-
     def build_extension(self, ext):
 #         ext._convert_pyx_sources_to_lang()
 #         _compiler = self.compiler
         try:
             if isinstance(ext, Library):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.compiler = self.shlib_compiler
 #             _build_ext.build_extension(self, ext)
             if ext._needs_stub:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 build_lib = self.get_finalized_command('build_py').build_lib
 #                 self.write_stub(build_lib, ext)
 #         finally:
 #             self.compiler = _compiler
-
     def links_to_dynamic(self, ext):
         """Return true if 'ext' links to a dynamic lib in the same package"""
         # XXX this should check to ensure the lib is actually being built
@@ -337,20 +298,17 @@ class build_ext(_build_ext):
 #         libnames = dict.fromkeys([lib._full_name for lib in self.shlibs])
 #         pkg = '.'.join(ext._full_name.split('.')[:-1] + [''])
         return any(pkg + libname in libnames for libname in ext.libraries)
-
     def get_outputs(self) -> List[str]:
         if self.inplace:
-      pass
-      pass
+    pass
+    pass
     pass
             return list(self.get_output_mapping().keys())
         return sorted(_build_ext.get_outputs(self) + self.__get_stubs_outputs())
-
     def get_output_mapping(self) -> Dict[str, str]:
         """See :class:`setuptools.commands.build.SubCommand`"""
 #         mapping = self._get_output_mapping()
         return dict(sorted(mapping, key=lambda x: x[0]))
-
     def __get_stubs_outputs(self):
         # assemble the base name for each extension that needs a stub
 #         ns_ext_bases = (
@@ -361,30 +319,27 @@ class build_ext(_build_ext):
         # pair each base with the extension
 #         pairs = itertools.product(ns_ext_bases, self.__get_output_extensions())
         return list(base + fnext for base, fnext in pairs)
-
     def __get_output_extensions(self):
 #         yield '.py'
 #         yield '.pyc'
         if self.get_finalized_command('build_py').optimize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield '.pyo'
-
     def write_stub(self, output_dir, ext, compile=False):
 #         stub_file = os.path.join(output_dir, *ext._full_name.split('.')) + '.py'
 #         self._write_stub_file(stub_file, ext, compile)
-
     def _write_stub_file(self, stub_file: str, ext: Extension, compile=False):
 #         log.info("writing stub loader for %s to %s", ext._full_name, stub_file)
         if compile and os.path.exists(stub_file):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise BaseError(stub_file + " already exists! Please delete.")
         if not self.dry_run:
-      pass
-      pass
+    pass
+    pass
     pass
 #             f = open(stub_file, 'w')
 #             f.write(
@@ -417,33 +372,29 @@ class build_ext(_build_ext):
 #             )
 #             f.close()
         if compile:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._compile_and_remove_stub(stub_file)
-
     def _compile_and_remove_stub(self, stub_file: str):
         from distutils.util import byte_compile
-
 #         byte_compile([stub_file], optimize=0,
-                     force=True, dry_run=self.dry_run)
+                    force=True, dry_run=self.dry_run)
 #         optimize = self.get_finalized_command('install_lib').optimize
         if optimize > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             byte_compile([stub_file], optimize=optimize,
-                         force=True, dry_run=self.dry_run)
+                        force=True, dry_run=self.dry_run)
         if os.path.exists(stub_file) and not self.dry_run:
-      pass
-      pass
+    pass
+    pass
     pass
 #             os.unlink(stub_file)
-
-
 if use_stubs or os.name == 'nt':
-      pass
-      pass
+    pass
+    pass
     pass
     # Build shared libraries
     #
@@ -461,7 +412,6 @@ if use_stubs or os.name == 'nt':
 else:
     # Build static libraries everywhere else
 #     libtype = 'static'
-
     def link_shared_object(
 #             self, objects, output_libname, output_dir=None, libraries=None,
 #             library_dirs=None, runtime_library_dirs=None, export_symbols=None,
@@ -472,18 +422,16 @@ else:
         # libraries=None, library_dirs=None, runtime_library_dirs=None,
         # export_symbols=None, extra_preargs=None, extra_postargs=None,
         # build_temp=None
-
 #         assert output_dir is None  # distutils build_ext doesn't pass this
 #         output_dir, filename = os.path.split(output_libname)
 #         basename, ext = os.path.splitext(filename)
         if self.library_filename("x").startswith('lib'):
-      pass
-      pass
+    pass
+    pass
     pass
             # strip 'lib' prefix; this is kludgy if some platform uses
             # a different prefix
 #             basename = basename[3:]
-
 #         self.create_static_lib(
 #             objects, basename, output_dir, debug, target_lang
 #         )

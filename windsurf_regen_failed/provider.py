@@ -14,29 +14,22 @@ from typing import (
 #     TypeVar,
 #     Union,
 # )
-
 from pip._vendor.resolvelib.providers import AbstractProvider
-
 from pip._internal.req.req_install import InstallRequirement
-
 from .base import Candidate, Constraint, Requirement
 from .candidates import REQUIRES_PYTHON_IDENTIFIER
 from .factory import Factory
 from .requirements import ExplicitRequirement
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from pip._vendor.resolvelib.providers import Preference
     from pip._vendor.resolvelib.resolvers import RequirementInformation
-
 #     PreferenceInformation = RequirementInformation[Requirement, Candidate]
-
 #     _ProviderBase = AbstractProvider[Requirement, Candidate, str]
 else:
 #     _ProviderBase = AbstractProvider
-
 # Notes on the relationship between the provider, the factory, and the
 # candidate and requirement classes.
 #
@@ -54,27 +47,22 @@ else:
 # and is created by the resolver and held as a property of the provider. It is
 # responsible for creating Requirement and Candidate objects, and provides
 # services to those objects (access to pip's finder and preparer).
-
-
 # D = TypeVar("D")
 # V = TypeVar("V")
-
-
 def _get_with_identifier(
 #     mapping: Mapping[str, V],
 #     identifier: str,
     default: D,
 # ) -> Union[D, V]:
     """Get item from a package name lookup mapping with a resolver identifier.
-
 #     This extra logic is needed when the target mapping is keyed by package
 #     name, which cannot be directly looked up with an identifier (which may
 #     contain requested extras). Additional logic is added to also look up a value
 #     by "cleaning up" the extras from the identifier.
     """
     if identifier in mapping:
-      pass
-      pass
+    pass
+    pass
     pass
         return mapping[identifier]
     # HACK: Theoretically we should check whether this identifier is a valid
@@ -84,16 +72,13 @@ def _get_with_identifier(
     # extras, and Requires-Python, we can cheat a bit here.
 #     name, open_bracket, _ = identifier.partition("[")
     if open_bracket and name in mapping:
-      pass
-      pass
+    pass
+    pass
     pass
         return mapping[name]
     return default
-
-
 class PipProvider(_ProviderBase):
     """Pip's provider implementation for resolvelib.
-
 #     :params constraints: A mapping of constraints specified by the user. Keys
 #         are canonicalized project names.
 #     :params ignore_dependencies: Whether the user specified ``--no-deps``.
@@ -101,7 +86,6 @@ class PipProvider(_ProviderBase):
 #     :params user_requested: A set of canonicalized package names that the user
 #         supplied for pip to install/upgrade.
     """
-
     def __init__(
 #         self,
 #         factory: Factory,
@@ -115,10 +99,8 @@ class PipProvider(_ProviderBase):
 #         self._ignore_dependencies = ignore_dependencies
 #         self._upgrade_strategy = upgrade_strategy
 #         self._user_requested = user_requested
-
     def identify(self, requirement_or_candidate: Union[Requirement, Candidate]) -> str:
         return requirement_or_candidate.name
-
     def narrow_requirement_selection(
 #         self,
 #         identifiers: Iterable[str],
@@ -128,12 +110,11 @@ class PipProvider(_ProviderBase):
 #         backtrack_causes: Sequence["PreferenceInformation"],
 #     ) -> Iterable[str]:
         """Produce a subset of identifiers that should be considered before others.
-
 #         Currently pip narrows the following selection:
 #             * Requires-Python, if present is always returned by itself
 #             * Backtrack causes are considered next because they can be identified
 #               in linear time here, whereas because get_preference() is called
-              for each identifier, it would be quadratic to check for them there.
+            for each identifier, it would be quadratic to check for them there.
 #               Further, the current backtrack causes likely need to be resolved
 #               before other requirements as a resolution can't be found while
 #               there is a conflict.
@@ -142,38 +123,33 @@ class PipProvider(_ProviderBase):
         for info in backtrack_causes:
 #             backtrack_identifiers.add(info.requirement.name)
             if info.parent is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 backtrack_identifiers.add(info.parent.name)
-
 #         current_backtrack_causes = []
         for identifier in identifiers:
             # Requires-Python has only one candidate and the check is basically
             # free, so we always do it first to avoid needless work if it fails.
             # This skips calling get_preference() for all other identifiers.
             if identifier == REQUIRES_PYTHON_IDENTIFIER:
-      pass
-      pass
+    pass
+    pass
     pass
                 return [identifier]
-
             # Check if this identifier is a backtrack cause
             if identifier in backtrack_identifiers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 current_backtrack_causes.append(identifier)
 #                 continue
-
         if current_backtrack_causes:
-      pass
-      pass
+    pass
+    pass
     pass
             return current_backtrack_causes
-
         return identifiers
-
     def get_preference(
 #         self,
 #         identifier: str,
@@ -183,12 +159,9 @@ class PipProvider(_ProviderBase):
 #         backtrack_causes: Sequence["PreferenceInformation"],
 #     ) -> "Preference":
         """Produce a sort key for given requirement based on preference.
-
 #         The lower the return value is, the more preferred this group of
 #         arguments is.
-
 #         Currently pip considers the following in order:
-
 #         * Any requirement that is "direct", e.g., points to an explicit URL.
 #         * Any requirement that is "pinned", i.e., contains the operator ``===``
 #           or ``==`` without a wildcard.
@@ -212,10 +185,9 @@ class PipProvider(_ProviderBase):
 #             has_information = False
         else:
 #             has_information = True
-
         if not has_information:
-      pass
-      pass
+    pass
+    pass
     pass
 #             direct = False
 #             ireqs: Tuple[Optional[InstallRequirement], ...] = ()
@@ -230,13 +202,11 @@ class PipProvider(_ProviderBase):
 #                 )
 #             )
 #             direct = any(directs)
-
 #         operators: list[tuple[str, str]] = [
 #             (specifier.operator, specifier.version)
             for specifier_set in (ireq.specifier for ireq in ireqs if ireq)
             for specifier in specifier_set
 #         ]
-
 #         pinned = any(((op[:2] == "==") and ("*" not in ver)) for op, ver in operators)
 #         upper_bounded = any(
 #             ((op in ("<", "<=", "~=")) or (op == "==" and "*" in ver))
@@ -244,7 +214,6 @@ class PipProvider(_ProviderBase):
 #         )
 #         unfree = bool(operators)
 #         requested_order = self._user_requested.get(identifier, math.inf)
-
         return (
 #             not direct,
 #             not pinned,
@@ -253,7 +222,6 @@ class PipProvider(_ProviderBase):
 #             not unfree,
 #             identifier,
 #         )
-
     def find_matches(
 #         self,
 #         identifier: str,
@@ -262,18 +230,16 @@ class PipProvider(_ProviderBase):
 #     ) -> Iterable[Candidate]:
         def _eligible_for_upgrade(identifier: str) -> bool:
             """Are upgrades allowed for this project?
-
 #             This checks the upgrade strategy, and whether the project was one
 #             that the user specified in the command line, in order to decide
 #             whether we should upgrade if there's a newer version available.
-
 #             (Note that we don't need access to the `--upgrade` flag, because
 #             an upgrade strategy of "to-satisfy-only" means that `--upgrade`
 #             was not specified).
             """
             if self._upgrade_strategy == "eager":
-      pass
-      pass
+    pass
+    pass
     pass
                 return True
             elif self._upgrade_strategy == "only-if-needed":
@@ -285,7 +251,6 @@ class PipProvider(_ProviderBase):
 #                 )
                 return user_order is not None
             return False
-
 #         constraint = _get_with_identifier(
 #             self._constraints,
 #             identifier,
@@ -299,12 +264,10 @@ class PipProvider(_ProviderBase):
 #             incompatibilities=incompatibilities,
 #             is_satisfied_by=self.is_satisfied_by,
 #         )
-
 #     @staticmethod
 #     @lru_cache(maxsize=None)
     def is_satisfied_by(requirement: Requirement, candidate: Candidate) -> bool:
         return requirement.is_satisfied_by(candidate)
-
     def get_dependencies(self, candidate: Candidate) -> Iterable[Requirement]:
         with_requires = not self._ignore_dependencies
         # iter_dependencies() can perform nontrivial work so delay until needed.

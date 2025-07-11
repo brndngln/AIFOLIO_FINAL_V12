@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,8 +19,6 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-
 import gc
 import json
 import os
@@ -32,7 +27,6 @@ import warnings
 from functools import partial
 from pickle import UnpicklingError
 from typing import Any, Dict, Optional, Set, Tuple, Union
-
 import flax.linen as nn
 import jax
 import jax.numpy as jnp
@@ -41,7 +35,6 @@ from flax.core.frozen_dict import FrozenDict, unfreeze
 from flax.serialization import from_bytes, to_bytes
 from flax.traverse_util import flatten_dict, unflatten_dict
 from jax.random import PRNGKey
-
 from .configuration_utils import PretrainedConfig
 from .dynamic_module_utils import custom_object_save
 from .generation import FlaxGenerationMixin, GenerationConfig
@@ -65,23 +58,16 @@ from .utils import (
 # )
 from .utils.hub import convert_file_size_to_int, get_checkpoint_shard_files
 from .utils.import_utils import is_safetensors_available
-
-
 if is_safetensors_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from safetensors import safe_open
     from safetensors.flax import load_file as safe_load_file
     from safetensors.flax import save_file as safe_save_file
-
 # logger = logging.get_logger(__name__)
-
-
 def quick_gelu(x):
     return x * jax.nn.sigmoid(1.702 * x)
-
-
 # ACT2FN = {
 #     "gelu": partial(nn.gelu, approximate=False),
 #     "relu": nn.relu,
@@ -90,87 +76,68 @@ def quick_gelu(x):
 #     "gelu_new": partial(nn.gelu, approximate=True),
 #     "quick_gelu": quick_gelu,
 # }
-
-
 def dtype_byte_size(dtype):
-
 #     Returns the size (in bytes) occupied by one parameter of type `dtype`. Example:
 #     ```py
 #     >>> dtype_byte_size(np.float32)
 #     4
 #     ```
-
     if dtype == bool:
-      pass
-      pass
+    pass
+    pass
     pass
         return 1 / 8
 #     bit_search = re.search(r"[^\d](\d+)$", dtype.name)
     if bit_search is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(f"`dtype` is not a valid dtype: {dtype}.")
 #     bit_size = int(bit_search.groups()[0])
     return bit_size // 8
-
-
 def flax_shard_checkpoint(params, max_shard_size="10GB"):
-
 #     Splits a model state dictionary in sub-checkpoints so that the final size of each sub-checkpoint does not exceed a
 #     given size. The sub-checkpoints are determined by iterating through the `state_dict` in the order of its keys, so
 #     there is no optimization made to make each sub-checkpoint as close as possible to the maximum size passed. For
 #     example, if the limit is 10GB and we have weights of sizes [6GB, 6GB, 2GB, 6GB, 2GB, 2GB] they will get sharded as
 #     [6GB], [6+2GB], [6+2+2GB] and not [6+2+2GB], [6+2GB], [6GB].
-
 #     <Tip warning={true}>
-
 #     If one of the models weight is bigger that `max_shard_size`, it will end up in its own sub-checkpoint which will
 #     have a size greater than `max_shard_size`.
-
 #     </Tip>
-
 #     Args:
 #         params (`Union[Dict, FrozenDict]`): A `PyTree` of model parameters.
 #         max_shard_size (`int` or `str`, *optional*, defaults to `"10GB"`):
 #             The maximum size of each sub-checkpoint. If expressed as a string, needs to be digits followed by a unit
 #             (like `"5MB"`).
-
 #     max_shard_size = convert_file_size_to_int(max_shard_size)
-
 #     sharded_state_dicts = []
 #     current_block = {}
 #     current_block_size = 0
 #     total_size = 0
-
     # flatten the weights to chunk
 #     weights = flatten_dict(params, sep="/")
     for item in weights:
 #         weight_size = weights[item].size * dtype_byte_size(weights[item].dtype)
-
         # If this weight is going to tip up over the maximal size, we split.
         if current_block_size + weight_size > max_shard_size:
-      pass
-      pass
+    pass
+    pass
     pass
 #             sharded_state_dicts.append(current_block)
 #             current_block = {}
 #             current_block_size = 0
-
 #         current_block[item] = weights[item]
 #         current_block_size += weight_size
 #         total_size += weight_size
-
     # Add the last block
 #     sharded_state_dicts.append(current_block)
-
     # If we only have one shard, we return it
     if len(sharded_state_dicts) == 1:
-      pass
-      pass
+    pass
+    pass
     pass
         return {FLAX_WEIGHTS_NAME: sharded_state_dicts[0]}, None
-
     # Otherwise, lets build the index
 #     weight_map = {}
 #     shards = {}
@@ -179,35 +146,26 @@ def flax_shard_checkpoint(params, max_shard_size="10GB"):
 #         shards[shard_file] = shard
         for weight_name in shard.keys():
 #             weight_map[weight_name] = shard_file
-
     # Add the metadata
 #     metadata = {"total_size": total_size}
 #     index = {"metadata": metadata, "weight_map": weight_map}
     return shards, index
-
-
 class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
-
 #     Base class for all models.
-
 #     [`FlaxPreTrainedModel`] takes care of storing the configuration of the models and handles methods for loading,
 #     downloading and saving models.
-
 #     Class attributes (overridden by derived classes):
-
 #         - **config_class** ([`PretrainedConfig`]) -- A subclass of [`PretrainedConfig`] to use as configuration class
-          for this model architecture.
+        for this model architecture.
 #         - **base_model_prefix** (`str`) -- A string indicating the attribute associated to the base model in derived
-          classes of the same architecture adding modules on top of the base model.
+        classes of the same architecture adding modules on top of the base model.
 #         - **main_input_name** (`str`) -- The name of the principal input to the model (often `input_ids` for NLP
 #           models, `pixel_values` for vision models and `input_values` for speech models).
-
 #     config_class = None
 #     base_model_prefix =
 #     main_input_name = "input_ids"
 #     _auto_class = None
 #     _missing_keys = set()
-
     def __init__(
 #         self,
 #         config: PretrainedConfig,
@@ -217,33 +175,28 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         _do_init: bool = True,
 #     ):
         if config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("config cannot be None")
-
         if module is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("module cannot be None")
-
         # Those are private to be exposed as typed property on derived classes.
 #         self._config = config
 #         self._module = module
-
         # Those are public as their type is generic to every derived classes.
 #         self.key = PRNGKey(seed)
 #         self.dtype = dtype
 #         self.input_shape = input_shape
 #         self.generation_config = GenerationConfig.from_model_config(config) if self.can_generate() else None
-
         # To check if the model was intialized automatically.
 #         self._is_initialized = _do_init
-
         if _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
             # randomly initialized parameters
 #             random_params = self.init_weights(self.key, input_shape)
@@ -251,57 +204,42 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
         else:
 #             init_fn = partial(self.init_weights, input_shape=input_shape)
 #             params_shape_tree = jax.eval_shape(init_fn, self.key)
-
 #             logger.info(
 #                 "Model weights are not initialized as `_do_init` is set to `False`. "
 #                 f"Make sure to call `{self.__class__.__name__}.init_weights` manually to initialize the weights."
 #             )
-
         # get the shape of the parameters
 #         self._params_shape_tree = params_shape_tree
-
         # save required_params as set
 #         self._required_params = set(flatten_dict(unfreeze(params_shape_tree)).keys())
-
         # initialize the parameters
         if _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.params = random_params
-
     def init_weights(self, rng: jax.random.PRNGKey, input_shape: Tuple, params: FrozenDict = None) -> Dict:
 #         raise NotImplementedError(f"init method has to be implemented for {self}")
-
     def enable_gradient_checkpointing(self):
 #         raise NotImplementedError(f"gradient checkpointing method has to be implemented for {self}")
-
 #     @classmethod
     def _from_config(cls, config, **kwargs):
-
 #         All context managers that the model should be initialized under go here.
-
         return cls(config, **kwargs)
-
 #     @property
     def framework(self) -> str:
-
-
         return "flax"
-
 #     @property
     def config(self) -> PretrainedConfig:
         return self._config
-
 #     @property
     def module(self) -> nn.Module:
         return self._module
-
 #     @property
     def params(self) -> Union[Dict, FrozenDict]:
         if not self._is_initialized:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`params` cannot be accessed from model when the model is created with `_do_init=False`. "
@@ -309,95 +247,78 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 "pass it explicitly where needed."
 #             )
         return self._params
-
 #     @property
     def required_params(self) -> Set:
         return self._required_params
-
 #     @property
     def params_shape_tree(self) -> Dict:
         return self._params_shape_tree
-
 #     @params.setter
     def params(self, params: Union[Dict, FrozenDict]):
         # dont set params if the model is not initialized
         if not self._is_initialized:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`params` cannot be set from model when the model is created with `_do_init=False`. "
 #                 "You store the params outside of the model."
 #             )
-
         if isinstance(params, FrozenDict):
-      pass
-      pass
+    pass
+    pass
     pass
 #             params = unfreeze(params)
 #         param_keys = set(flatten_dict(params).keys())
         if len(self.required_params - param_keys) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Some parameters are missing. Make sure that `params` include the following "
 #                 f"parameters {self.required_params - param_keys}"
 #             )
 #         self._params = params
-
     def _cast_floating_to(self, params: Union[Dict, FrozenDict], dtype: jnp.dtype, mask: Any = None) -> Any:
-
 #         Helper method to cast floating-point values of given parameter `PyTree` to given `dtype`.
-
         # taken from https://github.com/deepmind/jmp/blob/3a8318abc3292be38582794dbf7b094e6583b192/jmp/_src/policy.py#L27
         def conditional_cast(param):
             if isinstance(param, jnp.ndarray) and jnp.issubdtype(param.dtype, jnp.floating):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 param = param.astype(dtype)
             return param
-
         if mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return jax.tree_util.tree_map(conditional_cast, params)
-
 #         flat_params = flatten_dict(params)
 #         flat_mask, _ = jax.tree_util.tree_flatten(mask)
-
         for masked, key in zip(flat_mask, flat_params.keys()):
             if masked:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 param = flat_params[key]
 #                 flat_params[key] = conditional_cast(param)
-
         return unflatten_dict(flat_params)
-
     def to_bf16(self, params: Union[Dict, FrozenDict], mask: Any = None):
 #         r
 #         Cast the floating-point `params` to `jax.numpy.bfloat16`. This returns a new `params` tree and does not cast
 #         the `params` in place.
-
 #         This method can be used on TPU to explicitly convert the model parameters to bfloat16 precision to do full
 #         half-precision training or to save weights in bfloat16 for inference in order to save memory and improve speed.
-
 #         Arguments:
 #             params (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` of model parameters.
 #             mask (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` with same structure as the `params` tree. The leaves should be booleans, `True` for params
 #                 you want to cast, and should be `False` for those you want to skip.
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import FlaxBertModel
-
 #         >>> # load model
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> # By default, the model parameters will be in fp32 precision, to cast these to bfloat16 precision
@@ -405,7 +326,6 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         >>> # If you want dont want to cast certain parameters (for example layer norm bias and scale)
 #         >>> # then pass the mask as follows
 #         >>> from flax import traverse_util
-
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> flat_params = traverse_util.flatten_dict(model.params)
 #         >>> mask = {
@@ -416,24 +336,19 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         >>> model.params = model.to_bf16(model.params, mask)
 #         ```
         return self._cast_floating_to(params, jnp.bfloat16, mask)
-
     def to_fp32(self, params: Union[Dict, FrozenDict], mask: Any = None):
 #         r
 #         Cast the floating-point `parmas` to `jax.numpy.float32`. This method can be used to explicitly convert the
 #         model parameters to fp32 precision. This returns a new `params` tree and does not cast the `params` in place.
-
 #         Arguments:
 #             params (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` of model parameters.
 #             mask (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` with same structure as the `params` tree. The leaves should be booleans, `True` for params
 #                 you want to cast, and should be `False` for those you want to skip
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import FlaxBertModel
-
 #         >>> # Download model and configuration from huggingface.co
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> # By default, the model params will be in fp32, to illustrate the use of this method,
@@ -443,27 +358,21 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         >>> model.params = model.to_fp32(model.params)
 #         ```
         return self._cast_floating_to(params, jnp.float32, mask)
-
     def to_fp16(self, params: Union[Dict, FrozenDict], mask: Any = None):
 #         r
 #         Cast the floating-point `parmas` to `jax.numpy.float16`. This returns a new `params` tree and does not cast the
 #         `params` in place.
-
 #         This method can be used on GPU to explicitly convert the model parameters to float16 precision to do full
 #         half-precision training or to save weights in float16 for inference in order to save memory and improve speed.
-
 #         Arguments:
 #             params (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` of model parameters.
 #             mask (`Union[Dict, FrozenDict]`):
 #                 A `PyTree` with same structure as the `params` tree. The leaves should be booleans, `True` for params
 #                 you want to cast, and should be `False` for those you want to skip
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import FlaxBertModel
-
 #         >>> # load model
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> # By default, the model params will be in fp32, to cast these to float16
@@ -471,7 +380,6 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         >>> # If you want dont want to cast certain parameters (for example layer norm bias and scale)
 #         >>> # then pass the mask as follows
 #         >>> from flax import traverse_util
-
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> flat_params = traverse_util.flatten_dict(model.params)
 #         >>> mask = {
@@ -482,13 +390,12 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         >>> model.params = model.to_fp16(model.params, mask)
 #         ```
         return self._cast_floating_to(params, jnp.float16, mask)
-
 #     @classmethod
     def load_flax_weights(cls, resolved_archive_file):
         try:
             if resolved_archive_file.endswith(".safetensors"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state = safe_load_file(resolved_archive_file)
 #                 state = unflatten_dict(state, sep=".")
@@ -499,8 +406,8 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
             try:
                 with open(resolved_archive_file) as f:
                     if f.read().startswith("version"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise OSError(
 #                             "You seem to have cloned a repository without having git-lfs installed. Please"
@@ -511,29 +418,21 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                         raise ValueError from e
             except (UnicodeDecodeError, ValueError):
 #                 raise EnvironmentError(f"Unable to convert {resolved_archive_file} to Flax deserializable object. ")
-
         return state
-
 #     @classmethod
     def load_flax_sharded_weights(cls, shard_files):
-
 #         This is the same as [`flax.serialization.from_bytes`]
 #         (https:lax.readthedocs.io/en/latest/_modules/flax/serialization.html#from_bytes) but for a sharded checkpoint.
-
 #         This load is performed efficiently: each checkpoint shard is loaded one by one in RAM and deleted after being
 #         loaded in the model.
-
 #         Args:
 #             shard_files (`List[str]`:
 #                 The list of shard files to load.
-
 #         Returns:
 #             `Dict`: A nested dictionary of the model parameters, in the expected format for flax models : `{'model':
 #             {'params': {'...'}}}`.
-
         # Load the index
 #         state_sharded_dict = {}
-
         for shard_file in shard_files:
             # load using msgpack utils
             try:
@@ -542,8 +441,8 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
             except (UnpicklingError, msgpack.exceptions.ExtraData) as e:
                 with open(shard_file) as f:
                     if f.read().startswith("version"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise OSError(
 #                             "You seem to have cloned a repository without having git-lfs installed. Please"
@@ -554,30 +453,24 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                         raise ValueError from e
             except (UnicodeDecodeError, ValueError):
 #                 raise EnvironmentError(f"Unable to convert {shard_file} to Flax deserializable object. ")
-
 #             state = flatten_dict(state, sep="/")
 #             state_sharded_dict.update(state)
 #             del state
 #             gc.collect()
-
         # the state dict is unflattened to the match the format of model.params
         return unflatten_dict(state_sharded_dict, sep="/")
-
 #     @classmethod
     def can_generate(cls) -> bool:
-
 #         Returns whether this model can generate sequences with `.generate()`. Returns:
 #             `bool`: Whether this model can generate sequences with `.generate()`.
-
         # Detects whether `prepare_inputs_for_generation` has been overwritten, which is a requirement for generation.
         # Alternativelly, the model can also have a custom `generate` function.
         if "GenerationMixin" in str(cls.prepare_inputs_for_generation) and "GenerationMixin" in str(cls.generate):
-      pass
-      pass
+    pass
+    pass
     pass
             return False
         return True
-
 #     @classmethod
     def from_pretrained(
 #         cls,
@@ -595,18 +488,14 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #     ):
 #         r
 #         Instantiate a pretrained flax model from a pre-trained model configuration.
-
 #         The warning *Weights from XXX not initialized from pretrained model* means that the weights of XXX do not come
 #         pretrained with the rest of the model. It is up to you to train those weights with a downstream fine-tuning
 #         task.
-
 #         The warning *Weights from XXX not used in YYY* means that the layer XXX is not used by YYY, therefore those
 #         weights are discarded.
-
 #         Parameters:
 #             pretrained_model_name_or_path (`str` or `os.PathLike`):
 #                 Can be either:
-
 #                     - A string, the *model id* of a pretrained model hosted inside a model repo on huggingface.co.
 #                       Valid model ids can be located at the root-level, like `bert-base-uncased`, or namespaced under a
 #                       user or organization name, like `dbmdz/bert-base-german-cased`.
@@ -617,26 +506,20 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #             dtype (`jax.numpy.dtype`, *optional*, defaults to `jax.numpy.float32`):
 #                 The data type of the computation. Can be one of `jax.numpy.float32`, `jax.numpy.float16` (on GPUs) and
 #                 `jax.numpy.bfloat16` (on TPUs).
-
 #                 This can be used to enable mixed-precision training or half-precision inference on GPUs or TPUs. If
 #                 specified all the computation will be performed with the given `dtype`.
-
 #                 **Note that this only specifies the dtype of the computation and does not influence the dtype of model
 #                 parameters.**
-
 #                 If you wish to change the dtype of the model parameters, see [`~FlaxPreTrainedModel.to_fp16`] and
 #                 [`~FlaxPreTrainedModel.to_bf16`].
 #             model_args (sequence of positional arguments, *optional*):
 #                 All remaining positional arguments will be passed to the underlying models `__init__` method.
 #             config (`Union[PretrainedConfig, str, os.PathLike]`, *optional*):
 #                 Can be either:
-
 #                     - an instance of a class derived from [`PretrainedConfig`],
 #                     - a string or path valid as input to [`~PretrainedConfig.from_pretrained`].
-
 #                 Configuration for the model to use instead of an automatically loaded configuration. Configuration can
 #                 be automatically loaded when:
-
 #                     - The model is a model provided by the library (loaded with the *model id* string of a pretrained
 #                       model).
 #                     - The model was saved using [`~PreTrainedModel.save_pretrained`] and is reloaded by supplying the
@@ -671,14 +554,9 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 The specific model version to use. It can be a branch name, a tag name, or a commit id, since we use a
 #                 git-based system for storing models and other artifacts on huggingface.co, so `revision` can be any
 #                 identifier allowed by git.
-
-
 #                 <Tip>
-
 #                 To test a pull request you made on the Hub, you can pass `revision="refs/pr/<pr_number>".
-
 #                 </Tip>
-
 #             subfolder (`str`, *optional*, defaults to ``):
 #                 In case the relevant files are located inside a subfolder of the model repo on huggingface.co, you can
 #                 specify the folder name here.
@@ -686,7 +564,6 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 Can be used to update the configuration object (after it being loaded) and initiate the model (e.g.,
 #                 `output_attentions=True`). Behaves differently depending on whether a `config` is provided or
 #                 automatically loaded:
-
 #                     - If a configuration is provided with `config`, `**kwargs` will be directly passed to the
 #                       underlying models `__init__` method (we assume all relevant updates to the configuration have
 #                       already been done)
@@ -695,12 +572,9 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                       corresponds to a configuration attribute will be used to override said attribute with the
 #                       supplied `kwargs` value. Remaining keys that do not correspond to any configuration attribute
 #                       will be passed to the underlying models `__init__` function.
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import BertConfig, FlaxBertModel
-
 #         >>> # Download model and configuration from huggingface.co and cache.
 #         >>> model = FlaxBertModel.from_pretrained("bert-base-cased")
 #         >>> # Model was saved using *save_pretrained('./test/saved_model/')* (for example purposes, not runnable).
@@ -719,54 +593,48 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         _do_init = kwargs.pop("_do_init", True)
 #         subfolder = kwargs.pop(subfolder, )
 #         commit_hash = kwargs.pop("_commit_hash", None)
-
         # Not relevant for Flax Models
 #         _ = kwargs.pop("adapter_kwargs", None)
-
         if use_auth_token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.",
 #                 FutureWarning,
 #             )
             if token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "`token` and `use_auth_token` are both specified. Please set only the argument `token`."
 #                 )
 #             token = use_auth_token
-
         if trust_remote_code is True:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 "The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is"
 #                 " ignored."
 #             )
-
 #         user_agent = {"file_type": "model", "framework": "flax", "from_auto_class": from_auto_class}
         if from_pipeline is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             user_agent["using_pipeline"] = from_pipeline
-
         if is_offline_mode() and not local_files_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info("Offline mode: forcing local_files_only=True")
 #             local_files_only = True
-
         # Load config if we dont provide a configuration
         if not isinstance(config, PretrainedConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_path = config if config is not None else pretrained_model_name_or_path
 #             config, model_kwargs = cls.config_class.from_pretrained(
@@ -787,34 +655,30 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #             )
         else:
 #             model_kwargs = kwargs.copy()
-
         if commit_hash is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             commit_hash = getattr(config, "_commit_hash", None)
-
         # Add the dtype to model_kwargs
 #         model_kwargs["dtype"] = dtype
-
         # This variable will flag if were loading a sharded checkpoint. In this case the archive file is just the
         # index of the files.
 #         is_sharded = False
-
         # Load model
         if pretrained_model_name_or_path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pretrained_model_name_or_path = str(pretrained_model_name_or_path)
 #             is_local = os.path.isdir(pretrained_model_name_or_path)
             if os.path.isdir(pretrained_model_name_or_path):
-      pass
-      pass
+    pass
+    pass
     pass
                 if os.path.isfile(os.path.join(pretrained_model_name_or_path, subfolder, FLAX_WEIGHTS_NAME)):
-      pass
-      pass
+    pass
+    pass
     pass
                     # Load from a Flax checkpoint
 #                     archive_file = os.path.join(pretrained_model_name_or_path, subfolder, FLAX_WEIGHTS_NAME)
@@ -868,13 +732,12 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 resolved_archive_file = download_url(pretrained_model_name_or_path)
             else:
                 if from_pt:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     filename = WEIGHTS_NAME
                 else:
 #                     filename = FLAX_WEIGHTS_NAME
-
                 try:
                     # Load from URL or cache if already cached
 #                     cached_file_kwargs = {
@@ -891,51 +754,47 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                         "_commit_hash": commit_hash,
 #                     }
 #                     resolved_archive_file = cached_file(pretrained_model_name_or_path, filename, **cached_file_kwargs)
-
                     # Maybe the checkpoint is sharded, we try to grab the index name in this case.
                     if resolved_archive_file is None and filename == FLAX_WEIGHTS_NAME:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         resolved_archive_file = cached_file(
 #                             pretrained_model_name_or_path, FLAX_WEIGHTS_INDEX_NAME, **cached_file_kwargs
 #                         )
                         if resolved_archive_file is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             is_sharded = True
-
                     # Maybe the checkpoint is pytorch sharded, we try to grab the pytorch index name in this case.
                     if resolved_archive_file is None and from_pt:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         resolved_archive_file = cached_file(
 #                             pretrained_model_name_or_path, WEIGHTS_INDEX_NAME, **cached_file_kwargs
 #                         )
                         if resolved_archive_file is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             is_sharded = True
-
                     # If we still havent found anything, look for `safetensors`.
                     if resolved_archive_file is None:
-      pass
-      pass
+    pass
+    pass
     pass
                         # No support for sharded safetensors yet, so we'll raise an error if that's all we find.
 #                         filename = SAFE_WEIGHTS_NAME
 #                         resolved_archive_file = cached_file(
 #                             pretrained_model_name_or_path, SAFE_WEIGHTS_NAME, **cached_file_kwargs
 #                         )
-
                     # Since we set _raise_exceptions_for_missing_entries=False, we dont get an exception but a None
                     # result when internet is up, the repo and revision exist, but the file does not.
                     if resolved_archive_file is None:
-      pass
-      pass
+    pass
+    pass
     pass
                         # Otherwise, maybe there is a TF or Torch model file.  We try those to give a helpful error
                         # message.
@@ -945,8 +804,8 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                             "token": token,
 #                         }
                         if has_file(pretrained_model_name_or_path, SAFE_WEIGHTS_INDEX_NAME, **has_file_kwargs):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             is_sharded = True
 #                             raise NotImplementedError(
@@ -983,10 +842,9 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                         f" same name. Otherwise, make sure '{pretrained_model_name_or_path}' is the correct path to a"
 #                         f" directory containing a file named {FLAX_WEIGHTS_NAME} or {WEIGHTS_NAME}."
 #                     )
-
             if is_local:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.info(f"loading weights file {archive_file}")
 #                 resolved_archive_file = archive_file
@@ -995,11 +853,10 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 logger.info(f"loading weights file {filename} from cache at {resolved_archive_file}")
         else:
 #             resolved_archive_file = None
-
         # Well need to download and cache each checkpoint shard if the checkpoint is sharded.
         if is_sharded:
-      pass
-      pass
+    pass
+    pass
     pass
             # resolved_archive_file becomes a list of files that point to the different checkpoint shards in this case.
 #             resolved_archive_file, _ = get_checkpoint_shard_files(
@@ -1016,36 +873,33 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 subfolder=subfolder,
 #                 _commit_hash=commit_hash,
 #             )
-
 #         safetensors_from_pt = False
         if filename == SAFE_WEIGHTS_NAME:
-      pass
-      pass
+    pass
+    pass
     pass
             with safe_open(resolved_archive_file, framework="flax") as f:
 #                 safetensors_metadata = f.metadata()
             if safetensors_metadata is None or safetensors_metadata.get("format") not in ["pt", "tf", "flax"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise OSError(
 #                     f"The safetensors archive passed at {resolved_archive_file} does not contain the valid metadata."
 #                     " Make sure you save your model with the `save_pretrained` method."
 #                 )
 #             safetensors_from_pt = safetensors_metadata.get("format") == "pt"
-
         # init random models
 #         model = cls(config, *model_args, _do_init=_do_init, **model_kwargs)
-
         if from_pt or safetensors_from_pt:
-      pass
-      pass
+    pass
+    pass
     pass
 #             state = load_pytorch_checkpoint_in_flax_state_dict(model, resolved_archive_file, is_sharded)
         else:
             if is_sharded:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state = cls.load_flax_sharded_weights(resolved_archive_file)
             else:
@@ -1054,14 +908,13 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
             # NOTE: This is to prevent a bug this will be fixed in Flax >= v0.3.4:
             # https://github.com/google/flax/issues/1261
             if _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state = jax.tree_util.tree_map(jnp.array, state)
             else:
                 # keep the params on CPU if we dont want to initialize
 #                 state = jax.tree_util.tree_map(lambda x: jax.device_put(x, jax.local_devices(backend="cpu")[0]), state)
-
         if "batch_stats" in state:  # if flax model contains batch norm layers
             # if model is base model only use model_prefix key
             if (
@@ -1070,7 +923,6 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #             ):
 #                 state["params"] = state["params"][cls.base_model_prefix]
 #                 state["batch_stats"] = state["batch_stats"][cls.base_model_prefix]
-
             # if model is head model and we are loading weights from base model
             # we initialize new params dict with base_model_prefix
             if (
@@ -1081,60 +933,52 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                     "params": {cls.base_model_prefix: state["params"]},
 #                     "batch_stats": {cls.base_model_prefix: state["batch_stats"]},
 #                 }
-
         else:
             # if model is base model only use model_prefix key
             if cls.base_model_prefix not in dict(model.params_shape_tree) and cls.base_model_prefix in state:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state = state[cls.base_model_prefix]
-
             # if model is head model and we are loading weights from base model
             # we initialize new params dict with base_model_prefix
             if cls.base_model_prefix in dict(model.params_shape_tree) and cls.base_model_prefix not in state:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 state = {cls.base_model_prefix: state}
-
         # flatten dicts
 #         state = flatten_dict(state)
-
 #         random_state = flatten_dict(unfreeze(model.params if _do_init else model.params_shape_tree))
-
 #         missing_keys = model.required_params - set(state.keys())
 #         unexpected_keys = set(state.keys()) - model.required_params
-
         # Disabling warning when porting pytorch weights to flax, flax does not uses num_batches_tracked
         for unexpected_key in unexpected_keys.copy():
             if "num_batches_tracked" in unexpected_key[-1]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 unexpected_keys.remove(unexpected_key)
-
         if missing_keys and not _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"The checkpoint {pretrained_model_name_or_path} is missing required keys: {missing_keys}. "
 #                 "Make sure to call model.init_weights to initialize the missing weights."
 #             )
 #             cls._missing_keys = missing_keys
-
         # Mistmatched keys contains tuples key/shape1/shape2 of weights in the checkpoint that have a shape not
         # matching the weights in the model.
 #         mismatched_keys = []
         for key in state.keys():
             if key in random_state and state[key].shape != random_state[key].shape:
-      pass
-      pass
+    pass
+    pass
     pass
                 if ignore_mismatched_sizes:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     mismatched_keys.append((key, state[key].shape, random_state[key].shape))
 #                     state[key] = random_state[key]
@@ -1145,22 +989,19 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                         "Using `ignore_mismatched_sizes=True` if you really want to load this checkpoint inside this "
 #                         "model."
 #                     )
-
         # add missing keys as random parameters if we are initializing
         if missing_keys and _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
             for missing_key in missing_keys:
 #                 state[missing_key] = random_state[missing_key]
-
         # remove unexpected keys to not be saved again
         for unexpected_key in unexpected_keys:
 #             del state[unexpected_key]
-
         if len(unexpected_keys) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"Some weights of the model checkpoint at {pretrained_model_name_or_path} were not used when"
@@ -1173,10 +1014,9 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #             )
         else:
 #             logger.info(f"All model checkpoint weights were used when initializing {model.__class__.__name__}.\n")
-
         if len(missing_keys) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"Some weights of {model.__class__.__name__} were not initialized from the model checkpoint at"
@@ -1192,8 +1032,8 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 " training."
 #             )
         if len(mismatched_keys) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             mismatched_warning = "\n".join(
 #                 [
@@ -1207,17 +1047,15 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 f" match:\n{mismatched_warning}\nYou should probably TRAIN this model on a down-stream task to be able"
 #                 " to use it for predictions and inference."
 #             )
-
         # dictionary of key: dtypes for the model params
 #         param_dtypes = jax.tree_util.tree_map(lambda x: x.dtype, state)
         # extract keys of parameters not in jnp.float32
 #         fp16_params = [k for k in param_dtypes if param_dtypes[k] == jnp.float16]
 #         bf16_params = [k for k in param_dtypes if param_dtypes[k] == jnp.bfloat16]
-
         # raise a warning if any of the parameters are not in jnp.float32
         if len(fp16_params) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"Some of the weights of {model.__class__.__name__} were initialized in float16 precision from "
@@ -1225,10 +1063,9 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 "You should probably UPCAST the model weights to float32 if this was not intended. "
 #                 "See [`~FlaxPreTrainedModel.to_fp32`] for further information on how to do this."
 #             )
-
         if len(bf16_params) > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"Some of the weights of {model.__class__.__name__} were initialized in bfloat16 precision from "
@@ -1236,11 +1073,10 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 "You should probably UPCAST the model weights to float32 if this was not intended. "
 #                 "See [`~FlaxPreTrainedModel.to_fp32`] for further information on how to do this."
 #             )
-
         # If it is a model with generation capabilities, attempt to load the generation config
         if model.can_generate():
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 model.generation_config = GenerationConfig.from_pretrained(
@@ -1262,17 +1098,15 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                     "Generation config file not found, using a generation config created from the model config."
 #                 )
 #                 pass
-
         if _do_init:
-      pass
-      pass
+    pass
+    pass
     pass
             # set correct parameters
 #             model.params = unflatten_dict(state)
             return model
         else:
             return model, unflatten_dict(state)
-
     def save_pretrained(
 #         self,
 #         save_directory: Union[str, os.PathLike],
@@ -1283,10 +1117,8 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #         safe_serialization: bool = False,
 #         **kwargs,
 #     ):
-
 #         Save a model and its configuration file to a directory, so that it can be re-loaded using the
 #         `[`~FlaxPreTrainedModel.from_pretrained`]` class method
-
 #         Arguments:
 #             save_directory (`str` or `os.PathLike`):
 #                 Directory to which to save. Will be created if it doesnt exist.
@@ -1297,14 +1129,10 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #             max_shard_size (`int` or `str`, *optional*, defaults to `"10GB"`):
 #                 The maximum size for a checkpoint before being sharded. Checkpoints shard will then be each of size
 #                 lower than this size. If expressed as a string, needs to be digits followed by a unit (like `"5MB"`).
-
 #                 <Tip warning={true}>
-
 #                 If a single weight of the model is bigger than `max_shard_size`, it will be in its own checkpoint shard
 #                 which will be bigger than `max_shard_size`.
-
 #                 </Tip>
-
 #             token (`str` or `bool`, *optional*):
 #                 The token to use as HTTP bearer authorization for remote files. If `True`, or not specified, will use
 #                 the token generated when running `huggingface-cli login` (stored in `~/.huggingface`).
@@ -1312,74 +1140,63 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 Additional key word arguments passed aint to the [`~utils.PushToHubMixin.push_to_hub`] method.
 #             safe_serialization (`bool`, *optional*, defaults to `False`):
 #                 Whether to save the model using `safetensors` or through msgpack.
-
 #         use_auth_token = kwargs.pop("use_auth_token", None)
-
         if use_auth_token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.",
 #                 FutureWarning,
 #             )
             if token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "`token` and `use_auth_token` are both specified. Please set only the argument `token`."
 #                 )
 #             token = use_auth_token
-
         if token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kwargs["token"] = token
-
         if os.path.isfile(save_directory):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.error(f"Provided path ({save_directory}) should be a directory, not a file")
             return
-
 #         os.makedirs(save_directory, exist_ok=True)
-
         if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
 #             commit_message = kwargs.pop("commit_message", None)
 #             repo_id = kwargs.pop("repo_id", save_directory.split(os.path.sep)[-1])
 #             repo_id = self._create_repo(repo_id, **kwargs)
 #             files_timestamps = self._get_files_timestamps(save_directory)
-
         # get abs dir
 #         save_directory = os.path.abspath(save_directory)
         # save config as well
 #         self.config.architectures = [self.__class__.__name__[4:]]
-
         # If we have a custom model, we copy the file defining it in the folder and set the attributes so it can be
         # loaded from the Hub.
         if self._auto_class is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             custom_object_save(self, save_directory, config=self.config)
-
 #         self.config.save_pretrained(save_directory)
         if self.can_generate():
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.generation_config.save_pretrained(save_directory)
-
         # save model
 #         weights_name = SAFE_WEIGHTS_NAME if safe_serialization else FLAX_WEIGHTS_NAME
 #         output_model_file = os.path.join(save_directory, weights_name)
-
 #         shards, index = flax_shard_checkpoint(params if params is not None else self.params, max_shard_size)
         # Clean the folder from a previous save
         for filename in os.listdir(save_directory):
@@ -1391,14 +1208,13 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 and filename not in shards.keys()
 #             ):
 #                 os.remove(full_filename)
-
         if index is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if safe_serialization:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 params = params if params is not None else self.params
 #                 flat_dict = flatten_dict(params, sep=".")
@@ -1408,7 +1224,6 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                     params = params if params is not None else self.params
 #                     model_bytes = to_bytes(params)
 #                     f.write(model_bytes)
-
         else:
 #             save_index_file = os.path.join(save_directory, FLAX_WEIGHTS_INDEX_NAME)
             # Save the index as well
@@ -1426,12 +1241,10 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                     params = unflatten_dict(shard, sep="/")
 #                     shard_bytes = to_bytes(params)
 #                     f.write(shard_bytes)
-
 #         logger.info(f"Model weights saved in {output_model_file}")
-
         if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._upload_modified_files(
 #                 save_directory,
@@ -1440,51 +1253,37 @@ class FlaxPreTrainedModel(PushToHubMixin, FlaxGenerationMixin):
 #                 commit_message=commit_message,
 #                 token=token,
 #             )
-
 #     @classmethod
     def register_for_auto_class(cls, auto_class="FlaxAutoModel"):
-
 #         Register this class with a given auto class. This should only be used for custom models as the ones in the
 #         library are already mapped with an auto class.
-
 #         <Tip warning={true}>
-
 #         This API is experimental and may have some slight breaking changes in the next releases.
-
 #         </Tip>
-
 #         Args:
 #             auto_class (`str` or `type`, *optional*, defaults to `"FlaxAutoModel"`):
 #                 The auto class to register this new model with.
-
         if not isinstance(auto_class, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             auto_class = auto_class.__name__
-
         import transformers.models.auto as auto_module
-
         if not hasattr(auto_module, auto_class):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"{auto_class} is not a valid auto class.")
-
 #         cls._auto_class = auto_class
-
-
 # To update the docstring, we need to copy the method, otherwise we change the original docstring.
 # FlaxPreTrainedModel.push_to_hub = copy_func(FlaxPreTrainedModel.push_to_hub)
 if FlaxPreTrainedModel.push_to_hub.__doc__ is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #     FlaxPreTrainedModel.push_to_hub.__doc__ = FlaxPreTrainedModel.push_to_hub.__doc__.format(
 #         object="model", object_class="FlaxAutoModel", object_files="model checkpoint"
 #     )
-
-
 def overwrite_call_docstring(model_class, docstring):
     # copy __call__ function to be sure docstring is changed only for this function
 #     model_class.__call__ = copy_func(model_class.__call__)
@@ -1492,8 +1291,6 @@ def overwrite_call_docstring(model_class, docstring):
 #     model_class.__call__.__doc__ = None
     # set correct docstring
 #     model_class.__call__ = add_start_docstrings_to_model_forward(docstring)(model_class.__call__)
-
-
 def append_call_sample_docstring(
 #     model_class, checkpoint, output_type, config_class, mask=None, revision=None, real_checkpoint=None
 # ):
@@ -1506,8 +1303,6 @@ def append_call_sample_docstring(
 #         revision=revision,
 #         real_checkpoint=real_checkpoint,
 #     )(model_class.__call__)
-
-
 def append_replace_return_docstrings(model_class, output_type, config_class):
 #     model_class.__call__ = copy_func(model_class.__call__)
 #     model_class.__call__ = replace_return_docstrings(

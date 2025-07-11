@@ -1,27 +1,19 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # AIFOLIO
 # - Static, non-sentient
 # - Sends SMS, logs all sends and errors
 # - No autonomous retries or static behavior
-
 import os
 import logging
 from twilio.rest import Client
-
 # LOG_PATH = "../../distribution/legal_exports/sms_send_log.txt"
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
-
-
 def send_sms(to_number, message):
     try:
 #         client = Client(TWILIO_SID, TWILIO_TOKEN)

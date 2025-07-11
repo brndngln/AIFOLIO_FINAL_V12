@@ -1,25 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import json
 import datetime
 import os
-
 # os.makedirs(os.path.dirname(ENGAGEMENT_LOG), exist_ok=True)
-
 # --- Vault Engagement Over Time (SAFE AI, Non-Sentient, Owner-Controlled) ---
 def log_engagement(vault_id, event_type, user_id=None, metadata=None):
-
 #     Logs a vault engagement event in a static, deterministic, SAFE AI-compliant way.
 #     Returns a dict with result, explanation, recommendation, priority, SAFE AI metadata, and version.
-
 #     SAFE_AI_COMPLIANT = True
 #     NON_SENTIENT = True
 #     entry = {
@@ -43,12 +36,9 @@ def log_engagement(vault_id, event_type, user_id=None, metadata=None):
 #         'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
 #         'NON_SENTIENT': NON_SENTIENT
 #     }
-
 def calculate_engagement(vault_id, since_days=30):
-
 #     Calculates vault engagement count over a static time window.
 #     Returns a dict with count, explanation, recommendation, priority, SAFE AI metadata, and version.
-
 #     SAFE_AI_COMPLIANT = True
 #     NON_SENTIENT = True
 #     now = datetime.datetime.utcnow()
@@ -58,13 +48,13 @@ def calculate_engagement(vault_id, since_days=30):
             for line in f:
 #                 e = json.loads(line)
                 if e['vault_id'] == vault_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     t = datetime.datetime.fromisoformat(e['timestamp'].replace('Z',''))
                     if (now - t).days <= since_days:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         count += 1
     except FileNotFoundError:
@@ -81,13 +71,10 @@ def calculate_engagement(vault_id, since_days=30):
 #         'SAFE_AI_COMPLIANT': SAFE_AI_COMPLIANT,
 #         'NON_SENTIENT': NON_SENTIENT
 #     }
-
 # --- Static Drift/Hallucination Protection (stub) ---
 def engagement_drift_protection():
     return {"drift": False, "explanation": "No drift detected."}
-
 # --- Static Feedback Loop (stub, not user learned) ---
 def engagement_static_feedback():
     return ["Increase engagement if counts are low."]
-
 # --- Extension Point: Add future static SAFE AI features here ---

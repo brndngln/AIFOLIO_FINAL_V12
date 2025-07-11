@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,17 +19,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # XLM_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "xlm-mlm-en-2048": "https://huggingface.co/xlm-mlm-en-2048/resolve/main/config.json",
 #     "xlm-mlm-ende-1024": "https://huggingface.co/xlm-mlm-ende-1024/resolve/main/config.json",
@@ -45,18 +37,13 @@ from ...utils import logging
 #     "xlm-mlm-17-1280": "https://huggingface.co/xlm-mlm-17-1280/resolve/main/config.json",
 #     "xlm-mlm-100-1280": "https://huggingface.co/xlm-mlm-100-1280/resolve/main/config.json",
 # }
-
-
 class XLMConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`XLMModel`] or a [`TFXLMModel`]. It is used to
 #     instantiate a XLM model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the
 #     [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30145):
 #             Vocabulary size of the BERT model. Defines the number of different tokens that can be represented by the
@@ -111,9 +98,7 @@ class XLMConfig(PretrainedConfig):
 #             Whether or not the initialized model should be a transformer encoder or decoder as seen in Vaswani et al.
 #         summary_type (`string`, *optional*, defaults to "first"):
 #             Argument used when doing sequence summary. Used in the sequence classification and multiple choice models.
-
 #             Has to be one of the following options:
-
 #                 - `"last"`: Take the last token hidden state (like XLNet).
 #                 - `"first"`: Take the first token hidden state (like BERT).
 #                 - `"mean"`: Take the mean of all tokens hidden states.
@@ -121,19 +106,15 @@ class XLMConfig(PretrainedConfig):
 #                 - `"attn"`: Not implemented now, use multi-head attention.
 #         summary_use_proj (`bool`, *optional*, defaults to `True`):
 #             Argument used when doing sequence summary. Used in the sequence classification and multiple choice models.
-
 #             Whether or not to add a projection after the vector extraction.
 #         summary_activation (`str`, *optional*):
 #             Argument used when doing sequence summary. Used in the sequence classification and multiple choice models.
-
 #             Pass `"tanh"` for a tanh activation to the output, any other value will result in no activation.
 #         summary_proj_to_labels (`bool`, *optional*, defaults to `True`):
 #             Used in the sequence classification and multiple choice models.
-
 #             Whether the projection outputs should have `config.num_labels` or `config.hidden_size` classes.
 #         summary_first_dropout (`float`, *optional*, defaults to 0.1):
 #             Used in the sequence classification and multiple choice models.
-
 #             The dropout ratio to be used after the projection and activation.
 #         start_n_top (`int`, *optional*, defaults to 5):
 #             Used in the SQuAD evaluation script.
@@ -143,22 +124,16 @@ class XLMConfig(PretrainedConfig):
 #             Model agnostic parameter to identify masked tokens when generating text in an MLM context.
 #         lang_id (`int`, *optional*, defaults to 1):
 #             The ID of the language used by the model. This parameter is used when generating text in a given language.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import XLMConfig, XLMModel
-
 #     >>> # Initializing a XLM configuration
 #     >>> configuration = XLMConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = XLMModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "xlm"
 #     attribute_map = {
 #         "hidden_size": "emb_dim",
@@ -166,7 +141,6 @@ class XLMConfig(PretrainedConfig):
 #         "num_hidden_layers": "n_layers",
 #         "n_words": "vocab_size",  # For backward compatibility
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=30145,
@@ -204,7 +178,6 @@ class XLMConfig(PretrainedConfig):
 #         bos_token_id=0,
 #         **kwargs,
 #     ):
-
 #         self.vocab_size = vocab_size
 #         self.emb_dim = emb_dim
 #         self.n_layers = n_layers
@@ -236,23 +209,19 @@ class XLMConfig(PretrainedConfig):
 #         self.end_n_top = end_n_top
 #         self.mask_token_id = mask_token_id
 #         self.lang_id = lang_id
-
         if "n_words" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.n_words = kwargs["n_words"]
-
 #         super().__init__(pad_token_id=pad_token_id, bos_token_id=bos_token_id, **kwargs)
-
-
 # Copied from transformers.models.bert.configuration_bert.BertOnnxConfig
 class XLMOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task == "multiple-choice":
-      pass
-      pass
+    pass
+    pass
     pass
 #             dynamic_axis = {0: "batch", 1: "choice", 2: "sequence"}
         else:

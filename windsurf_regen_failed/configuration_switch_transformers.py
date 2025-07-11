@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,27 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "google/switch-base-8": "https://huggingface.co/google/switch-base-8/blob/main/config.json",
 # }
-
-
 class SwitchTransformersConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`SwitchTransformersModel`]. It is used to
 #     instantiate a SwitchTransformers model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the
 #     SwitchTransformers [google/switch-base-8](https://huggingface.co/google/switch-base-8) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Arguments:
 #         vocab_size (`int`, *optional*, defaults to 32128):
 #             Vocabulary size of the SwitchTransformers model. Defines the number of different tokens that can be
@@ -102,11 +91,9 @@ class SwitchTransformersConfig(PretrainedConfig):
 #             Whether to output router probabilities to compute router auxiliary loss.
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
-
 #     model_type = "switch_transformers"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {"hidden_size": "d_model", "num_attention_heads": "num_heads", "num_hidden_layers": "num_layers"}
-
     def __init__(
 #         self,
 #         vocab_size=32128,
@@ -143,59 +130,50 @@ class SwitchTransformersConfig(PretrainedConfig):
 #         self.d_model = d_model
 #         self.d_kv = d_kv
 #         self.d_ff = d_ff
-
 #         self.num_sparse_encoder_layers = num_sparse_encoder_layers
-
 #         self.num_layers = num_layers
 #         self.num_decoder_layers = (
 #             num_decoder_layers if num_decoder_layers is not None else self.num_layers
 #         )  # default = symmetry
 #         self.num_sparse_decoder_layers = num_sparse_decoder_layers
-
         # This tells us, each how many encoder layer well have to set a sparse layer.
         if self.num_sparse_encoder_layers > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.encoder_sparse_step = self.num_layers // self.num_sparse_encoder_layers
         else:
 #             self.encoder_sparse_step = self.num_layers  # HACK: this will create 0 sparse layers
-
         # This tells us, each how many encoder layer well have to set a sparse layer.
         if self.num_sparse_decoder_layers > 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.decoder_sparse_step = self.num_decoder_layers // self.num_sparse_decoder_layers
         else:
 #             self.decoder_sparse_step = self.num_decoder_layers  # HACK: this will create 0 sparse layers
-
 #         self.num_heads = num_heads
 #         self.num_experts = num_experts
 #         self.expert_capacity = expert_capacity
 #         self.router_bias = router_bias
 #         self.router_jitter_noise = router_jitter_noise
         if router_dtype not in ["float32", "float16", "bfloat16"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"`router_dtype` must be one of 'float32', 'float16' or 'bfloat16', got {router_dtype}")
 #         self.router_dtype = router_dtype
-
 #         self.router_ignore_padding_tokens = router_ignore_padding_tokens
 #         self.relative_attention_num_buckets = relative_attention_num_buckets
 #         self.relative_attention_max_distance = relative_attention_max_distance
-
 #         self.dropout_rate = dropout_rate
 #         self.layer_norm_epsilon = layer_norm_epsilon
 #         self.initializer_factor = initializer_factor
 #         self.use_cache = use_cache
 #         self.add_router_probs = add_router_probs
-
 #         self.router_z_loss_coef = router_z_loss_coef
 #         self.router_aux_loss_coef = router_aux_loss_coef
 #         self.dense_act_fn = dense_act_fn
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             eos_token_id=eos_token_id,

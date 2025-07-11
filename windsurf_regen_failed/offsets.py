@@ -1,15 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
-
 from pandas._libs.tslibs.offsets import (
 #     FY5253,
 #     BaseOffset,
@@ -54,7 +50,6 @@ from pandas._libs.tslibs.offsets import (
 #     YearBegin,
 #     YearEnd,
 # )
-
 # __all__ = [
 #     "Day",
 #     "BaseOffset",

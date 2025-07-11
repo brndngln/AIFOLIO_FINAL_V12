@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -25,65 +22,44 @@ from typing import Optional
 import os
 from shutil import copyfile
 from typing import List, Optional, Tuple
-
 from tokenizers import normalizers, processors
-
 from ...tokenization_utils_fast import PreTrainedTokenizerFast
 from ...utils import is_sentencepiece_available, logging
 from ...utils.versions import require_version
-
-
 # require_version("tokenizers>=0.13.3")
-
 if is_sentencepiece_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from .tokenization_code_llama import CodeLlamaTokenizer
 else:
 #     CodeLlamaTokenizer = None
-
 # logger = logging.get_logger(__name__)
-
-
-
 # B_INST, E_INST = "[INST]", "[/INST]"
 # B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
-
 # fmt: off
 # answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure\
 #  that your responses are socially unbiased and positive in nature.
-
 # If a question does not make any sense, or is not factually coherent, explain why instead of answering something not \
 # correct. If you don't know the answer to a question, please don't share false information.
 # fmt: on
-
-
 class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
-
 #     Construct a Llama tokenizer. Based on byte-level Byte-Pair-Encoding.
-
 #     This uses notably ByteFallback and no normalization.
-
 #     ```python
 #     >>> from transformers import CodeLlamaTokenizerFast
-
 #     >>> tokenizer = CodeLlamaTokenizerFast.from_pretrained("hf-internal-testing/llama-tokenizer")
 #     >>> tokenizer.encode("Hello this is a test")
 #     [1, 15043, 445, 338, 263, 1243]
 #     ```
-
 #     If you want to change the `bos_token` or the `eos_token`, make sure to specify them when initializing the model, or
 #     call `tokenizer.update_post_processor()` to make sure that the post-processing is correctly done (otherwise the
 #     values of the first token and final token of an encoded sequence will not be correct). For more details, checkout
 #     [post-processors] (https://huggingface.co/docs/tokenizers/api/post-processors) documentation.
-
-
 #     This tokenizer inherits from [`PreTrainedTokenizerFast`] which contains most of the main methods. Users should
 #     refer to this superclass for more information regarding those methods. The default configuration match that of
 #     [codellama/CodeLlama-7b-Instruct-hf](https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf/blob/main/tokenizer_config.json)
 #     which supports prompt infilling.
-
 #     Args:
 #         vocab_file (`str`, *optional*):
 #             [SentencePiece](https://github.com/google/sentencepiece) file (generally has a .model extension) that
@@ -119,12 +95,10 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
 #             Whether to add an end of sequence token at the end of sequences.
 #         use_default_system_prompt (`bool`, *optional*, defaults to `False`):
 #             Whether or not the default system prompt for Llama should be used.
-
 #     vocab_files_names = VOCAB_FILES_NAMES
 #     slow_tokenizer_class = CodeLlamaTokenizer
 #     padding_side = "left"
 #     model_input_names = ["input_ids", "attention_mask"]
-
     def __init__(
 #         self,
 #         vocab_file=None,
@@ -149,7 +123,6 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
         for token in [prefix_token, middle_token, suffix_token, eot_token]:
 #             additional_special_tokens += [token] if token is not None else []
 #         self.use_default_system_prompt = use_default_system_prompt
-
 #         super().__init__(
 #             vocab_file=vocab_file,
 #             tokenizer_file=tokenizer_file,
@@ -171,142 +144,117 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
 #         self._add_bos_token = add_bos_token
 #         self._add_eos_token = add_eos_token
 #         self.update_post_processor()
-
 #         self.vocab_file = vocab_file
-
 #         self._prefix_token = prefix_token
 #         self._middle_token = middle_token
 #         self._suffix_token = suffix_token
 #         self._eot_token = eot_token
 #         self.fill_token = fill_token
-
 #     @property
     def can_save_slow_tokenizer(self) -> bool:
         return os.path.isfile(self.vocab_file) if self.vocab_file else False
-
     # Copied from transformers.models.llama.tokenization_llama_fast.LlamaTokenizerFast.update_post_processor
     def update_post_processor(self):
-
 #         Updates the underlying post processor with the current `bos_token` and `eos_token`.
-
 #         bos = self.bos_token
 #         bos_token_id = self.bos_token_id
         if bos is None and self.add_bos_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("add_bos_token = True but bos_token = None")
-
 #         eos = self.eos_token
 #         eos_token_id = self.eos_token_id
         if eos is None and self.add_eos_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("add_eos_token = True but eos_token = None")
-
 #         single = f"{(bos+':0 ') if self.add_bos_token else """}$A:0{(' '+eos+':0') if self.add_eos_token else """}"
 #         pair = f"{single}{(' '+bos+':1') if self.add_bos_token else """} $B:1{(' '+eos+':1') if self.add_eos_token else """}"
-
 #         special_tokens = []
         if self.add_bos_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #             special_tokens.append((bos, bos_token_id))
         if self.add_eos_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #             special_tokens.append((eos, eos_token_id))
 #         self._tokenizer.post_processor = processors.TemplateProcessing(
 #             single=single, pair=pair, special_tokens=special_tokens
 #         )
-
 #     @property
     def prefix_token(self):
         return self._prefix_token
-
 #     @property
     def prefix_id(self):
         if self._prefix_token is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         return self.convert_tokens_to_ids(self.prefix_token)
-
 #     @property
     def middle_token(self):
         return self._middle_token
-
 #     @property
     def middle_id(self):
         if self._middle_token is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         return self.convert_tokens_to_ids(self.middle_token)
-
 #     @property
     def suffix_token(self):
         return self._suffix_token
-
 #     @property
     def suffix_id(self):
         if self._suffix_token is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         return self.convert_tokens_to_ids(self.suffix_token)
-
 #     @property
     def eot_id(self):
         if self._eot_token is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         return self.convert_tokens_to_ids(self.eot_token)
-
 #     @property
     def eot_token(self):
         return self._eot_token
-
 #     @property
     def add_eos_token(self):
         return self._add_eos_token
-
 #     @property
     def add_bos_token(self):
         return self._add_bos_token
-
 #     @add_eos_token.setter
     def add_eos_token(self, value):
 #         self._add_eos_token = value
 #         self.update_post_processor()
-
 #     @add_bos_token.setter
     def add_bos_token(self, value):
 #         self._add_bos_token = value
 #         self.update_post_processor()
-
     def set_infilling_processor(self, reset, suffix_first=False, add_special_tokens=True):
-
 #         Updates the normalizer to make sure the prompt format for `infilling` is respected. The infilling format is the
 #         following: if suffix_first
 #             " <PRE> <SUF>{suf} <MID> {pre}"
         else:
 #             " <PRE> {pre} <SUF>{suf} <MID>"
-
 #         If `reset` is set to `True`, the `normalizer` and `post_processor` are reset to their "normal" behaviour, which
 #         is to add a prefix space for the normalizer, and add a `bos_token` to the input text for the `post_processor`.
-
         if reset:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._tokenizer.normalizer = normalizers.Sequence(
 #                 [
@@ -316,13 +264,12 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
 #             )
 #             self.update_post_processor()
             return
-
 #         self._tokenizer.normalizer = normalizers.Replace(pattern=" ", content="▁")
 #         pair = [self.bos_token] if self.add_bos_token and add_special_tokens else []
 #         special_tokens = [(self.bos_token, self.bos_token_id)] if self.add_bos_token and add_special_tokens else []
         if suffix_first:
-      pass
-      pass
+    pass
+    pass
     pass
             # format as " <PRE> <SUF>{suf} <MID> {pre}"
 #             pair += [self.prefix_token, self.suffix_token, "$B", self.middle_token, "$A"]
@@ -339,96 +286,81 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
 #                 (self.suffix_token, self.suffix_id),
 #                 (self.middle_token, self.middle_id),
 #             ]
-
         if self.add_eos_token and add_special_tokens:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pair += [self.eos_token]
 #             special_tokens += [(self.eos_token, self.eos_token_id)]
 #         self._tokenizer.post_processor = processors.TemplateProcessing(
 #             single="$A", pair=pair, special_tokens=special_tokens
 #         )
-
     def encode_plus(self, text, text_pair=None, suffix_first=False, add_special_tokens=True, **kwargs):
         # hack to make sure the input is pre-process but outside rust
 #         text_pair = kwargs.pop("suffix", text_pair)
         if self.fill_token is not None and self.fill_token in text and text_pair is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text, text_pair = text.split(self.fill_token)
-
         if text_pair is None or len(text_pair) < 1:
-      pass
-      pass
+    pass
+    pass
     pass
             return super().encode_plus(text, text_pair, add_special_tokens=add_special_tokens, **kwargs)
-
         if None in (self.prefix_id, self.middle_id, self.suffix_id):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Then input includes a `prefix` and a `suffix` used for the infilling task,"
 #                 " the `prefix_id, middle_id, suffix_id` must all be initialized. Current"
 #                 f" values : {self.prefix_id, self.middle_id, self.suffix_id}"
 #             )
-
 #         self.set_infilling_processor(False, suffix_first=suffix_first, add_special_tokens=add_special_tokens)
 #         tokens = super().encode_plus(" " + text, text_pair=text_pair, add_special_tokens=True, **kwargs)
 #         self.set_infilling_processor(True)
         return tokens
-
     # Copied from transformers.models.llama.tokenization_llama_fast.LlamaTokenizerFast.save_vocabulary
     def save_vocabulary(self, save_directory: str, filename_prefix: Optional[str] = None) -> Tuple[str]:
         if not self.can_save_slow_tokenizer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Your fast tokenizer does not have the necessary information to save the vocabulary for a slow "
 #                 "tokenizer."
 #             )
-
         if not os.path.isdir(save_directory):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.error(f"Vocabulary path ({save_directory}) should be a directory")
             return
 #         out_vocab_file = os.path.join(
 #             save_directory, (filename_prefix + - if filename_prefix else ) + VOCAB_FILES_NAMES[vocab_file]
 #         )
-
         if os.path.abspath(self.vocab_file) != os.path.abspath(out_vocab_file):
-      pass
-      pass
+    pass
+    pass
     pass
 #             copyfile(self.vocab_file, out_vocab_file)
-
         return (out_vocab_file,)
-
 #     @property
     # Copied from transformers.models.llama.tokenization_llama.LlamaTokenizer.default_chat_template
     def default_chat_template(self):
-
 #         LLaMA uses [INST] and [/INST] to indicate user messages, and <<SYS>> and <</SYS>> to indicate system messages.
 #         Assistant messages do not have special tokens, because LLaMA chat models are generally trained with strict
 #         user/assistant/user/assistant message ordering, and so assistant messages can be identified from the ordering
 #         rather than needing special tokens. The system message is partly 'embedded' in the first user message, which
 #         results in an unusual token ordering when it is present. This template should definitely be changed if you wish
 #         to fine-tune a model with more flexible role ordering!
-
 #         The output should look something like:
-
 #         <bos>[INST] B_SYS SystemPrompt E_SYS Prompt [/INST] Answer <eos><bos>[INST] Prompt [/INST] Answer <eos>
 #         <bos>[INST] Prompt [/INST]
-
 #         The reference for this chat template is [this code
 #         snippet](https://github.com/facebookresearch/llama/blob/556949fdfb72da27c2f4a40b7f0e4cf0b8153a28/llama/generation.py#L320-L362)
 #         in the original repository.
-
 #         logger.warning_once(
 #             "\nNo chat template is defined for this tokenizer - using the default template "
 #             f"for the {self.__class__.__name__} class. If the default is not appropriate for "
@@ -467,36 +399,27 @@ class CodeLlamaTokenizerFast(PreTrainedTokenizerFast):
 #         template = template.replace("USE_DEFAULT_PROMPT", "true" if self.use_default_system_prompt else "false")
         default_message = DEFAULT_SYSTEM_PROMPT.replace("\n", "\\n").replace("'", "'")
 #         template = template.replace("DEFAULT_SYSTEM_MESSAGE", default_message)
-
         return template
-
     def build_inputs_with_special_tokens(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None
 #     ) -> List[int]:
-
 #         Build model inputs from a sequence or a pair of sequence for sequence classification tasks by concatenating and
 #         adding special tokens. The special tokens depend on calling set_lang.
-
 #         An NLLB sequence has the following format, where `X` represents the sequence:
-
 #         - `input_ids` (for encoder) `X [eos, src_lang_code]`
 #         - `decoder_input_ids`: (for decoder) `X [eos, tgt_lang_code]`
-
 #         BOS is never used. Pairs of sequences are not the expected use case, but they will be handled without a
 #         separator.
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs to which the special tokens will be added.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: list of [input IDs](../glossary#input-ids) with the appropriate special tokens.
-
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return self.bos_token_id + token_ids_0 + self.eos_token_id
         return self.bos_token_id + token_ids_0 + token_ids_1 + self.eos_token_id

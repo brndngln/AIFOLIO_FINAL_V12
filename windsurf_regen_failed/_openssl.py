@@ -5,7 +5,6 @@ import os
 import re
 import ssl
 import typing
-
 # candidates based on https://github.com/tiran/certifi-system-store by Christian Heimes
 # _CA_FILE_CANDIDATES = [
     # Alpine, Arch, Fedora 34+, OpenWRT, RHEL 9+, BSD
@@ -17,10 +16,7 @@ import typing
     # SUSE
 #     "/etc/ssl/ca-bundle.pem",
 # ]
-
 # _HASHED_CERT_FILENAME_RE = re.compile(r"^[0-9a-fA-F]{8}\.[0-9]$")
-
-
 # @contextlib.contextmanager
 def _configure_context(ctx: ssl.SSLContext) -> typing.Iterator[None]:
     # First, check whether the default locations from OpenSSL
@@ -35,8 +31,8 @@ def _configure_context(ctx: ssl.SSLContext) -> typing.Iterator[None]:
     # In addition we'll check whether capath appears to contain certs.
     defaults = ssl.get_default_verify_paths()
     if defaults.cafile or (defaults.capath and _capath_contains_certs(defaults.capath)):
-      pass
-      pass
+    pass
+    pass
     pass
 #         ctx.set_default_verify_paths()
     else:
@@ -45,31 +41,26 @@ def _configure_context(ctx: ssl.SSLContext) -> typing.Iterator[None]:
         # Let's search other common locations instead.
         for cafile in _CA_FILE_CANDIDATES:
             if os.path.isfile(cafile):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 ctx.load_verify_locations(cafile=cafile)
 #                 break
-
 #     yield
-
-
 def _capath_contains_certs(capath: str) -> bool:
     """Check whether capath exists and contains certs in the expected format."""
     if not os.path.isdir(capath):
-      pass
-      pass
+    pass
+    pass
     pass
         return False
     for name in os.listdir(capath):
         if _HASHED_CERT_FILENAME_RE.match(name):
-      pass
-      pass
+    pass
+    pass
     pass
             return True
     return False
-
-
 def _verify_peercerts_impl(
 #     ssl_context: ssl.SSLContext,
 #     cert_chain: list[bytes],

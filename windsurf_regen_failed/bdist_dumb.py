@@ -1,11 +1,9 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """distutils.command.bdist_dumb
-
 # Implements the Distutils 'bdist_dumb' command (create a "dumb" built
 # distribution -- i.e., just an archive to be unpacked under $prefix or
 # $exec_prefix)."""
-
 import os
 from distutils.core import Command
 from distutils.util import get_platform
@@ -13,12 +11,8 @@ from distutils.dir_util import remove_tree, ensure_relative
 from distutils.errors import DistutilsPlatformError
 from distutils.sysconfig import get_python_version
 from distutils import log
-
-
 class bdist_dumb(Command):
-
 #     description = "create a \"dumb\" built distribution"
-
 #     user_options = [
 #         ('bdist-dir=', 'd', "temporary directory for creating the distribution"),
 #         (
@@ -56,11 +50,8 @@ class bdist_dumb(Command):
 #             "Group name used when creating a tar file" " [default: current group]",
 #         ),
 #     ]
-
 #     boolean_options = ['keep-temp', 'skip-build', 'relative']
-
     default_format = {'posix': 'gztar', 'nt': 'zip'}
-
     def initialize_options(self):
 #         self.bdist_dir = None
 #         self.plat_name = None
@@ -71,18 +62,16 @@ class bdist_dumb(Command):
 #         self.relative = 0
 #         self.owner = None
 #         self.group = None
-
     def finalize_options(self):
         if self.bdist_dir is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             bdist_base = self.get_finalized_command('bdist').bdist_base
 #             self.bdist_dir = os.path.join(bdist_base, 'dumb')
-
         if self.format is None:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 self.format = self.default_format[os.name]
@@ -91,39 +80,33 @@ class bdist_dumb(Command):
 #                     "don't know how to create dumb built distributions "
 #                     "on platform %s" % os.name
 #                 )
-
 #         self.set_undefined_options(
 #             'bdist',
 #             ('dist_dir', 'dist_dir'),
 #             ('plat_name', 'plat_name'),
 #             ('skip_build', 'skip_build'),
 #         )
-
     def run(self):
         if not self.skip_build:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.run_command('build')
-
 #         install = self.reinitialize_command('install', reinit_subcommands=1)
 #         install.root = self.bdist_dir
 #         install.skip_build = self.skip_build
 #         install.warn_dir = 0
-
 #         log.info("installing to %s", self.bdist_dir)
 #         self.run_command('install')
-
         # And make an archive relative to the root of the
         # pseudo-installation tree.
 #         archive_basename = "{}.{}".format(
 #             self.distribution.get_fullname(), self.plat_name
 #         )
-
 #         pseudoinstall_root = os.path.join(self.dist_dir, archive_basename)
         if not self.relative:
-      pass
-      pass
+    pass
+    pass
     pass
 #             archive_root = self.bdist_dir
         else:
@@ -139,7 +122,6 @@ class bdist_dumb(Command):
 #                 archive_root = os.path.join(
 #                     self.bdist_dir, ensure_relative(install.install_base)
 #                 )
-
         # Make the archive
 #         filename = self.make_archive(
 #             pseudoinstall_root,
@@ -149,16 +131,15 @@ class bdist_dumb(Command):
 #             group=self.group,
 #         )
         if self.distribution.has_ext_modules():
-      pass
-      pass
+    pass
+    pass
     pass
 #             pyversion = get_python_version()
         else:
 #             pyversion = 'any'
 #         self.distribution.dist_files.append(('bdist_dumb', pyversion, filename))
-
         if not self.keep_temp:
-      pass
-      pass
+    pass
+    pass
     pass
 #             remove_tree(self.bdist_dir, dry_run=self.dry_run)

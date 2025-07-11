@@ -3,25 +3,15 @@ from typing import Optional
 """
 # A module that implements tooling to enable easy warnings about deprecations.
 """
-
 import logging
 import warnings
 from typing import Any, Optional, TextIO, Type, Union
-
 from pip._vendor.packaging.version import parse
-
 from pip import __version__ as current_version  # NOTE: tests patch this name.
-
 # DEPRECATION_MSG_PREFIX = "DEPRECATION: "
-
-
 class PipDeprecationWarning(Warning):
 #     pass
-
-
 # _original_showwarning: Any = None
-
-
 # Warnings <-> Logging Integration
 def _showwarning(
 #     message: Union[Warning, str],
@@ -32,12 +22,12 @@ def _showwarning(
 #     line: Optional[str] = None,
 # ) -> None:
     if file is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         if _original_showwarning is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _original_showwarning(message, category, filename, lineno, file, line)
     elif issubclass(category, PipDeprecationWarning):
@@ -48,22 +38,16 @@ def _showwarning(
 #         logger.warning(message)
     else:
 #         _original_showwarning(message, category, filename, lineno, file, line)
-
-
 def install_warning_logger() -> None:
     # Enable our Deprecation Warnings
 #     warnings.simplefilter("default", PipDeprecationWarning, append=True)
-
 #     global _original_showwarning
-
     if _original_showwarning is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _original_showwarning = warnings.showwarning
 #         warnings.showwarning = _showwarning
-
-
 def deprecated(
 #     *,
 #     reason: str,
@@ -73,7 +57,6 @@ def deprecated(
 #     issue: Optional[int] = None,
 # ) -> None:
     """Helper to deprecate existing functionality.
-
 #     reason:
 #         Textual reason shown to the user about why this functionality has
 #         been deprecated. Should be a complete sentence.
@@ -91,10 +74,8 @@ def deprecated(
 #         Issue number on the tracker that would serve as a useful place for
 #         users to find related discussion and provide feedback.
     """
-
     # Determine whether or not the feature is already gone in this version.
 #     is_gone = gone_in is not None and parse(current_version) >= parse(gone_in)
-
 #     message_parts = [
 #         (reason, f"{DEPRECATION_MSG_PREFIX}{{}}"),
 #         (
@@ -122,18 +103,15 @@ def deprecated(
 #             "Discussion can be found at https://github.com/pypa/pip/issues/{}",
 #         ),
 #     ]
-
 #     message = " ".join(
         format_str.format(value)
         for value, format_str in message_parts
         if format_str is not None and value is not None
 #     )
-
     # Raise as an error if this behaviour is deprecated.
     if is_gone:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise PipDeprecationWarning(message)
-
 #     warnings.warn(message, category=PipDeprecationWarning, stacklevel=2)

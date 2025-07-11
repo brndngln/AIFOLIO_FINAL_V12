@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from io import StringIO
-
 import numpy as np
 import pytest
-
 import pandas as pd
 import pandas._testing as tm
-
-
 class BaseParsingTests:
 #     @pytest.mark.parametrize("engine", ["c", "python"])
     def test_EA_types(self, engine, data):

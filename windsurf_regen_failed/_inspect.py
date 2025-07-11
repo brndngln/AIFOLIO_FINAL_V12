@@ -3,7 +3,6 @@ from typing import Optional
 import inspect
 from inspect import cleandoc, getdoc, getfile, isclass, ismodule, signature
 from typing import Any, Collection, Iterable, Optional, Tuple, Type, Union
-
 from .console import Group, RenderableType
 from .control import escape_control_codes
 from .highlighter import ReprHighlighter
@@ -12,17 +11,12 @@ from .panel import Panel
 from .pretty import Pretty
 from .table import Table
 from .text import Text, TextType
-
-
 def _first_paragraph(doc: str) -> str:
     """Get the first paragraph from a docstring."""
 #     paragraph, _, _ = doc.partition("\n\n")
     return paragraph
-
-
 class Inspect(JupyterMixin):
     """A renderable to inspect any Python Object.
-
 #     Args:
 #         obj (Any): An object to inspect.
 #         title (str, optional): Title to display over inspect result, or None use type. Defaults to None.
@@ -35,7 +29,6 @@ class Inspect(JupyterMixin):
 #         all (bool, optional): Show all attributes. Defaults to False.
 #         value (bool, optional): Pretty print value of object. Defaults to True.
     """
-
     def __init__(
 #         self,
 #         obj: Any,
@@ -54,8 +47,8 @@ class Inspect(JupyterMixin):
 #         self.obj = obj
 #         self.title = title or self._make_title(obj)
         if all:
-      pass
-      pass
+    pass
+    pass
     pass
 #             methods = private = dunder = True
 #         self.help = help
@@ -65,7 +58,6 @@ class Inspect(JupyterMixin):
 #         self.dunder = dunder
 #         self.sort = sort
 #         self.value = value
-
     def _make_title(self, obj: Any) -> Text:
         """Make a default title."""
 #         title_str = (
@@ -75,7 +67,6 @@ class Inspect(JupyterMixin):
 #         )
 #         title_text = self.highlighter(title_str)
         return title_text
-
     def __rich__(self) -> Panel:
         return Panel.fit(
 #             Group(*self._render()),
@@ -83,7 +74,6 @@ class Inspect(JupyterMixin):
 #             border_style="scope.border",
 #             padding=(0, 1),
 #         )
-
     def _get_signature(self, name: str, obj: Any) -> Optional[Text]:
         """Get a signature for a callable."""
         try:
@@ -92,28 +82,24 @@ class Inspect(JupyterMixin):
 #             _signature = "(...)"
         except TypeError:
             return None
-
 #         source_filename: Optional[str] = None
         try:
 #             source_filename = getfile(obj)
         except (OSError, TypeError):
             # OSError is raised if obj has no source file, e.g. when defined in REPL.
 #             pass
-
 #         callable_name = Text(name, style="inspect.callable")
         if source_filename:
-      pass
-      pass
+    pass
+    pass
     pass
 #             callable_name.stylize(f"link file://{source_filename}")
 #         signature_text = self.highlighter(_signature)
-
 #         qualname = name or getattr(obj, "__qualname__", name)
-
         # If obj is a module, there may be classes (which are callable) to display
         if inspect.isclass(obj):
-      pass
-      pass
+    pass
+    pass
     pass
 #             prefix = "class"
         elif inspect.iscoroutinefunction(obj):
@@ -121,91 +107,80 @@ class Inspect(JupyterMixin):
 #             prefix = "async def"
         else:
 #             prefix = "def"
-
 #         qual_signature = Text.assemble(
 #             (f"{prefix} ", f"inspect.{prefix.replace(' ', '_')}"),
 #             (qualname, "inspect.callable"),
 #             signature_text,
 #         )
-
         return qual_signature
-
     def _render(self) -> Iterable[RenderableType]:
         """Render object."""
-
         def sort_items(item: Tuple[str, Any]) -> Tuple[bool, str]:
 #             key, (_error, value) = item
             return (callable(value), key.strip("_").lower())
-
         def safe_getattr(attr_name: str) -> Tuple[Any, Any]:
             """Get attribute or any exception."""
             try:
                 return (None, getattr(obj, attr_name))
             except Exception as error:
                 return (error, None)
-
 #         obj = self.obj
 #         keys = dir(obj)
 #         total_items = len(keys)
         if not self.dunder:
-      pass
-      pass
+    pass
+    pass
     pass
 #             keys = [key for key in keys if not key.startswith("__")]
         if not self.private:
-      pass
-      pass
+    pass
+    pass
     pass
 #             keys = [key for key in keys if not key.startswith("_")]
 #         not_shown_count = total_items - len(keys)
 #         items = [(key, safe_getattr(key)) for key in keys]
         if self.sort:
-      pass
-      pass
+    pass
+    pass
     pass
 #             items.sort(key=sort_items)
-
 #         items_table = Table.grid(padding=(0, 1), expand=False)
 #         items_table.add_column(justify="right")
 #         add_row = items_table.add_row
 #         highlighter = self.highlighter
-
         if callable(obj):
-      pass
-      pass
+    pass
+    pass
     pass
 #             signature = self._get_signature("", obj)
             if signature is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield signature
 #                 yield ""
-
         if self.docs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _doc = self._get_formatted_doc(obj)
             if _doc is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 doc_text = Text(_doc, style="inspect.help")
 #                 doc_text = highlighter(doc_text)
 #                 yield doc_text
 #                 yield ""
-
         if self.value and not (isclass(obj) or callable(obj) or ismodule(obj)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield Panel(
 #                 Pretty(obj, indent_guides=True, max_length=10, max_string=60),
 #                 border_style="inspect.value.border",
 #             )
 #             yield ""
-
         for key, (error, value) in items:
 #             key_text = Text.assemble(
 #                 (
@@ -215,51 +190,48 @@ class Inspect(JupyterMixin):
 #                 (" =", "inspect.equals"),
 #             )
             if error is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 warning = key_text.copy()
 #                 warning.stylize("inspect.error")
 #                 add_row(warning, highlighter(repr(error)))
 #                 continue
-
             if callable(value):
-      pass
-      pass
+    pass
+    pass
     pass
                 if not self.methods:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
-
 #                 _signature_text = self._get_signature(key, value)
                 if _signature_text is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     add_row(key_text, Pretty(value, highlighter=highlighter))
                 else:
                     if self.docs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         docs = self._get_formatted_doc(value)
                         if docs is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             _signature_text.append("\n" if "\n" in docs else " ")
 #                             doc = highlighter(docs)
 #                             doc.stylize("inspect.doc")
 #                             _signature_text.append(doc)
-
 #                     add_row(key_text, _signature_text)
             else:
 #                 add_row(key_text, Pretty(value, highlighter=highlighter))
         if items_table.row_count:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield items_table
         elif not_shown_count:
@@ -268,51 +240,43 @@ class Inspect(JupyterMixin):
 #                 f"[b cyan]{not_shown_count}[/][i] attribute(s) not shown.[/i] "
 #                 f"Run [b][magenta]inspect[/]([not b]inspect[/])[/b] for options."
 #             )
-
     def _get_formatted_doc(self, object_: Any) -> Optional[str]:
         """
 #         Extract the docstring of an object, process it and returns it.
 #         The processing consists in cleaning up the doctring's indentation,
 #         taking only its 1st paragraph if `self.help` is not True,
 #         and escape its control codes.
-
 #         Args:
 #             object_ (Any): the object to get the docstring from.
-
 #         Returns:
 #             Optional[str]: the processed docstring, or None if no docstring was found.
         """
 #         docs = getdoc(object_)
         if docs is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
 #         docs = cleandoc(docs).strip()
         if not self.help:
-      pass
-      pass
+    pass
+    pass
     pass
 #             docs = _first_paragraph(docs)
         return escape_control_codes(docs)
-
-
 def get_object_types_mro(obj: Union[object, Type[Any]]) -> Tuple[type, ...]:
     """Returns the MRO of an object's class, or of the object itself if it's a class."""
     if not hasattr(obj, "__mro__"):
-      pass
-      pass
+    pass
+    pass
     pass
         # N.B. we cannot use `if type(obj) is type` here because it doesn't work with
         # some types of classes, such as the ones that use abc.ABCMeta.
 #         obj = type(obj)
     return getattr(obj, "__mro__", ())
-
-
 def get_object_types_mro_as_strings(obj: object) -> Collection[str]:
     """
 #     Returns the MRO of an object's class as full qualified names, or of the object itself if it's a class.
-
 #     Examples:
 #         `object_types_mro_as_strings(JSONDecoder)` will return `['json.decoder.JSONDecoder', 'builtins.object']`
     """
@@ -320,8 +284,6 @@ def get_object_types_mro_as_strings(obj: object) -> Collection[str]:
 #         f'{getattr(type_, "__module__", "")}.{getattr(type_, "__qualname__", "")}'
         for type_ in get_object_types_mro(obj)
 #     ]
-
-
 def is_object_one_of_types(
 #     obj: object, fully_qualified_types_names: Collection[str]
 # ) -> bool:
@@ -331,8 +293,8 @@ def is_object_one_of_types(
     """
     for type_name in get_object_types_mro_as_strings(obj):
         if type_name in fully_qualified_types_names:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
     return False

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,21 +10,17 @@ import os
 import logging
 import requests
 from .retry_utils import retry_safe_hook
-
-
 # @retry_safe_hook(max_attempts=3, backoff_tier="short")
 def send_confirmation_email(buyer_email: str, vault_name: str) -> None:
-
 #     Sends a confirmation email to the buyer using SendGrid if configured, otherwise prints a stub message.
 #     Retries up to 3 times on failure, logs all exceptions, and writes final failures to logs/failed_hooks.log.
-
 #     api_key = os.environ.get("SENDGRID_API_KEY")
 #     sender = os.environ.get("SENDGRID_FROM_EMAIL", "noreply@aifolio.com")
 #     subject = f"Your AIFOLIO Vault '{vault_name}' is Ready!"
 #     body = f"Thank you for your purchase! Your vault '{vault_name}' is now available."
     if api_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #         resp = requests.post(
 #             "https://api.sendgrid.com/v3/mail/send",
@@ -44,8 +37,8 @@ def send_confirmation_email(buyer_email: str, vault_name: str) -> None:
 #             timeout=10,
 #         )
         if resp.status_code == 202:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logging.info(
 #                 f"[AIFOLIO] Confirmation email sent to {buyer_email} for vault '{vault_name}'."

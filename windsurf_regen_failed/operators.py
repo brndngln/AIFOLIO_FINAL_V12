@@ -1,8 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # sql/operators.py
@@ -11,12 +9,9 @@
 #
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
-
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
-
 from __future__ import annotations
-
 from enum import IntEnum
 from operator import add as _uncast_add
 from operator import and_ as _uncast_and_
@@ -52,31 +47,23 @@ from typing import Type
 from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
-
 from .. import exc
 from .. import util
 from ..util.typing import Literal
 from ..util.typing import Protocol
-
 if typing.TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ._typing import ColumnExpressionArgument
     from .cache_key import CacheConst
     from .elements import ColumnElement
     from .type_api import TypeEngine
-
 # _T = TypeVar("_T", bound=Any)
 # _FN = TypeVar("_FN", bound=Callable[..., Any])
-
-
 class OperatorType(Protocol):
-
 #     __slots__ = ()
-
 #     __name__: str
-
 #     @overload
     def __call__(
 #         self,
@@ -86,7 +73,6 @@ class OperatorType(Protocol):
 #         **kwargs: Any,
 #     ) -> ColumnElement[Any]:
 #         ...
-
 #     @overload
     def __call__(
 #         self,
@@ -96,7 +82,6 @@ class OperatorType(Protocol):
 #         **kwargs: Any,
 #     ) -> Operators:
 #         ...
-
     def __call__(
 #         self,
 #         left: Any,
@@ -105,8 +90,6 @@ class OperatorType(Protocol):
 #         **kwargs: Any,
 #     ) -> Operators:
 #         ...
-
-
 # add = cast(OperatorType, _uncast_add)
 # and_ = cast(OperatorType, _uncast_and_)
 # contains = cast(OperatorType, _uncast_contains)
@@ -127,76 +110,48 @@ class OperatorType(Protocol):
 # rshift = cast(OperatorType, _uncast_rshift)
 # sub = cast(OperatorType, _uncast_sub)
 # truediv = cast(OperatorType, _uncast_truediv)
-
-
 class Operators:
 #     Base of comparison and logical operators.
-
 #     Implements base methods
-
 #     Usually is used via its most common subclass
-
 #     __slots__ = ()
-
     def __and__(self, other: Any) -> Operators:
 #         Implement the ``&`` operator.
-
 #         When used with SQL expressions, results in an
 #         AND operation, equivalent to
-
 #             a & b
-
 #         is equivalent to::
-
             from sqlalchemy import and_
 #             and_(a, b)
-
 #         Care should be taken when using ``&`` regarding
 #         operator precedence; the ``&`` operator has the highest precedence.
 #         The operands should be enclosed in parenthesis if they contain
 #         further sub expressions::
-
 #             (a == 2) & (b == 4)
-
         return self.operate(and_, other)
-
     def __or__(self, other: Any) -> Operators:
 #         Implement the ``|`` operator.
-
 #         When used with SQL expressions, results in an
 #         OR operation, equivalent to
-
 #             a | b
-
 #         is equivalent to::
-
             from sqlalchemy import or_
 #             or_(a, b)
-
 #         Care should be taken when using ``|`` regarding
 #         operator precedence; the ``|`` operator has the highest precedence.
 #         The operands should be enclosed in parenthesis if they contain
 #         further sub expressions::
-
 #             (a == 2) | (b == 4)
-
         return self.operate(or_, other)
-
     def __invert__(self) -> Operators:
 #         Implement the ``~`` operator.
-
 #         When used with SQL expressions, results in a
 #         NOT operation, equivalent to
-
 #             ~a
-
 #         is equivalent to::
-
             from sqlalchemy import not_
 #             not_(a)
-
         return self.operate(inv)
-
     def op(
 #         self,
 #         opstring: str,
@@ -208,75 +163,49 @@ class Operators:
 #         python_impl: Optional[Callable[..., Any]] = None,
 #     ) -> Callable[[Any], Operators]:
 #         Produce a generic operator function.
-
 #         e.g.::
-
 #           somecolumn.op("*")(5)
-
 #         produces::
-
 #           somecolumn * 5
-
 #         This function can also be used to make bitwise operators explicit. For
 #         example::
-
 #           somecolumn.op('&')(0xff)
-
 #         is a bitwise AND of the value in ``somecolumn``.
-
 #           between this element and the expression passed to the
 #           generated function.
-
 #          to the operator in SQL expressions. This integer value acts as a hint
-         for the SQL compiler to know when explicit parenthesis should be
+        for the SQL compiler to know when explicit parenthesis should be
 #          rendered around a particular operation. A lower number will cause the
 #          expression to be parenthesized when applied against another operator
-         with higher precedence. The default value of ``0`` is lower than all
+        with higher precedence. The default value of ``0`` is lower than all
 #          operators except for the comma (``,``) and ``AS`` operators. A value
 #          of 100 will be higher or equal to all operators, and -100 will be
 #          lower than or equal to all operators.
-
 #          .. seealso::
-
 #             of how the SQLAlchemy SQL compiler renders parenthesis
-
 #          as a "comparison" operator, that is which evaluates to a boolean
 #          true/false value, like ``==``, ``>``, etc.  This flag is provided
 #          so that ORM relationships can establish that the operator is a
 #          comparison operator when used in a custom join condition.
-
 #          Using the ``is_comparison`` parameter is superseded by using the
 #          operator sets this parameter automatically, but also provides
 #          correct :pep:`484` typing support as the returned object will
 #          express a "boolean" datatype, i.e. ``BinaryExpression[bool]``.
-
-          force the return type of an expression produced by this operator
+        force the return type of an expression produced by this operator
 #           to be of that type.   By default, operators that specify
 #           type as the left-hand operand.
-
 #          two Python values in the same way as this operator works when
 #          run on the database server.  Useful for in-Python SQL expression
 #          evaluation functions, such as for ORM hybrid attributes, and the
 #          ORM "evaluator" used to match objects in a session after a multi-row
 #          update or delete.
-
 #          e.g.::
-
 #             >>> expr = column('x').op(, python_impl=lambda a, b: a + b)('y')
-
 #          The operator for the above expression will also work for non-SQL
 #          left and right objects::
-
 #             >>> expr.operator(5, 10)
-
 #          .. versionadded:: 2.0
-
-
 #         .. seealso::
-
-
-
-
 #         operator = custom_op(
 #             opstring,
 #             precedence,
@@ -284,12 +213,9 @@ class Operators:
             return_type,
 #             python_impl=python_impl,
 #         )
-
         def against(other: Any) -> Operators:
             return operator(self, other)
-
         return against
-
     def bool_op(
 #         self,
 #         opstring: str,
@@ -297,78 +223,53 @@ class Operators:
 #         python_impl: Optional[Callable[..., Any]] = None,
 #     ) -> Callable[[Any], Operators]:
 #         Return a custom boolean operator.
-
 #         This method is shorthand for calling
 #         flag with True.    A key advantage to using :meth:`.Operators.bool_op`
 #         is that when using column constructs, the "boolean" nature of the
         returned expression will be present for :pep:`484` purposes.
-
 #         .. seealso::
-
-
         return self.op(
 #             opstring,
 #             precedence=precedence,
 #             is_comparison=True,
 #             python_impl=python_impl,
 #         )
-
     def operate(
 #         self, op: OperatorType, *other: Any, **kwargs: Any
 #     ) -> Operators:
 #         r.Operate on an argument.
-
 #         This is the lowest level of operation, raises
-
 #         Overriding this on a subclass can allow common
 #         behavior to be applied to all operations.
 #         For example, overriding :class:`.ColumnOperators`
 #         to apply ``func.lower()`` to the left and right
 #         side::
-
             class MyComparator(ColumnOperators):
                 def operate(self, op, other, **kwargs):
                     return op(func.lower(self), func.lower(other), **kwargs)
-
 #          be a single scalar for most operations.
 #          operators such as :meth:`ColumnOperators.contains`.
-
 #         raise NotImplementedError(str(op))
-
 #     __sa_operate__ = operate
-
     def reverse_operate(
 #         self, op: OperatorType, other: Any, **kwargs: Any
 #     ) -> Operators:
 #         Reverse operate on an argument.
-
 #         Usage is the same as :meth:`operate`.
-
 #         raise NotImplementedError(str(op))
-
-
 class custom_op(OperatorType, Generic[_T]):
 #     Represent a 'custom' operator.
-
 #     are used to create a custom operator callable.  The class can also be
 #     used directly when programmatically constructing expressions.   E.g.
 #     to represent the "factorial" operation::
-
         from sqlalchemy.sql import UnaryExpression
         from sqlalchemy.sql import operators
         from sqlalchemy import Numeric
-
 #         unary = UnaryExpression(table.c.somecolumn,
 #                 modifier=operators.custom_op("!"),
 #                 type_=Numeric)
-
-
 #     .. seealso::
-
-
-
 #     __name__ = "custom_op"
-
 #     __slots__ = (
 #         "opstring",
 #         "precedence",
@@ -378,7 +279,6 @@ class custom_op(OperatorType, Generic[_T]):
 #         "return_type",
 #         "python_impl",
 #     )
-
     def __init__(
 #         self,
 #         opstring: str,
@@ -400,16 +300,13 @@ class custom_op(OperatorType, Generic[_T]):
             return_type._to_instance(return_type) if return_type else None
 #         )
 #         self.python_impl = python_impl
-
     def __eq__(self, other: Any) -> bool:
         return (
 #             isinstance(other, custom_op)
 #             and other._hash_key() == self._hash_key()
 #         )
-
     def __hash__(self) -> int:
         return hash(self._hash_key())
-
     def _hash_key(self) -> Union[CacheConst, Tuple[Any, ...]]:
         return (
 #             self.__class__,
@@ -420,7 +317,6 @@ class custom_op(OperatorType, Generic[_T]):
 #             self.eager_grouping,
 #             self.return_type._static_cache_key if self.return_type else None,
 #         )
-
 #     @overload
     def __call__(
 #         self,
@@ -430,7 +326,6 @@ class custom_op(OperatorType, Generic[_T]):
 #         **kwargs: Any,
 #     ) -> ColumnElement[Any]:
 #         ...
-
 #     @overload
     def __call__(
 #         self,
@@ -440,7 +335,6 @@ class custom_op(OperatorType, Generic[_T]):
 #         **kwargs: Any,
 #     ) -> Operators:
 #         ...
-
     def __call__(
 #         self,
 #         left: Any,
@@ -449,8 +343,8 @@ class custom_op(OperatorType, Generic[_T]):
 #         **kwargs: Any,
 #     ) -> Operators:
         if hasattr(left, "__sa_operate__"):
-      pass
-      pass
+    pass
+    pass
     pass
             return left.operate(self, right, *other, **kwargs)  # type: ignore
         elif self.python_impl:
@@ -462,528 +356,334 @@ class custom_op(OperatorType, Generic[_T]):
 #                 "plain Python objects unless it includes the "
 #                 "'python_impl' parameter."
 #             )
-
-
 class ColumnOperators(Operators):
 #     Defines boolean, comparison, and other operators for
-
 #     By default, all methods call down to
 #     passing in the appropriate operator function from the
 #     Python builtin ``operator`` module or
 #     a SQLAlchemy-specific operator function from
 #     the ``__eq__`` function::
-
         def __eq__(self, other):
             return self.operate(operators.eq, other)
-
 #     Where ``operators.eq`` is essentially::
-
         def eq(a, b):
             return a == b
-
 #     The core column expression unit :class:`_expression.ColumnElement`
 #     overrides :meth:`.Operators.operate` and others
 #     to return further :class:`_expression.ColumnElement` constructs,
 #     so that the ``==`` operation above is replaced by a clause
 #     construct.
-
 #     .. seealso::
-
-
-
-
-
 #     __slots__ = ()
-
 #     timetuple: Literal[None] = None
-
     if typing.TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def operate(
 #             self, op: OperatorType, *other: Any, **kwargs: Any
 #         ) -> ColumnOperators:
 #             ...
-
         def reverse_operate(
 #             self, op: OperatorType, other: Any, **kwargs: Any
 #         ) -> ColumnOperators:
 #             ...
-
     def __lt__(self, other: Any) -> ColumnOperators:
 #         Implement the ``<`` operator.
-
 #         In a column context, produces the clause ``a < b``.
-
         return self.operate(lt, other)
-
     def __le__(self, other: Any) -> ColumnOperators:
 #         Implement the ``<=`` operator.
-
 #         In a column context, produces the clause ``a <= b``.
-
         return self.operate(le, other)
-
     # ColumnOperators defines an __eq__ so it must explicitly declare also
     # an hash or its set to None by python:
     # https://docs.python.org/3/reference/datamodel.html#object.__hash__
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def __hash__(self) -> int:
 #             ...
-
     else:
 #         __hash__ = Operators.__hash__
-
     def __eq__(self, other: Any) -> ColumnOperators:  # type: ignore[override]
 #         Implement the ``==`` operator.
-
 #         In a column context, produces the clause ``a = b``.
 #         If the target is ``None``, produces ``a IS NULL``.
-
         return self.operate(eq, other)
-
     def __ne__(self, other: Any) -> ColumnOperators:  # type: ignore[override]
 #         Implement the ``!=`` operator.
-
 #         In a column context, produces the clause ``a != b``.
 #         If the target is ``None``, produces ``a IS NOT NULL``.
-
         return self.operate(ne, other)
-
     def is_distinct_from(self, other: Any) -> ColumnOperators:
 #         Implement the ``IS DISTINCT FROM`` operator.
-
 #         Renders "a IS DISTINCT FROM b" on most platforms;
 #         on some such as SQLite may render "a IS NOT b".
-
         return self.operate(is_distinct_from, other)
-
     def is_not_distinct_from(self, other: Any) -> ColumnOperators:
 #         Implement the ``IS NOT DISTINCT FROM`` operator.
-
 #         Renders "a IS NOT DISTINCT FROM b" on most platforms;
 #         on some such as SQLite may render "a IS b".
-
 #         .. versionchanged:: 1.4 The ``is_not_distinct_from()`` operator is
 #            renamed from ``isnot_distinct_from()`` in previous releases.
 #            The previous name remains available for backwards compatibility.
-
         return self.operate(is_not_distinct_from, other)
-
     # deprecated 1.4; see #5435
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def isnot_distinct_from(self, other: Any) -> ColumnOperators:
 #             ...
-
     else:
 #         isnot_distinct_from = is_not_distinct_from
-
     def __gt__(self, other: Any) -> ColumnOperators:
 #         Implement the ``>`` operator.
-
 #         In a column context, produces the clause ``a > b``.
-
         return self.operate(gt, other)
-
     def __ge__(self, other: Any) -> ColumnOperators:
 #         Implement the ``>=`` operator.
-
 #         In a column context, produces the clause ``a >= b``.
-
         return self.operate(ge, other)
-
     def __neg__(self) -> ColumnOperators:
 #         Implement the ``-`` operator.
-
 #         In a column context, produces the clause ``-a``.
-
         return self.operate(neg)
-
     def __contains__(self, other: Any) -> ColumnOperators:
         return self.operate(contains, other)
-
     def __getitem__(self, index: Any) -> ColumnOperators:
 #         Implement the [] operator.
-
 #         This can be used by some database-specific types
 #         such as PostgreSQL ARRAY and HSTORE.
-
         return self.operate(getitem, index)
-
     def __lshift__(self, other: Any) -> ColumnOperators:
 #         implement the << operator.
-
 #         Not used by SQLAlchemy core, this is provided
         for custom operator systems which want to use
 #         << as an extension point.
-
         return self.operate(lshift, other)
-
     def __rshift__(self, other: Any) -> ColumnOperators:
 #         implement the >> operator.
-
 #         Not used by SQLAlchemy core, this is provided
         for custom operator systems which want to use
 #         >> as an extension point.
-
         return self.operate(rshift, other)
-
     def concat(self, other: Any) -> ColumnOperators:
 #         Implement the 'concat' operator.
-
 #         In a column context, produces the clause ``a || b``,
 #         or uses the ``concat()`` operator on MySQL.
-
         return self.operate(concat_op, other)
-
     def _rconcat(self, other: Any) -> ColumnOperators:
 #         Implement an 'rconcat' operator.
-
 #         this is for internal use at the moment
-
 #         .. versionadded:: 1.4.40
-
         return self.reverse_operate(concat_op, other)
-
     def like(
 #         self, other: Any, escape: Optional[str] = None
 #     ) -> ColumnOperators:
 #         r.Implement the ``like`` operator.
-
 #         In a column context, produces the expression::
-
 #             a LIKE other
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.like("%foobar%"))
-
 #           keyword, e.g.::
-
 #             somecolumn.like("foo/%bar", escape="/")
-
 #         .. seealso::
-
-
         return self.operate(like_op, other, escape=escape)
-
     def ilike(
 #         self, other: Any, escape: Optional[str] = None
 #     ) -> ColumnOperators:
 #         r.Implement the ``ilike`` operator, e.g. case insensitive LIKE.
-
 #         In a column context, produces an expression either of the form::
-
 #             lower(a) LIKE lower(other)
-
 #         Or on backends that support the ILIKE operator::
-
 #             a ILIKE other
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.ilike("%foobar%"))
-
 #           keyword, e.g.::
-
 #             somecolumn.ilike("foo/%bar", escape="/")
-
 #         .. seealso::
-
-
         return self.operate(ilike_op, other, escape=escape)
-
     def bitwise_xor(self, other: Any) -> ColumnOperators:
 #         Produce a bitwise XOR operation, typically via the ``^``
 #         operator, or ``#`` for PostgreSQL.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_xor_op, other)
-
     def bitwise_or(self, other: Any) -> ColumnOperators:
 #         Produce a bitwise OR operation, typically via the ``|``
 #         operator.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_or_op, other)
-
     def bitwise_and(self, other: Any) -> ColumnOperators:
 #         Produce a bitwise AND operation, typically via the ``&``
 #         operator.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_and_op, other)
-
     def bitwise_not(self) -> ColumnOperators:
 #         Produce a bitwise NOT operation, typically via the ``~``
 #         operator.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_not_op)
-
     def bitwise_lshift(self, other: Any) -> ColumnOperators:
 #         Produce a bitwise LSHIFT operation, typically via the ``<<``
 #         operator.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_lshift_op, other)
-
     def bitwise_rshift(self, other: Any) -> ColumnOperators:
 #         Produce a bitwise RSHIFT operation, typically via the ``>>``
 #         operator.
-
 #         .. versionadded:: 2.0.2
-
 #         .. seealso::
-
-
         return self.operate(bitwise_rshift_op, other)
-
     def in_(self, other: Any) -> ColumnOperators:
 #         Implement the ``in`` operator.
-
 #         In a column context, produces the clause ``column IN <other>``.
-
 #         The given parameter ``other`` may be:
-
 #         * A list of literal values, e.g.::
-
 #             stmt.where(column.in_([1, 2, 3]))
-
 #           In this calling form, the list of items is converted to a set of
 #           bound parameters the same length as the list given::
-
-
 #         * A list of tuples may be provided if the comparison is against a
-
             from sqlalchemy import tuple_
 #             stmt.where(tuple_(col1, col2).in_([(1, 10), (2, 20), (3, 30)]))
-
 #         * An empty list, e.g.::
-
 #             stmt.where(column.in_([]))
-
 #           In this calling form, the expression renders an "empty set"
 #           expression.  These expressions are tailored to individual backends
 #           and are generally trying to get an empty SELECT statement as a
 #           subquery.  Such as on SQLite, the expression is::
-
-
 #           .. versionchanged:: 1.4  empty IN expressions now use an
 #              execution-time generated SELECT subquery in all cases.
-
 #         * A bound parameter, e.g. :func:`.bindparam`, may be used if it
 #           includes the :paramref:`.bindparam.expanding` flag::
-
 #             stmt.where(column.in_(bindparam('value', expanding=True)))
-
 #           In this calling form, the expression renders a special non-SQL
 #           placeholder expression that looks like::
-
-
 #           This placeholder expression is intercepted at statement execution
 #           time to be converted into the variable number of bound parameter
-          form illustrated earlier.   If the statement were executed as::
-
+        form illustrated earlier.   If the statement were executed as::
 #             connection.execute(stmt, {"value": [1, 2, 3]})
-
 #           The database would be passed a bound parameter for each value::
-
-
 #           .. versionadded:: 1.2 added "expanding" bound parameters
-
 #           If an empty list is passed, a special "empty list" expression,
 #           which is specific to the database in use, is rendered.  On
 #           SQLite this would be::
-
-
 #           .. versionadded:: 1.3 "expanding" bound parameters now support
 #              empty lists
-
 #         * a :func:`_expression.select` construct, which is usually a
 #           correlated scalar select::
-
 #             stmt.where(
 #                 column.in_(
 #                     select(othertable.c.y).
 #                     where(table.c.x == othertable.c.x)
 #                 )
 #             )
-
 #           In this calling form, :meth:`.ColumnOperators.in_` renders as given::
-
-
 #          construct, or a :func:`.bindparam` construct that includes the
-
         return self.operate(in_op, other)
-
     def not_in(self, other: Any) -> ColumnOperators:
 #         implement the ``NOT IN`` operator.
-
 #         This is equivalent to using negation with
-
 #         In the case that ``other`` is an empty sequence, the compiler
 #         produces an "empty not in" expression.   This defaults to the
 #         expression "1 = 1" to produce true in all cases.  The
 #         alter this behavior.
-
 #         .. versionchanged:: 1.4 The ``not_in()`` operator is renamed from
 #            ``notin_()`` in previous releases.  The previous name remains
 #            available for backwards compatibility.
-
 #         .. versionchanged:: 1.2  The :meth:`.ColumnOperators.in_` and
 #            now produce a "static" expression for an empty IN sequence
 #            by default.
-
 #         .. seealso::
-
-
         return self.operate(not_in_op, other)
-
     # deprecated 1.4; see #5429
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def notin_(self, other: Any) -> ColumnOperators:
 #             ...
-
     else:
 #         notin_ = not_in
-
     def not_like(
 #         self, other: Any, escape: Optional[str] = None
 #     ) -> ColumnOperators:
 #         implement the ``NOT LIKE`` operator.
-
 #         This is equivalent to using negation with
-
 #         .. versionchanged:: 1.4 The ``not_like()`` operator is renamed from
 #            ``notlike()`` in previous releases.  The previous name remains
 #            available for backwards compatibility.
-
 #         .. seealso::
-
-
         return self.operate(not_like_op, other, escape=escape)
-
     # deprecated 1.4; see #5435
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def notlike(
 #             self, other: Any, escape: Optional[str] = None
 #         ) -> ColumnOperators:
 #             ...
-
     else:
 #         notlike = not_like
-
     def not_ilike(
 #         self, other: Any, escape: Optional[str] = None
 #     ) -> ColumnOperators:
 #         implement the ``NOT ILIKE`` operator.
-
 #         This is equivalent to using negation with
-
 #         .. versionchanged:: 1.4 The ``not_ilike()`` operator is renamed from
 #            ``notilike()`` in previous releases.  The previous name remains
 #            available for backwards compatibility.
-
 #         .. seealso::
-
-
         return self.operate(not_ilike_op, other, escape=escape)
-
     # deprecated 1.4; see #5435
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def notilike(
 #             self, other: Any, escape: Optional[str] = None
 #         ) -> ColumnOperators:
 #             ...
-
     else:
 #         notilike = not_ilike
-
     def is_(self, other: Any) -> ColumnOperators:
 #         Implement the ``IS`` operator.
-
 #         Normally, ``IS`` is generated automatically when comparing to a
 #         value of ``None``, which resolves to ``NULL``.  However, explicit
 #         usage of ``IS`` may be desirable if comparing to boolean values
 #         on certain platforms.
-
 #         .. seealso:: :meth:`.ColumnOperators.is_not`
-
         return self.operate(is_, other)
-
     def is_not(self, other: Any) -> ColumnOperators:
 #         Implement the ``IS NOT`` operator.
-
 #         Normally, ``IS NOT`` is generated automatically when comparing to a
 #         value of ``None``, which resolves to ``NULL``.  However, explicit
 #         usage of ``IS NOT`` may be desirable if comparing to boolean values
 #         on certain platforms.
-
 #         .. versionchanged:: 1.4 The ``is_not()`` operator is renamed from
 #            ``isnot()`` in previous releases.  The previous name remains
 #            available for backwards compatibility.
-
 #         .. seealso:: :meth:`.ColumnOperators.is_`
-
         return self.operate(is_not, other)
-
     # deprecated 1.4; see #5429
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def isnot(self, other: Any) -> ColumnOperators:
 #             ...
-
     else:
 #         isnot = is_not
-
     def startswith(
 #         self,
 #         other: Any,
@@ -991,17 +691,12 @@ class ColumnOperators(Operators):
 #         autoescape: bool = False,
 #     ) -> ColumnOperators:
 #         r.Implement the ``startswith`` operator.
-
 #         Produces a LIKE expression that tests against a match for the start
 #         of a string value::
-
 #             column LIKE <other> || '%'
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.startswith("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1011,56 +706,35 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         a given character as an escape character which can be of use when
 #         the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.startswith.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.startswith("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             somecolumn LIKE :param || '%' ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.startswith("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             somecolumn LIKE :param || '%' ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.startswith("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
-
-
         return self.operate(
 #             startswith_op, other, escape=escape, autoescape=autoescape
 #         )
-
     def istartswith(
 #         self,
 #         other: Any,
@@ -1069,17 +743,12 @@ class ColumnOperators(Operators):
 #     ) -> ColumnOperators:
 #         r.Implement the ``istartswith`` operator, e.g. case insensitive
 #         version of :meth:`.ColumnOperators.startswith`.
-
 #         Produces a LIKE expression that tests against an insensitive
 #         match for the start of a string value::
-
 #             lower(column) LIKE lower(<other>) || '%'
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.istartswith("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1089,54 +758,35 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         establish a given character as an escape character which can be of
 #         use when the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.istartswith.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.istartswith("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE lower(:param) || '%' ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.istartswith("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE lower(:param) || '%' ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.istartswith("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
         return self.operate(
 #             istartswith_op, other, escape=escape, autoescape=autoescape
 #         )
-
     def endswith(
 #         self,
 #         other: Any,
@@ -1144,17 +794,12 @@ class ColumnOperators(Operators):
 #         autoescape: bool = False,
 #     ) -> ColumnOperators:
 #         r.Implement the 'endswith' operator.
-
 #         Produces a LIKE expression that tests against a match for the end
 #         of a string value::
-
 #             column LIKE '%' || <other>
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.endswith("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1164,56 +809,35 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         a given character as an escape character which can be of use when
 #         the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.endswith.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.endswith("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             somecolumn LIKE '%' || :param ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.endswith("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             somecolumn LIKE '%' || :param ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.endswith("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
-
-
         return self.operate(
 #             endswith_op, other, escape=escape, autoescape=autoescape
 #         )
-
     def iendswith(
 #         self,
 #         other: Any,
@@ -1222,17 +846,12 @@ class ColumnOperators(Operators):
 #     ) -> ColumnOperators:
 #         r.Implement the ``iendswith`` operator, e.g. case insensitive
 #         version of :meth:`.ColumnOperators.endswith`.
-
 #         Produces a LIKE expression that tests against an insensitive match
         for the end of a string value::
-
 #             lower(column) LIKE '%' || lower(<other>)
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.iendswith("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1242,67 +861,43 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         a given character as an escape character which can be of use when
 #         the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.iendswith.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.iendswith("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE '%' || lower(:param) ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.iendswith("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE '%' || lower(:param) ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.endswith("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
         return self.operate(
 #             iendswith_op, other, escape=escape, autoescape=autoescape
 #         )
-
     def contains(self, other: Any, **kw: Any) -> ColumnOperators:
 #         r.Implement the 'contains' operator.
-
 #         Produces a LIKE expression that tests against a match for the middle
 #         of a string value::
-
 #             column LIKE '%' || <other> || '%'
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.contains("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1312,68 +907,42 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         a given character as an escape character which can be of use when
 #         the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.contains.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.contains("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             somecolumn LIKE '%' || :param || '%' ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.contains("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             somecolumn LIKE '%' || :param || '%' ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.contains("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
-
-
         return self.operate(contains_op, other, **kw)
-
     def icontains(self, other: Any, **kw: Any) -> ColumnOperators:
 #         r.Implement the ``icontains`` operator, e.g. case insensitive
 #         version of :meth:`.ColumnOperators.contains`.
-
 #         Produces a LIKE expression that tests against an insensitive match
         for the middle of a string value::
-
 #             lower(column) LIKE '%' || lower(<other>) || '%'
-
 #         E.g.::
-
 #             stmt = select(sometable).\
 #                 where(sometable.c.column.icontains("foobar"))
-
 #         Since the operator uses ``LIKE``, wildcard characters
 #         ``"%"`` and ``"_"`` that are present inside the <other> expression
 #         will behave like wildcards as well.   For literal string
@@ -1383,96 +952,62 @@ class ColumnOperators(Operators):
 #         and not as wildcard characters.  Alternatively, the
 #         a given character as an escape character which can be of use when
 #         the target expression is not a literal string.
-
 #           string value, but can also be an arbitrary SQL expression.  LIKE
 #           wildcard characters ``%`` and ``_`` are not escaped by default unless
 #           the :paramref:`.ColumnOperators.icontains.autoescape` flag is
 #           set to True.
-
-          within the LIKE expression, then applies it to all occurrences of
+        within the LIKE expression, then applies it to all occurrences of
 #           ``"%"``, ``"_"`` and the escape character itself within the
 #           comparison value, which is assumed to be a literal string and not a
 #           SQL expression.
-
 #           An expression such as::
-
 #             somecolumn.icontains("foo%bar", autoescape=True)
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE '%' || lower(:param) || '%' ESCAPE '/'
-
 #           With the value of ``:param`` as ``"foo/%bar"``.
-
 #           ``ESCAPE`` keyword to establish that character as the escape
 #           character.  This character can then be placed preceding occurrences
 #           of ``%`` and ``_`` to allow them to act as themselves and not
 #           wildcard characters.
-
 #           An expression such as::
-
 #             somecolumn.icontains("foo/%bar", escape="^")
-
 #           Will render as::
-
 #             lower(somecolumn) LIKE '%' || lower(:param) || '%' ESCAPE '^'
-
 #           The parameter may also be combined with
-
 #             somecolumn.icontains("foo%bar^bat", escape="^", autoescape=True)
-
 #           Where above, the given literal parameter will be converted to
 #           ``"foo^%bar^^bat"`` before being passed to the database.
-
 #         .. seealso::
-
-
         return self.operate(icontains_op, other, **kw)
-
     def match(self, other: Any, **kwargs: Any) -> ColumnOperators:
 #         Implements a database-specific 'match' operator.
-
 #         a MATCH-like function or operator provided by the backend.
 #         Examples include:
-
 #         * PostgreSQL - renders ``x @@ plainto_tsquery(y)``
-
 #             .. versionchanged:: 2.0  ``plainto_tsquery()`` is used instead
 #                of ``to_tsquery()`` for PostgreSQL now; for compatibility with
 #                other forms, see :ref:`postgresql_match`.
-
-
 #         * MySQL - renders ``MATCH (x) AGAINST (y IN BOOLEAN MODE)``
-
 #           .. seealso::
-
 #                 additional features.
-
 #         * Oracle - renders ``CONTAINS(x, y)``
 #         * other backends may provide special implementations.
 #         * Backends without any special implementation will emit
 #           the operator as "MATCH".  This is compatible with SQLite, for
 #           example.
-
         return self.operate(match_op, other, **kwargs)
-
     def regexp_match(
 #         self, pattern: Any, flags: Optional[str] = None
 #     ) -> ColumnOperators:
 #         Implements a database-specific 'regexp match' operator.
-
 #         E.g.::
-
 #             stmt = select(table.c.some_column).where(
 #                 table.c.some_column.regexp_match('^(b|c)')
 #             )
-
 #         a REGEXP-like function or operator provided by the backend, however
 #         the specific regular expression syntax and flags available are
 #         **not backend agnostic**.
-
 #         Examples include:
-
 #         * PostgreSQL - renders ``x ~ y`` or ``x !~ y`` when negated.
 #         * Oracle - renders ``REGEXP_LIKE(x, y)``
 #         * SQLite - uses SQLites ``REGEXP`` placeholder operator and calls into
@@ -1481,40 +1016,30 @@ class ColumnOperators(Operators):
 #         * Backends without any special implementation will emit
 #           the operator as "REGEXP" or "NOT REGEXP".  This is compatible with
 #           SQLite and MySQL, for example.
-
 #         Regular expression support is currently implemented for Oracle,
 #         PostgreSQL, MySQL and MariaDB.  Partial support is available for
 #         SQLite.  Support among third-party dialects may vary.
-
 #           clause.
 #           plain Python string only.  These flags are backend specific.
 #           Some backends, like PostgreSQL and MariaDB, may alternatively
 #           specify the flags as part of the pattern.
 #           When using the ignore case flag 'i' in PostgreSQL, the ignore case
 #           regexp match operator ``~*`` or ``!~*`` will be used.
-
 #         .. versionadded:: 1.4
-
 #         .. versionchanged:: 1.4.48, 2.0.18  Note that due to an implementation
 #            error, the "flags" parameter previously accepted SQL expression
 #            objects such as column expressions in addition to plain Python
 #            strings.   This implementation did not work correctly with caching
 #            and was removed; strings only should be passed for the "flags"
 #            parameter, as these flags are rendered as literal inline values
-           within SQL expressions.
-
+        within SQL expressions.
 #         .. seealso::
-
-
         return self.operate(regexp_match_op, pattern, flags=flags)
-
     def regexp_replace(
 #         self, pattern: Any, replacement: Any, flags: Optional[str] = None
 #     ) -> ColumnOperators:
 #         Implements a database-specific 'regexp replace' operator.
-
 #         E.g.::
-
 #             stmt = select(
 #                 table.c.some_column.regexp_replace(
 #                     'b(..)',
@@ -1522,733 +1047,508 @@ class ColumnOperators(Operators):
 #                     flags='g'
 #                 )
 #             )
-
 #         a REGEXP_REPLACE-like function provided by the backend, that
 #         usually emit the function ``REGEXP_REPLACE()``.  However,
 #         the specific regular expression syntax and flags available are
 #         **not backend agnostic**.
-
 #         Regular expression replacement support is currently implemented for
 #         Oracle, PostgreSQL, MySQL 8 or greater and MariaDB.  Support among
 #         third-party dialects may vary.
-
 #           clause.
 #           plain Python string only.  These flags are backend specific.
 #           Some backends, like PostgreSQL and MariaDB, may alternatively
 #           specify the flags as part of the pattern.
-
 #         .. versionadded:: 1.4
-
 #         .. versionchanged:: 1.4.48, 2.0.18  Note that due to an implementation
 #            error, the "flags" parameter previously accepted SQL expression
 #            objects such as column expressions in addition to plain Python
 #            strings.   This implementation did not work correctly with caching
 #            and was removed; strings only should be passed for the "flags"
 #            parameter, as these flags are rendered as literal inline values
-           within SQL expressions.
-
-
+        within SQL expressions.
 #         .. seealso::
-
-
         return self.operate(
 #             regexp_replace_op,
 #             pattern,
 #             replacement=replacement,
 #             flags=flags,
 #         )
-
     def desc(self) -> ColumnOperators:
 #         Produce a :func:`_expression.desc` clause against the
 #         parent object.
         return self.operate(desc_op)
-
     def asc(self) -> ColumnOperators:
 #         Produce a :func:`_expression.asc` clause against the
 #         parent object.
         return self.operate(asc_op)
-
     def nulls_first(self) -> ColumnOperators:
 #         Produce a :func:`_expression.nulls_first` clause against the
 #         parent object.
-
 #         .. versionchanged:: 1.4 The ``nulls_first()`` operator is
 #            renamed from ``nullsfirst()`` in previous releases.
 #            The previous name remains available for backwards compatibility.
-
         return self.operate(nulls_first_op)
-
     # deprecated 1.4; see #5435
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def nullsfirst(self) -> ColumnOperators:
 #             ...
-
     else:
 #         nullsfirst = nulls_first
-
     def nulls_last(self) -> ColumnOperators:
 #         Produce a :func:`_expression.nulls_last` clause against the
 #         parent object.
-
 #         .. versionchanged:: 1.4 The ``nulls_last()`` operator is
 #            renamed from ``nullslast()`` in previous releases.
 #            The previous name remains available for backwards compatibility.
-
         return self.operate(nulls_last_op)
-
     # deprecated 1.4; see #5429
     if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def nullslast(self) -> ColumnOperators:
 #             ...
-
     else:
 #         nullslast = nulls_last
-
     def collate(self, collation: str) -> ColumnOperators:
 #         Produce a :func:`_expression.collate` clause against
 #         the parent object, given the collation string.
-
 #         .. seealso::
-
-
         return self.operate(collate, collation)
-
     def __radd__(self, other: Any) -> ColumnOperators:
 #         Implement the ``+`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__add__`.
-
         return self.reverse_operate(add, other)
-
     def __rsub__(self, other: Any) -> ColumnOperators:
 #         Implement the ``-`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__sub__`.
-
         return self.reverse_operate(sub, other)
-
     def __rmul__(self, other: Any) -> ColumnOperators:
 #         Implement the ``*`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__mul__`.
-
         return self.reverse_operate(mul, other)
-
     def __rmod__(self, other: Any) -> ColumnOperators:
 #         Implement the ``%`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__mod__`.
-
         return self.reverse_operate(mod, other)
-
     def between(
 #         self, cleft: Any, cright: Any, symmetric: bool = False
 #     ) -> ColumnOperators:
 #         Produce a :func:`_expression.between` clause against
 #         the parent object, given the lower and upper range.
-
         return self.operate(between_op, cleft, cright, symmetric=symmetric)
-
     def distinct(self) -> ColumnOperators:
 #         Produce a :func:`_expression.distinct` clause against the
 #         parent object.
-
         return self.operate(distinct_op)
-
     def any_(self) -> ColumnOperators:
 #         Produce an :func:`_expression.any_` clause against the
 #         parent object.
-
 #         See the documentation for :func:`_sql.any_` for examples.
-
 #         .. note:: be sure to not confuse the newer
 #             calling syntax and usage pattern.
-
         return self.operate(any_op)
-
     def all_(self) -> ColumnOperators:
 #         Produce an :func:`_expression.all_` clause against the
 #         parent object.
-
 #         See the documentation for :func:`_sql.all_` for examples.
-
 #         .. note:: be sure to not confuse the newer
 #             calling syntax and usage pattern.
-
         return self.operate(all_op)
-
     def __add__(self, other: Any) -> ColumnOperators:
 #         Implement the ``+`` operator.
-
 #         In a column context, produces the clause ``a + b``
         if the parent object has non-string affinity.
 #         If the parent object has a string affinity,
 #         produces the concatenation operator, ``a || b`` -
 #         see :meth:`.ColumnOperators.concat`.
-
         return self.operate(add, other)
-
     def __sub__(self, other: Any) -> ColumnOperators:
 #         Implement the ``-`` operator.
-
 #         In a column context, produces the clause ``a - b``.
-
         return self.operate(sub, other)
-
     def __mul__(self, other: Any) -> ColumnOperators:
 #         Implement the ``*`` operator.
-
 #         In a column context, produces the clause ``a * b``.
-
         return self.operate(mul, other)
-
     def __mod__(self, other: Any) -> ColumnOperators:
 #         Implement the ``%`` operator.
-
 #         In a column context, produces the clause ``a % b``.
-
         return self.operate(mod, other)
-
     def __truediv__(self, other: Any) -> ColumnOperators:
 #         Implement the ``/`` operator.
-
 #         In a column context, produces the clause ``a / b``, and
 #         considers the result type to be numeric.
-
 #         .. versionchanged:: 2.0  The truediv operator against two integers
 #            is now considered to return a numeric value.    Behavior on specific
 #            backends may vary.
-
         return self.operate(truediv, other)
-
     def __rtruediv__(self, other: Any) -> ColumnOperators:
 #         Implement the ``/`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__truediv__`.
-
         return self.reverse_operate(truediv, other)
-
     def __floordiv__(self, other: Any) -> ColumnOperators:
 #         Implement the ``//`` operator.
-
 #         In a column context, produces the clause ``a / b``,
 #         which is the same as "truediv", but considers the result
 #         type to be integer.
-
 #         .. versionadded:: 2.0
-
         return self.operate(floordiv, other)
-
     def __rfloordiv__(self, other: Any) -> ColumnOperators:
 #         Implement the ``//`` operator in reverse.
-
 #         See :meth:`.ColumnOperators.__floordiv__`.
-
         return self.reverse_operate(floordiv, other)
-
-
 # _commutative: Set[Any] = {eq, ne, add, mul}
 # _comparison: Set[Any] = {eq, ne, lt, gt, ge, le}
-
-
 def _operator_fn(fn: Callable[..., Any]) -> OperatorType:
     return cast(OperatorType, fn)
-
-
 def commutative_op(fn: _FN) -> _FN:
 #     _commutative.add(fn)
     return fn
-
-
 def comparison_op(fn: _FN) -> _FN:
 #     _comparison.add(fn)
     return fn
-
-
 # @_operator_fn
 def from_() -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 # @comparison_op
 def function_as_comparison_op() -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def as_() -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def exists() -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def is_true(a: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def istrue(a: Any) -> Any:
 #         ...
-
 else:
 #     istrue = is_true
-
-
 # @_operator_fn
 def is_false(a: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def isfalse(a: Any) -> Any:
 #         ...
-
 else:
 #     isfalse = is_false
-
-
 # @comparison_op
 # @_operator_fn
 def is_distinct_from(a: Any, b: Any) -> Any:
     return a.is_distinct_from(b)
-
-
 # @comparison_op
 # @_operator_fn
 def is_not_distinct_from(a: Any, b: Any) -> Any:
     return a.is_not_distinct_from(b)
-
-
 # deprecated 1.4; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def isnot_distinct_from(a: Any, b: Any) -> Any:
 #         ...
-
 else:
 #     isnot_distinct_from = is_not_distinct_from
-
-
 # @comparison_op
 # @_operator_fn
 def is_(a: Any, b: Any) -> Any:
     return a.is_(b)
-
-
 # @comparison_op
 # @_operator_fn
 def is_not(a: Any, b: Any) -> Any:
     return a.is_not(b)
-
-
 # 1.4 deprecated; see #5429
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def isnot(a: Any, b: Any) -> Any:
 #         ...
-
 else:
 #     isnot = is_not
-
-
 # @_operator_fn
 def collate(a: Any, b: Any) -> Any:
     return a.collate(b)
-
-
 # @_operator_fn
 def op(a: Any, opstring: str, b: Any) -> Any:
     return a.op(opstring)(b)
-
-
 # @comparison_op
 # @_operator_fn
 def like_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
     return a.like(b, escape=escape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_like_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
     return a.notlike(b, escape=escape)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notlike_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
 #         ...
-
 else:
 #     notlike_op = not_like_op
-
-
 # @comparison_op
 # @_operator_fn
 def ilike_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
     return a.ilike(b, escape=escape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_ilike_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
     return a.not_ilike(b, escape=escape)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notilike_op(a: Any, b: Any, escape: Optional[str] = None) -> Any:
 #         ...
-
 else:
 #     notilike_op = not_ilike_op
-
-
 # @comparison_op
 # @_operator_fn
 def between_op(a: Any, b: Any, c: Any, symmetric: bool = False) -> Any:
     return a.between(b, c, symmetric=symmetric)
-
-
 # @comparison_op
 # @_operator_fn
 def not_between_op(a: Any, b: Any, c: Any, symmetric: bool = False) -> Any:
     return ~a.between(b, c, symmetric=symmetric)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notbetween_op(a: Any, b: Any, c: Any, symmetric: bool = False) -> Any:
 #         ...
-
 else:
 #     notbetween_op = not_between_op
-
-
 # @comparison_op
 # @_operator_fn
 def in_op(a: Any, b: Any) -> Any:
     return a.in_(b)
-
-
 # @comparison_op
 # @_operator_fn
 def not_in_op(a: Any, b: Any) -> Any:
     return a.not_in(b)
-
-
 # 1.4 deprecated; see #5429
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notin_op(a: Any, b: Any) -> Any:
 #         ...
-
 else:
 #     notin_op = not_in_op
-
-
 # @_operator_fn
 def distinct_op(a: Any) -> Any:
     return a.distinct()
-
-
 # @_operator_fn
 def any_op(a: Any) -> Any:
     return a.any_()
-
-
 # @_operator_fn
 def all_op(a: Any) -> Any:
     return a.all_()
-
-
 def _escaped_like_impl(
 #     fn: Callable[..., Any], other: Any, escape: Optional[str], autoescape: bool
 # ) -> Any:
     if autoescape:
-      pass
-      pass
+    pass
+    pass
     pass
         if autoescape is not True:
-      pass
-      pass
+    pass
+    pass
     pass
 #             util.warn(
 #                 "The autoescape parameter is now a simple boolean True/False"
 #             )
         if escape is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             escape = "/"
-
         if not isinstance(other, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TypeError("String value expected when autoescape=True")
-
         if escape not in ("%", "_"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             other = other.replace(escape, escape + escape)
-
 #         other = other.replace("%", escape + "%").replace("_", escape + "_")
-
     return fn(other, escape=escape)
-
-
 # @comparison_op
 # @_operator_fn
 def startswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.startswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_startswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.startswith, b, escape, autoescape)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notstartswith_op(
 #         a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 #     ) -> Any:
 #         ...
-
 else:
 #     notstartswith_op = not_startswith_op
-
-
 # @comparison_op
 # @_operator_fn
 def istartswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.istartswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_istartswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.istartswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def endswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.endswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_endswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.endswith, b, escape, autoescape)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notendswith_op(
 #         a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 #     ) -> Any:
 #         ...
-
 else:
 #     notendswith_op = not_endswith_op
-
-
 # @comparison_op
 # @_operator_fn
 def iendswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.iendswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_iendswith_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.iendswith, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def contains_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.contains, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_contains_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.contains, b, escape, autoescape)
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notcontains_op(
 #         a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 #     ) -> Any:
 #         ...
-
 else:
 #     notcontains_op = not_contains_op
-
-
 # @comparison_op
 # @_operator_fn
 def icontains_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return _escaped_like_impl(a.icontains, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def not_icontains_op(
 #     a: Any, b: Any, escape: Optional[str] = None, autoescape: bool = False
 # ) -> Any:
     return ~_escaped_like_impl(a.icontains, b, escape, autoescape)
-
-
 # @comparison_op
 # @_operator_fn
 def match_op(a: Any, b: Any, **kw: Any) -> Any:
     return a.match(b, **kw)
-
-
 # @comparison_op
 # @_operator_fn
 def regexp_match_op(a: Any, b: Any, flags: Optional[str] = None) -> Any:
     return a.regexp_match(b, flags=flags)
-
-
 # @comparison_op
 # @_operator_fn
 def not_regexp_match_op(a: Any, b: Any, flags: Optional[str] = None) -> Any:
     return ~a.regexp_match(b, flags=flags)
-
-
 # @_operator_fn
 def regexp_replace_op(
 #     a: Any, b: Any, replacement: Any, flags: Optional[str] = None
 # ) -> Any:
     return a.regexp_replace(b, replacement=replacement, flags=flags)
-
-
 # @comparison_op
 # @_operator_fn
 def not_match_op(a: Any, b: Any, **kw: Any) -> Any:
     return ~a.match(b, **kw)
-
-
 # 1.4 deprecated; see #5429
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def notmatch_op(a: Any, b: Any, **kw: Any) -> Any:
 #         ...
-
 else:
 #     notmatch_op = not_match_op
-
-
 # @_operator_fn
 def comma_op(a: Any, b: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def filter_op(a: Any, b: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def concat_op(a: Any, b: Any) -> Any:
     try:
@@ -2257,157 +1557,96 @@ def concat_op(a: Any, b: Any) -> Any:
         return b._rconcat(a)
     else:
         return concat(b)
-
-
 # @_operator_fn
 def desc_op(a: Any) -> Any:
     return a.desc()
-
-
 # @_operator_fn
 def asc_op(a: Any) -> Any:
     return a.asc()
-
-
 # @_operator_fn
 def nulls_first_op(a: Any) -> Any:
     return a.nulls_first()
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def nullsfirst_op(a: Any) -> Any:
 #         ...
-
 else:
 #     nullsfirst_op = nulls_first_op
-
-
 # @_operator_fn
 def nulls_last_op(a: Any) -> Any:
     return a.nulls_last()
-
-
 # 1.4 deprecated; see #5435
 if TYPE_CHECKING:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #     @_operator_fn
     def nullslast_op(a: Any) -> Any:
 #         ...
-
 else:
 #     nullslast_op = nulls_last_op
-
-
 # @_operator_fn
 def json_getitem_op(a: Any, b: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def json_path_getitem_op(a: Any, b: Any) -> Any:
 #     raise NotImplementedError()
-
-
 # @_operator_fn
 def bitwise_xor_op(a: Any, b: Any) -> Any:
     return a.bitwise_xor(b)
-
-
 # @_operator_fn
 def bitwise_or_op(a: Any, b: Any) -> Any:
     return a.bitwise_or(b)
-
-
 # @_operator_fn
 def bitwise_and_op(a: Any, b: Any) -> Any:
     return a.bitwise_and(b)
-
-
 # @_operator_fn
 def bitwise_not_op(a: Any) -> Any:
     return a.bitwise_not()
-
-
 # @_operator_fn
 def bitwise_lshift_op(a: Any, b: Any) -> Any:
     return a.bitwise_lshift(b)
-
-
 # @_operator_fn
 def bitwise_rshift_op(a: Any, b: Any) -> Any:
     return a.bitwise_rshift(b)
-
-
 def is_comparison(op: OperatorType) -> bool:
     return op in _comparison or isinstance(op, custom_op) and op.is_comparison
-
-
 def is_commutative(op: OperatorType) -> bool:
     return op in _commutative
-
-
 def is_ordering_modifier(op: OperatorType) -> bool:
     return op in (asc_op, desc_op, nulls_first_op, nulls_last_op)
-
-
 def is_natural_self_precedent(op: OperatorType) -> bool:
     return (
 #         op in _natural_self_precedent
 #         or isinstance(op, custom_op)
 #         and op.natural_self_precedent
 #     )
-
-
 # _booleans = (inv, is_true, is_false, and_, or_)
-
-
 def is_boolean(op: OperatorType) -> bool:
     return is_comparison(op) or op in _booleans
-
-
 # _mirror = {gt: lt, ge: le, lt: gt, le: ge}
-
-
 def mirror(op: OperatorType) -> OperatorType:
 #     rotate a comparison operator 180 degrees.
-
 #     Note this is not the same as negation.
-
     return _mirror.get(op, op)
-
-
 # _associative = _commutative.union([concat_op, and_, or_]).difference([eq, ne])
-
-
 def is_associative(op: OperatorType) -> bool:
     return op in _associative
-
-
 # _natural_self_precedent = _associative.union(
 #     [getitem, json_getitem_op, json_path_getitem_op]
 # )
 # Operators where if we have (a op b) op c, we dont want to
 # parenthesize (a op b).
-
 # @_operator_fn
 def _asbool(a: Any) -> Any:
 #     raise NotImplementedError()
-
-
 class _OpLimit(IntEnum):
 #     _smallest = -100
 #     _largest = 100
-
-
 # _PRECEDENCE: Dict[OperatorType, int] = {
     from_: 15,
 #     function_as_comparison_op: 15,
@@ -2468,12 +1707,10 @@ class _OpLimit(IntEnum):
 #     exists: 0,
 #     _asbool: -10,
 # }
-
-
 def is_precedent(operator: OperatorType, against: OperatorType) -> bool:
     if operator is against and is_natural_self_precedent(operator):
-      pass
-      pass
+    pass
+    pass
     pass
         return False
     else:

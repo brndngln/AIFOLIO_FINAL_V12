@@ -9,7 +9,6 @@ import unittest
 from distutils.errors import DistutilsError, DistutilsOptionError
 from distutils import log
 from unittest import TestLoader
-
 from pkg_resources import (
 #     resource_listdir,
 #     resource_exists,
@@ -23,84 +22,69 @@ from .._importlib import metadata
 from setuptools import Command
 from setuptools.extern.more_itertools import unique_everseen
 from setuptools.extern.jaraco.functools import pass_none
-
-
 class ScanningLoader(TestLoader):
     def __init__(self):
 #         TestLoader.__init__(self)
 #         self._visited = set()
-
     def loadTestsFromModule(self, module, pattern=None):
         """Return a suite of all tests cases contained in the given module
-
 #         If the module is a package, load tests from all the modules in it.
 #         If the module has an ``additional_tests`` function, call it and add
 #         the return value to the tests.
         """
         if module in self._visited:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
 #         self._visited.add(module)
-
 #         tests = []
 #         tests.append(TestLoader.loadTestsFromModule(self, module))
-
         if hasattr(module, "additional_tests"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             tests.append(module.additional_tests())
-
         if hasattr(module, '__path__'):
-      pass
-      pass
+    pass
+    pass
     pass
             for file in resource_listdir(module.__name__, ''):
                 if file.endswith('.py') and file != '__init__.py':
-      pass
-      pass
+    pass
+    pass
     pass
 #                     submodule = module.__name__ + '.' + file[:-3]
                 else:
                     if resource_exists(module.__name__, file + '/__init__.py'):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         submodule = module.__name__ + '.' + file
                     else:
 #                         continue
 #                 tests.append(self.loadTestsFromName(submodule))
-
         if len(tests) != 1:
-      pass
-      pass
+    pass
+    pass
     pass
             return self.suiteClass(tests)
         else:
             return tests[0]  # don't create a nested suite for only one return
-
-
 # adapted from jaraco.classes.properties:NonDataProperty
 class NonDataProperty:
     def __init__(self, fget):
 #         self.fget = fget
-
     def __get__(self, obj, objtype=None):
         if obj is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return self
         return self.fget(obj)
-
-
 class test(Command):
     """Command to run unit tests after in-place build"""
-
 #     description = "run unit tests after in-place build (deprecated)"
-
 #     user_options = [
 #         ('test-module=', 'm', "Run 'test_suite' in specified module"),
 #         (
@@ -110,91 +94,78 @@ class test(Command):
 #         ),
 #         ('test-runner=', 'r', "Test runner to use"),
 #     ]
-
     def initialize_options(self):
 #         self.test_suite = None
 #         self.test_module = None
 #         self.test_loader = None
 #         self.test_runner = None
-
     def finalize_options(self):
-
         if self.test_suite and self.test_module:
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = "You may specify a module or a suite, but not both"
 #             raise DistutilsOptionError(msg)
-
         if self.test_suite is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if self.test_module is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.test_suite = self.distribution.test_suite
             else:
 #                 self.test_suite = self.test_module + ".test_suite"
-
         if self.test_loader is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.test_loader = getattr(self.distribution, 'test_loader', None)
         if self.test_loader is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.test_loader = "setuptools.command.test:ScanningLoader"
         if self.test_runner is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.test_runner = getattr(self.distribution, 'test_runner', None)
-
 #     @NonDataProperty
     def test_args(self):
         return list(self._test_args())
-
     def _test_args(self):
         if not self.test_suite:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield 'discover'
         if self.verbose:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield '--verbose'
         if self.test_suite:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield self.test_suite
-
     def with_project_on_sys_path(self, func):
         """
 #         Backward compatibility for project_on_sys_path context.
         """
         with self.project_on_sys_path():
 #             func()
-
 #     @contextlib.contextmanager
     def project_on_sys_path(self, include_dists=[]):
 #         self.run_command('egg_info')
-
         # Build extensions in-place
 #         self.reinitialize_command('build_ext', inplace=1)
 #         self.run_command('build_ext')
-
 #         ei_cmd = self.get_finalized_command("egg_info")
-
 #         old_path = sys.path[:]
 #         old_modules = sys.modules.copy()
-
         try:
 #             project_path = normalize_path(ei_cmd.egg_base)
 #             sys.path.insert(0, project_path)
@@ -208,7 +179,6 @@ class test(Command):
 #             sys.modules.clear()
 #             sys.modules.update(old_modules)
 #             working_set.__init__()
-
 #     @staticmethod
 #     @contextlib.contextmanager
     def paths_on_pythonpath(paths):
@@ -216,7 +186,6 @@ class test(Command):
 #         Add the indicated paths to the head of the PYTHONPATH environment
 #         variable so that subprocesses will also see the packages at
 #         these paths.
-
 #         Do this in a context that restores the value on exit.
         """
 #         nothing = object()
@@ -227,20 +196,19 @@ class test(Command):
 #             to_join = filter(None, [prefix, current_pythonpath])
 #             new_path = os.pathsep.join(to_join)
             if new_path:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 os.environ['PYTHONPATH'] = new_path
 #             yield
 #         finally:
             if orig_pythonpath is nothing:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 os.environ.pop('PYTHONPATH', None)
             else:
 #                 os.environ['PYTHONPATH'] = orig_pythonpath
-
 #     @staticmethod
     def install_dists(dist):
         """
@@ -255,7 +223,6 @@ class test(Command):
             if k.startswith(':') and evaluate_marker(k[1:])
 #         )
         return itertools.chain(ir_d, tr_d, er_d)
-
     def run(self):
 #         self.announce(
 #             "WARNING: Testing via this command is deprecated and will be "
@@ -264,24 +231,19 @@ class test(Command):
 #             "tox.",
 #             log.WARN,
 #         )
-
 #         installed_dists = self.install_dists(self.distribution)
-
 #         cmd = ' '.join(self._argv)
         if self.dry_run:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.announce('skipping "%s" (dry run)' % cmd)
             return
-
 #         self.announce('running "%s"' % cmd)
-
 #         paths = map(operator.attrgetter('location'), installed_dists)
         with self.paths_on_pythonpath(paths):
             with self.project_on_sys_path():
 #                 self.run_tests()
-
     def run_tests(self):
 #         test = unittest.main(
 #             None,
@@ -292,17 +254,15 @@ class test(Command):
 #             exit=False,
 #         )
         if not test.result.wasSuccessful():
-      pass
-      pass
+    pass
+    pass
     pass
 #             msg = 'Test failed: %s' % test.result
 #             self.announce(msg, log.ERROR)
 #             raise DistutilsError(msg)
-
 #     @property
     def _argv(self):
         return ['unittest'] + self.test_args
-
 #     @staticmethod
 #     @pass_none
     def _resolve_as_ep(val):

@@ -5,26 +5,17 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
-
 from pip._vendor import tomli_w
 from pip._vendor.typing_extensions import Self
-
 from pip._internal.models.direct_url import ArchiveInfo, DirInfo, VcsInfo
 from pip._internal.models.link import Link
 from pip._internal.req.req_install import InstallRequirement
 from pip._internal.utils.urls import url_to_path
-
 # PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
-
-
 def is_valid_pylock_file_name(path: Path) -> bool:
     return path.name == "pylock.toml" or bool(re.match(PYLOCK_FILE_NAME_RE, path.name))
-
-
 def _toml_dict_factory(data: List[Tuple[str, Any]]) -> Dict[str, Any]:
     return {key.replace("_", "-"): value for key, value in data if value is not None}
-
-
 # @dataclass
 class PackageVcs:
 #     type: str
@@ -33,15 +24,11 @@ class PackageVcs:
 #     requested_revision: Optional[str]
 #     commit_id: str
 #     subdirectory: Optional[str]
-
-
 # @dataclass
 class PackageDirectory:
 #     path: str
 #     editable: Optional[bool]
 #     subdirectory: Optional[str]
-
-
 # @dataclass
 class PackageArchive:
 #     url: Optional[str]
@@ -50,8 +37,6 @@ class PackageArchive:
     # (not supported) upload_time: Optional[datetime]
 #     hashes: Dict[str, str]
 #     subdirectory: Optional[str]
-
-
 # @dataclass
 class PackageSdist:
 #     name: str
@@ -60,8 +45,6 @@ class PackageSdist:
     # (not supported) path: Optional[str]
     # (not supported) size: Optional[int]
 #     hashes: Dict[str, str]
-
-
 # @dataclass
 class PackageWheel:
 #     name: str
@@ -70,8 +53,6 @@ class PackageWheel:
     # (not supported) path: Optional[str]
     # (not supported) size: Optional[int]
 #     hashes: Dict[str, str]
-
-
 # @dataclass
 class Package:
 #     name: str
@@ -87,7 +68,6 @@ class Package:
 #     wheels: Optional[List[PackageWheel]] = None
     # (not supported) attestation_identities: Optional[List[Dict[str, Any]]]
     # (not supported) tool: Optional[Dict[str, Any]]
-
 #     @classmethod
     def from_install_requirement(cls, ireq: InstallRequirement, base_dir: Path) -> Self:
 #         base_dir = base_dir.resolve()
@@ -96,12 +76,12 @@ class Package:
 #         assert download_info
 #         package = cls(name=dist.canonical_name)
         if ireq.is_direct:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(download_info.info, VcsInfo):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 package.vcs = PackageVcs(
 #                     type=download_info.info.vcs,
@@ -129,8 +109,8 @@ class Package:
             elif isinstance(download_info.info, ArchiveInfo):
     pass
                 if not download_info.info.hashes:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise NotImplementedError()
 #                 package.archive = PackageArchive(
@@ -144,18 +124,18 @@ class Package:
         else:
 #             package.version = str(dist.version)
             if isinstance(download_info.info, ArchiveInfo):
-      pass
-      pass
+    pass
+    pass
     pass
                 if not download_info.info.hashes:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise NotImplementedError()
 #                 link = Link(download_info.url)
                 if link.is_wheel:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     package.wheels = [
 #                         PackageWheel(
@@ -174,8 +154,6 @@ class Package:
                 # should never happen
 #                 raise NotImplementedError()
         return package
-
-
 # @dataclass
 class Pylock:
 #     lock_version: str = "1.0"
@@ -186,10 +164,8 @@ class Pylock:
 #     created_by: str = "pip"
 #     packages: List[Package] = dataclasses.field(default_factory=list)
     # (not supported) tool: Optional[Dict[str, Any]]
-
     def as_toml(self) -> str:
         return tomli_w.dumps(dataclasses.asdict(self, dict_factory=_toml_dict_factory))
-
 #     @classmethod
     def from_install_requirements(
 #         cls, install_requirements: Iterable[InstallRequirement], base_dir: Path

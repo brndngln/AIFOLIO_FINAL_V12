@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import asyncio
@@ -27,9 +25,7 @@ from typing import (
 #     Union,
 #     cast,
 # )
-
 from multidict import CIMultiDict, istr
-
 from . import hdrs, payload
 from .abc import AbstractStreamWriter
 from .compression_utils import ZLibCompressor
@@ -46,18 +42,12 @@ from .helpers import (
 from .http import SERVER_SOFTWARE, HttpVersion10, HttpVersion11
 from .payload import Payload
 from .typedefs import JSONEncoder, LooseHeaders
-
 # __all__ = ("ContentCoding", "StreamResponse", "Response", "json_response")
-
-
 if TYPE_CHECKING:  # pragma: no cover
     from .web_request import BaseRequest
-
 #     BaseClass = MutableMapping[str, Any]
 else:
 #     BaseClass = collections.abc.MutableMapping
-
-
 class ContentCoding(enum.Enum):
     # The content codings that we have support for.
     #
@@ -66,17 +56,9 @@ class ContentCoding(enum.Enum):
     deflate = "deflate"
 #     gzip = "gzip"
 #     identity = "identity"
-
-
-
 # HTTP Response classes
-
-
-
 class StreamResponse(BaseClass, HeadersMixin):
-
 #     _length_check = True
-
     def __init__(
 #         self,
 #         *,
@@ -90,54 +72,44 @@ class StreamResponse(BaseClass, HeadersMixin):
 #         self._compression = False
 #         self._compression_force: Optional[ContentCoding] = None
 #         self._cookies = SimpleCookie()
-
 #         self._req: Optional[BaseRequest] = None
 #         self._payload_writer: Optional[AbstractStreamWriter] = None
 #         self._eof_sent = False
 #         self._must_be_empty_body: Optional[bool] = None
 #         self._body_length = 0
 #         self._state: Dict[str, Any] = {}
-
         if headers is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._headers: CIMultiDict[str] = CIMultiDict(headers)
         else:
 #             self._headers = CIMultiDict()
-
 #         self.set_status(status, reason)
-
 #     @property
     def prepared(self) -> bool:
         return self._payload_writer is not None
-
 #     @property
     def task(self) -> "Optional[asyncio.Task[None]]":
         if self._req:
-      pass
-      pass
+    pass
+    pass
     pass
             return self._req.task
         else:
             return None
-
 #     @property
     def status(self) -> int:
         return self._status
-
 #     @property
     def chunked(self) -> bool:
         return self._chunked
-
 #     @property
     def compression(self) -> bool:
         return self._compression
-
 #     @property
     def reason(self) -> str:
         return self._reason
-
     def set_status(
 #         self,
 #         status: int,
@@ -148,57 +120,48 @@ class StreamResponse(BaseClass, HeadersMixin):
 #         )
 #         self._status = int(status)
         if reason is None:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 reason = HTTPStatus(self._status).phrase
             except ValueError:
 #                 reason =
 #         self._reason = reason
-
 #     @property
     def keep_alive(self) -> Optional[bool]:
         return self._keep_alive
-
     def force_close(self) -> None:
 #         self._keep_alive = False
-
 #     @property
     def body_length(self) -> int:
         return self._body_length
-
 #     @property
     def output_length(self) -> int:
 #         warnings.warn("output_length is deprecated", DeprecationWarning)
 #         assert self._payload_writer
         return self._payload_writer.buffer_size
-
     def enable_chunked_encoding(self, chunk_size: Optional[int] = None) -> None:
-
 #         self._chunked = True
-
         if hdrs.CONTENT_LENGTH in self._headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "You cant enable chunked encoding when " "a content length is set"
 #             )
         if chunk_size is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn("Chunk size is deprecated #1615", DeprecationWarning)
-
     def enable_compression(
 #         self, force: Optional[Union[bool, ContentCoding]] = None
 #     ) -> None:
-
         # Backwards compatibility for when force was a bool <0.17.
         if type(force) == bool:
-      pass
-      pass
+    pass
+    pass
     pass
             force = ContentCoding.deflate if force else ContentCoding.identity
 #             warnings.warn(
@@ -209,18 +172,14 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             assert isinstance(force, ContentCoding), (
 #                 "force should one of " "None, bool or " "ContentEncoding"
 #             )
-
 #         self._compression = True
 #         self._compression_force = force
-
 #     @property
     def headers(self) -> "CIMultiDict[str]":
         return self._headers
-
 #     @property
     def cookies(self) -> SimpleCookie:
         return self._cookies
-
     def set_cookie(
 #         self,
 #         name: str,
@@ -236,75 +195,64 @@ class StreamResponse(BaseClass, HeadersMixin):
 #         samesite: Optional[str] = None,
 #     ) -> None:
 #         Set or update response cookie.
-
 #         Sets new cookie or updates existent with new value.
 #         Also updates only those params which are not None.
-
 #         old = self._cookies.get(name)
         if old is not None and old.coded_value == :
-      pass
-      pass
+    pass
+    pass
     pass
             # deleted cookie
 #             self._cookies.pop(name, None)
-
 #         self._cookies[name] = value
 #         c = self._cookies[name]
-
         if expires is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["expires"] = expires
         elif c.get("expires") == "Thu, 01 Jan 1970 00:00:00 GMT":
     pass
 #             del c["expires"]
-
         if domain is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["domain"] = domain
-
         if max_age is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["max-age"] = str(max_age)
         elif "max-age" in c:
     pass
 #             del c["max-age"]
-
 #         c["path"] = path
-
         if secure is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["secure"] = secure
         if httponly is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["httponly"] = httponly
         if version is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["version"] = version
         if samesite is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             c["samesite"] = samesite
-
     def del_cookie(
 #         self, name: str, *, domain: Optional[str] = None, path: str = "/"
 #     ) -> None:
 #         Delete cookie.
-
 #         Creates new empty expired cookie.
-
         # TODO: do we need domain/path here?
 #         self._cookies.pop(name, None)
 #         self.set_cookie(
@@ -315,22 +263,20 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             domain=domain,
 #             path=path,
 #         )
-
 #     @property
     def content_length(self) -> Optional[int]:
         # Just a placeholder for adding setter
         return super().content_length
-
 #     @content_length.setter
     def content_length(self, value: Optional[int]) -> None:
         if value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             value = int(value)
             if self._chunked:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise RuntimeError(
 #                     "You cant set content length when " "chunked encoding is enable"
@@ -338,29 +284,25 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             self._headers[hdrs.CONTENT_LENGTH] = str(value)
         else:
 #             self._headers.pop(hdrs.CONTENT_LENGTH, None)
-
 #     @property
     def content_type(self) -> str:
         # Just a placeholder for adding setter
         return super().content_type
-
 #     @content_type.setter
     def content_type(self, value: str) -> None:
 #         self.content_type  # read header values if needed
 #         self._content_type = str(value)
 #         self._generate_content_type_header()
-
 #     @property
     def charset(self) -> Optional[str]:
         # Just a placeholder for adding setter
         return super().charset
-
 #     @charset.setter
     def charset(self, value: Optional[str]) -> None:
 #         ctype = self.content_type  # read header values if needed
         if ctype == "application/octet-stream":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "Setting charset for application/octet-stream "
@@ -368,29 +310,25 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             )
 #         assert self._content_dict is not None
         if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._content_dict.pop("charset", None)
         else:
 #             self._content_dict["charset"] = str(value).lower()
 #         self._generate_content_type_header()
-
 #     @property
     def last_modified(self) -> Optional[datetime.datetime]:
 #         The value of Last-Modified HTTP header, or None.
-
 #         This header is represented as a `datetime` object.
-
         return parse_http_date(self._headers.get(hdrs.LAST_MODIFIED))
-
 #     @last_modified.setter
     def last_modified(
 #         self, value: Optional[Union[int, float, datetime.datetime, str]]
 #     ) -> None:
         if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._headers.pop(hdrs.LAST_MODIFIED, None)
         elif isinstance(value, (int, float)):
@@ -406,13 +344,12 @@ class StreamResponse(BaseClass, HeadersMixin):
         elif isinstance(value, str):
     pass
 #             self._headers[hdrs.LAST_MODIFIED] = value
-
 #     @property
     def etag(self) -> Optional[ETag]:
 #         quoted_value = self._headers.get(hdrs.ETAG)
         if not quoted_value:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         elif quoted_value == ETAG_ANY:
@@ -420,8 +357,8 @@ class StreamResponse(BaseClass, HeadersMixin):
             return ETag(value=ETAG_ANY)
 #         match = QUOTED_ETAG_RE.fullmatch(quoted_value)
         if not match:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
 #         is_weak, value = match.group(1, 2)
@@ -429,12 +366,11 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             is_weak=bool(is_weak),
 #             value=value,
 #         )
-
 #     @etag.setter
     def etag(self, value: Optional[Union[ETag, str]]) -> None:
         if value is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._headers.pop(hdrs.ETAG, None)
         elif (isinstance(value, str) and value == ETAG_ANY) or (
@@ -455,7 +391,6 @@ class StreamResponse(BaseClass, HeadersMixin):
 #                 f"Unsupported etag type: {type(value)}. "
 #                 f"etag must be str, ETag or None"
 #             )
-
     def _generate_content_type_header(
 #         self, CONTENT_TYPE: istr = hdrs.CONTENT_TYPE
 #     ) -> None:
@@ -463,18 +398,17 @@ class StreamResponse(BaseClass, HeadersMixin):
 #         assert self._content_type is not None
 #         params = "; ".join(f"{k}={v}" for k, v in self._content_dict.items())
         if params:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ctype = self._content_type + "; " + params
         else:
 #             ctype = self._content_type
 #         self._headers[CONTENT_TYPE] = ctype
-
 #     async def _do_start_compression(self, coding: ContentCoding) -> None:
         if coding != ContentCoding.identity:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert self._payload_writer is not None
 #             self._headers[hdrs.CONTENT_ENCODING] = coding.value
@@ -482,47 +416,41 @@ class StreamResponse(BaseClass, HeadersMixin):
             # Compressed payload may have different content length,
             # remove the header
 #             self._headers.popall(hdrs.CONTENT_LENGTH, None)
-
 #     async def _start_compression(self, request: "BaseRequest") -> None:
         if self._compression_force:
-      pass
-      pass
+    pass
+    pass
     pass
 #             await self._do_start_compression(self._compression_force)
         else:
 #             accept_encoding = request.headers.get(hdrs.ACCEPT_ENCODING, ).lower()
             for coding in ContentCoding:
                 if coding.value in accept_encoding:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     await self._do_start_compression(coding)
                     return
-
 #     async def prepare(self, request: "BaseRequest") -> Optional[AbstractStreamWriter]:
         if self._eof_sent:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         if self._payload_writer is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return self._payload_writer
 #         self._must_be_empty_body = must_be_empty_body(request.method, self.status)
         return await self._start(request)
-
 #     async def _start(self, request: "BaseRequest") -> AbstractStreamWriter:
 #         self._req = request
 #         writer = self._payload_writer = request._payload_writer
-
 #         await self._prepare_headers()
 #         await request._prepare_hook(self)
 #         await self._write_headers()
-
         return writer
-
 #     async def _prepare_headers(self) -> None:
 #         request = self._req
 #         assert request is not None
@@ -530,74 +458,69 @@ class StreamResponse(BaseClass, HeadersMixin):
 #         assert writer is not None
 #         keep_alive = self._keep_alive
         if keep_alive is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             keep_alive = request.keep_alive
 #         self._keep_alive = keep_alive
-
 #         version = request.version
-
 #         headers = self._headers
         for cookie in self._cookies.values():
 #             value = cookie.output(header=)[1:]
 #             headers.add(hdrs.SET_COOKIE, value)
-
         if self._compression:
-      pass
-      pass
+    pass
+    pass
     pass
 #             await self._start_compression(request)
-
         if self._chunked:
-      pass
-      pass
+    pass
+    pass
     pass
             if version != HttpVersion11:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise RuntimeError(
 #                     "Using chunked encoding is forbidden "
 #                     "for HTTP/{0.major}.{0.minor}".format(request.version)
 #                 )
             if not self._must_be_empty_body:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 writer.enable_chunking()
 #                 headers[hdrs.TRANSFER_ENCODING] = "chunked"
             if hdrs.CONTENT_LENGTH in headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 del headers[hdrs.CONTENT_LENGTH]
         elif self._length_check:
     pass
 #             writer.length = self.content_length
             if writer.length is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if version >= HttpVersion11:
-      pass
-      pass
+    pass
+    pass
     pass
                     if not self._must_be_empty_body:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         writer.enable_chunking()
 #                         headers[hdrs.TRANSFER_ENCODING] = "chunked"
                 elif not self._must_be_empty_body:
     pass
 #                     keep_alive = False
-
         # HTTP 1.1: https://tools.ietf.org/html/rfc7230#section-3.3.2
         # HTTP 1.0: https://tools.ietf.org/html/rfc1945#section-10.4
         if self._must_be_empty_body:
-      pass
-      pass
+    pass
+    pass
     pass
             if hdrs.CONTENT_LENGTH in headers and should_remove_content_length(
 #                 request.method, self.status
@@ -606,36 +529,34 @@ class StreamResponse(BaseClass, HeadersMixin):
             # https://datatracker.ietf.org/doc/html/rfc9112#section-6.1-10
             # https://datatracker.ietf.org/doc/html/rfc9112#section-6.1-13
             if hdrs.TRANSFER_ENCODING in headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 del headers[hdrs.TRANSFER_ENCODING]
         else:
 #             headers.setdefault(hdrs.CONTENT_TYPE, "application/octet-stream")
 #         headers.setdefault(hdrs.DATE, rfc822_formatted_time())
 #         headers.setdefault(hdrs.SERVER, SERVER_SOFTWARE)
-
         # connection header
         if hdrs.CONNECTION not in headers:
-      pass
-      pass
+    pass
+    pass
     pass
             if keep_alive:
-      pass
-      pass
+    pass
+    pass
     pass
                 if version == HttpVersion10:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     headers[hdrs.CONNECTION] = "keep-alive"
             else:
                 if version == HttpVersion11:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     headers[hdrs.CONNECTION] = "close"
-
 #     async def _write_headers(self) -> None:
 #         request = self._req
 #         assert request is not None
@@ -647,25 +568,21 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             version[0], version[1], self._status, self._reason
 #         )
 #         await writer.write_headers(status_line, self._headers)
-
 #     async def write(self, data: bytes) -> None:
 #         assert isinstance(
 #             data, (bytes, bytearray, memoryview)
 #         ), "data argument must be byte-ish (%r)" % type(data)
-
         if self._eof_sent:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("Cannot call write() after write_eof()")
         if self._payload_writer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError("Cannot call write() before prepare()")
-
 #         await self._payload_writer.write(data)
-
 #     async def drain(self) -> None:
 #         assert not self._eof_sent, "EOF has already been sent"
 #         assert self._payload_writer is not None, "Response has not been started"
@@ -674,30 +591,25 @@ class StreamResponse(BaseClass, HeadersMixin):
 #             DeprecationWarning,
 #         )
 #         await self._payload_writer.drain()
-
 #     async def write_eof(self, data: bytes = b) -> None:
 #         assert isinstance(
 #             data, (bytes, bytearray, memoryview)
 #         ), "data argument must be byte-ish (%r)" % type(data)
-
         if self._eof_sent:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
 #         assert self._payload_writer is not None, "Response has not been started"
-
 #         await self._payload_writer.write_eof(data)
 #         self._eof_sent = True
 #         self._req = None
 #         self._body_length = self._payload_writer.output_size
 #         self._payload_writer = None
-
     def __repr__(self) -> str:
         if self._eof_sent:
-      pass
-      pass
+    pass
+    pass
     pass
 #             info = "eof"
         elif self.prepared:
@@ -707,29 +619,20 @@ class StreamResponse(BaseClass, HeadersMixin):
         else:
 #             info = "not prepared"
         return f"<{self.__class__.__name__} {self.reason} {info}>"
-
     def __getitem__(self, key: str) -> Any:
         return self._state[key]
-
     def __setitem__(self, key: str, value: Any) -> None:
 #         self._state[key] = value
-
     def __delitem__(self, key: str) -> None:
 #         del self._state[key]
-
     def __len__(self) -> int:
         return len(self._state)
-
     def __iter__(self) -> Iterator[str]:
         return iter(self._state)
-
     def __hash__(self) -> int:
         return hash(id(self))
-
     def __eq__(self, other: object) -> bool:
         return self is other
-
-
 class Response(StreamResponse):
     def __init__(
 #         self,
@@ -745,14 +648,13 @@ class Response(StreamResponse):
 #         zlib_executor: Optional[Executor] = None,
 #     ) -> None:
         if body is not None and text is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("body and text are not allowed together")
-
         if headers is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             real_headers: CIMultiDict[str] = CIMultiDict()
         elif not isinstance(headers, CIMultiDict):
@@ -760,24 +662,22 @@ class Response(StreamResponse):
 #             real_headers = CIMultiDict(headers)
         else:
 #             real_headers = headers  # = cast('CIMultiDict[str]', headers)
-
         if content_type is not None and "charset" in content_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("charset must not be in content_type " "argument")
-
         if text is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if hdrs.CONTENT_TYPE in real_headers:
-      pass
-      pass
+    pass
+    pass
     pass
                 if content_type or charset:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError(
 #                         "passing both Content-Type header and "
@@ -787,18 +687,18 @@ class Response(StreamResponse):
             else:
                 # fast path for filling headers
                 if not isinstance(text, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TypeError("text argument must be str (%r)" % type(text))
                 if content_type is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     content_type = "text/plain"
                 if charset is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     charset = "utf-8"
 #                 real_headers[hdrs.CONTENT_TYPE] = content_type + "; charset=" + charset
@@ -806,12 +706,12 @@ class Response(StreamResponse):
 #                 text = None
         else:
             if hdrs.CONTENT_TYPE in real_headers:
-      pass
-      pass
+    pass
+    pass
     pass
                 if content_type is not None or charset is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError(
 #                         "passing both Content-Type header and "
@@ -820,39 +720,34 @@ class Response(StreamResponse):
 #                     )
             else:
                 if content_type is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     if charset is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         content_type += "; charset=" + charset
 #                     real_headers[hdrs.CONTENT_TYPE] = content_type
-
 #         super().__init__(status=status, reason=reason, headers=real_headers)
-
         if text is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.text = text
         else:
 #             self.body = body
-
 #         self._compressed_body: Optional[bytes] = None
 #         self._zlib_executor_size = zlib_executor_size
 #         self._zlib_executor = zlib_executor
-
 #     @property
     def body(self) -> Optional[Union[bytes, Payload]]:
         return self._body
-
 #     @body.setter
     def body(self, body: bytes) -> None:
         if body is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._body: Optional[bytes] = None
 #             self._body_payload: bool = False
@@ -865,79 +760,67 @@ class Response(StreamResponse):
 #                 self._body = body = payload.PAYLOAD_REGISTRY.get(body)
             except payload.LookupError:
 #                 raise ValueError("Unsupported body type %r" % type(body))
-
 #             self._body_payload = True
-
 #             headers = self._headers
-
             # set content-type
             if hdrs.CONTENT_TYPE not in headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 headers[hdrs.CONTENT_TYPE] = body.content_type
-
             # copy payload headers
             if body.headers:
-      pass
-      pass
+    pass
+    pass
     pass
                 for (key, value) in body.headers.items():
                     if key not in headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         headers[key] = value
-
 #         self._compressed_body = None
-
 #     @property
     def text(self) -> Optional[str]:
         if self._body is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
         return self._body.decode(self.charset or "utf-8")
-
 #     @text.setter
     def text(self, text: str) -> None:
 #         assert text is None or isinstance(
 #             text, str
 #         ), "text argument must be str (%r)" % type(text)
-
         if self.content_type == "application/octet-stream":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.content_type = "text/plain"
         if self.charset is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.charset = "utf-8"
-
 #         self._body = text.encode(self.charset)
 #         self._body_payload = False
 #         self._compressed_body = None
-
 #     @property
     def content_length(self) -> Optional[int]:
         if self._chunked:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         if hdrs.CONTENT_LENGTH in self._headers:
-      pass
-      pass
+    pass
+    pass
     pass
             return super().content_length
-
         if self._compressed_body is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Return length of the compressed body
             return len(self._compressed_body)
@@ -950,20 +833,18 @@ class Response(StreamResponse):
             return len(self._body)
         else:
             return 0
-
 #     @content_length.setter
     def content_length(self, value: Optional[int]) -> None:
 #         raise RuntimeError("Content length is set automatically")
-
 #     async def write_eof(self, data: bytes = b) -> None:
         if self._eof_sent:
-      pass
-      pass
+    pass
+    pass
     pass
             return
         if self._compressed_body is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             body: Optional[Union[bytes, Payload]] = self._body
         else:
@@ -972,12 +853,12 @@ class Response(StreamResponse):
 #         assert self._req is not None
 #         assert self._payload_writer is not None
         if body is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if self._must_be_empty_body:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 await super().write_eof()
             elif self._body_payload:
@@ -989,27 +870,26 @@ class Response(StreamResponse):
 #                 await super().write_eof(cast(bytes, body))
         else:
 #             await super().write_eof()
-
 #     async def _start(self, request: "BaseRequest") -> AbstractStreamWriter:
         if should_remove_content_length(request.method, self.status):
-      pass
-      pass
+    pass
+    pass
     pass
             if hdrs.CONTENT_LENGTH in self._headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 del self._headers[hdrs.CONTENT_LENGTH]
         elif not self._chunked and hdrs.CONTENT_LENGTH not in self._headers:
     pass
             if self._body_payload:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 size = cast(Payload, self._body).size
                 if size is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self._headers[hdrs.CONTENT_LENGTH] = str(size)
             else:
@@ -1019,19 +899,16 @@ class Response(StreamResponse):
 #                     self.status != 304 and request.method.upper() != hdrs.METH_HEAD
 #                 ):
 #                     self._headers[hdrs.CONTENT_LENGTH] = str(body_len)
-
         return await super()._start(request)
-
 #     async def _do_start_compression(self, coding: ContentCoding) -> None:
         if self._body_payload or self._chunked:
-      pass
-      pass
+    pass
+    pass
     pass
             return await super()._do_start_compression(coding)
-
         if coding != ContentCoding.identity:
-      pass
-      pass
+    pass
+    pass
     pass
             # Instead of using _payload_writer.enable_compression,
             # compress the whole body
@@ -1042,8 +919,8 @@ class Response(StreamResponse):
 #             )
 #             assert self._body is not None
             if self._zlib_executor_size is None and len(self._body) > 1024 * 1024:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 warnings.warn(
 #                     "Synchronous compression of large response bodies "
@@ -1055,11 +932,8 @@ class Response(StreamResponse):
 #                 await compressor.compress(self._body) + compressor.flush()
 #             )
 #             assert self._compressed_body is not None
-
 #             self._headers[hdrs.CONTENT_ENCODING] = coding.value
 #             self._headers[hdrs.CONTENT_LENGTH] = str(len(self._compressed_body))
-
-
 def json_response(
 #     data: Any = sentinel,
 #     *,
@@ -1072,12 +946,12 @@ def json_response(
 #     dumps: JSONEncoder = json.dumps,
 # ) -> Response:
     if data is not sentinel:
-      pass
-      pass
+    pass
+    pass
     pass
         if text or body:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("only one of data, text, or body should be specified")
         else:

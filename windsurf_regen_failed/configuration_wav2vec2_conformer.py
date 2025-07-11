@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,35 +18,24 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import functools
 import operator
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # WAV2VEC2_CONFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "facebook/wav2vec2-conformer-rel-pos-large": (
 #         "https://huggingface.co/facebook/wav2vec2-conformer-rel-pos-large/resolve/main/config.json"
 #     ),
 # }
-
-
 class Wav2Vec2ConformerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Wav2Vec2ConformerModel`]. It is used to
 #     instantiate an Wav2Vec2Conformer model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the Wav2Vec2Conformer
 #     [facebook/wav2vec2-conformer-rel-pos-large](https://huggingface.co/facebook/wav2vec2-conformer-rel-pos-large)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*):
 #             Vocabulary size of the Wav2Vec2Conformer model. Defines the number of different tokens that can be
@@ -200,24 +187,17 @@ class Wav2Vec2ConformerConfig(PretrainedConfig):
 #             Kernel size of convolutional depthwise 1D layer in Conformer blocks.
 #         conformer_conv_dropout (`float`, defaults to 0.1):
 #             The dropout probability for all convolutional layers in Conformer blocks.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import Wav2Vec2ConformerConfig, Wav2Vec2ConformerModel
-
 #     >>> # Initializing a Wav2Vec2Conformer facebook/wav2vec2-conformer-rel-pos-large style configuration
 #     >>> configuration = Wav2Vec2ConformerConfig()
-
 #     >>> # Initializing a model (with random weights) from the facebook/wav2vec2-conformer-rel-pos-large style configuration
 #     >>> model = Wav2Vec2ConformerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "wav2vec2-conformer"
-
     def __init__(
 #         self,
 #         vocab_size=None,
@@ -308,7 +288,6 @@ class Wav2Vec2ConformerConfig(PretrainedConfig):
 #         self.max_source_positions = max_source_positions
 #         self.position_embeddings_type = position_embeddings_type
 #         self.rotary_embedding_base = rotary_embedding_base
-
         if (
 #             (len(self.conv_stride) != self.num_feat_extract_layers)
 #             or (len(self.conv_kernel) != self.num_feat_extract_layers)
@@ -320,11 +299,9 @@ class Wav2Vec2ConformerConfig(PretrainedConfig):
 #                 f" {len(self.conv_dim)}`, `len(config.conv_stride) = {len(self.conv_stride)}`,"
 #                 f" `len(config.conv_kernel) = {len(self.conv_kernel)}`."
 #             )
-
         # Conformer-block related
 #         self.conv_depthwise_kernel_size = conv_depthwise_kernel_size
 #         self.conformer_conv_dropout = conformer_conv_dropout
-
         # fine-tuning config parameters for SpecAugment: https://arxiv.org/abs/1904.08779
 #         self.apply_spec_augment = apply_spec_augment
 #         self.mask_time_prob = mask_time_prob
@@ -333,7 +310,6 @@ class Wav2Vec2ConformerConfig(PretrainedConfig):
 #         self.mask_feature_prob = mask_feature_prob
 #         self.mask_feature_length = mask_feature_length
 #         self.mask_feature_min_masks = mask_feature_min_masks
-
         # parameters for pretraining with codevector quantized representations
 #         self.num_codevectors_per_group = num_codevectors_per_group
 #         self.num_codevector_groups = num_codevector_groups
@@ -343,27 +319,22 @@ class Wav2Vec2ConformerConfig(PretrainedConfig):
 #         self.codevector_dim = codevector_dim
 #         self.proj_codevector_dim = proj_codevector_dim
 #         self.diversity_loss_weight = diversity_loss_weight
-
         # ctc loss
 #         self.ctc_loss_reduction = ctc_loss_reduction
 #         self.ctc_zero_infinity = ctc_zero_infinity
-
         # adapter
 #         self.add_adapter = add_adapter
 #         self.adapter_kernel_size = adapter_kernel_size
 #         self.adapter_stride = adapter_stride
 #         self.num_adapter_layers = num_adapter_layers
 #         self.output_hidden_size = output_hidden_size or hidden_size
-
         # SequenceClassification-specific parameter. Feel free to ignore for other classes.
 #         self.classifier_proj_size = classifier_proj_size
-
         # XVector-specific parameters. Feel free to ignore for other classes.
 #         self.tdnn_dim = list(tdnn_dim)
 #         self.tdnn_kernel = list(tdnn_kernel)
 #         self.tdnn_dilation = list(tdnn_dilation)
 #         self.xvector_output_dim = xvector_output_dim
-
 #     @property
     def inputs_to_logits_ratio(self):
         return functools.reduce(operator.mul, self.conv_stride, 1)

@@ -3,15 +3,11 @@ from typing import Optional
 """
 #     pygments.style
 #     ~~~~~~~~~~~~~~
-
 #     Basic style object.
-
 #     :copyright: Copyright 2006-2025 by the Pygments team, see AUTHORS.
 #     :license: BSD, see LICENSE for details.
 """
-
 from pip._vendor.pygments.token import Token, STANDARD_TYPES
-
 # Default mapping of ansixxx to RGB colors.
 # _ansimap = {
     # dark
@@ -55,33 +51,29 @@ from pip._vendor.pygments.token import Token, STANDARD_TYPES
 #     '#ansiwhite': 'ansiwhite',
 # }
 # ansicolors = set(_ansimap)
-
-
 class StyleMeta(type):
-
     def __new__(mcs, name, bases, dct):
 #         obj = type.__new__(mcs, name, bases, dct)
         for token in STANDARD_TYPES:
             if token not in obj.styles:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 obj.styles[token] = ''
-
         def colorformat(text):
             if text in ansicolors:
-      pass
-      pass
+    pass
+    pass
     pass
                 return text
             if text[0:1] == '#':
-      pass
-      pass
+    pass
+    pass
     pass
 #                 col = text[1:]
                 if len(col) == 6:
-      pass
-      pass
+    pass
+    pass
     pass
                     return col
                 elif len(col) == 3:
@@ -94,22 +86,20 @@ class StyleMeta(type):
     pass
                 return text
 #             assert False, f"wrong color format {text!r}"
-
 #         _styles = obj._styles = {}
-
         for ttype in obj.styles:
             for token in ttype.split():
                 if token in _styles:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 ndef = _styles.get(token.parent, None)
         pass
 #                 styledefs = obj.styles.get(token, '').split()
                 if not ndef or token is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     ndef = ['', 0, 0, 0, '', '', 0, 0, 0]
                 elif 'noinherit' in styledefs and token is not Token:
@@ -120,8 +110,8 @@ class StyleMeta(type):
 #                 _styles[token] = ndef
                 for styledef in obj.styles.get(token, '').split():
                     if styledef == 'noinherit':
-      pass
-      pass
+    pass
+    pass
     pass
 #                         pass
                     elif styledef == 'bold':
@@ -159,37 +149,34 @@ class StyleMeta(type):
 #                         ndef[8] = 1
                     else:
 #                         ndef[0] = colorformat(styledef)
-
         return obj
-
     def style_for_token(cls, token):
 #         t = cls._styles[token]
 #         ansicolor = bgansicolor = None
 #         color = t[0]
         if color in _deprecated_ansicolors:
-      pass
-      pass
+    pass
+    pass
     pass
 #             color = _deprecated_ansicolors[color]
         if color in ansicolors:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ansicolor = color
 #             color = _ansimap[color]
 #         bgcolor = t[4]
         if bgcolor in _deprecated_ansicolors:
-      pass
-      pass
+    pass
+    pass
     pass
 #             bgcolor = _deprecated_ansicolors[bgcolor]
         if bgcolor in ansicolors:
-      pass
-      pass
+    pass
+    pass
     pass
 #             bgansicolor = bgcolor
 #             bgcolor = _ansimap[bgcolor]
-
         return {
 #             'color':        color or None,
 #             'bold':         bool(t[1]),
@@ -203,50 +190,34 @@ class StyleMeta(type):
 #             'ansicolor':    ansicolor,
 #             'bgansicolor':  bgansicolor,
 #         }
-
     def list_styles(cls):
         return list(cls)
-
     def styles_token(cls, ttype):
         return ttype in cls._styles
-
     def __iter__(cls):
         for token in cls._styles:
 #             yield token, cls.style_for_token(token)
-
     def __len__(cls):
         return len(cls._styles)
-
-
 class Style(metaclass=StyleMeta):
-
     #: overall background color (``None`` means transparent)
 #     background_color = '#ffffff'
-
     #: highlight background color
 #     highlight_color = '#ffffcc'
-
     #: line number font color
 #     line_number_color = 'inherit'
-
     #: line number background color
 #     line_number_background_color = 'transparent'
-
     #: special line number font color
 #     line_number_special_color = '#000000'
-
     #: special line number background color
 #     line_number_special_background_color = '#ffffc0'
-
     #: Style definitions for individual token types.
 #     styles = {}
-
     #: user-friendly style name (used when selecting the style, so this
     # should be all-lowercase, no spaces, hyphens)
 #     name = 'unnamed'
-
 #     aliases = []
-
     # Attribute for lexers defined within Pygments. If set
     # to True, the style is not shown in the style gallery
     # on the website. This is intended for language-specific

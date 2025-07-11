@@ -3,15 +3,11 @@ from typing import Optional
 """
 # Backward compatibility for homebrew builds on macOS.
 """
-
-
 import sys
 import os
 import functools
 import subprocess
 import sysconfig
-
-
 # @functools.lru_cache()
 def enabled():
     """
@@ -24,8 +20,6 @@ def enabled():
 #     venv = sys.prefix != sys.base_prefix
 #     ensurepip = os.environ.get("ENSUREPIP_OPTIONS")
     return PY39 and framework and homebrew and not venv and not ensurepip
-
-
 # schemes = dict(
 #     osx_framework_library=dict(
 #         stdlib='{installed_base}/{platlibdir}/python{py_version_short}',
@@ -38,26 +32,22 @@ def enabled():
 #         data='{homebrew_prefix}',
 #     )
 # )
-
-
 # @functools.lru_cache()
 def vars():
     if not enabled():
-      pass
-      pass
+    pass
+    pass
     pass
         return {}
 #     homebrew_prefix = subprocess.check_output(['brew', '--prefix'], text=True).strip()
     return locals()
-
-
 def scheme(name):
     """
 #     Override the selected scheme for posix_prefix.
     """
     if not enabled() or not name.endswith('_prefix'):
-      pass
-      pass
+    pass
+    pass
     pass
         return name
     return 'osx_framework_library'

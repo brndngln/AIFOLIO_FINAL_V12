@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #!/bin/env python
@@ -12,17 +10,13 @@ from typing import Optional
 #history https://hg.reportlab.com/hg-public/reportlab/log/tip/src/reportlab/lib/units.py
 # __version__='3.3.0'
 # __doc__=Defines inch, cm, mm etc as multiples of a point
-
 # You can now in user-friendly units by doing::
-
     from reportlab.lib.units import inch
 #     r = Rect(0, 0, 3 * inch, 6 * inch)
-
 # inch = 72.0
 # cm = inch / 2.54
 # mm = cm * 0.1
 # pica = 12.0
-
 def toLength(s):
     """convert a string to  a length"""
     try:

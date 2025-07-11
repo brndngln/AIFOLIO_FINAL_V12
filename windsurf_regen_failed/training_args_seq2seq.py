@@ -1,10 +1,7 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2020 The HuggingFace Team. All rights reserved.
@@ -20,29 +17,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, Union
-
 from .generation.configuration_utils import GenerationConfig
 from .training_args import TrainingArguments
 from .utils import add_start_docstrings
-
-
 # logger = logging.getLogger(__name__)
-
-
 # @dataclass
 # @add_start_docstrings(TrainingArguments.__doc__)
 class Seq2SeqTrainingArguments(TrainingArguments):
-
 #     Args:
 #         sortish_sampler (`bool`, *optional*, defaults to `False`):
 #             Whether to use a *sortish sampler* or not. Only possible if the underlying datasets are *Seq2SeqDataset*
             for now but will become generally available in the near future.
-
 #             It sorts the inputs according to lengths in order to minimize the padding size, with a bit of randomness
             for the training set.
 #         predict_with_generate (`bool`, *optional*, defaults to `False`):
@@ -55,14 +44,12 @@ class Seq2SeqTrainingArguments(TrainingArguments):
 #             `num_beams` value of the model configuration.
 #         generation_config (`str` or `Path` or [`~generation.GenerationConfig`], *optional*):
 #             Allows to load a [`~generation.GenerationConfig`] from the `from_pretrained` method. This can be either:
-
 #             - a string, the *model id* of a pretrained model configuration hosted inside a model repo on
 #               huggingface.co. Valid model ids can be located at the root-level, like `bert-base-uncased`, or namespaced
 #               under a user or organization name, like `dbmdz/bert-base-german-cased`.
 #             - a path to a *directory* containing a configuration file saved using the
 #               [`~GenerationConfig.save_pretrained`] method, e.g., `./my_model_directory/`.
 #             - a [`~generation.GenerationConfig`] object.
-
 #     sortish_sampler: bool = field(default=False, metadata={"help": "Whether to use SortishSampler or not."})
 #     predict_with_generate: bool = field(
         default=False, metadata={"help": "Whether to use generate to calculate generative metrics (ROUGE, BLEU)."}
@@ -91,18 +78,15 @@ class Seq2SeqTrainingArguments(TrainingArguments):
 #             "help": "Model id, file path or url pointing to a GenerationConfig json file, to use during prediction."
 #         },
 #     )
-
     def to_dict(self):
-
 #         Serializes this instance while replace `Enum` by their values and `GenerationConfig` by dictionaries (for JSON
 #         serialization support). It obfuscates the token values by removing their value.
-
         # filter out fields that are defined as field(init=False)
 #         d = super().to_dict()
         for k, v in d.items():
             if isinstance(v, GenerationConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 d[k] = v.to_dict()
         return d

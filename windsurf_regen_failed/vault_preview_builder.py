@@ -1,19 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # - Auto-compiles deterministic preview JSON for each vault
 # - Audit-logs all preview build events
 # - GDPR/CCPA compliant, owner controlled
-
 import os
 import json
 from datetime import datetime
@@ -23,11 +18,8 @@ from .testimonial_engine import generate_testimonials, save_testimonials
 from .review_engine import generate_review_stats, save_review_stats
 from .benefit_engine import generate_benefits, generate_benefit_summary, save_benefits
 from .value_score_engine import compute_value_score, save_value_score
-
 #     os.path.dirname(__file__), "preview_builder_audit_log.json"
 # )
-
-
 def audit_log(event, details=None):
 #     log_entry = {
 #         "timestamp": datetime.now().isoformat(),
@@ -35,8 +27,8 @@ def audit_log(event, details=None):
 #         "details": details or {},
 #     }
     if os.path.exists(AUDIT_LOG_PATH):
-      pass
-      pass
+    pass
+    pass
     pass
         with open(AUDIT_LOG_PATH, "r") as f:
 #             logs = json.load(f)
@@ -45,13 +37,9 @@ def audit_log(event, details=None):
 #     logs.append(log_entry)
     with open(AUDIT_LOG_PATH, "w") as f:
 #         json.dump(logs, f, indent=2)
-
-
 def build_vault_preview(vault_path: str, metadata: dict, owner_overrides: dict = None):
-
 #     Auto-compiles deterministic preview JSON for each vault.
 #     Passes owner overrides to all engines. Audit-logs all actions. GDPR/CCPA compliant.
-
 #     owner_overrides = owner_overrides or {}
     # 1. Outline
 #     outline = extract_outline_from_pdf_or_md(
@@ -129,8 +117,8 @@ def build_vault_preview(vault_path: str, metadata: dict, owner_overrides: dict =
 #     ]
 #     missing = [f for f in required_fields if not preview.get(f)]
     if missing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         audit_log("BLOCK_PREVIEW_MISSING_FIELDS", {"missing": missing})
 #         raise ValueError(f"Missing critical preview fields: {', '.join(missing)}")

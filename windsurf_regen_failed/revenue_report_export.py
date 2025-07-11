@@ -1,29 +1,21 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # - Exports PDF revenue reports with static templates
 # - No AI rewriting, no static logic
 # - All exports logged to analytics_log.json
-
 import os
 import json
 from fpdf import FPDF
 from datetime import datetime
-
 # LOG_PATH = os.path.abspath(
 #     os.path.join(os.path.dirname(__file__), "analytics_log.json")
 # )
-
-
 def generate_revenue_report_pdf(date_range, output_path, stats):
 #     pdf = FPDF()
 #     pdf.add_page()

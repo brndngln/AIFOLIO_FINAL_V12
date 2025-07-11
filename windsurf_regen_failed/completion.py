@@ -4,15 +4,12 @@ import sys
 import textwrap
 from optparse import Values
 from typing import List
-
 from pip._internal.cli.base_command import Command
 from pip._internal.cli.status_codes import SUCCESS
 from pip._internal.utils.misc import get_prog
-
 # BASE_COMPLETION = """
 # pip {shell} completion start{script}# pip {shell} completion end
 """
-
 # COMPLETION_SCRIPTS = {
 #     "bash": """
 #         _pip_completion()
@@ -31,10 +28,10 @@ from pip._internal.utils.misc import get_prog
 #                      PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null )
 #         }}
         if [[ $zsh_eval_context[-1] == loadautofunc ]]; then
-          # autoload from fpath, call function directly
+        # autoload from fpath, call function directly
 #           __pip "$@"
         else
-          # eval/source/. command, register function for later
+        # eval/source/. command, register function for later
 #           compdef __pip -P 'pip[0-9.]#'
 #         fi
     """,
@@ -78,13 +75,9 @@ from pip._internal.utils.misc import get_prog
 #         }}
     """,
 # }
-
-
 class CompletionCommand(Command):
     """A helper command to be used for command completion."""
-
 #     ignore_require_venv = True
-
     def add_options(self) -> None:
 #         self.cmd_opts.add_option(
 #             "--bash",
@@ -118,16 +111,14 @@ class CompletionCommand(Command):
 #             dest="shell",
 #             help="Emit completion code for powershell",
 #         )
-
 #         self.parser.insert_option_group(0, self.cmd_opts)
-
     def run(self, options: Values, args: List[str]) -> int:
         """Prints the completion code of the given shell"""
 #         shells = COMPLETION_SCRIPTS.keys()
 #         shell_options = ["--" + shell for shell in sorted(shells)]
         if options.shell in shells:
-      pass
-      pass
+    pass
+    pass
     pass
 #             script = textwrap.dedent(
 #                 COMPLETION_SCRIPTS.get(options.shell, "").format(prog=get_prog())

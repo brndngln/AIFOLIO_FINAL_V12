@@ -1,20 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import re
 import sys
 from typing import List, Optional, Union
-
 # __all__ = ["ReceiveBuffer"]
-
-
 # Operations we want to support:
 # - find next \r\n or \r\n\r\n (\n or \n\n are also acceptable),
 #   or wait until there is one
@@ -52,117 +46,87 @@ from typing import List, Optional, Union
 # processed a whole event, which could in theory be slightly more efficient
 # than the internal bytearray support.)
 # blank_line_regex = re.compile(b"\n\r?\n", re.MULTILINE)
-
-
 class ReceiveBuffer:
     def __init__(self) -> None:
 #         self._data = bytearray()
 #         self._next_line_search = 0
 #         self._multiple_lines_search = 0
-
     def __iadd__(self, byteslike: Union[bytes, bytearray]) -> "ReceiveBuffer":
 #         self._data += byteslike
         return self
-
     def __bool__(self) -> bool:
         return bool(len(self))
-
     def __len__(self) -> int:
         return len(self._data)
-
     # for @property unprocessed_data
     def __bytes__(self) -> bytes:
         return bytes(self._data)
-
     def _extract(self, count: int) -> bytearray:
         # extracting an initial slice of the data buffer and return it
 #         out = self._data[:count]
 #         del self._data[:count]
-
 #         self._next_line_search = 0
 #         self._multiple_lines_search = 0
-
         return out
-
     def maybe_extract_at_most(self, count: int) -> Optional[bytearray]:
-
 #         Extract a fixed number of bytes from the buffer.
-
 #         out = self._data[:count]
         if not out:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         return self._extract(count)
-
     def maybe_extract_next_line(self) -> Optional[bytearray]:
-
 #         Extract the first line, if it is completed in the buffer.
-
         # Only search in buffer space that weve not already looked at.
 #         search_start_index = max(0, self._next_line_search - 1)
 #         partial_idx = self._data.find(b"\r\n", search_start_index)
-
         if partial_idx == -1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._next_line_search = len(self._data)
             return None
-
         # + 2 is to compensate len(b"\r\n")
 #         idx = partial_idx + 2
-
         return self._extract(idx)
-
     def maybe_extract_lines(self) -> Optional[List[bytearray]]:
-
 #         Extract everything up to the first blank line, and return a list of lines.
-
         # Handle the case where we have an immediate empty line.
         if self._data[:1] == b"\n":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._extract(1)
             return []
-
         if self._data[:2] == b"\r\n":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._extract(2)
             return []
-
         # Only search in buffer space that weve not already looked at.
 #         match = blank_line_regex.search(self._data, self._multiple_lines_search)
         if match is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._multiple_lines_search = max(0, len(self._data) - 2)
             return None
-
         # Truncate the buffer and return it.
 #         idx = match.span(0)[-1]
 #         out = self._extract(idx)
 #         lines = out.split(b"\n")
-
         for line in lines:
             if line.endswith(b"\r"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 del line[-1]
-
 #         assert lines[-2] == lines[-1] == b
-
 #         del lines[-2:]
-
         return lines
-
     # In theory we should wait until `\r\n` before starting to validate
     # incoming data. However its interesting to detect (very) invalid data
     # early given they might not even contain `\r\n` at all (hence only

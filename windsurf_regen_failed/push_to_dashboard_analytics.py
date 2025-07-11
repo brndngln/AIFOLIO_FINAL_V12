@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,8 +10,6 @@ import os
 import logging
 import requests
 import json
-
-
 def push_to_dashboard_analytics(order_id):
 #     api_url = os.environ.get("DASHBOARD_ANALYTICS_URL")
 #     log_path = os.path.abspath(
@@ -23,13 +18,13 @@ def push_to_dashboard_analytics(order_id):
 #     entry = {"order_id": order_id}
     try:
         if api_url:
-      pass
-      pass
+    pass
+    pass
     pass
 #             resp = requests.post(api_url, json=entry, timeout=10)
             if resp.status_code == 200:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logging.info(
 #                     f"[AIFOLIO] Dashboard analytics API success for order {order_id}."
@@ -40,8 +35,8 @@ def push_to_dashboard_analytics(order_id):
 #                 )
         else:
             if os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
                 with open(log_path, "r+") as f:
 #                     logs = json.load(f)

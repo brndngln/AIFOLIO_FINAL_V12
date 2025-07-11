@@ -1,27 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # Tests the 'read_fwf' function in parsers.py. This
 # test suite is independent of the others because the
-
 from datetime import datetime
 from io import (
 #     BytesIO,
 #     StringIO,
 # )
 from pathlib import Path
-
 import numpy as np
 import pytest
-
 from pandas.errors import EmptyDataError
-
 import pandas as pd
 from pandas import (
 #     DataFrame,
@@ -32,14 +25,11 @@ from pandas.core.arrays import (
 #     ArrowStringArray,
 #     StringArray,
 # )
-
 from pandas.io.common import urlopen
 from pandas.io.parsers import (
 #     read_csv,
 #     read_fwf,
 # )
-
-
 def test_basic():
 #     data = \
 # A         B            C            D
@@ -48,7 +38,6 @@ def test_basic():
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
 #     result = read_fwf(StringIO(data))
 #     expected = DataFrame(
 #         [
@@ -61,8 +50,6 @@ def test_basic():
 #         columns=["A", "B", "C", "D"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_colspecs():
 #     data = \
 # 201158    360.242940   149.910199   11950.7
@@ -70,10 +57,8 @@ def test_colspecs():
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
 #     colspecs = [(0, 4), (4, 8), (8, 20), (21, 33), (34, 43)]
 #     result = read_fwf(StringIO(data), colspecs=colspecs)
-
 #     expected = DataFrame(
 #         [
 #             [2011, 58, 360.242940, 149.910199, 11950.7],
@@ -85,8 +70,6 @@ def test_colspecs():
 #         columns=["A", "B", "C", "D", "E"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_widths():
 #     data = \
 # A    B    C            D            E
@@ -95,9 +78,7 @@ def test_widths():
 # 2011 60   364.136849   183.628767   11806.2
 # 2011 61   413.836124   184.375703   11916.8
 # 2011 62   502.953953   173.237159   12468.3
-
 #     result = read_fwf(StringIO(data), widths=[5, 5, 13, 13, 7])
-
 #     expected = DataFrame(
 #         [
 #             [2011, 58, 360.242940, 149.910199, 11950.7],
@@ -109,8 +90,6 @@ def test_widths():
 #         columns=["A", "B", "C", "D", "E"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_non_space_filler():
     # From Thomas Kluyver:
     #
@@ -125,10 +104,8 @@ def test_non_space_filler():
 # 201160~~~~364.136849~~~183.628767~~~11806.2
 # 201161~~~~413.836124~~~184.375703~~~11916.8
 # 201162~~~~502.953953~~~173.237159~~~12468.3
-
 #     colspecs = [(0, 4), (4, 8), (8, 20), (21, 33), (34, 43)]
 #     result = read_fwf(StringIO(data), colspecs=colspecs, delimiter="~")
-
 #     expected = DataFrame(
 #         [
 #             [2011, 58, 360.242940, 149.910199, 11950.7],
@@ -140,8 +117,6 @@ def test_non_space_filler():
 #         columns=["A", "B", "C", "D", "E"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_over_specified():
 #     data = \
 # A   B     C            D            E
@@ -150,13 +125,9 @@ def test_over_specified():
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
 #     colspecs = [(0, 4), (4, 8), (8, 20), (21, 33), (34, 43)]
-
     with pytest.raises(ValueError, match="must specify only one of"):
 #         read_fwf(StringIO(data), colspecs=colspecs, widths=[6, 10, 10, 7])
-
-
 def test_under_specified():
 #     data = \
 # 201158    360.242940   149.910199   11950.7
@@ -164,11 +135,8 @@ def test_under_specified():
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
     with pytest.raises(ValueError, match="Must specify either"):
 #         read_fwf(StringIO(data), colspecs=None, widths=None)
-
-
 def test_read_csv_compat():
 #     csv_data = \
 # A,B,C,D,E
@@ -177,28 +145,21 @@ def test_read_csv_compat():
 # 2011,60,364.136849,183.628767,11806.2
 # 2011,61,413.836124,184.375703,11916.8
 # 2011,62,502.953953,173.237159,12468.3
-
 #     expected = read_csv(StringIO(csv_data), engine="python")
-
 #     fwf_data = \
 # 201158    360.242940   149.910199   11950.7
 # 201159    444.953632   166.985655   11788.4
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
 #     colspecs = [(0, 4), (4, 8), (8, 20), (21, 33), (34, 43)]
 #     result = read_fwf(StringIO(fwf_data), colspecs=colspecs)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_bytes_io_input():
 #     data = BytesIO("שלום\nשלום".encode())  # noqa: RUF001
 #     result = read_fwf(data, widths=[2, 2], encoding="utf8")
 #     expected = DataFrame([["של", "ום"]], columns=["של", "ום"])
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_fwf_colspecs_is_list_or_tuple():
 #     data = index,A,B,C,D
 # foo,2,3,4,5
@@ -207,13 +168,9 @@ def test_fwf_colspecs_is_list_or_tuple():
 # qux,12,13,14,15
 # foo2,12,13,14,15
 # bar2,12,13,14,15
-
 #     msg = "column specifications must be a list or tuple.+"
-
     with pytest.raises(TypeError, match=msg):
 #         read_fwf(StringIO(data), colspecs={"a": 1}, delimiter=",")
-
-
 def test_fwf_colspecs_is_list_or_tuple_of_two_element_tuples():
 #     data = index,A,B,C,D
 # foo,2,3,4,5
@@ -222,13 +179,9 @@ def test_fwf_colspecs_is_list_or_tuple_of_two_element_tuples():
 # qux,12,13,14,15
 # foo2,12,13,14,15
 # bar2,12,13,14,15
-
 #     msg = "Each column specification must be.+"
-
     with pytest.raises(TypeError, match=msg):
 #         read_fwf(StringIO(data), colspecs=[("a", 1)])
-
-
 # @pytest.mark.parametrize(
 #     "colspecs,exp_data",
 #     [
@@ -243,13 +196,9 @@ def test_fwf_colspecs_none(colspecs, exp_data):
 #     data = \
 # 123456
 # 456789
-
 #     expected = DataFrame(exp_data)
-
 #     result = read_fwf(StringIO(data), colspecs=colspecs, header=None)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "infer_nrows,exp_data",
 #     [
@@ -262,13 +211,9 @@ def test_fwf_colspecs_none(colspecs, exp_data):
 def test_fwf_colspecs_infer_nrows(infer_nrows, exp_data):
     # see gh-15138
 #     data = \
-
 #     expected = DataFrame(exp_data)
-
 #     result = read_fwf(StringIO(data), infer_nrows=infer_nrows, header=None)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_fwf_regression():
     # see gh-3594
     #
@@ -276,13 +221,11 @@ def test_fwf_regression():
 #     tz_list = [1, 10, 20, 30, 60, 80, 100]
 #     widths = [16] + [8] * len(tz_list)
 #     names = ["SST"] + [f"T{z:03d}" for z in tz_list[1:]]
-
 #     data =   2009164202000   9.5403  9.4105  8.6571  7.8372  6.0612  5.8843  5.5192
 # 2009164203000   9.5435  9.2010  8.6167  7.8176  6.0804  5.8728  5.4869
 # 2009164204000   9.5873  9.1326  8.4694  7.5889  6.0422  5.8526  5.4657
 # 2009164205000   9.5810  9.0896  8.4009  7.4652  6.0322  5.8189  5.4379
 # 2009164210000   9.6034  9.0897  8.3822  7.4905  6.0908  5.7904  5.4039
-
     with tm.assert_produces_warning(FutureWarning, match="use 'date_format' instead"):
 #         result = read_fwf(
 #             StringIO(data),
@@ -323,8 +266,6 @@ def test_fwf_regression():
 #         date_format="%Y%j%H%M%S",
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_fwf_for_uint8():
 #     data = 1421302965.213420    PRI=3 PGN=0xef00      DST=0x17 SRC=0x28    04 154 00 00 00 00 00 127
 # 1421302964.226776    PRI=6 PGN=0xf002               SRC=0x47    243 00 00 255 247 00 00 7.  # noqa: E501
@@ -339,7 +280,6 @@ def test_fwf_for_uint8():
 #             "data": lambda x: len(x.split(" ")),
 #         },
 #     )
-
 #     expected = DataFrame(
 #         [
 #             [1421302965.213420, 3, 61184, 23, 40, 8],
@@ -349,34 +289,22 @@ def test_fwf_for_uint8():
 #     )
 #     expected["dst"] = expected["dst"].astype(object)
 #     tm.assert_frame_equal(df, expected)
-
-
 # @pytest.mark.parametrize("comment", ["#", "~", "!"])
 def test_fwf_comment(comment):
 #     data = \
 #   1   2.   4  #hello world
 #   5  NaN  10.0
-
 #     data = data.replace("#", comment)
-
 #     colspecs = [(0, 3), (4, 9), (9, 25)]
 #     expected = DataFrame([[1, 2.0, 4], [5, np.nan, 10.0]])
-
 #     result = read_fwf(StringIO(data), colspecs=colspecs, header=None, comment=comment)
 #     tm.assert_almost_equal(result, expected)
-
-
 def test_fwf_skip_blank_lines():
 #     data =
-
 # A         B            C            D
-
 # 201158    360.242940   149.910199   11950.7
 # 201159    444.953632   166.985655   11788.4
-
-
 # 201162    502.953953   173.237159   12468.3
-
 #     result = read_fwf(StringIO(data), skip_blank_lines=True)
 #     expected = DataFrame(
 #         [
@@ -387,14 +315,10 @@ def test_fwf_skip_blank_lines():
 #         columns=["A", "B", "C", "D"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
 #     data = \
 # 201158    360.242940   149.910199   11950.7
 # 201159    444.953632   166.985655   11788.4
-
-
 # 201162    502.953953   173.237159   12468.3
-
 #     result = read_fwf(StringIO(data), skip_blank_lines=False)
 #     expected = DataFrame(
 #         [
@@ -407,25 +331,18 @@ def test_fwf_skip_blank_lines():
 #         columns=["A", "B", "C", "D"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("thousands", [",", "#", "~"])
 def test_fwf_thousands(thousands):
 #     data = \
 #  1 2,334.0    5
 # 10   13     10.
-
 #     data = data.replace(",", thousands)
-
 #     colspecs = [(0, 3), (3, 11), (12, 16)]
 #     expected = DataFrame([[1, 2334.0, 5], [10, 13, 10.0]])
-
 #     result = read_fwf(
 #         StringIO(data), header=None, colspecs=colspecs, thousands=thousands
 #     )
 #     tm.assert_almost_equal(result, expected)
-
-
 # @pytest.mark.parametrize("header", [True, False])
 def test_bool_header_arg(header):
     # see gh-6114
@@ -435,12 +352,9 @@ def test_bool_header_arg(header):
 #    b
 #    a
 #    b
-
 #     msg = "Passing a bool to header is invalid"
     with pytest.raises(TypeError, match=msg):
 #         read_fwf(StringIO(data), header=header)
-
-
 def test_full_file():
     # File with all values.
 #     test = index                             A    B    C
@@ -453,11 +367,8 @@ def test_full_file():
 # 2000-01-11T00:00:00  0.157160753327   34  fo.
 #     colspecs = ((0, 19), (21, 35), (38, 40), (42, 45))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs)
-
 #     result = read_fwf(StringIO(test))
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_full_file_with_missing():
     # File with missing values.
 #     test = index                             A    B    C
@@ -470,11 +381,8 @@ def test_full_file_with_missing():
 #                                       3.
 #     colspecs = ((0, 19), (21, 35), (38, 40), (42, 45))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs)
-
 #     result = read_fwf(StringIO(test))
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_full_file_with_spaces():
     # File with spaces in columns.
 #     test =
@@ -489,11 +397,8 @@ def test_full_file_with_spaces():
 #     )
 #     colspecs = ((0, 7), (8, 28), (30, 38), (42, 53), (56, 70))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs)
-
 #     result = read_fwf(StringIO(test))
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_full_file_with_spaces_and_missing():
     # File with spaces and missing values in columns.
 #     test =
@@ -508,18 +413,14 @@ def test_full_file_with_spaces_and_missing():
 #     )
 #     colspecs = ((0, 7), (8, 28), (30, 38), (42, 53), (56, 70))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs)
-
 #     result = read_fwf(StringIO(test))
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_messed_up_data():
     # Completely messed up file.
 #     test =
 #    Account          Name             Balance     Credit Limit   Account Created
 #        101                           10000.00                       1/17/1998
 #        312     Gerard Butler         90.00       1000.00
-
 #        761     Jada Pinkett-Smith    49654.87    100000.00          12/5/2006
 #   317          Bill Murray           789.65
 # .strip(
@@ -527,11 +428,8 @@ def test_messed_up_data():
 #     )
 #     colspecs = ((2, 10), (15, 33), (37, 45), (49, 61), (64, 79))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs)
-
 #     result = read_fwf(StringIO(test))
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_multiple_delimiters():
 #     test = r
 # col1~~~~~col2  col3++++++++++++++++++col4
@@ -546,11 +444,8 @@ def test_multiple_delimiters():
 #     delimiter = " +~."
 #     colspecs = ((0, 4), (7, 13), (15, 19), (21, 41))
 #     expected = read_fwf(StringIO(test), colspecs=colspecs, delimiter=delimiter)
-
 #     result = read_fwf(StringIO(test), delimiter=delimiter)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_variable_width_unicode():
 #     data =
 # שלום שלום
@@ -561,82 +456,61 @@ def test_variable_width_unicode():
 #     )
 #     encoding = "utf8"
 #     kwargs = {"header": None, "encoding": encoding}
-
 #     expected = read_fwf(
 #         BytesIO(data.encode(encoding)), colspecs=[(0, 4), (5, 9)], **kwargs
 #     )
 #     result = read_fwf(BytesIO(data.encode(encoding)), **kwargs)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("dtype", [{}, {"a": "float64", "b": str, "c": "int32"}])
 def test_dtype(dtype):
 #     data =  a    b    c
 # 1    2    3.2
 # 3    4    5.2
-
 #     colspecs = [(0, 5), (5, 10), (10, None)]
 #     result = read_fwf(StringIO(data), colspecs=colspecs, dtype=dtype)
-
 #     expected = DataFrame(
 #         {"a": [1, 3], "b": [2, 4], "c": [3.2, 5.2]}, columns=["a", "b", "c"]
 #     )
-
     for col, dt in dtype.items():
 #         expected[col] = expected[col].astype(dt)
-
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skiprows_inference():
     # see gh-11256
 #     data =
 # Text contained in the file header
-
 # DataCol1   DataCol2
 #      0.0        1.0
 #    101.6      956.1
 # .strip()
 #     skiprows = 2
 #     expected = read_csv(StringIO(data), skiprows=skiprows, delim_whitespace=True)
-
 #     result = read_fwf(StringIO(data), skiprows=skiprows)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skiprows_by_index_inference():
 #     data =
 # To be skipped
 # Not  To  Be  Skipped
 # Once more to be skipped
-
 # .strip()
 #     skiprows = [0, 2]
 #     expected = read_csv(StringIO(data), skiprows=skiprows, delim_whitespace=True)
-
 #     result = read_fwf(StringIO(data), skiprows=skiprows)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skiprows_inference_empty():
 #     data =
 # AA   BBB  C
 # 12   345  6
 # 78   901  2
 # .strip()
-
 #     msg = "No rows from which to infer column width"
     with pytest.raises(EmptyDataError, match=msg):
 #         read_fwf(StringIO(data), skiprows=3)
-
-
 def test_whitespace_preservation():
     # see gh-16772
 #     header = None
 #     csv_data =
 #  a ,bbb
 #  cc,dd.
-
 #     fwf_data =
 #  a bbb
 #  ccdd.
@@ -645,55 +519,38 @@ def test_whitespace_preservation():
 #     )
 #     expected = read_csv(StringIO(csv_data), header=header)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_default_delimiter():
 #     header = None
 #     csv_data =
 # a,bbb
 # cc,d.
-
 #     fwf_data =
 # a \tbbb
 # cc\tdd.
 #     result = read_fwf(StringIO(fwf_data), widths=[3, 3], header=header, skiprows=[0])
 #     expected = read_csv(StringIO(csv_data), header=header)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize("infer", [True, False])
 def test_fwf_compression(compression_only, infer, compression_to_extension):
 #     data = 1111111111
-
 #     333333333..strip()
-
 #     compression = compression_only
 #     extension = compression_to_extension[compression]
-
 #     kwargs = {"widths": [5, 5], "names": ["one", "two"]}
 #     expected = read_fwf(StringIO(data), **kwargs)
-
 #     data = bytes(data, encoding="utf-8")
-
     with tm.ensure_clean(filename="tmp." + extension) as path:
 #         tm.write_to_compressed(compression, path, data)
-
         if infer is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kwargs["compression"] = "infer" if infer else compression
-
 #         result = read_fwf(path, **kwargs)
 #         tm.assert_frame_equal(result, expected)
-
-
 def test_binary_mode():
-
 #     read_fwf supports opening files in binary mode.
-
 #     GH 18035.
-
 #     data = aaa aaa aaa
 # bba bab b a
 #     df_reference = DataFrame(
@@ -705,15 +562,10 @@ def test_binary_mode():
 #             df = read_fwf(file)
 #             file.seek(0)
 #             tm.assert_frame_equal(df, df_reference)
-
-
 # @pytest.mark.parametrize("memory_map", [True, False])
 def test_encoding_mmap(memory_map):
-
 #     encoding should be working, even when using a memory-mapped file.
-
 #     GH 23254.
-
 #     encoding = "iso8859_1"
     with tm.ensure_clean() as path:
 #         Path(path).write_bytes(" 1 A Ä 2\n".encode(encoding))
@@ -726,8 +578,6 @@ def test_encoding_mmap(memory_map):
 #         )
 #     df_reference = DataFrame([[1, "A", "Ä", 2]])
 #     tm.assert_frame_equal(df, df_reference)
-
-
 # @pytest.mark.parametrize(
 #     "colspecs, names, widths, index_col",
 #     [
@@ -782,8 +632,6 @@ def test_len_colspecs_len_names(colspecs, names, widths, index_col):
 #             widths=widths,
 #             index_col=index_col,
 #         )
-
-
 # @pytest.mark.parametrize(
 #     "colspecs, names, widths, index_col, expected",
 #     [
@@ -869,8 +717,6 @@ def test_len_colspecs_len_names_with_index_col(
 #         index_col=index_col,
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_colspecs_with_comment():
     # GH 14135
 #     result = read_fwf(
@@ -878,8 +724,6 @@ def test_colspecs_with_comment():
 #     )
 #     expected = DataFrame([[1, "K"]], columns=[0, 1])
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skip_rows_and_n_rows():
     # GH#44021
 #     data = a\tb
@@ -889,16 +733,12 @@ def test_skip_rows_and_n_rows():
 # 4\t d
 # 5\t e
 # 6\t f
-
 #     result = read_fwf(StringIO(data), nrows=4, skiprows=[2, 4])
 #     expected = DataFrame({"a": [1, 3, 5, 6], "b": ["a", "c", "e", "f"]})
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skiprows_with_iterator():
     # GH#10261
 #     data = 0
-
 #     df_iter = read_fwf(
 #         StringIO(data),
 #         colspecs=[(0, 2)],
@@ -914,18 +754,13 @@ def test_skiprows_with_iterator():
 #     ]
     for i, result in enumerate(df_iter):
 #         tm.assert_frame_equal(result, expected_frames[i])
-
-
 def test_names_and_infer_colspecs():
     # GH#45337
 #     data = X   Y   Z
 #       959.0    345   22.2
-
 #     result = read_fwf(StringIO(data), skiprows=1, usecols=[0, 2], names=["a", "b"])
 #     expected = DataFrame({"a": [959.0], "b": 22.2})
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_widths_and_usecols():
     # GH#46580
 #     data = 0  1    n -0.4100.1
@@ -947,13 +782,11 @@ def test_widths_and_usecols():
 #         }
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_dtype_backend(string_storage, dtype_backend):
     # GH#50289
     if string_storage == "python":
-      pass
-      pass
+    pass
+    pass
     pass
 #         arr = StringArray(np.array(["a", "b"], dtype=np.object_))
 #         arr_na = StringArray(np.array([pd.NA, "a"], dtype=np.object_))
@@ -961,13 +794,11 @@ def test_dtype_backend(string_storage, dtype_backend):
 #         pa = pytest.importorskip("pyarrow")
 #         arr = ArrowStringArray(pa.array(["a", "b"]))
 #         arr_na = ArrowStringArray(pa.array([None, "a"]))
-
 #     data = a  b    c      d  e     f  g    h  i
 # 1  2.5  True  a
 # 3  4.5  False b  True  6  7.5  a
     with pd.option_context("mode.string_storage", string_storage):
 #         result = read_fwf(StringIO(data), dtype_backend=dtype_backend)
-
 #     expected = DataFrame(
 #         {
 #             "a": pd.Series([1, 3], dtype="Int64"),
@@ -982,12 +813,11 @@ def test_dtype_backend(string_storage, dtype_backend):
 #         }
 #     )
     if dtype_backend == "pyarrow":
-      pass
-      pass
+    pass
+    pass
     pass
 #         pa = pytest.importorskip("pyarrow")
         from pandas.arrays import ArrowExtensionArray
-
 #         expected = DataFrame(
 #             {
 #                 col: ArrowExtensionArray(pa.array(expected[col], from_pandas=True))
@@ -995,10 +825,7 @@ def test_dtype_backend(string_storage, dtype_backend):
 #             }
 #         )
 #         expected["i"] = ArrowExtensionArray(pa.array([None, None]))
-
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_invalid_dtype_backend():
 #     msg = (
 #         "dtype_backend numpy is invalid, only 'numpy_nullable' and "
@@ -1006,8 +833,6 @@ def test_invalid_dtype_backend():
 #     )
     with pytest.raises(ValueError, match=msg):
 #         read_fwf("test", dtype_backend="numpy")
-
-
 # @pytest.mark.network
 # @pytest.mark.single_cpu
 def test_url_urlopen(httpserver):
@@ -1018,10 +843,8 @@ def test_url_urlopen(httpserver):
 # 201160    364.136849   183.628767   11806.2
 # 201161    413.836124   184.375703   11916.8
 # 201162    502.953953   173.237159   12468.3
-
 #     httpserver.serve_content(content=data)
 #     expected = pd.Index(list("ABCD"))
     with urlopen(httpserver.url) as f:
 #         result = read_fwf(f).columns
-
 #     tm.assert_index_equal(result, expected)

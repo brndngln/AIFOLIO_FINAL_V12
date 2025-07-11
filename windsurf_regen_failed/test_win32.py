@@ -1,14 +1,10 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 #=============================================================================
 # imports
 #=============================================================================
@@ -19,20 +15,16 @@ import warnings
 from passlib.tests.utils import TestCase
 # module
 from passlib.utils.compat import u
-
 #=============================================================================
 #
 #=============================================================================
 class UtilTest(TestCase):
-
     ##test hashes from http://msdn.microsoft.com/en-us/library/cc245828(v=prot.10).aspx
     ## among other places
-
     def setUp(self):
 #         super(UtilTest, self).setUp()
 #         warnings.filterwarnings("ignore",
 #                                 "the 'passlib.win32' module is deprecated")
-
     def test_lmhash(self):
         from passlib.win32 import raw_lmhash
         for secret, hash in [
@@ -42,7 +34,6 @@ class UtilTest(TestCase):
 #             ]:
 #             result = raw_lmhash(secret, hex=True)
 #             self.assertEqual(result, hash)
-
     def test_nthash(self):
 #         warnings.filterwarnings("ignore",
 #                                 r"nthash.raw_nthash() is deprecated")
@@ -53,7 +44,6 @@ class UtilTest(TestCase):
 #             ]:
 #             result = raw_nthash(secret, hex=True)
 #             self.assertEqual(result, hash)
-
 #=============================================================================
 # eof
 #=============================================================================

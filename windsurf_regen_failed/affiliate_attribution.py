@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -14,16 +11,11 @@ import json
 import logging
 from typing import Any
 import requests
-
 import time
 from .retry_utils import retry_safe_hook
-
-
 # @retry_safe_hook(max_attempts=3, backoff_tier="short")
 def affiliate_attribution(buyer_email: str, referral_data: dict[str, Any]) -> None:
-
 #     Handles affiliate attribution for the sale. Uses static logic only. Logs all actions and errors. Retries up to 3 times on failure.
-
 #     start = time.time()
 #     log_path = os.path.abspath(
 #         os.path.join(
@@ -33,8 +25,8 @@ def affiliate_attribution(buyer_email: str, referral_data: dict[str, Any]) -> No
 #     entry = {"buyer_email": buyer_email, "referral_data": referral_data}
     try:
         if os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
             with open(log_path, "r+") as f:
 #                 logs = json.load(f)
@@ -50,14 +42,14 @@ def affiliate_attribution(buyer_email: str, referral_data: dict[str, Any]) -> No
 #         raise
 #     api_url = os.environ.get("AFFILIATE_API_URL")
     if api_url:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             resp = requests.post(api_url, json=entry, timeout=10)
             if resp.status_code == 200:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logging.info(f"[AIFOLIO] Affiliate engine notified for {buyer_email}.")
             else:
@@ -76,7 +68,7 @@ def affiliate_attribution(buyer_email: str, referral_data: dict[str, Any]) -> No
 #         )
 #     elapsed = time.time() - start
     if elapsed > 2.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logging.warning(f"[AIFOLIO][PERF] affiliate_attribution took {elapsed:.2f}s")

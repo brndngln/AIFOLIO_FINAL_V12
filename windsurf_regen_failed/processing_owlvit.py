@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,40 +19,31 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Image/Text processor class for OWL-ViT
-
 import warnings
 from typing import List
-
 import numpy as np
-
 from ...processing_utils import ProcessorMixin
 from ...tokenization_utils_base import BatchEncoding
 from ...utils import is_flax_available, is_tf_available, is_torch_available
-
-
 class OwlViTProcessor(ProcessorMixin):
 #     r
 #     Constructs an OWL-ViT processor which wraps [`OwlViTImageProcessor`] and [`CLIPTokenizer`]/[`CLIPTokenizerFast`]
 #     into a single processor that interits both the image processor and tokenizer functionalities. See the
 #     [`~OwlViTProcessor.__call__`] and [`~OwlViTProcessor.decode`] for more information.
-
 #     Args:
 #         image_processor ([`OwlViTImageProcessor`], *optional*):
 #             The image processor is a required input.
 #         tokenizer ([`CLIPTokenizer`, `CLIPTokenizerFast`], *optional*):
 #             The tokenizer is a required input.
-
 #     attributes = ["image_processor", "tokenizer"]
 #     image_processor_class = "OwlViTImageProcessor"
 #     tokenizer_class = ("CLIPTokenizer", "CLIPTokenizerFast")
-
     def __init__(self, image_processor=None, tokenizer=None, **kwargs):
 #         feature_extractor = None
         if "feature_extractor" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `feature_extractor` argument is deprecated and will be removed in v5, use `image_processor`"
@@ -63,29 +51,24 @@ class OwlViTProcessor(ProcessorMixin):
 #                 FutureWarning,
 #             )
 #             feature_extractor = kwargs.pop("feature_extractor")
-
 #         image_processor = image_processor if image_processor is not None else feature_extractor
         if image_processor is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to specify an `image_processor`.")
         if tokenizer is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to specify a `tokenizer`.")
-
 #         super().__init__(image_processor, tokenizer)
-
     def __call__(self, text=None, images=None, query_images=None, padding="max_length", return_tensors="np", **kwargs):
-
 #         Main method to prepare for the model one or several text(s) and image(s). This method forwards the `text` and
 #         `kwargs` arguments to CLIPTokenizerFasts [`~CLIPTokenizerFast.__call__`] if `text` is not `None` to encode:
     pass
 #         the text. To prepare the image(s), this method forwards the `images` and `kwrags` arguments to
 #         of the above two methods for more information.
-
 #         Args:
 #             text (`str`, `List[str]`, `List[List[str]]`):
 #                 The sequence or batch of sequences to be encoded. Each sequence can be a string or a list of strings
@@ -113,99 +96,81 @@ class OwlViTProcessor(ProcessorMixin):
 #               `return_attention_mask=True` or if *"attention_mask"* is in `self.model_input_names` and if `text` is not
 #               `None`).
 #             - **pixel_values** -- Pixel values to be fed to a model. Returned when `images` is not `None`.
-
         if text is None and query_images is None and images is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "You have to specify at least one text or query image or image. All three cannot be none."
 #             )
-
         if text is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(text, str) or (isinstance(text, List) and not isinstance(text[0], List)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 encodings = [self.tokenizer(text, padding=padding, return_tensors=return_tensors, **kwargs)]
-
             elif isinstance(text, List) and isinstance(text[0], List):
     pass
 #                 encodings = []
-
                 # Maximum number of queries across batch
 #                 max_num_queries = max([len(t) for t in text])
-
                 # Pad all batch samples to max number of text queries
                 for t in text:
                     if len(t) != max_num_queries:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         t = t + [" "] * (max_num_queries - len(t))
-
 #                     encoding = self.tokenizer(t, padding=padding, return_tensors=return_tensors, **kwargs)
 #                     encodings.append(encoding)
             else:
 #                 raise TypeError("Input text should be a string, a list of strings or a nested list of strings")
-
             if return_tensors == "np":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 input_ids = np.concatenate([encoding["input_ids"] for encoding in encodings], axis=0)
 #                 attention_mask = np.concatenate([encoding["attention_mask"] for encoding in encodings], axis=0)
-
             elif return_tensors == "jax" and is_flax_available():
     pass
                 import jax.numpy as jnp
-
 #                 input_ids = jnp.concatenate([encoding["input_ids"] for encoding in encodings], axis=0)
 #                 attention_mask = jnp.concatenate([encoding["attention_mask"] for encoding in encodings], axis=0)
-
             elif return_tensors == "pt" and is_torch_available():
     pass
                 import torch
-
 #                 input_ids = torch.cat([encoding["input_ids"] for encoding in encodings], dim=0)
 #                 attention_mask = torch.cat([encoding["attention_mask"] for encoding in encodings], dim=0)
-
             elif return_tensors == "tf" and is_tf_available():
     pass
                 import tensorflow as tf
-
 #                 input_ids = tf.stack([encoding["input_ids"] for encoding in encodings], axis=0)
 #                 attention_mask = tf.stack([encoding["attention_mask"] for encoding in encodings], axis=0)
-
             else:
 #                 raise ValueError("Target return tensor type could not be returned")
-
 #             encoding = BatchEncoding()
 #             encoding["input_ids"] = input_ids
 #             encoding["attention_mask"] = attention_mask
-
         if query_images is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoding = BatchEncoding()
 #             query_pixel_values = self.image_processor(
 #                 query_images, return_tensors=return_tensors, **kwargs
 #             ).pixel_values
 #             encoding["query_pixel_values"] = query_pixel_values
-
         if images is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             image_features = self.image_processor(images, return_tensors=return_tensors, **kwargs)
-
         if text is not None and images is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoding["pixel_values"] = image_features.pixel_values
             return encoding
@@ -218,42 +183,26 @@ class OwlViTProcessor(ProcessorMixin):
             return encoding
         else:
             return BatchEncoding(data=dict(**image_features), tensor_type=return_tensors)
-
     def post_process(self, *args, **kwargs):
-
 #         This method forwards all its arguments to [`OwlViTImageProcessor.post_process`]. Please refer to the docstring
 #         of this method for more information.
-
         return self.image_processor.post_process(*args, **kwargs)
-
     def post_process_object_detection(self, *args, **kwargs):
-
 #         This method forwards all its arguments to [`OwlViTImageProcessor.post_process_object_detection`]. Please refer
 #         to the docstring of this method for more information.
-
         return self.image_processor.post_process_object_detection(*args, **kwargs)
-
     def post_process_image_guided_detection(self, *args, **kwargs):
-
 #         This method forwards all its arguments to [`OwlViTImageProcessor.post_process_one_shot_object_detection`].
 #         Please refer to the docstring of this method for more information.
-
         return self.image_processor.post_process_image_guided_detection(*args, **kwargs)
-
     def batch_decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to CLIPTokenizerFasts [`~PreTrainedTokenizer.batch_decode`]. Please
 #         refer to the docstring of this method for more information.
-
         return self.tokenizer.batch_decode(*args, **kwargs)
-
     def decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to CLIPTokenizerFasts [`~PreTrainedTokenizer.decode`]. Please refer to
 #         the docstring of this method for more information.
-
         return self.tokenizer.decode(*args, **kwargs)
-
 #     @property
     def feature_extractor_class(self):
 #         warnings.warn(
@@ -261,7 +210,6 @@ class OwlViTProcessor(ProcessorMixin):
 #             FutureWarning,
 #         )
         return self.image_processor_class
-
 #     @property
     def feature_extractor(self):
 #         warnings.warn(

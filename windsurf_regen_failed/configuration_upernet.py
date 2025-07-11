@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,25 +19,17 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ..auto.configuration_auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
-
 class UperNetConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of an [`UperNetForSemanticSegmentation`]. It is used to
 #     instantiate an UperNet model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the UperNet
 #     [openmmlab/upernet-convnext-tiny](https://huggingface.co/openmmlab/upernet-convnext-tiny) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         backbone_config (`PretrainedConfig` or `dict`, *optional*, defaults to `ResNetConfig()`):
 #             The configuration of the backbone model.
@@ -62,24 +51,17 @@ class UperNetConfig(PretrainedConfig):
 #             Whether to concatenate the output of the auxiliary head with the input before the classification layer.
 #         loss_ignore_index (`int`, *optional*, defaults to 255):
 #             The index that is ignored by the loss function.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import UperNetConfig, UperNetForSemanticSegmentation
-
 #     >>> # Initializing a configuration
 #     >>> configuration = UperNetConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = UperNetForSemanticSegmentation(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "upernet"
-
     def __init__(
 #         self,
 #         backbone_config=None,
@@ -96,10 +78,9 @@ class UperNetConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
         if backbone_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info("`backbone_config` is `None`. Initializing the config with the default `ResNet` backbone.")
 #             backbone_config = CONFIG_MAPPING["resnet"](out_features=["stage1", "stage2", "stage3", "stage4"])
@@ -108,7 +89,6 @@ class UperNetConfig(PretrainedConfig):
 #             backbone_model_type = backbone_config.get("model_type")
 #             config_class = CONFIG_MAPPING[backbone_model_type]
 #             backbone_config = config_class.from_dict(backbone_config)
-
 #         self.backbone_config = backbone_config
 #         self.hidden_size = hidden_size
 #         self.initializer_range = initializer_range

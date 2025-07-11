@@ -1,16 +1,12 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #!/usr/bin/env python
 # coding=utf-8
-
 # Copyright 2023 The HuggingFace Inc. team. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,35 +27,24 @@ import os
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional, Union
-
 from packaging import version
-
 from ..utils import is_auto_awq_available, is_torch_available, logging
-
-
 if is_torch_available():
-      pass
-      pass
+    pass
+    pass
     pass
     import torch
-
-
 # logger = logging.get_logger(__name__)
-
-
 class QuantizationMethod(str, Enum):
 #     BITS_AND_BYTES = "bitsandbytes"
 #     AWQ = "awq"
-
-
 class AWQLinearVersion(str, Enum):
-
 #     @staticmethod
     def from_str(version: str):
 #         version = version.lower()
         if version == "gemm":
-      pass
-      pass
+    pass
+    pass
     pass
             return AWQLinearVersion.GEMM
         elif version == "gemv":
@@ -67,23 +52,14 @@ class AWQLinearVersion(str, Enum):
             return AWQLinearVersion.GEMV
         else:
 #             raise ValueError(f"Unknown AWQLinearVersion {version}")
-
-
 class AwqBackendPackingMethod(str, Enum):
-
-
 # @dataclass
 class QuantizationConfigMixin:
-
 #     Mixin class for quantization config
-
 #     quant_method: QuantizationMethod
-
 #     @classmethod
     def from_dict(cls, config_dict, return_unused_kwargs=False, **kwargs):
-
 #         Instantiates a [`QuantizationConfigMixin`] from a Python dictionary of parameters.
-
 #         Args:
 #             config_dict (`Dict[str, Any]`):
 #                 Dictionary that will be used to instantiate the configuration object.
@@ -92,91 +68,67 @@ class QuantizationConfigMixin:
 #                 `PreTrainedModel`.
 #             kwargs (`Dict[str, Any]`):
 #                 Additional parameters from which to initialize the configuration object.
-
 #         Returns:
 #             [`QuantizationConfigMixin`]: The configuration object instantiated from those parameters.
-
 #         config = cls(**config_dict)
-
 #         to_remove = []
         for key, value in kwargs.items():
             if hasattr(config, key):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 setattr(config, key, value)
 #                 to_remove.append(key)
         for key in to_remove:
 #             kwargs.pop(key, None)
-
         if return_unused_kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
             return config, kwargs
         else:
             return config
-
     def to_json_file(self, json_file_path: Union[str, os.PathLike]):
-
 #         Save this instance to a JSON file.
-
 #         Args:
 #             json_file_path (`str` or `os.PathLike`):
 #                 Path to the JSON file in which this configuration instances parameters will be saved.
 #             use_diff (`bool`, *optional*, defaults to `True`):
 #                 If set to `True`, only the difference between the config instance and the default
 #                 `QuantizationConfig()` is serialized to JSON file.
-
         with open(json_file_path, "w", encoding="utf-8") as writer:
 #             config_dict = self.to_dict()
 #             json_string = json.dumps(config_dict, indent=2, sort_keys=True) + "\n"
-
 #             writer.write(json_string)
-
     def to_dict(self) -> Dict[str, Any]:
-
 #         Serializes this instance to a Python dictionary. Returns:
 #             `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance.
-
         return copy.deepcopy(self.__dict__)
-
     def __repr__(self):
         return f"{self.__class__.__name__} {self.to_json_string()}"
-
     def to_json_string(self, use_diff: bool = True) -> str:
-
 #         Serializes this instance to a JSON string.
-
 #         Args:
 #             use_diff (`bool`, *optional*, defaults to `True`):
 #                 If set to `True`, only the difference between the config instance and the default `PretrainedConfig()`
 #                 is serialized to JSON string.
-
 #         Returns:
 #             `str`: String containing all the attributes that make up this configuration instance in JSON format.
-
         if use_diff is True:
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = self.to_diff_dict()
         else:
 #             config_dict = self.to_dict()
         return json.dumps(config_dict, indent=2, sort_keys=True) + "\n"
-
-
 # @dataclass
 class BitsAndBytesConfig(QuantizationConfigMixin):
-
 #     This is a wrapper class about all possible attributes and features that you can play with a model that has been
 #     loaded using `bitsandbytes`.
-
 #     This replaces `load_in_8bit` or `load_in_4bit`therefore both options are mutually exclusive.
-
 #     Currently only supports `LLM.int8()`, `FP4`, and `NF4` quantization. If more methods are added to `bitsandbytes`,
 #     then more arguments will be added to this class.
-
 #     Args:
 #         load_in_8bit (`bool`, *optional*, defaults to `False`):
 #             This flag is used to enable 8-bit quantization with LLM.int8().
@@ -215,7 +167,6 @@ class BitsAndBytesConfig(QuantizationConfigMixin):
 #             quantized again.
 #         kwargs (`Dict[str, Any]`, *optional*):
 #             Additional parameters from which to initialize the configuration object.
-
     def __init__(
 #         self,
 #         load_in_8bit=False,
@@ -238,10 +189,9 @@ class BitsAndBytesConfig(QuantizationConfigMixin):
 #         self.llm_int8_has_fp16_weight = llm_int8_has_fp16_weight
 #         self.bnb_4bit_quant_type = bnb_4bit_quant_type
 #         self.bnb_4bit_use_double_quant = bnb_4bit_use_double_quant
-
         if bnb_4bit_compute_dtype is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.bnb_4bit_compute_dtype = torch.float32
         elif isinstance(bnb_4bit_compute_dtype, str):
@@ -252,75 +202,60 @@ class BitsAndBytesConfig(QuantizationConfigMixin):
 #             self.bnb_4bit_compute_dtype = bnb_4bit_compute_dtype
         else:
 #             raise ValueError("bnb_4bit_compute_dtype must be a string or a torch.dtype")
-
 #         self.post_init()
-
     def post_init(self):
-
 #         Safety checker that arguments are correct - also replaces some NoneType arguments with their default values.
-
         if not isinstance(self.llm_int8_threshold, float):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("llm_int8_threshold must be a float")
-
         if self.llm_int8_skip_modules is not None and not isinstance(self.llm_int8_skip_modules, list):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("llm_int8_skip_modules must be a list of strings")
         if not isinstance(self.llm_int8_enable_fp32_cpu_offload, bool):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("llm_int8_enable_fp32_cpu_offload must be a boolean")
-
         if not isinstance(self.llm_int8_has_fp16_weight, bool):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("llm_int8_has_fp16_weight must be a boolean")
-
         if self.bnb_4bit_compute_dtype is not None and not isinstance(self.bnb_4bit_compute_dtype, torch.dtype):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("bnb_4bit_compute_dtype must be torch.dtype")
-
         if not isinstance(self.bnb_4bit_quant_type, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("bnb_4bit_quant_type must be a string")
-
         if not isinstance(self.bnb_4bit_use_double_quant, bool):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("bnb_4bit_use_double_quant must be a boolean")
-
         if self.load_in_4bit and not version.parse(importlib.metadata.version("bitsandbytes")) >= version.parse(
 #             "0.39.0"
 #         ):
 #             raise ValueError(
 #                 "4 bit quantization requires bitsandbytes>=0.39.0 - please upgrade your bitsandbytes version"
 #             )
-
     def is_quantizable(self):
 #         r
 #         Returns `True` if the model is quantizable, `False` otherwise.
-
         return self.load_in_8bit or self.load_in_4bit
-
     def quantization_method(self):
-
 #         This method returns the quantization method used for the model. If the model is not quantizable, it returns
 #         `None`.
-
         if self.load_in_8bit:
-      pass
-      pass
+    pass
+    pass
     pass
             return "llm_int8"
         elif self.load_in_4bit and self.bnb_4bit_quant_type == "fp4":
@@ -331,58 +266,39 @@ class BitsAndBytesConfig(QuantizationConfigMixin):
             return "nf4"
         else:
             return None
-
     def to_dict(self) -> Dict[str, Any]:
-
 #         Serializes this instance to a Python dictionary. Returns:
 #             `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance.
-
 #         output = copy.deepcopy(self.__dict__)
 #         output["bnb_4bit_compute_dtype"] = str(output["bnb_4bit_compute_dtype"]).split(".")[1]
-
         return output
-
     def __repr__(self):
 #         config_dict = self.to_dict()
         return f"{self.__class__.__name__} {json.dumps(config_dict, indent=2, sort_keys=True)}\n"
-
     def to_diff_dict(self) -> Dict[str, Any]:
-
 #         Removes all attributes from config which correspond to the default config attributes for better readability and
 #         serializes to a Python dictionary.
-
 #         Returns:
 #             `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance,
-
 #         config_dict = self.to_dict()
-
         # get the default config dict
         default_config_dict = BitsAndBytesConfig().to_dict()
-
 #         serializable_config_dict = {}
-
         # only serialize values that differ from the default config
         for key, value in config_dict.items():
             if value != default_config_dict[key]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 serializable_config_dict[key] = value
-
         return serializable_config_dict
-
-
 class ExllamaVersion(int, Enum):
 #     ONE = 1
 #     TWO = 2
-
-
 # @dataclass
 class GPTQConfig(QuantizationConfigMixin):
-
 #     This is a wrapper class about all possible attributes and features that you can play with a model that has been
 #     loaded using `optimum` api for gptq quantization relying on auto_gptq backend.
-
 #     Args:
 #         bits (`int`):
 #             The number of bits to quantize to, supported numbers are (2, 3, 4, 8).
@@ -431,7 +347,6 @@ class GPTQConfig(QuantizationConfigMixin):
 #             to `{"version": 1}` if unset.
 #         cache_block_outputs (`bool`, *optional*, defaults to `True`):
 #                 Whether to cache block outputs to reuse as inputs for the succeeding block.
-
     def __init__(
 #         self,
 #         bits: int,
@@ -474,43 +389,40 @@ class GPTQConfig(QuantizationConfigMixin):
 #         self.disable_exllama = kwargs.pop("disable_exllama", None)
 #         self.cache_block_outputs = cache_block_outputs
 #         self.post_init()
-
     def get_loading_attributes(self):
 #         attibutes_dict = copy.deepcopy(self.__dict__)
 #         loading_attibutes = ["disable_exllama", "use_exllama", "exllama_config", "use_cuda_fp16", "max_input_length"]
 #         loading_attibutes_dict = {i: j for i, j in attibutes_dict.items() if i in loading_attibutes}
         return loading_attibutes_dict
-
     def post_init(self):
 #         r
 #         Safety checker that arguments are correct
-
         if self.bits not in [2, 3, 4, 8]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Only support quantization to [2,3,4,8] bits but found {self.bits}")
         if self.group_size != -1 and self.group_size <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("group_size must be greater than 0 or equal to -1")
         if not (0 < self.damp_percent < 1):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("damp_percent must between 0 and 1.")
         if self.dataset is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(self.dataset, str):
-      pass
-      pass
+    pass
+    pass
     pass
                 if self.dataset not in ["wikitext2", "c4", "c4-new", "ptb", "ptb-new"]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError(
 #                         f.You have entered a string value for dataset. You can only choose between
@@ -522,10 +434,9 @@ class GPTQConfig(QuantizationConfigMixin):
 #                     f.dataset needs to be either a list of string or a value in
 #                     ['wikitext2','c4','c4-new','ptb','ptb-new'], but we found {self.dataset.
 #                 )
-
         if self.disable_exllama is None and self.use_exllama is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # New default behaviour
 #             self.use_exllama = True
@@ -542,16 +453,15 @@ class GPTQConfig(QuantizationConfigMixin):
     pass
             # Only happens if user explicitly passes in both arguments
 #             raise ValueError("Cannot specify both `disable_exllama` and `use_exllama`. Please use just `use_exllama`")
-
         if self.exllama_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.exllama_config = {"version": ExllamaVersion.ONE}
         else:
             if "version" not in self.exllama_config:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("`exllama_config` needs to have a `version` key.")
             elif self.exllama_config["version"] not in [ExllamaVersion.ONE, ExllamaVersion.TWO]:
@@ -560,14 +470,13 @@ class GPTQConfig(QuantizationConfigMixin):
 #                 raise ValueError(
 #                     f"Only supported versions are in [ExllamaVersion.ONE, ExllamaVersion.TWO] - not recognized version {exllama_version}"
 #                 )
-
         if self.bits == 4 and self.use_exllama:
-      pass
-      pass
+    pass
+    pass
     pass
             if self.exllama_config["version"] == ExllamaVersion.ONE:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.info(
 #                     "You have activated exllama backend. Note that you can get better inference "
@@ -578,50 +487,38 @@ class GPTQConfig(QuantizationConfigMixin):
 #                 optimum_version = version.parse(importlib.metadata.version("optimum"))
 #                 autogptq_version = version.parse(importlib.metadata.version("auto_gptq"))
                 if optimum_version <= version.parse("1.13.2") or autogptq_version <= version.parse("0.4.2"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError(
 #                         f"You need optimum > 1.13.2 and auto-gptq > 0.4.2 . Make sure to have that version installed - detected version : optimum {optimum_version} and autogptq {autogptq_version}"
 #                     )
-
     def to_dict(self):
 #         config_dict = super().to_dict()
 #         config_dict.pop("disable_exllama", None)
         return config_dict
-
     def to_dict_optimum(self):
-
 #         Get compatible dict for optimum gptq config
-
 #         quant_dict = self.to_dict()
         # make it compatible with optimum config
 #         quant_dict["disable_exllama"] = not self.use_exllama
         return quant_dict
-
 #     @classmethod
     def from_dict_optimum(cls, config_dict):
-
 #         Get compatible class with optimum gptq config dict
-
         if "disable_exllama" in config_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict["use_exllama"] = not config_dict["disable_exllama"]
             # switch to None to not trigger the warning
 #             config_dict["disable_exllama"] = None
-
 #         config = cls(**config_dict)
         return config
-
-
 # @dataclass
 class AwqConfig(QuantizationConfigMixin):
-
 #     This is a wrapper class about all possible attributes and features that you can play with a model that has been
 #     loaded using `auto-awq` library awq quantization relying on auto_awq backend.
-
 #     Args:
 #         bits (`int`, *optional*, defaults to 4):
 #             The number of bits to quantize to.
@@ -639,7 +536,6 @@ class AwqConfig(QuantizationConfigMixin):
 #         fuse_max_seq_len (`int`, *optional*):
 #             The Maximum sequence length to generate when using fusing.
 #             Overwrite the natively supported fusing scheme with the one specified by the users.
-
     def __init__(
 #         self,
 #         bits: int = 4,
@@ -652,97 +548,85 @@ class AwqConfig(QuantizationConfigMixin):
 #         **kwargs,
 #     ):
 #         self.quant_method = QuantizationMethod.AWQ
-
 #         self.bits = bits
 #         self.group_size = group_size
 #         self.zero_point = zero_point
 #         self.version = version
 #         self.backend = backend
 #         self.fuse_max_seq_len = fuse_max_seq_len
-
 #         self.modules_to_fuse = modules_to_fuse
         if do_fuse is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.do_fuse = modules_to_fuse is not None and len(modules_to_fuse) > 0
         else:
 #             self.do_fuse = do_fuse
 #         self.fuse_max_seq_len = fuse_max_seq_len
-
 #         self.post_init()
-
     def post_init(self):
 #         r
 #         Safety checker that arguments are correct
-
         if not torch.cuda.is_available():
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("AWQ is only available on GPU")
-
         if self.backend not in [AwqBackendPackingMethod.AUTOAWQ, AwqBackendPackingMethod.LLMAWQ]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Only supported quantization backends in {AwqBackendPackingMethod.AUTOAWQ} and {AwqBackendPackingMethod.LLMAWQ} - not recognized backend {self.backend}"
 #             )
-
 #         self.version = AWQLinearVersion.from_str(self.version)
         if self.version not in [AWQLinearVersion.GEMM, AWQLinearVersion.GEMV]:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Only supported versions are in [AWQLinearVersion.GEMM, AWQLinearVersion.GEMV] - not recognized version {self.version}"
 #             )
-
         if self.backend == AwqBackendPackingMethod.LLMAWQ:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compute_capability = torch.cuda.get_device_capability()
 #             major, minor = compute_capability
             if major < 8:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("LLM-AWQ backend is only supported on GPUs with compute capability >= 8.0")
-
         if self.do_fuse and self.fuse_max_seq_len is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "You cannot enable fused modules without specifying a `fuse_max_seq_len`, make sure to pass a valid `fuse_max_seq_len` for your usecase"
 #             )
-
         if self.do_fuse:
-      pass
-      pass
+    pass
+    pass
     pass
 #             awq_version_supports_fusing = False
 #             MIN_AWQ_VERSION = "0.1.7"
             if is_auto_awq_available():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 awq_version_supports_fusing = version.parse(importlib.metadata.version("autoawq")) >= version.parse(
 #                 )
-
             if not awq_version_supports_fusing:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"You current version of `autoawq` does not support module fusing, please upgrade `autoawq` package to at least {MIN_AWQ_VERSION}."
 #                 )
-
         if self.do_fuse and self.modules_to_fuse is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             required_keys = [
 #                 "hidden_size",
@@ -754,13 +638,12 @@ class AwqConfig(QuantizationConfigMixin):
 #                 "use_alibi",
 #             ]
             if not all(key in self.modules_to_fuse for key in required_keys):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Required fields are missing in the fusing mapping, required fields are {required_keys}"
 #                 )
-
     def get_loading_attributes(self):
 #         attibutes_dict = copy.deepcopy(self.__dict__)
 #         loading_attibutes = ["do_fuse", "modules_to_fuse", "fuse_max_seq_len"]

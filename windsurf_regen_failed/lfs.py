@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,7 +19,6 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import inspect
 import io
 import re
@@ -33,9 +29,7 @@ from os.path import getsize
 from pathlib import Path
 from typing import TYPE_CHECKING, BinaryIO, Dict, Iterable, List, Optional, Tuple, TypedDict
 from urllib.parse import unquote
-
 from huggingface_hub import constants
-
 from .utils import (
 #     build_hf_headers,
 #     fix_hf_endpoint_in_url,
@@ -49,32 +43,22 @@ from .utils import (
 from .utils._lfs import SliceFileObj
 from .utils.sha import sha256, sha_fileobj
 from .utils.tqdm import is_tqdm_disabled
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ._commit_api import CommitOperationAdd
-
 # logger = logging.get_logger(__name__)
-
 # OID_REGEX = re.compile(r"^[0-9a-f]{40}$")
-
 # LFS_MULTIPART_UPLOAD_COMMAND = "lfs-multipart-upload"
-
 # LFS_HEADERS = {
 #     "Accept": "application/vnd.git-lfs+json",
 #     "Content-Type": "application/vnd.git-lfs+json",
 # }
-
-
 # @dataclass
 class UploadInfo:
-
 #     Dataclass holding required information to determine whether a blob
 #     should be uploaded to the hub using the LFS protocol or the regular protocol
-
 #     Args:
 #         sha256 (`bytes`):
 #             SHA256 hash of the blob
@@ -82,11 +66,9 @@ class UploadInfo:
 #             Size in bytes of the blob
 #         sample (`bytes`):
 #             First 512 bytes of the blob
-
 #     sha256: bytes
 #     size: int
 #     sample: bytes
-
 #     @classmethod
     def from_path(cls, path: str):
 #         size = getsize(path)
@@ -94,12 +76,10 @@ class UploadInfo:
 #             sample = file.peek(512)[:512]
 #             sha = sha_fileobj(file)
         return cls(size=size, sha256=sha, sample=sample)
-
 #     @classmethod
     def from_bytes(cls, data: bytes):
 #         sha = sha256(data).digest()
         return cls(size=len(data), sample=data[:512], sha256=sha)
-
 #     @classmethod
     def from_fileobj(cls, fileobj: BinaryIO):
 #         sample = fileobj.read(512)
@@ -108,8 +88,6 @@ class UploadInfo:
 #         size = fileobj.tell()
 #         fileobj.seek(0, io.SEEK_SET)
         return cls(size=size, sha256=sha, sample=sample)
-
-
 # @validate_hf_hub_args
 def post_lfs_batch_info(
 #     upload_infos: Iterable[UploadInfo],
@@ -120,11 +98,8 @@ def post_lfs_batch_info(
 #     endpoint: Optional[str] = None,
 #     headers: Optional[Dict[str, str]] = None,
 # ) -> Tuple[List[dict], List[dict]]:
-
 #     Requests the LFS batch endpoint to retrieve upload instructions
-
 #     Learn more: https://github.com/git-lfs/git-lfs/blob/main/docs/api/batch.md
-
 #     Args:
 #         upload_infos (`Iterable` of `UploadInfo`):
 #             `UploadInfo` for the files that are being uploaded, typically obtained
@@ -138,23 +113,20 @@ def post_lfs_batch_info(
 #             The git revision to upload to.
 #         headers (`dict`, *optional*):
 #             Additional headers to include in the request
-
 #     Returns:
 #         `LfsBatchInfo`: 2-tuple:
 #             - First element is the list of upload instructions from the server
 #             - Second element is an list of errors, if any
-
 #     Raises:
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If an argument is invalid or the server response is malformed.
 #         [`HTTPError`](https://requests.readthedocs.io/en/latest/api/#requests.HTTPError)
 #             If the server returned an error.
-
 #     endpoint = endpoint if endpoint is not None else constants.ENDPOINT
 #     url_prefix =
     if repo_type in constants.REPO_TYPES_URL_PREFIXES:
-      pass
-      pass
+    pass
+    pass
     pass
 #         url_prefix = constants.REPO_TYPES_URL_PREFIXES[repo_type]
 #     batch_url = f"{endpoint}/{url_prefix}{repo_id}.git/info/lfs/objects/batch"
@@ -171,11 +143,10 @@ def post_lfs_batch_info(
 #         "hash_algo": "sha256",
 #     }
     if revision is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         payload["ref"] = {"name": unquote(revision)}  # revision has been previously 'quoted'
-
 #     headers = {
 #         **LFS_HEADERS,
 #         **build_hf_headers(token=token),
@@ -184,31 +155,22 @@ def post_lfs_batch_info(
 #     resp = get_session().post(batch_url, headers=headers, json=payload)
 #     hf_raise_for_status(resp)
 #     batch_info = resp.json()
-
 #     objects = batch_info.get("objects", None)
     if not isinstance(objects, list):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("Malformed response from server")
-
     return (
 #         [_validate_batch_actions(obj) for obj in objects if "error" not in obj],
 #         [_validate_batch_error(obj) for obj in objects if "error" in obj],
 #     )
-
-
 class PayloadPartT(TypedDict):
 #     partNumber: int
 #     etag: str
-
-
 class CompletionPayloadT(TypedDict):
-
 #     oid: str
 #     parts: List[PayloadPartT]
-
-
 def lfs_upload(
 #     operation: "CommitOperationAdd",
 #     lfs_batch_action: Dict,
@@ -216,11 +178,8 @@ def lfs_upload(
 #     headers: Optional[Dict[str, str]] = None,
 #     endpoint: Optional[str] = None,
 # ) -> None:
-
 #     Handles uploading a given object to the Hub with the LFS protocol.
-
 #     Can be a No-op if the content of the file is already present on the hub large file storage.
-
 #     Args:
 #         operation (`CommitOperationAdd`):
 #             The add operation triggering this upload.
@@ -229,41 +188,37 @@ def lfs_upload(
 #             more details.
 #         headers (`dict`, *optional*):
 #             Headers to include in the request, including authentication and user agent headers.
-
 #     Raises:
 #         [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError)
 #             If `lfs_batch_action` is improperly formatted
 #         [`HTTPError`](https://requests.readthedocs.io/en/latest/api/#requests.HTTPError)
 #             If the upload resulted in an error
-
     # 0. If LFS file is already present, skip upload
 #     _validate_batch_actions(lfs_batch_action)
 #     actions = lfs_batch_action.get("actions")
     if actions is None:
-      pass
-      pass
+    pass
+    pass
     pass
         # The file was already uploaded
 #         logger.debug(f"Content of file {operation.path_in_repo} is already present upstream - skipping upload")
         return
-
     # 1. Validate server response (check required keys in dict)
 #     upload_action = lfs_batch_action["actions"]["upload"]
 #     _validate_lfs_action(upload_action)
 #     verify_action = lfs_batch_action["actions"].get("verify")
     if verify_action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _validate_lfs_action(verify_action)
-
     # 2. Upload file (either single part or multi-part)
 #     header = upload_action.get("header", {})
 #     chunk_size = header.get("chunk_size")
 #     upload_url = fix_hf_endpoint_in_url(upload_action["href"], endpoint=endpoint)
     if chunk_size is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             chunk_size = int(chunk_size)
@@ -274,11 +229,10 @@ def lfs_upload(
 #         _upload_multi_part(operation=operation, header=header, chunk_size=chunk_size, upload_url=upload_url)
     else:
 #         _upload_single_part(operation=operation, upload_url=upload_url)
-
     # 3. Verify upload went well
     if verify_action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _validate_lfs_action(verify_action)
 #         verify_url = fix_hf_endpoint_in_url(verify_action["href"], endpoint)
@@ -289,46 +243,36 @@ def lfs_upload(
 #         )
 #         hf_raise_for_status(verify_resp)
 #     logger.debug(f"{operation.path_in_repo}: Upload successful")
-
-
 def _validate_lfs_action(lfs_action: dict):
-
     if not (
 #         isinstance(lfs_action.get("href"), str)
 #         and (lfs_action.get("header") is None or isinstance(lfs_action.get("header"), dict))
 #     ):
 #         raise ValueError("lfs_action is improperly formatted")
     return lfs_action
-
-
 def _validate_batch_actions(lfs_batch_actions: dict):
-
     if not (isinstance(lfs_batch_actions.get("oid"), str) and isinstance(lfs_batch_actions.get("size"), int)):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("lfs_batch_actions is improperly formatted")
-
 #     upload_action = lfs_batch_actions.get("actions", {}).get("upload")
 #     verify_action = lfs_batch_actions.get("actions", {}).get("verify")
     if upload_action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _validate_lfs_action(upload_action)
     if verify_action is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _validate_lfs_action(verify_action)
     return lfs_batch_actions
-
-
 def _validate_batch_error(lfs_batch_error: dict):
-
     if not (isinstance(lfs_batch_error.get("oid"), str) and isinstance(lfs_batch_error.get("size"), int)):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("lfs_batch_error is improperly formatted")
 #     error_info = lfs_batch_error.get("error")
@@ -339,37 +283,25 @@ def _validate_batch_error(lfs_batch_error: dict):
 #     ):
 #         raise ValueError("lfs_batch_error is improperly formatted")
     return lfs_batch_error
-
-
 def _upload_single_part(operation: "CommitOperationAdd", upload_url: str) -> None:
-
 #     Uploads `fileobj` as a single PUT HTTP request (basic LFS transfer protocol)
-
 #     Args:
 #         upload_url (`str`):
 #             The URL to PUT the file to.
 #         fileobj:
 #             The file-like object holding the data to upload.
-
 #     Returns: `requests.Response`
-
 #     Raises:
 #      [`HTTPError`](https://requests.readthedocs.io/en/latest/api/#requests.HTTPError)
 #         If the upload resulted in an error.
-
     with operation.as_file(with_tqdm=True) as fileobj:
         # S3 might raise a transient 500 error -> lets retry if that happens
 #         response = http_backoff("PUT", upload_url, data=fileobj, retry_on_status_codes=(500, 502, 503, 504))
 #         hf_raise_for_status(response)
-
-
 def _upload_multi_part(operation: "CommitOperationAdd", header: Dict, chunk_size: int, upload_url: str) -> None:
-
 #     Uploads file using HF multipart LFS transfer protocol.
-
     # 1. Get upload URLs for each part
 #     sorted_parts_urls = _get_sorted_parts_urls(header=header, upload_info=operation.upload_info, chunk_size=chunk_size)
-
     # 2. Upload parts (either with hf_transfer or in pure Python)
 #     use_hf_transfer = constants.HF_HUB_ENABLE_HF_TRANSFER
     if (
@@ -382,13 +314,11 @@ def _upload_multi_part(operation: "CommitOperationAdd", header: Dict, chunk_size
 #             " upload"
 #         )
 #         use_hf_transfer = False
-
 #     response_headers = (
 #         _upload_parts_hf_transfer(operation=operation, sorted_parts_urls=sorted_parts_urls, chunk_size=chunk_size)
         if use_hf_transfer
         else _upload_parts_iteratively(operation=operation, sorted_parts_urls=sorted_parts_urls, chunk_size=chunk_size)
 #     )
-
     # 3. Send completion request
 #     completion_res = get_session().post(
 #         upload_url,
@@ -396,8 +326,6 @@ def _upload_multi_part(operation: "CommitOperationAdd", header: Dict, chunk_size
 #         headers=LFS_HEADERS,
 #     )
 #     hf_raise_for_status(completion_res)
-
-
 def _get_sorted_parts_urls(header: Dict, upload_info: UploadInfo, chunk_size: int) -> List[str]:
 #     sorted_part_upload_urls = [
 #         upload_url
@@ -412,20 +340,18 @@ def _get_sorted_parts_urls(header: Dict, upload_info: UploadInfo, chunk_size: in
 #     ]
 #     num_parts = len(sorted_part_upload_urls)
     if num_parts != ceil(upload_info.size / chunk_size):
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("Invalid server response to upload large LFS file")
     return sorted_part_upload_urls
-
-
 def _get_completion_payload(response_headers: List[Dict], oid: str) -> CompletionPayloadT:
 #     parts: List[PayloadPartT] = []
     for part_number, header in enumerate(response_headers):
 #         etag = header.get("etag")
         if etag is None or etag == :
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Invalid etag (`{etag}`) returned for part {part_number + 1}")
 #         parts.append(
@@ -435,8 +361,6 @@ def _get_completion_payload(response_headers: List[Dict], oid: str) -> Completio
 #             }
 #         )
     return {"oid": oid, "parts": parts}
-
-
 def _upload_parts_iteratively(
 #     operation: "CommitOperationAdd", sorted_parts_urls: List[str], chunk_size: int
 # ) -> List[Dict]:
@@ -455,8 +379,6 @@ def _upload_parts_iteratively(
 #                 hf_raise_for_status(part_upload_res)
 #                 headers.append(part_upload_res.headers)
     return headers  # type: ignore
-
-
 def _upload_parts_hf_transfer(
 #     operation: "CommitOperationAdd", sorted_parts_urls: List[str], chunk_size: int
 # ) -> List[Dict]:
@@ -468,24 +390,21 @@ def _upload_parts_hf_transfer(
 #             "Fast uploading using 'hf_transfer' is enabled (HF_HUB_ENABLE_HF_TRANSFER=1) but 'hf_transfer' package is"
 #             " not available in your environment. Try `pip install hf_transfer`."
 #         )
-
 #     supports_callback = "callback" in inspect.signature(multipart_upload).parameters
     if not supports_callback:
-      pass
-      pass
+    pass
+    pass
     pass
 #         warnings.warn(
 #             "You are using an outdated version of `hf_transfer`. Consider upgrading to latest version to enable progress bars using `pip install -U hf_transfer`."
 #         )
-
 #     total = operation.upload_info.size
 #     desc = operation.path_in_repo
     if len(desc) > 40:
-      pass
-      pass
+    pass
+    pass
     pass
 #         desc = f"(...){desc[-40:]}"
-
     with tqdm(
 #         unit="B",
 #         unit_scale=True,
@@ -511,8 +430,8 @@ def _upload_parts_hf_transfer(
 #                 " better error handling."
 #             ) from e
         if not supports_callback:
-      pass
-      pass
+    pass
+    pass
     pass
 #             progress.update(total)
         return output

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,20 +19,15 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import gc
 import json
 import os
 import re
-
 import torch
 from huggingface_hub import hf_hub_download
-
 from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedTokenizerFast, RwkvConfig
 from transformers.modeling_utils import WEIGHTS_INDEX_NAME, shard_checkpoint
-
-
 # NUM_HIDDEN_LAYERS_MAPPING = {
 #     "169M": 12,
 #     "430M": 24,
@@ -44,7 +36,6 @@ from transformers.modeling_utils import WEIGHTS_INDEX_NAME, shard_checkpoint
 #     "7B": 32,
 #     "14B": 40,
 # }
-
 #     "169M": 768,
 #     "430M": 1024,
 #     "1B5": 2048,
@@ -52,22 +43,20 @@ from transformers.modeling_utils import WEIGHTS_INDEX_NAME, shard_checkpoint
 #     "7B": 4096,
 #     "14B": 5120,
 # }
-
-
 def convert_state_dict(state_dict):
 #     state_dict_keys = list(state_dict.keys())
     for name in state_dict_keys:
 #         weight = state_dict.pop(name)
         # emb -> embedding
         if name.startswith("emb."):
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = name.replace("emb.", "embeddings.")
         # ln_0 -> pre_ln (only present at block 0)
         if name.startswith("blocks.0.ln0"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = name.replace("blocks.0.ln0", "blocks.0.pre_ln")
         # att -> attention
@@ -76,40 +65,36 @@ def convert_state_dict(state_dict):
 #         name = re.sub(r"blocks.(\d+).ffn", r"blocks.\1.feed_forward", name)
         # time_mix_k -> time_mix_key and reshape
         if name.endswith(".time_mix_k"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = name.replace(".time_mix_k", ".time_mix_key")
         # time_mix_v -> time_mix_value and reshape
         if name.endswith(".time_mix_v"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = name.replace(".time_mix_v", ".time_mix_value")
         # time_mix_r -> time_mix_key and reshape
         if name.endswith(".time_mix_r"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = name.replace(".time_mix_r", ".time_mix_receptance")
-
         if name != "head.weight":
-      pass
-      pass
+    pass
+    pass
     pass
 #             name = "rwkv." + name
-
 #         state_dict[name] = weight
     return state_dict
-
-
 def convert_rmkv_checkpoint_to_hf_format(
 #     repo_id, checkpoint_file, output_dir, size=None, tokenizer_file=None, push_to_hub=False, model_name=None
 # ):
     # 1. If possible, build the tokenizer.
     if tokenizer_file is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("No `--tokenizer_file` provided, we will use the default tokenizer.")
 #         vocab_size = 50277
@@ -118,93 +103,81 @@ def convert_rmkv_checkpoint_to_hf_format(
 #         tokenizer = PreTrainedTokenizerFast(tokenizer_file=tokenizer_file)
 #         vocab_size = len(tokenizer)
 #     tokenizer.save_pretrained(output_dir)
-
     # 2. Build the config
 #     possible_sizes = list(NUM_HIDDEN_LAYERS_MAPPING.keys())
     if size is None:
-      pass
-      pass
+    pass
+    pass
     pass
         # Try to infer size from the checkpoint name
         for candidate in possible_sizes:
             if candidate in checkpoint_file:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 size = candidate
 #                 break
         if size is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Could not infer the size, please provide it with the `--size` argument.")
     if size not in possible_sizes:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(f"`size` should be one of {possible_sizes}, got {size}.")
-
 #     config = RwkvConfig(
 #         vocab_size=vocab_size,
 #         num_hidden_layers=NUM_HIDDEN_LAYERS_MAPPING[size],
 #         hidden_size=HIDEN_SIZE_MAPPING[size],
 #     )
 #     config.save_pretrained(output_dir)
-
     # 3. Download model file then convert state_dict
 #     model_file = hf_hub_download(repo_id, checkpoint_file)
 #     state_dict = torch.load(model_file, map_location="cpu")
 #     state_dict = convert_state_dict(state_dict)
-
     # 4. Split in shards and save
 #     shards, index = shard_checkpoint(state_dict)
     for shard_file, shard in shards.items():
 #         torch.save(shard, os.path.join(output_dir, shard_file))
-
     if index is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         save_index_file = os.path.join(output_dir, WEIGHTS_INDEX_NAME)
         # Save the index as well
         with open(save_index_file, "w", encoding="utf-8") as f:
 #             content = json.dumps(index, indent=2, sort_keys=True) + "\n"
 #             f.write(content)
-
         # 5. Clean up shards (for some reason the file PyTorch saves take the same space as the whole state_dict
 #         print(
 #             "Cleaning up shards. This may error with an OOM error, it this is the case dont worry you still have converted the model."
 #         )
 #         shard_files = list(shards.keys())
-
 #         del state_dict
 #         del shards
 #         gc.collect()
-
         for shard_file in shard_files:
 #             state_dict = torch.load(os.path.join(output_dir, shard_file))
 #             torch.save({k: v.cpu().clone() for k, v in state_dict.items()}, os.path.join(output_dir, shard_file))
-
 #     del state_dict
 #     gc.collect()
-
     if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
         if model_name is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Please provide a `model_name` to push the model to the Hub.")
 #         model = AutoModelForCausalLM.from_pretrained(output_dir)
 #         model.push_to_hub(model_name, max_shard_size="2GB")
 #         tokenizer.push_to_hub(model_name)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -240,7 +213,6 @@ if __name__ == "__main__":
 #         type=str,
 #         help="Name of the pushed model on the Hub, including the username / organization.",
 #     )
-
 #     args = parser.parse_args()
 #     convert_rmkv_checkpoint_to_hf_format(
 #         args.repo_id,

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,12 +19,10 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import math
 import random
 from functools import partial
 from typing import Callable, Optional, Tuple
-
 import flax.linen as nn
 import jax
 import jax.numpy as jnp
@@ -37,7 +32,6 @@ from flax.linen.attention import dot_product_attention_weights
 from flax.traverse_util import flatten_dict, unflatten_dict
 from jax import lax
 from jax.random import PRNGKey
-
 from ...modeling_flax_outputs import (
 #     FlaxBaseModelOutput,
 #     FlaxBaseModelOutputWithPastAndCrossAttentions,
@@ -54,65 +48,47 @@ from ...modeling_flax_utils import (
 # )
 from ...utils import add_start_docstrings, add_start_docstrings_to_model_forward, logging, replace_return_docstrings
 from .configuration_blenderbot import BlenderbotConfig
-
-
 # logger = logging.get_logger(__name__)
-
 # _CONFIG_FOR_DOC = "BlenderbotConfig"
 # _CHECKPOINT_FOR_DOC = "facebook/blenderbot-400M-distill"
-
-
 #     This model inherits from [`FlaxPreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading or saving, resizing the input embeddings, pruning heads
 #     etc.)
-
 #     This model is also a Flax Linen
 #     [flax.nn.Module](https://flax.readthedocs.io/en/latest/_autosummary/flax.nn.module.html) subclass. Use it as a
 #     regular Flax Module and refer to the Flax documentation for all matter related to general usage and behavior.
-
 #     Finally, this model supports inherent JAX features such as:
-
 #     - [Just-In-Time (JIT) compilation](https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-jit)
 #     - [Automatic Differentiation](https://jax.readthedocs.io/en/latest/jax.html#automatic-differentiation)
 #     - [Vectorization](https://jax.readthedocs.io/en/latest/jax.html#vectorization-vmap)
 #     - [Parallelization](https://jax.readthedocs.io/en/latest/jax.html#parallelization-pmap)
-
 #     Parameters:
 #         config ([`BlenderbotConfig`]): Model configuration class with all the parameters of the model.
 #             Initializing with a config file does not load the weights associated with the model, only the
 #             configuration. Check out the [`~FlaxPreTrainedModel.from_pretrained`] method to load the model weights.
-
 #     Args:
 #         input_ids (`jnp.ndarray` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`jnp.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         decoder_input_ids (`jnp.ndarray` of shape `(batch_size, target_sequence_length)`, *optional*):
 #             Indices of decoder input sequence tokens in the vocabulary.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are decoder input IDs?](../glossary#decoder-input-ids)
-
 #             For translation and summarization training, `decoder_input_ids` should be provided. If no
 #             `decoder_input_ids` is provided, the model will create this tensor by shifting the `input_ids` to the right
             for denoising pre-training following the paper.
 #         decoder_attention_mask (`jnp.ndarray` of shape `(batch_size, target_sequence_length)`, *optional*):
 #             Default behavior: generate a tensor that ignores pad tokens in `decoder_input_ids`. Causal mask will also
 #             be used by default.
-
 #             If you want to change padding behavior, you should modify to your needs. See diagram 1 in [the
 #             paper](https://arxiv.org/abs/1910.13461) for more information on the default strategy.
 #         position_ids (`numpy.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
@@ -129,22 +105,17 @@ from .configuration_blenderbot import BlenderbotConfig
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 #     Args:
 #         input_ids (`jnp.ndarray` of shape `(batch_size, sequence_length)`):
 #             Indices of input sequence tokens in the vocabulary. Padding will be ignored by default should you provide
 #             it.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`jnp.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         position_ids (`numpy.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
 #             Indices of positions of each input sequence tokens in the position embeddings. Selected in the range `[0,
@@ -157,16 +128,12 @@ from .configuration_blenderbot import BlenderbotConfig
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 #     Args:
 #         decoder_input_ids (`jnp.ndarray` of shape `(batch_size, target_sequence_length)`):
 #             Indices of decoder input sequence tokens in the vocabulary.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are decoder input IDs?](../glossary#decoder-input-ids)
-
 #             For translation and summarization training, `decoder_input_ids` should be provided. If no
 #             `decoder_input_ids` is provided, the model will create this tensor by shifting the `input_ids` to the right
             for denoising pre-training following the paper.
@@ -176,15 +143,12 @@ from .configuration_blenderbot import BlenderbotConfig
 #             hidden-states at the output of the last layer of the encoder. Used in the cross-attention of the decoder.
 #         encoder_attention_mask (`jnp.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         decoder_attention_mask (`jnp.ndarray` of shape `(batch_size, target_sequence_length)`, *optional*):
 #             Default behavior: generate a tensor that ignores pad tokens in `decoder_input_ids`. Causal mask will also
 #             be used by default.
-
 #             If you want to change padding behavior, you should modify to your needs. See diagram 1 in [the
 #             paper](https://arxiv.org/abs/1910.13461) for more information on the default strategy.
 #         decoder_position_ids (`numpy.ndarray` of shape `(batch_size, sequence_length)`, *optional*):
@@ -201,20 +165,14 @@ from .configuration_blenderbot import BlenderbotConfig
 #             more detail.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 # Copied from transformers.models.bart.modeling_flax_bart.shift_tokens_right
 def shift_tokens_right(input_ids: jnp.ndarray, pad_token_id: int, decoder_start_token_id: int) -> jnp.ndarray:
-
 #     Shift input ids one token to the right.
-
 #     shifted_input_ids = jnp.zeros_like(input_ids)
 #     shifted_input_ids = shifted_input_ids.at[:, 1:].set(input_ids[:, :-1])
 #     shifted_input_ids = shifted_input_ids.at[:, 0].set(decoder_start_token_id)
-
 #     shifted_input_ids = jnp.where(shifted_input_ids == -100, pad_token_id, shifted_input_ids)
     return shifted_input_ids
-
-
 # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartAttention with Bart->Blenderbot
 class FlaxBlenderbotAttention(nn.Module):
 #     config: BlenderbotConfig
@@ -224,18 +182,16 @@ class FlaxBlenderbotAttention(nn.Module):
 #     causal: bool = False
 #     bias: bool = True
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self) -> None:
 #         self.head_dim = self.embed_dim // self.num_heads
         if self.head_dim * self.num_heads != self.embed_dim:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"embed_dim must be divisible by num_heads (got `embed_dim`: {self.embed_dim}"
 #                 f" and `num_heads`: {self.num_heads})."
 #             )
-
 #         dense = partial(
 #             nn.Dense,
 #             self.embed_dim,
@@ -243,42 +199,33 @@ class FlaxBlenderbotAttention(nn.Module):
 #             dtype=self.dtype,
 #             kernel_init=jax.nn.initializers.normal(self.config.init_std),
 #         )
-
 #         self.q_proj, self.k_proj, self.v_proj = dense(), dense(), dense()
 #         self.out_proj = dense()
-
 #         self.dropout_layer = nn.Dropout(rate=self.dropout)
-
         if self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.causal_mask = make_causal_mask(
 #                 jnp.ones((1, self.config.max_position_embeddings), dtype="bool"), dtype="bool"
 #             )
-
     def _split_heads(self, hidden_states):
         return hidden_states.reshape(hidden_states.shape[:2] + (self.num_heads, self.head_dim))
-
     def _merge_heads(self, hidden_states):
         return hidden_states.reshape(hidden_states.shape[:2] + (self.embed_dim,))
-
 #     @nn.compact
     def _concatenate_to_cache(self, key, value, query, attention_mask):
-
 #         This function takes projected key, value states from a single input token and concatenates the states to cached
 #         states from previous steps. This function is slighly adapted from the official Flax repository:
 #         https://github.com/google/flax/blob/491ce18759622506588784b4fca0e4bf05f8c8cd/flax/linen/attention.py#L252
-
         # detect if were initializing by absence of existing cache data.
 #         is_initialized = self.has_variable("cache", "cached_key")
 #         cached_key = self.variable("cache", "cached_key", jnp.zeros, key.shape, key.dtype)
 #         cached_value = self.variable("cache", "cached_value", jnp.zeros, value.shape, value.dtype)
 #         cache_index = self.variable("cache", "cache_index", lambda: jnp.array(0, dtype=jnp.int32))
-
         if is_initialized:
-      pass
-      pass
+    pass
+    pass
     pass
 #             *batch_dims, max_length, num_heads, depth_per_head = cached_key.value.shape
             # update key, value caches with our new 1d spatial slices
@@ -297,7 +244,6 @@ class FlaxBlenderbotAttention(nn.Module):
 #             )
 #             attention_mask = combine_masks(pad_mask, attention_mask)
         return key, value, attention_mask
-
     def __call__(
 #         self,
 #         hidden_states: jnp.ndarray,
@@ -306,18 +252,16 @@ class FlaxBlenderbotAttention(nn.Module):
 #         init_cache: bool = False,
 #         deterministic: bool = True,
 #     ) -> Tuple[jnp.ndarray]:
-
         # if key_value_states are provided this layer is used as a cross-attention layer
         # for the decoder
 #         is_cross_attention = key_value_states is not None
 #         batch_size = hidden_states.shape[0]
-
         # get query proj
 #         query_states = self.q_proj(hidden_states)
         # get key, value proj
         if is_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
             # cross_attentions
 #             key_states = self.k_proj(key_value_states)
@@ -326,20 +270,18 @@ class FlaxBlenderbotAttention(nn.Module):
             # self_attention
 #             key_states = self.k_proj(hidden_states)
 #             value_states = self.v_proj(hidden_states)
-
 #         query_states = self._split_heads(query_states)
 #         key_states = self._split_heads(key_states)
 #         value_states = self._split_heads(value_states)
-
         # handle cache prepare causal attention mask
         if self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             query_length, key_length = query_states.shape[1], key_states.shape[1]
             if self.has_variable("cache", "cached_key"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 mask_shift = self.variables["cache"]["cache_index"]
 #                 max_decoder_length = self.variables["cache"]["cached_key"].shape[1]
@@ -349,11 +291,10 @@ class FlaxBlenderbotAttention(nn.Module):
             else:
 #                 causal_mask = self.causal_mask[:, :, :query_length, :key_length]
 #             causal_mask = jnp.broadcast_to(causal_mask, (batch_size,) + causal_mask.shape[1:])
-
         # combine masks if needed
         if attention_mask is not None and self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.broadcast_to(jnp.expand_dims(attention_mask, axis=(-3, -2)), causal_mask.shape)
 #             attention_mask = combine_masks(attention_mask, causal_mask)
@@ -363,21 +304,19 @@ class FlaxBlenderbotAttention(nn.Module):
         elif attention_mask is not None:
     pass
 #             attention_mask = jnp.expand_dims(attention_mask, axis=(-3, -2))
-
         # During fast autoregressive decoding, we feed one position at a time,
         # and cache the keys and values step by step.
         if self.causal and (self.has_variable("cache", "cached_key") or init_cache):
-      pass
-      pass
+    pass
+    pass
     pass
 #             key_states, value_states, attention_mask = self._concatenate_to_cache(
 #                 key_states, value_states, query_states, attention_mask
 #             )
-
         # Convert the boolean attention mask to an attention bias.
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # attention mask in the form of attention bias
 #             attention_bias = lax.select(
@@ -387,14 +326,12 @@ class FlaxBlenderbotAttention(nn.Module):
 #             )
         else:
 #             attention_bias = None
-
 #         dropout_rng = None
         if not deterministic and self.dropout > 0.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dropout_rng = self.make_rng("dropout")
-
 #         attn_weights = dot_product_attention_weights(
 #             query_states,
 #             key_states,
@@ -406,19 +343,14 @@ class FlaxBlenderbotAttention(nn.Module):
 #             dtype=self.dtype,
 #             precision=None,
 #         )
-
 #         attn_output = jnp.einsum("...hqk,...khd->...qhd", attn_weights, value_states)
 #         attn_output = self._merge_heads(attn_output)
 #         attn_output = self.out_proj(attn_output)
-
         return attn_output, attn_weights
-
-
 # Copied from transformers.models.mbart.modeling_flax_mbart.FlaxMBartEncoderLayer with MBart->Blenderbot
 class FlaxBlenderbotEncoderLayer(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self) -> None:
 #         self.embed_dim = self.config.d_model
 #         self.self_attn = FlaxBlenderbotAttention(
@@ -441,7 +373,6 @@ class FlaxBlenderbotEncoderLayer(nn.Module):
 #             self.embed_dim, dtype=self.dtype, kernel_init=jax.nn.initializers.normal(self.config.init_std)
 #         )
 #         self.final_layer_norm = nn.LayerNorm(dtype=self.dtype, epsilon=1e-05)
-
     def __call__(
 #         self,
 #         hidden_states: jnp.ndarray,
@@ -454,7 +385,6 @@ class FlaxBlenderbotEncoderLayer(nn.Module):
 #         hidden_states, attn_weights = self.self_attn(hidden_states=hidden_states, attention_mask=attention_mask)
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
 #         hidden_states = residual + hidden_states
-
 #         residual = hidden_states
 #         hidden_states = self.final_layer_norm(hidden_states)
 #         hidden_states = self.activation_fn(self.fc1(hidden_states))
@@ -462,30 +392,23 @@ class FlaxBlenderbotEncoderLayer(nn.Module):
 #         hidden_states = self.fc2(hidden_states)
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
 #         hidden_states = residual + hidden_states
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (attn_weights,)
-
         return outputs
-
-
 # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartEncoderLayerCollection with Bart->Blenderbot
 class FlaxBlenderbotEncoderLayerCollection(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.layers = [
 #             FlaxBlenderbotEncoderLayer(self.config, name=str(i), dtype=self.dtype)
             for i in range(self.config.encoder_layers)
 #         ]
 #         self.layerdrop = self.config.encoder_layerdrop
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -497,11 +420,10 @@ class FlaxBlenderbotEncoderLayerCollection(nn.Module):
 #     ):
 #         all_attentions = () if output_attentions else None
 #         all_hidden_states = () if output_hidden_states else None
-
         for encoder_layer in self.layers:
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states = all_hidden_states + (hidden_states,)
             # add LayerDrop (see https://arxiv.org/abs/1909.11556 for description)
@@ -517,35 +439,28 @@ class FlaxBlenderbotEncoderLayerCollection(nn.Module):
 #                 )
 #             hidden_states = layer_outputs[0]
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_attentions = all_attentions + (layer_outputs[1],)
-
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             all_hidden_states += (hidden_states,)
-
 #         outputs = (hidden_states, all_hidden_states, all_attentions)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(v for v in outputs if v is not None)
-
         return FlaxBaseModelOutput(
 #             last_hidden_state=hidden_states, hidden_states=all_hidden_states, attentions=all_attentions
 #         )
-
-
 # Copied from transformers.models.mbart.modeling_flax_mbart.FlaxMBartDecoderLayer with MBart->Blenderbot
 class FlaxBlenderbotDecoderLayer(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self) -> None:
 #         self.embed_dim = self.config.d_model
 #         self.self_attn = FlaxBlenderbotAttention(
@@ -559,7 +474,6 @@ class FlaxBlenderbotDecoderLayer(nn.Module):
 #         self.dropout_layer = nn.Dropout(rate=self.config.dropout)
 #         self.activation_fn = ACT2FN[self.config.activation_function]
 #         self.activation_dropout_layer = nn.Dropout(rate=self.config.activation_dropout)
-
 #         self.self_attn_layer_norm = nn.LayerNorm(dtype=self.dtype, epsilon=1e-05)
 #         self.encoder_attn = FlaxBlenderbotAttention(
 #             config=self.config,
@@ -578,7 +492,6 @@ class FlaxBlenderbotDecoderLayer(nn.Module):
 #             self.embed_dim, dtype=self.dtype, kernel_init=jax.nn.initializers.normal(self.config.init_std)
 #         )
 #         self.final_layer_norm = nn.LayerNorm(dtype=self.dtype, epsilon=1e-05)
-
     def __call__(
 #         self,
 #         hidden_states: jnp.ndarray,
@@ -591,22 +504,19 @@ class FlaxBlenderbotDecoderLayer(nn.Module):
 #     ) -> Tuple[jnp.ndarray]:
 #         residual = hidden_states
 #         hidden_states = self.self_attn_layer_norm(hidden_states)
-
         # Self Attention
 #         hidden_states, self_attn_weights = self.self_attn(
 #             hidden_states=hidden_states, attention_mask=attention_mask, init_cache=init_cache
 #         )
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
 #         hidden_states = residual + hidden_states
-
         # Cross-Attention Block
 #         cross_attn_weights = None
         if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             residual = hidden_states
-
 #             hidden_states = self.encoder_attn_layer_norm(hidden_states)
 #             hidden_states, cross_attn_weights = self.encoder_attn(
 #                 hidden_states=hidden_states,
@@ -615,7 +525,6 @@ class FlaxBlenderbotDecoderLayer(nn.Module):
 #             )
 #             hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
 #             hidden_states = residual + hidden_states
-
         # Fully Connected
 #         residual = hidden_states
 #         hidden_states = self.final_layer_norm(hidden_states)
@@ -624,30 +533,23 @@ class FlaxBlenderbotDecoderLayer(nn.Module):
 #         hidden_states = self.fc2(hidden_states)
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
 #         hidden_states = residual + hidden_states
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (self_attn_weights, cross_attn_weights)
-
         return outputs
-
-
 # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartDecoderLayerCollection with Bart->Blenderbot
 class FlaxBlenderbotDecoderLayerCollection(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.layers = [
 #             FlaxBlenderbotDecoderLayer(self.config, name=str(i), dtype=self.dtype)
             for i in range(self.config.decoder_layers)
 #         ]
 #         self.layerdrop = self.config.decoder_layerdrop
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -664,18 +566,17 @@ class FlaxBlenderbotDecoderLayerCollection(nn.Module):
 #         all_hidden_states = () if output_hidden_states else None
 #         all_self_attns = () if output_attentions else None
 #         all_cross_attentions = () if (output_attentions and encoder_hidden_states is not None) else None
-
         for decoder_layer in self.layers:
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states += (hidden_states,)
                 # add LayerDrop (see https://arxiv.org/abs/1909.11556 for description)
 #             dropout_probability = random.uniform(0, 1)
             if not deterministic and (dropout_probability < self.layerdrop):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_outputs = (None, None, None)
             else:
@@ -688,56 +589,45 @@ class FlaxBlenderbotDecoderLayerCollection(nn.Module):
 #                     output_attentions=output_attentions,
 #                     deterministic=deterministic,
 #                 )
-
 #             hidden_states = layer_outputs[0]
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_self_attns += (layer_outputs[1],)
-
                 if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     all_cross_attentions += (layer_outputs[2],)
-
         # add hidden states from the last decoder layer
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             all_hidden_states += (hidden_states,)
-
 #         outputs = [hidden_states, all_hidden_states, all_self_attns, all_cross_attentions]
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(v for v in outputs if v is not None)
-
         return FlaxBaseModelOutputWithPastAndCrossAttentions(
 #             last_hidden_state=hidden_states,
 #             hidden_states=all_hidden_states,
 #             attentions=all_self_attns,
 #             cross_attentions=all_cross_attentions,
 #         )
-
-
 class FlaxBlenderbotEncoder(nn.Module):
 #     config: BlenderbotConfig
 #     embed_tokens: nn.Embed
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dropout_layer = nn.Dropout(rate=self.config.dropout)
-
 #         embed_dim = self.config.d_model
 #         self.padding_idx = self.config.pad_token_id
 #         self.max_source_positions = self.config.max_position_embeddings
 #         self.embed_scale = math.sqrt(embed_dim) if self.config.scale_embedding else 1.0
-
 #         self.embed_positions = nn.Embed(
 #             self.config.max_position_embeddings,
 #             embed_dim,
@@ -745,7 +635,6 @@ class FlaxBlenderbotEncoder(nn.Module):
 #         )
 #         self.layers = FlaxBlenderbotEncoderLayerCollection(self.config, self.dtype)
 #         self.layer_norm = nn.LayerNorm(dtype=self.dtype, epsilon=1e-05)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -758,14 +647,10 @@ class FlaxBlenderbotEncoder(nn.Module):
 #     ):
 #         input_shape = input_ids.shape
 #         input_ids = input_ids.reshape(-1, input_shape[-1])
-
 #         inputs_embeds = self.embed_tokens(input_ids) * self.embed_scale
-
 #         embed_pos = self.embed_positions(position_ids)
-
 #         hidden_states = inputs_embeds + embed_pos
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
-
 #         outputs = self.layers(
 #             hidden_states,
 #             attention_mask,
@@ -776,52 +661,42 @@ class FlaxBlenderbotEncoder(nn.Module):
 #         )
 #         last_hidden_states = outputs[0]
 #         last_hidden_states = self.layer_norm(last_hidden_states)
-
         # update the last element in `hidden_states` after applying `layernorm` above
 #         hidden_states = None
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hidden_states = outputs[1]
 #             hidden_states = hidden_states[:-1] + (last_hidden_states,)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = (last_hidden_states, hidden_states) + (outputs[2:] if output_hidden_states else outputs[1:])
             return tuple(v for v in outputs if v is not None)
-
         return FlaxBaseModelOutput(
 #             last_hidden_state=last_hidden_states,
 #             hidden_states=hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 class FlaxBlenderbotDecoder(nn.Module):
 #     config: BlenderbotConfig
 #     embed_tokens: nn.Embed
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dropout_layer = nn.Dropout(rate=self.config.dropout)
-
 #         embed_dim = self.config.d_model
 #         self.padding_idx = self.config.pad_token_id
 #         self.max_target_positions = self.config.max_position_embeddings
 #         self.embed_scale = math.sqrt(self.config.d_model) if self.config.scale_embedding else 1.0
-
 #         self.embed_positions = nn.Embed(
 #             self.config.max_position_embeddings,
 #             embed_dim,
 #             embedding_init=jax.nn.initializers.normal(self.config.init_std),
 #         )
-
 #         self.layers = FlaxBlenderbotDecoderLayerCollection(self.config, self.dtype)
 #         self.layer_norm = nn.LayerNorm(dtype=self.dtype, epsilon=1e-05)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -837,15 +712,11 @@ class FlaxBlenderbotDecoder(nn.Module):
 #     ):
 #         input_shape = input_ids.shape
 #         input_ids = input_ids.reshape(-1, input_shape[-1])
-
 #         inputs_embeds = self.embed_tokens(input_ids) * self.embed_scale
-
         # embed positions
 #         positions = self.embed_positions(position_ids)
-
 #         hidden_states = inputs_embeds + positions
 #         hidden_states = self.dropout_layer(hidden_states, deterministic=deterministic)
-
 #         outputs = self.layers(
 #             hidden_states,
 #             attention_mask,
@@ -857,39 +728,32 @@ class FlaxBlenderbotDecoder(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         last_hidden_states = outputs[0]
 #         last_hidden_states = self.layer_norm(last_hidden_states)
-
         # update the last element in `hidden_states` after applying `layernorm` above
 #         hidden_states = None
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hidden_states = outputs[1]
 #             hidden_states = hidden_states[:-1] + (last_hidden_states,)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = (last_hidden_states, hidden_states) + (outputs[2:] if output_hidden_states else outputs[1:])
             return tuple(v for v in outputs if v is not None)
-
         return FlaxBaseModelOutputWithPastAndCrossAttentions(
 #             last_hidden_state=last_hidden_states,
 #             hidden_states=hidden_states,
 #             attentions=outputs.attentions,
 #             cross_attentions=outputs.cross_attentions,
 #         )
-
-
 # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartModule with Bart->Blenderbot
 class FlaxBlenderbotModule(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.shared = nn.Embed(
 #             self.config.vocab_size,
@@ -897,16 +761,12 @@ class FlaxBlenderbotModule(nn.Module):
 #             embedding_init=jax.nn.initializers.normal(self.config.init_std),
 #             dtype=self.dtype,
 #         )
-
 #         self.encoder = FlaxBlenderbotEncoder(self.config, dtype=self.dtype, embed_tokens=self.shared)
 #         self.decoder = FlaxBlenderbotDecoder(self.config, dtype=self.dtype, embed_tokens=self.shared)
-
     def _get_encoder_module(self):
         return self.encoder
-
     def _get_decoder_module(self):
         return self.decoder
-
     def __call__(
 #         self,
 #         input_ids,
@@ -929,7 +789,6 @@ class FlaxBlenderbotModule(nn.Module):
             return_dict=return_dict,
 #             deterministic=deterministic,
 #         )
-
 #         decoder_outputs = self.decoder(
 #             input_ids=decoder_input_ids,
 #             attention_mask=decoder_attention_mask,
@@ -941,13 +800,11 @@ class FlaxBlenderbotModule(nn.Module):
             return_dict=return_dict,
 #             deterministic=deterministic,
 #         )
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return decoder_outputs + encoder_outputs
-
         return FlaxSeq2SeqModelOutput(
 #             last_hidden_state=decoder_outputs.last_hidden_state,
 #             decoder_hidden_states=decoder_outputs.hidden_states,
@@ -957,12 +814,9 @@ class FlaxBlenderbotModule(nn.Module):
 #             encoder_hidden_states=encoder_outputs.hidden_states,
 #             encoder_attentions=encoder_outputs.attentions,
 #         )
-
-
 class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #     config_class = BlenderbotConfig
 #     base_model_prefix: str = "model"
-
     def __init__(
 #         self,
 #         config: BlenderbotConfig,
@@ -973,7 +827,6 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #         **kwargs,
 #     ):
 #         super().__init__(config, module, input_shape=input_shape, seed=seed, dtype=dtype, _do_init=_do_init)
-
     def init_weights(self, rng: jax.random.PRNGKey, input_shape: Tuple, params: FrozenDict = None) -> FrozenDict:
         # init input tensors
 #         input_ids = jnp.zeros(input_shape, dtype="i4")
@@ -982,14 +835,11 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #         attention_mask = jnp.ones_like(input_ids)
 #         decoder_input_ids = input_ids
 #         decoder_attention_mask = jnp.ones_like(input_ids)
-
 #         batch_size, sequence_length = input_ids.shape
 #         position_ids = jnp.broadcast_to(jnp.arange(sequence_length)[None, :], (batch_size, sequence_length))
 #         decoder_position_ids = jnp.broadcast_to(jnp.arange(sequence_length)[None, :], (batch_size, sequence_length))
-
 #         params_rng, dropout_rng = jax.random.split(rng)
 #         rngs = {"params": params_rng, "dropout": dropout_rng}
-
 #         random_params = self.module.init(
 #             rngs,
 #             input_ids,
@@ -999,10 +849,9 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             position_ids,
 #             decoder_position_ids,
 #         )["params"]
-
         if params is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             random_params = flatten_dict(unfreeze(random_params))
 #             params = flatten_dict(unfreeze(params))
@@ -1012,9 +861,7 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
             return freeze(unflatten_dict(params))
         else:
             return random_params
-
     def init_cache(self, batch_size, max_length, encoder_outputs):
-
 #         Args:
 #             batch_size (`int`):
 #                 batch_size used for fast auto-regressive decoding. Defines the batch size of the initialized cache.
@@ -1026,14 +873,12 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #                 `attentions`). `last_hidden_state` of shape `(batch_size, sequence_length, hidden_size)`, *optional*)
 #                 is a sequence of hidden-states at the output of the last layer of the encoder. Used in the
 #                 cross-attention of the decoder.
-
         # init input variables to retrieve cache
 #         decoder_input_ids = jnp.ones((batch_size, max_length), dtype="i4")
 #         decoder_attention_mask = jnp.ones_like(decoder_input_ids)
 #         decoder_position_ids = jnp.broadcast_to(
 #             jnp.arange(jnp.atleast_2d(decoder_input_ids).shape[-1]), decoder_input_ids.shape
 #         )
-
         def _decoder_forward(module, decoder_input_ids, decoder_attention_mask, decoder_position_ids, **kwargs):
 #             decoder_module = module._get_decoder_module()
             return decoder_module(
@@ -1042,7 +887,6 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #                 decoder_position_ids,
 #                 **kwargs,
 #             )
-
 #         init_variables = self.module.init(
 #             jax.random.PRNGKey(0),
 #             decoder_input_ids=decoder_input_ids,
@@ -1053,7 +897,6 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             method=_decoder_forward,  # we only need to call the decoder to init the cache
 #         )
         return unfreeze(init_variables["cache"])
-
 #     @add_start_docstrings(BLENDERBOT_ENCODE_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=FlaxBaseModelOutput, config_class=BlenderbotConfig)
     def encode(
@@ -1070,15 +913,11 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #     ):
 #         r
 #         Returns:
-
 #         Example:
-
 #         ```python
 #         >>> from transformers import AutoTokenizer, FlaxBlenderbotForConditionalGeneration
-
 #         >>> model = FlaxBlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
 #         >>> tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
-
 #         >>> text = "My friends are cool but they eat too many carbs."
 #         >>> inputs = tokenizer(text, max_length=1024, return_tensors="jax")
 #         >>> encoder_outputs = model.encode(**inputs)
@@ -1088,31 +927,27 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.ones_like(input_ids)
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, sequence_length = input_ids.shape
 #             position_ids = jnp.broadcast_to(jnp.arange(sequence_length)[None, :], (batch_size, sequence_length))
-
         # Handle any PRNG if needed
 #         rngs = {}
         if dropout_rng is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rngs["dropout"] = dropout_rng
-
         def _encoder_forward(module, input_ids, attention_mask, position_ids, **kwargs):
 #             encode_module = module._get_encoder_module()
             return encode_module(input_ids, attention_mask, position_ids, **kwargs)
-
         return self.module.apply(
 #             {"params": params or self.params},
 #             input_ids=jnp.array(input_ids, dtype="i4"),
@@ -1125,7 +960,6 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             rngs=rngs,
 #             method=_encoder_forward,
 #         )
-
 #     @add_start_docstrings(BLENDERBOT_DECODE_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(
 #         output_type=FlaxBaseModelOutputWithPastAndCrossAttentions, config_class=BlenderbotConfig
@@ -1147,23 +981,17 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #     ):
 #         r
 #         Returns:
-
 #         Example:
-
 #         ```python
 #         >>> import jax.numpy as jnp
 #         >>> from transformers import AutoTokenizer, FlaxBlenderbotForConditionalGeneration
-
 #         >>> model = FlaxBlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
 #         >>> tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
-
 #         >>> text = "My friends are cool but they eat too many carbs."
 #         >>> inputs = tokenizer(text, max_length=1024, return_tensors="jax")
 #         >>> encoder_outputs = model.encode(**inputs)
-
 #         >>> decoder_start_token_id = model.config.decoder_start_token_id
 #         >>> decoder_input_ids = jnp.ones((inputs.input_ids.shape[0], 1), dtype="i4") * decoder_start_token_id
-
 #         >>> outputs = model.decode(decoder_input_ids, encoder_outputs)
 #         >>> last_decoder_hidden_states = outputs.last_hidden_state
 #         ```
@@ -1172,58 +1000,50 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
 #         encoder_hidden_states = encoder_outputs[0]
         if encoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, sequence_length = encoder_hidden_states.shape[:2]
 #             encoder_attention_mask = jnp.ones((batch_size, sequence_length))
-
 #         batch_size, sequence_length = decoder_input_ids.shape
         if decoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             decoder_attention_mask = jnp.ones((batch_size, sequence_length))
-
         if decoder_position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if past_key_values is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Make sure to provide `decoder_position_ids` when passing `past_key_values`.")
-
 #             decoder_position_ids = jnp.broadcast_to(
 #                 jnp.arange(sequence_length)[None, :], (batch_size, sequence_length)
 #             )
-
         # Handle any PRNG if needed
 #         rngs = {}
         if dropout_rng is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rngs["dropout"] = dropout_rng
-
 #         inputs = {"params": params or self.params}
-
         # if past_key_values are passed then cache is already initialized a private flag init_cache has to be
         # passed down to ensure cache is used. It has to be made sure that cache is marked as mutable so that
         # it can be changed by FlaxBlenderbotAttention module
         if past_key_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             inputs["cache"] = past_key_values
 #             mutable = ["cache"]
         else:
 #             mutable = False
-
         def _decoder_forward(module, decoder_input_ids, decoder_attention_mask, decoder_position_ids, **kwargs):
 #             decoder_module = module._get_decoder_module()
             return decoder_module(
@@ -1232,7 +1052,6 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #                 decoder_position_ids,
 #                 **kwargs,
 #             )
-
 #         outputs = self.module.apply(
 #             inputs,
 #             decoder_input_ids=jnp.array(decoder_input_ids, dtype="i4"),
@@ -1248,11 +1067,10 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             mutable=mutable,
 #             method=_decoder_forward,
 #         )
-
         # add updated cache to model output
         if past_key_values is not None and return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs, past = outputs
 #             outputs["past_key_values"] = unfreeze(past["cache"])
@@ -1261,9 +1079,7 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
     pass
 #             outputs, past = outputs
 #             outputs = outputs[:1] + (unfreeze(past["cache"]),) + outputs[1:]
-
         return outputs
-
 #     @add_start_docstrings_to_model_forward(BLENDERBOT_INPUTS_DOCSTRING)
     def __call__(
 #         self,
@@ -1285,45 +1101,41 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
         # prepare encoder inputs
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.ones_like(input_ids)
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, sequence_length = input_ids.shape
 #             position_ids = jnp.broadcast_to(jnp.arange(sequence_length)[None, :], (batch_size, sequence_length))
-
         # prepare decoder inputs
         if decoder_input_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             decoder_input_ids = shift_tokens_right(
 #                 input_ids, self.config.pad_token_id, decoder_start_token_id=self.config.decoder_start_token_id
 #             )
         if decoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             decoder_attention_mask = jnp.ones_like(decoder_input_ids)
         if decoder_position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, sequence_length = decoder_input_ids.shape
 #             decoder_position_ids = jnp.broadcast_to(
 #                 jnp.arange(sequence_length)[None, :], (batch_size, sequence_length)
 #             )
-
         # Handle any PRNG if needed
 #         rngs = {"dropout": dropout_rng} if dropout_rng is not None else {}
-
         return self.module.apply(
 #             {"params": params or self.params},
 #             input_ids=jnp.array(input_ids, dtype="i4"),
@@ -1338,25 +1150,18 @@ class FlaxBlenderbotPreTrainedModel(FlaxPreTrainedModel):
 #             deterministic=not train,
 #             rngs=rngs,
 #         )
-
-
 # @add_start_docstrings(
 #     "The bare MBart Model transformer outputting raw hidden-states without any specific head on top.",
 # )
 class FlaxBlenderbotModel(FlaxBlenderbotPreTrainedModel):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
-
 # append_call_sample_docstring(FlaxBlenderbotModel, _CHECKPOINT_FOR_DOC, FlaxSeq2SeqModelOutput, _CONFIG_FOR_DOC)
-
-
 # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartForConditionalGenerationModule with Bart->Blenderbot
 class FlaxBlenderbotForConditionalGenerationModule(nn.Module):
 #     config: BlenderbotConfig
 #     dtype: jnp.dtype = jnp.float32
 #     bias_init: Callable[..., jnp.ndarray] = jax.nn.initializers.zeros
-
     def setup(self):
 #         self.model = FlaxBlenderbotModule(config=self.config, dtype=self.dtype)
 #         self.lm_head = nn.Dense(
@@ -1366,13 +1171,10 @@ class FlaxBlenderbotForConditionalGenerationModule(nn.Module):
 #             kernel_init=jax.nn.initializers.normal(self.config.init_std),
 #         )
 #         self.final_logits_bias = self.param("final_logits_bias", self.bias_init, (1, self.model.shared.num_embeddings))
-
     def _get_encoder_module(self):
         return self.model.encoder
-
     def _get_decoder_module(self):
         return self.model.decoder
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1398,27 +1200,22 @@ class FlaxBlenderbotForConditionalGenerationModule(nn.Module):
             return_dict=return_dict,
 #             deterministic=deterministic,
 #         )
-
 #         hidden_states = outputs[0]
-
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shared_embedding = self.model.variables["params"]["shared"]["embedding"]
 #             lm_logits = self.lm_head.apply({"params": {"kernel": shared_embedding.T}}, hidden_states)
         else:
 #             lm_logits = self.lm_head(hidden_states)
-
 #         lm_logits += jax.lax.stop_gradient(self.final_logits_bias.astype(self.dtype))
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output = (lm_logits,) + outputs[1:]
             return output
-
         return FlaxSeq2SeqLMOutput(
 #             logits=lm_logits,
 #             decoder_hidden_states=outputs.decoder_hidden_states,
@@ -1428,14 +1225,11 @@ class FlaxBlenderbotForConditionalGenerationModule(nn.Module):
 #             encoder_hidden_states=outputs.encoder_hidden_states,
 #             encoder_attentions=outputs.encoder_attentions,
 #         )
-
-
 # @add_start_docstrings(
 #     "The Blenderbot Model with a language modeling head. Can be used for summarization.", BLENDERBOT_START_DOCSTRING
 # )
 class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #     dtype: jnp.dtype = jnp.float32
-
 #     @add_start_docstrings(BLENDERBOT_DECODE_INPUTS_DOCSTRING)
 #     @replace_return_docstrings(output_type=FlaxCausalLMOutputWithCrossAttentions, config_class=BlenderbotConfig)
     def decode(
@@ -1455,23 +1249,17 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #     ):
 #         r
 #         Returns:
-
 #         Example:
-
 #         ```python
 #         >>> import jax.numpy as jnp
 #         >>> from transformers import AutoTokenizer, FlaxBlenderbotForConditionalGeneration
-
 #         >>> model = FlaxBlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
 #         >>> tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
-
 #         >>> text = "My friends are cool but they eat too many carbs."
 #         >>> inputs = tokenizer(text, max_length=1024, return_tensors="jax")
 #         >>> encoder_outputs = model.encode(**inputs)
-
 #         >>> decoder_start_token_id = model.config.decoder_start_token_id
 #         >>> decoder_input_ids = jnp.ones((inputs.input_ids.shape[0], 1), dtype="i4") * decoder_start_token_id
-
 #         >>> outputs = model.decode(decoder_input_ids, encoder_outputs)
 #         >>> logits = outputs.logits
 #         ```
@@ -1480,58 +1268,50 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
 #         encoder_hidden_states = encoder_outputs[0]
         if encoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             batch_size, sequence_length = encoder_hidden_states.shape[:2]
 #             encoder_attention_mask = jnp.ones((batch_size, sequence_length))
-
 #         batch_size, sequence_length = decoder_input_ids.shape
         if decoder_attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             decoder_attention_mask = jnp.ones((batch_size, sequence_length))
-
         if decoder_position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if past_key_values is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Make sure to provide `decoder_position_ids` when passing `past_key_values`.")
-
 #             decoder_position_ids = jnp.broadcast_to(
 #                 jnp.arange(sequence_length)[None, :], (batch_size, sequence_length)
 #             )
-
         # Handle any PRNG if needed
 #         rngs = {}
         if dropout_rng is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rngs["dropout"] = dropout_rng
-
 #         inputs = {"params": params or self.params}
-
         # if past_key_values are passed then cache is already initialized a private flag init_cache has to be
         # passed down to ensure cache is used. It has to be made sure that cache is marked as mutable so that
         # it can be changed by FlaxBlenderbotAttention module
         if past_key_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #             inputs["cache"] = past_key_values
 #             mutable = ["cache"]
         else:
 #             mutable = False
-
         def _decoder_forward(module, decoder_input_ids, decoder_attention_mask, decoder_position_ids, **kwargs):
 #             decoder_module = module._get_decoder_module()
 #             outputs = decoder_module(
@@ -1541,19 +1321,16 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #                 **kwargs,
 #             )
 #             hidden_states = outputs[0]
-
             if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 shared_embedding = module.model.variables["params"]["shared"]["embedding"]
 #                 lm_logits = module.lm_head.apply({"params": {"kernel": shared_embedding.T}}, hidden_states)
             else:
 #                 lm_logits = module.lm_head(hidden_states)
-
 #             lm_logits += module.final_logits_bias
             return lm_logits, outputs
-
 #         outputs = self.module.apply(
 #             inputs,
 #             decoder_input_ids=jnp.array(decoder_input_ids, dtype="i4"),
@@ -1569,18 +1346,16 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #             mutable=mutable,
 #             method=_decoder_forward,
 #         )
-
         if past_key_values is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             lm_logits, decoder_outputs = outputs
         else:
 #             (lm_logits, decoder_outputs), past = outputs
-
         if return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = FlaxCausalLMOutputWithCrossAttentions(
 #                 logits=lm_logits,
@@ -1590,20 +1365,17 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #             )
         else:
 #             outputs = (lm_logits,) + decoder_outputs[1:]
-
         # add updated cache to model output
         if past_key_values is not None and return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs["past_key_values"] = unfreeze(past["cache"])
             return outputs
         elif past_key_values is not None and not return_dict:
     pass
 #             outputs = outputs[:1] + (unfreeze(past["cache"]),) + outputs[1:]
-
         return outputs
-
     def prepare_inputs_for_generation(
 #         self,
 #         decoder_input_ids,
@@ -1615,21 +1387,19 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #     ):
         # initializing the cache
 #         batch_size, seq_length = decoder_input_ids.shape
-
 #         past_key_values = self.init_cache(batch_size, max_length, encoder_outputs)
         # Note that usually one would have to put 0s in the attention_mask for x > input_ids.shape[-1] and x < cache_length.
         # But since the decoder uses a causal mask, those positions are masked anyways.
         # Thus we can create a single static attention_mask here, which is more efficient for compilation
 #         extended_attention_mask = jnp.ones((batch_size, max_length), dtype="i4")
         if decoder_attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = decoder_attention_mask.cumsum(axis=-1) - 1
 #             extended_attention_mask = lax.dynamic_update_slice(extended_attention_mask, decoder_attention_mask, (0, 0))
         else:
 #             position_ids = jnp.broadcast_to(jnp.arange(seq_length, dtype="i4")[None, :], (batch_size, seq_length))
-
         return {
 #             "past_key_values": past_key_values,
 #             "encoder_outputs": encoder_outputs,
@@ -1637,32 +1407,23 @@ class FlaxBlenderbotForConditionalGeneration(FlaxBlenderbotPreTrainedModel):
 #             "decoder_attention_mask": extended_attention_mask,
 #             "decoder_position_ids": position_ids,
 #         }
-
     def update_inputs_for_generation(self, model_outputs, model_kwargs):
 #         model_kwargs["past_key_values"] = model_outputs.past_key_values
 #         model_kwargs["decoder_position_ids"] = model_kwargs["decoder_position_ids"][:, -1:] + 1
         return model_kwargs
-
-
 # FLAX_BLENDERBOT_CONDITIONAL_GENERATION_DOCSTRING = r
 #     Returns:
-
 #     Conversation example::
-
 #     ```py
 #     >>> from transformers import AutoTokenizer, FlaxBlenderbotForConditionalGeneration
-
 #     >>> model = FlaxBlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
 #     >>> tokenizer = AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
-
 #     >>> UTTERANCE = "My friends are cool but they eat too many carbs."
 #     >>> inputs = tokenizer([UTTERANCE], max_length=1024, return_tensors="np")
-
 #     >>> # Generate Reply
 #     >>> reply_ids = model.generate(inputs["input_ids"], num_beams=4, max_length=5, early_stopping=True).sequences
 #     >>> print([tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=False) for g in reply_ids])
 #     ```
-
 # overwrite_call_docstring(
 #     FlaxBlenderbotForConditionalGeneration,
 # )

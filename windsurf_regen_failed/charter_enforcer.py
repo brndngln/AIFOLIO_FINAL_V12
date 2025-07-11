@@ -1,21 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Blocks commit/publish if SAFE AI Charter is violated.
-
 import os
 import logging
 import sys
-
 # LOG_PATH = os.path.abspath(
 #     os.path.join(
 #         os.path.dirname(__file__),
@@ -23,7 +17,6 @@ import sys
 #     )
 # )
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
-
 #     "sentience",
 #     "recursion",
 #     "adaptive",
@@ -31,11 +24,8 @@ import sys
 #     "modify SAFE_AI_GOVERNANCE_CHARTER",
 #     "rewrite SAFE_AI_GOVERNANCE_CHARTER",
 # ]
-
 #     os.path.join(os.path.dirname(__file__), "../legal/SAFE_AI_GOVERNANCE_CHARTER.md")
 # )
-
-
 def check_charter_compliance():
     # Scan .py files for forbidden patterns
 #     violations = []
@@ -44,29 +34,29 @@ def check_charter_compliance():
 #     ):
         for fname in files:
             if fname.endswith(".py"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 fpath = os.path.join(root, fname)
                 # Skip scanning this script itself to avoid self-flagging
                 if os.path.abspath(fpath) == os.path.abspath(__file__):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
                 with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
 #                     content = f.read()
                     for pattern in FORBIDDEN_PATTERNS:
                         if pattern in content:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             violations.append((fpath, pattern))
     # Check if charter file has been modified (compare hash or timestamp)
     # (Stub: always passes unless forbidden pattern found)
     if violations:
-      pass
-      pass
+    pass
+    pass
     pass
         for v in violations:
 #             logging.error(f"SAFE AI Charter violation: {v}")
@@ -74,10 +64,8 @@ def check_charter_compliance():
 #         sys.exit(1)
 #     logging.info("SAFE AI Charter check passed.")
     return True
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     check_charter_compliance()

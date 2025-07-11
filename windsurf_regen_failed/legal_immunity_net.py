@@ -1,25 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # AIFOLIO OMNIELITE EMPIRE ENGINE: MULTI-LIFETIME LEGAL IMMUNITY NET
 # - Auto-generates legal files by country
 # - Suggests correct business entity for every vault
 # - Files everything to /vaults/legal/ and ensures global compliance
-
 from typing import Dict, Any
 import os
 from core.compliance.emma_guardian import emma
-
-
 class LegalImmunityNet:
     def generate_legal_files(self, vault: Dict[str, Any], country: str) -> str:
 #         legal_dir = f"/vaults/legal/{country.lower()}"
@@ -33,12 +26,11 @@ class LegalImmunityNet:
 #             critical=False,
 #         )
         return legal_file
-
     def suggest_entity(self, vault: Dict[str, Any], country: str) -> str:
         # Suggest correct entity type
         if country == "US":
-      pass
-      pass
+    pass
+    pass
     pass
 #             entity = "LLC"
         elif country == "UK":

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,20 +19,14 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import json
 import tempfile
-
 import torch
 from huggingface_hub import hf_hub_download
-
 from transformers import VitsConfig, VitsModel, VitsTokenizer, logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger("transformers.models.vits")
-
 #     "enc_p.emb": "text_encoder.embed_tokens",
 #     "enc_p.encoder.attn_layers.*.conv_k": "text_encoder.encoder.layers.*.attention.k_proj",
 #     "enc_p.encoder.attn_layers.*.conv_v": "text_encoder.encoder.layers.*.attention.v_proj",
@@ -153,39 +144,33 @@ from transformers import VitsConfig, VitsModel, VitsTokenizer, logging
 #     "emb_g": "embed_speaker",  # num_speakers > 1
 # }
 # TOP_LEVEL_KEYS = []
-
-
 def set_recursively(hf_pointer, key, value, full_name, weight_type):
     for attribute in key.split("."):
 #         hf_pointer = getattr(hf_pointer, attribute)
-
     if weight_type is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         hf_shape = getattr(hf_pointer, weight_type).shape
     else:
 #         hf_shape = hf_pointer.shape
-
     # strip off the kernel dimension at the end (original weights are Conv1d)
     if key.endswith(".k_proj") or key.endswith(".v_proj") or key.endswith(".q_proj") or key.endswith(".out_proj"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         value = value.squeeze(-1)
-
     if hf_shape != value.shape:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"Shape of hf {key + '.' + weight_type if weight_type is not None else ''} is {hf_shape}, but should be"
 #             f" {value.shape} for {full_name}"
 #         )
-
     if weight_type == "weight":
-      pass
-      pass
+    pass
+    pass
     pass
 #         hf_pointer.weight.data = value
     elif weight_type == "weight_g":
@@ -208,93 +193,83 @@ def set_recursively(hf_pointer, key, value, full_name, weight_type):
 #         hf_pointer.num_batches_tracked.data = value
     else:
 #         hf_pointer.data = value
-
 #     logger.info(f"{key + ('.' + weight_type if weight_type is not None else '')} was initialized from {full_name}.")
-
-
 def should_ignore(name, ignore_keys):
     for key in ignore_keys:
         if key.endswith(".*"):
-      pass
-      pass
+    pass
+    pass
     pass
             if name.startswith(key[:-1]):
-      pass
-      pass
+    pass
+    pass
     pass
                 return True
         elif ".*." in key:
     pass
 #             prefix, suffix = key.split(".*.")
             if prefix in name and suffix in name:
-      pass
-      pass
+    pass
+    pass
     pass
                 return True
         elif key in name:
     pass
             return True
     return False
-
-
 def recursively_load_weights(fairseq_dict, hf_model):
 #     unused_weights = []
-
     for name, value in fairseq_dict.items():
         if should_ignore(name, IGNORE_KEYS):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info(f"{name} was ignored")
 #             continue
-
 #         is_used = False
         for key, mapped_key in MAPPING.items():
             if key.endswith(".*"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 key = key[:-1]
             elif "*" in key:
     pass
 #                 prefix, suffix = key.split(".*.")
                 if prefix in name and suffix in name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     key = suffix
-
             if key in name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 is_used = True
                 if mapped_key.endswith(".*"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     layer_index = name.split(key)[-1].split(".")[0]
 #                     mapped_key = mapped_key.replace("*", layer_index)
                 elif "*" in mapped_key:
     pass
 #                     layer_index = name.split(key)[0].split(".")[-2]
-
                     # remap the layer index since we removed the Flip layers
                     if "flow.flows" in mapped_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         layer_index = str(int(layer_index) // 2)
                     if "duration_predictor.flows" in mapped_key or "duration_predictor.post_flows" in mapped_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         layer_index = str(int(layer_index) // 2 + 1)
-
 #                     mapped_key = mapped_key.replace("*", layer_index)
                 if "weight_g" in name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     weight_type = "weight_g"
                 elif "weight_v" in name:
@@ -320,14 +295,11 @@ def recursively_load_weights(fairseq_dict, hf_model):
 #                 set_recursively(hf_model, mapped_key, value, name, weight_type)
 #             continue
         if not is_used:
-      pass
-      pass
+    pass
+    pass
     pass
 #             unused_weights.append(name)
-
 #     logger.warning(f"Unused weights: {unused_weights}")
-
-
 # @torch.no_grad()
 def convert_checkpoint(
 #     pytorch_dump_folder_path,
@@ -339,36 +311,30 @@ def convert_checkpoint(
 #     sampling_rate=None,
 #     repo_id=None,
 # ):
-
 #     Copy/paste/tweak models weights to transformers design.
-
     if config_path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config = VitsConfig.from_pretrained(config_path)
     else:
 #         config = VitsConfig()
-
     if num_speakers:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.num_speakers = num_speakers
 #         config.speaker_embedding_size = 256
-
     if sampling_rate:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.sampling_rate = sampling_rate
-
     if checkpoint_path is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.info(f"***Converting model: facebook/mms-tts {language}***")
-
 #         vocab_path = hf_hub_download(
 #             repo_id="facebook/mms-tts",
 #             filename="vocab.txt",
@@ -384,25 +350,22 @@ def convert_checkpoint(
 #             filename="G_100000.pth",
 #             subfolder=f"models/{language}",
 #         )
-
         with open(config_file, "r") as f:
 #             data = f.read()
 #             hps = json.loads(data)
-
 #         is_uroman = hps["data"]["training_files"].split(".")[-1] == "uroman"
         if is_uroman:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning("For this checkpoint, you should use `uroman` to convert input text before tokenizing it!")
     else:
 #         logger.info(f"***Converting model: {checkpoint_path}***")
 #         is_uroman = False
-
     # original VITS checkpoint
     if vocab_path is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _pad = "_"
 #         _punctuation = ';:,.!?¡¿—..."«»""" '
@@ -418,38 +381,28 @@ def convert_checkpoint(
         # MMS-TTS does not use a <pad> token, so we set to the token used to space characters
 #         _pad = symbols[0]
 #         phonemize = False
-
     with tempfile.NamedTemporaryFile() as tf:
         with open(tf.name, "w", encoding="utf-8") as f:
 #             f.write(json.dumps(symbol_to_id, indent=2, sort_keys=True, ensure_ascii=False) + "\n")
-
 #         tokenizer = VitsTokenizer(tf.name, language=language, phonemize=phonemize, is_uroman=is_uroman, pad_token=_pad)
-
 #     config.vocab_size = len(symbols)
 #     model = VitsModel(config)
-
 #     model.decoder.apply_weight_norm()
-
 #     orig_checkpoint = torch.load(checkpoint_path, map_location=torch.device("cpu"))
 #     recursively_load_weights(orig_checkpoint["model"], model)
-
 #     model.decoder.remove_weight_norm()
-
 #     model.save_pretrained(pytorch_dump_folder_path)
 #     tokenizer.save_pretrained(pytorch_dump_folder_path)
-
     if repo_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("Pushing to the hub...")
 #         tokenizer.push_to_hub(repo_id)
 #         model.push_to_hub(repo_id)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
 #     parser.add_argument("--checkpoint_path", default=None, type=str, help="Local path to original checkpoint")
@@ -466,7 +419,6 @@ if __name__ == "__main__":
 #     parser.add_argument(
 #         "--push_to_hub", default=None, type=str, help="Where to upload the converted model on the 🤗 hub."
 #     )
-
 #     args = parser.parse_args()
 #     convert_checkpoint(
 #         args.pytorch_dump_folder_path,

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,35 +19,25 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
 from ...utils.backbone_utils import BackboneConfigMixin, get_aligned_output_features_output_indices
-
-
 # logger = logging.get_logger(__name__)
-
 # BEIT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "microsoft/beit-base-patch16-224-pt22k": (
 #         "https://huggingface.co/microsoft/beit-base-patch16-224-pt22k/resolve/main/config.json"
 #     ),
     # See all BEiT models at https://huggingface.co/models?filter=beit
 # }
-
-
 class BeitConfig(BackboneConfigMixin, PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`BeitModel`]. It is used to instantiate an BEiT
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the BEiT
 #     [microsoft/beit-base-patch16-224-pt22k](https://huggingface.co/microsoft/beit-base-patch16-224-pt22k) architecture.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 8192):
 #             Vocabulary size of the BEiT model. Defines the number of different image tokens that can be used during
@@ -123,24 +110,17 @@ class BeitConfig(BackboneConfigMixin, PretrainedConfig):
 #             Whether to reshape the feature maps to 4D tensors of shape `(batch_size, hidden_size, height, width)` in
 #             case the model is used as backbone. If `False`, the feature maps will be 3D tensors of shape `(batch_size,
 #             seq_len, hidden_size)`. Only relevant for [`BeitBackbone`].
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import BeitConfig, BeitModel
-
 #     >>> # Initializing a BEiT beit-base-patch16-224-pt22k style configuration
 #     >>> configuration = BeitConfig()
-
 #     >>> # Initializing a model (with random weights) from the beit-base-patch16-224-pt22k style configuration
 #     >>> model = BeitModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "beit"
-
     def __init__(
 #         self,
 #         vocab_size=8192,
@@ -177,7 +157,6 @@ class BeitConfig(BackboneConfigMixin, PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
@@ -188,7 +167,6 @@ class BeitConfig(BackboneConfigMixin, PretrainedConfig):
 #         self.attention_probs_dropout_prob = attention_probs_dropout_prob
 #         self.initializer_range = initializer_range
 #         self.layer_norm_eps = layer_norm_eps
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels
@@ -208,18 +186,16 @@ class BeitConfig(BackboneConfigMixin, PretrainedConfig):
 #         self.auxiliary_num_convs = auxiliary_num_convs
 #         self.auxiliary_concat_input = auxiliary_concat_input
 #         self.semantic_loss_ignore_index = semantic_loss_ignore_index
-
         # handle backwards compatibility
         if "segmentation_indices" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 "The `segmentation_indices` argument is deprecated and will be removed in a future version, use `out_indices` instead.",
 #                 FutureWarning,
 #             )
 #             out_indices = kwargs.pop("segmentation_indices")
-
         # backbone attributes
 #         self.stage_names = ["stem"] + [f"stage{idx}" for idx in range(1, self.num_hidden_layers + 1)]
 #         self._out_features, self._out_indices = get_aligned_output_features_output_indices(
@@ -227,12 +203,9 @@ class BeitConfig(BackboneConfigMixin, PretrainedConfig):
 #         )
 #         self.add_fpn = add_fpn
 #         self.reshape_hidden_states = reshape_hidden_states
-
-
 # Copied from transformers.models.vit.configuration_vit.ViTOnnxConfig
 class BeitOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -240,7 +213,6 @@ class BeitOnnxConfig(OnnxConfig):
 #                 ("pixel_values", {0: "batch", 1: "num_channels", 2: "height", 3: "width"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4

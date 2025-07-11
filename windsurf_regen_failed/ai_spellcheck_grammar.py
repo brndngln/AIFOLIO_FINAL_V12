@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,36 +10,32 @@ import re
 import json
 import datetime
 import os
-
 #     os.path.join(os.path.dirname(__file__), "../../analytics/ai_spellcheck_log.jsonl")
 # )
 # os.makedirs(os.path.dirname(SPELLCHECK_LOG), exist_ok=True)
-
 # --- OWNER_LOCK = True
-
 # AI Spellcheck & Grammar
 # Performs spellchecking and grammar analysis for vault content.
-
 # --- AI Spellcheck & Grammar Correction (Static, Safe) ---
 def spellcheck_grammar(text):
     # Basic static spellcheck for demo (replace with full lib for prod)
 #     corrections = []
     if "teh" in text:
-      pass
-      pass
+    pass
+    pass
     pass
 #         text = text.replace("teh", "the")
 #         corrections.append("teh→the")
     if "recieve" in text:
-      pass
-      pass
+    pass
+    pass
     pass
 #         text = text.replace("recieve", "receive")
 #         corrections.append("recieve→receive")
     # Grammar: fix double spaces
     if "  " in text:
-      pass
-      pass
+    pass
+    pass
     pass
 #         text = re.sub(r, " ", text)
 #         corrections.append("double space")

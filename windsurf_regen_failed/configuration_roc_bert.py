@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # ROC_BERT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "weiweishi/roc-bert-base-zh": "https://huggingface.co/weiweishi/roc-bert-base-zh/resolve/main/config.json",
 # }
-
-
 class RoCBertConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`RoCBertModel`]. It is used to instantiate a
 #     RoCBert model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the RoCBert
 #     [weiweishi/roc-bert-base-zh](https://huggingface.co/weiweishi/roc-bert-base-zh) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the RoCBert model. Defines the number of different tokens that can be represented by the
@@ -105,22 +92,16 @@ class RoCBertConfig(PretrainedConfig):
 #             output_embed = torch.cat((word_embed, shape_embed, pronunciation_embed), -1), else output_embed =
 #             (word_embed + shape_embed + pronunciation_embed) / 3
 #         Example:
-
 #     ```python
 #     >>> from transformers import RoCBertModel, RoCBertConfig
-
 #     >>> # Initializing a RoCBert weiweishi/roc-bert-base-zh style configuration
 #     >>> configuration = RoCBertConfig()
-
 #     >>> # Initializing a model from the weiweishi/roc-bert-base-zh style configuration
 #     >>> model = RoCBertModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "roc_bert"
-
     def __init__(
 #         self,
 #         vocab_size=30522,

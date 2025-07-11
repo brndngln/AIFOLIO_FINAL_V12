@@ -1,37 +1,28 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # AIFOLIO
 # - Static, non-sentient
 # - Sends email with attachments, logs all sends and errors
 # - No autonomous retries or static behavior
-
 import os
 import logging
 from typing import Any
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-
 # LOG_PATH = "../../distribution/legal_exports/email_send_log.txt"
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
-
-
 def send_email(
 #     to_email: str, subject: str, content: str, attachments: list[Any] | None = None
 # ) -> Optional[int]:
     # --- SAFE AI Legal Shield: Compliance Enforcement ---
     from core.compliance.smart_legal_watcher import weekly_report
     from autonomy.ai_tools.review_analyzer import analyze_review
-
     # Scrub subject/content for banned terms/PII/financial data
     # type: ignore[no-untyped-call]
 #     analysis = analyze_review(subject + " " + content)
@@ -43,7 +34,6 @@ def send_email(
 #         raise Exception(
 #             f"Email blocked: Banned/PII/financial content detected: {analysis}"
 #         )
-
     # Inject legal disclaimer and AI-involvement label
 #     disclaimer = (
 #         "This product is for educational purposes only. Results may vary. Not professional advice. "
@@ -51,10 +41,8 @@ def send_email(
 #     )
 #     ai_label = "[AI-Generated Content]"
 #     content = f"{ai_label}\n{content}\n\n---\n{disclaimer}"
-
     # Log compliance action
 #     weekly_report()
-
 #     message = Mail(
         from_email="noreply@aifolio.com",
 #         to_emails=to_email,
@@ -62,8 +50,8 @@ def send_email(
 #         html_content=content,
 #     )
     if attachments:
-      pass
-      pass
+    pass
+    pass
     pass
         for att in attachments:
 #             message.add_attachment(att)

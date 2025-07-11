@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -21,9 +19,7 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Callable, Optional, Tuple
-
 import flax.linen as nn
 import jax
 import jax.numpy as jnp
@@ -34,7 +30,6 @@ from flax.linen import partitioning as nn_partitioning
 from flax.linen.attention import dot_product_attention_weights
 from flax.traverse_util import flatten_dict, unflatten_dict
 from jax import lax
-
 from ...modeling_flax_outputs import (
 #     FlaxBaseModelOutputWithPastAndCrossAttentions,
 #     FlaxBaseModelOutputWithPooling,
@@ -49,114 +44,82 @@ from ...modeling_flax_outputs import (
 from ...modeling_flax_utils import ACT2FN, FlaxPreTrainedModel, append_call_sample_docstring, overwrite_call_docstring
 from ...utils import add_start_docstrings, add_start_docstrings_to_model_forward, logging
 from .configuration_xlm_roberta import XLMRobertaConfig
-
-
 # logger = logging.get_logger(__name__)
-
 # _CHECKPOINT_FOR_DOC = "xlm-roberta-base"
 # _CONFIG_FOR_DOC = "XLMRobertaConfig"
-
 # remat = nn_partitioning.remat
-
 # FLAX_XLM_ROBERTA_PRETRAINED_MODEL_ARCHIVE_LIST = [
 #     "xlm-roberta-base",
 #     "xlm-roberta-large",
     # See all XLM-RoBERTa models at https://huggingface.co/models?filter=xlm-roberta
 # ]
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.create_position_ids_from_input_ids
 def create_position_ids_from_input_ids(input_ids, padding_idx):
-
 #     Replace non-padding symbols with their position numbers. Position numbers begin at padding_idx+1. Padding symbols
 #     are ignored. This is modified from fairseqs `utils.make_positions`.
-
 #     Args:
 #         input_ids: jnp.ndarray
 #         padding_idx: int
-
 #     Returns: jnp.ndarray
-
     # The series of casts and type-conversions here are carefully balanced to both work with ONNX export and XLA.
 #     mask = (input_ids != padding_idx).astype("i4")
-
     if mask.ndim > 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #         mask = mask.reshape((-1, mask.shape[-1]))
 #         incremental_indices = jnp.cumsum(mask, axis=1).astype("i4") * mask
 #         incremental_indices = incremental_indices.reshape(input_ids.shape)
     else:
 #         incremental_indices = jnp.cumsum(mask, axis=1).astype("i4") * mask
-
     return incremental_indices.astype("i4") + padding_idx
-
-
 # XLM_ROBERTA_START_DOCSTRING =
-
 #     This model inherits from [`FlaxPreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading, saving and converting weights from PyTorch models)
-
 #     This model is also a
 #     [flax.linen.Module](https://flax.readthedocs.io/en/latest/api_reference/flax.linen/module.html) subclass. Use it as
 #     a regular Flax linen Module and refer to the Flax documentation for all matter related to general usage and
 #     behavior.
-
 #     Finally, this model supports inherent JAX features such as:
-
 #     - [Just-In-Time (JIT) compilation](https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-jit)
 #     - [Automatic Differentiation](https://jax.readthedocs.io/en/latest/jax.html#automatic-differentiation)
 #     - [Vectorization](https://jax.readthedocs.io/en/latest/jax.html#vectorization-vmap)
 #     - [Parallelization](https://jax.readthedocs.io/en/latest/jax.html#parallelization-pmap)
-
 #     Parameters:
 #         config ([`XLMRobertaConfig`]): Model configuration class with all the parameters of the
 #             model. Initializing with a config file does not load the weights associated with the model, only the
 #             configuration. Check out the [`~FlaxPreTrainedModel.from_pretrained`] method to load the model weights.
-
 # XLM_ROBERTA_INPUTS_DOCSTRING = r
 #     Args:
 #         input_ids (`numpy.ndarray` of shape `({0})`):
 #             Indices of input sequence tokens in the vocabulary.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         token_type_ids (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Segment token indices to indicate first and second portions of the inputs. Indices are selected in `[0,
 #             1]`:
-
 #             - 0 corresponds to a *sentence A* token,
 #             - 1 corresponds to a *sentence B* token.
-
 #             [What are token type IDs?](../glossary#token-type-ids)
 #         position_ids (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Indices of positions of each input sequence tokens in the position embeddings. Selected in the range `[0,
 #             config.max_position_embeddings - 1]`.
 #         head_mask (`numpy.ndarray` of shape `({0})`, `optional):
 #             Mask to nullify selected heads of the attention modules. Mask values selected in `[0, 1]`:
-
 #             - 1 indicates the head is **not masked**,
 #             - 0 indicates the head is **masked**.
-
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertEmbeddings with Bert->XLMRoberta
 class FlaxXLMRobertaEmbeddings(nn.Module):
-
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.word_embeddings = nn.Embed(
 #             self.config.vocab_size,
@@ -178,39 +141,32 @@ class FlaxXLMRobertaEmbeddings(nn.Module):
 #         )
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
-
     def __call__(self, input_ids, token_type_ids, position_ids, attention_mask, deterministic: bool = True):
         # Embed
 #         inputs_embeds = self.word_embeddings(input_ids.astype("i4"))
 #         position_embeds = self.position_embeddings(position_ids.astype("i4"))
 #         token_type_embeddings = self.token_type_embeddings(token_type_ids.astype("i4"))
-
         # Sum all embeddings
 #         hidden_states = inputs_embeds + token_type_embeddings + position_embeds
-
         # Layer Norm
 #         hidden_states = self.LayerNorm(hidden_states)
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertSelfAttention with Bert->XLMRoberta
 class FlaxXLMRobertaSelfAttention(nn.Module):
 #     config: XLMRobertaConfig
 #     causal: bool = False
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.head_dim = self.config.hidden_size // self.config.num_attention_heads
         if self.config.hidden_size % self.config.num_attention_heads != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`config.hidden_size`: {self.config.hidden_size} has to be a multiple of `config.num_attention_heads` "
 #                 "                   : {self.config.num_attention_heads}"
 #             )
-
 #         self.query = nn.Dense(
 #             self.config.hidden_size,
 #             dtype=self.dtype,
@@ -226,38 +182,31 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
 #             dtype=self.dtype,
 #             kernel_init=jax.nn.initializers.normal(self.config.initializer_range),
 #         )
-
         if self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.causal_mask = make_causal_mask(
 #                 jnp.ones((1, self.config.max_position_embeddings), dtype="bool"), dtype="bool"
 #             )
-
     def _split_heads(self, hidden_states):
         return hidden_states.reshape(hidden_states.shape[:2] + (self.config.num_attention_heads, self.head_dim))
-
     def _merge_heads(self, hidden_states):
         return hidden_states.reshape(hidden_states.shape[:2] + (self.config.hidden_size,))
-
 #     @nn.compact
     # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartAttention._concatenate_to_cache
     def _concatenate_to_cache(self, key, value, query, attention_mask):
-
 #         This function takes projected key, value states from a single input token and concatenates the states to cached
 #         states from previous steps. This function is slighly adapted from the official Flax repository:
 #         https://github.com/google/flax/blob/491ce18759622506588784b4fca0e4bf05f8c8cd/flax/linen/attention.py#L252
-
         # detect if were initializing by absence of existing cache data.
 #         is_initialized = self.has_variable("cache", "cached_key")
 #         cached_key = self.variable("cache", "cached_key", jnp.zeros, key.shape, key.dtype)
 #         cached_value = self.variable("cache", "cached_value", jnp.zeros, value.shape, value.dtype)
 #         cache_index = self.variable("cache", "cache_index", lambda: jnp.array(0, dtype=jnp.int32))
-
         if is_initialized:
-      pass
-      pass
+    pass
+    pass
     pass
 #             *batch_dims, max_length, num_heads, depth_per_head = cached_key.value.shape
             # update key, value caches with our new 1d spatial slices
@@ -276,7 +225,6 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
 #             )
 #             attention_mask = combine_masks(pad_mask, attention_mask)
         return key, value, attention_mask
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -291,13 +239,12 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
         # for the decoder
 #         is_cross_attention = key_value_states is not None
 #         batch_size = hidden_states.shape[0]
-
         # get query proj
 #         query_states = self.query(hidden_states)
         # get key, value proj
         if is_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
             # cross_attentions
 #             key_states = self.key(key_value_states)
@@ -306,20 +253,18 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
             # self_attention
 #             key_states = self.key(hidden_states)
 #             value_states = self.value(hidden_states)
-
 #         query_states = self._split_heads(query_states)
 #         key_states = self._split_heads(key_states)
 #         value_states = self._split_heads(value_states)
-
         # handle cache prepare causal attention mask
         if self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             query_length, key_length = query_states.shape[1], key_states.shape[1]
             if self.has_variable("cache", "cached_key"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 mask_shift = self.variables["cache"]["cache_index"]
 #                 max_decoder_length = self.variables["cache"]["cached_key"].shape[1]
@@ -329,11 +274,10 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
             else:
 #                 causal_mask = self.causal_mask[:, :, :query_length, :key_length]
 #             causal_mask = jnp.broadcast_to(causal_mask, (batch_size,) + causal_mask.shape[1:])
-
         # combine masks if needed
         if attention_mask is not None and self.causal:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.broadcast_to(jnp.expand_dims(attention_mask, axis=(-3, -2)), causal_mask.shape)
 #             attention_mask = combine_masks(attention_mask, causal_mask)
@@ -343,21 +287,19 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
         elif attention_mask is not None:
     pass
 #             attention_mask = jnp.expand_dims(attention_mask, axis=(-3, -2))
-
         # During fast autoregressive decoding, we feed one position at a time,
         # and cache the keys and values step by step.
         if self.causal and (self.has_variable("cache", "cached_key") or init_cache):
-      pass
-      pass
+    pass
+    pass
     pass
 #             key_states, value_states, attention_mask = self._concatenate_to_cache(
 #                 key_states, value_states, query_states, attention_mask
 #             )
-
         # Convert the boolean attention mask to an attention bias.
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # attention mask in the form of attention bias
 #             attention_bias = lax.select(
@@ -367,14 +309,12 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
 #             )
         else:
 #             attention_bias = None
-
 #         dropout_rng = None
         if not deterministic and self.config.attention_probs_dropout_prob > 0.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dropout_rng = self.make_rng("dropout")
-
 #         attn_weights = dot_product_attention_weights(
 #             query_states,
 #             key_states,
@@ -386,26 +326,20 @@ class FlaxXLMRobertaSelfAttention(nn.Module):
 #             dtype=self.dtype,
 #             precision=None,
 #         )
-
         # Mask heads if we want to
         if layer_head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attn_weights = jnp.einsum("...hqk,h->...hqk", attn_weights, layer_head_mask)
-
 #         attn_output = jnp.einsum("...hqk,...khd->...qhd", attn_weights, value_states)
 #         attn_output = attn_output.reshape(attn_output.shape[:2] + (-1,))
-
 #         outputs = (attn_output, attn_weights) if output_attentions else (attn_output,)
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertSelfOutput with Bert->XLMRoberta
 class FlaxXLMRobertaSelfOutput(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.hidden_size,
@@ -414,24 +348,19 @@ class FlaxXLMRobertaSelfOutput(nn.Module):
 #         )
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
-
     def __call__(self, hidden_states, input_tensor, deterministic: bool = True):
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
 #         hidden_states = self.LayerNorm(hidden_states + input_tensor)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertAttention with Bert->XLMRoberta
 class FlaxXLMRobertaAttention(nn.Module):
 #     config: XLMRobertaConfig
 #     causal: bool = False
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.self = FlaxXLMRobertaSelfAttention(self.config, causal=self.causal, dtype=self.dtype)
 #         self.output = FlaxXLMRobertaSelfOutput(self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -456,23 +385,17 @@ class FlaxXLMRobertaAttention(nn.Module):
 #         )
 #         attn_output = attn_outputs[0]
 #         hidden_states = self.output(attn_output, hidden_states, deterministic=deterministic)
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (attn_outputs[1],)
-
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertIntermediate with Bert->XLMRoberta
 class FlaxXLMRobertaIntermediate(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.intermediate_size,
@@ -480,18 +403,14 @@ class FlaxXLMRobertaIntermediate(nn.Module):
 #             dtype=self.dtype,
 #         )
 #         self.activation = ACT2FN[self.config.hidden_act]
-
     def __call__(self, hidden_states):
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.activation(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertOutput with Bert->XLMRoberta
 class FlaxXLMRobertaOutput(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.hidden_size,
@@ -500,29 +419,24 @@ class FlaxXLMRobertaOutput(nn.Module):
 #         )
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
-
     def __call__(self, hidden_states, attention_output, deterministic: bool = True):
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
 #         hidden_states = self.LayerNorm(hidden_states + attention_output)
         return hidden_states
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertLayer with Bert->XLMRoberta
 class FlaxXLMRobertaLayer(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.attention = FlaxXLMRobertaAttention(self.config, causal=self.config.is_decoder, dtype=self.dtype)
 #         self.intermediate = FlaxXLMRobertaIntermediate(self.config, dtype=self.dtype)
 #         self.output = FlaxXLMRobertaOutput(self.config, dtype=self.dtype)
         if self.config.add_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.crossattention = FlaxXLMRobertaAttention(self.config, causal=False, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -544,11 +458,10 @@ class FlaxXLMRobertaLayer(nn.Module):
 #             output_attentions=output_attentions,
 #         )
 #         attention_output = attention_outputs[0]
-
         # Cross-Attention Block
         if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cross_attention_outputs = self.crossattention(
 #                 attention_output,
@@ -559,35 +472,29 @@ class FlaxXLMRobertaLayer(nn.Module):
 #                 output_attentions=output_attentions,
 #             )
 #             attention_output = cross_attention_outputs[0]
-
 #         hidden_states = self.intermediate(attention_output)
 #         hidden_states = self.output(hidden_states, attention_output, deterministic=deterministic)
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (attention_outputs[1],)
             if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 outputs += (cross_attention_outputs[1],)
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertLayerCollection with Bert->XLMRoberta
 class FlaxXLMRobertaLayerCollection(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
 #     gradient_checkpointing: bool = False
-
     def setup(self):
         if self.gradient_checkpointing:
-      pass
-      pass
+    pass
+    pass
     pass
 #             FlaxXLMRobertaCheckpointLayer = remat(FlaxXLMRobertaLayer, static_argnums=(5, 6, 7))
 #             self.layers = [
@@ -599,7 +506,6 @@ class FlaxXLMRobertaLayerCollection(nn.Module):
 #                 FlaxXLMRobertaLayer(self.config, name=str(i), dtype=self.dtype)
                 for i in range(self.config.num_hidden_layers)
 #             ]
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -616,28 +522,25 @@ class FlaxXLMRobertaLayerCollection(nn.Module):
 #         all_attentions = () if output_attentions else None
 #         all_hidden_states = () if output_hidden_states else None
 #         all_cross_attentions = () if (output_attentions and encoder_hidden_states is not None) else None
-
         # Check if head_mask has a correct number of layers specified if desired
         if head_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if head_mask.shape[0] != (len(self.layers)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"The head_mask should be specified for {len(self.layers)} layers, but it is for                  "
 #                     f"       {head_mask.shape[0]}."
 #                 )
-
         for i, layer in enumerate(self.layers):
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states += (hidden_states,)
-
 #             layer_outputs = layer(
 #                 hidden_states,
 #                 attention_mask,
@@ -648,56 +551,45 @@ class FlaxXLMRobertaLayerCollection(nn.Module):
 #                 deterministic,
 #                 output_attentions,
 #             )
-
 #             hidden_states = layer_outputs[0]
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_attentions += (layer_outputs[1],)
-
                 if encoder_hidden_states is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     all_cross_attentions += (layer_outputs[2],)
-
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             all_hidden_states += (hidden_states,)
-
 #         outputs = (hidden_states, all_hidden_states, all_attentions, all_cross_attentions)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(v for v in outputs if v is not None)
-
         return FlaxBaseModelOutputWithPastAndCrossAttentions(
 #             last_hidden_state=hidden_states,
 #             hidden_states=all_hidden_states,
 #             attentions=all_attentions,
 #             cross_attentions=all_cross_attentions,
 #         )
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertEncoder with Bert->XLMRoberta
 class FlaxXLMRobertaEncoder(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.layer = FlaxXLMRobertaLayerCollection(
 #             self.config,
 #             dtype=self.dtype,
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -723,32 +615,25 @@ class FlaxXLMRobertaEncoder(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertPooler with Bert->XLMRoberta
 class FlaxXLMRobertaPooler(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.hidden_size,
 #             kernel_init=jax.nn.initializers.normal(self.config.initializer_range),
 #             dtype=self.dtype,
 #         )
-
     def __call__(self, hidden_states):
 #         cls_hidden_state = hidden_states[:, 0]
 #         cls_hidden_state = self.dense(cls_hidden_state)
         return nn.tanh(cls_hidden_state)
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaLMHead with Roberta->XLMRoberta
 class FlaxXLMRobertaLMHead(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     bias_init: Callable[..., np.ndarray] = jax.nn.initializers.zeros
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.hidden_size,
@@ -763,30 +648,24 @@ class FlaxXLMRobertaLMHead(nn.Module):
 #             kernel_init=jax.nn.initializers.normal(self.config.initializer_range),
 #         )
 #         self.bias = self.param("bias", self.bias_init, (self.config.vocab_size,))
-
     def __call__(self, hidden_states, shared_embedding=None):
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = ACT2FN["gelu"](hidden_states)
 #         hidden_states = self.layer_norm(hidden_states)
-
         if shared_embedding is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hidden_states = self.decoder.apply({"params": {"kernel": shared_embedding.T}}, hidden_states)
         else:
 #             hidden_states = self.decoder(hidden_states)
-
 #         bias = jnp.asarray(self.bias, self.dtype)
 #         hidden_states += bias
         return hidden_states
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaClassificationHead with Roberta->XLMRoberta
 class FlaxXLMRobertaClassificationHead(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.dense = nn.Dense(
 #             self.config.hidden_size,
@@ -804,7 +683,6 @@ class FlaxXLMRobertaClassificationHead(nn.Module):
 #             dtype=self.dtype,
 #             kernel_init=jax.nn.initializers.normal(self.config.initializer_range),
 #         )
-
     def __call__(self, hidden_states, deterministic=True):
 #         hidden_states = hidden_states[:, 0, :]  # take <s> token (equiv. to [CLS])
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
@@ -813,18 +691,12 @@ class FlaxXLMRobertaClassificationHead(nn.Module):
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
 #         hidden_states = self.out_proj(hidden_states)
         return hidden_states
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaPreTrainedModel with Roberta->XLMRoberta, roberta->xlm-roberta, ROBERTA->XLM_ROBERTA
 class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
-
 #     An abstract class to handle weights initialization and a simple interface for downloading and loading pretrained
 #     models.
-
 #     config_class = XLMRobertaConfig
 #     base_model_prefix = "xlm-roberta"
-
-
     def __init__(
 #         self,
 #         config: XLMRobertaConfig,
@@ -836,7 +708,6 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
 #         **kwargs,
 #     ):
 #         super().__init__(config, module, input_shape=input_shape, seed=seed, dtype=dtype, _do_init=_do_init)
-
     # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertPreTrainedModel.enable_gradient_checkpointing
     def enable_gradient_checkpointing(self):
 #         self._module = self.module_class(
@@ -844,7 +715,6 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
 #             dtype=self.dtype,
 #             gradient_checkpointing=True,
 #         )
-
     def init_weights(self, rng: jax.random.PRNGKey, input_shape: Tuple, params: FrozenDict = None) -> FrozenDict:
         # init input tensors
 #         input_ids = jnp.zeros(input_shape, dtype="i4")
@@ -852,13 +722,11 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
 #         position_ids = create_position_ids_from_input_ids(input_ids, self.config.pad_token_id)
 #         attention_mask = jnp.ones_like(input_ids)
 #         head_mask = jnp.ones((self.config.num_hidden_layers, self.config.num_attention_heads))
-
 #         params_rng, dropout_rng = jax.random.split(rng)
 #         rngs = {"params": params_rng, "dropout": dropout_rng}
-
         if self.config.add_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoder_hidden_states = jnp.zeros(input_shape + (self.config.hidden_size,))
 #             encoder_attention_mask = attention_mask
@@ -875,12 +743,10 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
         else:
 #                 rngs, input_ids, attention_mask, token_type_ids, position_ids, head_mask, return_dict=False
 #             )
-
 #         random_params = module_init_outputs["params"]
-
         if params is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             random_params = flatten_dict(unfreeze(random_params))
 #             params = flatten_dict(unfreeze(params))
@@ -890,27 +756,22 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
             return freeze(unflatten_dict(params))
         else:
             return random_params
-
     # Copied from transformers.models.bart.modeling_flax_bart.FlaxBartDecoderPreTrainedModel.init_cache
     def init_cache(self, batch_size, max_length):
-
 #         Args:
 #             batch_size (`int`):
 #                 batch_size used for fast auto-regressive decoding. Defines the batch size of the initialized cache.
 #             max_length (`int`):
 #                 maximum possible length for auto-regressive decoding. Defines the sequence length of the initialized
 #                 cache.
-
         # init input variables to retrieve cache
 #         input_ids = jnp.ones((batch_size, max_length), dtype="i4")
 #         attention_mask = jnp.ones_like(input_ids, dtype="i4")
 #         position_ids = jnp.broadcast_to(jnp.arange(jnp.atleast_2d(input_ids).shape[-1]), input_ids.shape)
-
 #         init_variables = self.module.init(
 #             jax.random.PRNGKey(0), input_ids, attention_mask, position_ids, return_dict=False, init_cache=True
 #         )
         return unfreeze(init_variables["cache"])
-
 #     @add_start_docstrings_to_model_forward(XLM_ROBERTA_INPUTS_DOCSTRING.format("batch_size, sequence_length"))
     def __call__(
 #         self,
@@ -934,58 +795,50 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
         # init input tensors if not passed
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             token_type_ids = jnp.zeros_like(input_ids)
-
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = create_position_ids_from_input_ids(input_ids, self.config.pad_token_id)
-
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.ones_like(input_ids)
-
         if head_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             head_mask = jnp.ones((self.config.num_hidden_layers, self.config.num_attention_heads))
-
         # Handle any PRNG if needed
 #         rngs = {}
         if dropout_rng is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rngs["dropout"] = dropout_rng
-
 #         inputs = {"params": params or self.params}
-
         if self.config.add_cross_attention:
-      pass
-      pass
+    pass
+    pass
     pass
             # if past_key_values are passed then cache is already initialized a private flag init_cache has to be passed
             # down to ensure cache is used. It has to be made sure that cache is marked as mutable so that it can be
             # changed by FlaxXLMRobertaAttention module
             if past_key_values:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 inputs["cache"] = past_key_values
 #                 mutable = ["cache"]
             else:
 #                 mutable = False
-
 #             outputs = self.module.apply(
 #                 inputs,
 #                 jnp.array(input_ids, dtype="i4"),
@@ -1002,11 +855,10 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
 #                 rngs=rngs,
 #                 mutable=mutable,
 #             )
-
             # add updated cache to model output
             if past_key_values is not None and return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 outputs, past_key_values = outputs
 #                 outputs["past_key_values"] = unfreeze(past_key_values["cache"])
@@ -1015,7 +867,6 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
     pass
 #                 outputs, past_key_values = outputs
 #                 outputs = outputs[:1] + (unfreeze(past_key_values["cache"]),) + outputs[1:]
-
         else:
 #             outputs = self.module.apply(
 #                 inputs,
@@ -1030,17 +881,13 @@ class FlaxXLMRobertaPreTrainedModel(FlaxPreTrainedModel):
                 return_dict=return_dict,
 #                 rngs=rngs,
 #             )
-
         return outputs
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertModule with Bert->XLMRoberta
 class FlaxXLMRobertaModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
 #     add_pooling_layer: bool = True
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.embeddings = FlaxXLMRobertaEmbeddings(self.config, dtype=self.dtype)
 #         self.encoder = FlaxXLMRobertaEncoder(
@@ -1049,7 +896,6 @@ class FlaxXLMRobertaModule(nn.Module):
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
 #         self.pooler = FlaxXLMRobertaPooler(self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1067,18 +913,16 @@ class FlaxXLMRobertaModule(nn.Module):
 #     ):
         # make sure `token_type_ids` is correctly initialized when not passed
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             token_type_ids = jnp.zeros_like(input_ids)
-
         # make sure `position_ids` is correctly initialized when not passed
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = jnp.broadcast_to(jnp.arange(jnp.atleast_2d(input_ids).shape[-1]), input_ids.shape)
-
 #         hidden_states = self.embeddings(
 #             input_ids, token_type_ids, position_ids, attention_mask, deterministic=deterministic
 #         )
@@ -1096,19 +940,17 @@ class FlaxXLMRobertaModule(nn.Module):
 #         )
 #         hidden_states = outputs[0]
 #         pooled = self.pooler(hidden_states) if self.add_pooling_layer else None
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             # if pooled is None, dont return it
             if pooled is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return (hidden_states,) + outputs[1:]
             return (hidden_states, pooled) + outputs[1:]
-
         return FlaxBaseModelOutputWithPoolingAndCrossAttentions(
 #             last_hidden_state=hidden_states,
 #             pooler_output=pooled,
@@ -1116,24 +958,17 @@ class FlaxXLMRobertaModule(nn.Module):
 #             attentions=outputs.attentions,
 #             cross_attentions=outputs.cross_attentions,
 #         )
-
-
 # @add_start_docstrings(
 #     "The bare XLM RoBERTa Model transformer outputting raw hidden-states without any specific head on top.",
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 class FlaxXLMRobertaModel(FlaxXLMRobertaPreTrainedModel):
-
-
 # append_call_sample_docstring(FlaxXLMRobertaModel, _CHECKPOINT_FOR_DOC, FlaxBaseModelOutputWithPooling, _CONFIG_FOR_DOC)
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaForMaskedLMModule with Roberta->XLMRoberta
 class FlaxXLMRobertaForMaskedLMModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1142,7 +977,6 @@ class FlaxXLMRobertaForMaskedLMModule(nn.Module):
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
 #         self.lm_head = FlaxXLMRobertaLMHead(config=self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1167,36 +1001,28 @@ class FlaxXLMRobertaForMaskedLMModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shared_embedding = self.roberta.variables["params"]["embeddings"]["word_embeddings"]["embedding"]
         else:
 #             shared_embedding = None
-
         # Compute the prediction scores
 #         logits = self.lm_head(hidden_states, shared_embedding=shared_embedding)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxMaskedLMOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings."""XLM RoBERTa Model with a `language modeling` head on top.""", XLM_ROBERTA_START_DOCSTRING)
 class FlaxXLMRobertaForMaskedLM(FlaxXLMRobertaPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxXLMRobertaForMaskedLM,
 #     _CHECKPOINT_FOR_DOC,
@@ -1204,14 +1030,11 @@ class FlaxXLMRobertaForMaskedLM(FlaxXLMRobertaPreTrainedModel):
 #     _CONFIG_FOR_DOC,
 #     mask="<mask>",
 # )
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaForSequenceClassificationModule with Roberta->XLMRoberta
 class FlaxXLMRobertaForSequenceClassificationModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1220,7 +1043,6 @@ class FlaxXLMRobertaForSequenceClassificationModule(nn.Module):
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
 #         self.classifier = FlaxXLMRobertaClassificationHead(config=self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1245,46 +1067,35 @@ class FlaxXLMRobertaForSequenceClassificationModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         sequence_output = outputs[0]
 #         logits = self.classifier(sequence_output, deterministic=deterministic)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxSequenceClassifierOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     pooled output) e.g. for GLUE tasks.
 """    """,
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 class FlaxXLMRobertaForSequenceClassification(FlaxXLMRobertaPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxXLMRobertaForSequenceClassification,
 #     _CHECKPOINT_FOR_DOC,
 #     FlaxSequenceClassifierOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertForMultipleChoiceModule with Bert->XLMRoberta, with self.bert->self.roberta
 class FlaxXLMRobertaForMultipleChoiceModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1293,7 +1104,6 @@ class FlaxXLMRobertaForMultipleChoiceModule(nn.Module):
 #         )
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
 #         self.classifier = nn.Dense(1, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1311,7 +1121,6 @@ class FlaxXLMRobertaForMultipleChoiceModule(nn.Module):
 #         attention_mask = attention_mask.reshape(-1, attention_mask.shape[-1]) if attention_mask is not None else None
 #         token_type_ids = token_type_ids.reshape(-1, token_type_ids.shape[-1]) if token_type_ids is not None else None
 #         position_ids = position_ids.reshape(-1, position_ids.shape[-1]) if position_ids is not None else None
-
         # Model
 #         outputs = self.roberta(
 #             input_ids,
@@ -1324,35 +1133,26 @@ class FlaxXLMRobertaForMultipleChoiceModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = outputs[1]
 #         pooled_output = self.dropout(pooled_output, deterministic=deterministic)
 #         logits = self.classifier(pooled_output)
-
 #         reshaped_logits = logits.reshape(-1, num_choices)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (reshaped_logits,) + outputs[2:]
-
         return FlaxMultipleChoiceModelOutput(
 #             logits=reshaped_logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     a softmax) e.g. for RocStories/SWAG tasks.
 """    """,
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 class FlaxXLMRobertaForMultipleChoice(FlaxXLMRobertaPreTrainedModel):
-
-
 # overwrite_call_docstring(
 #     FlaxXLMRobertaForMultipleChoice, XLM_ROBERTA_INPUTS_DOCSTRING.format("batch_size, num_choices, sequence_length")
 # )
@@ -1362,14 +1162,11 @@ class FlaxXLMRobertaForMultipleChoice(FlaxXLMRobertaPreTrainedModel):
 #     FlaxMultipleChoiceModelOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertForTokenClassificationModule with Bert->XLMRoberta, with self.bert->self.roberta
 class FlaxXLMRobertaForTokenClassificationModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1384,7 +1181,6 @@ class FlaxXLMRobertaForTokenClassificationModule(nn.Module):
 #         )
 #         self.dropout = nn.Dropout(rate=classifier_dropout)
 #         self.classifier = nn.Dense(self.config.num_labels, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1409,47 +1205,36 @@ class FlaxXLMRobertaForTokenClassificationModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
 #         logits = self.classifier(hidden_states)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxTokenClassifierOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
     for Named-Entity-Recognition (NER) tasks.
 """    """,
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 class FlaxXLMRobertaForTokenClassification(FlaxXLMRobertaPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxXLMRobertaForTokenClassification,
 #     _CHECKPOINT_FOR_DOC,
 #     FlaxTokenClassifierOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 # Copied from transformers.models.bert.modeling_flax_bert.FlaxBertForQuestionAnsweringModule with Bert->XLMRoberta, with self.bert->self.roberta
 class FlaxXLMRobertaForQuestionAnsweringModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1458,7 +1243,6 @@ class FlaxXLMRobertaForQuestionAnsweringModule(nn.Module):
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
 #         self.qa_outputs = nn.Dense(self.config.num_labels, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1483,51 +1267,39 @@ class FlaxXLMRobertaForQuestionAnsweringModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
-
 #         logits = self.qa_outputs(hidden_states)
 #         start_logits, end_logits = logits.split(self.config.num_labels, axis=-1)
 #         start_logits = start_logits.squeeze(-1)
 #         end_logits = end_logits.squeeze(-1)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (start_logits, end_logits) + outputs[1:]
-
         return FlaxQuestionAnsweringModelOutput(
 #             start_logits=start_logits,
 #             end_logits=end_logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     linear layers on top of the hidden-states output to compute `span start logits` and `span end logits`).
 """    """,
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 class FlaxXLMRobertaForQuestionAnswering(FlaxXLMRobertaPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxXLMRobertaForQuestionAnswering,
 #     _CHECKPOINT_FOR_DOC,
 #     FlaxQuestionAnsweringModelOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaForCausalLMModule with Roberta->XLMRoberta
 class FlaxXLMRobertaForCausalLMModule(nn.Module):
 #     config: XLMRobertaConfig
 #     dtype: jnp.dtype = jnp.float32
 #     gradient_checkpointing: bool = False
-
     def setup(self):
 #         self.roberta = FlaxXLMRobertaModule(
 #             config=self.config,
@@ -1536,7 +1308,6 @@ class FlaxXLMRobertaForCausalLMModule(nn.Module):
 #             gradient_checkpointing=self.gradient_checkpointing,
 #         )
 #         self.lm_head = FlaxXLMRobertaLMHead(config=self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1567,72 +1338,59 @@ class FlaxXLMRobertaForCausalLMModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shared_embedding = self.roberta.variables["params"]["embeddings"]["word_embeddings"]["embedding"]
         else:
 #             shared_embedding = None
-
         # Compute the prediction scores
 #         logits = self.lm_head(hidden_states, shared_embedding=shared_embedding)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxCausalLMOutputWithCrossAttentions(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #             cross_attentions=outputs.cross_attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     autoregressive tasks.
 #     "",
 #     XLM_ROBERTA_START_DOCSTRING,
 # )
 # Copied from transformers.models.roberta.modeling_flax_roberta.FlaxRobertaForCausalLM with Roberta->XLMRoberta
 class FlaxXLMRobertaForCausalLM(FlaxXLMRobertaPreTrainedModel):
-
     def prepare_inputs_for_generation(self, input_ids, max_length, attention_mask: Optional[jax.Array] = None):
         # initializing the cache
 #         batch_size, seq_length = input_ids.shape
-
 #         past_key_values = self.init_cache(batch_size, max_length)
         # Note that usually one would have to put 0s in the attention_mask for x > input_ids.shape[-1] and x < cache_length.
         # But since the decoder uses a causal mask, those positions are masked anyway.
         # Thus, we can create a single static attention_mask here, which is more efficient for compilation
 #         extended_attention_mask = jnp.ones((batch_size, max_length), dtype="i4")
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = attention_mask.cumsum(axis=-1) - 1
 #             extended_attention_mask = lax.dynamic_update_slice(extended_attention_mask, attention_mask, (0, 0))
         else:
 #             position_ids = jnp.broadcast_to(jnp.arange(seq_length, dtype="i4")[None, :], (batch_size, seq_length))
-
         return {
 #             "past_key_values": past_key_values,
 #             "attention_mask": extended_attention_mask,
 #             "position_ids": position_ids,
 #         }
-
     def update_inputs_for_generation(self, model_outputs, model_kwargs):
 #         model_kwargs["past_key_values"] = model_outputs.past_key_values
 #         model_kwargs["position_ids"] = model_kwargs["position_ids"][:, -1:] + 1
         return model_kwargs
-
-
 # append_call_sample_docstring(
 #     FlaxXLMRobertaForCausalLM,
 #     _CHECKPOINT_FOR_DOC,

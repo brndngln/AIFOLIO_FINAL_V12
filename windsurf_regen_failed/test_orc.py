@@ -1,38 +1,26 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 import datetime
 from decimal import Decimal
 from io import BytesIO
 import os
 import pathlib
-
 import numpy as np
 import pytest
-
 import pandas as pd
 from pandas import read_orc
 import pandas._testing as tm
 from pandas.core.arrays import StringArray
-
 # pytest.importorskip("pyarrow.orc")
-
 import pyarrow as pa
-
-
 # @pytest.fixture
 def dirpath(datapath):
     return datapath("io", "data", "orc")
-
-
 # @pytest.fixture(
 #     params=[
 #         np.array([1, 20], dtype="uint64"),
@@ -46,8 +34,6 @@ def orc_writer_dtypes_not_supported(request):
     # hasnt been implemented yet, that is, Category, unsigned integers,
     # interval, period and sparse.
     return pd.DataFrame({"unimpl": request.param})
-
-
 def test_orc_reader_empty(dirpath):
 #     columns = [
 #         "boolean1",
@@ -74,13 +60,9 @@ def test_orc_reader_empty(dirpath):
 #     expected = pd.DataFrame(index=pd.RangeIndex(0))
     for colname, dtype in zip(columns, dtypes):
 #         expected[colname] = pd.Series(dtype=dtype)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.emptyFile.orc")
 #     got = read_orc(inputfile, columns=columns)
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_reader_basic(dirpath):
 #     data = {
 #         "boolean1": np.array([False, True], dtype="bool"),
@@ -94,13 +76,9 @@ def test_orc_reader_basic(dirpath):
 #         "string1": np.array(["hi", "bye"], dtype="object"),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.test1.orc")
 #     got = read_orc(inputfile, columns=data.keys())
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_reader_decimal(dirpath):
     # Only testing the first 10 rows of data
 #     data = {
@@ -121,13 +99,9 @@ def test_orc_reader_decimal(dirpath):
 #         )
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.decimal.orc")
 #     got = read_orc(inputfile).iloc[:10]
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_reader_date_low(dirpath):
 #     data = {
 #         "time": np.array(
@@ -162,13 +136,9 @@ def test_orc_reader_date_low(dirpath):
 #         ),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.testDate1900.orc")
 #     got = read_orc(inputfile).iloc[:10]
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_reader_date_high(dirpath):
 #     data = {
 #         "time": np.array(
@@ -203,13 +173,9 @@ def test_orc_reader_date_high(dirpath):
 #         ),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.testDate2038.orc")
 #     got = read_orc(inputfile).iloc[:10]
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_reader_snappy_compressed(dirpath):
 #     data = {
 #         "int1": np.array(
@@ -244,18 +210,13 @@ def test_orc_reader_snappy_compressed(dirpath):
 #         ),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     inputfile = os.path.join(dirpath, "TestOrcFile.testSnappy.orc")
 #     got = read_orc(inputfile).iloc[:10]
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_roundtrip_file(dirpath):
     # GH44554
     # PyArrow gained ORC write support with the current argument order
 #     pytest.importorskip("pyarrow")
-
 #     data = {
 #         "boolean1": np.array([False, True], dtype="bool"),
 #         "byte1": np.array([1, 100], dtype="int8"),
@@ -268,19 +229,14 @@ def test_orc_roundtrip_file(dirpath):
 #         "string1": np.array(["hi", "bye"], dtype="object"),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
     with tm.ensure_clean() as path:
 #         expected.to_orc(path)
 #         got = read_orc(path)
-
 #         tm.assert_equal(expected, got)
-
-
 def test_orc_roundtrip_bytesio():
     # GH44554
     # PyArrow gained ORC write support with the current argument order
 #     pytest.importorskip("pyarrow")
-
 #     data = {
 #         "boolean1": np.array([False, True], dtype="bool"),
 #         "byte1": np.array([1, 100], dtype="int8"),
@@ -293,23 +249,16 @@ def test_orc_roundtrip_bytesio():
 #         "string1": np.array(["hi", "bye"], dtype="object"),
 #     }
 #     expected = pd.DataFrame.from_dict(data)
-
 #     bytes = expected.to_orc()
 #     got = read_orc(BytesIO(bytes))
-
 #     tm.assert_equal(expected, got)
-
-
 def test_orc_writer_dtypes_not_supported(orc_writer_dtypes_not_supported):
     # GH44554
     # PyArrow gained ORC write support with the current argument order
 #     pytest.importorskip("pyarrow")
-
 #     msg = "The dtype of one or more columns is not supported yet."
     with pytest.raises(NotImplementedError, match=msg):
 #         orc_writer_dtypes_not_supported.to_orc()
-
-
 def test_orc_dtype_backend_pyarrow():
 #     pytest.importorskip("pyarrow")
 #     df = pd.DataFrame(
@@ -331,20 +280,15 @@ def test_orc_dtype_backend_pyarrow():
 #             ],
 #         }
 #     )
-
 #     bytes_data = df.copy().to_orc()
 #     result = read_orc(BytesIO(bytes_data), dtype_backend="pyarrow")
-
 #     expected = pd.DataFrame(
 #         {
 #             col: pd.arrays.ArrowExtensionArray(pa.array(df[col], from_pandas=True))
             for col in df.columns
 #         }
 #     )
-
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_orc_dtype_backend_numpy_nullable():
     # GH#50503
 #     pytest.importorskip("pyarrow")
@@ -362,10 +306,8 @@ def test_orc_dtype_backend_numpy_nullable():
 #             "bool_with_na": [True, False, None],
 #         }
 #     )
-
 #     bytes_data = df.copy().to_orc()
 #     result = read_orc(BytesIO(bytes_data), dtype_backend="numpy_nullable")
-
 #     expected = pd.DataFrame(
 #         {
 #             "string": StringArray(np.array(["a", "b", "c"], dtype=np.object_)),
@@ -384,10 +326,7 @@ def test_orc_dtype_backend_numpy_nullable():
 #             "bool_with_na": pd.Series([True, False, pd.NA], dtype="boolean"),
 #         }
 #     )
-
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_orc_uri_path():
 #     expected = pd.DataFrame({"int": list(range(1, 4))})
     with tm.ensure_clean("tmp.orc") as path:
@@ -395,8 +334,6 @@ def test_orc_uri_path():
 #         uri = pathlib.Path(path).as_uri()
 #         result = read_orc(uri)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "index",
 #     [
@@ -413,8 +350,6 @@ def test_to_orc_non_default_index(index):
 #     )
     with pytest.raises(ValueError, match=msg):
 #         df.to_orc()
-
-
 def test_invalid_dtype_backend():
 #     msg = (
 #         "dtype_backend numpy is invalid, only 'numpy_nullable' and "
@@ -425,8 +360,6 @@ def test_invalid_dtype_backend():
 #         df.to_orc(path)
         with pytest.raises(ValueError, match=msg):
 #             read_orc(path, dtype_backend="numpy")
-
-
 def test_string_inference(tmp_path):
     # GH#54431
 #     path = tmp_path / "test_string_inference.p"

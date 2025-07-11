@@ -1,26 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Phase 9+ SAFE AI Audit Log Streaming (static, SAFE AI compliant)
 # - Provides a static, polling-based streaming endpoint for the audit log
 # - No adaptive logic; fully auditable and static
-
 import time
 from fastapi import APIRouter, Request
 from fastapi.responses import StreamingResponse
-
 # audit_router = APIRouter()
-
-
 # @audit_router.get("/phase9/audit_log/stream")
 def stream_audit_log(request: Request):
     def event_stream():
@@ -32,8 +24,8 @@ def stream_audit_log(request: Request):
 #                     f.seek(last_pos)
 #                     lines = f.readlines()
                     if lines:
-      pass
-      pass
+    pass
+    pass
     pass
                         for line in lines:
 #                             yield f"data: {line.strip()}\n\n"
@@ -42,18 +34,15 @@ def stream_audit_log(request: Request):
 #                 pass
 #             time.sleep(2)  # Poll every 2 seconds
             if await_disconnect(request):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
-
     return StreamingResponse(event_stream(), media_type="text/event-stream")
-
-
 def await_disconnect(request):
     if hasattr(request, "is_disconnected"):
-      pass
-      pass
+    pass
+    pass
     pass
         return request.is_disconnected()
     return False

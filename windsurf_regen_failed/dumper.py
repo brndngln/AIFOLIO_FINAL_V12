@@ -1,23 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # __all__ = ['BaseDumper', 'SafeDumper', 'Dumper']
-
 from .emitter import *
 from .serializer import *
 from .representer import *
 from .resolver import *
-
 class BaseDumper(Emitter, Serializer, BaseRepresenter, BaseResolver):
-
     def __init__(self, stream,
             default_style=None, default_flow_style=False,
 #             canonical=None, indent=None, width=None,
@@ -33,9 +26,7 @@ class BaseDumper(Emitter, Serializer, BaseRepresenter, BaseResolver):
 #         Representer.__init__(self, default_style=default_style,
                 default_flow_style=default_flow_style, sort_keys=sort_keys)
 #         Resolver.__init__(self)
-
 class SafeDumper(Emitter, Serializer, SafeRepresenter, Resolver):
-
     def __init__(self, stream,
             default_style=None, default_flow_style=False,
 #             canonical=None, indent=None, width=None,
@@ -51,9 +42,7 @@ class SafeDumper(Emitter, Serializer, SafeRepresenter, Resolver):
 #         SafeRepresenter.__init__(self, default_style=default_style,
                 default_flow_style=default_flow_style, sort_keys=sort_keys)
 #         Resolver.__init__(self)
-
 class Dumper(Emitter, Serializer, Representer, Resolver):
-
     def __init__(self, stream,
             default_style=None, default_flow_style=False,
 #             canonical=None, indent=None, width=None,

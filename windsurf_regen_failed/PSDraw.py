@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #
@@ -24,33 +21,24 @@ from typing import Optional
 #
 # See the README file for information on usage and redistribution.
 #
-
 import sys
-
 from . import EpsImagePlugin
-
 ##
 # Simple PostScript graphics interface.
-
-
 class PSDraw:
-
 #     Sets up printing to the given file. If ``fp`` is omitted,
 #     ``sys.stdout.buffer`` or ``sys.stdout`` is assumed.
-
     def __init__(self, fp=None):
         if not fp:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
 #                 fp = sys.stdout.buffer
             except AttributeError:
 #                 fp = sys.stdout
 #         self.fp = fp
-
     def begin_document(self, id=None):
-
         # FIXME: incomplete
 #         self.fp.write(
 #             b"%!PS-Adobe-3.0\n"
@@ -64,68 +52,50 @@ class PSDraw:
 #         self.fp.write(VDI_PS)
 #         self.fp.write(b"%%EndProlog\n")
 #         self.isofont = {}
-
     def end_document(self):
-
 #         self.fp.write(b"%%EndDocument\nrestore showpage\n%%End\n")
         if hasattr(self.fp, "flush"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.fp.flush()
-
     def setfont(self, font, size):
-
 #         Selects which font to use.
-
-
 #         font = bytes(font, "UTF-8")
         if font not in self.isofont:
-      pass
-      pass
+    pass
+    pass
     pass
             # reencode font
 #             self.fp.write(b"/PSDraw-%s ISOLatin1Encoding /%s E\n" % (font, font))
 #             self.isofont[font] = 1
         # rough
 #         self.fp.write(b"/F0 %d /PSDraw-%s F\n" % (size, font))
-
     def line(self, xy0, xy1):
-
 #         Draws a line between the two points. Coordinates are given in
 #         PostScript point coordinates (72 points per inch, (0, 0) is the lower
 #         left corner of the page).
-
 #         self.fp.write(b"%d %d %d %d Vl\n" % (*xy0, *xy1))
-
     def rectangle(self, box):
-
 #         Draws a rectangle.
-
 #            height.
-
 #         self.fp.write(b"%d %d M 0 %d %d Vr\n" % box)
-
     def text(self, xy, text):
-
 #         Draws text at the given position. You must use
-
 #         text = bytes(text, "UTF-8")
 #         text = b"\\(".join(text.split(b"("))
 #         text = b"\\)".join(text.split(b")"))
 #         xy += (text,)
 #         self.fp.write(b"%d %d M (%s) S\n" % xy)
-
     def image(self, box, im, dpi=None):
-
         # default resolution depends on mode
         if not dpi:
-      pass
-      pass
+    pass
+    pass
     pass
             if im.mode == "1":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dpi = 200  # fax
             else:
@@ -137,14 +107,14 @@ class PSDraw:
 #         xmax = float(box[2] - box[0])
 #         ymax = float(box[3] - box[1])
         if x > xmax:
-      pass
-      pass
+    pass
+    pass
     pass
 #             y = y * xmax / x
 #             x = xmax
         if y > ymax:
-      pass
-      pass
+    pass
+    pass
     pass
 #             x = x * ymax / y
 #             y = ymax
@@ -152,8 +122,8 @@ class PSDraw:
 #         dy = (ymax - y) / 2 + box[1]
 #         self.fp.write(b"gsave\n%f %f translate\n" % (dx, dy))
         if (x, y) != im.size:
-      pass
-      pass
+    pass
+    pass
     pass
             # EpsImagePlugin._save prints the image at (0,0,xsize,ysize)
 #             sx = x / im.size[0]
@@ -161,11 +131,8 @@ class PSDraw:
 #             self.fp.write(b"%f %f scale\n" % (sx, sy))
 #         EpsImagePlugin._save(im, self.fp, None, 0)
 #         self.fp.write(b"\ngrestore\n")
-
-
 # --------------------------------------------------------------------
 # PostScript driver
-
 #
 # EDROFF.PS -- PostScript driver for Edroff 2
 #
@@ -174,8 +141,6 @@ class PSDraw:
 #
 # Copyright (c) Fredrik Lundh 1994.
 #
-
-
 # /S { show } bind def
 # /P { moveto show } bind def
 # /M { moveto } bind def
@@ -193,7 +158,6 @@ class PSDraw:
 # /F {    findfont exch scalefont dup setfont
 #         [ exch /setfont cvx ] cvx bind def
 # } bind def
-
 #
 # VDI.PS -- PostScript driver for VDI meta commands
 #
@@ -202,7 +166,6 @@ class PSDraw:
 #
 # Copyright (c) Fredrik Lundh 1994.
 #
-
 # VDI_PS = b\
 # /Vm { moveto } bind def
 # /Va { newpath arcn stroke } bind def
@@ -219,14 +182,12 @@ class PSDraw:
 #         Tm setmatrix
 # } bind def
 # /Vf { currentgray exch setgray fill setgray } bind def
-
 #
 # ERROR.PS -- Error handler
 #
 # History:
 # 89-11-21 fl: created (pslist 1.10)
 #
-
 # /landscape false def
 # /errorBUF 200 string def
 # /errorNL { currentpoint 10 sub exch pop 72 exch moveto } def

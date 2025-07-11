@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,12 +19,9 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import pathlib
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Union
-
 import numpy as np
-
 from ...feature_extraction_utils import BatchFeature
 from ...image_processing_utils import BaseImageProcessor, get_size_dict
 from ...image_transforms import (
@@ -65,43 +59,28 @@ from ...utils import (
 #     logging,
 # )
 from ...utils.generic import ExplicitEnum, TensorType
-
-
 if is_torch_available():
-      pass
-      pass
+    pass
+    pass
     pass
     import torch
-
-
 if is_torchvision_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from torchvision.ops.boxes import batched_nms
-
 if is_vision_available():
-      pass
-      pass
+    pass
+    pass
     pass
     import PIL
-
-
 # logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
-
-
 class AnnotionFormat(ExplicitEnum):
 #     COCO_DETECTION = "coco_detection"
 #     COCO_PANOPTIC = "coco_panoptic"
-
-
-
-
 # Copied from transformers.models.detr.image_processing_detr.get_size_with_aspect_ratio
 def get_size_with_aspect_ratio(image_size, size, max_size=None) -> Tuple[int, int]:
-
 #     Computes the output image size given the input image size and the desired output size.
-
 #     Args:
 #         image_size (`Tuple[int, int]`):
 #             The input image size.
@@ -109,29 +88,26 @@ def get_size_with_aspect_ratio(image_size, size, max_size=None) -> Tuple[int, in
 #             The desired output size.
 #         max_size (`int`, *optional*):
 #             The maximum allowed output size.
-
 #     height, width = image_size
     if max_size is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         min_original_size = float(min((height, width)))
 #         max_original_size = float(max((height, width)))
         if max_original_size / min_original_size * size > max_size:
-      pass
-      pass
+    pass
+    pass
     pass
 #             size = int(round(max_size * min_original_size / max_original_size))
-
     if (height <= width and height == size) or (width <= height and width == size):
-      pass
-      pass
+    pass
+    pass
     pass
         return height, width
-
     if width < height:
-      pass
-      pass
+    pass
+    pass
     pass
 #         ow = size
 #         oh = int(size * height / width)
@@ -139,8 +115,6 @@ def get_size_with_aspect_ratio(image_size, size, max_size=None) -> Tuple[int, in
 #         oh = size
 #         ow = int(size * width / height)
     return (oh, ow)
-
-
 # Copied from transformers.models.detr.image_processing_detr.get_resize_output_image_size
 def get_resize_output_image_size(
 #     input_image: np.ndarray,
@@ -148,11 +122,9 @@ def get_resize_output_image_size(
 #     max_size: Optional[int] = None,
 #     input_data_format: Optional[Union[str, ChannelDimension]] = None,
 # ) -> Tuple[int, int]:
-
 #     Computes the output image size given the input image size and the desired output size. If the desired output size
 #     is a tuple or list, the output image size is returned as is. If the desired output size is an integer, the output
 #     image size is computed by keeping the aspect ratio of the input image size.
-
 #     Args:
 #         input_image (`np.ndarray`):
 #             The image to resize.
@@ -162,79 +134,62 @@ def get_resize_output_image_size(
 #             The maximum allowed output size.
 #         input_data_format (`ChannelDimension` or `str`, *optional*):
 #             The channel dimension format of the input image. If not provided, it will be inferred from the input image.
-
 #     image_size = get_image_size(input_image, input_data_format)
     if isinstance(size, (list, tuple)):
-      pass
-      pass
+    pass
+    pass
     pass
         return size
-
     return get_size_with_aspect_ratio(image_size, size, max_size)
-
-
 # Copied from transformers.models.detr.image_processing_detr.get_numpy_to_framework_fn
 def get_numpy_to_framework_fn(arr) -> Callable:
-
 #     Returns a function that converts a numpy array to the framework of the input array.
-
 #     Args:
 #         arr (`np.ndarray`): The array to convert.
-
     if isinstance(arr, np.ndarray):
-      pass
-      pass
+    pass
+    pass
     pass
         return np.array
     if is_tf_available() and is_tf_tensor(arr):
-      pass
-      pass
+    pass
+    pass
     pass
         import tensorflow as tf
-
         return tf.convert_to_tensor
     if is_torch_available() and is_torch_tensor(arr):
-      pass
-      pass
+    pass
+    pass
     pass
         import torch
-
         return torch.tensor
     if is_flax_available() and is_jax_tensor(arr):
-      pass
-      pass
+    pass
+    pass
     pass
         import jax.numpy as jnp
-
         return jnp.array
 #     raise ValueError(f"Cannot convert arrays of type {type(arr)}")
-
-
 # Copied from transformers.models.detr.image_processing_detr.safe_squeeze
 def safe_squeeze(arr: np.ndarray, axis: Optional[int] = None) -> np.ndarray:
-
 #     Squeezes an array, but only if the axis specified has dim 1.
-
     if axis is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return arr.squeeze()
-
     try:
         return arr.squeeze(axis=axis)
     except ValueError:
         return arr
-
-
 # Copied from transformers.models.detr.image_processing_detr.normalize_annotation
 def normalize_annotation(annotation: Dict, image_size: Tuple[int, int]) -> Dict:
 #     image_height, image_width = image_size
 #     norm_annotation = {}
     for key, value in annotation.items():
         if key == "boxes":
-      pass
-      pass
+    pass
+    pass
     pass
 #             boxes = value
 #             boxes = corners_to_center_format(boxes)
@@ -243,32 +198,23 @@ def normalize_annotation(annotation: Dict, image_size: Tuple[int, int]) -> Dict:
         else:
 #             norm_annotation[key] = value
     return norm_annotation
-
-
 # Copied from transformers.models.detr.image_processing_detr.max_across_indices
 def max_across_indices(values: Iterable[Any]) -> List[Any]:
-
 #     Return the maximum value across all indices of an iterable of values.
-
     return [max(values_i) for values_i in zip(*values)]
-
-
 # Copied from transformers.models.detr.image_processing_detr.get_max_height_width
 def get_max_height_width(
 #     images: List[np.ndarray], input_data_format: Optional[Union[str, ChannelDimension]] = None
 # ) -> List[int]:
-
 #     Get the maximum height and width across all images in a batch.
-
     if input_data_format is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         input_data_format = infer_channel_dimension_format(images[0])
-
     if input_data_format == ChannelDimension.FIRST:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _, max_height, max_width = max_across_indices([img.shape for img in images])
     elif input_data_format == ChannelDimension.LAST:
@@ -277,32 +223,23 @@ def get_max_height_width(
     else:
 #         raise ValueError(f"Invalid channel dimension format: {input_data_format}")
     return (max_height, max_width)
-
-
 # Copied from transformers.models.detr.image_processing_detr.make_pixel_mask
 def make_pixel_mask(
 #     image: np.ndarray, output_size: Tuple[int, int], input_data_format: Optional[Union[str, ChannelDimension]] = None
 # ) -> np.ndarray:
-
 #     Make a pixel mask for the image, where 1 indicates a valid pixel and 0 indicates padding.
-
 #     Args:
 #         image (`np.ndarray`):
 #             Image to make the pixel mask for.
 #         output_size (`Tuple[int, int]`):
 #             Output size of the mask.
-
 #     input_height, input_width = get_image_size(image, channel_dim=input_data_format)
 #     mask = np.zeros(output_size, dtype=np.int64)
 #     mask[:input_height, :input_width] = 1
     return mask
-
-
 # Copied from transformers.models.detr.image_processing_detr.convert_coco_poly_to_mask
 def convert_coco_poly_to_mask(segmentations, height: int, width: int) -> np.ndarray:
-
 #     Convert a COCO polygon annotation to a mask.
-
 #     Args:
 #         segmentations (`List[List[float]]`):
 #             List of polygons, each polygon represented by a list of x-y coordinates.
@@ -310,35 +247,30 @@ def convert_coco_poly_to_mask(segmentations, height: int, width: int) -> np.ndar
 #             Height of the mask.
 #         width (`int`):
 #             Width of the mask.
-
     try:
         from pycocotools import mask as coco_mask
     except ImportError:
 #         raise ImportError("Pycocotools is not installed in your environment.")
-
 #     masks = []
     for polygons in segmentations:
 #         rles = coco_mask.frPyObjects(polygons, height, width)
 #         mask = coco_mask.decode(rles)
         if len(mask.shape) < 3:
-      pass
-      pass
+    pass
+    pass
     pass
 #             mask = mask[..., None]
 #         mask = np.asarray(mask, dtype=np.uint8)
 #         mask = np.any(mask, axis=2)
 #         masks.append(mask)
     if masks:
-      pass
-      pass
+    pass
+    pass
     pass
 #         masks = np.stack(masks, axis=0)
     else:
 #         masks = np.zeros((0, height, width), dtype=np.uint8)
-
     return masks
-
-
 # Copied from transformers.models.detr.image_processing_detr.prepare_coco_detection_annotation with DETR->DETA
 def prepare_coco_detection_annotation(
 #     image,
@@ -346,34 +278,25 @@ def prepare_coco_detection_annotation(
     return_segmentation_masks: bool = False,
 #     input_data_format: Optional[Union[ChannelDimension, str]] = None,
 # ):
-
 #     Convert the target in COCO format into the format expected by DETA.
-
 #     image_height, image_width = get_image_size(image, channel_dim=input_data_format)
-
 #     image_id = target["image_id"]
 #     image_id = np.asarray([image_id], dtype=np.int64)
-
     # Get all COCO annotations for the given image.
 #     annotations = target["annotations"]
 #     annotations = [obj for obj in annotations if "iscrowd" not in obj or obj["iscrowd"] == 0]
-
     classes = [obj["category_id"] for obj in annotations]
     classes = np.asarray(classes, dtype=np.int64)
-
     # for conversion to coco api
 #     area = np.asarray([obj["area"] for obj in annotations], dtype=np.float32)
 #     iscrowd = np.asarray([obj["iscrowd"] if "iscrowd" in obj else 0 for obj in annotations], dtype=np.int64)
-
 #     boxes = [obj["bbox"] for obj in annotations]
     # guard against no boxes via resizing
 #     boxes = np.asarray(boxes, dtype=np.float32).reshape(-1, 4)
 #     boxes[:, 2:] += boxes[:, :2]
 #     boxes[:, 0::2] = boxes[:, 0::2].clip(min=0, max=image_width)
 #     boxes[:, 1::2] = boxes[:, 1::2].clip(min=0, max=image_height)
-
 #     keep = (boxes[:, 3] > boxes[:, 1]) & (boxes[:, 2] > boxes[:, 0])
-
 #     new_target = {}
 #     new_target["image_id"] = image_id
 #     new_target["class_labels"] = classes[keep]
@@ -381,10 +304,9 @@ def prepare_coco_detection_annotation(
 #     new_target["area"] = area[keep]
 #     new_target["iscrowd"] = iscrowd[keep]
 #     new_target["orig_size"] = np.asarray([int(image_height), int(image_width)], dtype=np.int64)
-
     if annotations and "keypoints" in annotations[0]:
-      pass
-      pass
+    pass
+    pass
     pass
 #         keypoints = [obj["keypoints"] for obj in annotations]
         # Converting the filtered keypoints list to a numpy array
@@ -394,56 +316,42 @@ def prepare_coco_detection_annotation(
 #         num_keypoints = keypoints.shape[0]
 #         keypoints = keypoints.reshape((-1, 3)) if num_keypoints else keypoints
 #         new_target["keypoints"] = keypoints
-
     if return_segmentation_masks:
-      pass
-      pass
+    pass
+    pass
     pass
 #         segmentation_masks = [obj["segmentation"] for obj in annotations]
 #         masks = convert_coco_poly_to_mask(segmentation_masks, image_height, image_width)
 #         new_target["masks"] = masks[keep]
-
     return new_target
-
-
 # Copied from transformers.models.detr.image_processing_detr.masks_to_boxes
 def masks_to_boxes(masks: np.ndarray) -> np.ndarray:
-
 #     Compute the bounding boxes around the provided panoptic segmentation masks.
-
 #     Args:
 #         masks: masks in format `[number_masks, height, width]` where N is the number of masks
-
 #     Returns:
 #         boxes: bounding boxes in format `[number_masks, 4]` in xyxy format
-
     if masks.size == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         return np.zeros((0, 4))
-
 #     h, w = masks.shape[-2:]
 #     y = np.arange(0, h, dtype=np.float32)
 #     x = np.arange(0, w, dtype=np.float32)
     # see https://github.com/pytorch/pytorch/issues/50276
 #     y, x = np.meshgrid(y, x, indexing="ij")
-
 #     x_mask = masks * np.expand_dims(x, axis=0)
 #     x_max = x_mask.reshape(x_mask.shape[0], -1).max(-1)
 #     x = np.ma.array(x_mask, mask=~(np.array(masks, dtype=bool)))
 #     x_min = x.filled(fill_value=1e8)
 #     x_min = x_min.reshape(x_min.shape[0], -1).min(-1)
-
 #     y_mask = masks * np.expand_dims(y, axis=0)
 #     y_max = y_mask.reshape(x_mask.shape[0], -1).max(-1)
 #     y = np.ma.array(y_mask, mask=~(np.array(masks, dtype=bool)))
 #     y_min = y.filled(fill_value=1e8)
 #     y_min = y_min.reshape(y_min.shape[0], -1).min(-1)
-
     return np.stack([x_min, y_min, x_max, y_max], 1)
-
-
 # Copied from transformers.models.detr.image_processing_detr.prepare_coco_panoptic_annotation with DETR->DETA
 def prepare_coco_panoptic_annotation(
 #     image: np.ndarray,
@@ -452,30 +360,25 @@ def prepare_coco_panoptic_annotation(
     return_masks: bool = True,
 #     input_data_format: Union[ChannelDimension, str] = None,
 # ) -> Dict:
-
 #     Prepare a coco panoptic annotation for DETA.
-
 #     image_height, image_width = get_image_size(image, channel_dim=input_data_format)
 #     annotation_path = pathlib.Path(masks_path) / target["file_name"]
-
 #     new_target = {}
 #     new_target["image_id"] = np.asarray([target["image_id"] if "image_id" in target else target["id"]], dtype=np.int64)
 #     new_target["size"] = np.asarray([image_height, image_width], dtype=np.int64)
 #     new_target["orig_size"] = np.asarray([image_height, image_width], dtype=np.int64)
-
     if "segments_info" in target:
-      pass
-      pass
+    pass
+    pass
     pass
 #         masks = np.asarray(PIL.Image.open(annotation_path), dtype=np.uint32)
 #         masks = rgb_to_id(masks)
-
 #         ids = np.array([segment_info["id"] for segment_info in target["segments_info"]])
 #         masks = masks == ids[:, None, None]
 #         masks = masks.astype(np.uint8)
         if return_masks:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_target["masks"] = masks
 #         new_target["boxes"] = masks_to_boxes(masks)
@@ -488,10 +391,7 @@ def prepare_coco_panoptic_annotation(
 #         new_target["area"] = np.asarray(
 #             [segment_info["area"] for segment_info in target["segments_info"]], dtype=np.float32
 #         )
-
     return new_target
-
-
 # Copied from transformers.models.detr.image_processing_detr.resize_annotation
 def resize_annotation(
 #     annotation: Dict[str, Any],
@@ -500,9 +400,7 @@ def resize_annotation(
 #     threshold: float = 0.5,
 #     resample: PILImageResampling = PILImageResampling.NEAREST,
 # ):
-
 #     Resizes an annotation to a target size.
-
 #     Args:
 #         annotation (`Dict[str, Any]`):
 #             The annotation dictionary.
@@ -514,17 +412,14 @@ def resize_annotation(
 #             The threshold used to binarize the segmentation masks.
 #         resample (`PILImageResampling`, defaults to `PILImageResampling.NEAREST`):
 #             The resampling filter to use when resizing the masks.
-
 #     ratios = tuple(float(s) / float(s_orig) for s, s_orig in zip(target_size, orig_size))
 #     ratio_height, ratio_width = ratios
-
 #     new_annotation = {}
 #     new_annotation["size"] = target_size
-
     for key, value in annotation.items():
         if key == "boxes":
-      pass
-      pass
+    pass
+    pass
     pass
 #             boxes = value
 #             scaled_boxes = boxes * np.asarray([ratio_width, ratio_height, ratio_width, ratio_height], dtype=np.float32)
@@ -546,14 +441,10 @@ def resize_annotation(
 #             new_annotation["size"] = target_size
         else:
 #             new_annotation[key] = value
-
     return new_annotation
-
-
 class DetaImageProcessor(BaseImageProcessor):
 #     r
 #     Constructs a Deformable DETR image processor.
-
 #     Args:
         format (`str`, *optional*, defaults to `"coco_detection"`):
 #             Data format of the annotations. One of "coco_detection" or "coco_panoptic".
@@ -583,9 +474,7 @@ class DetaImageProcessor(BaseImageProcessor):
 #         do_pad (`bool`, *optional*, defaults to `True`):
 #             Controls whether to pad the image to the largest image in a batch and create a pixel mask. Can be
 #             overridden by the `do_pad` parameter in the `preprocess` method.
-
 #     model_input_names = ["pixel_values", "pixel_mask"]
-
     def __init__(
 #         self,
         format: Union[str, AnnotionFormat] = AnnotionFormat.COCO_DETECTION,
@@ -601,14 +490,12 @@ class DetaImageProcessor(BaseImageProcessor):
 #         **kwargs,
 #     ) -> None:
         if "pad_and_return_pixel_mask" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             do_pad = kwargs.pop("pad_and_return_pixel_mask")
-
 #         size = size if size is not None else {"shortest_edge": 800, "intest_edge": 1333}
 #         size = get_size_dict(size, default_to_square=False)
-
 #         super().__init__(**kwargs)
 #         self.format = format
 #         self.do_resize = do_resize
@@ -620,7 +507,6 @@ class DetaImageProcessor(BaseImageProcessor):
 #         self.image_mean = image_mean if image_mean is not None else IMAGENET_DEFAULT_MEAN
 #         self.image_std = image_std if image_std is not None else IMAGENET_DEFAULT_STD
 #         self.do_pad = do_pad
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.prepare_annotation with DETR->DETA
     def prepare_annotation(
 #         self,
@@ -631,14 +517,11 @@ class DetaImageProcessor(BaseImageProcessor):
 #         masks_path: Optional[Union[str, pathlib.Path]] = None,
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #     ) -> Dict:
-
 #         Prepare an annotation for feeding into DETA model.
-
         format = format if format is not None else self.format
-
         if format == AnnotionFormat.COCO_DETECTION:
-      pass
-      pass
+    pass
+    pass
     pass
             return_segmentation_masks = False if return_segmentation_masks is None else return_segmentation_masks
 #             target = prepare_coco_detection_annotation(
@@ -657,7 +540,6 @@ class DetaImageProcessor(BaseImageProcessor):
         else:
 #             raise ValueError(f"Format {format} is not supported.")
         return target
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.prepare
     def prepare(self, image, target, return_segmentation_masks=None, masks_path=None):
 #         logger.warning_once(
@@ -667,22 +549,18 @@ class DetaImageProcessor(BaseImageProcessor):
 #         )
 #         target = self.prepare_annotation(image, target, return_segmentation_masks, masks_path, self.format)
         return image, target
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.convert_coco_poly_to_mask
     def convert_coco_poly_to_mask(self, *args, **kwargs):
 #         logger.warning_once("The `convert_coco_poly_to_mask` method is deprecated and will be removed in v4.33. ")
         return convert_coco_poly_to_mask(*args, **kwargs)
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.prepare_coco_detection
     def prepare_coco_detection(self, *args, **kwargs):
 #         logger.warning_once("The `prepare_coco_detection` method is deprecated and will be removed in v4.33. ")
         return prepare_coco_detection_annotation(*args, **kwargs)
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.prepare_coco_panoptic
     def prepare_coco_panoptic(self, *args, **kwargs):
 #         logger.warning_once("The `prepare_coco_panoptic` method is deprecated and will be removed in v4.33. ")
         return prepare_coco_panoptic_annotation(*args, **kwargs)
-
     def resize(
 #         self,
 #         image: np.ndarray,
@@ -692,10 +570,8 @@ class DetaImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> np.ndarray:
-
 #         Resize the image to the given size. Size can be `min_size` (scalar) or `(height, width)` tuple. If size is an
 #         int, smaller edge of the image will be matched to this number.
-
 #         Args:
 #             image (`np.ndarray`):
 #                 Image to resize.
@@ -709,11 +585,10 @@ class DetaImageProcessor(BaseImageProcessor):
 #             input_data_format (`ChannelDimension` or `str`, *optional*):
 #                 The channel dimension format of the input image. If not provided, it will be inferred from the input
 #                 image.
-
 #         size = get_size_dict(size, default_to_square=False)
         if "shortest_edge" in size and "intest_edge" in size:
-      pass
-      pass
+    pass
+    pass
     pass
 #             size = get_resize_output_image_size(
 #                 image, size["shortest_edge"], size["intest_edge"], input_data_format=input_data_format
@@ -730,7 +605,6 @@ class DetaImageProcessor(BaseImageProcessor):
 #             image, size=size, resample=resample, data_format=data_format, input_data_format=input_data_format
 #         )
         return image
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.resize_annotation
     def resize_annotation(
 #         self,
@@ -739,12 +613,9 @@ class DetaImageProcessor(BaseImageProcessor):
 #         size,
 #         resample: PILImageResampling = PILImageResampling.NEAREST,
 #     ) -> Dict:
-
 #         Resize the annotation to match the resized image. If size is an int, smaller edge of the mask will be matched
 #         to this number.
-
         return resize_annotation(annotation, orig_size=orig_size, target_size=size, resample=resample)
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.rescale
     def rescale(
 #         self,
@@ -753,9 +624,7 @@ class DetaImageProcessor(BaseImageProcessor):
 #         data_format: Optional[Union[str, ChannelDimension]] = None,
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #     ) -> np.ndarray:
-
 #         Rescale the image by the given factor. image = image * rescale_factor.
-
 #         Args:
 #             image (`np.ndarray`):
 #                 Image to rescale.
@@ -771,17 +640,12 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 one of:
 #                 - `"channels_first"` or `ChannelDimension.FIRST`: image in (num_channels, height, width) format.
 #                 - `"channels_last"` or `ChannelDimension.LAST`: image in (height, width, num_channels) format.
-
         return rescale(image, rescale_factor, data_format=data_format, input_data_format=input_data_format)
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.normalize_annotation
     def normalize_annotation(self, annotation: Dict, image_size: Tuple[int, int]) -> Dict:
-
 #         Normalize the boxes in the annotation from `[top_left_x, top_left_y, bottom_right_x, bottom_right_y]` to
 #         `[center_x, center_y, width, height]` format.
-
         return normalize_annotation(annotation, image_size=image_size)
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor._pad_image
     def _pad_image(
 #         self,
@@ -791,12 +655,9 @@ class DetaImageProcessor(BaseImageProcessor):
 #         data_format: Optional[ChannelDimension] = None,
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #     ) -> np.ndarray:
-
 #         Pad an image with zeros to the given size.
-
 #         input_height, input_width = get_image_size(image, channel_dim=input_data_format)
 #         output_height, output_width = output_size
-
 #         pad_bottom = output_height - input_height
 #         pad_right = output_width - input_width
 #         padding = ((0, pad_bottom), (0, pad_right))
@@ -809,7 +670,6 @@ class DetaImageProcessor(BaseImageProcessor):
 #             input_data_format=input_data_format,
 #         )
         return padded_image
-
     # Copied from transformers.models.detr.image_processing_detr.DetrImageProcessor.pad
     def pad(
 #         self,
@@ -820,10 +680,8 @@ class DetaImageProcessor(BaseImageProcessor):
 #         data_format: Optional[ChannelDimension] = None,
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #     ) -> BatchFeature:
-
 #         Pads a batch of images to the bottom and right of the image with zeros to the size of largest height and width
 #         in the batch and optionally returns their corresponding pixel mask.
-
 #         Args:
 #             image (`np.ndarray`):
 #                 Image to pad.
@@ -842,9 +700,7 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 The channel dimension format of the image. If not provided, it will be the same as the input image.
 #             input_data_format (`ChannelDimension` or `str`, *optional*):
 #                 The channel dimension format of the input image. If not provided, it will be inferred.
-
 #         pad_size = get_max_height_width(images, input_data_format=input_data_format)
-
 #         padded_images = [
 #             self._pad_image(
 #                 image,
@@ -856,19 +712,16 @@ class DetaImageProcessor(BaseImageProcessor):
             for image in images
 #         ]
 #         data = {"pixel_values": padded_images}
-
         if return_pixel_mask:
-      pass
-      pass
+    pass
+    pass
     pass
 #             masks = [
 #                 make_pixel_mask(image=image, output_size=pad_size, input_data_format=input_data_format)
                 for image in images
 #             ]
 #             data["pixel_mask"] = masks
-
         return BatchFeature(data=data, tensor_type=return_tensors)
-
     def preprocess(
 #         self,
 #         images: ImageInput,
@@ -890,9 +743,7 @@ class DetaImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> BatchFeature:
-
 #         Preprocess an image or a batch of images so that it can be used by the model.
-
 #         Args:
 #             images (`ImageInput`):
 #                 Image or batch of images to preprocess. Expects a single or batch of images with pixel values ranging
@@ -945,17 +796,15 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 - `"channels_first"` or `ChannelDimension.FIRST`: image in (num_channels, height, width) format.
 #                 - `"channels_last"` or `ChannelDimension.LAST`: image in (height, width, num_channels) format.
 #                 - `"none"` or `ChannelDimension.NONE`: image in (height, width) format.
-
         if "pad_and_return_pixel_mask" in kwargs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning_once(
 #                 "The `pad_and_return_pixel_mask` argument is deprecated and will be removed in a future version, "
 #                 "use `do_pad` instead.",
 #             )
 #             do_pad = kwargs.pop("pad_and_return_pixel_mask")
-
 #         do_resize = self.do_resize if do_resize is None else do_resize
 #         size = self.size if size is None else size
 #         size = get_size_dict(size=size, default_to_square=False)
@@ -967,57 +816,50 @@ class DetaImageProcessor(BaseImageProcessor):
 #         image_std = self.image_std if image_std is None else image_std
 #         do_pad = self.do_pad if do_pad is None else do_pad
         format = self.format if format is None else format
-
         if do_resize is not None and size is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Size and max_size must be specified if do_resize is True.")
-
         if do_rescale is not None and rescale_factor is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Rescale factor must be specified if do_rescale is True.")
-
         if do_normalize is not None and (image_mean is None or image_std is None):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Image mean and std must be specified if do_normalize is True.")
-
         if not is_batched(images):
-      pass
-      pass
+    pass
+    pass
     pass
 #             images = [images]
 #             annotations = [annotations] if annotations is not None else None
-
         if annotations is not None and len(images) != len(annotations):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"The number of images ({len(images)}) and annotations ({len(annotations)}) do not match."
 #             )
-
         if not valid_images(images):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Invalid image type. Must be of type PIL.Image.Image, numpy.ndarray, "
 #                 "torch.Tensor, tf.Tensor or jax.ndarray."
 #             )
-
         format = AnnotionFormat(format)
         if annotations is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if format == AnnotionFormat.COCO_DETECTION and not valid_coco_detection_annotations(annotations):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "Invalid COCO detection annotations. Annotations must a dict (single image) of list of dicts "
@@ -1036,7 +878,6 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 raise ValueError(
 #                     f"Unsupported annotation format: {format} must be one of {SUPPORTED_ANNOTATION_FORMATS}"
 #                 )
-
         if (
 #             masks_path is not None
 #             and format == AnnotionFormat.COCO_PANOPTIC
@@ -1046,30 +887,26 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 "The path to the directory containing the mask PNG files should be provided as a"
 #                 f" `pathlib.Path` or string object, but is {type(masks_path)} instead."
 #             )
-
         # All transformations expect numpy arrays
 #         images = [to_numpy_array(image) for image in images]
-
         if is_scaled_image(images[0]) and do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning_once(
 #                 "It looks like you are trying to rescale already rescaled images. If the input"
 #                 " images have pixel values between 0 and 1, set `do_rescale=False` to avoid rescaling them again."
 #             )
-
         if input_data_format is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # We assume that all images have the same channel dimension format.
 #             input_data_format = infer_channel_dimension_format(images[0])
-
         # prepare (COCO annotations as a list of Dict -> DETR target as a single Dict per image)
         if annotations is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             prepared_images = []
 #             prepared_annotations = []
@@ -1087,15 +924,14 @@ class DetaImageProcessor(BaseImageProcessor):
 #             images = prepared_images
 #             annotations = prepared_annotations
 #             del prepared_images, prepared_annotations
-
         # transformations
         if do_resize:
-      pass
-      pass
+    pass
+    pass
     pass
             if annotations is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resized_images, resized_annotations = [], []
                 for image, target in zip(images, annotations):
@@ -1116,32 +952,29 @@ class DetaImageProcessor(BaseImageProcessor):
 #                     self.resize(image, size=size, resample=resample, input_data_format=input_data_format)
                     for image in images
 #                 ]
-
         if do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             images = [self.rescale(image, rescale_factor, input_data_format=input_data_format) for image in images]
-
         if do_normalize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             images = [
 #                 self.normalize(image, image_mean, image_std, input_data_format=input_data_format) for image in images
 #             ]
             if annotations is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 annotations = [
 #                     self.normalize_annotation(annotation, get_image_size(image, input_data_format))
                     for annotation, image in zip(annotations, images)
 #                 ]
-
         if do_pad:
-      pass
-      pass
+    pass
+    pass
     pass
             # Pads images and returns their mask: {'pixel_values': ..., 'pixel_mask': ...}
 #             data = self.pad(
@@ -1153,18 +986,15 @@ class DetaImageProcessor(BaseImageProcessor):
                 for image in images
 #             ]
 #             data = {"pixel_values": images}
-
 #         encoded_inputs = BatchFeature(data=data, tensor_type=return_tensors)
         if annotations is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             encoded_inputs["labels"] = [
 #                 BatchFeature(annotation, tensor_type=return_tensors) for annotation in annotations
 #             ]
-
         return encoded_inputs
-
     def post_process_object_detection(
 #         self,
 #         outputs,
@@ -1172,10 +1002,8 @@ class DetaImageProcessor(BaseImageProcessor):
 #         target_sizes: Union[TensorType, List[Tuple]] = None,
 #         nms_threshold: float = 0.7,
 #     ):
-
 #         Converts the output of [`DetaForObjectDetection`] into final bounding boxes in (top_left_x, top_left_y,
 #         bottom_right_x, bottom_right_y) format. Only supports PyTorch.
-
 #         Args:
 #             outputs ([`DetrObjectDetectionOutput`]):
 #                 Raw outputs of the model.
@@ -1186,70 +1014,58 @@ class DetaImageProcessor(BaseImageProcessor):
 #                 (height, width) of each image in the batch. If left to None, predictions will not be resized.
 #             nms_threshold (`float`, *optional*, defaults to 0.7):
 #                 NMS threshold.
-
 #         Returns:
 #             `List[Dict]`: A list of dictionaries, each dictionary containing the scores, labels and boxes for an image
 #             in the batch as predicted by the model.
-
 #         out_logits, out_bbox = outputs.logits, outputs.pred_boxes
 #         batch_size, num_queries, num_labels = out_logits.shape
-
         if target_sizes is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if len(out_logits) != len(target_sizes):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "Make sure that you pass in as many target sizes as the batch dimension of the logits"
 #                 )
-
 #         prob = out_logits.sigmoid()
-
 #         all_scores = prob.view(batch_size, num_queries * num_labels).to(out_logits.device)
 #         all_indexes = torch.arange(num_queries * num_labels)[None].repeat(batch_size, 1).to(out_logits.device)
 #         all_boxes = torch.div(all_indexes, out_logits.shape[2], rounding_mode="floor")
 #         all_labels = all_indexes % out_logits.shape[2]
-
 #         boxes = center_to_corners_format(out_bbox)
 #         boxes = torch.gather(boxes, 1, all_boxes.unsqueeze(-1).repeat(1, 1, 4))
-
         # and from relative [0, 1] to absolute [0, height] coordinates
         if target_sizes is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(target_sizes, List):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 img_h = torch.Tensor([i[0] for i in target_sizes])
 #                 img_w = torch.Tensor([i[1] for i in target_sizes])
             else:
 #                 img_h, img_w = target_sizes.unbind(1)
-
 #             scale_fct = torch.stack([img_w, img_h, img_w, img_h], dim=1).to(boxes.device)
 #             boxes = boxes * scale_fct[:, None, :]
-
 #         results = []
         for b in range(batch_size):
 #             box = boxes[b]
 #             score = all_scores[b]
 #             lbls = all_labels[b]
-
 #             pre_topk = score.topk(min(10000, len(score))).indices
 #             box = box[pre_topk]
 #             score = score[pre_topk]
 #             lbls = lbls[pre_topk]
-
             # apply NMS
 #             keep_inds = batched_nms(box, score, lbls, nms_threshold)[:100]
 #             score = score[keep_inds]
 #             lbls = lbls[keep_inds]
 #             box = box[keep_inds]
-
 #             results.append(
 #                 {
 #                     "scores": score[score > threshold],
@@ -1257,5 +1073,4 @@ class DetaImageProcessor(BaseImageProcessor):
 #                     "boxes": box[score > threshold],
 #                 }
 #             )
-
         return results

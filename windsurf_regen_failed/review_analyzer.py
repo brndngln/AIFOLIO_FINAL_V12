@@ -1,27 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import datetime
 import json
-
-
 from typing import Any
-
-
 def analyze_review(text: str) -> dict[str, Any]:
-
 # SAFE AI-compliant: Flags misspellings, banned words, PII, financial data, and basic sentiment (static rule-based, non-AI).
 #     Returns dict with 'spelling', 'banned', 'sentiment', 'flags'.
 #     All logic is static, non-adaptive, owner-controlled, and audit-logged.
-
 #     banned = {"scam", "fraud", "ripoff", "hate", "illegal"}
 #     pii_keywords = {
 #         "ssn",
@@ -83,28 +74,28 @@ def analyze_review(text: str) -> dict[str, Any]:
 #     )
 #     flags = []
     if spelling_errors:
-      pass
-      pass
+    pass
+    pass
     pass
 #         flags.append("spelling")
     if banned_found:
-      pass
-      pass
+    pass
+    pass
     pass
 #         flags.append("banned")
     if pii_found:
-      pass
-      pass
+    pass
+    pass
     pass
 #         flags.append("pii")
     if financial_found:
-      pass
-      pass
+    pass
+    pass
     pass
 #         flags.append("financial")
     if sentiment == "negative":
-      pass
-      pass
+    pass
+    pass
     pass
 #         flags.append("negative")
 #     entry = {

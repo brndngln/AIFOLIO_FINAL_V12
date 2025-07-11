@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,13 +19,9 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "funnel-transformer/small": "https://huggingface.co/funnel-transformer/small/resolve/main/config.json",
 #     "funnel-transformer/small-base": "https://huggingface.co/funnel-transformer/small-base/resolve/main/config.json",
 #     "funnel-transformer/medium": "https://huggingface.co/funnel-transformer/medium/resolve/main/config.json",
@@ -44,18 +37,14 @@ from ...utils import logging
 #     "funnel-transformer/xlarge": "https://huggingface.co/funnel-transformer/xlarge/resolve/main/config.json",
 #     "funnel-transformer/xlarge-base": "https://huggingface.co/funnel-transformer/xlarge-base/resolve/main/config.json",
 # }
-
-
 class FunnelConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`FunnelModel`] or a [`TFBertModel`]. It is used to
 #     instantiate a Funnel Transformer model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the Funnel
 #     Transformer [funnel-transformer/small](https://huggingface.co/funnel-transformer/small) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the Funnel transformer. Defines the number of different tokens that can be represented
@@ -103,13 +92,11 @@ class FunnelConfig(PretrainedConfig):
 #             sequence length that is not a multiple of 2.
 #         pool_q_only (`bool`, *optional*, defaults to `True`):
 #             Whether or not to apply the pooling only to the query or to query, key and values for the attention layers.
-
 #     model_type = "funnel"
 #     attribute_map = {
 #         "hidden_size": "d_model",
 #         "num_attention_heads": "n_head",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=30522,
@@ -165,23 +152,18 @@ class FunnelConfig(PretrainedConfig):
 #         self.separate_cls = separate_cls
 #         self.truncate_seq = truncate_seq
 #         self.pool_q_only = pool_q_only
-
 #         super().__init__(**kwargs)
-
 #     @property
     def num_hidden_layers(self):
         return sum(self.block_sizes)
-
 #     @num_hidden_layers.setter
     def num_hidden_layers(self, value):
 #         raise NotImplementedError(
 #             "This model does not support the setting of `num_hidden_layers`. Please set `block_sizes`."
 #         )
-
 #     @property
     def num_blocks(self):
         return len(self.block_sizes)
-
 #     @num_blocks.setter
     def num_blocks(self, value):
 #         raise NotImplementedError("This model does not support the setting of `num_blocks`. Please set `block_sizes`.")

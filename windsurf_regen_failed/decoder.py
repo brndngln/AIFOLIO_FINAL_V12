@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #
@@ -15,7 +12,6 @@ from typing import Optional
 # License: https://pyasn1.readthedocs.io/en/latest/license.html
 #
 import warnings
-
 from pyasn1 import debug
 from pyasn1 import error
 from pyasn1.compat import _MISSING
@@ -24,65 +20,43 @@ from pyasn1.type import char
 from pyasn1.type import tag
 from pyasn1.type import univ
 from pyasn1.type import useful
-
 # __all__ = ['decode']
-
 # LOG = debug.registerLoggee(__name__, flags=debug.DEBUG_DECODER)
-
-
 class AbstractScalarPayloadDecoder(object):
     def __call__(self, pyObject, asn1Spec, decodeFun=None, **options):
         return asn1Spec.clone(pyObject)
-
-
 class BitStringPayloadDecoder(AbstractScalarPayloadDecoder):
     def __call__(self, pyObject, asn1Spec, decodeFun=None, **options):
         return asn1Spec.clone(univ.BitString.fromBinaryString(pyObject))
-
-
 class SequenceOrSetPayloadDecoder(object):
     def __call__(self, pyObject, asn1Spec, decodeFun=None, **options):
 #         asn1Value = asn1Spec.clone()
-
 #         componentsTypes = asn1Spec.componentType
-
         for field in asn1Value:
             if field in pyObject:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 asn1Value[field] = decodeFun(pyObject[field], componentsTypes[field].asn1Object, **options)
-
         return asn1Value
-
-
 class SequenceOfOrSetOfPayloadDecoder(object):
     def __call__(self, pyObject, asn1Spec, decodeFun=None, **options):
 #         asn1Value = asn1Spec.clone()
-
         for pyValue in pyObject:
 #             asn1Value.append(decodeFun(pyValue, asn1Spec.componentType), **options)
-
         return asn1Value
-
-
 class ChoicePayloadDecoder(object):
     def __call__(self, pyObject, asn1Spec, decodeFun=None, **options):
 #         asn1Value = asn1Spec.clone()
-
 #         componentsTypes = asn1Spec.componentType
-
         for field in pyObject:
             if field in componentsTypes:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 asn1Value[field] = decodeFun(pyObject[field], componentsTypes[field].asn1Object, **options)
 #                 break
-
         return asn1Value
-
-
 # TAG_MAP = {
 #     univ.Integer.tagSet: AbstractScalarPayloadDecoder(),
 #     univ.Boolean.tagSet: AbstractScalarPayloadDecoder(),
@@ -113,7 +87,6 @@ class ChoicePayloadDecoder(object):
 #     useful.GeneralizedTime.tagSet: AbstractScalarPayloadDecoder(),
 #     useful.UTCTime.tagSet: AbstractScalarPayloadDecoder()
 # }
-
 # Put in ambiguous & non-ambiguous types for faster codec lookup
 # TYPE_MAP = {
 #     univ.Integer.typeId: AbstractScalarPayloadDecoder(),
@@ -149,79 +122,58 @@ class ChoicePayloadDecoder(object):
 #     useful.GeneralizedTime.typeId: AbstractScalarPayloadDecoder(),
 #     useful.UTCTime.typeId: AbstractScalarPayloadDecoder()
 # }
-
-
 class SingleItemDecoder(object):
-
 #     TAG_MAP = TAG_MAP
 #     TYPE_MAP = TYPE_MAP
-
     def __init__(self, tagMap=_MISSING, typeMap=_MISSING, **ignored):
 #         self._tagMap = tagMap if tagMap is not _MISSING else self.TAG_MAP
 #         self._typeMap = typeMap if typeMap is not _MISSING else self.TYPE_MAP
-
     def __call__(self, pyObject, asn1Spec, **options):
-
         if LOG:
-      pass
-      pass
+    pass
+    pass
     pass
 #             debug.scope.push(type(pyObject).__name__)
 #             LOG('decoder called at scope %s, working with '
 #                 'type %s' % (debug.scope, type(pyObject).__name__))
-
         if asn1Spec is None or not isinstance(asn1Spec, base.Asn1Item):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise error.PyAsn1Error(
 #                 'asn1Spec is not valid (should be an instance of an ASN.1 '
 #                 'Item, not %s)' % asn1Spec.__class__.__name__)
-
         try:
 #             valueDecoder = self._typeMap[asn1Spec.typeId]
-
         except KeyError:
             # use base type for codec lookup to recover untagged types
 #             baseTagSet = tag.TagSet(asn1Spec.tagSet.baseTag, asn1Spec.tagSet.baseTag)
-
             try:
 #                 valueDecoder = self._tagMap[baseTagSet]
-
             except KeyError:
 #                 raise error.PyAsn1Error('Unknown ASN.1 tag %s' % asn1Spec.tagSet)
-
         if LOG:
-      pass
-      pass
+    pass
+    pass
     pass
 #             LOG('calling decoder %s on Python type %s '
 #                 '<%s>' % (type(valueDecoder).__name__,
 #                           type(pyObject).__name__, repr(pyObject)))
-
 #         value = valueDecoder(pyObject, asn1Spec, self, **options)
-
         if LOG:
-      pass
-      pass
+    pass
+    pass
     pass
 #             LOG('decoder %s produced ASN.1 type %s '
 #                 '<%s>' % (type(valueDecoder).__name__,
 #                           type(value).__name__, repr(value)))
 #             debug.scope.pop()
-
         return value
-
-
 class Decoder(object):
-
     def __init__(self, **options):
 #         self._singleItemDecoder = self.SINGLE_ITEM_DECODER(**options)
-
     def __call__(self, pyObject, asn1Spec=None, **kwargs):
         return self._singleItemDecoder(pyObject, asn1Spec=asn1Spec, **kwargs)
-
-
 #: Turns Python objects of built-in types into ASN.1 objects.
 #:
 #: Takes Python objects of built-in types and turns them into a tree of
@@ -263,11 +215,10 @@ class Decoder(object):
 #:     1 2 3
 #:
 # decode = Decoder()
-
 def __getattr__(attr: str):
     if newAttr := {"tagMap": "TAG_MAP", "typeMap": "TYPE_MAP"}.get(attr):
-      pass
-      pass
+    pass
+    pass
     pass
 #         warnings.warn(f"{attr} is deprecated. Please use {newAttr} instead.", DeprecationWarning)
         return globals()[newAttr]

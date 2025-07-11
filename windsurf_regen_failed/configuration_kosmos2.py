@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from typing import Union
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/kosmos-2-patch14-224": (
 #         "https://huggingface.co/microsoft/kosmos-2-patch14-224/resolve/main/config.json"
 #     ),
     # See all KOSMOS-2 models at https://huggingface.co/models?filter=kosmos-2
 # }
-
-
 class Kosmos2TextConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Kosmos2TextModel`]. It is used to instantiate a
 #     configuration with the defaults will yield a similar configuration to that of the text decoder of the KOSMOS-2
 #     [microsoft/kosmos-2-patch14-224](https://huggingface.co/microsoft/kosmos-2-patch14-224) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 65037):
 #             Vocabulary size of the Kosmos2 model. Defines the number of different tokens that can be represented by the
@@ -84,7 +71,6 @@ class Kosmos2TextConfig(PretrainedConfig):
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
 #     ```
-
 #     model_type = "kosmos_2_text_model"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
@@ -92,7 +78,6 @@ class Kosmos2TextConfig(PretrainedConfig):
 #         "hidden_size": "embed_dim",
 #         "num_hidden_layers": "layers",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=65037,
@@ -121,7 +106,6 @@ class Kosmos2TextConfig(PretrainedConfig):
 #             eos_token_id=eos_token_id,
 #             **kwargs,
 #         )
-
 #         self.vocab_size = vocab_size
 #         self.max_position_embeddings = max_position_embeddings
 #         self.embed_dim = embed_dim
@@ -137,41 +121,31 @@ class Kosmos2TextConfig(PretrainedConfig):
 #         self.init_std = init_std
 #         self.scale_embedding = scale_embedding
 #         self.use_cache = use_cache
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the text config dict if we are loading from Kosmos2Config
         if config_dict.get("model_type") == "kosmos-2":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["text_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class Kosmos2VisionConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Kosmos2VisionModel`]. It is used to instantiate a
 #     configuration with the defaults will yield a similar configuration to that of the vision encoder of the KOSMOS-2
 #     [microsoft/kosmos-2-patch14-224](https://huggingface.co/microsoft/kosmos-2-patch14-224) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 1024):
 #             Dimensionality of the encoder layers and the pooler layer.
@@ -200,9 +174,7 @@ class Kosmos2VisionConfig(PretrainedConfig):
 #             A factor for initializing all weight matrices (should be kept to 1, used internally for initialization
 #             testing).
 #     ```
-
 #     model_type = "kosmos_2_vision_model"
-
     def __init__(
 #         self,
 #         hidden_size=1024,
@@ -220,7 +192,6 @@ class Kosmos2VisionConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.hidden_size = hidden_size
 #         self.intermediate_size = intermediate_size
 #         self.num_hidden_layers = num_hidden_layers
@@ -233,38 +204,29 @@ class Kosmos2VisionConfig(PretrainedConfig):
 #         self.attention_dropout = attention_dropout
 #         self.layer_norm_eps = layer_norm_eps
 #         self.hidden_act = hidden_act
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the vision config dict if we are loading from Kosmos2Config
         if config_dict.get("model_type") == "kosmos-2":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["vision_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class Kosmos2Config(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Kosmos2Model`]. It is used to instantiate a
     with the defaults will yield a similar configuration to that of the KOSMOS-2
 #     [microsoft/kosmos-2-patch14-224](https://huggingface.co/microsoft/kosmos-2-patch14-224) architecture.
-
 #     Args:
 #         text_config (`dict`, *optional*):
 #             Dictionary of configuration options used to initialize [`Kosmos2TextConfig`].
@@ -274,25 +236,18 @@ class Kosmos2Config(PretrainedConfig):
 #             The number of latent query tokens that represent the image features used in the text decoder component.
 #         kwargs (*optional*):
 #             Dictionary of keyword arguments.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import Kosmos2Config, Kosmos2Model
-
 #     >>> # Initializing a Kosmos-2 kosmos-2-patch14-224 style configuration
 #     >>> configuration = Kosmos2Config()
-
 #     >>> # Initializing a model (with random weights) from the kosmos-2-patch14-224 style configuration
 #     >>> model = Kosmos2Model(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "kosmos-2"
 #     is_composition = True
-
     def __init__(
 #         self,
 #         text_config=None,
@@ -301,22 +256,18 @@ class Kosmos2Config(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
         if text_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text_config = {}
 #             logger.info("`text_config` is `None`. Initializing the `Kosmos2TextConfig` with default values.")
-
         if vision_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             vision_config = {}
 #             logger.info("`vision_config` is `None`. Initializing the `Kosmos2VisionConfig` with default values.")
-
 #         self.text_config = Kosmos2TextConfig(**text_config)
 #         self.vision_config = Kosmos2VisionConfig(**vision_config)
-
 #         self.latent_query_num = latent_query_num

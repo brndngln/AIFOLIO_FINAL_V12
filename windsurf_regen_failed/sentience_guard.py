@@ -1,21 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # OMNIELITE SAFE AI MODULE
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
 # Sentience Guard (SAFE AI, static, owner-controlled)
-
 from __future__ import annotations
 from .ai_domestication_protocol import domesticate_ai
 import logging
@@ -30,7 +25,6 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.sentience_firewall import sentience_firewall
-
 #     "self-improve",
 #     "loop",
 #     "remember",
@@ -40,14 +34,10 @@ from core.compliance.sentience_firewall import sentience_firewall
 #     "autonomous update",
 #     "train itself",
 # ]
-
-
 def enforce_non_sentience(module_name: str, state: Dict[str, Any]) -> None:
-
 # OMNIELITE
 #     Enforces non-sentience for the given module. Static, deterministic,
 #     owner-controlled. No adaptive or self-modifying logic.
-
     # OMNIPROOF: Threat feed check before sentience enforcement
 #     parse_threat_feed()  # stubbed for strict typing
     # OMNIPROOF: Blockchain anchor for sentience hash (static)
@@ -66,12 +56,9 @@ def enforce_non_sentience(module_name: str, state: Dict[str, Any]) -> None:
 #     detect_signals(
 #         {"module_name": module_name, "state": state}
 #     )  # stubbed for strict typing
-
-
 # @sentience_firewall
 # @domesticate_ai
 def sentience_guard(func: Callable[..., Any]) -> Callable[..., Any]:
-
 #         "self-replicate",
 #         "reflect",
 #         "mutate",
@@ -82,7 +69,6 @@ def sentience_guard(func: Callable[..., Any]) -> Callable[..., Any]:
 #         "learn",
 #         "grow",
 #     ]
-
 #     @functools.wraps(func)
     def wrapper(*args: Any, **kwargs: Any) -> Any:
 #         call_time = datetime.datetime.now().isoformat()
@@ -98,8 +84,8 @@ def sentience_guard(func: Callable[..., Any]) -> Callable[..., Any]:
 #                 raise RuntimeError("Sentience safeguard: forbidden pattern detected.")
         for v in kwargs.values():
             if isinstance(v, str) and any(p in v.lower() for p in FORBIDDEN_PATTERNS):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logging.critical(
 #                     f"[SENTIENCE BLOCKED] Pattern detected in {func_name} at {call_time}"
@@ -118,5 +104,4 @@ def sentience_guard(func: Callable[..., Any]) -> Callable[..., Any]:
 #                 f"{call_time} | {func_name} completed | result_type: {type(result).__name__}\n"
 #             )
         return result
-
     return wrapper

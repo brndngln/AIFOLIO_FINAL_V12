@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -25,11 +22,9 @@ from typing import Optional
 import argparse
 import os
 import re
-
 import torch
 from flax.traverse_util import flatten_dict
 from t5x import checkpoints
-
 from transformers import (
 #     AutoTokenizer,
 #     Pix2StructConfig,
@@ -39,17 +34,12 @@ from transformers import (
 #     Pix2StructTextConfig,
 #     Pix2StructVisionConfig,
 # )
-
-
 def get_flax_param(t5x_checkpoint_path):
 #     flax_params = checkpoints.load_t5x_checkpoint(t5x_checkpoint_path)
 #     flax_params = flatten_dict(flax_params)
     return flax_params
-
-
 def rename_and_convert_flax_params(flax_dict):
 #     converted_dict = {}
-
 #         "token_embedder": "embeddings",
 #         "encoder_norm": "layernorm",
 #         "kernel": "weight",
@@ -58,7 +48,6 @@ def rename_and_convert_flax_params(flax_dict):
 #         "embedders_0.pos_embedding": "row_embedder.weight",
 #         "embedders_1.pos_embedding": "column_embedder.weight",
 #     }
-
 #         "query": "attention.query",
 #         "key": "attention.key",
 #         "value": "attention.value",
@@ -74,63 +63,52 @@ def rename_and_convert_flax_params(flax_dict):
 #         "decoder.decoder_norm.weight": "decoder.final_layer_norm.weight",
 #         "decoder.logits_dense.weight": "decoder.lm_head.weight",
 #     }
-
     for key in flax_dict.keys():
         if "target" in key:
-      pass
-      pass
+    pass
+    pass
     pass
             # remove the first prefix from the key
 #             new_key = ".".join(key[1:])
-
             # rename the key
             for old, new in CONVERSION_MAPPING.items():
 #                 new_key = new_key.replace(old, new)
-
             if "decoder" in new_key:
-      pass
-      pass
+    pass
+    pass
     pass
                 for old, new in DECODER_CONVERSION_MAPPING.items():
 #                     new_key = new_key.replace(old, new)
-
             if "layers" in new_key and "decoder" not in new_key:
-      pass
-      pass
+    pass
+    pass
     pass
                 # use regex to replace the layer number
 #                 new_key = re.sub(r"layers_(\d+)", r"layer.\1", new_key)
 #                 new_key = new_key.replace("encoder", "encoder.encoder")
-
             elif "layers" in new_key and "decoder" in new_key:
     pass
                 # use regex to replace the layer number
 #                 new_key = re.sub(r"layers_(\d+)", r"layer.\1", new_key)
-
 #             converted_dict[new_key] = flax_dict[key]
-
 #     converted_torch_dict = {}
     # convert converted_dict into torch format
     for key in converted_dict.keys():
         if ("embed_tokens" not in key) and ("embedder" not in key):
-      pass
-      pass
+    pass
+    pass
     pass
 #             converted_torch_dict[key] = torch.from_numpy(converted_dict[key].T)
         else:
 #             converted_torch_dict[key] = torch.from_numpy(converted_dict[key])
-
     return converted_torch_dict
-
-
 def convert_pix2struct_original_pytorch_checkpoint_to_hf(
 #     t5x_checkpoint_path, pytorch_dump_folder_path, use_large=False, is_vqa=False
 # ):
 #     flax_params = get_flax_param(t5x_checkpoint_path)
-
     if not use_large:
-      pass
-      pass
+    pass
+    pass
     pass
 #         encoder_config = Pix2StructVisionConfig()
 #         decoder_config = Pix2StructTextConfig()
@@ -142,36 +120,26 @@ def convert_pix2struct_original_pytorch_checkpoint_to_hf(
 #     config = Pix2StructConfig(
 #         vision_config=encoder_config.to_dict(), text_config=decoder_config.to_dict(), is_vqa=is_vqa
 #     )
-
 #     model = Pix2StructForConditionalGeneration(config)
-
 #     torch_params = rename_and_convert_flax_params(flax_params)
 #     model.load_state_dict(torch_params)
-
 #     tok = AutoTokenizer.from_pretrained("ybelkada/test-pix2struct-tokenizer")
 #     image_processor = Pix2StructImageProcessor()
 #     processor = Pix2StructProcessor(image_processor=image_processor, tokenizer=tok)
-
     if use_large:
-      pass
-      pass
+    pass
+    pass
     pass
 #         processor.image_processor.max_patches = 4096
-
 #     processor.image_processor.is_vqa = True
-
     # mkdir if needed
 #     os.makedirs(pytorch_dump_folder_path, exist_ok=True)
-
 #     model.save_pretrained(pytorch_dump_folder_path)
 #     processor.save_pretrained(pytorch_dump_folder_path)
-
 #     print("Model saved in {}".format(pytorch_dump_folder_path))
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
 #     parser.add_argument("--t5x_checkpoint_path", default=None, type=str, help="Path to the original T5x checkpoint.")
@@ -179,7 +147,6 @@ if __name__ == "__main__":
 #     parser.add_argument("--use_large", action="store_true", help="Use large model.")
 #     parser.add_argument("--is_vqa", action="store_true", help="Use large model.")
 #     args = parser.parse_args()
-
 #     convert_pix2struct_original_pytorch_checkpoint_to_hf(
 #         args.t5x_checkpoint_path, args.pytorch_dump_folder_path, args.use_large
 #     )

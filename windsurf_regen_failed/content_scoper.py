@@ -1,21 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # OMNIELITE SAFE AI MODULE
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
 # Implements tag-based, rule-driven content scoping for PDF/content generation.
-
 from __future__ import annotations
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
@@ -25,9 +20,7 @@ from core.compliance.blockchain_license_anchor import anchor_license_hash
 from core.compliance.threat_feed_parser import parse_threat_feed
 import logging
 from typing import List, Dict
-
 # logger = logging.getLogger(__name__)
-
 #     "TAX-PATHWAY-ZERO": "Pathway to Zero",
 #     "TAX-ULTIMATE-2025": "Ultimate 2025",
 #     "TAX-PRIVATE-WEALTH": "Private Wealth Law",
@@ -43,7 +36,6 @@ from typing import List, Dict
 #     "PLR-MONETIZATION": "Personal Brand",
 #     "SAFE-AI-LOCKED": "System",
 # }
-
 #     "tax": [
 #         "TAX-PATHWAY-ZERO",
 #         "TAX-ULTIMATE-2025",
@@ -66,24 +58,19 @@ from typing import List, Dict
 #     ],
 #     "system": ["PHASE-12-READY", "SAFE-AI-LOCKED"],
 # }
-
 # SAFE_AI_PARAMETERS = {
 #     "temperature": 0.4,
 #     "diversity_penalty": 1.0,
 #     "best_of": 3,
 #     "presence_penalty": 0.6,
 # }
-
 # Deterministic, non-sentient scoper
-
-
 class ContentScoper:
     def __init__(self):
 #         self.master_map = MASTER_CONTENT_MAP
 #         self.rules = CATEGORY_RULES
 #         self.safe_params = SAFE_AI_PARAMETERS
 #         self.last_scope = []
-
     def analyze_intent(self, prompt: str) -> str:
         # OMNIPROOF: Threat feed check before analysis
 #         parse_threat_feed({})
@@ -99,7 +86,6 @@ class ContentScoper:
 #         )
         # OMNIPROOF: Monetization signal detection
 #         detect_signals({"prompt": prompt})
-
 #         prompt_lower = prompt.lower()
         if any(
 #             x in prompt_lower
@@ -151,38 +137,28 @@ class ContentScoper:
 #         ):
             return "brand"
         return "system"
-
     def match_tags(self, category: str) -> List[str]:
-
         return self.rules.get(category, []) + self.rules["system"]
-
     def scope_content(self, prompt: str) -> List[str]:
-
 #         category = self.analyze_intent(prompt)
 #         tags = self.match_tags(category)
 #         self.last_scope = tags
 #         logger.info(f"CONTENT SCOPE SELECTED: {tags}")
         return tags
-
     def confirm_scope(self) -> str:
-
 #         tags = self.last_scope
 #         print(f"CONTENT SCOPE SELECTED: {tags} — PROCEED? YES / NO")
         return "CONTENT SCOPE SELECTED: {} — PROCEED? YES / NO".format(tags)
-
     def manual_scope(self, tags: List[str]):
 #         self.last_scope = tags
 #         logger.info(f"Manual content scope applied: {tags}")
 #         print("CONTENT SCOPE APPLIED — READY TO GENERATE ✅")
-
     def get_safe_ai_parameters(self) -> Dict[str, float]:
         return self.safe_params
-
-
 # Autonomous content scoper activation
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     scoper = ContentScoper()
 #     print("AUTONOMOUS CONTENT SCOPER ACTIVE — PHASE 12 SAFE ✅")

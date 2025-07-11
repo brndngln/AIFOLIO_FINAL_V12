@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Static, deterministic, SAFE AI-compliant checks for common misconfigurations and security gaps.
-
 import logging
 import os
-
 # logger = logging.getLogger(__name__)
-
 #     ("Public admin route", lambda: "/admin" not in os.listdir(".")),
 #     ("Key exposure", lambda: not os.path.exists(".env.public")),
 #     ("Weak JWT", lambda: not os.path.exists("jwt_weak.txt")),
@@ -30,8 +23,6 @@ import os
 #     ("Dynamic AI personality", lambda: not os.path.exists("ai_personality.flag")),
 #     ("Version locking", lambda: os.path.exists("version_locked.flag")),
 # ]
-
-
 def run_beginner_mistake_checks() -> dict:
 #     results = {}
     for name, check in STATIC_CHECKS:

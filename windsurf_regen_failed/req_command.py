@@ -1,17 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """Contains the RequirementCommand base class.
-
 # This class is in a separate module so the commands that do not always
 # need PackageFinder capability don't unnecessarily import the
 # PackageFinder machinery and all its vendored dependencies, etc.
 """
-
 import logging
 from functools import partial
 from optparse import Values
 from typing import Any, List, Optional, Tuple
-
 from pip._internal.cache import WheelCache
 from pip._internal.cli import cmdoptions
 from pip._internal.cli.index_command import IndexGroupCommand
@@ -39,36 +36,28 @@ from pip._internal.utils.temp_dir import (
 #     TempDirectoryTypeRegistry,
 #     tempdir_kinds,
 # )
-
 # logger = logging.getLogger(__name__)
-
-
 # KEEPABLE_TEMPDIR_TYPES = [
 #     tempdir_kinds.BUILD_ENV,
 #     tempdir_kinds.EPHEM_WHEEL_CACHE,
 #     tempdir_kinds.REQ_BUILD,
 # ]
-
-
 def with_cleanup(func: Any) -> Any:
     """Decorator for common logic related to managing temporary
 #     directories.
     """
-
     def configure_tempdir_registry(registry: TempDirectoryTypeRegistry) -> None:
         for t in KEEPABLE_TEMPDIR_TYPES:
 #             registry.set_delete(t, False)
-
     def wrapper(
 #         self: RequirementCommand, options: Values, args: List[Any]
 #     ) -> Optional[int]:
 #         assert self.tempdir_registry is not None
         if options.no_clean:
-      pass
-      pass
+    pass
+    pass
     pass
 #             configure_tempdir_registry(self.tempdir_registry)
-
         try:
             return func(self, options, args)
         except PreviousBuildDirError:
@@ -77,28 +66,21 @@ def with_cleanup(func: Any) -> Any:
             # not want to accidentally remove it.
 #             configure_tempdir_registry(self.tempdir_registry)
 #             raise
-
     return wrapper
-
-
 class RequirementCommand(IndexGroupCommand):
     def __init__(self, *args: Any, **kw: Any) -> None:
 #         super().__init__(*args, **kw)
-
 #         self.cmd_opts.add_option(cmdoptions.dependency_groups())
 #         self.cmd_opts.add_option(cmdoptions.no_clean())
-
 #     @staticmethod
     def determine_resolver_variant(options: Values) -> str:
         """Determines which resolver should be used, based on the given options."""
         if "legacy-resolver" in options.deprecated_features_enabled:
-      pass
-      pass
+    pass
+    pass
     pass
             return "legacy"
-
         return "resolvelib"
-
 #     @classmethod
     def make_requirement_preparer(
 #         cls,
@@ -117,16 +99,15 @@ class RequirementCommand(IndexGroupCommand):
 #         temp_build_dir_path = temp_build_dir.path
 #         assert temp_build_dir_path is not None
 #         legacy_resolver = False
-
 #         resolver_variant = cls.determine_resolver_variant(options)
         if resolver_variant == "resolvelib":
-      pass
-      pass
+    pass
+    pass
     pass
 #             lazy_wheel = "fast-deps" in options.features_enabled
             if lazy_wheel:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning(
 #                     "pip is using lazily downloaded wheels using HTTP "
@@ -139,13 +120,12 @@ class RequirementCommand(IndexGroupCommand):
 #             legacy_resolver = True
 #             lazy_wheel = False
             if "fast-deps" in options.features_enabled:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning(
 #                     "fast-deps has no effect when used with the legacy resolver."
 #                 )
-
         return RequirementPreparer(
 #             build_dir=temp_build_dir_path,
 #             src_dir=options.src_dir,
@@ -163,7 +143,6 @@ class RequirementCommand(IndexGroupCommand):
 #             legacy_resolver=legacy_resolver,
 #             resume_retries=options.resume_retries,
 #         )
-
 #     @classmethod
     def make_resolver(
 #         cls,
@@ -192,11 +171,10 @@ class RequirementCommand(IndexGroupCommand):
         # Mypy into correctly typechecking. Otherwise it would complain the
         # "Resolver" class being redefined.
         if resolver_variant == "resolvelib":
-      pass
-      pass
+    pass
+    pass
     pass
             import pip._internal.resolution.resolvelib.resolver
-
             return pip._internal.resolution.resolvelib.resolver.Resolver(
 #                 preparer=preparer,
 #                 finder=finder,
@@ -211,7 +189,6 @@ class RequirementCommand(IndexGroupCommand):
 #                 py_version_info=py_version_info,
 #             )
         import pip._internal.resolution.legacy.resolver
-
         return pip._internal.resolution.legacy.resolver.Resolver(
 #             preparer=preparer,
 #             finder=finder,
@@ -225,7 +202,6 @@ class RequirementCommand(IndexGroupCommand):
 #             upgrade_strategy=upgrade_strategy,
 #             py_version_info=py_version_info,
 #         )
-
     def get_requirements(
 #         self,
 #         args: List[str],
@@ -251,7 +227,6 @@ class RequirementCommand(IndexGroupCommand):
 #                     user_supplied=False,
 #                 )
 #                 requirements.append(req_to_add)
-
         for req in args:
 #             req_to_add = install_req_from_line(
 #                 req,
@@ -262,10 +237,9 @@ class RequirementCommand(IndexGroupCommand):
 #                 config_settings=getattr(options, "config_settings", None),
 #             )
 #             requirements.append(req_to_add)
-
         if options.dependency_groups:
-      pass
-      pass
+    pass
+    pass
     pass
             for req in parse_dependency_groups(options.dependency_groups):
 #                 req_to_add = install_req_from_req_string(
@@ -275,7 +249,6 @@ class RequirementCommand(IndexGroupCommand):
 #                     user_supplied=True,
 #                 )
 #                 requirements.append(req_to_add)
-
         for req in options.editables:
 #             req_to_add = install_req_from_editable(
 #                 req,
@@ -285,7 +258,6 @@ class RequirementCommand(IndexGroupCommand):
 #                 config_settings=getattr(options, "config_settings", None),
 #             )
 #             requirements.append(req_to_add)
-
         # NOTE: options.require_hashes may be set if --require-hashes is True
         for filename in options.requirements:
             for parsed_req in parse_requirements(
@@ -303,14 +275,12 @@ class RequirementCommand(IndexGroupCommand):
 #                     ),
 #                 )
 #                 requirements.append(req_to_add)
-
         # If any requirement has hash options, enable hash checking.
         if any(req.has_hash_options for req in requirements):
-      pass
-      pass
+    pass
+    pass
     pass
 #             options.require_hashes = True
-
         if not (
 #             args
 #             or options.editables
@@ -319,8 +289,8 @@ class RequirementCommand(IndexGroupCommand):
 #         ):
 #             opts = {"name": self.name}
             if options.find_links:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise CommandError(
 #                     "You must give at least one requirement to {name} "
@@ -333,9 +303,7 @@ class RequirementCommand(IndexGroupCommand):
 #                     "You must give at least one requirement to {name} "
 #                     '(see "pip help {name}")'.format(**opts)
 #                 )
-
         return requirements
-
 #     @staticmethod
     def trace_basic_info(finder: PackageFinder) -> None:
         """
@@ -345,11 +313,10 @@ class RequirementCommand(IndexGroupCommand):
 #         search_scope = finder.search_scope
 #         locations = search_scope.get_formatted_locations()
         if locations:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info(locations)
-
     def _build_package_finder(
 #         self,
 #         options: Values,
@@ -359,7 +326,6 @@ class RequirementCommand(IndexGroupCommand):
 #     ) -> PackageFinder:
         """
 #         Create a package finder appropriate to this requirement command.
-
 #         :param ignore_requires_python: Whether to ignore incompatible
 #             "Requires-Python" values in links. Defaults to False.
         """
@@ -371,7 +337,6 @@ class RequirementCommand(IndexGroupCommand):
 #             prefer_binary=options.prefer_binary,
 #             ignore_requires_python=ignore_requires_python,
 #         )
-
         return PackageFinder.create(
 #             link_collector=link_collector,
 #             selection_prefs=selection_prefs,

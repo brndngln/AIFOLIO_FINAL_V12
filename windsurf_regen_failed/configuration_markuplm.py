@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,19 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/markuplm-base": "https://huggingface.co/microsoft/markuplm-base/resolve/main/config.json",
 #     "microsoft/markuplm-large": "https://huggingface.co/microsoft/markuplm-large/resolve/main/config.json",
 # }
-
-
 class MarkupLMConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`MarkupLMModel`]. It is used to instantiate a
 #     MarkupLM model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the MarkupLM
 #     [microsoft/markuplm-base](https://huggingface.co/microsoft/markuplm-base) architecture.
-
 #     Configuration objects inherit from [`BertConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`BertConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the MarkupLM model. Defines the different tokens that can be represented by the
@@ -90,24 +78,17 @@ class MarkupLMConfig(PretrainedConfig):
 #             (50*xpath_tag_unit_hidden_size)-dim.
 #         max_depth (`int`, *optional*, defaults to 50):
 #             The maximum depth in xpath.
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import MarkupLMModel, MarkupLMConfig
-
 #     >>> # Initializing a MarkupLM microsoft/markuplm-base style configuration
 #     >>> configuration = MarkupLMConfig()
-
 #     >>> # Initializing a model from the microsoft/markuplm-base style configuration
 #     >>> model = MarkupLMModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "markuplm"
-
     def __init__(
 #         self,
 #         vocab_size=30522,

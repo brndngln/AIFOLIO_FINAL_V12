@@ -1,23 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from numpy.distutils.fcompiler import FCompiler
-
 # compilers = ['HPUXFCompiler']
-
 class HPUXFCompiler(FCompiler):
-
 #     compiler_type = 'hpux'
 #     description = 'HP Fortran 90 Compiler'
 #     version_pattern =  r'HP F90 (?P<version>[^\s*,]*)'
-
 #     executables = {
 #         'version_cmd'  : ["f90", "+version"],
 #         'compiler_f77' : ["f90"],
@@ -41,10 +34,9 @@ class HPUXFCompiler(FCompiler):
         # XXX status==256 may indicate 'unrecognized option' or
         #     'no input file'. So, version_cmd needs more work.
         return FCompiler.get_version(self, force, ok_status)
-
 if __name__ == '__main__':
-      pass
-      pass
+    pass
+    pass
     pass
     from distutils import log
 #     log.set_verbosity(10)

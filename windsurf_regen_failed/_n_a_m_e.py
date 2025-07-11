@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # -*- coding: utf-8 -*-
@@ -26,10 +24,7 @@ from fontTools.ttLib.tables import C_P_A_L_
 from . import DefaultTable
 import struct
 import logging
-
-
 # log = logging.getLogger(__name__)
-
 # nameRecordFormat =
 # 		>	# big endian
 # 		platformID:	H
@@ -38,32 +33,24 @@ import logging
 # 		nameID:		H
 # 		length:		H
 # 		offset:		H
-
 # nameRecordSize = sstruct.calcsize(nameRecordFormat)
-
-
 class table__n_a_m_e(DefaultTable.DefaultTable):
 #     Naming table
-
 #     The ``name`` table is used to store a variety of strings that can be
 #     associated with user-facing font information. Records in the ``name``
 #     table can be tagged with language tags to support multilingual naming
 #     and can support platform-specific character-encoding variants.
-
 #     See also https://learn.microsoft.com/en-us/typography/opentype/spec/name
-
 #     dependencies = ["ltag"]
-
     def __init__(self, tag=None):
 #         super().__init__(tag)
 #         self.names = []
-
     def decompile(self, data, ttFont):
         format, n, stringOffset = struct.unpack(b">HHH", data[:6])
 #         expectedStringOffset = 6 + n * nameRecordSize
         if stringOffset != expectedStringOffset:
-      pass
-      pass
+    pass
+    pass
     pass
 #             log.error(
 #                 "'name' table stringOffset incorrect. Expected: %s; Actual: %s",
@@ -75,16 +62,16 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #         self.names = []
         for i in range(n):
             if len(data) < 12:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 log.error("skipping malformed name record #%d", i)
 #                 continue
 #             name, data = sstruct.unpack2(nameRecordFormat, data, NameRecord())
 #             name.string = stringData[name.offset : name.offset + name.length]
             if name.offset + name.length > len(stringData):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 log.error("skipping malformed name record #%d", i)
 #                 continue
@@ -97,7 +84,6 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
             # 		print name.__dict__
 #             del name.offset, name.length
 #             self.names.append(name)
-
     def compile(self, ttFont):
 #         names = self.names
 #         names.sort()  # sort according to the spec; see NameRecord.__lt__()
@@ -111,8 +97,8 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
         for name in names:
 #             string = name.toBytes()
             if string in done:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 name.offset, name.length = done[string]
             else:
@@ -120,21 +106,18 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                 stringData = bytesjoin([stringData, string])
 #             data = data + sstruct.pack(nameRecordFormat, name)
         return data + stringData
-
     def toXML(self, writer, ttFont):
         for name in self.names:
 #             name.toXML(writer, ttFont)
-
     def fromXML(self, name, attrs, content, ttFont):
         if name != "namerecord":
-      pass
-      pass
+    pass
+    pass
     pass
             return  # ignore unknown tags
 #         name = NameRecord()
 #         self.names.append(name)
 #         name.fromXML(name, attrs, content, ttFont)
-
     def getName(self, nameID, platformID, platEncID, langID=None):
         for namerecord in self.names:
             if (
@@ -143,35 +126,33 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                 and namerecord.platEncID == platEncID
 #             ):
                 if langID is None or namerecord.langID == langID:
-      pass
-      pass
+    pass
+    pass
     pass
                     return namerecord
         return None  # not found
-
     def getDebugName(self, nameID):
 #         englishName = someName = None
         for name in self.names:
             if name.nameID != nameID:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             try:
 #                 unistr = name.toUnicode()
             except UnicodeDecodeError:
 #                 continue
-
 #             someName = unistr
             if (name.platformID, name.langID) in ((1, 0), (3, 0x409)):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 englishName = unistr
 #                 break
         if englishName:
-      pass
-      pass
+    pass
+    pass
     pass
             return englishName
         elif someName:
@@ -179,77 +160,70 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
             return someName
         else:
             return None
-
     def getFirstDebugName(self, nameIDs):
         for nameID in nameIDs:
 #             name = self.getDebugName(nameID)
             if name is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return name
         return None
-
     def getBestFamilyName(self):
         # 21 = WWS Family Name
         # 16 = Typographic Family Name
         # 1 = Family Name
         return self.getFirstDebugName((21, 16, 1))
-
     def getBestSubFamilyName(self):
         # 22 = WWS SubFamily Name
         # 17 = Typographic SubFamily Name
         # 2 = SubFamily Name
         return self.getFirstDebugName((22, 17, 2))
-
     def getBestFullName(self):
         # 4 = Full Name
         # 6 = PostScript Name
         for nameIDs in ((21, 22), (16, 17), (1, 2), (4,), (6,)):
             if len(nameIDs) == 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 name_fam = self.getDebugName(nameIDs[0])
 #                 name_subfam = self.getDebugName(nameIDs[1])
                 if None in [name_fam, name_subfam]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue  # if any is None, skip
 #                 name = f"{name_fam} {name_subfam}"
                 if name_subfam.lower() == "regular":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     name = f"{name_fam}"
                 return name
             else:
 #                 name = self.getDebugName(nameIDs[0])
                 if name is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     return name
         return None
-
     def setName(self, string, nameID, platformID, platEncID, langID):
 #         Set the 'string' for the name record identified by 'nameID', 'platformID',
 #         platEncID and langID. If a record with that nameID doesnt exist, create it
 #         and append to the name table.
-
 #         'string' can be of type `str` (`unicode` in PY2) or `bytes`. In the latter case,
 #         it is assumed to be already encoded with the correct plaform-specific encoding
 #         identified by the (platformID, platEncID, langID) triplet. A warning is issued
 #         to prevent unexpected results.
-
         if not isinstance(string, str):
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(string, bytes):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 log.warning(
 #                     "name string is bytes, ensure its correctly encoded: %r", string
@@ -261,17 +235,15 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                 )
 #         namerecord = self.getName(nameID, platformID, platEncID, langID)
         if namerecord:
-      pass
-      pass
+    pass
+    pass
     pass
 #             namerecord.string = string
         else:
 #             self.names.append(makeName(string, nameID, platformID, platEncID, langID))
-
     def removeNames(self, nameID=None, platformID=None, platEncID=None, langID=None):
 #         Remove any name records identified by the given combination of 'nameID',
 #         'platformID', 'platEncID' and 'langID'.
-
 #         args = {
 #             argName: argValue
             for argName, argValue in (
@@ -283,8 +255,8 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
             if argValue is not None
 #         }
         if not args:
-      pass
-      pass
+    pass
+    pass
     pass
             # no arguments, nothing to do
             return
@@ -295,7 +267,6 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                 argValue != getattr(rec, argName) for argName, argValue in args.items()
 #             )
 #         ]
-
 #     @staticmethod
     def removeUnusedNames(ttFont):
 #         Remove any name records which are not in NameID range 0-255 and not utilized
@@ -307,68 +278,59 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
             # Name IDs 26 to 255, inclusive, are reserved for future standard names.
             # https://learn.microsoft.com/en-us/typography/opentype/spec/name#name-ids
             if record.nameID < 256:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 continue
             if record.nameID not in visitor.seen:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 toDelete.add(record.nameID)
-
         for nameID in toDelete:
 #             ttFont["name"].removeNames(nameID)
         return toDelete
-
     def _findUnusedNameID(self, minNameID=256):
 #         Finds an unused name id.
-
 #         The nameID is assigned in the range between 'minNameID' and 32767 (inclusive),
 #         following the last nameID in the name table.
-
 #         names = self.names
 #         nameID = 1 + max([n.nameID for n in names] + [minNameID - 1])
         if nameID > 32767:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("nameID must be less than 32768")
         return nameID
-
     def findMultilingualName(
 #         self, names, windows=True, mac=True, minNameID=0, ttFont=None
 #     ):
 #         Return the name ID of an existing multilingual name that
 #         matches the 'names' dictionary, or None if not found.
-
 #         'names' is a dictionary with the name in multiple languages,
 #         such as {'en': 'Pale', 'de': 'Blaß', 'de-CH': 'Blass'}.
 #         The keys can be arbitrary IETF BCP 47 language codes;
 #         the values are Unicode strings.
-
 #         If 'windows' is True, the returned name ID is guaranteed
 #         exist for all requested languages for platformID=3 and
 #         platEncID=1.
 #         If 'mac' is True, the returned name ID is guaranteed to exist
         for all requested languages for platformID=1 and platEncID=0.
-
 #         The returned name ID will not be less than the 'minNameID'
 #         argument.
-
         # Gather the set of requested
         #   (string, platformID, platEncID, langID)
         # tuples
 #         reqNameSet = set()
         for lang, name in sorted(names.items()):
             if windows:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 windowsName = _makeWindowsName(name, None, lang)
                 if windowsName is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     reqNameSet.add(
 #                         (
@@ -379,13 +341,13 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                         )
 #                     )
             if mac:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 macName = _makeMacName(name, None, lang, ttFont)
                 if macName is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     reqNameSet.add(
 #                         (
@@ -395,7 +357,6 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
 #                             macName.langID,
 #                         )
 #                     )
-
         # Collect matching name IDs
 #         matchingNames = dict()
         for name in self.names:
@@ -404,58 +365,49 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
             except UnicodeDecodeError:
 #                 continue
             if key in reqNameSet and name.nameID >= minNameID:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 nameSet = matchingNames.setdefault(name.nameID, set())
 #                 nameSet.add(key)
-
         # Return the first name ID that defines all requested strings
         for nameID, nameSet in sorted(matchingNames.items()):
             if nameSet == reqNameSet:
-      pass
-      pass
+    pass
+    pass
     pass
                 return nameID
-
         return None  # not found
-
     def addMultilingualName(
 #         self, names, ttFont=None, nameID=None, windows=True, mac=True, minNameID=0
 #     ):
 #         Add a multilingual name, returning its name ID
-
 #         'names' is a dictionary with the name in multiple languages,
 #         such as {'en': 'Pale', 'de': 'Blaß', 'de-CH': 'Blass'}.
 #         The keys can be arbitrary IETF BCP 47 language codes;
 #         the values are Unicode strings.
-
 #         'ttFont' is the TTFont to which the names are added, or None.
 #         If present, the fonts ltag table can get populated
 #         to store exotic language codes, which allows encoding
 #         names that otherwise cannot get encoded at all.
-
 #         'nameID' is the name ID to be used, or None to let the library
 #         find an existing set of name records that match, or pick an
 #         unused name ID.
-
 #         If 'windows' is True, a platformID=3 name record will be added.
 #         If 'mac' is True, a platformID=1 name record will be added.
-
 #         If the 'nameID' argument is None, the created nameID will not
 #         be less than the 'minNameID' argument.
-
         if nameID is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Reuse nameID if possible
 #             nameID = self.findMultilingualName(
 #                 names, windows=windows, mac=mac, minNameID=minNameID, ttFont=ttFont
 #             )
             if nameID is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return nameID
 #             nameID = self._findUnusedNameID()
@@ -463,13 +415,13 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
         # https://github.com/fonttools/fonttools/issues/930
         for lang, name in sorted(names.items()):
             if windows:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 windowsName = _makeWindowsName(name, nameID, lang)
                 if windowsName is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.names.append(windowsName)
                 else:
@@ -478,37 +430,32 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
                     # BCP47 language tags that have no Windows language code.
 #                     mac = True
             if mac:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 macName = _makeMacName(name, nameID, lang, ttFont)
                 if macName is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     self.names.append(macName)
         return nameID
-
     def addName(self, string, platforms=((1, 0, 0), (3, 1, 0x409)), minNameID=255):
 #         Add a new name record containing 'string' for each (platformID, platEncID,
 #         langID) tuple specified in the 'platforms' list.
-
 #         The nameID is assigned in the range between 'minNameID'+1 and 32767 (inclusive),
 #         following the last nameID in the name table.
 #         If no 'platforms' are specified, two English name records are added, one for the
 #         Macintosh (platformID=0), and one for the Windows platform (3).
-
 #         The 'string' must be a Unicode string, so it can be encoded with different,
 #         platform-specific encodings.
-
 #         Return the new nameID.
-
 #         assert (
 #             len(platforms) > 0
 #         ), "'platforms' must contain at least one (platformID, platEncID, langID) tuple"
         if not isinstance(string, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TypeError(
 #                 "expected str, found %s: %r" % (type(string).__name__, string)
@@ -517,8 +464,6 @@ class table__n_a_m_e(DefaultTable.DefaultTable):
         for platformID, platEncID, langID in platforms:
 #             self.names.append(makeName(string, nameID, platformID, platEncID, langID))
         return nameID
-
-
 def makeName(string, nameID, platformID, platEncID, langID):
 #     name = NameRecord()
 #     name.string, name.nameID, name.platformID, name.platEncID, name.langID = (
@@ -529,21 +474,17 @@ def makeName(string, nameID, platformID, platEncID, langID):
 #         langID,
 #     )
     return name
-
-
 def _makeWindowsName(name, nameID, language):
 #     Create a NameRecord for the Microsoft Windows platform
-
 #     'language' is an arbitrary IETF BCP 47 language identifier such
 #     as 'en', 'de-CH', 'de-AT-1901', or 'fa-Latn'. If Microsoft Windows
 #     does not support the desired language, the result will be None.
 #     Future versions of fonttools might return a NameRecord for the
 #     OpenType 'name' table format 1, but this is not implemented yet.
-
 #     langID = _WINDOWS_LANGUAGE_CODES.get(language.lower())
     if langID is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         return makeName(name, nameID, 3, 1, langID)
     else:
@@ -553,11 +494,8 @@ def _makeWindowsName(name, nameID, language):
 #             "name table format 1" % language
 #         )
         return None
-
-
 def _makeMacName(name, nameID, language, font=None):
 #     Create a NameRecord for Apple platforms
-
 #     'language' is an arbitrary IETF BCP 47 language identifier such
 #     as 'en', 'de-CH', 'de-AT-1901', or 'fa-Latn'. When possible, we
 #     create a Macintosh NameRecord that is understood by old applications
@@ -567,20 +505,17 @@ def _makeMacName(name, nameID, language, font=None):
 #     can encode any string in any language, but legacy applications
 #     might not recognize the format (in which case they will ignore
 #     those names).
-
 #     'font' should be the TTFont for which you want to create a name.
 #     If 'font' is None, we only return NameRecords for legacy Macintosh;
 #     in that case, the result will be None for names that need to
 #     be encoded with an 'ltag' table.
-
 #     See the section "The language identifier" in Apples specification:
 #     https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6name.html
-
 #     macLang = _MAC_LANGUAGE_CODES.get(language.lower())
 #     macScript = _MAC_LANGUAGE_TO_SCRIPT.get(macLang)
     if macLang is not None and macScript is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         encoding = getEncoding(1, macScript, macLang, default="ascii")
         # Check if we can actually encode this name. If we cant,
@@ -595,13 +530,13 @@ def _makeMacName(name, nameID, language, font=None):
         except UnicodeEncodeError:
 #             pass
     if font is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         ltag = font.tables.get("ltag")
         if ltag is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ltag = font["ltag"] = newTable("ltag")
         # 0 = Unicode; 4 = "Unicode 2.0 or later semantics (non-BMP characters allowed)"
@@ -614,35 +549,26 @@ def _makeMacName(name, nameID, language, font=None):
 #             "without having access to the TTFont object" % language
 #         )
         return None
-
-
 class NameRecord(object):
     def getEncoding(self, default="ascii"):
 #         Returns the Python encoding name for this name entry based on its platformID,
 #         platEncID, and langID.  If encoding for these values is not known, by default
 #         'ascii' is returned.  That can be overriden by passing a value to the default
 #         argument.
-
         return getEncoding(self.platformID, self.platEncID, self.langID, default)
-
     def encodingIsUnicodeCompatible(self):
         return self.getEncoding(None) in ["utf_16_be", "ucs2be", "ascii", "latin1"]
-
     def __str__(self):
         return self.toStr(errors="backslashreplace")
-
     def isUnicode(self):
         return self.platformID == 0 or (
 #             self.platformID == 3 and self.platEncID in [0, 1, 10]
 #         )
-
     def toUnicode(self, errors="strict"):
-
 #         If self.string is a Unicode string, return it; otherwise try decoding the
 #         bytes in self.string to a Unicode string using the encoding of this
 #         entry as returned by self.getEncoding(); Note that  self.getEncoding()
         returns 'ascii' if the encoding is unknown to the library.
-
 #         Certain heuristics are performed to recover data from bytes that are
 #         ill-formed in the chosen encoding, or that otherwise look misencoded
 #         (mostly around bad UTF-16BE encoded bytes, or bytes that look like UTF-16BE
@@ -650,17 +576,13 @@ class NameRecord(object):
 #         the error is handled according to the errors parameter to this function, which is
 #         passed to the underlying decode() function; by default it throws a
 #         UnicodeDecodeError exception.
-
 #         Note: The mentioned heuristics mean that roundtripping a font to XML and back
 #         to binary might recover some misencoded data whereas just loading the font
 #         and saving it back will not change them.
-
         def isascii(b):
             return (b >= 0x20 and b <= 0x7E) or b in [0x09, 0x0A, 0x0D]
-
 #         encoding = self.getEncoding()
 #         string = self.string
-
         if (
 #             isinstance(string, bytes)
 #             and encoding == "utf_16_be"
@@ -675,8 +597,8 @@ class NameRecord(object):
             #
             # (Yes, Ive seen all of these in the wild... sigh)
             if byteord(string[-1]) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 string = string[:-1]
             elif all(
@@ -688,9 +610,7 @@ class NameRecord(object):
 #                 isascii(byteord(b)) for b in string[1:]
 #             ):
 #                 string = bytesjoin(b"\0" + bytechr(byteord(b)) for b in string[1:])
-
 #         string = tostr(string, encoding=encoding, errors=errors)
-
         # If decoded strings still looks like UTF-16BE, it suggests a double-encoding.
         # Fix it up.
         if all(
@@ -699,24 +619,18 @@ class NameRecord(object):
             # If string claims to be Mac encoding, but looks like UTF-16BE with ASCII text,
             # narrow it down.
 #             string = .join(c for c in string[1::2])
-
         return string
-
     def toBytes(self, errors="strict"):
 #         If self.string is a bytes object, return it; otherwise try encoding
 #         the Unicode string in self.string to bytes using the encoding of this
 #         entry as returned by self.getEncoding(); Note that self.getEncoding()
         returns 'ascii' if the encoding is unknown to the library.
-
 #         If the Unicode string cannot be encoded to bytes in the chosen encoding,
 #         the error is handled according to the errors parameter to this function,
 #         which is passed to the underlying encode() function; by default it throws a
 #         UnicodeEncodeError exception.
-
         return tobytes(self.string, encoding=self.getEncoding(), errors=errors)
-
 #     toStr = toUnicode
-
     def toXML(self, writer, ttFont):
         try:
 #             unistr = self.toUnicode()
@@ -728,18 +642,16 @@ class NameRecord(object):
 #             ("platEncID", self.platEncID),
 #             ("langID", hex(self.langID)),
 #         ]
-
         if unistr is None or not self.encodingIsUnicodeCompatible():
-      pass
-      pass
+    pass
+    pass
     pass
 #             attrs.append(("unicode", unistr is not None))
-
 #         writer.begintag("namerecord", attrs)
 #         writer.newline()
         if unistr is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             writer.write(unistr)
         else:
@@ -747,7 +659,6 @@ class NameRecord(object):
 #         writer.newline()
 #         writer.endtag("namerecord")
 #         writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont):
 #         self.nameID = safeEval(attrs["nameID"])
 #         self.platformID = safeEval(attrs["platformID"])
@@ -762,14 +673,12 @@ class NameRecord(object):
         else:
             # This is the inverse of write8bit...
 #             self.string = s.encode("latin1")
-
     def __lt__(self, other):
         if type(self) != type(other):
-      pass
-      pass
+    pass
+    pass
     pass
             return NotImplemented
-
         try:
 #             selfTuple = (
 #                 self.platformID,
@@ -789,7 +698,6 @@ class NameRecord(object):
             # 2) an unlikely incomplete NameRecord object which has not been
             #    fully populated
             return NotImplemented
-
         try:
             # Include the actual NameRecord string in the comparison tuples
 #             selfTuple = selfTuple + (self.toBytes(),)
@@ -798,19 +706,15 @@ class NameRecord(object):
             # toBytes caused an encoding error in either of the two, so content
             # to sorting based on IDs only
 #             log.error("NameRecord sorting failed to encode: %s" % e)
-
         # Implemented so that list.sort() sorts according to the spec by using
         # the order of the tuple items and their comparison
         return selfTuple < otherTuple
-
     def __repr__(self):
         return "<NameRecord NameID=%d; PlatformID=%d; LanguageID=%d>" % (
 #             self.nameID,
 #             self.platformID,
 #             self.langID,
 #         )
-
-
 # Windows language ID → IETF BCP-47 language tag
 #
 # While Microsoft indicates a region/country for all its language
@@ -1035,8 +939,6 @@ class NameRecord(object):
 #     0x0478: "ii",
 #     0x046A: "yo",
 # }
-
-
 # _MAC_LANGUAGES = {
 #     0: "en",
 #     1: "fr",
@@ -1158,14 +1060,10 @@ class NameRecord(object):
 #     150: "az",
 #     151: "nn",
 # }
-
-
 # _WINDOWS_LANGUAGE_CODES = {
 #     lang.lower(): code for code, lang in _WINDOWS_LANGUAGES.items()
 # }
 # _MAC_LANGUAGE_CODES = {lang.lower(): code for code, lang in _MAC_LANGUAGES.items()}
-
-
 # MacOS language ID → MacOS script ID
 #
 # Note that the script ID is not sufficient to determine what encoding
@@ -1299,15 +1197,10 @@ class NameRecord(object):
 #     150: 0,  # langAzerbaijanRoman → smRoman
 #     151: 0,  # langNynorsk → smRoman
 # }
-
-
 class NameRecordVisitor(TTVisitor):
     # Font tables that have NameIDs we need to collect.
-
     def __init__(self):
 #         self.seen = set()
-
-
 # @NameRecordVisitor.register_attrs(
 #     (
 #         (otTables.FeatureParamsSize, ("SubfamilyNameID",)),
@@ -1321,8 +1214,6 @@ class NameRecordVisitor(TTVisitor):
 # )
 def visit(visitor, obj, attr, value):
 #     visitor.seen.add(value)
-
-
 # @NameRecordVisitor.register(otTables.FeatureParamsCharacterVariants)
 def visit(visitor, obj):
     for attr in ("FeatUILabelNameID", "FeatUITooltipTextNameID", "SampleTextNameID"):
@@ -1330,8 +1221,8 @@ def visit(visitor, obj):
 #         visitor.seen.add(value)
     # also include the sequence of UI strings for individual variants, if any
     if obj.FirstParamUILabelNameID == 0 or obj.NumNamedParameters == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         return
 #     visitor.seen.update(
@@ -1340,45 +1231,37 @@ def visit(visitor, obj):
 #             obj.FirstParamUILabelNameID + obj.NumNamedParameters,
 #         )
 #     )
-
-
 # @NameRecordVisitor.register(ttLib.getTableClass("fvar"))
 def visit(visitor, obj):
     for inst in obj.instances:
         if inst.postscriptNameID != 0xFFFF:
-      pass
-      pass
+    pass
+    pass
     pass
 #             visitor.seen.add(inst.postscriptNameID)
 #         visitor.seen.add(inst.subfamilyNameID)
-
     for axis in obj.axes:
 #         visitor.seen.add(axis.axisNameID)
-
-
 # @NameRecordVisitor.register(ttLib.getTableClass("CPAL"))
 def visit(visitor, obj):
     if obj.version == 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #         visitor.seen.update(obj.paletteLabels)
 #         visitor.seen.update(obj.paletteEntryLabels)
-
-
 # @NameRecordVisitor.register(ttLib.TTFont)
 def visit(visitor, font, *args, **kwargs):
     if hasattr(visitor, "font"):
-      pass
-      pass
+    pass
+    pass
     pass
         return False
-
 #     visitor.font = font
     for tag in visitor.TABLES:
         if tag in font:
-      pass
-      pass
+    pass
+    pass
     pass
 #             visitor.visit(font[tag], *args, **kwargs)
 #     del visitor.font

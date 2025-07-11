@@ -2,19 +2,14 @@ from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 import sys
 from typing import List, Optional, Set, Tuple
-
 from pip._vendor.packaging.tags import Tag
-
 from pip._internal.utils.compatibility_tags import get_supported, version_info_to_nodot
 from pip._internal.utils.misc import normalize_version_info
-
-
 class TargetPython:
     """
 #     Encapsulates the properties of a Python interpreter one is targeting
     for a package install, download, etc.
     """
-
 #     __slots__ = [
 #         "_given_py_version_info",
 #         "abis",
@@ -25,7 +20,6 @@ class TargetPython:
 #         "_valid_tags",
 #         "_valid_tags_set",
 #     ]
-
     def __init__(
 #         self,
 #         platforms: Optional[List[str]] = None,
@@ -49,40 +43,34 @@ class TargetPython:
         """
         # Store the given py_version_info for when we call get_supported().
 #         self._given_py_version_info = py_version_info
-
         if py_version_info is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             py_version_info = sys.version_info[:3]
         else:
 #             py_version_info = normalize_version_info(py_version_info)
-
 #         py_version = ".".join(map(str, py_version_info[:2]))
-
 #         self.abis = abis
 #         self.implementation = implementation
 #         self.platforms = platforms
 #         self.py_version = py_version
 #         self.py_version_info = py_version_info
-
         # This is used to cache the return value of get_(un)sorted_tags.
 #         self._valid_tags: Optional[List[Tag]] = None
 #         self._valid_tags_set: Optional[Set[Tag]] = None
-
     def format_given(self) -> str:
         """
 #         Format the given, non-None attributes for display.
         """
 #         display_version = None
         if self._given_py_version_info is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             display_version = ".".join(
 #                 str(part) for part in self._given_py_version_info
 #             )
-
 #         key_values = [
 #             ("platforms", self.platforms),
 #             ("version_info", display_version),
@@ -92,28 +80,25 @@ class TargetPython:
         return " ".join(
 #             f"{key}={value!r}" for key, value in key_values if value is not None
 #         )
-
     def get_sorted_tags(self) -> List[Tag]:
         """
 #         Return the supported PEP 425 tags to check wheel candidates against.
-
 #         The tags are returned in order of preference (most preferred first).
         """
         if self._valid_tags is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # Pass versions=None if no py_version_info was given since
             # versions=None uses special default logic.
 #             py_version_info = self._given_py_version_info
             if py_version_info is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 version = None
             else:
 #                 version = version_info_to_nodot(py_version_info)
-
 #             tags = get_supported(
 #                 version=version,
 #                 platforms=self.platforms,
@@ -121,18 +106,14 @@ class TargetPython:
 #                 impl=self.implementation,
 #             )
 #             self._valid_tags = tags
-
         return self._valid_tags
-
     def get_unsorted_tags(self) -> Set[Tag]:
         """Exactly the same as get_sorted_tags, but returns a set.
-
 #         This is important for performance.
         """
         if self._valid_tags_set is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._valid_tags_set = set(self.get_sorted_tags())
-
         return self._valid_tags_set

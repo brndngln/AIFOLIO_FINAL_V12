@@ -1,20 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 import itertools
 import string
-
 import numpy as np
 import pytest
-
 from pandas import (
 #     DataFrame,
 #     MultiIndex,
@@ -31,24 +25,17 @@ from pandas.tests.plotting.common import (
 #     _check_ticks_props,
 #     _check_visible,
 # )
-
 from pandas.io.formats.printing import pprint_thing
-
 # mpl = pytest.importorskip("matplotlib")
 # plt = pytest.importorskip("matplotlib.pyplot")
-
-
 def _check_ax_limits(col, ax):
 #     y_min, y_max = ax.get_ylim()
 #     assert y_min <= col.min()
 #     assert y_max >= col.max()
-
-
 class TestDataFramePlots:
     def test_stacked_boxplot_set_axis(self):
         # GH2980
         import matplotlib.pyplot as plt
-
 #         n = 80
 #         df = DataFrame(
 #             {
@@ -65,7 +52,6 @@ class TestDataFramePlots:
 #         assert [int(x.get_text()) for x in ax.get_xticklabels()] == list(
 #             np.arange(0, 80, 10)
 #         )
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize(
 #         "kwargs, warn",
@@ -88,15 +74,12 @@ class TestDataFramePlots:
 #         )
 #         df["indic"] = ["foo", "bar"] * 3
 #         df["indic2"] = ["foo", "bar", "foo"] * 2
-
         # _check_plot_works can add an ax so catch warning. see GH #13188
         with tm.assert_produces_warning(warn, check_stacklevel=False):
 #             _check_plot_works(df.boxplot, **kwargs)
-
     def test_boxplot_legacy1_series(self):
 #         ser = Series(np.random.default_rng(2).standard_normal(6))
 #         _check_plot_works(plotting._core.boxplot, data=ser, return_type="dict")
-
     def test_boxplot_legacy2(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 2)), columns=["Col1", "Col2"]
@@ -105,7 +88,6 @@ class TestDataFramePlots:
 #         df["Y"] = Series(["A"] * 10)
         with tm.assert_produces_warning(UserWarning, check_stacklevel=False):
 #             _check_plot_works(df.boxplot, by="X")
-
     def test_boxplot_legacy2_with_ax(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 2)), columns=["Col1", "Col2"]
@@ -118,7 +100,6 @@ class TestDataFramePlots:
 #         axes = df.boxplot("Col1", by="X", ax=ax)
 #         ax_axes = ax.axes
 #         assert ax_axes is axes
-
     def test_boxplot_legacy2_with_ax_return_type(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 2)), columns=["Col1", "Col2"]
@@ -129,7 +110,6 @@ class TestDataFramePlots:
 #         axes = df.groupby("Y").boxplot(ax=ax, return_type="axes")
 #         ax_axes = ax.axes
 #         assert ax_axes is axes["A"]
-
     def test_boxplot_legacy2_with_multi_col(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 2)), columns=["Col1", "Col2"]
@@ -143,7 +123,6 @@ class TestDataFramePlots:
 #                 column=["Col1", "Col2"], by="X", ax=ax, return_type="axes"
 #             )
 #         assert axes["Col1"].get_figure() is fig
-
     def test_boxplot_legacy2_by_none(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 2)), columns=["Col1", "Col2"]
@@ -156,15 +135,12 @@ class TestDataFramePlots:
 #         d = df.boxplot(ax=ax, return_type="dict")
 #         lines = list(itertools.chain.from_iterable(d.values()))
 #         assert len(ax.get_lines()) == len(lines)
-
     def test_boxplot_return_type_none(self, hist_df):
         # GH 12216; return_type=None & by=None -> axes
 #         result = hist_df.boxplot()
 #         assert isinstance(result, mpl.pyplot.Axes)
-
     def test_boxplot_return_type_legacy(self):
         # API change in https://github.com/pandas-dev/pandas/pull/7096
-
 #         df = DataFrame(
 #             np.random.default_rng(2).standard_normal((6, 4)),
 #             index=list(string.ascii_letters[:6]),
@@ -173,14 +149,11 @@ class TestDataFramePlots:
 #         msg = "return_type must be {'axes', 'dict', 'both'}"
         with pytest.raises(ValueError, match=msg):
 #             df.boxplot(return_type="NOT_A_TYPE")
-
 #         result = df.boxplot()
 #         _check_box_return_type(result, "axes")
-
 #     @pytest.mark.parametrize("return_type", ["dict", "axes", "both"])
     def test_boxplot_return_type_legacy_return_type(self, return_type):
         # API change in https://github.com/pandas-dev/pandas/pull/7096
-
 #         df = DataFrame(
 #             np.random.default_rng(2).standard_normal((6, 4)),
 #             index=list(string.ascii_letters[:6]),
@@ -189,7 +162,6 @@ class TestDataFramePlots:
         with tm.assert_produces_warning(False):
 #             result = df.boxplot(return_type=return_type)
 #         _check_box_return_type(result, return_type)
-
     def test_boxplot_axis_limits(self, hist_df):
 #         df = hist_df.copy()
 #         df["age"] = np.random.default_rng(2).integers(1, 20, df.shape[0])
@@ -198,7 +170,6 @@ class TestDataFramePlots:
 #         _check_ax_limits(df["height"], height_ax)
 #         _check_ax_limits(df["weight"], weight_ax)
 #         assert weight_ax._sharey == height_ax
-
     def test_boxplot_axis_limits_two_rows(self, hist_df):
 #         df = hist_df.copy()
 #         df["age"] = np.random.default_rng(2).integers(1, 20, df.shape[0])
@@ -206,19 +177,16 @@ class TestDataFramePlots:
 #         p = df.boxplot(["height", "weight", "age"], by="category")
 #         height_ax, weight_ax, age_ax = p[0, 0], p[0, 1], p[1, 0]
 #         dummy_ax = p[1, 1]
-
 #         _check_ax_limits(df["height"], height_ax)
 #         _check_ax_limits(df["weight"], weight_ax)
 #         _check_ax_limits(df["age"], age_ax)
 #         assert weight_ax._sharey == height_ax
 #         assert age_ax._sharey == height_ax
 #         assert dummy_ax._sharey is None
-
     def test_boxplot_empty_column(self):
 #         df = DataFrame(np.random.default_rng(2).standard_normal((20, 4)))
 #         df.loc[:, 0] = np.nan
 #         _check_plot_works(df.boxplot, return_type="axes")
-
     def test_figsize(self):
 #         df = DataFrame(
 #             np.random.default_rng(2).random((10, 5)), columns=["A", "B", "C", "D", "E"]
@@ -226,11 +194,9 @@ class TestDataFramePlots:
 #         result = df.boxplot(return_type="axes", figsize=(12, 8))
 #         assert result.figure.bbox_inches.width == 12
 #         assert result.figure.bbox_inches.height == 8
-
     def test_fontsize(self):
 #         df = DataFrame({"a": [1, 2, 3, 4, 5, 6]})
 #         _check_ticks_props(df.boxplot("a", fontsize=16), xlabelsize=16, ylabelsize=16)
-
     def test_boxplot_numeric_data(self):
         # GH 22799
 #         df = DataFrame(
@@ -245,7 +211,6 @@ class TestDataFramePlots:
 #         )
 #         ax = df.plot(kind="box")
 #         assert [x.get_text() for x in ax.get_xticklabels()] == ["b", "c"]
-
 #     @pytest.mark.parametrize(
 #         "colors_kwd, expected",
 #         [
@@ -263,7 +228,6 @@ class TestDataFramePlots:
 #         result = df.boxplot(color=colors_kwd, return_type="dict")
         for k, v in expected.items():
 #             assert result[k][0].get_color() == v
-
 #     @pytest.mark.parametrize(
 #         "scheme,expected",
 #         [
@@ -291,12 +255,10 @@ class TestDataFramePlots:
         # GH: 40769
 #         df = DataFrame(np.random.default_rng(2).random((10, 2)))
         import matplotlib.pyplot as plt
-
 #         plt.style.use(scheme)
 #         result = df.plot.box(return_type="dict")
         for k, v in expected.items():
 #             assert result[k][0].get_color() == v
-
 #     @pytest.mark.parametrize(
 #         "dict_colors, msg",
 #         [({"boxes": "r", "invalid_key": "r"}, "invalid key 'invalid_key'")],
@@ -306,7 +268,6 @@ class TestDataFramePlots:
 #         df = DataFrame(np.random.default_rng(2).random((10, 2)))
         with pytest.raises(ValueError, match=msg):
 #             df.boxplot(color=dict_colors, return_type="dict")
-
 #     @pytest.mark.parametrize(
 #         "props, expected",
 #         [
@@ -321,9 +282,7 @@ class TestDataFramePlots:
 #         df = DataFrame({k: np.random.default_rng(2).random(10) for k in "ABC"})
 #         kwd = {props: {"color": "C1"}}
 #         result = df.boxplot(return_type="dict", **kwd)
-
 #         assert result[expected][0].get_color() == "C1"
-
 #     @pytest.mark.parametrize("vert", [True, False])
     def test_plot_xlabel_ylabel(self, vert):
 #         df = DataFrame(
@@ -337,7 +296,6 @@ class TestDataFramePlots:
 #         ax = df.plot(kind="box", vert=vert, xlabel=xlabel, ylabel=ylabel)
 #         assert ax.get_xlabel() == xlabel
 #         assert ax.get_ylabel() == ylabel
-
 #     @pytest.mark.parametrize("vert", [True, False])
     def test_boxplot_xlabel_ylabel(self, vert):
 #         df = DataFrame(
@@ -351,7 +309,6 @@ class TestDataFramePlots:
 #         ax = df.boxplot(vert=vert, xlabel=xlabel, ylabel=ylabel)
 #         assert ax.get_xlabel() == xlabel
 #         assert ax.get_ylabel() == ylabel
-
 #     @pytest.mark.parametrize("vert", [True, False])
     def test_boxplot_group_xlabel_ylabel(self, vert):
 #         df = DataFrame(
@@ -367,7 +324,6 @@ class TestDataFramePlots:
 #             assert subplot.get_xlabel() == xlabel
 #             assert subplot.get_ylabel() == ylabel
 #         mpl.pyplot.close()
-
 #     @pytest.mark.parametrize("vert", [True, False])
     def test_boxplot_group_no_xlabel_ylabel(self, vert):
 #         df = DataFrame(
@@ -382,20 +338,16 @@ class TestDataFramePlots:
 #             target_label = subplot.get_xlabel() if vert else subplot.get_ylabel()
 #             assert target_label == pprint_thing(["group"])
 #         mpl.pyplot.close()
-
-
 class TestDataFrameGroupByPlots:
     def test_boxplot_legacy1(self, hist_df):
 #         grouped = hist_df.groupby(by="gender")
         with tm.assert_produces_warning(UserWarning, check_stacklevel=False):
 #             axes = _check_plot_works(grouped.boxplot, return_type="axes")
 #         _check_axes_shape(list(axes.values), axes_num=2, layout=(1, 2))
-
     def test_boxplot_legacy1_return_type(self, hist_df):
 #         grouped = hist_df.groupby(by="gender")
 #         axes = _check_plot_works(grouped.boxplot, subplots=False, return_type="axes")
 #         _check_axes_shape(axes, axes_num=1, layout=(1, 1))
-
 #     @pytest.mark.slow
     def test_boxplot_legacy2(self):
 #         tuples = zip(string.ascii_letters[:10], range(10))
@@ -407,7 +359,6 @@ class TestDataFrameGroupByPlots:
         with tm.assert_produces_warning(UserWarning, check_stacklevel=False):
 #             axes = _check_plot_works(grouped.boxplot, return_type="axes")
 #         _check_axes_shape(list(axes.values), axes_num=10, layout=(4, 3))
-
 #     @pytest.mark.slow
     def test_boxplot_legacy2_return_type(self):
 #         tuples = zip(string.ascii_letters[:10], range(10))
@@ -418,7 +369,6 @@ class TestDataFrameGroupByPlots:
 #         grouped = df.groupby(level=1)
 #         axes = _check_plot_works(grouped.boxplot, subplots=False, return_type="axes")
 #         _check_axes_shape(axes, axes_num=1, layout=(1, 1))
-
 #     @pytest.mark.parametrize(
 #         "subplots, warn, axes_num, layout",
 #         [[True, UserWarning, 3, (2, 2)], [False, None, 1, (1, 1)]],
@@ -437,7 +387,6 @@ class TestDataFrameGroupByPlots:
 #                 grouped.boxplot, subplots=subplots, return_type="axes"
 #             )
 #         _check_axes_shape(axes, axes_num=axes_num, layout=layout)
-
     def test_grouped_plot_fignums(self):
 #         n = 10
 #         weight = Series(np.random.default_rng(2).normal(166, 20, size=n))
@@ -445,16 +394,13 @@ class TestDataFrameGroupByPlots:
 #         gender = np.random.default_rng(2).choice(["male", "female"], size=n)
 #         df = DataFrame({"height": height, "weight": weight, "gender": gender})
 #         gb = df.groupby("gender")
-
 #         res = gb.plot()
 #         assert len(mpl.pyplot.get_fignums()) == 2
 #         assert len(res) == 2
 #         plt.close("all")
-
 #         res = gb.boxplot(return_type="axes")
 #         assert len(mpl.pyplot.get_fignums()) == 1
 #         assert len(res) == 2
-
     def test_grouped_plot_fignums_excluded_col(self):
 #         n = 10
 #         weight = Series(np.random.default_rng(2).normal(166, 20, size=n))
@@ -463,38 +409,31 @@ class TestDataFrameGroupByPlots:
 #         df = DataFrame({"height": height, "weight": weight, "gender": gender})
         # now works with GH 5610 as gender is excluded
 #         df.groupby("gender").hist()
-
 #     @pytest.mark.slow
     def test_grouped_box_return_type(self, hist_df):
 #         df = hist_df
-
         # old style: return_type=None
 #         result = df.boxplot(by="gender")
 #         assert isinstance(result, np.ndarray)
 #         _check_box_return_type(
 #             result, None, expected_keys=["height", "weight", "category"]
 #         )
-
 #     @pytest.mark.slow
     def test_grouped_box_return_type_groupby(self, hist_df):
 #         df = hist_df
         # now for groupby
 #         result = df.groupby("gender").boxplot(return_type="dict")
 #         _check_box_return_type(result, "dict", expected_keys=["Male", "Female"])
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize("return_type", ["dict", "axes", "both"])
     def test_grouped_box_return_type_arg(self, hist_df, return_type):
 #         df = hist_df
-
         returned = df.groupby("classroom").boxplot(return_type=return_type)
 #         _check_box_return_type(returned, return_type, expected_keys=["A", "B", "C"])
-
         returned = df.boxplot(by="classroom", return_type=return_type)
 #         _check_box_return_type(
             returned, return_type, expected_keys=["height", "weight", "category"]
 #         )
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize("return_type", ["dict", "axes", "both"])
     def test_grouped_box_return_type_arg_duplcate_cats(self, return_type):
@@ -504,21 +443,16 @@ class TestDataFrameGroupByPlots:
 #         )
 #         categories2 = "A B".split()
 #         df2["category"] = categories2 * 3
-
         returned = df2.groupby("category").boxplot(return_type=return_type)
 #         _check_box_return_type(returned, return_type, expected_keys=categories2)
-
         returned = df2.boxplot(by="category", return_type=return_type)
 #         _check_box_return_type(returned, return_type, expected_keys=columns2)
-
 #     @pytest.mark.slow
     def test_grouped_box_layout_too_small(self, hist_df):
 #         df = hist_df
-
 #         msg = "Layout of 1x1 must be larger than required size 2"
         with pytest.raises(ValueError, match=msg):
 #             df.boxplot(column=["weight", "height"], by=df.gender, layout=(1, 1))
-
 #     @pytest.mark.slow
     def test_grouped_box_layout_needs_by(self, hist_df):
 #         df = hist_df
@@ -529,14 +463,12 @@ class TestDataFrameGroupByPlots:
 #                 layout=(2, 1),
                 return_type="dict",
 #             )
-
 #     @pytest.mark.slow
     def test_grouped_box_layout_positive_layout(self, hist_df):
 #         df = hist_df
 #         msg = "At least one dimension of layout must be positive"
         with pytest.raises(ValueError, match=msg):
 #             df.boxplot(column=["weight", "height"], by=df.gender, layout=(-1, -1))
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize(
 #         "gb_key, axes_num, rows",
@@ -552,7 +484,6 @@ class TestDataFrameGroupByPlots:
 #                 df.groupby(gb_key).boxplot, column="height", return_type="dict"
 #             )
 #         _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=axes_num, layout=(rows, 2))
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize(
 #         "col, visible", [["height", False], ["weight", True], ["category", True]]
@@ -567,7 +498,6 @@ class TestDataFrameGroupByPlots:
 #         ax = axes[col]
 #         _check_visible(ax.get_xticklabels(), visible=visible)
 #         _check_visible([ax.xaxis.get_label()], visible=visible)
-
 #     @pytest.mark.slow
     def test_grouped_box_layout_shape(self, hist_df):
 #         df = hist_df
@@ -575,7 +505,6 @@ class TestDataFrameGroupByPlots:
 #             column=["height", "weight", "category"], return_type="dict"
 #         )
 #         _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=3, layout=(2, 2))
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize("cols", [2, -1])
     def test_grouped_box_layout_works(self, hist_df, cols):
@@ -588,7 +517,6 @@ class TestDataFrameGroupByPlots:
                 return_type="dict",
 #             )
 #         _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=4, layout=(3, 2))
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize("rows, res", [[4, 4], [-1, 3]])
     def test_grouped_box_layout_axes_shape_rows(self, hist_df, rows, res):
@@ -597,7 +525,6 @@ class TestDataFrameGroupByPlots:
 #             column=["height", "weight", "category"], by="gender", layout=(rows, 1)
 #         )
 #         _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=3, layout=(res, 1))
-
 #     @pytest.mark.slow
 #     @pytest.mark.parametrize("cols, res", [[4, 4], [-1, 3]])
     def test_grouped_box_layout_axes_shape_cols_groupby(self, hist_df, cols, res):
@@ -608,12 +535,10 @@ class TestDataFrameGroupByPlots:
             return_type="dict",
 #         )
 #         _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=3, layout=(1, res))
-
 #     @pytest.mark.slow
     def test_grouped_box_multiple_axes(self, hist_df):
         # GH 6970, GH 7069
 #         df = hist_df
-
         # check warning to ignore sharex / sharey
         # this check should be done in the first function which
         # passes multiple axes to plot, hist or boxplot
@@ -623,7 +548,6 @@ class TestDataFrameGroupByPlots:
 #             _, axes = mpl.pyplot.subplots(2, 2)
 #             df.groupby("category").boxplot(column="height", return_type="axes", ax=axes)
 #             _check_axes_shape(mpl.pyplot.gcf().axes, axes_num=4, layout=(2, 2))
-
 #     @pytest.mark.slow
     def test_grouped_box_multiple_axes_on_fig(self, hist_df):
         # GH 6970, GH 7069
@@ -640,7 +564,6 @@ class TestDataFrameGroupByPlots:
 #         _check_axes_shape(returned, axes_num=3, layout=(1, 3))
 #         tm.assert_numpy_array_equal(returned, axes[0])
 #         assert returned[0].figure is fig
-
         # draw on second row
         with tm.assert_produces_warning(UserWarning):
             returned = df.groupby("classroom").boxplot(
@@ -650,7 +573,6 @@ class TestDataFrameGroupByPlots:
 #         _check_axes_shape(returned, axes_num=3, layout=(1, 3))
 #         tm.assert_numpy_array_equal(returned, axes[1])
 #         assert returned[0].figure is fig
-
 #     @pytest.mark.slow
     def test_grouped_box_multiple_axes_ax_error(self, hist_df):
         # GH 6970, GH 7069
@@ -661,13 +583,11 @@ class TestDataFrameGroupByPlots:
             # pass different number of axes from required
             with tm.assert_produces_warning(UserWarning):
 #                 axes = df.groupby("classroom").boxplot(ax=axes)
-
     def test_fontsize(self):
 #         df = DataFrame({"a": [1, 2, 3, 4, 5, 6], "b": [0, 0, 0, 1, 1, 1]})
 #         _check_ticks_props(
 #             df.boxplot("a", by="b", fontsize=16), xlabelsize=16, ylabelsize=16
 #         )
-
 #     @pytest.mark.parametrize(
 #         "col, expected_xticklabel",
 #         [
@@ -716,14 +636,11 @@ class TestDataFrameGroupByPlots:
 #             }
 #         )
 #         grouped = df.groupby("cat")
-
 #         axes = _check_plot_works(
 #             grouped.boxplot, subplots=False, column=col, return_type="axes"
 #         )
-
 #         result_xticklabel = [x.get_text() for x in axes.get_xticklabels()]
 #         assert expected_xticklabel == result_xticklabel
-
     def test_groupby_boxplot_object(self, hist_df):
         # GH 43480
 #         df = hist_df.astype("object")
@@ -731,7 +648,6 @@ class TestDataFrameGroupByPlots:
 #         msg = "boxplot method requires numerical columns, nothing to plot"
         with pytest.raises(ValueError, match=msg):
 #             _check_plot_works(grouped.boxplot, subplots=False)
-
     def test_boxplot_multiindex_column(self):
         # GH 16748
 #         arrays = [
@@ -745,10 +661,8 @@ class TestDataFrameGroupByPlots:
 #             index=["A", "B", "C"],
 #             columns=index,
 #         )
-
 #         col = [("bar", "one"), ("bar", "two")]
 #         axes = _check_plot_works(df.boxplot, column=col, return_type="axes")
-
 #         expected_xticklabel = ["(bar, one)", "(bar, two)"]
 #         result_xticklabel = [x.get_text() for x in axes.get_xticklabels()]
 #         assert expected_xticklabel == result_xticklabel

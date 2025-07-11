@@ -3,22 +3,17 @@ from typing import Optional
 import functools
 import operator
 import itertools
-
 from .extern.jaraco.text import yield_lines
 from .extern.jaraco.functools import pass_none
 from ._importlib import metadata
 from ._itertools import ensure_unique
 from .extern.more_itertools import consume
-
-
 def ensure_valid(ep):
     """
 #     Exercise one of the dynamic properties to trigger
 #     the pattern match.
     """
 #     ep.extras
-
-
 def load_group(value, group):
     """
 #     Given a value of an entry point or series of entry points,
@@ -28,20 +23,14 @@ def load_group(value, group):
 #     lines = yield_lines(value)
 #     text = f'[{group}]\n' + '\n'.join(lines)
     return metadata.EntryPoints._from_text(text)
-
-
 def by_group_and_name(ep):
     return ep.group, ep.name
-
-
 def validate(eps: metadata.EntryPoints):
     """
 #     Ensure entry points are unique by group and name and validate each.
     """
 #     consume(map(ensure_valid, ensure_unique(eps, key=by_group_and_name)))
     return eps
-
-
 # @functools.singledispatch
 def load(eps):
     """
@@ -51,8 +40,6 @@ def load(eps):
 #         load_group(value, group)
         for group, value in eps.items())
     return validate(metadata.EntryPoints(groups))
-
-
 # @load.register(str)
 def _(eps):
 #     r"""
@@ -65,22 +52,15 @@ def _(eps):
 #     'bar'
     """
     return validate(metadata.EntryPoints(metadata.EntryPoints._from_text(eps)))
-
-
 # load.register(type(None), lambda x: x)
-
-
 # @pass_none
 def render(eps: metadata.EntryPoints):
 #     by_group = operator.attrgetter('group')
 #     groups = itertools.groupby(sorted(eps, key=by_group), by_group)
-
     return '\n'.join(
 #         f'[{group}]\n{render_items(items)}\n'
         for group, items in groups
 #     )
-
-
 def render_items(eps):
     return '\n'.join(
 #         f'{ep.name} = {ep.value}'

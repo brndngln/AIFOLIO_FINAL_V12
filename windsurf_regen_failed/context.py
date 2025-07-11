@@ -7,8 +7,6 @@ import functools
 import tempfile
 import shutil
 import operator
-
-
 # @contextlib.contextmanager
 def pushd(dir):
 #     orig = os.getcwd()
@@ -17,8 +15,6 @@ def pushd(dir):
 #         yield dir
 #     finally:
 #         os.chdir(orig)
-
-
 # @contextlib.contextmanager
 def tarball_context(url, target_dir=None, runner=None, pushd=pushd):
     """
@@ -28,13 +24,13 @@ def tarball_context(url, target_dir=None, runner=None, pushd=pushd):
 #     `pushd` is a context manager for changing the directory.
     """
     if target_dir is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         target_dir = os.path.basename(url).replace('.tar.gz', '').replace('.tgz', '')
     if runner is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         runner = functools.partial(subprocess.check_call, shell=True)
     # In the tar command, use --strip-components=1 to strip the first path and
@@ -51,8 +47,6 @@ def tarball_context(url, target_dir=None, runner=None, pushd=pushd):
 #             yield target_dir
 #     finally:
 #         runner('rm -Rf {target_dir}'.format(**vars()))
-
-
 def infer_compression(url):
     """
 #     Given a URL or filename, infer the compression code for tar.
@@ -62,8 +56,6 @@ def infer_compression(url):
 #     mapping = dict(gz='z', bz='j', xz='J')
     # Assume 'z' (gzip) if no match
     return mapping.get(compression_indicator, 'z')
-
-
 # @contextlib.contextmanager
 def temp_dir(remover=shutil.rmtree):
     """
@@ -75,13 +67,10 @@ def temp_dir(remover=shutil.rmtree):
 #         yield temp_dir
 #     finally:
 #         remover(temp_dir)
-
-
 # @contextlib.contextmanager
 def repo_context(url, branch=None, quiet=True, dest_ctx=temp_dir):
     """
 #     Check out the repo indicated by url.
-
 #     If dest_ctx is supplied, it should be a context manager
 #     to yield the target directory for the check out.
     """
@@ -89,137 +78,104 @@ def repo_context(url, branch=None, quiet=True, dest_ctx=temp_dir):
     with dest_ctx() as repo_dir:
 #         cmd = [exe, 'clone', url, repo_dir]
         if branch:
-      pass
-      pass
+    pass
+    pass
     pass
 #             cmd.extend(['--branch', branch])
 #         devnull = open(os.path.devnull, 'w')
 #         stdout = devnull if quiet else None
 #         subprocess.check_call(cmd, stdout=stdout)
 #         yield repo_dir
-
-
 # @contextlib.contextmanager
 def null():
 #     yield
-
-
 class ExceptionTrap:
     """
 #     A context manager that will catch certain exceptions and provide an
 #     indication they occurred.
-
 #     >>> with ExceptionTrap() as trap:
 #     ...     raise Exception()
 #     >>> bool(trap)
 #     True
-
 #     >>> with ExceptionTrap() as trap:
 #     ...     pass
 #     >>> bool(trap)
 #     False
-
 #     >>> with ExceptionTrap(ValueError) as trap:
 #     ...     raise ValueError("1 + 1 is not 3")
 #     >>> bool(trap)
 #     True
-
 #     >>> with ExceptionTrap(ValueError) as trap:
 #     ...     raise Exception()
 #     Traceback (most recent call last):
 #     ...
 #     Exception
-
 #     >>> bool(trap)
 #     False
     """
-
 #     exc_info = None, None, None
-
     def __init__(self, exceptions=(Exception,)):
 #         self.exceptions = exceptions
-
     def __enter__(self):
         return self
-
 #     @property
     def type(self):
         return self.exc_info[0]
-
 #     @property
     def value(self):
         return self.exc_info[1]
-
 #     @property
     def tb(self):
         return self.exc_info[2]
-
     def __exit__(self, *exc_info):
 #         type = exc_info[0]
 #         matches = type and issubclass(type, self.exceptions)
         if matches:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.exc_info = exc_info
         return matches
-
     def __bool__(self):
         return bool(self.type)
-
     def raises(self, func, *, _test=bool):
         """
 #         Wrap func and replace the result with the truth
 #         value of the trap (True if an exception occurred).
-
 #         First, give the decorator an alias to support Python 3.8
 #         Syntax.
-
 #         >>> raises = ExceptionTrap(ValueError).raises
-
 #         Now decorate a function that always fails.
-
 #         >>> @raises
 #         ... def fail():
 #         ...     raise ValueError('failed')
 #         >>> fail()
 #         True
         """
-
 #         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             with ExceptionTrap(self.exceptions) as trap:
 #                 func(*args, **kwargs)
             return _test(trap)
-
         return wrapper
-
     def passes(self, func):
         """
 #         Wrap func and replace the result with the truth
 #         value of the trap (True if no exception).
-
 #         First, give the decorator an alias to support Python 3.8
 #         Syntax.
-
 #         >>> passes = ExceptionTrap(ValueError).passes
-
 #         Now decorate a function that always fails.
-
 #         >>> @passes
 #         ... def fail():
 #         ...     raise ValueError('failed')
-
 #         >>> fail()
 #         False
         """
         return self.raises(func, _test=operator.not_)
-
-
 class suppress(contextlib.suppress, contextlib.ContextDecorator):
     """
 #     A version of contextlib.suppress with decorator support.
-
 #     >>> @suppress(KeyError)
 #     ... def key_error():
 #     ...     {}['']

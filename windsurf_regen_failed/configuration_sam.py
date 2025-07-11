@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # SAM_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "facebook/sam-vit-huge": "https://huggingface.co/facebook/sam-vit-huge/resolve/main/config.json",
 #     "facebook/sam-vit-large": "https://huggingface.co/facebook/sam-vit-large/resolve/main/config.json",
 #     "facebook/sam-vit-base": "https://huggingface.co/facebook/sam-vit-base/resolve/main/config.json",
 # }
-
-
 class SamPromptEncoderConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SamPromptEncoder`]. The [`SamPromptEncoder`]
 #     a similar configuration to that of the SAM-vit-h
 #     [facebook/sam-vit-huge](https://huggingface.co/facebook/sam-vit-huge) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 256):
 #             Dimensionality of the hidden states.
@@ -58,7 +46,6 @@ class SamPromptEncoderConfig(PretrainedConfig):
 #             The number of point embeddings to be used.
 #         hidden_act (`str`, *optional*, defaults to `"gelu"`):
 #             The non-linear activation function in the encoder and pooler.
-
     def __init__(
 #         self,
 #         hidden_size=256,
@@ -79,18 +66,14 @@ class SamPromptEncoderConfig(PretrainedConfig):
 #         self.num_point_embeddings = num_point_embeddings
 #         self.hidden_act = hidden_act
 #         self.layer_norm_eps = layer_norm_eps
-
-
 class SamMaskDecoderConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`SamMaskDecoder`]. It is used to instantiate a SAM
 #     mask decoder to the specified arguments, defining the model architecture. Instantiating a configuration defaults
 #     will yield a similar configuration to that of the SAM-vit-h
 #     [facebook/sam-vit-huge](https://huggingface.co/facebook/sam-vit-huge) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 256):
 #             Dimensionality of the hidden states.
@@ -112,7 +95,6 @@ class SamMaskDecoderConfig(PretrainedConfig):
 #             The dimensionality of the hidden states in the IoU head module.
 #         layer_norm_eps (`float`, *optional*, defaults to 1e-06):
 #             The epsilon used by the layer normalization layers.
-
     def __init__(
 #         self,
 #         hidden_size=256,
@@ -138,18 +120,13 @@ class SamMaskDecoderConfig(PretrainedConfig):
 #         self.iou_head_depth = iou_head_depth
 #         self.iou_head_hidden_dim = iou_head_hidden_dim
 #         self.layer_norm_eps = layer_norm_eps
-
-
 class SamVisionConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`SamVisionModel`]. It is used to instantiate a SAM
 #     vision encoder according to the specified arguments, defining the model architecture. Instantiating a configuration
     defaults will yield a similar configuration to that of the SAM ViT-h
 #     [facebook/sam-vit-huge](https://huggingface.co/facebook/sam-vit-huge) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 768):
 #             Dimensionality of the encoder layers and the pooler layer.
@@ -190,7 +167,6 @@ class SamVisionConfig(PretrainedConfig):
 #         mlp_dim (`int`, *optional*):
 #             The dimensionality of the MLP layer in the Transformer encoder. If `None`, defaults to `mlp_ratio *
 #             hidden_size`.
-
     def __init__(
 #         self,
 #         hidden_size=768,
@@ -215,7 +191,6 @@ class SamVisionConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.hidden_size = hidden_size
 #         self.output_channels = output_channels
 #         self.num_hidden_layers = num_hidden_layers
@@ -235,18 +210,14 @@ class SamVisionConfig(PretrainedConfig):
 #         self.global_attn_indexes = global_attn_indexes
 #         self.num_pos_feats = num_pos_feats
 #         self.mlp_dim = int(hidden_size * mlp_ratio) if mlp_dim is None else mlp_dim
-
-
 class SamConfig(PretrainedConfig):
 #     r
 #     [`SamConfig`] is the configuration class to store the configuration of a [`SamModel`]. It is used to instantiate a
 #     SAM model according to the specified arguments, defining the vision model, prompt-encoder model and mask decoder
 #     configs. Instantiating a configuration with the defaults will yield a similar configuration to that of the
 #     SAM-ViT-H [facebook/sam-vit-huge](https://huggingface.co/facebook/sam-vit-huge) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vision_config (Union[`dict`, `SamVisionConfig`], *optional*):
 #             Dictionary of configuration options used to initialize [`SamVisionConfig`].
@@ -254,12 +225,9 @@ class SamConfig(PretrainedConfig):
 #             Dictionary of configuration options used to initialize [`SamPromptEncoderConfig`].
 #         mask_decoder_config (Union[`dict`, `SamMaskDecoderConfig`], *optional*):
 #             Dictionary of configuration options used to initialize [`SamMaskDecoderConfig`].
-
 #         kwargs (*optional*):
 #             Dictionary of keyword arguments.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import (
 #     ...     SamVisionConfig,
@@ -267,28 +235,20 @@ class SamConfig(PretrainedConfig):
 #     ...     SamMaskDecoderConfig,
 #     ...     SamModel,
 #     ... )
-
 #     >>> # Initializing a SamConfig with `"facebook/sam-vit-huge"` style configuration
 #     >>> configuration = SamConfig()
-
 #     >>> # Initializing a SamModel (with random weights) from the `"facebook/sam-vit-huge"` style configuration
 #     >>> model = SamModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
-
 #     >>> # We can also initialize a SamConfig from a SamVisionConfig, SamPromptEncoderConfig, and SamMaskDecoderConfig
-
 #     >>> # Initializing SAM vision, SAM Q-Former and language model configurations
 #     >>> vision_config = SamVisionConfig()
 #     >>> prompt_encoder_config = SamPromptEncoderConfig()
 #     >>> mask_decoder_config = SamMaskDecoderConfig()
-
 #     >>> config = SamConfig(vision_config, prompt_encoder_config, mask_decoder_config)
 #     ```
-
 #     model_type = "sam"
-
     def __init__(
 #         self,
 #         vision_config=None,
@@ -301,23 +261,21 @@ class SamConfig(PretrainedConfig):
 #         vision_config = vision_config if vision_config is not None else {}
 #         prompt_encoder_config = prompt_encoder_config if prompt_encoder_config is not None else {}
 #         mask_decoder_config = mask_decoder_config if mask_decoder_config is not None else {}
-
         if isinstance(vision_config, SamVisionConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             vision_config = vision_config.to_dict()
         if isinstance(prompt_encoder_config, SamPromptEncoderConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             prompt_encoder_config = prompt_encoder_config.to_dict()
         if isinstance(mask_decoder_config, SamMaskDecoderConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #             mask_decoder_config = mask_decoder_config.to_dict()
-
 #         self.vision_config = SamVisionConfig(**vision_config)
 #         self.prompt_encoder_config = SamPromptEncoderConfig(**prompt_encoder_config)
 #         self.mask_decoder_config = SamMaskDecoderConfig(**mask_decoder_config)

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,14 +19,10 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from pathlib import Path
-
-
 def load_cuda_kernels():
     from torch.utils.cpp_extension import load
-
 #     root = Path(__file__).resolve().parent.parent.parent / "kernels" / "deformable_detr"
 #     src_files = [
 #         root / filename
@@ -39,7 +32,6 @@ def load_cuda_kernels():
 #             os.path.join("cuda", "ms_deform_attn_cuda.cu"),
 #         ]
 #     ]
-
 #     load(
 #         "MultiScaleDeformableAttention",
 #         src_files,
@@ -53,7 +45,5 @@ def load_cuda_kernels():
 #             "-D__CUDA_NO_HALF2_OPERATORS__",
 #         ],
 #     )
-
     import MultiScaleDeformableAttention as MSDA
-
     return MSDA

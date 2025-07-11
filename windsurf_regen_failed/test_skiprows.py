@@ -1,33 +1,23 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # Tests that skipped rows are properly handled during
 # parsing for all of the parsers defined in parsers.py
-
 from datetime import datetime
 from io import StringIO
-
 import numpy as np
 import pytest
-
 from pandas.errors import EmptyDataError
-
 from pandas import (
 #     DataFrame,
 #     Index,
 # )
 import pandas._testing as tm
-
 # XFAIL ME PLS once hanging tests issues identified
 # pytestmark = pytest.mark.usefixtures("pyarrow_skip")
-
-
 # @pytest.mark.parametrize("skiprows", [list(range(6)), 6])
 def test_skip_rows_bug(all_parsers, skiprows):
     # see gh-505
@@ -41,20 +31,16 @@ def test_skip_rows_bug(all_parsers, skiprows):
 # 1/1/2000,1.,2.,3.
 # 1/2/2000,4,5,6
 # 1/3/2000,7,8,9
-
 #     result = parser.read_csv(
 #         StringIO(text), skiprows=skiprows, header=None, index_col=0, parse_dates=True
 #     )
 #     index = Index(
 #         [datetime(2000, 1, 1), datetime(2000, 1, 2), datetime(2000, 1, 3)], name=0
 #     )
-
 #     expected = DataFrame(
 #         np.arange(1.0, 10.0).reshape((3, 3)), columns=[1, 2, 3], index=index
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_deep_skip_rows(all_parsers):
     # see gh-4382
 #     parser = all_parsers
@@ -64,38 +50,29 @@ def test_deep_skip_rows(all_parsers):
 #     condensed_data = "a,b,c\n\n".join(
 #         [",".join([str(i), str(i + 1), str(i + 2)]) for i in [0, 1, 2, 3, 4, 6, 8, 9]]
 #     )
-
 #     result = parser.read_csv(StringIO(data), skiprows=[6, 8])
 #     condensed_result = parser.read_csv(StringIO(condensed_data))
 #     tm.assert_frame_equal(result, condensed_result)
-
-
 def test_skip_rows_blank(all_parsers):
     # see gh-9832
 #     parser = all_parsers
 #     text = #foo,a,b,c
 #foo,a,b,c
-
 #foo,a,b,c
 #foo,a,b,c
-
 # 1/1/2000,1.,2.,3.
 # 1/2/2000,4,5,6
 # 1/3/2000,7,8,9
-
 #     data = parser.read_csv(
 #         StringIO(text), skiprows=6, header=None, index_col=0, parse_dates=True
 #     )
 #     index = Index(
 #         [datetime(2000, 1, 1), datetime(2000, 1, 2), datetime(2000, 1, 3)], name=0
 #     )
-
 #     expected = DataFrame(
 #         np.arange(1.0, 10.0).reshape((3, 3)), columns=[1, 2, 3], index=index
 #     )
 #     tm.assert_frame_equal(data, expected)
-
-
 # @pytest.mark.parametrize(
 #     "data,kwargs,expected",
 #     [
@@ -134,8 +111,6 @@ def test_skip_row_with_newline(all_parsers, data, kwargs, expected):
 #     parser = all_parsers
 #     result = parser.read_csv(StringIO(data), **kwargs)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skip_row_with_quote(all_parsers):
     # see gh-12775 and gh-10911
 #     parser = all_parsers
@@ -143,14 +118,10 @@ def test_skip_row_with_quote(all_parsers):
 # 1,"line '11' line 12",2
 # 2,"line '21' line 22",2
 # 3,line '31' line 32,1
-
 #     exp_data = [[2, "line '21' line 22", 2], [3, "line '31' line 32", 1]]
 #     expected = DataFrame(exp_data, columns=["id", "text", "num_lines"])
-
 #     result = parser.read_csv(StringIO(data), skiprows=[1])
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "data,exp_data",
 #     [
@@ -181,11 +152,8 @@ def test_skip_row_with_newline_and_quote(all_parsers, data, exp_data):
     # see gh-12775 and gh-10911
 #     parser = all_parsers
 #     result = parser.read_csv(StringIO(data), skiprows=[1])
-
 #     expected = DataFrame(exp_data, columns=["id", "text", "num_lines"])
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "lineterminator", ["\n", "\r\n", "\r"]  # "LF"  # "CRLF"  # "CR"
 # )
@@ -207,14 +175,12 @@ def test_skiprows_lineterminator(all_parsers, lineterminator, request):
 #         ],
 #         columns=["date", "time", "var", "flag", "oflag"],
 #     )
-
     if parser.engine == "python" and lineterminator == "\r":
-      pass
-      pass
+    pass
+    pass
     pass
 #         mark = pytest.mark.xfail(reason="'CR' not respect with the Python parser yet")
 #         request.node.add_marker(mark)
-
 #     data = data.replace("\n", lineterminator)
 #     result = parser.read_csv(
 #         StringIO(data),
@@ -223,18 +189,13 @@ def test_skiprows_lineterminator(all_parsers, lineterminator, request):
 #         names=["date", "time", "var", "flag", "oflag"],
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skiprows_infield_quote(all_parsers):
     # see gh-14459
 #     parser = all_parsers
 #     data = 'a"\nb"\na\n1'
 #     expected = DataFrame({"a": [1]})
-
 #     result = parser.read_csv(StringIO(data), skiprows=2)
 #     tm.assert_frame_equal(result, expected)
-
-
 # @pytest.mark.parametrize(
 #     "kwargs,expected",
 #     [
@@ -245,40 +206,28 @@ def test_skiprows_infield_quote(all_parsers):
 def test_skip_rows_callable(all_parsers, kwargs, expected):
 #     parser = all_parsers
 #     data = "a\n1\n2\n3\n4\n5"
-
 #     result = parser.read_csv(StringIO(data), skiprows=lambda x: x % 2 == 0, **kwargs)
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skip_rows_callable_not_in(all_parsers):
 #     parser = all_parsers
 #     data = "0,a\n1,b\n2,c\n3,d\n4,e"
 #     expected = DataFrame([[1, "b"], [3, "d"]])
-
 #     result = parser.read_csv(
 #         StringIO(data), header=None, skiprows=lambda x: x not in [1, 3]
 #     )
 #     tm.assert_frame_equal(result, expected)
-
-
 def test_skip_rows_skip_all(all_parsers):
 #     parser = all_parsers
 #     data = "a\n1\n2\n3\n4\n5"
 #     msg = "No columns to parse from file"
-
     with pytest.raises(EmptyDataError, match=msg):
 #         parser.read_csv(StringIO(data), skiprows=lambda x: True)
-
-
 def test_skip_rows_bad_callable(all_parsers):
 #     msg = "by zero"
 #     parser = all_parsers
 #     data = "a\n1\n2\n3\n4\n5"
-
     with pytest.raises(ZeroDivisionError, match=msg):
 #         parser.read_csv(StringIO(data), skiprows=lambda x: 1 / 0)
-
-
 def test_skip_rows_and_n_rows(all_parsers):
     # GH#44021
 #     data = a,b
@@ -290,7 +239,6 @@ def test_skip_rows_and_n_rows(all_parsers):
 # 6,f
 # 7,g
 # 8,h
-
 #     parser = all_parsers
 #     result = parser.read_csv(StringIO(data), nrows=5, skiprows=[2, 4, 6])
 #     expected = DataFrame({"a": [1, 3, 5, 7, 8], "b": ["a", "c", "e", "g", "h"]})

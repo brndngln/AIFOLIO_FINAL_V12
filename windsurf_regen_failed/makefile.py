@@ -4,14 +4,11 @@ from typing import Optional
 """
 # backports.makefile
 # ~~~~~~~~~~~~~~~~~~
-
 # Backports the Python 3 ``socket.makefile`` method for use with anything that
 # wants to create a "fake" socket object.
 """
 import io
 from socket import SocketIO
-
-
 def backport_makefile(
 #     self, mode="r", buffering=None, encoding=None, errors=None, newline=None
 # ):
@@ -19,8 +16,8 @@ def backport_makefile(
 #     Backport of ``socket.makefile`` from Python 3.5.
     """
     if not set(mode) <= {"r", "w", "b"}:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("invalid mode %r (only r, w, b allowed)" % (mode,))
 #     writing = "w" in mode
@@ -29,40 +26,40 @@ def backport_makefile(
 #     binary = "b" in mode
 #     rawmode = ""
     if reading:
-      pass
-      pass
+    pass
+    pass
     pass
 #         rawmode += "r"
     if writing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         rawmode += "w"
 #     raw = SocketIO(self, rawmode)
 #     self._makefile_refs += 1
     if buffering is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         buffering = -1
     if buffering < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         buffering = io.DEFAULT_BUFFER_SIZE
     if buffering == 0:
-      pass
-      pass
+    pass
+    pass
     pass
         if not binary:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("unbuffered streams must be binary")
         return raw
     if reading and writing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         buffer = io.BufferedRWPair(raw, raw, buffering)
     elif reading:
@@ -72,8 +69,8 @@ def backport_makefile(
 #         assert writing
 #         buffer = io.BufferedWriter(raw, buffering)
     if binary:
-      pass
-      pass
+    pass
+    pass
     pass
         return buffer
 #     text = io.TextIOWrapper(buffer, encoding, errors, newline)

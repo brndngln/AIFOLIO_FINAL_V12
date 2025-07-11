@@ -4,7 +4,6 @@ import configparser
 import logging
 import os
 from typing import List, Optional, Tuple
-
 from pip._internal.exceptions import BadCommand, InstallationError
 from pip._internal.utils.misc import HiddenText, display_path
 from pip._internal.utils.subprocess import make_command
@@ -15,10 +14,7 @@ from pip._internal.vcs.versioncontrol import (
 #     find_path_to_project_root_from_repo_root,
 #     vcs,
 # )
-
 # logger = logging.getLogger(__name__)
-
-
 class Mercurial(VersionControl):
 #     name = "hg"
 #     dirname = ".hg"
@@ -30,11 +26,9 @@ class Mercurial(VersionControl):
 #         "hg+ssh",
 #         "hg+static-http",
 #     )
-
 #     @staticmethod
     def get_base_rev_args(rev: str) -> List[str]:
         return [f"--rev={rev}"]
-
     def fetch_new(
 #         self, dest: str, url: HiddenText, rev_options: RevOptions, verbosity: int
 #     ) -> None:
@@ -46,8 +40,8 @@ class Mercurial(VersionControl):
 #             display_path(dest),
 #         )
         if verbosity <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             flags: Tuple[str, ...] = ("--quiet",)
         elif verbosity == 1:
@@ -63,7 +57,6 @@ class Mercurial(VersionControl):
 #             make_command("update", *flags, rev_options.to_args()),
 #             cwd=dest,
 #         )
-
     def switch(self, dest: str, url: HiddenText, rev_options: RevOptions) -> None:
 #         repo_config = os.path.join(dest, self.dirname, "hgrc")
 #         config = configparser.RawConfigParser()
@@ -77,12 +70,10 @@ class Mercurial(VersionControl):
         else:
 #             cmd_args = make_command("update", "-q", rev_options.to_args())
 #             self.run_command(cmd_args, cwd=dest)
-
     def update(self, dest: str, url: HiddenText, rev_options: RevOptions) -> None:
 #         self.run_command(["pull", "-q"], cwd=dest)
 #         cmd_args = make_command("update", "-q", rev_options.to_args())
 #         self.run_command(cmd_args, cwd=dest)
-
 #     @classmethod
     def get_remote_url(cls, location: str) -> str:
 #         url = cls.run_command(
@@ -92,12 +83,11 @@ class Mercurial(VersionControl):
 #             cwd=location,
 #         ).strip()
         if cls._is_local_repository(url):
-      pass
-      pass
+    pass
+    pass
     pass
 #             url = path_to_url(url)
         return url.strip()
-
 #     @classmethod
     def get_revision(cls, location: str) -> str:
         """
@@ -110,7 +100,6 @@ class Mercurial(VersionControl):
 #             cwd=location,
 #         ).strip()
         return current_revision
-
 #     @classmethod
     def get_requirement_revision(cls, location: str) -> str:
         """
@@ -124,12 +113,10 @@ class Mercurial(VersionControl):
 #             cwd=location,
 #         ).strip()
         return current_rev_hash
-
 #     @classmethod
     def is_commit_id_equal(cls, dest: str, name: Optional[str]) -> bool:
         """Always assume the versions don't match"""
         return False
-
 #     @classmethod
     def get_subdirectory(cls, location: str) -> Optional[str]:
         """
@@ -141,18 +128,17 @@ class Mercurial(VersionControl):
 #             ["root"], show_stdout=False, stdout_only=True, cwd=location
 #         ).strip()
         if not os.path.isabs(repo_root):
-      pass
-      pass
+    pass
+    pass
     pass
 #             repo_root = os.path.abspath(os.path.join(location, repo_root))
         return find_path_to_project_root_from_repo_root(location, repo_root)
-
 #     @classmethod
     def get_repository_root(cls, location: str) -> Optional[str]:
 #         loc = super().get_repository_root(location)
         if loc:
-      pass
-      pass
+    pass
+    pass
     pass
             return loc
         try:
@@ -174,6 +160,4 @@ class Mercurial(VersionControl):
         except InstallationError:
             return None
         return os.path.normpath(r.rstrip("\r\n"))
-
-
 # vcs.register(Mercurial)

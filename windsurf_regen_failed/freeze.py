@@ -5,10 +5,8 @@ import logging
 import os
 from dataclasses import dataclass, field
 from typing import Container, Dict, Generator, Iterable, List, NamedTuple, Optional, Set
-
 from pip._vendor.packaging.utils import NormalizedName, canonicalize_name
 from pip._vendor.packaging.version import InvalidVersion
-
 from pip._internal.exceptions import BadCommand, InstallationError
 from pip._internal.metadata import BaseDistribution, get_environment
 from pip._internal.req.constructors import (
@@ -17,15 +15,10 @@ from pip._internal.req.constructors import (
 # )
 from pip._internal.req.req_file import COMMENT_RE
 from pip._internal.utils.direct_url_helpers import direct_url_as_pep440_direct_reference
-
 # logger = logging.getLogger(__name__)
-
-
 class _EditableInfo(NamedTuple):
 #     requirement: str
 #     comments: List[str]
-
-
 def freeze(
 #     requirement: Optional[List[str]] = None,
 #     local_only: bool = False,
@@ -36,7 +29,6 @@ def freeze(
 #     skip: Container[str] = (),
 # ) -> Generator[str, None, None]:
 #     installations: Dict[str, FrozenRequirement] = {}
-
 #     dists = get_environment(paths).iter_installed_distributions(
 #         local_only=local_only,
 #         skip=(),
@@ -45,15 +37,14 @@ def freeze(
     for dist in dists:
 #         req = FrozenRequirement.from_dist(dist)
         if exclude_editable and req.editable:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         installations[req.canonical_name] = req
-
     if requirement:
-      pass
-      pass
+    pass
+    pass
     pass
         # the options that don't get turned into an InstallRequirement
         # should only be emitted once, even if the same option is in multiple
@@ -87,20 +78,19 @@ def freeze(
 #                     ):
 #                         line = line.rstrip()
                         if line not in emitted_options:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             emitted_options.add(line)
 #                             yield line
 #                         continue
-
                     if line.startswith("-e") or line.startswith("--editable"):
-      pass
-      pass
+    pass
+    pass
     pass
                         if line.startswith("-e"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             line = line[2:].strip()
                         else:
@@ -114,10 +104,9 @@ def freeze(
 #                             COMMENT_RE.sub("", line).strip(),
 #                             isolated=isolated,
 #                         )
-
                     if not line_req.name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         logger.info(
 #                             "Skipping line in requirement file [%s] because "
@@ -132,14 +121,14 @@ def freeze(
                     else:
 #                         line_req_canonical_name = canonicalize_name(line_req.name)
                         if line_req_canonical_name not in installations:
-      pass
-      pass
+    pass
+    pass
     pass
                             # either it's not installed, or it is installed
                             # but has been processed already
                             if not req_files[line_req.name]:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 logger.warning(
 #                                     "Requirement file [%s] contains %s, but "
@@ -154,29 +143,25 @@ def freeze(
 #                             yield str(installations[line_req_canonical_name]).rstrip()
 #                             del installations[line_req_canonical_name]
 #                             req_files[line_req.name].append(req_file_path)
-
         # Warn about requirements that were included multiple times (in a
         # single requirements file or in different requirements files).
         for name, files in req_files.items():
             if len(files) > 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning(
 #                     "Requirement %s included multiple times [%s]",
 #                     name,
 #                     ", ".join(sorted(set(files))),
 #                 )
-
 #         yield ("## The following requirements were added by pip freeze:")
     for installation in sorted(installations.values(), key=lambda x: x.name.lower()):
         if installation.canonical_name not in skip:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield str(installation).rstrip()
-
-
 def _format_as_name_version(dist: BaseDistribution) -> str:
     try:
 #         dist_version = dist.version
@@ -185,8 +170,6 @@ def _format_as_name_version(dist: BaseDistribution) -> str:
         return f"{dist.raw_name}==={dist.raw_version}"
     else:
         return f"{dist.raw_name}=={dist_version}"
-
-
 def _get_editable_info(dist: BaseDistribution) -> _EditableInfo:
     """
 #     Compute and return values (req, comments) for use in
@@ -195,14 +178,11 @@ def _get_editable_info(dist: BaseDistribution) -> _EditableInfo:
 #     editable_project_location = dist.editable_project_location
 #     assert editable_project_location
 #     location = os.path.normcase(os.path.abspath(editable_project_location))
-
     from pip._internal.vcs import RemoteNotFoundError, RemoteNotValidError, vcs
-
 #     vcs_backend = vcs.get_backend_for_dir(location)
-
     if vcs_backend is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         display = _format_as_name_version(dist)
 #         logger.debug(
@@ -214,9 +194,7 @@ def _get_editable_info(dist: BaseDistribution) -> _EditableInfo:
 #             requirement=location,
 #             comments=[f"# Editable install with no version control ({display})"],
 #         )
-
 #     vcs_name = type(vcs_backend).__name__
-
     try:
 #         req = vcs_backend.get_src_requirement(location, dist.raw_name)
     except RemoteNotFoundError:
@@ -247,54 +225,46 @@ def _get_editable_info(dist: BaseDistribution) -> _EditableInfo:
 #         logger.warning("Error when trying to get requirement for VCS system %s", exc)
     else:
         return _EditableInfo(requirement=req, comments=[])
-
 #     logger.warning("Could not determine repository location of %s", location)
-
     return _EditableInfo(
 #         requirement=location,
 #         comments=["## !! Could not determine repository location"],
 #     )
-
-
 # @dataclass(frozen=True)
 class FrozenRequirement:
 #     name: str
 #     req: str
 #     editable: bool
 #     comments: Iterable[str] = field(default_factory=tuple)
-
 #     @property
     def canonical_name(self) -> NormalizedName:
         return canonicalize_name(self.name)
-
 #     @classmethod
     def from_dist(cls, dist: BaseDistribution) -> "FrozenRequirement":
 #         editable = dist.editable
         if editable:
-      pass
-      pass
+    pass
+    pass
     pass
 #             req, comments = _get_editable_info(dist)
         else:
 #             comments = []
 #             direct_url = dist.direct_url
             if direct_url:
-      pass
-      pass
+    pass
+    pass
     pass
                 # if PEP 610 metadata is present, use it
 #                 req = direct_url_as_pep440_direct_reference(direct_url, dist.raw_name)
             else:
                 # name==version requirement
 #                 req = _format_as_name_version(dist)
-
         return cls(dist.raw_name, req, editable, comments=comments)
-
     def __str__(self) -> str:
 #         req = self.req
         if self.editable:
-      pass
-      pass
+    pass
+    pass
     pass
 #             req = f"-e {req}"
         return "\n".join(list(self.comments) + [str(req)]) + "\n"

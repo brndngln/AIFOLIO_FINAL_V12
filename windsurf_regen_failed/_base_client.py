@@ -1,13 +1,10 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
-
 import os
 import json
 import time
@@ -39,14 +36,12 @@ from typing import (
 # )
 from functools import lru_cache
 from typing_extensions import Literal, override
-
 import anyio
 import httpx
 import distro
 import pydantic
 from httpx import URL, Limits
 from pydantic import PrivateAttr
-
 from . import _exceptions
 from ._qs import Querystring
 from ._files import to_httpx_files, async_to_httpx_files
@@ -80,23 +75,17 @@ from ._constants import (
 # )
 from ._streaming import Stream, AsyncStream
 from ._exceptions import APIStatusError, APITimeoutError, APIConnectionError
-
 # log: logging.Logger = logging.getLogger(__name__)
-
 # TODO: make base page type vars covariant
 # SyncPageT = TypeVar("SyncPageT", bound="BaseSyncPage[Any]")
 # AsyncPageT = TypeVar("AsyncPageT", bound="BaseAsyncPage[Any]")
-
-
 # _T = TypeVar("_T")
 # _T_co = TypeVar("_T_co", covariant=True)
-
 # _StreamT = TypeVar("_StreamT", bound=Stream[Any])
 # _AsyncStreamT = TypeVar("_AsyncStreamT", bound=AsyncStream[Any])
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from httpx._config import DEFAULT_TIMEOUT_CONFIG as HTTPX_DEFAULT_TIMEOUT
 else:
@@ -104,16 +93,11 @@ else:
         from httpx._config import DEFAULT_TIMEOUT_CONFIG as HTTPX_DEFAULT_TIMEOUT
     except ImportError:
         # taken from https://github.com/encode/httpx/blob/3ba5fe0d7ac70222590e759c31442b1cab263791/httpx/_config.py#L366
-
-
 class PageInfo:
 #     Stores the necesary information to build the request to retrieve the next page.
-
 #     Either `url` or `params` must be set.
-
 #     url: URL | NotGiven
 #     params: Query | NotGiven
-
 #     @overload
     def __init__(
 #         self,
@@ -121,7 +105,6 @@ class PageInfo:
 #         url: URL,
 #     ) -> None:
 #         ...
-
 #     @overload
     def __init__(
 #         self,
@@ -129,7 +112,6 @@ class PageInfo:
 #         params: Query,
 #     ) -> None:
 #         ...
-
     def __init__(
 #         self,
 #         *,
@@ -138,68 +120,51 @@ class PageInfo:
 #     ) -> None:
 #         self.url = url
 #         self.params = params
-
-
 class BasePage(GenericModel, Generic[ModelT]):
-
 #     Defines the core interface for pagination.
-
 #     Type Args:
 #         ModelT: The pydantic model that represents an item in the response.
-
 #     Methods:
 #         has_next_page(): Check if there is another page available
 #         next_page_info(): Get the necessary information to make a request for the next page
-
 #     _options: FinalRequestOptions = PrivateAttr()
 #     _model: Type[ModelT] = PrivateAttr()
-
     def has_next_page(self) -> bool:
 #         items = self._get_page_items()
         if not items:
-      pass
-      pass
+    pass
+    pass
     pass
             return False
         return self.next_page_info() is not None
-
     def next_page_info(self) -> Optional[PageInfo]:
 #         ...
-
     def _get_page_items(self) -> Iterable[ModelT]:  # type: ignore[empty-body]
 #         ...
-
     def _params_from_url(self, url: URL) -> httpx.QueryParams:
         # TODO: do we have to preprocess params here?
         return httpx.QueryParams(cast(Any, self._options.params)).merge(url.params)
-
     def _info_to_options(self, info: PageInfo) -> FinalRequestOptions:
 #         options = model_copy(self._options)
 #         options._strip_raw_response_header()
-
         if not isinstance(info.params, NotGiven):
-      pass
-      pass
+    pass
+    pass
     pass
 #             options.params = {**options.params, **info.params}
             return options
-
         if not isinstance(info.url, NotGiven):
-      pass
-      pass
+    pass
+    pass
     pass
 #             params = self._params_from_url(info.url)
 #             url = info.url.copy_with(params=params)
 #             options.params = dict(url.params)
 #             options.url = str(url)
             return options
-
 #         raise ValueError("Unexpected PageInfo state")
-
-
 class BaseSyncPage(BasePage[ModelT], Generic[ModelT]):
 #     _client: SyncAPIClient = pydantic.PrivateAttr()
-
     def _set_private_attributes(
 #         self,
 #         client: SyncAPIClient,
@@ -209,7 +174,6 @@ class BaseSyncPage(BasePage[ModelT], Generic[ModelT]):
 #         self._model = model
 #         self._client = client
 #         self._options = options
-
     # Pydantic uses a custom `__iter__` method to support casting BaseModels
     # to dictionaries. e.g. dict(model).
     # As we want to support `for item in page`, this is inherently incompatible
@@ -222,33 +186,28 @@ class BaseSyncPage(BasePage[ModelT], Generic[ModelT]):
         for page in self.iter_pages():
             for item in page._get_page_items():
 #                 yield item
-
     def iter_pages(self: SyncPageT) -> Iterator[SyncPageT]:
 #         page = self
         while True:
 #             yield page
             if page.has_next_page():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 page = page.get_next_page()
             else:
                 return
-
     def get_next_page(self: SyncPageT) -> SyncPageT:
 #         info = self.next_page_info()
         if not info:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "No next page expected; please check `.has_next_page()` before calling `.get_next_page()`."
 #             )
-
 #         options = self._info_to_options(info)
         return self._client._request_api_list(self._model, page=self.__class__, options=options)
-
-
 class AsyncPaginator(Generic[ModelT, AsyncPageT]):
     def __init__(
 #         self,
@@ -261,10 +220,8 @@ class AsyncPaginator(Generic[ModelT, AsyncPageT]):
 #         self._client = client
 #         self._options = options
 #         self._page_cls = page_cls
-
     def __await__(self) -> Generator[Any, None, AsyncPageT]:
         return self._get_page().__await__()
-
 #     async def _get_page(self) -> AsyncPageT:
         def _parser(resp: AsyncPageT) -> AsyncPageT:
 #             resp._set_private_attributes(
@@ -273,11 +230,8 @@ class AsyncPaginator(Generic[ModelT, AsyncPageT]):
 #                 client=self._client,
 #             )
             return resp
-
 #         self._options.post_parser = _parser
-
         return await self._client.request(self._page_cls, self._options)
-
 #     async def __aiter__(self) -> AsyncIterator[ModelT]:
         # https://github.com/microsoft/pyright/issues/3464
 #         page = cast(
@@ -286,11 +240,8 @@ class AsyncPaginator(Generic[ModelT, AsyncPageT]):
 #         )
 #         async for item in page:
 #             yield item
-
-
 class BaseAsyncPage(BasePage[ModelT], Generic[ModelT]):
 #     _client: AsyncAPIClient = pydantic.PrivateAttr()
-
     def _set_private_attributes(
 #         self,
 #         model: Type[ModelT],
@@ -300,42 +251,34 @@ class BaseAsyncPage(BasePage[ModelT], Generic[ModelT]):
 #         self._model = model
 #         self._client = client
 #         self._options = options
-
 #     async def __aiter__(self) -> AsyncIterator[ModelT]:
 #         async for page in self.iter_pages():
             for item in page._get_page_items():
 #                 yield item
-
 #     async def iter_pages(self: AsyncPageT) -> AsyncIterator[AsyncPageT]:
 #         page = self
         while True:
 #             yield page
             if page.has_next_page():
-      pass
-      pass
+    pass
+    pass
     pass
 #                 page = await page.get_next_page()
             else:
                 return
-
 #     async def get_next_page(self: AsyncPageT) -> AsyncPageT:
 #         info = self.next_page_info()
         if not info:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise RuntimeError(
 #                 "No next page expected; please check `.has_next_page()` before calling `.get_next_page()`."
 #             )
-
 #         options = self._info_to_options(info)
         return await self._client._request_api_list(self._model, page=self.__class__, options=options)
-
-
 # _HttpxClientT = TypeVar("_HttpxClientT", bound=Union[httpx.Client, httpx.AsyncClient])
 # _DefaultStreamT = TypeVar("_DefaultStreamT", bound=Union[Stream[Any], AsyncStream[Any]])
-
-
 class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #     _client: _HttpxClientT
 #     _version: str
@@ -348,7 +291,6 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #     _strict_response_validation: bool
 #     _idempotency_header: str | None
 #     _default_stream_cls: type[_DefaultStreamT] | None = None
-
     def __init__(
 #         self,
 #         *,
@@ -374,30 +316,25 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #         self._custom_query = custom_query or {}
 #         self._strict_response_validation = _strict_response_validation
 #         self._idempotency_header = None
-
     def _enforce_trailing_slash(self, url: URL) -> URL:
         if url.raw_path.endswith(b"/"):
-      pass
-      pass
+    pass
+    pass
     pass
             return url
         return url.copy_with(raw_path=url.raw_path + b"/")
-
     def _make_status_error_from_response(
 #         self,
 #         response: httpx.Response,
 #     ) -> APIStatusError:
 #         err_text = response.text.strip()
 #         body = err_text
-
         try:
 #             body = json.loads(err_text)
 #             err_msg = f"Error code: {response.status_code} - {body}"
         except Exception:
 #             err_msg = err_text or f"Error code: {response.status_code}"
-
         return self._make_status_error(err_msg, body=body, response=response)
-
     def _make_status_error(
 #         self,
 #         err_msg: str,
@@ -406,72 +343,59 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #         response: httpx.Response,
 #     ) -> _exceptions.APIStatusError:
 #         raise NotImplementedError()
-
     def _remaining_retries(
 #         self,
 #         remaining_retries: Optional[int],
 #         options: FinalRequestOptions,
 #     ) -> int:
         return remaining_retries if remaining_retries is not None else options.get_max_retries(self.max_retries)
-
     def _build_headers(self, options: FinalRequestOptions) -> httpx.Headers:
 #         custom_headers = options.headers or {}
 #         headers_dict = _merge_mappings(self.default_headers, custom_headers)
 #         self._validate_headers(headers_dict, custom_headers)
-
 #         headers = httpx.Headers(headers_dict)
-
 #         idempotency_header = self._idempotency_header
         if idempotency_header and options.method.lower() != "get" and idempotency_header not in headers:
-      pass
-      pass
+    pass
+    pass
     pass
             if not options.idempotency_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 options.idempotency_key = self._idempotency_key()
-
 #             headers[idempotency_header] = options.idempotency_key
-
         return headers
-
     def _prepare_url(self, url: str) -> URL:
-
 #         Merge a URL argument together with any 'base_url' on the client,
 #         to create the URL used for the outgoing request.
-
         # Copied from httpxs `_merge_url` method.
 #         merge_url = URL(url)
         if merge_url.is_relative_url:
-      pass
-      pass
+    pass
+    pass
     pass
 #             merge_raw_path = self.base_url.raw_path + merge_url.raw_path.lstrip(b"/")
             return self.base_url.copy_with(raw_path=merge_raw_path)
-
         return merge_url
-
     def _build_request(
 #         self,
 #         options: FinalRequestOptions,
 #     ) -> httpx.Request:
         if log.isEnabledFor(logging.DEBUG):
-      pass
-      pass
+    pass
+    pass
     pass
 #             log.debug("Request options: %s", model_dump(options, exclude_unset=True))
-
 #         kwargs: dict[str, Any] = {}
-
 #         json_data = options.json_data
         if options.extra_json is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if json_data is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 json_data = cast(Body, options.extra_json)
             elif is_mapping(json_data):
@@ -479,36 +403,32 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #                 json_data = _merge_mappings(json_data, options.extra_json)
             else:
 #                 raise RuntimeError(f"Unexpected JSON data type, {type(json_data)}, cannot merge with `extra_body`")
-
 #         headers = self._build_headers(options)
 #         params = _merge_mappings(self._custom_query, options.params)
-
         # If the given Content-Type header is multipart/form-data then it
         # has to be removed so that httpx can generate the header with
         # additional information for us as it has to be in this form
         # for the server to be able to correctly parse the request:
         # multipart/form-data; boundary=---abc--
         if headers.get("Content-Type") == "multipart/form-data":
-      pass
-      pass
+    pass
+    pass
     pass
 #             headers.pop("Content-Type")
-
             # As we are now sending multipart/form-data instead of application/json
             # we need to tell httpx to use it, https://www.python-httpx.org/advanced/#multipart-file-encoding
             if json_data:
-      pass
-      pass
+    pass
+    pass
     pass
                 if not is_dict(json_data):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TypeError(
 #                         f"Expected query input to be a dictionary for multipart requests but got {type(json_data)} instead."
 #                     )
 #                 kwargs["data"] = self._serialize_multipartform(json_data)
-
         # TODO: report this error to httpx
         return self._client.build_request(  # pyright: ignore[reportUnknownMemberType]
 #             headers=headers,
@@ -524,7 +444,6 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #             files=options.files,
 #             **kwargs,
 #         )
-
     def _serialize_multipartform(self, data: Mapping[object, object]) -> dict[str, object]:
 #         items = self.qs.stringify_items(
             # TODO: type ignore is required as stringify_items is well typed but we cant be
@@ -535,13 +454,12 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #         serialized: dict[str, object] = {}
         for key, value in items:
             if key in serialized:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(f"Duplicate key encountered: {key}; This behaviour is not supported")
 #             serialized[key] = value
         return serialized
-
     def _process_response(
 #         self,
 #         *,
@@ -559,15 +477,12 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #             stream_cls=stream_cls,
 #             options=options,
 #         )
-
         if response.request.headers.get(RAW_RESPONSE_HEADER) == "true":
-      pass
-      pass
+    pass
+    pass
     pass
             return cast(ResponseT, api_response)
-
         return api_response.parse()
-
     def _process_response_data(
 #         self,
 #         *,
@@ -576,43 +491,35 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #         response: httpx.Response,
 #     ) -> ResponseT:
         if data is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return cast(ResponseT, None)
-
         if cast_to is UnknownResponse:
-      pass
-      pass
+    pass
+    pass
     pass
             return cast(ResponseT, data)
-
         if inspect.isclass(cast_to) and issubclass(cast_to, ModelBuilderProtocol):
-      pass
-      pass
+    pass
+    pass
     pass
             return cast(ResponseT, cast_to.build(response=response, data=data))
-
         if self._strict_response_validation:
-      pass
-      pass
+    pass
+    pass
     pass
             return cast(ResponseT, validate_type(type_=cast_to, value=data))
-
         return cast(ResponseT, construct_type(type_=cast_to, value=data))
-
 #     @property
     def qs(self) -> Querystring:
         return Querystring()
-
 #     @property
     def custom_auth(self) -> httpx.Auth | None:
         return None
-
 #     @property
     def auth_headers(self) -> dict[str, str]:
         return {}
-
 #     @property
     def default_headers(self) -> dict[str, str | Omit]:
         return {
@@ -623,30 +530,23 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #             **self.auth_headers,
 #             **self._custom_headers,
 #         }
-
     def _validate_headers(
 #         self,
 #         headers: Headers,  # noqa: ARG002
 #         custom_headers: Headers,  # noqa: ARG002
 #     ) -> None:
 #         Validate the given default headers and custom headers.
-
 #         Does nothing by default.
-
         return
-
 #     @property
     def user_agent(self) -> str:
         return f"{self.__class__.__name__}/Python {self._version}"
-
 #     @property
     def base_url(self) -> URL:
         return self._base_url
-
 #     @base_url.setter
     def base_url(self, url: URL | str) -> None:
 #         self._client.base_url = url if isinstance(url, URL) else URL(url)
-
 #     @lru_cache(maxsize=None)
     def platform_headers(self) -> Dict[str, str]:
         return {
@@ -657,7 +557,6 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #             "X-Stainless-Runtime": platform.python_implementation(),
 #             "X-Stainless-Runtime-Version": platform.python_version(),
 #         }
-
     def _calculate_retry_timeout(
 #         self,
 #         remaining_retries: int,
@@ -671,8 +570,8 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
             # <http-date>. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After#syntax for
             # details.
             if response_headers is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 retry_header = response_headers.get("retry-after")
                 try:
@@ -680,8 +579,8 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
                 except Exception:
 #                     retry_date_tuple = email.utils.parsedate_tz(retry_header)
                     if retry_date_tuple is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         retry_after = -1
                     else:
@@ -689,84 +588,68 @@ class BaseClient(Generic[_HttpxClientT, _DefaultStreamT]):
 #                         retry_after = int(retry_date - time.time())
             else:
 #                 retry_after = -1
-
         except Exception:
 #             retry_after = -1
-
         # If the API asks us to wait a certain amount of time (and its a reasonable amount), just do what it says.
         if 0 < retry_after <= 60:
-      pass
-      pass
+    pass
+    pass
     pass
             return retry_after
-
 #         initial_retry_delay = 0.5
 #         max_retry_delay = 8.0
 #         nb_retries = max_retries - remaining_retries
-
         # Apply exponential backoff, but not more than the max.
 #         sleep_seconds = min(initial_retry_delay * pow(2.0, nb_retries), max_retry_delay)
-
         # Apply some jitter, plus-or-minus half a second.
 #         jitter = 1 - 0.25 * random()
 #         timeout = sleep_seconds * jitter
         return timeout if timeout >= 0 else 0
-
     def _should_retry(self, response: httpx.Response) -> bool:
         # Note: this is not a standard header
 #         should_retry_header = response.headers.get("x-should-retry")
-
         # If the server explicitly says whether or not to retry, obey.
         if should_retry_header == "true":
-      pass
-      pass
+    pass
+    pass
     pass
             return True
         if should_retry_header == "false":
-      pass
-      pass
+    pass
+    pass
     pass
             return False
-
         # Retry on request timeouts.
         if response.status_code == 408:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
-
         # Retry on lock timeouts.
         if response.status_code == 409:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
-
         # Retry on rate limits.
         if response.status_code == 429:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
-
         # Retry internal errors.
         if response.status_code >= 500:
-      pass
-      pass
+    pass
+    pass
     pass
             return True
-
         return False
-
     def _idempotency_key(self) -> str:
         return f"stainless-python-retry-{uuid.uuid4()}"
-
-
 class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #     _client: httpx.Client
 #     _has_custom_http_client: bool
 #     _default_stream_cls: type[Stream[Any]] | None = None
-
     def __init__(
 #         self,
 #         *,
@@ -783,52 +666,49 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         _strict_response_validation: bool,
 #     ) -> None:
         if limits is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `connection_pool_limits` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `connection_pool_limits`")
         else:
 #             limits = DEFAULT_LIMITS
-
         if transport is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `transport` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `transport`")
-
         if proxies is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `proxies` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `proxies`")
-
         if not is_given(timeout):
-      pass
-      pass
+    pass
+    pass
     pass
             # if the user passed in a custom http client with a non-default
             # timeout set then we use that timeout.
@@ -838,13 +718,12 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
             # as this check is structural, meaning that we'll think they didn't
             # pass in a timeout and will ignore it
             if http_client and http_client.timeout != HTTPX_DEFAULT_TIMEOUT:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 timeout = http_client.timeout
             else:
 #                 timeout = DEFAULT_TIMEOUT
-
 #         super().__init__(
 #             version=version,
 #             limits=limits,
@@ -867,26 +746,20 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             limits=limits,
 #         )
 #         self._has_custom_http_client = bool(http_client)
-
     def is_closed(self) -> bool:
         return self._client.is_closed
-
     def close(self) -> None:
 #         Close the underlying HTTPX client.
-
 #         The client will *not* be usable after this.
-
         # If an error is thrown while constructing a client, self._client
         # may not be present
         if hasattr(self, "_client"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._client.close()
-
     def __enter__(self: _T) -> _T:
         return self
-
     def __exit__(
 #         self,
 #         exc_type: type[BaseException] | None,
@@ -894,14 +767,11 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         exc_tb: TracebackType | None,
 #     ) -> None:
 #         self.close()
-
     def _prepare_options(
 #         self,
 #         options: FinalRequestOptions,  # noqa: ARG002
 #     ) -> None:
-
         return None
-
     def _prepare_request(
 #         self,
 #         request: httpx.Request,  # noqa: ARG002
@@ -910,9 +780,7 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         after it has been constructed.
 #         This is useful for cases where you want to add certain headers based off of
 #         the request properties, e.g. `url`, `method` etc.
-
         return None
-
 #     @overload
     def request(
 #         self,
@@ -924,7 +792,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: Type[_StreamT],
 #     ) -> _StreamT:
 #         ...
-
 #     @overload
     def request(
 #         self,
@@ -935,7 +802,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream: Literal[False] = False,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
     def request(
 #         self,
@@ -947,7 +813,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: Type[_StreamT] | None = None,
 #     ) -> ResponseT | _StreamT:
 #         ...
-
     def request(
 #         self,
 #         cast_to: Type[ResponseT],
@@ -964,7 +829,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             stream_cls=stream_cls,
 #             remaining_retries=remaining_retries,
 #         )
-
     def _request(
 #         self,
 #         *,
@@ -975,11 +839,9 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: type[_StreamT] | None,
 #     ) -> ResponseT | _StreamT:
 #         self._prepare_options(options)
-
 #         retries = self._remaining_retries(remaining_retries, options)
 #         request = self._build_request(options)
 #         self._prepare_request(request)
-
         try:
 #             response = self._client.send(request, auth=self.custom_auth, stream=stream)
 #             log.debug(
@@ -987,8 +849,8 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             response.raise_for_status()
         except httpx.HTTPStatusError as err:  # thrown on 4xx and 5xx status code
             if retries > 0 and self._should_retry(err.response):
-      pass
-      pass
+    pass
+    pass
     pass
                 return self._retry_request(
 #                     options,
@@ -998,15 +860,14 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #                     stream=stream,
 #                     stream_cls=stream_cls,
 #                 )
-
             # If the response is streamed then we need to explicitly read the response
             # to completion before attempting to access the response text.
 #             err.response.read()
 #             raise self._make_status_error_from_response(err.response) from None
         except httpx.TimeoutException as err:
             if retries > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self._retry_request(
 #                     options,
@@ -1018,8 +879,8 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             raise APITimeoutError(request=request) from err
         except Exception as err:
             if retries > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 return self._retry_request(
 #                     options,
@@ -1029,7 +890,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #                     stream_cls=stream_cls,
 #                 )
 #             raise APIConnectionError(request=request) from err
-
         return self._process_response(
 #             cast_to=cast_to,
 #             options=options,
@@ -1037,7 +897,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             stream=stream,
 #             stream_cls=stream_cls,
 #         )
-
     def _retry_request(
 #         self,
 #         options: FinalRequestOptions,
@@ -1051,11 +910,9 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         remaining = remaining_retries - 1
 #         timeout = self._calculate_retry_timeout(remaining, options, response_headers)
 #         log.info("Retrying request to %s in %f seconds", options.url, timeout)
-
         # In a synchronous context we are blocking the entire thread. Up to the library user to run the client in a
         # different thread if necessary.
 #         time.sleep(timeout)
-
         return self._request(
 #             options=options,
 #             cast_to=cast_to,
@@ -1063,7 +920,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             stream=stream,
 #             stream_cls=stream_cls,
 #         )
-
     def _request_api_list(
 #         self,
 #         model: Type[ModelT],
@@ -1077,11 +933,8 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #                 options=options,
 #             )
             return resp
-
 #         options.post_parser = _parser
-
         return self.request(page, options, stream=False)
-
 #     @overload
     def get(
 #         self,
@@ -1092,7 +945,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream: Literal[False] = False,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
     def get(
 #         self,
@@ -1104,7 +956,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: type[_StreamT],
 #     ) -> _StreamT:
 #         ...
-
 #     @overload
     def get(
 #         self,
@@ -1116,7 +967,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: type[_StreamT] | None = None,
 #     ) -> ResponseT | _StreamT:
 #         ...
-
     def get(
 #         self,
 #         path: str,
@@ -1130,7 +980,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
         # cast is required because mypy complains about returning Any even though
         # it understands the type variables
         return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
-
 #     @overload
     def post(
 #         self,
@@ -1143,7 +992,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream: Literal[False] = False,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
     def post(
 #         self,
@@ -1157,7 +1005,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: type[_StreamT],
 #     ) -> _StreamT:
 #         ...
-
 #     @overload
     def post(
 #         self,
@@ -1171,7 +1018,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #         stream_cls: type[_StreamT] | None = None,
 #     ) -> ResponseT | _StreamT:
 #         ...
-
     def post(
 #         self,
 #         path: str,
@@ -1187,7 +1033,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             method="post", url=path, json_data=body, files=to_httpx_files(files), **options
 #         )
         return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
-
     def patch(
 #         self,
 #         path: str,
@@ -1198,7 +1043,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #     ) -> ResponseT:
 #         opts = FinalRequestOptions.construct(method="patch", url=path, json_data=body, **options)
         return self.request(cast_to, opts)
-
     def put(
 #         self,
 #         path: str,
@@ -1212,7 +1056,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #             method="put", url=path, json_data=body, files=to_httpx_files(files), **options
 #         )
         return self.request(cast_to, opts)
-
     def delete(
 #         self,
 #         path: str,
@@ -1223,7 +1066,6 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #     ) -> ResponseT:
 #         opts = FinalRequestOptions.construct(method="delete", url=path, json_data=body, **options)
         return self.request(cast_to, opts)
-
     def get_api_list(
 #         self,
 #         path: str,
@@ -1236,13 +1078,10 @@ class SyncAPIClient(BaseClient[httpx.Client, Stream[Any]]):
 #     ) -> SyncPageT:
 #         opts = FinalRequestOptions.construct(method=method, url=path, json_data=body, **options)
         return self._request_api_list(model, page, opts)
-
-
 class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #     _client: httpx.AsyncClient
 #     _has_custom_http_client: bool
 #     _default_stream_cls: type[AsyncStream[Any]] | None = None
-
     def __init__(
 #         self,
 #         *,
@@ -1259,52 +1098,49 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         custom_query: Mapping[str, object] | None = None,
 #     ) -> None:
         if limits is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `connection_pool_limits` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `connection_pool_limits`")
         else:
 #             limits = DEFAULT_LIMITS
-
         if transport is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `transport` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `transport`")
-
         if proxies is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `proxies` argument is deprecated. The `http_client` argument should be passed instead",
 #                 category=DeprecationWarning,
 #             )
             if http_client is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("The `http_client` argument is mutually exclusive with `proxies`")
-
         if not is_given(timeout):
-      pass
-      pass
+    pass
+    pass
     pass
             # if the user passed in a custom http client with a non-default
             # timeout set then we use that timeout.
@@ -1314,13 +1150,12 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
             # as this check is structural, meaning that we'll think they didn't
             # pass in a timeout and will ignore it
             if http_client and http_client.timeout != HTTPX_DEFAULT_TIMEOUT:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 timeout = http_client.timeout
             else:
 #                 timeout = DEFAULT_TIMEOUT
-
 #         super().__init__(
 #             version=version,
 #             base_url=base_url,
@@ -1343,20 +1178,14 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             limits=limits,
 #         )
 #         self._has_custom_http_client = bool(http_client)
-
     def is_closed(self) -> bool:
         return self._client.is_closed
-
 #     async def close(self) -> None:
 #         Close the underlying HTTPX client.
-
 #         The client will *not* be usable after this.
-
 #         await self._client.aclose()
-
 #     async def __aenter__(self: _T) -> _T:
         return self
-
 #     async def __aexit__(
 #         self,
 #         exc_type: type[BaseException] | None,
@@ -1364,14 +1193,11 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         exc_tb: TracebackType | None,
 #     ) -> None:
 #         await self.close()
-
 #     async def _prepare_options(
 #         self,
 #         options: FinalRequestOptions,  # noqa: ARG002
 #     ) -> None:
-
         return None
-
 #     async def _prepare_request(
 #         self,
 #         request: httpx.Request,  # noqa: ARG002
@@ -1380,9 +1206,7 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         after it has been constructed.
 #         This is useful for cases where you want to add certain headers based off of
 #         the request properties, e.g. `url`, `method` etc.
-
         return None
-
 #     @overload
 #     async def request(
 #         self,
@@ -1393,7 +1217,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         remaining_retries: Optional[int] = None,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
 #     async def request(
 #         self,
@@ -1405,7 +1228,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         remaining_retries: Optional[int] = None,
 #     ) -> _AsyncStreamT:
 #         ...
-
 #     @overload
 #     async def request(
 #         self,
@@ -1417,7 +1239,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         remaining_retries: Optional[int] = None,
 #     ) -> ResponseT | _AsyncStreamT:
 #         ...
-
 #     async def request(
 #         self,
 #         cast_to: Type[ResponseT],
@@ -1434,7 +1255,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             stream_cls=stream_cls,
 #             remaining_retries=remaining_retries,
 #         )
-
 #     async def _request(
 #         self,
 #         cast_to: Type[ResponseT],
@@ -1445,11 +1265,9 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         remaining_retries: int | None,
 #     ) -> ResponseT | _AsyncStreamT:
 #         await self._prepare_options(options)
-
 #         retries = self._remaining_retries(remaining_retries, options)
 #         request = self._build_request(options)
 #         await self._prepare_request(request)
-
         try:
 #             response = await self._client.send(request, auth=self.custom_auth, stream=stream)
 #             log.debug(
@@ -1457,8 +1275,8 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             response.raise_for_status()
         except httpx.HTTPStatusError as err:  # thrown on 4xx and 5xx status code
             if retries > 0 and self._should_retry(err.response):
-      pass
-      pass
+    pass
+    pass
     pass
                 return await self._retry_request(
 #                     options,
@@ -1468,33 +1286,31 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #                     stream=stream,
 #                     stream_cls=stream_cls,
 #                 )
-
             # If the response is streamed then we need to explicitly read the response
             # to completion before attempting to access the response text.
 #             await err.response.aread()
 #             raise self._make_status_error_from_response(err.response) from None
         except httpx.ConnectTimeout as err:
             if retries > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 return await self._retry_request(options, cast_to, retries, stream=stream, stream_cls=stream_cls)
 #             raise APITimeoutError(request=request) from err
         except httpx.TimeoutException as err:
             if retries > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 return await self._retry_request(options, cast_to, retries, stream=stream, stream_cls=stream_cls)
 #             raise APITimeoutError(request=request) from err
         except Exception as err:
             if retries > 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 return await self._retry_request(options, cast_to, retries, stream=stream, stream_cls=stream_cls)
 #             raise APIConnectionError(request=request) from err
-
         return self._process_response(
 #             cast_to=cast_to,
 #             options=options,
@@ -1502,7 +1318,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             stream=stream,
 #             stream_cls=stream_cls,
 #         )
-
 #     async def _retry_request(
 #         self,
 #         options: FinalRequestOptions,
@@ -1516,9 +1331,7 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         remaining = remaining_retries - 1
 #         timeout = self._calculate_retry_timeout(remaining, options, response_headers)
 #         log.info("Retrying request to %s in %f seconds", options.url, timeout)
-
 #         await anyio.sleep(timeout)
-
         return await self._request(
 #             options=options,
 #             cast_to=cast_to,
@@ -1526,7 +1339,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             stream=stream,
 #             stream_cls=stream_cls,
 #         )
-
     def _request_api_list(
 #         self,
 #         model: Type[ModelT],
@@ -1534,7 +1346,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         options: FinalRequestOptions,
 #     ) -> AsyncPaginator[ModelT, AsyncPageT]:
         return AsyncPaginator(client=self, options=options, page_cls=page, model=model)
-
 #     @overload
 #     async def get(
 #         self,
@@ -1545,7 +1356,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream: Literal[False] = False,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
 #     async def get(
 #         self,
@@ -1557,7 +1367,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream_cls: type[_AsyncStreamT],
 #     ) -> _AsyncStreamT:
 #         ...
-
 #     @overload
 #     async def get(
 #         self,
@@ -1569,7 +1378,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream_cls: type[_AsyncStreamT] | None = None,
 #     ) -> ResponseT | _AsyncStreamT:
 #         ...
-
 #     async def get(
 #         self,
 #         path: str,
@@ -1581,7 +1389,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #     ) -> ResponseT | _AsyncStreamT:
 #         opts = FinalRequestOptions.construct(method="get", url=path, **options)
         return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-
 #     @overload
 #     async def post(
 #         self,
@@ -1594,7 +1401,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream: Literal[False] = False,
 #     ) -> ResponseT:
 #         ...
-
 #     @overload
 #     async def post(
 #         self,
@@ -1608,7 +1414,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream_cls: type[_AsyncStreamT],
 #     ) -> _AsyncStreamT:
 #         ...
-
 #     @overload
 #     async def post(
 #         self,
@@ -1622,7 +1427,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #         stream_cls: type[_AsyncStreamT] | None = None,
 #     ) -> ResponseT | _AsyncStreamT:
 #         ...
-
 #     async def post(
 #         self,
 #         path: str,
@@ -1638,7 +1442,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             method="post", url=path, json_data=body, files=await async_to_httpx_files(files), **options
 #         )
         return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
-
 #     async def patch(
 #         self,
 #         path: str,
@@ -1649,7 +1452,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #     ) -> ResponseT:
 #         opts = FinalRequestOptions.construct(method="patch", url=path, json_data=body, **options)
         return await self.request(cast_to, opts)
-
 #     async def put(
 #         self,
 #         path: str,
@@ -1663,7 +1465,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #             method="put", url=path, json_data=body, files=await async_to_httpx_files(files), **options
 #         )
         return await self.request(cast_to, opts)
-
 #     async def delete(
 #         self,
 #         path: str,
@@ -1674,7 +1475,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #     ) -> ResponseT:
 #         opts = FinalRequestOptions.construct(method="delete", url=path, json_data=body, **options)
         return await self.request(cast_to, opts)
-
     def get_api_list(
 #         self,
 #         path: str,
@@ -1688,8 +1488,6 @@ class AsyncAPIClient(BaseClient[httpx.AsyncClient, AsyncStream[Any]]):
 #     ) -> AsyncPaginator[ModelT, AsyncPageT]:
 #         opts = FinalRequestOptions.construct(method=method, url=path, json_data=body, **options)
         return self._request_api_list(model, page, opts)
-
-
 def make_request_options(
 #     *,
 #     query: Query | None = None,
@@ -1700,63 +1498,50 @@ def make_request_options(
 #     timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     post_parser: PostParser | NotGiven = NOT_GIVEN,
 # ) -> RequestOptions:
-
 #     options: RequestOptions = {}
     if extra_headers is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["headers"] = extra_headers
-
     if extra_body is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["extra_json"] = cast(AnyMapping, extra_body)
-
     if query is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["params"] = query
-
     if extra_query is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["params"] = {**options.get("params", {}), **extra_query}
-
     if not isinstance(timeout, NotGiven):
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["timeout"] = timeout
-
     if idempotency_key is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         options["idempotency_key"] = idempotency_key
-
     if is_given(post_parser):
-      pass
-      pass
+    pass
+    pass
     pass
         # internal
 #         options["post_parser"] = post_parser  # type: ignore
-
     return options
-
-
 class OtherPlatform:
     def __init__(self, name: str) -> None:
 #         self.name = name
-
 #     @override
     def __str__(self) -> str:
         return f"Other:{self.name}"
-
-
 # Platform = Union[
 #     OtherPlatform,
 #     Literal[
@@ -1770,182 +1555,142 @@ class OtherPlatform:
 #         "Unknown",
 #     ],
 # ]
-
-
 def get_platform() -> Platform:
 #     system = platform.system().lower()
 #     platform_name = platform.platform().lower()
     if "iphone" in platform_name or "ipad" in platform_name:
-      pass
-      pass
+    pass
+    pass
     pass
         # Tested using Python3IDE on an iPhone 11 and Pythonista on an iPad 7
         # system is Darwin and platform_name is a string like:
         # - Darwin-21.6.0-iPhone12,1-64bit
         # - Darwin-21.6.0-iPad7,11-64bit
         return "iOS"
-
     if system == "darwin":
-      pass
-      pass
+    pass
+    pass
     pass
         return "MacOS"
-
     if system == "windows":
-      pass
-      pass
+    pass
+    pass
     pass
         return "Windows"
-
     if "android" in platform_name:
-      pass
-      pass
+    pass
+    pass
     pass
         # Tested using Pydroid 3
         # system is Linux and platform_name is a string like 'Linux-5.10.81-android12-9-00001-geba40aecb3b7-ab8534902-aarch64-with-libc'
         return "Android"
-
     if system == "linux":
-      pass
-      pass
+    pass
+    pass
     pass
         # https://distro.readthedocs.io/en/latest/#distro.id
 #         distro_id = distro.id()
         if distro_id == "freebsd":
-      pass
-      pass
+    pass
+    pass
     pass
             return "FreeBSD"
-
         if distro_id == "openbsd":
-      pass
-      pass
+    pass
+    pass
     pass
             return "OpenBSD"
-
         return "Linux"
-
     if platform_name:
-      pass
-      pass
+    pass
+    pass
     pass
         return OtherPlatform(platform_name)
-
     return "Unknown"
-
-
 class OtherArch:
     def __init__(self, name: str) -> None:
 #         self.name = name
-
 #     @override
     def __str__(self) -> str:
         return f"other:{self.name}"
-
-
 # Arch = Union[OtherArch, Literal["x32", "x64", "arm", "arm64", "unknown"]]
-
-
 def get_architecture() -> Arch:
 #     python_bitness, _ = platform.architecture()
 #     machine = platform.machine().lower()
     if machine in ("arm64", "aarch64"):
-      pass
-      pass
+    pass
+    pass
     pass
         return "arm64"
-
     # TODO: untested
     if machine == "arm":
-      pass
-      pass
+    pass
+    pass
     pass
         return "arm"
-
     if machine == "x86_64":
-      pass
-      pass
+    pass
+    pass
     pass
         return "x64"
-
     # TODO: untested
     if python_bitness == "32bit":
-      pass
-      pass
+    pass
+    pass
     pass
         return "x32"
-
     if machine:
-      pass
-      pass
+    pass
+    pass
     pass
         return OtherArch(machine)
-
     return "unknown"
-
-
 def _merge_mappings(
 #     obj1: Mapping[_T_co, Union[_T, Omit]],
 #     obj2: Mapping[_T_co, Union[_T, Omit]],
 # ) -> Dict[_T_co, _T]:
 #     Merge two mappings of the same type, removing any values that are instances of `Omit`.
-
 #     In cases with duplicate keys the second mapping takes precedence.
-
 #     merged = {**obj1, **obj2}
     return {key: value for key, value in merged.items() if not isinstance(value, Omit)}
-
-
 class HttpxBinaryResponseContent(BinaryResponseContent):
 #     response: httpx.Response
-
     def __init__(self, response: httpx.Response) -> None:
 #         self.response = response
-
 #     @property
 #     @override
     def content(self) -> bytes:
         return self.response.content
-
 #     @property
 #     @override
     def text(self) -> str:
         return self.response.text
-
 #     @property
 #     @override
     def encoding(self) -> Optional[str]:
         return self.response.encoding
-
 #     @property
 #     @override
     def charset_encoding(self) -> Optional[str]:
         return self.response.charset_encoding
-
 #     @override
     def json(self, **kwargs: Any) -> Any:
         return self.response.json(**kwargs)
-
 #     @override
     def read(self) -> bytes:
         return self.response.read()
-
 #     @override
     def iter_bytes(self, chunk_size: Optional[int] = None) -> Iterator[bytes]:
         return self.response.iter_bytes(chunk_size)
-
 #     @override
     def iter_text(self, chunk_size: Optional[int] = None) -> Iterator[str]:
         return self.response.iter_text(chunk_size)
-
 #     @override
     def iter_lines(self) -> Iterator[str]:
         return self.response.iter_lines()
-
 #     @override
     def iter_raw(self, chunk_size: Optional[int] = None) -> Iterator[bytes]:
         return self.response.iter_raw(chunk_size)
-
 #     @override
     def stream_to_file(
 #         self,
@@ -1956,31 +1701,24 @@ class HttpxBinaryResponseContent(BinaryResponseContent):
         with open(file, mode="wb") as f:
             for data in self.response.iter_bytes(chunk_size):
 #                 f.write(data)
-
 #     @override
     def close(self) -> None:
         return self.response.close()
-
 #     @override
 #     async def aread(self) -> bytes:
         return await self.response.aread()
-
 #     @override
 #     async def aiter_bytes(self, chunk_size: Optional[int] = None) -> AsyncIterator[bytes]:
         return self.response.aiter_bytes(chunk_size)
-
 #     @override
 #     async def aiter_text(self, chunk_size: Optional[int] = None) -> AsyncIterator[str]:
         return self.response.aiter_text(chunk_size)
-
 #     @override
 #     async def aiter_lines(self) -> AsyncIterator[str]:
         return self.response.aiter_lines()
-
 #     @override
 #     async def aiter_raw(self, chunk_size: Optional[int] = None) -> AsyncIterator[bytes]:
         return self.response.aiter_raw(chunk_size)
-
 #     @override
 #     async def astream_to_file(
 #         self,
@@ -1992,7 +1730,6 @@ class HttpxBinaryResponseContent(BinaryResponseContent):
 #         async with await path.open(mode="wb") as f:
 #             async for data in self.response.aiter_bytes(chunk_size):
 #                 await f.write(data)
-
 #     @override
 #     async def aclose(self) -> None:
         return await self.response.aclose()

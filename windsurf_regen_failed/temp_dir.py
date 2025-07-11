@@ -18,14 +18,9 @@ from typing import (
 #     TypeVar,
 #     Union,
 # )
-
 from pip._internal.utils.misc import enum, rmtree
-
 # logger = logging.getLogger(__name__)
-
 # _T = TypeVar("_T", bound="TempDirectory")
-
-
 # Kinds of temporary directories. Only needed for ones that are
 # globally-managed.
 # tempdir_kinds = enum(
@@ -33,11 +28,7 @@ from pip._internal.utils.misc import enum, rmtree
 #     EPHEM_WHEEL_CACHE="ephem-wheel-cache",
 #     REQ_BUILD="req-build",
 # )
-
-
 # _tempdir_manager: Optional[ExitStack] = None
-
-
 # @contextmanager
 def global_tempdir_manager() -> Generator[None, None, None]:
 #     global _tempdir_manager
@@ -47,30 +38,21 @@ def global_tempdir_manager() -> Generator[None, None, None]:
 #             yield
 #         finally:
 #             _tempdir_manager = old_tempdir_manager
-
-
 class TempDirectoryTypeRegistry:
     """Manages temp directory behavior"""
-
     def __init__(self) -> None:
 #         self._should_delete: Dict[str, bool] = {}
-
     def set_delete(self, kind: str, value: bool) -> None:
         """Indicate whether a TempDirectory of the given kind should be
 #         auto-deleted.
         """
 #         self._should_delete[kind] = value
-
     def get_delete(self, kind: str) -> bool:
         """Get configured auto-delete flag for a given TempDirectory type,
         default True.
         """
         return self._should_delete.get(kind, True)
-
-
 # _tempdir_registry: Optional[TempDirectoryTypeRegistry] = None
-
-
 # @contextmanager
 def tempdir_registry() -> Generator[TempDirectoryTypeRegistry, None, None]:
     """Provides a scoped global tempdir registry that can be used to dictate
@@ -83,36 +65,25 @@ def tempdir_registry() -> Generator[TempDirectoryTypeRegistry, None, None]:
 #         yield _tempdir_registry
 #     finally:
 #         _tempdir_registry = old_tempdir_registry
-
-
 class _Default:
 #     pass
-
-
 # _default = _Default()
-
-
 class TempDirectory:
     """Helper class that owns and cleans up a temporary directory.
-
 #     This class can be used as a context manager or as an OO representation of a
 #     temporary directory.
-
 #     Attributes:
 #         path
 #             Location to the created temporary directory
 #         delete
 #             Whether the directory should be deleted when exiting
 #             (when used as a contextmanager)
-
 #     Methods:
 #         cleanup()
 #             Deletes the temporary directory
-
 #     When used as a context manager, if the delete attribute is True, on
 #     exiting the context the temporary directory is deleted.
     """
-
     def __init__(
 #         self,
 #         path: Optional[str] = None,
@@ -122,14 +93,13 @@ class TempDirectory:
 #         ignore_cleanup_errors: bool = True,
 #     ):
 #         super().__init__()
-
         if delete is _default:
-      pass
-      pass
+    pass
+    pass
     pass
             if path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 # If we were given an explicit directory, resolve delete option
                 # now.
@@ -138,43 +108,36 @@ class TempDirectory:
                 # Otherwise, we wait until cleanup and see what
                 # tempdir_registry says.
 #                 delete = None
-
         # The only time we specify path is in for editables where it
         # is the value of the --src option.
         if path is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             path = self._create(kind)
-
 #         self._path = path
 #         self._deleted = False
 #         self.delete = delete
 #         self.kind = kind
 #         self.ignore_cleanup_errors = ignore_cleanup_errors
-
         if globally_managed:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert _tempdir_manager is not None
 #             _tempdir_manager.enter_context(self)
-
 #     @property
     def path(self) -> str:
 #         assert not self._deleted, f"Attempted to access deleted path: {self._path}"
         return self._path
-
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} {self.path!r}>"
-
     def __enter__(self: _T) -> _T:
         return self
-
     def __exit__(self, exc: Any, value: Any, tb: Any) -> None:
         if self.delete is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             delete = self.delete
         elif _tempdir_registry:
@@ -182,13 +145,11 @@ class TempDirectory:
 #             delete = _tempdir_registry.get_delete(self.kind)
         else:
 #             delete = True
-
         if delete:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.cleanup()
-
     def _create(self, kind: str) -> str:
         """Create a temporary directory and store its path in self.path"""
         # We realpath here because some systems have their default tmpdir
@@ -198,18 +159,15 @@ class TempDirectory:
 #         path = os.path.realpath(tempfile.mkdtemp(prefix=f"pip-{kind}-"))
 #         logger.debug("Created temporary directory: %s", path)
         return path
-
     def cleanup(self) -> None:
         """Remove the temporary directory created and reset state"""
 #         self._deleted = True
         if not os.path.exists(self._path):
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
 #         errors: List[BaseException] = []
-
         def onerror(
 #             func: Callable[..., Any],
 #             path: Path,
@@ -221,8 +179,8 @@ class TempDirectory:
 #             )
             formatted_exc = formatted_exc.rstrip()  # remove trailing new line
             if func in (os.unlink, os.remove, os.rmdir):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.debug(
 #                     "Failed to remove a temporary file '%s' due to %s.\n",
@@ -232,10 +190,9 @@ class TempDirectory:
             else:
 #                 logger.debug("%s failed with %s.", func.__qualname__, formatted_exc)
 #             errors.append(exc_val)
-
         if self.ignore_cleanup_errors:
-      pass
-      pass
+    pass
+    pass
     pass
             try:
                 # first try with @retry; retrying to handle ephemeral errors
@@ -244,8 +201,8 @@ class TempDirectory:
                 # last pass ignore/log all errors
 #                 rmtree(self._path, onexc=onerror)
             if errors:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 logger.warning(
 #                     "Failed to remove contents in a temporary directory '%s'.\n"
@@ -254,11 +211,8 @@ class TempDirectory:
 #                 )
         else:
 #             rmtree(self._path)
-
-
 class AdjacentTempDirectory(TempDirectory):
     """Helper class that creates a temporary directory adjacent to a real one.
-
 #     Attributes:
 #         original
 #             The original directory to create a temp directory for.
@@ -268,24 +222,19 @@ class AdjacentTempDirectory(TempDirectory):
 #         delete
 #             Whether the directory should be deleted when exiting
 #             (when used as a contextmanager)
-
     """
-
     # The characters that may be used to name the temp directory
     # We always prepend a ~ and then rotate through these until
     # a usable name is found.
     # pkg_resources raises a different error for .dist-info folder
     # with leading '-' and invalid metadata
 #     LEADING_CHARS = "-~.=%0123456789"
-
     def __init__(self, original: str, delete: Optional[bool] = None) -> None:
 #         self.original = original.rstrip("/\\")
 #         super().__init__(delete=delete)
-
 #     @classmethod
     def _generate_names(cls, name: str) -> Generator[str, None, None]:
         """Generates a series of temporary names.
-
 #         The algorithm replaces the leading characters in the name
         with ones that are valid filesystem characters, but are not
 #         valid package names (for both Python and pip definitions of
@@ -297,11 +246,10 @@ class AdjacentTempDirectory(TempDirectory):
 #             ):
 #                 new_name = "~" + "".join(candidate) + name[i:]
                 if new_name != name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield new_name
-
         # If we make it this far, we will have to make a longer name
         for i in range(len(cls.LEADING_CHARS)):
             for candidate in itertools.combinations_with_replacement(
@@ -309,11 +257,10 @@ class AdjacentTempDirectory(TempDirectory):
 #             ):
 #                 new_name = "~" + "".join(candidate) + name
                 if new_name != name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield new_name
-
     def _create(self, kind: str) -> str:
 #         root, name = os.path.split(self.original)
         for candidate in self._generate_names(name):
@@ -323,8 +270,8 @@ class AdjacentTempDirectory(TempDirectory):
             except OSError as ex:
                 # Continue if the name exists already
                 if ex.errno != errno.EEXIST:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise
             else:
@@ -333,6 +280,5 @@ class AdjacentTempDirectory(TempDirectory):
         else:
             # Final fallback on the default behavior.
 #             path = os.path.realpath(tempfile.mkdtemp(prefix=f"pip-{kind}-"))
-
 #         logger.debug("Created temporary directory: %s", path)
         return path

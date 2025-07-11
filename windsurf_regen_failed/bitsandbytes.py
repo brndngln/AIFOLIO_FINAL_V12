@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2023 The HuggingFace Team. All rights reserved.
@@ -22,13 +19,10 @@ from typing import Optional
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import warnings
-
-
 # warnings.warn(
 #     "transformers.utils.bitsandbytes module is deprecated and will be removed in a future version. Please import bitsandbytes modules directly from transformers.integrations",
 #     FutureWarning,
 # )
-
 from ..integrations import (  # noqa
 #     get_keys_to_not_convert,
 #     replace_8bit_linear,

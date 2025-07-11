@@ -1,32 +1,22 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 from __future__ import annotations
-
 from typing import (
 #     TYPE_CHECKING,
 #     Any,
 # )
-
 from pandas.compat._optional import import_optional_dependency
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     import google.auth
-
     from pandas import DataFrame
-
-
 def _try_import():
     # since pandas is a dependency of pandas-gbq
     # we need to import on first use
@@ -36,8 +26,6 @@ def _try_import():
 #     )
 #     pandas_gbq = import_optional_dependency("pandas_gbq", extra=msg)
     return pandas_gbq
-
-
 def read_gbq(
 #     query: str,
 #     project_id: str | None = None,
@@ -53,16 +41,12 @@ def read_gbq(
 #     max_results: int | None = None,
 #     progress_bar_type: str | None = None,
 # ) -> DataFrame:
-
 #     Load data from Google BigQuery.
-
 #     This function requires the `pandas-gbq package
 #     <https://pandas-gbq.readthedocs.io>`__.
-
 #     See the `How to authenticate with Google BigQuery
 #     <https://pandas-gbq.readthedocs.io/en/latest/howto/authentication.html>`__
 #     guide for authentication instructions.
-
 #     Parameters
 #     ----------
 #     query : str
@@ -81,14 +65,11 @@ def read_gbq(
 #     auth_local_webserver : bool, default True
 #         Use the `local webserver flow`_ instead of the `console flow`_
 #         when getting user credentials.
-
 #         .. _local webserver flow:
 #             https://google-auth-oauthlib.readthedocs.io/en/latest/reference/google_auth_oauthlib.flow.html#google_auth_oauthlib.flow.InstalledAppFlow.run_local_server
 #         .. _console flow:
 #             https://google-auth-oauthlib.readthedocs.io/en/latest/reference/google_auth_oauthlib.flow.html#google_auth_oauthlib.flow.InstalledAppFlow.run_console
-
 #         *New in version 0.2.0 of pandas-gbq*.
-
 #         .. versionchanged:: 1.5.0
 #            Default value is changed to ``True``. Google has deprecated the
 #            ``auth_local_webserver = False`` `"out of band" (copy-paste)
@@ -96,9 +77,7 @@ def read_gbq(
 #            <https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html?m=1#disallowed-oob>`_.
 #     dialect : str, default 'legacy'
 #         Note: The default value is changing to 'standard' in a future version.
-
 #         SQL syntax dialect to use. Value can be one of:
-
 #         ``'legacy'``
 #             Use BigQuerys legacy SQL dialect. For more information see
 #             `BigQuery Legacy SQL Reference
@@ -114,20 +93,16 @@ def read_gbq(
 #         <https://cloud.google.com/bigquery/docs/dataset-locations>`__ for a
 #         list of available locations. The location must match that of any
 #         datasets used in the query.
-
 #         *New in version 0.5.0 of pandas-gbq*.
 #     configuration : dict, optional
 #         Query config parameters for job processing.
 #         For example:
-
 #             configuration = {'query': {'useQueryCache': False}}
-
 #         For more information see `BigQuery REST API Reference
 #         <https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs#configuration.query>`__.
 #     credentials : google.auth.credentials.Credentials, optional
 #         Credentials for accessing Google APIs. Use this parameter to override
         default credentials, such as to use Compute Engine
-
 #         *New in version 0.8.0 of pandas-gbq*.
 #     use_bqstorage_api : bool, default False
 #         Use the `BigQuery Storage API
@@ -138,22 +113,17 @@ def read_gbq(
 #         You must also have the `bigquery.readsessions.create
 #         <https://cloud.google.com/bigquery/docs/access-control#roles>`__
 #         permission on the project you are billing queries to.
-
 #         This feature requires version 0.10.0 or later of the ``pandas-gbq``
 #         package. It also requires the ``google-cloud-bigquery-storage`` and
 #         ``fastavro`` packages.
-
 #     max_results : int, optional
 #         If set, limit the maximum number of rows to fetch from the query
 #         results.
-
 #     progress_bar_type : Optional, str
 #         If set, use the `tqdm <https://tqdm.github.io/>`__ library to
 #         display a progress bar while the data downloads. Install the
 #         ``tqdm`` package to use this feature.
-
 #         Possible values of ``progress_bar_type`` include:
-
 #         ``None``
 #             No progress bar.
 #         ``'tqdm'``
@@ -165,22 +135,18 @@ def read_gbq(
 #         ``'tqdm_gui'``
 #             Use the :func:`tqdm.tqdm_gui` function to display a
 #             progress bar as a graphical dialog box.
-
 #     Returns
 #     -------
 #     df: DataFrame
 #         DataFrame representing results of query.
-
 #     See Also
 #     --------
 #     pandas_gbq.read_gbq : This function in the pandas-gbq library.
 #     DataFrame.to_gbq : Write a DataFrame to Google BigQuery.
-
 #     Examples
 #     --------
 #     Example taken from `Google BigQuery documentation
 #     <https://cloud.google.com/bigquery/docs/pandas-gbq-migration>`_
-
 #     >>> sql = "SELECT name FROM table_name WHERE state = 'TX' LIMIT 100;"
 #     >>> df = pd.read_gbq(sql, dialect="standard")  # doctest: +SKIP
 #     >>> project_id = "your-project-id"  # doctest: +SKIP
@@ -188,26 +154,21 @@ def read_gbq(
 #     ...                  project_id=project_id,
 #     ...                  dialect="standard"
 #     ...                  )  # doctest: +SKIP
-
 #     pandas_gbq = _try_import()
-
 #     kwargs: dict[str, str | bool | int | None] = {}
-
     # START: new kwargs.  Dont populate unless explicitly set.
     if use_bqstorage_api is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         kwargs["use_bqstorage_api"] = use_bqstorage_api
     if max_results is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         kwargs["max_results"] = max_results
-
 #     kwargs["progress_bar_type"] = progress_bar_type
     # END: new kwargs
-
     return pandas_gbq.read_gbq(
 #         query,
 #         project_id=project_id,
@@ -221,8 +182,6 @@ def read_gbq(
 #         credentials=credentials,
 #         **kwargs,
 #     )
-
-
 def to_gbq(
 #     dataframe: DataFrame,
 #     destination_table: str,

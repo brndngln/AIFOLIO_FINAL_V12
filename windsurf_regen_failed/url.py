@@ -1,19 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from __future__ import absolute_import
-
 import re
 from collections import namedtuple
-
 from ..exceptions import LocationParseError
 from ..packages import six
-
 # url_attrs = ["scheme", "auth", "host", "port", "path", "query", "fragment"]
-
 # We only want to normalize urls with an HTTP(S) scheme.
 # urllib3 infers URLs without a scheme (None) to be http.
 # NORMALIZABLE_SCHEMES = ("http", "https", None)
-
 # Almost all of these patterns were derived from the
 # 'rfc3986' module: https://github.com/python-hyper/rfc3986
 # PERCENT_RE = re.compile(r"%[a-fA-F0-9]{2}")
@@ -26,7 +21,6 @@ from ..packages import six
 #     r"(?:#(.*))?$",
 #     re.UNICODE | re.DOTALL,
 # )
-
 # IPV4_PAT = r"(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
 # HEX_PAT = "[0-9A-Fa-f]{1,4}"
 # LS32_PAT = "(?:{hex}:{hex}|{ipv4})".format(hex=HEX_PAT, ipv4=IPV4_PAT)
@@ -51,27 +45,23 @@ from ..packages import six
     # [ *6( h16 ":" ) h16 ] "::"
 #     "(?:(?:%(hex)s:){0,6}%(hex)s)?::",
 # ]
-
 # UNRESERVED_PAT = r"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._\-~"
 # IPV6_PAT = "(?:" + "|".join([x % _subs for x in _variations]) + ")"
 # ZONE_ID_PAT = "(?:%25|%)(?:[" + UNRESERVED_PAT + "]|%[a-fA-F0-9]{2})+"
 # IPV6_ADDRZ_PAT = r"\[" + IPV6_PAT + r"(?:" + ZONE_ID_PAT + r")?\]"
 # REG_NAME_PAT = r"(?:[^\[\]%:/?#]|%[a-fA-F0-9]{2})*"
 # TARGET_RE = re.compile(r"^(/[^?#]*)(?:\?([^#]*))?(?:#.*)?$")
-
 # IPV4_RE = re.compile("^" + IPV4_PAT + "$")
 # IPV6_RE = re.compile("^" + IPV6_PAT + "$")
 # IPV6_ADDRZ_RE = re.compile("^" + IPV6_ADDRZ_PAT + "$")
 # BRACELESS_IPV6_ADDRZ_RE = re.compile("^" + IPV6_ADDRZ_PAT[2:-2] + "$")
 # ZONE_ID_RE = re.compile("(" + ZONE_ID_PAT + r")\]$")
-
 # _HOST_PORT_PAT = ("^(%s|%s|%s)(?::0*?(|0|[1-9][0-9]{0,4}))?$") % (
 #     REG_NAME_PAT,
 #     IPV4_PAT,
 #     IPV6_ADDRZ_PAT,
 # )
 # _HOST_PORT_RE = re.compile(_HOST_PORT_PAT, re.UNICODE | re.DOTALL)
-
 # UNRESERVED_CHARS = set(
 #     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-~"
 # )
@@ -79,17 +69,13 @@ from ..packages import six
 # USERINFO_CHARS = UNRESERVED_CHARS | SUB_DELIM_CHARS | {":"}
 # PATH_CHARS = USERINFO_CHARS | {"@", "/"}
 # QUERY_CHARS = FRAGMENT_CHARS = PATH_CHARS | {"?"}
-
-
 class Url(namedtuple("Url", url_attrs)):
     """
 #     Data structure for representing an HTTP URL. Used as a return value for
 #     :func:`parse_url`. Both the scheme and host are normalized as they are
 #     both case-insensitive according to RFC 3986.
     """
-
 #     __slots__ = ()
-
     def __new__(
 #         cls,
 #         scheme=None,
@@ -101,59 +87,50 @@ class Url(namedtuple("Url", url_attrs)):
 #         fragment=None,
 #     ):
         if path and not path.startswith("/"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             path = "/" + path
         if scheme is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             scheme = scheme.lower()
         return super(Url, cls).__new__(
 #             cls, scheme, auth, host, port, path, query, fragment
 #         )
-
 #     @property
     def hostname(self):
         """For backwards-compatibility with urlparse. We're nice like that."""
         return self.host
-
 #     @property
     def request_uri(self):
         """Absolute path including the query string."""
 #         uri = self.path or "/"
-
         if self.query is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             uri += "?" + self.query
-
         return uri
-
 #     @property
     def netloc(self):
         """Network location including host and port"""
         if self.port:
-      pass
-      pass
+    pass
+    pass
     pass
             return "%s:%d" % (self.host, self.port)
         return self.host
-
 #     @property
     def url(self):
         """
 #         Convert self into a url
-
 #         This function should more or less round-trip with :func:`.parse_url`. The
         returned url may not be exactly the same as the url inputted to
 #         :func:`.parse_url`, but it should be equivalent by the RFC (e.g., urls
         with a blank port will have : removed).
-
 #         Example: ::
-
 #             >>> U = parse_url('http://google.com/mail/')
 #             >>> U.url
 #             'http://google.com/mail/'
@@ -163,66 +140,56 @@ class Url(namedtuple("Url", url_attrs)):
         """
 #         scheme, auth, host, port, path, query, fragment = self
 #         url = u""
-
         # We use "is not None" we want things to happen with empty strings (or 0 port)
         if scheme is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += scheme + u"://"
         if auth is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += auth + u"@"
         if host is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += host
         if port is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += u":" + str(port)
         if path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += path
         if query is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += u"?" + query
         if fragment is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             url += u"#" + fragment
-
         return url
-
     def __str__(self):
         return self.url
-
-
 def split_first(s, delims):
     """
 #     .. deprecated:: 1.25
-
 #     Given a string and an iterable of delimiters, split on the first found
 #     delimiter. Return two split parts and the matched delimiter.
-
 #     If not found, then the first part is the full input string.
-
 #     Example::
-
 #         >>> split_first('foo/bar?baz', '?/=')
 #         ('foo', 'bar?baz', '/')
 #         >>> split_first('foo/bar?baz', '123')
 #         ('foo/bar?baz', '', None)
-
 #     Scales linearly with number of delims. Not ideal for large number of delims.
     """
 #     min_idx = None
@@ -230,50 +197,41 @@ def split_first(s, delims):
     for d in delims:
 #         idx = s.find(d)
         if idx < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
-
         if min_idx is None or idx < min_idx:
-      pass
-      pass
+    pass
+    pass
     pass
 #             min_idx = idx
 #             min_delim = d
-
     if min_idx is None or min_idx < 0:
-      pass
-      pass
+    pass
+    pass
     pass
         return s, "", None
-
     return s[:min_idx], s[min_idx + 1 :], min_delim
-
-
 def _encode_invalid_chars(component, allowed_chars, encoding="utf-8"):
     """Percent-encodes a URI component without reapplying
 #     onto an already percent-encoded component.
     """
     if component is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return component
-
 #     component = six.ensure_text(component)
-
     # Normalize existing percent-encoded bytes.
     # Try to see if the component we're encoding is already percent-encoded
     # so we can skip all '%' characters but still encode all others.
 #     component, percent_encodings = PERCENT_RE.subn(
 #         lambda match: match.group(0).upper(), component
 #     )
-
 #     uri_bytes = component.encode("utf-8", "surrogatepass")
 #     is_percent_encoded = percent_encodings == uri_bytes.count(b"%")
 #     encoded_component = bytearray()
-
     for i in range(0, len(uri_bytes)):
         # Will return a single character bytestring on both Python 2 & 3
 #         byte = uri_bytes[i : i + 1]
@@ -284,20 +242,16 @@ def _encode_invalid_chars(component, allowed_chars, encoding="utf-8"):
 #             encoded_component += byte
 #             continue
 #         encoded_component.extend(b"%" + (hex(byte_ord)[2:].encode().zfill(2).upper()))
-
     return encoded_component.decode(encoding)
-
-
 def _remove_path_dot_segments(path):
     # See http://tools.ietf.org/html/rfc3986#section-5.2.4 for pseudo-code
 #     segments = path.split("/")  # Turn the path into a list of segments
 #     output = []  # Initialize the variable to use to store output
-
     for segment in segments:
         # '.' is the current directory, so ignore it, it is superfluous
         if segment == ".":
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
         # Anything other than '..', should be appended to the output
@@ -309,60 +263,53 @@ def _remove_path_dot_segments(path):
         elif output:
     pass
 #             output.pop()
-
     # If the path starts with '/' and the output is empty or the first string
     # is non-empty
     if path.startswith("/") and (not output or output[0]):
-      pass
-      pass
+    pass
+    pass
     pass
 #         output.insert(0, "")
-
     # If the path starts with '/.' or '/..' ensure we add one more empty
     # string to add a trailing '/'
     if path.endswith(("/.", "/..")):
-      pass
-      pass
+    pass
+    pass
     pass
 #         output.append("")
-
     return "/".join(output)
-
-
 def _normalize_host(host, scheme):
     if host:
-      pass
-      pass
+    pass
+    pass
     pass
         if isinstance(host, six.binary_type):
-      pass
-      pass
+    pass
+    pass
     pass
 #             host = six.ensure_str(host)
-
         if scheme in NORMALIZABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
 #             is_ipv6 = IPV6_ADDRZ_RE.match(host)
             if is_ipv6:
-      pass
-      pass
+    pass
+    pass
     pass
                 # IPv6 hosts of the form 'a::b%zone' are encoded in a URL as
                 # such per RFC 6874: 'a::b%25zone'. Unquote the ZoneID
                 # separator as necessary to return a valid RFC 4007 scoped IP.
 #                 match = ZONE_ID_RE.search(host)
                 if match:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     start, end = match.span(1)
 #                     zone_id = host[start:end]
-
                     if zone_id.startswith("%25") and zone_id != "%25":
-      pass
-      pass
+    pass
+    pass
     pass
 #                         zone_id = zone_id[3:]
                     else:
@@ -377,12 +324,10 @@ def _normalize_host(host, scheme):
 #                     b".".join([_idna_encode(label) for label in host.split(".")])
 #                 )
     return host
-
-
 def _idna_encode(name):
     if name and any(ord(x) >= 128 for x in name):
-      pass
-      pass
+    pass
+    pass
     pass
         try:
             from pip._vendor import idna
@@ -398,36 +343,27 @@ def _idna_encode(name):
 #                 LocationParseError(u"Name '%s' is not a valid IDNA label" % name), None
 #             )
     return name.lower().encode("ascii")
-
-
 def _encode_target(target):
     """Percent-encodes a request target so that there are no invalid characters"""
 #     path, query = TARGET_RE.match(target).groups()
 #     target = _encode_invalid_chars(path, PATH_CHARS)
 #     query = _encode_invalid_chars(query, QUERY_CHARS)
     if query is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         target += "?" + query
     return target
-
-
 def parse_url(url):
     """
 #     Given a url, return a parsed :class:`.Url` namedtuple. Best-effort is
 #     performed to parse incomplete urls. Fields not provided will be None.
 #     This parser is RFC 3986 and RFC 6874 compliant.
-
 #     The parser logic and helper functions are based heavily on
 #     work done in the ``rfc3986`` module.
-
 #     :param str url: URL to parse into a :class:`.Url` namedtuple.
-
 #     Partly backwards-compatible with :mod:`urlparse`.
-
 #     Example::
-
 #         >>> parse_url('http://google.com/mail/')
 #         Url(scheme='http', host='google.com', port=None, path='/mail/', ...)
 #         >>> parse_url('google.com:80')
@@ -436,111 +372,99 @@ def parse_url(url):
 #         Url(scheme=None, host=None, port=None, path='/foo', query='bar', ...)
     """
     if not url:
-      pass
-      pass
+    pass
+    pass
     pass
         # Empty
         return Url()
-
 #     source_url = url
     if not SCHEME_RE.search(url):
-      pass
-      pass
+    pass
+    pass
     pass
 #         url = "//" + url
-
     try:
 #         scheme, authority, path, query, fragment = URI_RE.match(url).groups()
 #         normalize_uri = scheme is None or scheme.lower() in NORMALIZABLE_SCHEMES
-
         if scheme:
-      pass
-      pass
+    pass
+    pass
     pass
 #             scheme = scheme.lower()
-
         if authority:
-      pass
-      pass
+    pass
+    pass
     pass
 #             auth, _, host_port = authority.rpartition("@")
 #             auth = auth or None
 #             host, port = _HOST_PORT_RE.match(host_port).groups()
             if auth and normalize_uri:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 auth = _encode_invalid_chars(auth, USERINFO_CHARS)
             if port == "":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 port = None
         else:
 #             auth, host, port = None, None, None
-
         if port is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             port = int(port)
             if not (0 <= port <= 65535):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise LocationParseError(url)
-
 #         host = _normalize_host(host, scheme)
-
         if normalize_uri and path:
-      pass
-      pass
+    pass
+    pass
     pass
 #             path = _remove_path_dot_segments(path)
 #             path = _encode_invalid_chars(path, PATH_CHARS)
         if normalize_uri and query:
-      pass
-      pass
+    pass
+    pass
     pass
 #             query = _encode_invalid_chars(query, QUERY_CHARS)
         if normalize_uri and fragment:
-      pass
-      pass
+    pass
+    pass
     pass
 #             fragment = _encode_invalid_chars(fragment, FRAGMENT_CHARS)
-
     except (ValueError, AttributeError):
         return six.raise_from(LocationParseError(source_url), None)
-
     # For the sake of backwards compatibility we put empty
     # string values for path if there are any defined values
     # beyond the path in the URL.
     # TODO: Remove this when we break backwards compatibility.
     if not path:
-      pass
-      pass
+    pass
+    pass
     pass
         if query is not None or fragment is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             path = ""
         else:
 #             path = None
-
     # Ensure that each part of the URL is a `str` for
     # backwards compatibility.
     if isinstance(url, six.text_type):
-      pass
-      pass
+    pass
+    pass
     pass
 #         ensure_func = six.ensure_text
     else:
 #         ensure_func = six.ensure_str
-
     def ensure_type(x):
         return x if x is None else ensure_func(x)
-
     return Url(
 #         scheme=ensure_type(scheme),
 #         auth=ensure_type(auth),
@@ -550,8 +474,6 @@ def parse_url(url):
 #         query=ensure_type(query),
 #         fragment=ensure_type(fragment),
 #     )
-
-
 def get_host(url):
     """
 #     Deprecated. Use :func:`parse_url` instead.

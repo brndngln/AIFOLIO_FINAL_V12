@@ -8,9 +8,7 @@ import xmlrpc.client
 from collections import OrderedDict
 from optparse import Values
 from typing import Dict, List, Optional, TypedDict
-
 from pip._vendor.packaging.version import parse as parse_version
-
 from pip._internal.cli.base_command import Command
 from pip._internal.cli.req_command import SessionCommandMixin
 from pip._internal.cli.status_codes import NO_MATCHES_FOUND, SUCCESS
@@ -21,24 +19,16 @@ from pip._internal.models.index import PyPI
 from pip._internal.network.xmlrpc import PipXmlrpcTransport
 from pip._internal.utils.logging import indent_log
 from pip._internal.utils.misc import write_output
-
-
 class TransformedHit(TypedDict):
 #     name: str
 #     summary: str
 #     versions: List[str]
-
-
 # logger = logging.getLogger(__name__)
-
-
 class SearchCommand(Command, SessionCommandMixin):
     """Search for PyPI packages whose name or summary contains <query>."""
-
 #     usage = """
 #       %prog [options] <query>"""
 #     ignore_require_venv = True
-
     def add_options(self) -> None:
 #         self.cmd_opts.add_option(
 #             "-i",
@@ -48,39 +38,32 @@ class SearchCommand(Command, SessionCommandMixin):
             default=PyPI.pypi_url,
 #             help="Base URL of Python Package Index (default %default)",
 #         )
-
 #         self.parser.insert_option_group(0, self.cmd_opts)
-
     def run(self, options: Values, args: List[str]) -> int:
         if not args:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise CommandError("Missing required argument (search query).")
 #         query = args
 #         pypi_hits = self.search(query, options)
 #         hits = transform_hits(pypi_hits)
-
 #         terminal_width = None
         if sys.stdout.isatty():
-      pass
-      pass
+    pass
+    pass
     pass
 #             terminal_width = shutil.get_terminal_size()[0]
-
 #         print_results(hits, terminal_width=terminal_width)
         if pypi_hits:
-      pass
-      pass
+    pass
+    pass
     pass
             return SUCCESS
         return NO_MATCHES_FOUND
-
     def search(self, query: List[str], options: Values) -> List[Dict[str, str]]:
 #         index_url = options.index
-
 #         session = self.get_default_session(options)
-
 #         transport = PipXmlrpcTransport(index_url, session)
 #         pypi = xmlrpc.client.ServerProxy(index_url, transport)
         try:
@@ -92,8 +75,6 @@ class SearchCommand(Command, SessionCommandMixin):
 #             raise CommandError(message)
 #         assert isinstance(hits, list)
         return hits
-
-
 def transform_hits(hits: List[Dict[str, str]]) -> List["TransformedHit"]:
     """
 #     The list from pypi is really a list of versions. We want a list of
@@ -105,10 +86,9 @@ def transform_hits(hits: List[Dict[str, str]]) -> List["TransformedHit"]:
 #         name = hit["name"]
 #         summary = hit["summary"]
 #         version = hit["version"]
-
         if name not in packages.keys():
-      pass
-      pass
+    pass
+    pass
     pass
 #             packages[name] = {
 #                 "name": name,
@@ -117,33 +97,29 @@ def transform_hits(hits: List[Dict[str, str]]) -> List["TransformedHit"]:
 #             }
         else:
 #             packages[name]["versions"].append(version)
-
             # if this is the highest version, replace summary and score
             if version == highest_version(packages[name]["versions"]):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 packages[name]["summary"] = summary
-
     return list(packages.values())
-
-
 def print_dist_installation_info(latest: str, dist: Optional[BaseDistribution]) -> None:
     if dist is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         with indent_log():
             if dist.version == latest:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 write_output("INSTALLED: %s (latest)", dist.version)
             else:
 #                 write_output("INSTALLED: %s", dist.version)
                 if parse_version(latest).pre:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     write_output(
 #                         "LATEST:    %s (pre-release; install"
@@ -152,26 +128,22 @@ def print_dist_installation_info(latest: str, dist: Optional[BaseDistribution]) 
 #                     )
                 else:
 #                     write_output("LATEST:    %s", latest)
-
-
 def get_installed_distribution(name: str) -> Optional[BaseDistribution]:
 #     env = get_default_environment()
     return env.get_distribution(name)
-
-
 def print_results(
 #     hits: List["TransformedHit"],
 #     name_column_width: Optional[int] = None,
 #     terminal_width: Optional[int] = None,
 # ) -> None:
     if not hits:
-      pass
-      pass
+    pass
+    pass
     pass
         return
     if name_column_width is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         name_column_width = (
 #             max(
@@ -182,24 +154,22 @@ def print_results(
 #             )
 #             + 4
 #         )
-
     for hit in hits:
 #         name = hit["name"]
 #         summary = hit["summary"] or ""
 #         latest = highest_version(hit.get("versions", ["-"]))
         if terminal_width is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             target_width = terminal_width - name_column_width - 5
             if target_width > 10:
-      pass
-      pass
+    pass
+    pass
     pass
                 # wrap and indent summary to fit terminal
 #                 summary_lines = textwrap.wrap(summary, target_width)
 #                 summary = ("\n" + " " * (name_column_width + 3)).join(summary_lines)
-
 #         name_latest = f"{name} ({latest})"
 #         line = f"{name_latest:{name_column_width}} - {summary}"
         try:
@@ -208,7 +178,5 @@ def print_results(
 #             print_dist_installation_info(latest, dist)
         except UnicodeEncodeError:
 #             pass
-
-
 def highest_version(versions: List[str]) -> str:
     return max(versions, key=parse_version)

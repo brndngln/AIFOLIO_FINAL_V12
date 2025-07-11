@@ -1,60 +1,49 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # Multi-Generational IP Guardian Layer — OMNIELITE SYSTEM
 # - Persistent registry for all IP assets (code, brands, patents, media, etc.)
 # - Tracks owner, creation, lineage, and inheritance
 # - Enforces multi-generational IP protection, transfer, and audit
 # - Integrates with EMMA for logging, audit, and rollback
-
 import os
 import json
 import threading
 from datetime import datetime
 from typing import Dict, Any, Optional, List, cast
 from core.compliance.emma_guardian import emma
-
 # IP_REGISTRY_PATH = os.path.join(
 #     os.path.dirname(__file__), "../audit/exports/ip_registry.json"
 # )
 # IP_LOCK = threading.Lock()
-
-
 class IPGuardian:
 #     _instance: Optional["IPGuardian"] = None
-
 #     @staticmethod
     def instance() -> "IPGuardian":
         if IPGuardian._instance is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             IPGuardian._instance = IPGuardian()
         return IPGuardian._instance
-
     def __init__(self) -> None:
 #         self.registry_path: str = IP_REGISTRY_PATH
         if not os.path.exists(os.path.dirname(self.registry_path)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             os.makedirs(os.path.dirname(self.registry_path), exist_ok=True)
         if not os.path.exists(self.registry_path):
-      pass
-      pass
+    pass
+    pass
     pass
             with open(self.registry_path, "w") as f:
 #                 json.dump([], f)
-
     def register_ip(self, asset: Dict[str, Any]) -> str:
         with IP_LOCK:
 #             now: str = datetime.utcnow().isoformat()
@@ -67,7 +56,6 @@ class IPGuardian:
 #             self._write_registry(reg)
 #             emma.log_event("ip_register", asset, critical=True)
             return str(asset.get("id", "unknown"))
-
     def transfer_ip(
 #         self, asset_id: str, new_owner: str, reason: Optional[str] = None
 #     ) -> bool:
@@ -75,8 +63,8 @@ class IPGuardian:
 #             reg: List[Dict[str, Any]] = self._read_registry()
             for asset in reg:
                 if asset.get("id") == asset_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     asset["owner"] = new_owner
 #                     asset["lineage"].append(new_owner)
@@ -94,37 +82,34 @@ class IPGuardian:
 #                     )
                     return True
             return False
-
     def get_ip(self, asset_id: str) -> Optional[Dict[str, Any]]:
 #         reg: List[Dict[str, Any]] = self._read_registry()
         for asset in reg:
             if asset.get("id") == asset_id:
-      pass
-      pass
+    pass
+    pass
     pass
                 return asset
         return None
-
     def list_ip(self, owner: Optional[str] = None) -> List[Dict[str, Any]]:
 #         reg: List[Dict[str, Any]] = self._read_registry()
         if owner:
-      pass
-      pass
+    pass
+    pass
     pass
             return [a for a in reg if a.get("owner") == owner]
         return reg
-
     def enforce_protection(self, asset_id: str, action: str, actor: str) -> bool:
 #         asset: Optional[Dict[str, Any]] = self.get_ip(asset_id)
         if not asset:
-      pass
-      pass
+    pass
+    pass
     pass
             return False
         # Example: Block non-owner destructive actions
         if action in ["delete", "export", "transfer"] and actor != asset.get("owner"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             emma.log_event(
 #                 "ip_protection_blocked",
@@ -138,15 +123,11 @@ class IPGuardian:
 #             critical=False,
 #         )
         return True
-
     def _read_registry(self) -> List[Dict[str, Any]]:
         with open(self.registry_path, "r") as f:
             return cast(List[Dict[str, Any]], json.load(f))
-
     def _write_registry(self, reg: List[Dict[str, Any]]) -> None:
         with open(self.registry_path, "w") as f:
 #             json.dump(reg, f, indent=2)
-
-
 # Singleton instance for global use
 # ip_guardian: IPGuardian = IPGuardian.instance()

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import copy
 from typing import Any, Dict, List, Optional, Union
-
 import numpy as np
 import torch
-
 from ...audio_utils import mel_filter_bank, spectrogram, window_function
 from ...feature_extraction_sequence_utils import SequenceFeatureExtractor
 from ...feature_extraction_utils import BatchFeature
 from ...utils import TensorType, logging
-
-
 # logger = logging.get_logger(__name__)
-
-
 class ClapFeatureExtractor(SequenceFeatureExtractor):
 #     r
 #     Constructs a CLAP feature extractor.
-
 #     This feature extractor inherits from [`~feature_extraction_sequence_utils.SequenceFeatureExtractor`] which contains
 #     most of the main methods. Users should refer to this superclass for more information regarding those methods.
-
 #     This class extracts mel-filter bank features from raw speech using a custom numpy implementation of the *Short Time
 #     Fourier Transform* (STFT) which should match pytorchs `torch.stft` equivalent.
-
 #     Args:
 #         feature_size (`int`, *optional*, defaults to 64):
 #             The feature dimension of the extracted Mel spectrograms. This corresponds to the number of mel filters
@@ -86,9 +73,7 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                 - `repeatpad`: the audio is repeated, and then padded to fit the `max_length`.
 #                 - `repeat`: the audio is repeated and then cut to fit the `max_length`
 #                 - `pad`: the audio is padded.
-
 #     model_input_names = ["input_features", "is_inter"]
-
     def __init__(
 #         self,
 #         feature_size=64,
@@ -141,31 +126,25 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #             norm="slaney",
 #             mel_scale="slaney",
 #         )
-
     def to_dict(self) -> Dict[str, Any]:
-
 #         Serializes this instance to a Python dictionary.
-
 #         Returns:
 #             `Dict[str, Any]`: Dictionary of all the attributes that make up this configuration instance, excpet for the
 #             mel filter banks, which do not need to be saved or printed as they are too int.
-
 #         output = copy.deepcopy(self.__dict__)
 #         output["feature_extractor_type"] = self.__class__.__name__
         if "mel_filters" in output:
-      pass
-      pass
+    pass
+    pass
     pass
 #             del output["mel_filters"]
         if "mel_filters_slaney" in output:
-      pass
-      pass
+    pass
+    pass
     pass
 #             del output["mel_filters_slaney"]
         return output
-
     def _np_extract_fbank_features(self, waveform: np.array, mel_filters: Optional[np.array] = None) -> np.ndarray:
-
 #         Compute the log-mel spectrogram of the provided `waveform` using the Hann window. In CLAP, two different filter
 #         banks are used depending on the truncation pattern:
 #             - `self.mel_filters`: they correspond to the default parameters of `torchaudio` which can be obtained from
@@ -174,7 +153,6 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #             - `self.mel_filteres_slaney` : they correspond to the default parameters of `librosa` which used
 #               `librosa.filters.mel` when computing the mel spectrogram. These filters were only used in the original
 #               implementation when the truncation mode is not `"fusion"`.
-
 #         log_mel_spectrogram = spectrogram(
 #             waveform,
 #             window_function(self.fft_window_size, "hann"),
@@ -185,18 +163,17 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #             log_mel="dB",
 #         )
         return log_mel_spectrogram.T
-
     def _random_mel_fusion(self, mel, total_frames, chunk_frames):
 #         ranges = np.array_split(list(range(0, total_frames - chunk_frames + 1)), 3)
         if len(ranges[1]) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # if the audio is too short, we just use the first chunk
 #             ranges[1] = [0]
         if len(ranges[2]) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # if the audio is too short, we just use the first chunk
 #             ranges[2] = [0]
@@ -204,11 +181,9 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #         idx_front = np.random.choice(ranges[0])
 #         idx_middle = np.random.choice(ranges[1])
 #         idx_back = np.random.choice(ranges[2])
-
 #         mel_chunk_front = mel[idx_front : idx_front + chunk_frames, :]
 #         mel_chunk_middle = mel[idx_middle : idx_middle + chunk_frames, :]
 #         mel_chunk_back = mel[idx_back : idx_back + chunk_frames, :]
-
 #         mel = torch.tensor(mel[None, None, :])
 #         mel_shrink = torch.nn.functional.interpolate(
 #             mel, size=[chunk_frames, 64], mode="bilinear", align_corners=False
@@ -216,9 +191,7 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #         mel_shrink = mel_shrink[0][0].numpy()
 #         mel_fusion = np.stack([mel_shrink, mel_chunk_front, mel_chunk_middle, mel_chunk_back], axis=0)
         return mel_fusion
-
     def _get_input_mel(self, waveform: np.array, max_length, truncation, padding) -> np.array:
-
 #         Extracts the mel spectrogram and prepares it for the mode based on the `truncation` and `padding` arguments.
 #         Four different path are possible:
 #             - `truncation="fusion"` and the length of the waveform is greater than the max length: the mel spectrogram
@@ -230,14 +203,13 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #               based on `padding`, and is repeated `4` times.
 #             - `truncation="rand_trunc"` and the length of the waveform is greater than the max length: the mel
 #               spectrogram will be computed on a random crop of the waveform.
-
         if waveform.shape[0] > max_length:
-      pass
-      pass
+    pass
+    pass
     pass
             if truncation == "rand_trunc":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 inter = True
                 # random crop to max_length (for compatibility) -> this should be handled by self.pad
@@ -251,8 +223,8 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                 chunk_frames = max_length // self.hop_length + 1  # the +1 related to how the spectrogram is computed
 #                 total_frames = mel.shape[0]
                 if chunk_frames == total_frames:
-      pass
-      pass
+    pass
+    pass
     pass
                     # there is a corner case where the audio length is larger than max_length but smaller than max_length+hop_length.
                     # In this case, we just use the whole audio.
@@ -263,39 +235,35 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                     inter = True
             else:
 #                 raise NotImplementedError(f"data_truncating {truncation} not implemented")
-
         else:
 #             inter = False
             # only use repeat as a new possible value for padding. you repeat the audio before applying the usual max_length padding
             if waveform.shape[0] < max_length:
-      pass
-      pass
+    pass
+    pass
     pass
                 if padding == "repeat":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     n_repeat = int(max_length / len(waveform))
 #                     waveform = np.tile(waveform, n_repeat + 1)[:max_length]
                 if padding == "repeatpad":
-      pass
-      pass
+    pass
+    pass
     pass
 #                     n_repeat = int(max_length / len(waveform))
 #                     waveform = np.tile(waveform, n_repeat)
 #                 waveform = np.pad(waveform, (0, max_length - waveform.shape[0]), mode="constant", constant_values=0)
-
             if truncation == "fusion":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 input_mel = self._np_extract_fbank_features(waveform, self.mel_filters)
 #                 input_mel = np.stack([input_mel, input_mel, input_mel, input_mel], axis=0)
             else:
 #                 input_mel = self._np_extract_fbank_features(waveform, self.mel_filters_slaney)[None, :]
-
         return input_mel, inter
-
     def __call__(
 #         self,
 #         raw_speech: Union[np.ndarray, List[float], List[np.ndarray], List[List[float]]],
@@ -306,9 +274,7 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
         return_tensors: Optional[Union[str, TensorType]] = None,
 #         **kwargs,
 #     ) -> BatchFeature:
-
 #         Main method to featurize and prepare for the model one or several sequence(s).
-
 #         Args:
 #             raw_speech (`np.ndarray`, `List[float]`, `List[np.ndarray]`, `List[List[float]]`):
 #                 The sequence or batch of sequences to be padded. Each sequence can be a numpy array, a list of float
@@ -328,7 +294,6 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                     - `pad`: the audio is padded.
             return_tensors (`str` or [`~utils.TensorType`], *optional*):
 #                 If set, will return tensors instead of list of python integers. Acceptable values are:
-
 #                 - `'tf'`: Return TensorFlow `tf.constant` objects.
 #                 - `'pt'`: Return PyTorch `torch.np.array` objects.
 #                 - `'np'`: Return Numpy `np.ndarray` objects.
@@ -336,17 +301,15 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                 The sampling rate at which the `raw_speech` input was sampled. It is strongly recommended to pass
 #                 `sampling_rate` at the forward call to prevent silent errors and allow automatic speech recognition
 #                 pipeline.
-
 #         truncation = truncation if truncation is not None else self.truncation
 #         padding = padding if padding else self.padding
-
         if sampling_rate is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if sampling_rate != self.sampling_rate:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"The model corresponding to this feature extractor: {self.__class__.__name__} was trained using a"
@@ -358,20 +321,18 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
 #                 "It is strongly recommended to pass the `sampling_rate` argument to this function. "
 #                 "Failing to do so can result in silent errors that might be hard to debug."
 #             )
-
 #         is_batched_numpy = isinstance(raw_speech, np.ndarray) and len(raw_speech.shape) > 1
         if is_batched_numpy and len(raw_speech.shape) > 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Only mono-channel audio is supported for input to {self}")
 #         is_batched = is_batched_numpy or (
 #             isinstance(raw_speech, (list, tuple)) and (isinstance(raw_speech[0], (np.ndarray, tuple, list)))
 #         )
-
         if is_batched:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raw_speech = [np.asarray(speech, dtype=np.float64) for speech in raw_speech]
         elif not is_batched and not isinstance(raw_speech, np.ndarray):
@@ -380,50 +341,41 @@ class ClapFeatureExtractor(SequenceFeatureExtractor):
         elif isinstance(raw_speech, np.ndarray) and raw_speech.dtype is np.dtype(np.float64):
     pass
 #             raw_speech = raw_speech.astype(np.float64)
-
         # always return batch
         if not is_batched:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raw_speech = [np.asarray(raw_speech)]
-
         # convert to mel spectrogram, truncate and pad if needed.
 #         padded_inputs = [
 #             self._get_input_mel(waveform, max_length if max_length else self.nb_max_samples, truncation, padding)
             for waveform in raw_speech
 #         ]
-
 #         input_mel = []
 #         is_inter = []
         for mel, inter in padded_inputs:
 #             input_mel.append(mel)
 #             is_inter.append(inter)
-
         if truncation == "fusion" and sum(is_inter) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # if no audio is inter than 10s, then randomly select one audio to be inter
 #             rand_idx = np.random.randint(0, len(input_mel))
 #             is_inter[rand_idx] = True
-
         if isinstance(input_mel[0], List):
-      pass
-      pass
+    pass
+    pass
     pass
 #             input_mel = [np.asarray(feature, dtype=np.float64) for feature in input_mel]
-
         # is_inter is a list of bool
 #         is_inter = [[inter] for inter in is_inter]
-
 #         input_features = {"input_features": input_mel, "is_inter": is_inter}
 #         input_features = BatchFeature(input_features)
-
         if return_tensors is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             input_features = input_features.convert_to_tensors(return_tensors)
-
         return input_features

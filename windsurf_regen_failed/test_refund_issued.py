@@ -1,23 +1,16 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 from autonomy.pipeline.event_bus import dispatch_event
-
-
 def test_refund_issued_event(monkeypatch):
 #     events = []
-
     def fake_log_vault_event(vault_id, event_type, payload, errors):
 #         events.append((event_type, payload))
-
 #     monkeypatch.setattr(
 #         "autonomy.pipeline.listeners.refund_issued.log_vault_event",
 #         fake_log_vault_event,

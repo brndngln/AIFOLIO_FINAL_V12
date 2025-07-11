@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,17 +19,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "junnyu/roformer_chinese_small": "https://huggingface.co/junnyu/roformer_chinese_small/resolve/main/config.json",
 #     "junnyu/roformer_chinese_base": "https://huggingface.co/junnyu/roformer_chinese_base/resolve/main/config.json",
 #     "junnyu/roformer_chinese_char_small": (
@@ -49,19 +41,13 @@ from ...utils import logging
 #     ),
     # See all RoFormer models at https://huggingface.co/models?filter=roformer
 # }
-
-
 class RoFormerConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`RoFormerModel`]. It is used to instantiate an
 #     RoFormer model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the RoFormer
 #     [junnyu/roformer_chinese_base](https://huggingface.co/junnyu/roformer_chinese_base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50000):
 #             Vocabulary size of the RoFormer model. Defines the number of different tokens that can be represented by
@@ -99,24 +85,17 @@ class RoFormerConfig(PretrainedConfig):
 #             relevant if `config.is_decoder=True`.
 #         rotary_value (`bool`, *optional*, defaults to `False`):
 #             Whether or not apply rotary position embeddings on value layer.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import RoFormerModel, RoFormerConfig
-
 #     >>> # Initializing a RoFormer junnyu/roformer_chinese_base style configuration
 #     >>> configuration = RoFormerConfig()
-
 #     >>> # Initializing a model (with random weights) from the junnyu/roformer_chinese_base style configuration
 #     >>> model = RoFormerModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "roformer"
-
     def __init__(
 #         self,
 #         vocab_size=50000,
@@ -138,7 +117,6 @@ class RoFormerConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.embedding_size = hidden_size if embedding_size is None else embedding_size
 #         self.hidden_size = hidden_size
@@ -154,14 +132,12 @@ class RoFormerConfig(PretrainedConfig):
 #         self.layer_norm_eps = layer_norm_eps
 #         self.rotary_value = rotary_value
 #         self.use_cache = use_cache
-
-
 class RoFormerOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task == "multiple-choice":
-      pass
-      pass
+    pass
+    pass
     pass
 #             dynamic_axis = {0: "batch", 1: "choice", 2: "sequence"}
         else:

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,17 +19,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "distilbert-base-uncased": "https://huggingface.co/distilbert-base-uncased/resolve/main/config.json",
 #     "distilbert-base-uncased-distilled-squad": (
 #         "https://huggingface.co/distilbert-base-uncased-distilled-squad/resolve/main/config.json"
@@ -49,18 +41,13 @@ from ...utils import logging
 #         "https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english/resolve/main/config.json"
 #     ),
 # }
-
-
 class DistilBertConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`DistilBertModel`] or a [`TFDistilBertModel`]. It
 #     is used to instantiate a DistilBERT model according to the specified arguments, defining the model architecture.
 #     Instantiating a configuration with the defaults will yield a similar configuration to that of the DistilBERT
 #     [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 30522):
 #             Vocabulary size of the DistilBERT model. Defines the number of different tokens that can be represented by
@@ -92,29 +79,22 @@ class DistilBertConfig(PretrainedConfig):
 #         seq_classif_dropout (`float`, *optional*, defaults to 0.2):
 #             The dropout probabilities used in the sequence classification and the multiple choice model
 #             [`DistilBertForSequenceClassification`].
-
 #     Examples:
-
 #     ```python
 #     >>> from transformers import DistilBertConfig, DistilBertModel
-
 #     >>> # Initializing a DistilBERT configuration
 #     >>> configuration = DistilBertConfig()
-
 #     >>> # Initializing a model (with random weights) from the configuration
 #     >>> model = DistilBertModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "distilbert"
 #     attribute_map = {
 #         "hidden_size": "dim",
 #         "num_attention_heads": "n_heads",
 #         "num_hidden_layers": "n_layers",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=30522,
@@ -147,14 +127,12 @@ class DistilBertConfig(PretrainedConfig):
 #         self.qa_dropout = qa_dropout
 #         self.seq_classif_dropout = seq_classif_dropout
 #         super().__init__(**kwargs, pad_token_id=pad_token_id)
-
-
 class DistilBertOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         if self.task == "multiple-choice":
-      pass
-      pass
+    pass
+    pass
     pass
 #             dynamic_axis = {0: "batch", 1: "choice", 2: "sequence"}
         else:

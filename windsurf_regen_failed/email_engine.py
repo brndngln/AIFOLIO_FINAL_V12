@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,7 +10,6 @@ import os
 import json
 import time
 from typing import List
-
 try:
     from sendgrid import SendGridAPIClient
     from sendgrid.helpers.mail import (
@@ -24,47 +20,31 @@ try:
 #         FileType,
 #         Disposition,
 #     )
-
 except ImportError:
 from .sms_engine import send_sms
-
 if not SENDGRID_AVAILABLE:
-      pass
-      pass
+    pass
+    pass
     pass
     import logging
 import base64
-
-
 def send_vault_email(*args, **kwargs):
 #     logging.warning("[OMNIELITE] send_vault_email stub called: sendgrid not installed")
-
-
 # os.makedirs(os.path.dirname(EMAIL_LOG), exist_ok=True)
 # os.makedirs(os.path.dirname(ALERT_LOG), exist_ok=True)
-
-
 #     "receipt.pdf",
 #     "terms_of_service.pdf",
 #     "refund_policy.pdf",
 #     "vault_preview.json",
 # ]
-
 # RATE_LIMIT_SLEEP = 10  # seconds
 # MAX_RETRIES = 3
-
-
 def file_exists(filepath):
     return os.path.exists(filepath)
-
-
 def generate_receipt_pdf(vault_id, buyer_info, output_path) -> str:
-
 #     Generate a PDF receipt and return the file path.
-
     from reportlab.lib.pagesizes import letter
     from reportlab.pdfgen import canvas
-
 #     filename = f"{vault_id}_{buyer_info['email']}.pdf"
 #     full_path = os.path.join(output_path, filename)
 #     c = canvas.Canvas(full_path, pagesize=letter)
@@ -75,14 +55,10 @@ def generate_receipt_pdf(vault_id, buyer_info, output_path) -> str:
 #     c.drawString(50, 670, f"Buyer Email: {buyer_info['email']}")
 #     c.save()
     return full_path
-
-
 def send_vault_email(
 #     recipient_email: str, subject: str, body: str, attachments: List[str]
 # ):
-
 #     Send an email with attachments using SendGrid. Retry on rate limit. Fallback to SMS if fails.
-
 #     log_entry = {
 #         "recipient": recipient_email,
 #         "subject": subject,
@@ -92,8 +68,8 @@ def send_vault_email(
 #     }
     for f in attachments:
         if not file_exists(f):
-      pass
-      pass
+    pass
+    pass
     pass
 #             log_entry["status"] = "failed_missing_attachment"
             with open(ALERT_LOG, "a") as log:
@@ -138,8 +114,8 @@ def send_vault_email(
 #             break
         except Exception as e:
             if "rate limit" in str(e).lower() and attempt < MAX_RETRIES:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 log_entry["status"] = f"retry_{attempt}_rate_limit"
 #                 time.sleep(RATE_LIMIT_SLEEP * attempt)

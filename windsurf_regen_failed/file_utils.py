@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Copyright 2020 The HuggingFace Team. All rights reserved.
@@ -21,15 +18,10 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # File utilities: utilities related to download and cache models
-
 # This module should not be update anymore and is only left for backward compatibility.
-
 from huggingface_hub import get_full_repo_name  # for backward compatibility
-
 from . import __version__
-
 # Backward compatibility imports, to make sure all those objects can be found in file_utils
 from .utils import (
 #     ENV_VARS_TRUE_AND_AUTO_VALUES,

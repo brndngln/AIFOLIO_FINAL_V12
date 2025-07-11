@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,18 +10,11 @@ from typing import Any, TypeVar, Callable, cast
 import time
 import logging
 import functools
-
 # logger = logging.getLogger("post_sale_hooks")
-
-
-
 # F = TypeVar("F", bound=Callable[..., Any])
-
-
 def retry_safe_hook(
 #     max_attempts: int = 3, backoff_tier: str = "short"
 # ) -> Callable[[F], F]:
-
 #     Decorator to retry a function with multi-tiered exponential backoff.
 #     Tiers:
 #         - short: 1m → 5m → 15m
@@ -36,14 +26,12 @@ def retry_safe_hook(
 #         backoff_tier: str, one of 'short', 'medium', 'int'
 #     Note:
 #         Only 'max_attempts' and 'backoff_tier' are valid arguments. 'backoff_factor' is not supported.
-
 #     tier_map = {
 #         "short": [60, 300, 900],
 #         "medium": [3600, 7200, 14400],
 #         "int": [86400, 172800],
 #     }
 #     delays = tier_map.get(backoff_tier, [60, 300, 900])
-
     def decorator(func: F) -> F:
 #         @functools.wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
@@ -59,8 +47,8 @@ def retry_safe_hook(
 #                             f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} attempt {attempt}/{max_attempts} failed: {e}\n"
 #                         )
                 if attempt < max_attempts:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     delay = delays[min(attempt - 1, len(delays) - 1)]
 #                     logger.info(
@@ -76,7 +64,5 @@ def retry_safe_hook(
 #                         f.write(
 #                             f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {func.__name__} failed after {max_attempts} attempts. FINAL FAILURE.\n"
 #                         )
-
         return cast(F, wrapper)
-
     return decorator

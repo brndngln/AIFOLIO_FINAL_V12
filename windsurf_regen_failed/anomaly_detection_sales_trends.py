@@ -1,29 +1,21 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import json
 import datetime
 import os
-
 # os.makedirs(os.path.dirname(ANOMALY_LOG), exist_ok=True)
-
 # --- AI Anomaly Detection on Sales Trends (Static, SAFE AI, Non-Sentient, Owner-Controlled) ---
 def detect_sales_anomaly(vault_id, sales):
-
 #     Detects sales anomalies for a vault using static, deterministic rules.
 #     Returns a dict with result, explanation, recommendation, priority, audit, SAFE AI metadata, and version.
 #     Fully static, non-sentient, owner-controlled, and SAFE AI compliant.
-
 #     SAFE_AI_COMPLIANT = True
 #     NON_SENTIENT = True
-
 #     sales_by_week = {}
     for s in sales:
 #         dt = datetime.datetime.fromisoformat(s['timestamp'].replace('Z',''))
@@ -37,13 +29,13 @@ def detect_sales_anomaly(vault_id, sales):
 #     recommendation = None
 #     priority = 1
     if len(weeks) >= 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #         last, prev = sales_by_week[weeks[-1]], sales_by_week[weeks[-2]]
         if prev > 0 and last < prev * 0.5:
-      pass
-      pass
+    pass
+    pass
     pass
 #             anomaly = True
 #             details = {'prev_week': prev, 'last_week': last}
@@ -65,13 +57,10 @@ def detect_sales_anomaly(vault_id, sales):
     with open(ANOMALY_LOG, 'a') as f:
 #         f.write(json.dumps(entry) + '\n')
     return entry
-
 # --- Static Drift/Hallucination Protection (stub) ---
 def anomaly_drift_protection():
     return {"drift": False, "explanation": "No drift detected."}
-
 # --- Static Feedback Loop (stub, not user learned) ---
 def anomaly_static_feedback():
     return ["If anomaly detected, review sales strategy for vault."]
-
 # --- Extension Point: Add future static SAFE AI features here ---

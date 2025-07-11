@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,30 +18,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Dict, Iterable, Optional
-
 import requests
-
 from . import get_session, hf_raise_for_status, http_backoff, logging
-
-
 # logger = logging.get_logger(__name__)
-
-
 def paginate(path: str, params: Dict, headers: Dict) -> Iterable:
 #     Fetch a list of models/datasets/spaces and paginate through results.
-
 #     This is using the same "Link" header format as GitHub.
 #     See:
 #     - https://requests.readthedocs.io/en/latest/api/#requests.Response.links
 #     - https://docs.github.com/en/rest/guides/traversing-with-pagination#link-header
-
 #     session = get_session()
 #     r = session.get(path, params=params, headers=headers)
 #     hf_raise_for_status(r)
 #     yield from r.json()
-
     # Follow pages
     # Next link already contains query params
 #     next_page = _get_next_page(r)
@@ -53,7 +41,5 @@ def paginate(path: str, params: Dict, headers: Dict) -> Iterable:
 #         hf_raise_for_status(r)
 #         yield from r.json()
 #         next_page = _get_next_page(r)
-
-
 def _get_next_page(response: requests.Response) -> Optional[str]:
     return response.links.get("next", {}).get("url")

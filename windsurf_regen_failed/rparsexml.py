@@ -1,28 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Very simple and fast XML parser, used for intra-paragraph text.
-
 # Devised by Aaron Watters in the bad old days before Python had fast
 # parsers available.  Constructs the lightest possible in-memory
 # representation; parses most files we have seen in pure python very
 # quickly.
-
 # The output structure is the same as the one produced by pyRXP,
 # our validating C-based parser, which was written later.  It will
 # use pyRXP if available.
-
 # This is used to parse intra-paragraph markup.
-
 # Example parse::
-
 #     <this type="xml">text <b>in</b> xml</this>
-
 #     ( "this",
 #       {"type": "xml"},
 #       [ "text ",
@@ -30,35 +22,23 @@ from typing import Optional
 #         " xml"
 #         ]
 #        None )
-
 #     { 0: "this"
 #       "type": "xml"
 #       1: ["text ",
 #           {0: "b", 1:["in"]},
 #           " xml"]
 #     }
-
 # Ie, xml tag translates to a tuple:
 #  (name, dictofattributes, contentlist, miscellaneousinfo)
-
 # where miscellaneousinfo can be anything, (but defaults to None)
 # (with the intention of adding, eg, line number information)
-
 # special cases: name of  means top level, no containing tag.
 # Top level parse always looks like this::
-
 #     (, list, None, None)
-
 #  contained text of None means <simple_tag/>
-
 # In order to support stuff like::
-
 #     <this></this><one></one>
-
-
-
 # RequirePyRXP = 0        # set this to 1 to disable the nonvalidating fallback parser.
-
 try:
     #raise ImportError, "dummy error"
 #     simpleparse = 0
@@ -80,7 +60,6 @@ try:
         return oneOutermostTag and p or ('',None,[p],None)
 except ImportError:
 #     simpleparse = 1
-
 class smartDecode:
 #     @staticmethod
     def __call__(s):
@@ -94,51 +73,43 @@ class smartDecode:
 #         smartDecode.__class__.__call__ = staticmethod(__call__)
         return  __call__(s)
 # smartDecode = smartDecode()
-
 # replacelist = [("&lt;", "<"), ("&gt;", ">"), ("&amp;", "&")] # amp must be last
 #replacelist = []
 def unEscapeContentList(contentList):
 #     result = []
     for e in contentList:
         if "&" in e:
-      pass
-      pass
+    pass
+    pass
     pass
             for (old, new) in replacelist:
 #                 e = e.replace(old, new)
 #         result.append(e)
     return result
-
 def parsexmlSimple(xmltext, oneOutermostTag=0,eoCB=None,entityReplacer=unEscapeContentList):
-
     if RequirePyRXP:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ImportError("pyRXP not found, fallback parser disabled")
 #     (result, cursor) = parsexml0(xmltext,entityReplacer=entityReplacer)
     if oneOutermostTag:
-      pass
-      pass
+    pass
+    pass
     pass
         return result[2][0]
     else:
         return result
-
 if simpleparse:
-      pass
-      pass
+    pass
+    pass
     pass
 #     parsexml = parsexmlSimple
-
 def parseFile(filename):
 #     raw = open(filename, 'r').read()
     return parsexml(raw)
-
 # verbose = 0
-
 def skip_prologue(text, cursor):
-
     ### NOT AT ALL COMPLETE!!! definitely can be confused!!!
 #     prologue_elements = ("!DOCTYPE", "?xml", "!--")
 #     done = None
@@ -151,25 +122,24 @@ def skip_prologue(text, cursor):
         for e in prologue_elements:
 #             le = len(e)
             if text[past:past+le]==e:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 found = 1
 #                 cursor = text.find(">", past)
                 if cursor<0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError("cant close prologue %r" % e)
 #                 cursor = cursor+1
         if found is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             done=1
     #print "done skipping"
     return cursor
-
 def parsexml0(xmltext, startingat=0, toplevel=1,
         # snarf in some globals
 #         entityReplacer=unEscapeContentList,
@@ -177,7 +147,7 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
         #LENCDATAMARKER=LENCDATAMARKER, CDATAMARKER=CDATAMARKER
 #         ):
 #     simple recursive descent xml parser...
-       return (dictionary, endcharacter)
+    return (dictionary, endcharacter)
 #        special case: comment returns (None, endcharacter.
 #     xmltext = smartDecode(xmltext)
     #print "parsexml0", repr(xmltext[startingat: startingat+10])
@@ -185,8 +155,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #     NameString = NONAME
 #     ContentList = AttDict = ExtraStuff = None
     if toplevel is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         #if verbose: print "at top level"
         #if startingat!=0:
@@ -204,14 +174,14 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
     #    raise ValueError, "I dont handle ampersands yet!!!"
 #     docontents = 1
     if firstbracket<0:
-      pass
-      pass
+    pass
+    pass
     pass
             # no tags
             #if verbose: print "no tags"
             if toplevel is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 #D = {NAMEKEY: NONAME, CONTENTSKEY: [xmltext[cursor:]]}
 #                 ContentList = [xmltext[cursor:]]
@@ -227,8 +197,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
     pass
     #afterbracket2char = xmltext[firstbracket:firstbracket+2]
     if toplevel is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             #print "toplevel with no outer tag"
 #             NameString = name = NONAME
@@ -245,8 +215,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #             startcdata = firstbracket+9
 #             endcdata = xmltext.find(CDATAENDMARKER, startcdata)
             if endcdata<0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("unclosed CDATA %s" % repr(xmltext[cursor:cursor+20]))
 #             NameString = CDATAMARKER
@@ -259,14 +229,14 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
             #print "in COMMENT"
 #             endcommentdashes = xmltext.find("--", firstbracket+4)
             if endcommentdashes<firstbracket:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("unterminated comment %s" % repr(xmltext[cursor:cursor+20]))
 #             endcomment = endcommentdashes+2
             if xmltext[endcomment]!=">":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("invalid comment: contains double dashes %s" % repr(xmltext[cursor:cursor+20]))
             return (None, endcomment+1) # shortcut exit
@@ -281,12 +251,12 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #             tagcontent = xmltext[pastfirstbracket:closebracket]
             # shortcut, no equal means nothing but name in the tag content
             if '=' not in tagcontent:
-      pass
-      pass
+    pass
+    pass
     pass
                 if tagcontent[-1]=="/":
-      pass
-      pass
+    pass
+    pass
     pass
                     # simple case
                     #print "simple case", tagcontent
@@ -297,15 +267,15 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                 cursor = startsearch
             else:
                 if '' in tagcontent:
-      pass
-      pass
+    pass
+    pass
     pass
                     # check double quotes
 #                     stop = None
                     # not inside double quotes! (the split should have odd length)
                     if noclose or len((tagcontent+.).split(''))% 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         stop=1
                     while stop is None:
@@ -315,21 +285,21 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                         tagcontent = xmltext[pastfirstbracket:closebracket]
                         # not inside double quotes! (the split should have odd length)
                         if noclose or len((tagcontent+.).split(''))% 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             stop=1
                 if noclose:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError("unclosed start tag %s" % repr(xmltext[firstbracket:firstbracket+20]))
 #                 cursor = startsearch
                 #cursor = closebracket+1
                 # handle simple tag /> syntax
                 if xmltext[closebracket-1]=="/":
-      pass
-      pass
+    pass
+    pass
     pass
                     #if verbose: print "its a simple tag"
 #                     closebracket = closebracket-1
@@ -363,15 +333,15 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                     taglistindex = taglistindex+1
 #                     attentry = attentry.strip()
                     if attentry[0]!='':
-      pass
-      pass
+    pass
+    pass
     pass
 #                         raise ValueError("attribute value must start with double quotes" + repr(attentry))
                     while '' not in attentry[1:]:
                         # must have an = inside the attribute value...
                         if taglistindex>lasttaglistindex:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             raise ValueError("unclosed value " + repr(attentry))
 #                         nextattentry = taglist[taglistindex]
@@ -387,8 +357,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
                     except:
 #                         raise ValueError("attvalue,attentry,attlist="+repr((attvalue, attentry,attlist)))
                     if first==last== or first==last==:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         attvalue = attvalue[1:-1]
                     #print attributename, "=", attvalue
@@ -396,29 +366,29 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                     attributename = nextattname
     # pass over other tags and content looking for end tag
     if docontents is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         #print "now looking for end tag"
 #         ContentList = L
     while docontents is not None:
 #             nextopenbracket = xmltext.find("<", cursor)
             if nextopenbracket<cursor:
-      pass
-      pass
+    pass
+    pass
     pass
                 #if verbose: print "no next open bracket found"
                 if name==NONAME:
-      pass
-      pass
+    pass
+    pass
     pass
                     #print "no more tags for noname", repr(xmltext[cursor:cursor+10])
 #                     docontents=None # done
 #                     remainder = xmltext[cursor:]
 #                     cursor = len(xmltext)
                     if remainder:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         L.append(remainder)
                 else:
@@ -429,8 +399,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
                 #print "found close bracket", repr(xmltext[nextopenbracket:nextopenbracket+20])
 #                 nextclosebracket = xmltext.find(">", nextopenbracket)
                 if nextclosebracket<nextopenbracket:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise ValueError("unclosed close tag %s" % repr(xmltext[nextopenbracket: nextopenbracket+20]))
 #                 closetagcontents = xmltext[nextopenbracket+2: nextclosebracket]
@@ -443,8 +413,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                 closename = closetaglist[0]
                 #if verbose: print "closetag name is", closename
                 if name!=closename:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     prefix = xmltext[:cursor]
 #                     endlinenum = len(prefix.split("\n"))
@@ -454,8 +424,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
 #                        linenum, endlinenum, repr(name), repr(closename), repr(xmltext[cursor: cursor+100])))
 #                 remainder = xmltext[cursor:nextopenbracket]
                 if remainder:
-      pass
-      pass
+    pass
+    pass
     pass
                     #if verbose: print "remainder", repr(remainder)
 #                     L.append(remainder)
@@ -467,8 +437,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
             else:
 #                 remainder = xmltext[cursor:nextopenbracket]
                 if remainder:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     L.append(remainder)
                 #if verbose:
@@ -477,8 +447,8 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
                 #    #print "--- recursively parsing starting at", xmltext[nextopenbracket:nextopenbracket+20]
 #                 (parsetree, cursor) = parsexml0(xmltext, startingat=nextopenbracket, toplevel=None, entityReplacer=entityReplacer)
                 if parsetree:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     L.append(parsetree)
         # maybe should check for trailing garbage?
@@ -488,18 +458,16 @@ def parsexml0(xmltext, startingat=0, toplevel=1,
     pass
         #        raise ValueError, "trailing garbage at top level %s" % repr(remainder[:20])
     if ContentList:
-      pass
-      pass
+    pass
+    pass
     pass
         if entityReplacer: ContentList = entityReplacer(ContentList)
 #     t = (NameString, AttDict, ContentList, ExtraStuff)
     return (t, cursor)
-
 def pprettyprint(parsedxml):
-
     if isinstance(parsedxml,(str,bytes)):
-      pass
-      pass
+    pass
+    pass
     pass
         return parsedxml
 #     (name, attdict, textlist, extra) = parsedxml
@@ -510,20 +478,20 @@ def pprettyprint(parsedxml):
 #         attlist.append("%s=%s" % (k, repr(v)))
 #     attributes = " ".join(attlist)
     if not name and attributes:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError("name missing with attributes???")
     if textlist is not None:
-      pass
-      pass
+    pass
+    pass
     pass
         # with content
 #         textlistpprint = list(map(pprettyprint, textlist))
 #         textpprint = "\n".join(textlistpprint)
         if not name:
-      pass
-      pass
+    pass
+    pass
     pass
             return textpprint # no outer tag
         # indent it
@@ -532,7 +500,6 @@ def pprettyprint(parsedxml):
         return "<%s %s>\n%s\n</%s>" % (name, attributes, textpprint, name)
     # otherwise must be a simple tag
     return "<%s %s/>" % (name, attributes)
-
 def testparse(s,dump=0):
     from time import time
     from pprint import pprint
@@ -541,19 +508,18 @@ def testparse(s,dump=0):
 #     D = parsexmlSimple(s,oneOutermostTag=1)
 #     print("DONE", time()-now)
     if dump&4:
-      pass
-      pass
+    pass
+    pass
     pass
 #         pprint(D)
     #pprint(D)
     if dump&1:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("============== reformatting")
 #         p = pprettyprint(D)
 #         print(p)
-
 def test(dump=0):
 #     testparse.<this type=xml>text &lt;&gt;<b>in</b> <funnytag foo=bar/> xml</this>
 #                  <!-- comment -->
@@ -561,10 +527,9 @@ def test(dump=0):
 #                  <this type="xml">text <b>in</b> xml</this> ]]>
 #                  <tag with="<brackets in values>">just testing brackets feature</tag>
 #                  "",dump=dump)
-
 if __name__=="__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     test(dump=1)
     import sys, os
@@ -574,8 +539,8 @@ if __name__=="__main__":
 #     seen = 0
     for f in sys.argv[1:]:
         if not os.path.isfile(f):
-      pass
-      pass
+    pass
+    pass
     pass
 #             print("!!!!! no file at {f!r}")
         else:
@@ -585,7 +550,7 @@ if __name__=="__main__":
 #             testparse(t,dump=1)
 #             seen += 1
     if seen:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print(f"timed at {time()-now:.2f} secs.")

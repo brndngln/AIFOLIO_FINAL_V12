@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,17 +19,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 from typing import Dict
-
 import tensorflow as tf
 import torch
 from tqdm import tqdm
-
 from transformers import BigBirdPegasusConfig, BigBirdPegasusForConditionalGeneration
-
-
 # INIT_COMMON = [
     # tf -> hf
 #     ("/", "."),
@@ -47,7 +39,6 @@ from transformers import BigBirdPegasusConfig, BigBirdPegasusForConditionalGener
 #     ("intermediate.LayerNorm", "final_layer_norm"),
 #     ("intermediate.dense", "fc1"),
 # ]
-
 #     + [
 #         ("attention.self.LayerNorm", "self_attn_layer_norm"),
 #         ("attention.output.dense", "self_attn.out_proj"),
@@ -62,7 +53,6 @@ from transformers import BigBirdPegasusConfig, BigBirdPegasusForConditionalGener
 #     ]
 #     + END_COMMON
 # )
-
 #     + [
 #         ("embeddings.word_embeddings", "shared.weight"),
 #         ("embeddings.position_embeddings", "embed_positions.weight"),
@@ -73,7 +63,6 @@ from transformers import BigBirdPegasusConfig, BigBirdPegasusForConditionalGener
 #     ]
 #     + END_COMMON
 # )
-
 # KEYS_TO_IGNORE = [
 #     "encdec/key/bias",
 #     "encdec/query/bias",
@@ -84,72 +73,64 @@ from transformers import BigBirdPegasusConfig, BigBirdPegasusForConditionalGener
 #     "encdec_output/dense/bias",
 #     "attention/output/dense/bias",
 # ]
-
-
 def rename_state_dict_key(k, patterns):
     for tf_name, hf_name in patterns:
 #         k = k.replace(tf_name, hf_name)
     return k
-
-
 def convert_bigbird_pegasus(tf_weights: dict, config_update: dict) -> BigBirdPegasusForConditionalGeneration:
 #     cfg = BigBirdPegasusConfig(**config_update)
 #     torch_model = BigBirdPegasusForConditionalGeneration(cfg)
 #     state_dict = torch_model.state_dict()
 #     mapping = {}
-
     # separating decoder weights
 #     decoder_weights = {k: tf_weights[k] for k in tf_weights if k.startswith("pegasus/decoder")}
 #     remaining_weights = {k: tf_weights[k] for k in tf_weights if not k.startswith("pegasus/decoder")}
-
     for k, v in tqdm(decoder_weights.items(), "tf -> hf conversion"):
 #         conditions = [k.endswith(ending) for ending in KEYS_TO_IGNORE]
         if any(conditions):
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         patterns = DECODER_PATTERNS
 #         new_k = rename_state_dict_key(k, patterns)
         if new_k not in state_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"could not find new key {new_k} in state dict. (converted from {k})")
         if any(True if i in k else False for i in ["dense", "query", "key", "value"]):
-      pass
-      pass
+    pass
+    pass
     pass
 #             v = v.T
 #         mapping[new_k] = torch.from_numpy(v)
 #         assert v.shape == state_dict[new_k].shape, f"{new_k}, {k}, {v.shape}, {state_dict[new_k].shape}"
-
     for k, v in tqdm(remaining_weights.items(), "tf -> hf conversion"):
 #         conditions = [k.endswith(ending) for ending in KEYS_TO_IGNORE]
         if any(conditions):
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         patterns = REMAINING_PATTERNS
 #         new_k = rename_state_dict_key(k, patterns)
         if new_k not in state_dict and k != "pegasus/embeddings/position_embeddings":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"could not find new key {new_k} in state dict. (converted from {k})")
         if any(True if i in k else False for i in ["dense", "query", "key", "value"]):
-      pass
-      pass
+    pass
+    pass
     pass
 #             v = v.T
 #         mapping[new_k] = torch.from_numpy(v)
         if k != "pegasus/embeddings/position_embeddings":
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert v.shape == state_dict[new_k].shape, f"{new_k}, {k}, {v.shape}, {state_dict[new_k].shape}"
-
 #     mapping["model.encoder.embed_positions.weight"] = mapping["model.embed_positions.weight"]
 #     mapping["model.decoder.embed_positions.weight"] = mapping.pop("model.embed_positions.weight")
 #     missing, extra = torch_model.load_state_dict(mapping, strict=False)
@@ -167,8 +148,6 @@ def convert_bigbird_pegasus(tf_weights: dict, config_update: dict) -> BigBirdPeg
 #     assert unexpected_missing == [], f"no matches found for the following torch keys {unexpected_missing}"
 #     assert extra == [], f"no matches found for the following tf keys {extra}"
     return torch_model
-
-
 def get_tf_weights_as_numpy(path) -> Dict:
 #     init_vars = tf.train.list_variables(path)
 #     tf_weights = {}
@@ -176,24 +155,20 @@ def get_tf_weights_as_numpy(path) -> Dict:
     for name, shape in tqdm(init_vars, desc="converting tf checkpoint to dict"):
 #         skip_key = any(pat in name for pat in ignore_name)
         if skip_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         array = tf.train.load_variable(path, name)
 #         tf_weights[name] = array
     return tf_weights
-
-
 def convert_bigbird_pegasus_ckpt_to_pytorch(ckpt_path: str, save_dir: str, config_update: dict):
 #     tf_weights = get_tf_weights_as_numpy(ckpt_path)
 #     torch_model = convert_bigbird_pegasus(tf_weights, config_update)
 #     torch_model.save_pretrained(save_dir)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
 #     parser.add_argument("--tf_ckpt_path", type=str, help="passed to tf.train.list_variables")

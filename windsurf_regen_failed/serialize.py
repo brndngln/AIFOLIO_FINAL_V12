@@ -4,24 +4,18 @@ from typing import Optional
 #
 # SPDX-License-Identifier: Apache-2.0
 from __future__ import annotations
-
 import io
 from typing import IO, TYPE_CHECKING, Any, Mapping, cast
-
 from pip._vendor import msgpack
 from pip._vendor.requests.structures import CaseInsensitiveDict
 from pip._vendor.urllib3 import HTTPResponse
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from pip._vendor.requests import PreparedRequest
-
-
 class Serializer:
 #     serde_version = "4"
-
     def dumps(
 #         self,
 #         request: PreparedRequest,
@@ -31,10 +25,9 @@ class Serializer:
 #         response_headers: CaseInsensitiveDict[str] = CaseInsensitiveDict(
 #             response.headers
 #         )
-
         if body is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # When a body isn't passed in, we'll read the response. We
             # also update the response with a new file handler to be
@@ -42,7 +35,6 @@ class Serializer:
 #             body = response.read(decode_content=False)
 #             response._fp = io.BytesIO(body)  # type: ignore[assignment]
 #             response.length_remaining = len(body)
-
 #         data = {
 #             "response": {
 #                 "body": body,  # Empty bytestring if body is stored separately
@@ -53,29 +45,25 @@ class Serializer:
 #                 "decode_content": response.decode_content,
 #             }
 #         }
-
         # Construct our vary headers
 #         data["vary"] = {}
         if "vary" in response_headers:
-      pass
-      pass
+    pass
+    pass
     pass
 #             varied_headers = response_headers["vary"].split(",")
             for header in varied_headers:
 #                 header = str(header).strip()
 #                 header_value = request.headers.get(header, None)
                 if header_value is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     header_value = str(header_value)
 #                 data["vary"][header] = header_value
-
         return b",".join([f"cc={self.serde_version}".encode(), self.serialize(data)])
-
     def serialize(self, data: dict[str, Any]) -> bytes:
         return cast(bytes, msgpack.dumps(data, use_bin_type=True))
-
     def loads(
 #         self,
 #         request: PreparedRequest,
@@ -84,22 +72,19 @@ class Serializer:
 #     ) -> Optional[HTTPResponse]:
         # Short circuit if we've been given an empty set of data
         if not data:
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         # Previous versions of this library supported other serialization
         # formats, but these have all been removed.
         if not data.startswith(f"cc={self.serde_version},".encode()):
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
 #         data = data[5:]
         return self._loads_v4(request, data, body_file)
-
     def prepare_response(
 #         self,
 #         request: PreparedRequest,
@@ -114,38 +99,33 @@ class Serializer:
         # This case is also handled in the controller code when creating
         # a cache entry, but is left here for backwards compatibility.
         if "*" in cached.get("vary", {}):
-      pass
-      pass
+    pass
+    pass
     pass
             return None
-
         # Ensure that the Vary headers for the cached response match our
         # request
         for header, value in cached.get("vary", {}).items():
             if request.headers.get(header, None) != value:
-      pass
-      pass
+    pass
+    pass
     pass
                 return None
-
 #         body_raw = cached["response"].pop("body")
-
 #         headers: CaseInsensitiveDict[str] = CaseInsensitiveDict(
 #             data=cached["response"]["headers"]
 #         )
         if headers.get("transfer-encoding", "") == "chunked":
-      pass
-      pass
+    pass
+    pass
     pass
 #             headers.pop("transfer-encoding")
-
 #         cached["response"]["headers"] = headers
-
         try:
 #             body: IO[bytes]
             if body_file is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 body = io.BytesIO(body_raw)
             else:
@@ -158,12 +138,9 @@ class Serializer:
             #
             #     TypeError: 'str' does not support the buffer interface
 #             body = io.BytesIO(body_raw.encode("utf8"))
-
         # Discard any `strict` parameter serialized by older version of cachecontrol.
 #         cached["response"].pop("strict", None)
-
         return HTTPResponse(body=body, preload_content=False, **cached["response"])
-
     def _loads_v4(
 #         self,
 #         request: PreparedRequest,
@@ -174,5 +151,4 @@ class Serializer:
 #             cached = msgpack.loads(data, raw=False)
         except ValueError:
             return None
-
         return self.prepare_response(request, cached, body_file)

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,26 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from shutil import copyfile
 from typing import List, Optional, Tuple
-
 from ...tokenization_utils import AddedToken
 from ...tokenization_utils_fast import PreTrainedTokenizerFast
 from ...utils import is_sentencepiece_available, logging
-
-
 if is_sentencepiece_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from .tokenization_fnet import FNetTokenizer
 else:
 #     FNetTokenizer = None
-
 # logger = logging.get_logger(__name__)
-
 #     "vocab_file": {
 #         "google/fnet-base": "https://huggingface.co/google/fnet-base/resolve/main/spiece.model",
 #         "google/fnet-large": "https://huggingface.co/google/fnet-large/resolve/main/spiece.model",
@@ -51,21 +42,15 @@ else:
 #         "google/fnet-large": "https://huggingface.co/google/fnet-large/resolve/main/tokenizer.json",
 #     },
 # }
-
 #     "google/fnet-base": 512,
 #     "google/fnet-large": 512,
 # }
-
-
-
 class FNetTokenizerFast(PreTrainedTokenizerFast):
-
 #     Construct a "fast" FNetTokenizer (backed by HuggingFaces *tokenizers* library). Adapted from
 #     [`AlbertTokenizerFast`]. Based on
 #     [Unigram](https://huggingface.co/docs/tokenizers/python/latest/components.html?highlight=unigram#models). This
 #     tokenizer inherits from [`PreTrainedTokenizerFast`] which contains most of the main methods. Users should refer to
 #     this superclass for more information regarding those methods
-
 #     Args:
 #         vocab_file (`str`):
 #             [SentencePiece](https://github.com/google/sentencepiece) file (generally has a *.spm* extension) that
@@ -91,13 +76,11 @@ class FNetTokenizerFast(PreTrainedTokenizerFast):
 #         mask_token (`str`, *optional*, defaults to `"[MASK]"`):
 #             The token used for masking values. This is the token used when training this model with masked language
 #             modeling. This is the token which the model will try to predict.
-
 #     vocab_files_names = VOCAB_FILES_NAMES
 #     pretrained_vocab_files_map = PRETRAINED_VOCAB_FILES_MAP
 #     max_model_input_sizes = PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES
 #     model_input_names = ["input_ids", "token_type_ids"]
 #     slow_tokenizer_class = FNetTokenizer
-
     def __init__(
 #         self,
 #         vocab_file=None,
@@ -117,7 +100,6 @@ class FNetTokenizerFast(PreTrainedTokenizerFast):
 #         mask_token = AddedToken(mask_token, lstrip=True, rstrip=False) if isinstance(mask_token, str) else mask_token
 #         cls_token = AddedToken(cls_token, lstrip=False, rstrip=False) if isinstance(cls_token, str) else cls_token
 #         sep_token = AddedToken(sep_token, lstrip=False, rstrip=False) if isinstance(sep_token, str) else sep_token
-
 #         super().__init__(
 #             vocab_file,
 #             tokenizer_file=tokenizer_file,
@@ -131,92 +113,73 @@ class FNetTokenizerFast(PreTrainedTokenizerFast):
 #             mask_token=mask_token,
 #             **kwargs,
 #         )
-
 #         self.do_lower_case = do_lower_case
 #         self.remove_space = remove_space
 #         self.keep_accents = keep_accents
 #         self.vocab_file = vocab_file
-
 #     @property
     def can_save_slow_tokenizer(self) -> bool:
         return os.path.isfile(self.vocab_file) if self.vocab_file else False
-
     def build_inputs_with_special_tokens(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None
 #     ) -> List[int]:
-
 #         Build model inputs from a sequence or a pair of sequence for sequence classification tasks by concatenating and
 #         adding special tokens. An FNet sequence has the following format:
-
 #         - single sequence: `[CLS] X [SEP]`
 #         - pair of sequences: `[CLS] A [SEP] B [SEP]`
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of IDs to which the special tokens will be added
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: list of [input IDs](../glossary#input-ids) with the appropriate special tokens.
-
 #         sep = [self.sep_token_id]
 #         cls = [self.cls_token_id]
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return cls + token_ids_0 + sep
         return cls + token_ids_0 + sep + token_ids_1 + sep
-
     def create_token_type_ids_from_sequences(
 #         self, token_ids_0: List[int], token_ids_1: Optional[List[int]] = None
 #     ) -> List[int]:
-
 #         Creates a mask from the two sequences passed to be used in a sequence-pair classification task. An FNet
 #         sequence pair mask has the following format:
-
 #         ```
 #         0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1
 #         | first sequence    | second sequence |
 #         ```
-
         if token_ids_1 is None, only returns the first portion of the mask (0s).
-
 #         Args:
 #             token_ids_0 (`List[int]`):
 #                 List of ids.
 #             token_ids_1 (`List[int]`, *optional*):
 #                 Optional second list of IDs for sequence pairs.
-
 #         Returns:
 #             `List[int]`: List of [token type IDs](../glossary#token-type-ids) according to the given sequence(s).
-
 #         sep = [self.sep_token_id]
 #         cls = [self.cls_token_id]
-
         if token_ids_1 is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return len(cls + token_ids_0 + sep) * [0]
         return len(cls + token_ids_0 + sep) * [0] + len(token_ids_1 + sep) * [1]
-
     def save_vocabulary(self, save_directory: str, filename_prefix: Optional[str] = None) -> Tuple[str]:
         if not os.path.isdir(save_directory):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.error(f"Vocabulary path ({save_directory}) should be a directory")
             return
 #         out_vocab_file = os.path.join(
 #             save_directory, (filename_prefix + - if filename_prefix else ) + VOCAB_FILES_NAMES[vocab_file]
 #         )
-
         if os.path.abspath(self.vocab_file) != os.path.abspath(out_vocab_file):
-      pass
-      pass
+    pass
+    pass
     pass
 #             copyfile(self.vocab_file, out_vocab_file)
-
         return (out_vocab_file,)

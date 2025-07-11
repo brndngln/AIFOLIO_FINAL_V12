@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,29 +19,22 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 import warnings
 from typing import List, Optional
-
 from ...tokenization_utils_base import BatchEncoding
 from ...utils import logging
 from .configuration_rag import RagConfig
-
-
 # logger = logging.get_logger(__name__)
-
-
 class RagTokenizer:
     def __init__(self, question_encoder, generator):
 #         self.question_encoder = question_encoder
 #         self.generator = generator
 #         self.current_tokenizer = self.question_encoder
-
     def save_pretrained(self, save_directory):
         if os.path.isfile(save_directory):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Provided path ({save_directory}) should be a directory, not a file")
 #         os.makedirs(save_directory, exist_ok=True)
@@ -52,20 +42,16 @@ class RagTokenizer:
 #         generator_path = os.path.join(save_directory, "generator_tokenizer")
 #         self.question_encoder.save_pretrained(question_encoder_path)
 #         self.generator.save_pretrained(generator_path)
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path, **kwargs):
         # dynamically import AutoTokenizer
         from ..auto.tokenization_auto import AutoTokenizer
-
 #         config = kwargs.pop("config", None)
-
         if config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             config = RagConfig.from_pretrained(pretrained_model_name_or_path)
-
 #         question_encoder = AutoTokenizer.from_pretrained(
 #             pretrained_model_name_or_path, config=config.question_encoder, subfolder="question_encoder_tokenizer"
 #         )
@@ -73,22 +59,16 @@ class RagTokenizer:
 #             pretrained_model_name_or_path, config=config.generator, subfolder="generator_tokenizer"
 #         )
         return cls(question_encoder=question_encoder, generator=generator)
-
     def __call__(self, *args, **kwargs):
         return self.current_tokenizer(*args, **kwargs)
-
     def batch_decode(self, *args, **kwargs):
         return self.generator.batch_decode(*args, **kwargs)
-
     def decode(self, *args, **kwargs):
         return self.generator.decode(*args, **kwargs)
-
     def _switch_to_input_mode(self):
 #         self.current_tokenizer = self.question_encoder
-
     def _switch_to_target_mode(self):
 #         self.current_tokenizer = self.generator
-
     def prepare_seq2seq_batch(
 #         self,
 #         src_texts: List[str],
@@ -108,8 +88,8 @@ class RagTokenizer:
 #             FutureWarning,
 #         )
         if max_length is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             max_length = self.current_tokenizer.model_max_length
 #         model_inputs = self(
@@ -122,14 +102,14 @@ class RagTokenizer:
 #             **kwargs,
 #         )
         if tgt_texts is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return model_inputs
         # Process tgt_texts
         if max_target_length is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             max_target_length = self.current_tokenizer.model_max_length
 #         labels = self(

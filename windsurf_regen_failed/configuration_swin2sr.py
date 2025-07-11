@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # SWIN2SR_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "caidas/swin2sr-classicalsr-x2-64": (
 #         "https://huggingface.co/caidas/swin2sr-classicalsr-x2-64/resolve/main/config.json"
 #     ),
 # }
-
-
 class Swin2SRConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Swin2SRModel`]. It is used to instantiate a Swin
 #     Transformer v2 model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the Swin Transformer v2
 #     [caidas/swin2sr-classicalsr-x2-64](https://huggingface.co/caidas/swin2sr-classicalsr-x2-64) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 64):
 #             The size (resolution) of each image.
@@ -91,30 +79,22 @@ class Swin2SRConfig(PretrainedConfig):
 #             The convolutional block to use before the residual connection in each stage.
 #         upsampler (`str`, *optional*, defaults to `"pixelshuffle"`):
 #             The reconstruction reconstruction module. Can be 'pixelshuffle'/'pixelshuffledirect'/'nearest+conv'/None.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import Swin2SRConfig, Swin2SRModel
-
 #     >>> # Initializing a Swin2SR caidas/swin2sr-classicalsr-x2-64 style configuration
 #     >>> configuration = Swin2SRConfig()
-
 #     >>> # Initializing a model (with random weights) from the caidas/swin2sr-classicalsr-x2-64 style configuration
 #     >>> model = Swin2SRModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "swin2sr"
-
 #     attribute_map = {
 #         "hidden_size": "embed_dim",
 #         "num_attention_heads": "num_heads",
 #         "num_hidden_layers": "num_layers",
 #     }
-
     def __init__(
 #         self,
 #         image_size=64,
@@ -141,7 +121,6 @@ class Swin2SRConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels

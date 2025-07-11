@@ -1,15 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # AIFOLIO
 from core.compliance.threat_feed_parser import parse_threat_feed
 from core.compliance.blockchain_license_anchor import anchor_license_hash
@@ -18,13 +14,10 @@ from core.compliance.redundant_backup_scheduler import schedule_backup
 from core.compliance.compliance_manifest_exporter import export_compliance_manifest
 from core.compliance.adaptive_monetization_signal_detector import detect_signals
 # Exports: PDF, CSV. Manual & auto-export. Audit-logs all exports.
-
 import csv
 import datetime
 import os
 from typing import List
-
-
 #     "Partner Name",
 #     "Email",
 #     "Vault",
@@ -33,7 +26,6 @@ from typing import List
 #     "Progress",
 #     "Notes",
 # ]
-
 #     [
 #         "Alice",
 #         "alice@example.com",
@@ -53,8 +45,6 @@ from typing import List
 #         "Needs review",
 #     ],
 # ]
-
-
 def export_csv(data: List[List[str]] = SAMPLE_DATA):
 #     os.makedirs(EXPORT_PATH, exist_ok=True)
 #     path = os.path.join(EXPORT_PATH, f"certs_{datetime.date.today()}.csv")
@@ -63,8 +53,6 @@ def export_csv(data: List[List[str]] = SAMPLE_DATA):
 #         writer.writerow(FIELDS)
 #         writer.writerows(data)
     return path
-
-
 def export_pdf(data: List[List[str]] = SAMPLE_DATA):
     # For demo: just create a .txt file as a PDF stub
 #     os.makedirs(EXPORT_PATH, exist_ok=True)

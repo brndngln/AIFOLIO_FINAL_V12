@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,20 +19,14 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from typing import List, Union
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 #     "openai/jukebox-5b-lyrics": "https://huggingface.co/openai/jukebox-5b-lyrics/blob/main/config.json",
 #     "openai/jukebox-1b-lyrics": "https://huggingface.co/openai/jukebox-1b-lyrics/blob/main/config.json",
 # }
-
 # _LARGE_ATTENTION = [
 #     "block_attn",
 #     "transpose_block_attn",
@@ -120,49 +111,32 @@ from ...utils import logging
 # _RawColumnPreviousRowAttention = ["block_attn", "transpose_block_attn", "prev_block_attn"]
 # _FullDenseAttention = ["dense_attention"]
 # _PrimePrimeDenseAttention = ["prime_attn", "prime_attn", "dense_attn"]
-
-
 def full_dense_attention(layer):
     return _FullDenseAttention[0]
-
-
 def raw_column_previous_row_attention(layer):
     return _RawColumnPreviousRowAttention[layer % 3]
-
-
 def large_separated_enc_dec_w_lyrics(layer):
     return _LARGE_ATTENTION[layer % 79]
-
-
 def enc_dec_with_lyrics(layer):
     if layer % 16 == 15:
-      pass
-      pass
+    pass
+    pass
     pass
         return _PrimePrimeDenseAttention[layer % 3]
     return _RawColumnPreviousRowAttention[layer % 3]
-
-
 #     "full_dense_attention": full_dense_attention,
 #     "raw_column_previous_row_attention": raw_column_previous_row_attention,  # Alternate row, column and previous row attn
 #     "large_separated_enc_dec_w_lyrics": large_separated_enc_dec_w_lyrics,  # Used by large separated_enc_dec model with lyrics
 #     "enc_dec_with_lyrics": enc_dec_with_lyrics,  # Used by encoder_decoder model with lyrics
 # }
-
-
 class JukeboxPriorConfig(PretrainedConfig):
-
 #         This is the configuration class to store the configuration of a [`JukeboxPrior`]. It is used to instantiate a
 #         `JukeboxPrior` according to the specified arguments, defining the model architecture. Instantiating a
 #         configuration with the defaults will yield a similar configuration to that of the top level prior from the
 #         [openai/jukebox-1b-lyrics](https://huggingface.co/openai/jukebox
 #     -1b-lyrics) architecture.
-
 #         Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #         documentation from [`PretrainedConfig`] for more information.
-
-
-
 #     Args:
 #         act_fn (`str`, *optional*, defaults to `"quick_gelu"`):
 #             Activation function.
@@ -258,13 +232,11 @@ class JukeboxPriorConfig(PretrainedConfig):
 #             Dimension of the timing embedding.
 #         zero_out (`bool`, *optional*, defaults to `False`):
 #             Whether or not to zero out convolution weights when initializing.
-
 #     model_type = "jukebox_prior"
 #     attribute_map = {
 #         "max_position_embeddings": "n_positions",
 #         "num_attention_heads": "n_head",
 #     }
-
     def __init__(
 #         self,
 #         act_fn="quick_gelu",
@@ -324,8 +296,8 @@ class JukeboxPriorConfig(PretrainedConfig):
 #         self.emb_dropout = emb_dropout
 #         self.music_vocab_size = music_vocab_size
         if encoder_config is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.encoder_config = JukeboxPriorConfig(**encoder_config)
         else:
@@ -359,44 +331,34 @@ class JukeboxPriorConfig(PretrainedConfig):
 #         self.timing_dims = timing_dims
 #         self.hidden_size = hidden_size
 #         self.zero_out = zero_out
-
 #     @classmethod
     def from_pretrained(
 #         cls, pretrained_model_name_or_path: Union[str, os.PathLike], level=0, **kwargs
 #     ) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the prior config dict if we are loading from JukeboxConfig
         if config_dict.get("model_type") == "jukebox":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict[f"prior_{level}"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class JukeboxVQVAEConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`JukeboxVQVAE`]. It is used to instantiate a
 #     `JukeboxVQVAE` according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the VQVAE from
 #     [openai/jukebox-1b-lyrics](https://huggingface.co/openai/jukebox-1b-lyrics) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         act_fn (`str`, *optional*, defaults to `"relu"`):
 #             Activation function of the model.
@@ -440,9 +402,7 @@ class JukeboxVQVAEConfig(PretrainedConfig):
 #             Initialization scale.
 #         zero_out (`bool`, *optional*, defaults to `False`):
 #             Whether or not to zero out convolution weights when initializing.
-
 #     model_type = "jukebox_vqvae"
-
     def __init__(
 #         self,
 #         act_fn="relu",
@@ -470,7 +430,6 @@ class JukeboxVQVAEConfig(PretrainedConfig):
 #         self.hop_fraction = hop_fraction
 #         self.conv_input_shape = conv_input_shape
 #         self.sample_length = sample_length
-
         # VQVAE parameters (all used)
 #         self.levels = levels
 #         self.embed_dim = embed_dim
@@ -489,46 +448,34 @@ class JukeboxVQVAEConfig(PretrainedConfig):
 #         self.act_fn = act_fn
 #         self.init_scale = init_scale
 #         self.zero_out = zero_out
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the text config dict if we are loading from CLIPConfig
         if config_dict.get("model_type") == "jukebox":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["vqvae_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class JukeboxConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`JukeboxModel`].
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information. Instantiating a configuration with the defaults will
 #     yield a similar configuration to that of
 #     [openai/jukebox-1b-lyrics](https://huggingface.co/openai/jukebox-1b-lyrics) architecture.
-
-
 #     The downsampling and stride are used to determine downsampling of the input sequence. For example, downsampling =
 #     (5,3), and strides = (2, 2) will downsample the audio by 2^5 = 32 to get the first level of codes, and 2**8 = 256
 #     to get the second level codes. This is mostly true for training the top level prior and the upsamplers.
-
 #     Args:
 #         vqvae_config (`JukeboxVQVAEConfig`, *optional*):
 #             Configuration for the `JukeboxVQVAE` model.
@@ -553,24 +500,17 @@ class JukeboxConfig(PretrainedConfig):
 #         metadata_conditioning (`bool`, *optional*, defaults to `True`):
 #             Whether or not to use metadata conditioning, corresponding to the artist, the genre and the min/maximum
 #             duration.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import JukeboxModel, JukeboxConfig
-
 #     >>> # Initializing a Jukebox configuration
 #     >>> configuration = JukeboxConfig()
-
 #     >>> # Initializing a model from the configuration
 #     >>> model = JukeboxModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "jukebox"
-
     def __init__(
 #         self,
 #         vqvae_config=None,
@@ -585,16 +525,15 @@ class JukeboxConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
         if vqvae_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             vqvae_config = {}
 #             logger.info("vqvae_config is None. initializing the JukeboxVQVAE with default values.")
-
 #         self.vqvae_config = JukeboxVQVAEConfig(**vqvae_config)
         if prior_config_list is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.prior_configs = [JukeboxPriorConfig(**prior_config) for prior_config in prior_config_list]
         else:
@@ -602,8 +541,8 @@ class JukeboxConfig(PretrainedConfig):
             for prior_idx in range(nb_priors):
 #                 prior_config = kwargs.pop(f"prior_{prior_idx}", None)
                 if prior_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     prior_config = {}
 #                     logger.info(
@@ -611,11 +550,8 @@ class JukeboxConfig(PretrainedConfig):
 #                         " values."
 #                     )
 #                 self.prior_configs.append(JukeboxPriorConfig(**prior_config))
-
 #         self.hop_fraction = self.vqvae_config.hop_fraction
-
 #         self.nb_priors = nb_priors
-
         # Metadata conditioning
 #         self.max_nb_genres = max_nb_genres
 #         self.sampling_rate = sampling_rate
@@ -623,21 +559,16 @@ class JukeboxConfig(PretrainedConfig):
 #         self.min_duration = min_duration
 #         self.max_duration = max_duration
 #         self.metadata_conditioning = metadata_conditioning
-
 #         super().__init__(**kwargs)
-
 #     @classmethod
     def from_configs(cls, prior_configs: List[JukeboxPriorConfig], vqvae_config: JukeboxVQVAEConfig, **kwargs):
 #         r
 #         Instantiate a [`JukeboxConfig`] (or a derived class) from clip text model configuration and clip vision model
 #         configuration.
-
 #         Returns:
 #             [`JukeboxConfig`]: An instance of a configuration object
-
 #         prior_config_list = [config.to_dict() for config in prior_configs]
         return cls(prior_config_list=prior_config_list, vqvae_config_dict=vqvae_config.to_dict(), **kwargs)
-
     def to_dict(self):
         # Override the default to_dict to apply to_dict to the list of prior configs.
 #         result = super().to_dict()

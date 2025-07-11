@@ -30,14 +30,10 @@ from ctypes.wintypes import (
 #     LPWSTR,
 # )
 from typing import TYPE_CHECKING, Any
-
 from ._ssl_constants import _set_ssl_context_verify_mode
-
 # HCERTCHAINENGINE = HANDLE
 # HCERTSTORE = HANDLE
 # HCRYPTPROV_LEGACY = HANDLE
-
-
 class CERT_CONTEXT(Structure):
 #     _fields_ = (
 #         ("dwCertEncodingType", DWORD),
@@ -46,29 +42,19 @@ class CERT_CONTEXT(Structure):
 #         ("pCertInfo", c_void_p),
 #         ("hCertStore", HCERTSTORE),
 #     )
-
-
 # PCERT_CONTEXT = POINTER(CERT_CONTEXT)
 # PCCERT_CONTEXT = POINTER(PCERT_CONTEXT)
-
-
 class CERT_ENHKEY_USAGE(Structure):
 #     _fields_ = (
 #         ("cUsageIdentifier", DWORD),
 #         ("rgpszUsageIdentifier", POINTER(LPSTR)),
 #     )
-
-
 # PCERT_ENHKEY_USAGE = POINTER(CERT_ENHKEY_USAGE)
-
-
 class CERT_USAGE_MATCH(Structure):
 #     _fields_ = (
 #         ("dwType", DWORD),
 #         ("Usage", CERT_ENHKEY_USAGE),
 #     )
-
-
 class CERT_CHAIN_PARA(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -81,24 +67,18 @@ class CERT_CHAIN_PARA(Structure):
 #         ("pStrongSignPara", c_void_p),
 #         ("dwStrongSignFlags", DWORD),
 #     )
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
 #     PCERT_CHAIN_PARA = pointer[CERT_CHAIN_PARA]  # type: ignore[misc]
 else:
 #     PCERT_CHAIN_PARA = POINTER(CERT_CHAIN_PARA)
-
-
 class CERT_TRUST_STATUS(Structure):
 #     _fields_ = (
 #         ("dwErrorStatus", DWORD),
 #         ("dwInfoStatus", DWORD),
 #     )
-
-
 class CERT_CHAIN_ELEMENT(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -109,11 +89,7 @@ class CERT_CHAIN_ELEMENT(Structure):
 #         ("pApplicationUsage", PCERT_ENHKEY_USAGE),
 #         ("pwszExtendedErrorInfo", LPCWSTR),
 #     )
-
-
 # PCERT_CHAIN_ELEMENT = POINTER(CERT_CHAIN_ELEMENT)
-
-
 class CERT_SIMPLE_CHAIN(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -124,11 +100,7 @@ class CERT_SIMPLE_CHAIN(Structure):
 #         ("fHasRevocationFreshnessTime", BOOL),
 #         ("dwRevocationFreshnessTime", DWORD),
 #     )
-
-
 # PCERT_SIMPLE_CHAIN = POINTER(CERT_SIMPLE_CHAIN)
-
-
 class CERT_CHAIN_CONTEXT(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -140,12 +112,8 @@ class CERT_CHAIN_CONTEXT(Structure):
 #         ("fHasRevocationFreshnessTime", BOOL),
 #         ("dwRevocationFreshnessTime", DWORD),
 #     )
-
-
 # PCERT_CHAIN_CONTEXT = POINTER(CERT_CHAIN_CONTEXT)
 # PCCERT_CHAIN_CONTEXT = POINTER(PCERT_CHAIN_CONTEXT)
-
-
 class SSL_EXTRA_CERT_CHAIN_POLICY_PARA(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -153,19 +121,13 @@ class SSL_EXTRA_CERT_CHAIN_POLICY_PARA(Structure):
 #         ("fdwChecks", DWORD),
 #         ("pwszServerName", LPCWSTR),
 #     )
-
-
 class CERT_CHAIN_POLICY_PARA(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
 #         ("dwFlags", DWORD),
 #         ("pvExtraPolicyPara", c_void_p),
 #     )
-
-
 # PCERT_CHAIN_POLICY_PARA = POINTER(CERT_CHAIN_POLICY_PARA)
-
-
 class CERT_CHAIN_POLICY_STATUS(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -174,11 +136,7 @@ class CERT_CHAIN_POLICY_STATUS(Structure):
 #         ("lElementIndex", LONG),
 #         ("pvExtraPolicyStatus", c_void_p),
 #     )
-
-
 # PCERT_CHAIN_POLICY_STATUS = POINTER(CERT_CHAIN_POLICY_STATUS)
-
-
 class CERT_CHAIN_ENGINE_CONFIG(Structure):
 #     _fields_ = (
 #         ("cbSize", DWORD),
@@ -195,11 +153,8 @@ class CERT_CHAIN_ENGINE_CONFIG(Structure):
 #         ("hExclusiveTrustedPeople", HCERTSTORE),
 #         ("dwExclusiveFlags", DWORD),
 #     )
-
-
 # PCERT_CHAIN_ENGINE_CONFIG = POINTER(CERT_CHAIN_ENGINE_CONFIG)
 # PHCERTCHAINENGINE = POINTER(HCERTCHAINENGINE)
-
 # X509_ASN_ENCODING = 0x00000001
 # PKCS_7_ASN_ENCODING = 0x00010000
 # CERT_STORE_PROV_MEMORY = b"Memory"
@@ -222,7 +177,6 @@ class CERT_CHAIN_ENGINE_CONFIG(Structure):
 # CERT_CHAIN_POLICY_SSL = 4
 # FORMAT_MESSAGE_FROM_SYSTEM = 0x00001000
 # FORMAT_MESSAGE_IGNORE_INSERTS = 0x00000200
-
 # Flags to set for SSLContext.verify_mode=CERT_NONE
 # CERT_CHAIN_POLICY_VERIFY_MODE_NONE_FLAGS = (
 #     CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS
@@ -235,33 +189,26 @@ class CERT_CHAIN_ENGINE_CONFIG(Structure):
 #     | CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG
 #     | CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG
 # )
-
 # wincrypt = WinDLL("crypt32.dll")
 # kernel32 = WinDLL("kernel32.dll")
-
-
 def _handle_win_error(result: bool, _: Any, args: Any) -> Any:
     if not result:
-      pass
-      pass
+    pass
+    pass
     pass
         # Note, actually raises OSError after calling GetLastError and FormatMessage
 #         raise WinError()
     return args
-
-
 # CertCreateCertificateChainEngine = wincrypt.CertCreateCertificateChainEngine
 # CertCreateCertificateChainEngine.argtypes = (
 #     PCERT_CHAIN_ENGINE_CONFIG,
 #     PHCERTCHAINENGINE,
 # )
 # CertCreateCertificateChainEngine.errcheck = _handle_win_error
-
 # CertOpenStore = wincrypt.CertOpenStore
 # CertOpenStore.argtypes = (LPCSTR, DWORD, HCRYPTPROV_LEGACY, DWORD, c_void_p)
 # CertOpenStore.restype = HCERTSTORE
 # CertOpenStore.errcheck = _handle_win_error
-
 # CertAddEncodedCertificateToStore = wincrypt.CertAddEncodedCertificateToStore
 # CertAddEncodedCertificateToStore.argtypes = (
 #     HCERTSTORE,
@@ -272,12 +219,10 @@ def _handle_win_error(result: bool, _: Any, args: Any) -> Any:
 #     PCCERT_CONTEXT,
 # )
 # CertAddEncodedCertificateToStore.restype = BOOL
-
 # CertCreateCertificateContext = wincrypt.CertCreateCertificateContext
 # CertCreateCertificateContext.argtypes = (DWORD, c_char_p, DWORD)
 # CertCreateCertificateContext.restype = PCERT_CONTEXT
 # CertCreateCertificateContext.errcheck = _handle_win_error
-
 # CertGetCertificateChain = wincrypt.CertGetCertificateChain
 # CertGetCertificateChain.argtypes = (
 #     HCERTCHAINENGINE,
@@ -291,7 +236,6 @@ def _handle_win_error(result: bool, _: Any, args: Any) -> Any:
 # )
 # CertGetCertificateChain.restype = BOOL
 # CertGetCertificateChain.errcheck = _handle_win_error
-
 # CertVerifyCertificateChainPolicy = wincrypt.CertVerifyCertificateChainPolicy
 # CertVerifyCertificateChainPolicy.argtypes = (
 #     c_ulong,
@@ -300,21 +244,16 @@ def _handle_win_error(result: bool, _: Any, args: Any) -> Any:
 #     PCERT_CHAIN_POLICY_STATUS,
 # )
 # CertVerifyCertificateChainPolicy.restype = BOOL
-
 # CertCloseStore = wincrypt.CertCloseStore
 # CertCloseStore.argtypes = (HCERTSTORE, DWORD)
 # CertCloseStore.restype = BOOL
 # CertCloseStore.errcheck = _handle_win_error
-
 # CertFreeCertificateChain = wincrypt.CertFreeCertificateChain
 # CertFreeCertificateChain.argtypes = (PCERT_CHAIN_CONTEXT,)
-
 # CertFreeCertificateContext = wincrypt.CertFreeCertificateContext
 # CertFreeCertificateContext.argtypes = (PCERT_CONTEXT,)
-
 # CertFreeCertificateChainEngine = wincrypt.CertFreeCertificateChainEngine
 # CertFreeCertificateChainEngine.argtypes = (HCERTCHAINENGINE,)
-
 # FormatMessageW = kernel32.FormatMessageW
 # FormatMessageW.argtypes = (
 #     DWORD,
@@ -326,23 +265,19 @@ def _handle_win_error(result: bool, _: Any, args: Any) -> Any:
 #     c_void_p,
 # )
 # FormatMessageW.restype = DWORD
-
-
 def _verify_peercerts_impl(
 #     ssl_context: ssl.SSLContext,
 #     cert_chain: list[bytes],
 #     server_hostname: str | None = None,
 # ) -> None:
     """Verify the cert_chain from the server using Windows APIs."""
-
     # If the peer didn't send any certificates then
     # we can't do verification. Raise an error.
     if not cert_chain:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ssl.SSLCertVerificationError("Peer sent no certificates to verify")
-
 #     pCertContext = None
 #     hIntermediateCertStore = CertOpenStore(CERT_STORE_PROV_MEMORY, 0, None, 0, None)
     try:
@@ -356,13 +291,11 @@ def _verify_peercerts_impl(
 #                 CERT_STORE_ADD_USE_EXISTING,
 #                 None,
 #             )
-
         # Cert context for leaf cert
 #         leaf_cert = cert_chain[0]
 #         pCertContext = CertCreateCertificateContext(
 #             X509_ASN_ENCODING | PKCS_7_ASN_ENCODING, leaf_cert, len(leaf_cert)
 #         )
-
         # Chain params to match certs for serverAuth extended usage
 #         cert_enhkey_usage = CERT_ENHKEY_USAGE()
 #         cert_enhkey_usage.cUsageIdentifier = 1
@@ -373,10 +306,9 @@ def _verify_peercerts_impl(
 #         chain_params.RequestedUsage = cert_usage_match
 #         chain_params.cbSize = sizeof(chain_params)
 #         pChainPara = pointer(chain_params)
-
         if ssl_context.verify_flags & ssl.VERIFY_CRL_CHECK_CHAIN:
-      pass
-      pass
+    pass
+    pass
     pass
 #             chain_flags = CERT_CHAIN_REVOCATION_CHECK_CHAIN
         elif ssl_context.verify_flags & ssl.VERIFY_CRL_CHECK_LEAF:
@@ -384,7 +316,6 @@ def _verify_peercerts_impl(
 #             chain_flags = CERT_CHAIN_REVOCATION_CHECK_END_CERT
         else:
 #             chain_flags = 0
-
         try:
             # First attempt to verify using the default Windows system trust roots
             # (default chain engine).
@@ -406,8 +337,8 @@ def _verify_peercerts_impl(
 #                 binary_form=True
 #             )
             if custom_ca_certs:
-      pass
-      pass
+    pass
+    pass
     pass
                 try:
 #                     _verify_using_custom_ca_certs(
@@ -427,12 +358,10 @@ def _verify_peercerts_impl(
 #     finally:
 #         CertCloseStore(hIntermediateCertStore, 0)
         if pCertContext:
-      pass
-      pass
+    pass
+    pass
     pass
 #             CertFreeCertificateContext(pCertContext)
-
-
 def _get_and_verify_cert_chain(
 #     ssl_context: ssl.SSLContext,
 #     hChainEngine: HCERTCHAINENGINE | None,
@@ -457,7 +386,6 @@ def _get_and_verify_cert_chain(
 #             ppChainContext,  # the resulting chain context
 #         )
 #         pChainContext = ppChainContext.contents
-
         # Verify cert chain
 #         ssl_extra_cert_chain_policy_para = SSL_EXTRA_CERT_CHAIN_POLICY_PARA()
 #         ssl_extra_cert_chain_policy_para.cbSize = sizeof(
@@ -466,29 +394,27 @@ def _get_and_verify_cert_chain(
 #         ssl_extra_cert_chain_policy_para.dwAuthType = AUTHTYPE_SERVER
 #         ssl_extra_cert_chain_policy_para.fdwChecks = 0
         if ssl_context.check_hostname is False:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ssl_extra_cert_chain_policy_para.fdwChecks = (
 #                 SECURITY_FLAG_IGNORE_CERT_CN_INVALID
 #             )
         if server_hostname:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ssl_extra_cert_chain_policy_para.pwszServerName = c_wchar_p(server_hostname)
-
 #         chain_policy = CERT_CHAIN_POLICY_PARA()
 #         chain_policy.pvExtraPolicyPara = cast(
 #             pointer(ssl_extra_cert_chain_policy_para), c_void_p
 #         )
         if ssl_context.verify_mode == ssl.CERT_NONE:
-      pass
-      pass
+    pass
+    pass
     pass
 #             chain_policy.dwFlags |= CERT_CHAIN_POLICY_VERIFY_MODE_NONE_FLAGS
 #         chain_policy.cbSize = sizeof(chain_policy)
-
 #         pPolicyPara = pointer(chain_policy)
 #         policy_status = CERT_CHAIN_POLICY_STATUS()
 #         policy_status.cbSize = sizeof(policy_status)
@@ -499,12 +425,11 @@ def _get_and_verify_cert_chain(
 #             pPolicyPara,
 #             pPolicyStatus,
 #         )
-
         # Check status
 #         error_code = policy_status.dwError
         if error_code:
-      pass
-      pass
+    pass
+    pass
     pass
             # Try getting a human readable message for an error code.
 #             error_message_buf = create_unicode_buffer(1024)
@@ -517,30 +442,26 @@ def _get_and_verify_cert_chain(
 #                 sizeof(error_message_buf),
 #                 None,
 #             )
-
             # See if we received a message for the error,
             # otherwise we use a generic error with the
             # error code and hope that it's search-able.
             if error_message_chars <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 error_message = f"Certificate chain policy error {error_code:#x} [{policy_status.lElementIndex}]"
             else:
 #                 error_message = error_message_buf.value.strip()
-
 #             err = ssl.SSLCertVerificationError(error_message)
 #             err.verify_message = error_message
 #             err.verify_code = error_code
 #             raise err from None
 #     finally:
         if ppChainContext:
-      pass
-      pass
+    pass
+    pass
     pass
 #             CertFreeCertificateChain(ppChainContext.contents)
-
-
 def _verify_using_custom_ca_certs(
 #     ssl_context: ssl.SSLContext,
 #     custom_ca_certs: list[bytes],
@@ -563,7 +484,6 @@ def _verify_using_custom_ca_certs(
 #                 CERT_STORE_ADD_USE_EXISTING,
 #                 None,
 #             )
-
         # Create a custom cert chain engine which exclusively trusts
         # certs from our hRootCertStore
 #         cert_chain_engine_config = CERT_CHAIN_ENGINE_CONFIG()
@@ -576,7 +496,6 @@ def _verify_using_custom_ca_certs(
 #             phChainEngine,
 #         )
 #         hChainEngine = phChainEngine.contents
-
         # Get and verify a cert chain using the custom chain engine
 #         _get_and_verify_cert_chain(
 #             ssl_context,
@@ -589,13 +508,11 @@ def _verify_using_custom_ca_certs(
 #         )
 #     finally:
         if hChainEngine:
-      pass
-      pass
+    pass
+    pass
     pass
 #             CertFreeCertificateChainEngine(hChainEngine)
 #         CertCloseStore(hRootCertStore, 0)
-
-
 # @contextlib.contextmanager
 def _configure_context(ctx: ssl.SSLContext) -> typing.Iterator[None]:
 #     check_hostname = ctx.check_hostname

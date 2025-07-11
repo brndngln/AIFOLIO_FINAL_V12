@@ -2,28 +2,21 @@ from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 import sys
 from typing import TYPE_CHECKING, Iterable, List
-
 if sys.version_info >= (3, 8):
-      pass
-      pass
+    pass
+    pass
     pass
     from typing import Literal
 else:
     from pip._vendor.typing_extensions import Literal  # pragma: no cover
-
-
 from ._loop import loop_last
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from pip._vendor.rich.console import ConsoleOptions
-
-
 class Box:
     """Defines characters to render boxes.
-
 #     ┌─┬┐ top
 #     │ ││ head
 #     ├─┼┤ head_row
@@ -32,12 +25,10 @@ class Box:
 #     ├─┼┤ foot_row
 #     │ ││ foot
 #     └─┴┘ bottom
-
 #     Args:
 #         box (str): Characters making up box.
 #         ascii (bool, optional): True if this box uses ascii characters only. Default is False.
     """
-
     def __init__(self, box: str, *, ascii: bool = False) -> None:
 #         self._box = box
 #         self.ascii = ascii
@@ -53,7 +44,6 @@ class Box:
 #             self.head_row_cross,
 #             self.head_row_right,
 #         ) = iter(line3)
-
         # mid
 #         self.mid_left, _, self.mid_vertical, self.mid_right = iter(line4)
         # row
@@ -71,70 +61,58 @@ class Box:
 #         self.bottom_left, self.bottom, self.bottom_divider, self.bottom_right = iter(
 #             line8
 #         )
-
     def __repr__(self) -> str:
         return "Box(...)"
-
     def __str__(self) -> str:
         return self._box
-
     def substitute(self, options: "ConsoleOptions", safe: bool = True) -> "Box":
         """Substitute this box for another if it won't render due to platform issues.
-
 #         Args:
 #             options (ConsoleOptions): Console options used in rendering.
 #             safe (bool, optional): Substitute this for another Box if there are known problems
 #                 displaying on the platform (currently only relevant on Windows). Default is True.
-
 #         Returns:
 #             Box: A different Box or the same Box.
         """
 #         box = self
         if options.legacy_windows and safe:
-      pass
-      pass
+    pass
+    pass
     pass
 #             box = LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box)
         if options.ascii_only and not box.ascii:
-      pass
-      pass
+    pass
+    pass
     pass
 #             box = ASCII
         return box
-
     def get_plain_headed_box(self) -> "Box":
         """If this box uses special characters for the borders of the header, then
         return the equivalent box that does not.
-
 #         Returns:
 #             Box: The most similar Box that doesn't use header-specific box characters.
 #                 If the current Box already satisfies this criterion, then it's returned.
         """
         return PLAIN_HEADED_SUBSTITUTIONS.get(self, self)
-
     def get_top(self, widths: Iterable[int]) -> str:
         """Get the top of a simple box.
-
 #         Args:
 #             widths (List[int]): Widths of columns.
-
 #         Returns:
 #             str: A string of box characters.
         """
-
 #         parts: List[str] = []
 #         append = parts.append
 #         append(self.top_left)
         for last, width in loop_last(widths):
 #             append(self.top * width)
             if not last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append(self.top_divider)
 #         append(self.top_right)
         return "".join(parts)
-
     def get_row(
 #         self,
 #         widths: Iterable[int],
@@ -142,16 +120,14 @@ class Box:
 #         edge: bool = True,
 #     ) -> str:
         """Get the top of a simple box.
-
 #         Args:
 #             width (List[int]): Widths of columns.
-
 #         Returns:
 #             str: A string of box characters.
         """
         if level == "head":
-      pass
-      pass
+    pass
+    pass
     pass
 #             left = self.head_row_left
 #             horizontal = self.head_row_horizontal
@@ -177,52 +153,45 @@ class Box:
 #             right = self.foot_row_right
         else:
 #             raise ValueError("level must be 'head', 'row' or 'foot'")
-
 #         parts: List[str] = []
 #         append = parts.append
         if edge:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append(left)
         for last, width in loop_last(widths):
 #             append(horizontal * width)
             if not last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append(cross)
         if edge:
-      pass
-      pass
+    pass
+    pass
     pass
 #             append(right)
         return "".join(parts)
-
     def get_bottom(self, widths: Iterable[int]) -> str:
         """Get the bottom of a simple box.
-
 #         Args:
 #             widths (List[int]): Widths of columns.
-
 #         Returns:
 #             str: A string of box characters.
         """
-
 #         parts: List[str] = []
 #         append = parts.append
 #         append(self.bottom_left)
         for last, width in loop_last(widths):
 #             append(self.bottom * width)
             if not last:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append(self.bottom_divider)
 #         append(self.bottom_right)
         return "".join(parts)
-
-
 # fmt: off
 # ASCII: Box = Box(
 #     "+--+\n"
@@ -235,7 +204,6 @@ class Box:
 #     "+--+\n",
 #     ascii=True,
 # )
-
 # ASCII2: Box = Box(
 #     "+-++\n"
 #     "| ||\n"
@@ -247,7 +215,6 @@ class Box:
 #     "+-++\n",
 #     ascii=True,
 # )
-
 # ASCII_DOUBLE_HEAD: Box = Box(
 #     "+-++\n"
 #     "| ||\n"
@@ -259,7 +226,6 @@ class Box:
 #     "+-++\n",
 #     ascii=True,
 # )
-
 # SQUARE: Box = Box(
 #     "┌─┬┐\n"
 #     "│ ││\n"
@@ -270,7 +236,6 @@ class Box:
 #     "│ ││\n"
 #     "└─┴┘\n"
 # )
-
 # SQUARE_DOUBLE_HEAD: Box = Box(
 #     "┌─┬┐\n"
 #     "│ ││\n"
@@ -281,7 +246,6 @@ class Box:
 #     "│ ││\n"
 #     "└─┴┘\n"
 # )
-
 # MINIMAL: Box = Box(
 #     "  ╷ \n"
 #     "  │ \n"
@@ -292,8 +256,6 @@ class Box:
 #     "  │ \n"
 #     "  ╵ \n"
 # )
-
-
 # MINIMAL_HEAVY_HEAD: Box = Box(
 #     "  ╷ \n"
 #     "  │ \n"
@@ -304,7 +266,6 @@ class Box:
 #     "  │ \n"
 #     "  ╵ \n"
 # )
-
 # MINIMAL_DOUBLE_HEAD: Box = Box(
 #     "  ╷ \n"
 #     "  │ \n"
@@ -315,8 +276,6 @@ class Box:
 #     "  │ \n"
 #     "  ╵ \n"
 # )
-
-
 # SIMPLE: Box = Box(
 #     "    \n"
 #     "    \n"
@@ -327,7 +286,6 @@ class Box:
 #     "    \n"
 #     "    \n"
 # )
-
 # SIMPLE_HEAD: Box = Box(
 #     "    \n"
 #     "    \n"
@@ -338,8 +296,6 @@ class Box:
 #     "    \n"
 #     "    \n"
 # )
-
-
 # SIMPLE_HEAVY: Box = Box(
 #     "    \n"
 #     "    \n"
@@ -350,8 +306,6 @@ class Box:
 #     "    \n"
 #     "    \n"
 # )
-
-
 # HORIZONTALS: Box = Box(
 #     " ── \n"
 #     "    \n"
@@ -362,7 +316,6 @@ class Box:
 #     "    \n"
 #     " ── \n"
 # )
-
 # ROUNDED: Box = Box(
 #     "╭─┬╮\n"
 #     "│ ││\n"
@@ -373,7 +326,6 @@ class Box:
 #     "│ ││\n"
 #     "╰─┴╯\n"
 # )
-
 # HEAVY: Box = Box(
 #     "┏━┳┓\n"
 #     "┃ ┃┃\n"
@@ -384,7 +336,6 @@ class Box:
 #     "┃ ┃┃\n"
 #     "┗━┻┛\n"
 # )
-
 # HEAVY_EDGE: Box = Box(
 #     "┏━┯┓\n"
 #     "┃ │┃\n"
@@ -395,7 +346,6 @@ class Box:
 #     "┃ │┃\n"
 #     "┗━┷┛\n"
 # )
-
 # HEAVY_HEAD: Box = Box(
 #     "┏━┳┓\n"
 #     "┃ ┃┃\n"
@@ -406,7 +356,6 @@ class Box:
 #     "│ ││\n"
 #     "└─┴┘\n"
 # )
-
 # DOUBLE: Box = Box(
 #     "╔═╦╗\n"
 #     "║ ║║\n"
@@ -417,7 +366,6 @@ class Box:
 #     "║ ║║\n"
 #     "╚═╩╝\n"
 # )
-
 # DOUBLE_EDGE: Box = Box(
 #     "╔═╤╗\n"
 #     "║ │║\n"
@@ -428,7 +376,6 @@ class Box:
 #     "║ │║\n"
 #     "╚═╧╝\n"
 # )
-
 # MARKDOWN: Box = Box(
 #     "    \n"
 #     "| ||\n"
@@ -441,7 +388,6 @@ class Box:
 #     ascii=True,
 # )
 # fmt: on
-
 # Map Boxes that don't render with raster fonts on to equivalent that do
 # LEGACY_WINDOWS_SUBSTITUTIONS = {
 #     ROUNDED: SQUARE,
@@ -451,7 +397,6 @@ class Box:
 #     HEAVY_EDGE: SQUARE,
 #     HEAVY_HEAD: SQUARE,
 # }
-
 # Map headed boxes to their headerless equivalents
 # PLAIN_HEADED_SUBSTITUTIONS = {
 #     HEAVY_HEAD: SQUARE,
@@ -460,19 +405,14 @@ class Box:
 #     MINIMAL_HEAVY_HEAD: MINIMAL,
 #     ASCII_DOUBLE_HEAD: ASCII2,
 # }
-
-
 if __name__ == "__main__":  # pragma: no cover
     from pip._vendor.rich.columns import Columns
     from pip._vendor.rich.panel import Panel
-
     from . import box as box
     from .console import Console
     from .table import Table
     from .text import Text
-
 #     console = Console(record=True)
-
 #     BOXES = [
 #         "ASCII",
 #         "ASCII2",
@@ -494,10 +434,8 @@ if __name__ == "__main__":  # pragma: no cover
 #         "DOUBLE_EDGE",
 #         "MARKDOWN",
 #     ]
-
 #     console.print(Panel("[bold green]Box Constants", style="green"), justify="center")
 #     console.print()
-
 #     columns = Columns(expand=True, padding=2)
     for box_name in sorted(BOXES):
 #         table = Table(
@@ -511,5 +449,4 @@ if __name__ == "__main__":  # pragma: no cover
 #         table.title = Text(f"box.{box_name}", style="magenta")
 #         columns.add_renderable(table)
 #     console.print(columns)
-
     # console.save_svg("box.svg")

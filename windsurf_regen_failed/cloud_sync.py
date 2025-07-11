@@ -1,56 +1,43 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 import os
-
 # Google Drive
 try:
     from pydrive.auth import GoogleAuth
     from pydrive.drive import GoogleDrive
 except ImportError:
 #     GoogleAuth = GoogleDrive = None
-
 # Dropbox
 try:
     import dropbox
 except ImportError:
 #     dropbox = None
-
 #     os.path.join(os.path.dirname(__file__), "../../analytics")
 # )
 # PDFS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../pdfs"))
-
 # Utility to collect all files for backup
-
-
 def collect_files():
 #     files = []
     for d in BACKUP_TARGETS:
         if os.path.exists(d):
-      pass
-      pass
+    pass
+    pass
     pass
             for root, _, filenames in os.walk(d):
                 for f in filenames:
 #                     files.append(os.path.join(root, f))
     return files
-
-
 # Google Drive backup
-
-
 def backup_to_gdrive():
     if GoogleAuth is None or GoogleDrive is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("[AIFOLIO][ERROR] PyDrive not installed. Skipping Google Drive backup.")
         return
@@ -63,22 +50,18 @@ def backup_to_gdrive():
 #         file_drive.SetContentFile(f)
 #         file_drive.Upload()
 #         print(f"[AIFOLIO][GDRIVE] Uploaded: {f}")
-
-
 # Dropbox backup
-
-
 def backup_to_dropbox(token=None):
     if dropbox is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("[AIFOLIO][ERROR] Dropbox SDK not installed. Skipping Dropbox backup.")
         return
 #     token = token or os.environ.get("DROPBOX_TOKEN")
     if not token:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("[AIFOLIO][ERROR] Dropbox token not set.")
         return
@@ -92,18 +75,15 @@ def backup_to_dropbox(token=None):
 #                 mode=dropbox.files.WriteMode.overwrite,
 #             )
 #         print(f"[AIFOLIO][DROPBOX] Uploaded: {f}")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
     # Example usage: python cloud_sync.py gdrive|dropbox
     import sys
-
     if len(sys.argv) > 1 and sys.argv[1] == "gdrive":
-      pass
-      pass
+    pass
+    pass
     pass
 #         backup_to_gdrive()
     elif len(sys.argv) > 1 and sys.argv[1] == "dropbox":

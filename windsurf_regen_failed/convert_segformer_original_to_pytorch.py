@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,17 +19,14 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import json
 from collections import OrderedDict
 from pathlib import Path
-
 import requests
 import torch
 from huggingface_hub import hf_hub_download
 from PIL import Image
-
 from transformers import (
 #     SegformerConfig,
 #     SegformerForImageClassification,
@@ -40,114 +34,107 @@ from transformers import (
 #     SegformerImageProcessor,
 # )
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger(__name__)
-
-
 def rename_keys(state_dict, encoder_only=False):
 #     new_state_dict = OrderedDict()
     for key, value in state_dict.items():
         if encoder_only and not key.startswith("head"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = "segformer.encoder." + key
         if key.startswith("backbone"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("backbone", "segformer.encoder")
         if "patch_embed" in key:
-      pass
-      pass
+    pass
+    pass
     pass
             # replace for example patch_embed1 by patch_embeddings.0
 #             idx = key[key.find("patch_embed") + len("patch_embed")]
 #             key = key.replace(f"patch_embed{idx}", f"patch_embeddings.{int(idx)-1}")
         if "norm" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("norm", "layer_norm")
         if "segformer.encoder.layer_norm" in key:
-      pass
-      pass
+    pass
+    pass
     pass
             # replace for example layer_norm1 by layer_norm.0
 #             idx = key[key.find("segformer.encoder.layer_norm") + len("segformer.encoder.layer_norm")]
 #             key = key.replace(f"layer_norm{idx}", f"layer_norm.{int(idx)-1}")
         if "layer_norm1" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("layer_norm1", "layer_norm_1")
         if "layer_norm2" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("layer_norm2", "layer_norm_2")
         if "block" in key:
-      pass
-      pass
+    pass
+    pass
     pass
             # replace for example block1 by block.0
 #             idx = key[key.find("block") + len("block")]
 #             key = key.replace(f"block{idx}", f"block.{int(idx)-1}")
         if "attn.q" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("attn.q", "attention.self.query")
         if "attn.proj" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("attn.proj", "attention.output.dense")
         if "attn" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("attn", "attention.self")
         if "fc1" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("fc1", "dense1")
         if "fc2" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("fc2", "dense2")
         if "linear_pred" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("linear_pred", "classifier")
         if "linear_fuse" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("linear_fuse.conv", "linear_fuse")
 #             key = key.replace("linear_fuse.bn", "batch_norm")
         if "linear_c" in key:
-      pass
-      pass
+    pass
+    pass
     pass
             # replace for example linear_c4 by linear_c.3
 #             idx = key[key.find("linear_c") + len("linear_c")]
 #             key = key.replace(f"linear_c{idx}", f"linear_c.{int(idx)-1}")
         if key.startswith("head"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             key = key.replace("head", "classifier")
 #         new_state_dict[key] = value
-
     return new_state_dict
-
-
 def read_in_k_v(state_dict, config):
     # for each of the encoder blocks:
     for i in range(config.num_encoder_blocks):
@@ -165,35 +152,27 @@ def read_in_k_v(state_dict, config):
 #             state_dict[f"segformer.encoder.block.{i}.{j}.attention.self.value.bias"] = kv_bias[
 #                 config.hidden_sizes[i] :
 #             ]
-
-
 # We will verify our results on a COCO image
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     image = Image.open(requests.get(url, stream=True).raw)
-
     return image
-
-
 # @torch.no_grad()
 def convert_segformer_checkpoint(model_name, checkpoint_path, pytorch_dump_folder_path):
-
 #     Copy/paste/tweak models weights to our SegFormer structure.
-
     # load default SegFormer configuration
 #     config = SegformerConfig()
 #     encoder_only = False
-
     # set attributes based on model_name
 #     repo_id = "huggingface/label-files"
     if "segformer" in model_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         size = model_name[len("segformer.") : len("segformer.") + 2]
         if "ade" in model_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #             config.num_labels = 150
 #             filename = "ade20k-id2label.json"
@@ -214,15 +193,14 @@ def convert_segformer_checkpoint(model_name, checkpoint_path, pytorch_dump_folde
 #         expected_shape = (1, 1000)
     else:
 #         raise ValueError(f"Model {model_name} not supported")
-
     # set config attributes
 #     id2label = json.load(open(hf_hub_download(repo_id, filename, repo_type="dataset"), "r"))
 #     id2label = {int(k): v for k, v in id2label.items()}
 #     config.id2label = id2label
 #     config.label2id = {v: k for k, v in id2label.items()}
     if size == "b0":
-      pass
-      pass
+    pass
+    pass
     pass
 #         pass
     elif size == "b1":
@@ -251,43 +229,36 @@ def convert_segformer_checkpoint(model_name, checkpoint_path, pytorch_dump_folde
 #         config.depths = [3, 6, 40, 3]
     else:
 #         raise ValueError(f"Size {size} not supported")
-
     # load image processor (only resize + normalize)
 #     image_processor = SegformerImageProcessor(
 #         image_scale=(512, 512), keep_ratio=False, align=False, do_random_crop=False
 #     )
-
     # prepare image
 #     image = prepare_img()
 #     pixel_values = image_processor(images=image, return_tensors="pt").pixel_values
-
 #     logger.info(f"Converting model {model_name}...")
-
     # load original state dict
     if encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         state_dict = torch.load(checkpoint_path, map_location=torch.device("cpu"))
     else:
 #         state_dict = torch.load(checkpoint_path, map_location=torch.device("cpu"))["state_dict"]
-
     # rename keys
 #     state_dict = rename_keys(state_dict, encoder_only=encoder_only)
     if not encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         del state_dict["decode_head.conv_seg.weight"]
 #         del state_dict["decode_head.conv_seg.bias"]
-
     # key and value matrices need special treatment
 #     read_in_k_v(state_dict, config)
-
     # create HuggingFace model and load state dict
     if encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.reshape_last_stage = False
 #         model = SegformerForImageClassification(config)
@@ -295,16 +266,14 @@ def convert_segformer_checkpoint(model_name, checkpoint_path, pytorch_dump_folde
 #         model = SegformerForSemanticSegmentation(config)
 #     model.load_state_dict(state_dict)
 #     model.eval()
-
     # forward pass
 #     outputs = model(pixel_values)
 #     logits = outputs.logits
-
     # set expected_slice based on model name
     # ADE20k checkpoints
     if model_name == "segformer.b0.512x512.ade.160k":
-      pass
-      pass
+    pass
+    pass
     pass
 #         expected_slice = torch.tensor(
 #             [
@@ -455,28 +424,23 @@ def convert_segformer_checkpoint(model_name, checkpoint_path, pytorch_dump_folde
     else:
 #         predicted_class_idx = logits.argmax(-1).item()
 #         print("Predicted class:", model.config.id2label[predicted_class_idx])
-
     # verify logits
     if not encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         assert logits.shape == expected_shape
 #         assert torch.allclose(logits[0, :3, :3, :3], expected_slice, atol=1e-2)
-
     # finally, save model and image processor
 #     logger.info(f"Saving PyTorch model and image processor to {pytorch_dump_folder_path}...")
 #     Path(pytorch_dump_folder_path).mkdir(exist_ok=True)
 #     model.save_pretrained(pytorch_dump_folder_path)
 #     image_processor.save_pretrained(pytorch_dump_folder_path)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
-
 #     parser.add_argument(
 #         "--model_name",
         default="segformer.b0.512x512.ade.160k",

@@ -4,11 +4,9 @@ import re
 import sys
 from contextlib import suppress
 from typing import Iterable, NamedTuple, Optional
-
 from .color import Color
 from .style import Style
 from .text import Text
-
 # re_ansi = re.compile(
 #     r"""
 # (?:\x1b[0-?])|
@@ -17,26 +15,18 @@ from .text import Text
 """,
 #     re.VERBOSE,
 # )
-
-
 class _AnsiToken(NamedTuple):
     """Result of ansi tokenized string."""
-
 #     plain: str = ""
 #     sgr: Optional[str] = ""
 #     osc: Optional[str] = ""
-
-
 def _ansi_tokenize(ansi_text: str) -> Iterable[_AnsiToken]:
     """Tokenize a string in to plain text and ANSI codes.
-
 #     Args:
 #         ansi_text (str): A String containing ANSI codes.
-
 #     Yields:
 #         AnsiToken: A named tuple of (plain, sgr, osc)
     """
-
 #     position = 0
 #     sgr: Optional[str]
 #     osc: Optional[str]
@@ -44,35 +34,33 @@ def _ansi_tokenize(ansi_text: str) -> Iterable[_AnsiToken]:
 #         start, end = match.span(0)
 #         osc, sgr = match.groups()
         if start > position:
-      pass
-      pass
+    pass
+    pass
     pass
 #             yield _AnsiToken(ansi_text[position:start])
         if sgr:
-      pass
-      pass
+    pass
+    pass
     pass
             if sgr == "(":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 position = end + 1
 #                 continue
             if sgr.endswith("m"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 yield _AnsiToken("", sgr[1:-1], osc)
         else:
 #             yield _AnsiToken("", sgr, osc)
 #         position = end
     if position < len(ansi_text):
-      pass
-      pass
+    pass
+    pass
     pass
 #         yield _AnsiToken(ansi_text[position:])
-
-
 # SGR_STYLE_MAP = {
 #     1: "bold",
 #     2: "dim",
@@ -132,32 +120,23 @@ def _ansi_tokenize(ansi_text: str) -> Iterable[_AnsiToken]:
 #     106: "on color(14)",
 #     107: "on color(15)",
 # }
-
-
 class AnsiDecoder:
     """Translate ANSI code in to styled Text."""
-
     def __init__(self) -> None:
 #         self.style = Style.null()
-
     def decode(self, terminal_text: str) -> Iterable[Text]:
         """Decode ANSI codes in an iterable of lines.
-
 #         Args:
 #             lines (Iterable[str]): An iterable of lines of terminal output.
-
 #         Yields:
 #             Text: Marked up Text.
         """
         for line in terminal_text.splitlines():
 #             yield self.decode_line(line)
-
     def decode_line(self, line: str) -> Text:
         """Decode a line containing ansi codes.
-
 #         Args:
 #             line (str): A line of terminal output.
-
 #         Returns:
 #             Text: A Text instance marked up according to ansi codes.
         """
@@ -169,20 +148,20 @@ class AnsiDecoder:
 #         line = line.rsplit("\r", 1)[-1]
         for plain_text, sgr, osc in _ansi_tokenize(line):
             if plain_text:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 append(plain_text, self.style or None)
             elif osc is not None:
     pass
                 if osc.startswith("8;"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     _params, semicolon, link = osc[2:].partition(";")
                     if semicolon:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.style = self.style.update_link(link or None)
             elif sgr is not None:
@@ -197,8 +176,8 @@ class AnsiDecoder:
 #                 iter_codes = iter(codes)
                 for code in iter_codes:
                     if code == 0:
-      pass
-      pass
+    pass
+    pass
     pass
                         # reset
 #                         self.style = _Style.null()
@@ -212,8 +191,8 @@ class AnsiDecoder:
                         with suppress(StopIteration):
 #                             color_type = next(iter_codes)
                             if color_type == 5:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 self.style += _Style.from_color(
                                     from_ansi(next(iter_codes))
@@ -233,8 +212,8 @@ class AnsiDecoder:
                         with suppress(StopIteration):
 #                             color_type = next(iter_codes)
                             if color_type == 5:
-      pass
-      pass
+    pass
+    pass
     pass
 #                                 self.style += _Style.from_color(
 #                                     None, from_ansi(next(iter_codes))
@@ -249,35 +228,23 @@ class AnsiDecoder:
 #                                         next(iter_codes),
 #                                     ),
 #                                 )
-
         return text
-
-
 if sys.platform != "win32" and __name__ == "__main__":  # pragma: no cover
     import io
     import os
     import pty
     import sys
-
 #     decoder = AnsiDecoder()
-
 #     stdout = io.BytesIO()
-
     def read(fd: int) -> bytes:
 #         data = os.read(fd, 1024)
 #         stdout.write(data)
         return data
-
 #     pty.spawn(sys.argv[1:], read)
-
     from .console import Console
-
 #     console = Console(record=True)
-
 #     stdout_result = stdout.getvalue().decode("utf-8")
 #     print(stdout_result)
-
     for line in decoder.decode(stdout_result):
 #         console.print(line)
-
 #     console.save_html("stdout.html")

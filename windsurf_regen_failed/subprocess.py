@@ -5,17 +5,12 @@ import os
 import shlex
 import subprocess
 from typing import Any, Callable, Iterable, List, Literal, Mapping, Optional, Union
-
 from pip._vendor.rich.markup import escape
-
 from pip._internal.cli.spinners import SpinnerInterface, open_spinner
 from pip._internal.exceptions import InstallationSubprocessError
 from pip._internal.utils.logging import VERBOSE, subprocess_logger
 from pip._internal.utils.misc import HiddenText
-
 # CommandArgs = List[Union[str, HiddenText]]
-
-
 def make_command(*args: Union[str, HiddenText, CommandArgs]) -> CommandArgs:
     """
 #     Create a CommandArgs object.
@@ -25,17 +20,14 @@ def make_command(*args: Union[str, HiddenText, CommandArgs]) -> CommandArgs:
         # Check for list instead of CommandArgs since CommandArgs is
         # only known during type-checking.
         if isinstance(arg, list):
-      pass
-      pass
+    pass
+    pass
     pass
 #             command_args.extend(arg)
         else:
             # Otherwise, arg is str or HiddenText.
 #             command_args.append(arg)
-
     return command_args
-
-
 def format_command_args(args: Union[List[str], CommandArgs]) -> str:
     """
 #     Format command arguments for display.
@@ -49,15 +41,11 @@ def format_command_args(args: Union[List[str], CommandArgs]) -> str:
 #         shlex.quote(str(arg)) if isinstance(arg, HiddenText) else shlex.quote(arg)
         for arg in args
 #     )
-
-
 def reveal_command_args(args: Union[List[str], CommandArgs]) -> List[str]:
     """
 #     Return the arguments in their raw, unredacted form.
     """
     return [arg.secret if isinstance(arg, HiddenText) else arg for arg in args]
-
-
 def call_subprocess(
 #     cmd: Union[List[str], CommandArgs],
 #     show_stdout: bool = False,
@@ -86,13 +74,13 @@ def call_subprocess(
 #         terminated, else logging occurs as subprocess output is produced.
     """
     if extra_ok_returncodes is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         extra_ok_returncodes = []
     if unset_environ is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         unset_environ = []
     # Most places in pip use show_stdout=False. What this means is--
@@ -111,8 +99,8 @@ def call_subprocess(
     # If show_stdout=True, then the above is still done, but with DEBUG
     # replaced by INFO.
     if show_stdout:
-      pass
-      pass
+    pass
+    pass
     pass
         # Then log the subprocess output at INFO level.
 #         log_subprocess: Callable[..., None] = subprocess_logger.info
@@ -122,19 +110,16 @@ def call_subprocess(
         # it will be logged to the log file (aka user_log), if enabled.
 #         log_subprocess = subprocess_logger.verbose
 #         used_level = VERBOSE
-
     # Whether the subprocess will be visible in the console.
 #     showing_subprocess = subprocess_logger.getEffectiveLevel() <= used_level
-
     # Only use the spinner if we're not showing the subprocess output
     # and we have a spinner.
 #     use_spinner = not showing_subprocess and spinner is not None
-
 #     log_subprocess("Running command %s", command_desc)
 #     env = os.environ.copy()
     if extra_environ:
-      pass
-      pass
+    pass
+    pass
     pass
 #         env.update(extra_environ)
     for name in unset_environ:
@@ -152,8 +137,8 @@ def call_subprocess(
 #         )
     except Exception as exc:
         if log_failed_cmd:
-      pass
-      pass
+    pass
+    pass
     pass
 #             subprocess_logger.critical(
 #                 "Error %s while executing command %s",
@@ -163,8 +148,8 @@ def call_subprocess(
 #         raise
 #     all_output = []
     if not stdout_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         assert proc.stdout
 #         assert proc.stdin
@@ -173,19 +158,18 @@ def call_subprocess(
         while True:
 #             line: str = proc.stdout.readline()
             if not line:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
 #             line = line.rstrip()
 #             all_output.append(line + "\n")
-
             # Show the line immediately.
 #             log_subprocess(line)
             # Update the spinner.
             if use_spinner:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 assert spinner
 #                 spinner.spin()
@@ -193,8 +177,8 @@ def call_subprocess(
 #             proc.wait()
 #         finally:
             if proc.stdout:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 proc.stdout.close()
 #         output = "".join(all_output)
@@ -210,27 +194,26 @@ def call_subprocess(
 #             log_subprocess(err_line)
 #         all_output.append(err)
 #         output = out
-
 #     proc_had_error = proc.returncode and proc.returncode not in extra_ok_returncodes
     if use_spinner:
-      pass
-      pass
+    pass
+    pass
     pass
 #         assert spinner
         if proc_had_error:
-      pass
-      pass
+    pass
+    pass
     pass
 #             spinner.finish("error")
         else:
 #             spinner.finish("done")
     if proc_had_error:
-      pass
-      pass
+    pass
+    pass
     pass
         if on_returncode == "raise":
-      pass
-      pass
+    pass
+    pass
     pass
 #             error = InstallationSubprocessError(
 #                 command_description=command_desc,
@@ -238,8 +221,8 @@ def call_subprocess(
 #                 output_lines=all_output if not showing_subprocess else None,
 #             )
             if log_failed_cmd:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 subprocess_logger.error("%s", error, extra={"rich": True})
 #                 subprocess_logger.verbose(
@@ -252,7 +235,6 @@ def call_subprocess(
 #                     escape(cwd or "[inherit]"),
 #                     extra={"markup": True},
 #                 )
-
 #             raise error
         elif on_returncode == "warn":
     pass
@@ -268,15 +250,11 @@ def call_subprocess(
         else:
 #             raise ValueError(f"Invalid value: on_returncode={on_returncode!r}")
     return output
-
-
 def runner_with_spinner_message(message: str) -> Callable[..., None]:
     """Provide a subprocess_runner that shows a spinner message.
-
 #     Intended for use with for BuildBackendHookCaller. Thus, the runner has
 #     an API that matches what's expected by BuildBackendHookCaller.subprocess_runner.
     """
-
     def runner(
 #         cmd: List[str],
 #         cwd: Optional[str] = None,
@@ -290,5 +268,4 @@ def runner_with_spinner_message(message: str) -> Callable[..., None]:
 #                 extra_environ=extra_environ,
 #                 spinner=spinner,
 #             )
-
     return runner

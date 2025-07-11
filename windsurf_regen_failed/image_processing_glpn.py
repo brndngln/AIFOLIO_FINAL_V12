@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,12 +19,9 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import List, Optional, Union
-
 import numpy as np
 import PIL.Image
-
 from ...image_processing_utils import BaseImageProcessor, BatchFeature
 from ...image_transforms import resize, to_channel_dimension_format
 from ...image_utils import (
@@ -41,15 +35,10 @@ from ...image_utils import (
 #     valid_images,
 # )
 from ...utils import TensorType, logging
-
-
 # logger = logging.get_logger(__name__)
-
-
 class GLPNImageProcessor(BaseImageProcessor):
 #     r
 #     Constructs a GLPN image processor.
-
 #     Args:
 #         do_resize (`bool`, *optional*, defaults to `True`):
 #             Whether to resize the images (height, width) dimensions, rounding them down to the closest multiple of
@@ -62,9 +51,7 @@ class GLPNImageProcessor(BaseImageProcessor):
 #         do_rescale (`bool`, *optional*, defaults to `True`):
 #             Whether or not to apply the scaling factor (to make pixel values floats between 0. and 1.). Can be
 #             overridden by `do_rescale` in `preprocess`.
-
 #     model_input_names = ["pixel_values"]
-
     def __init__(
 #         self,
 #         do_resize: bool = True,
@@ -78,7 +65,6 @@ class GLPNImageProcessor(BaseImageProcessor):
 #         self.size_divisor = size_divisor
 #         self.resample = resample
 #         super().__init__(**kwargs)
-
     def resize(
 #         self,
 #         image: np.ndarray,
@@ -88,11 +74,8 @@ class GLPNImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> np.ndarray:
-
 #         Resize the image, rounding the (height, width) dimensions down to the closest multiple of size_divisor.
-
 #         If the image is of dimension (3, 260, 170) and size_divisor is 32, the image will be resized to (3, 256, 160).
-
 #         Args:
 #             image (`np.ndarray`):
 #                 The image to resize.
@@ -111,10 +94,8 @@ class GLPNImageProcessor(BaseImageProcessor):
                 from the input image. Can be one of:
 #                 - `"channels_first"` or `ChannelDimension.FIRST`: image in (num_channels, height, width) format.
 #                 - `"channels_last"` or `ChannelDimension.LAST`: image in (height, width, num_channels) format.
-
 #         Returns:
 #             `np.ndarray`: The resized image.
-
 #         height, width = get_image_size(image, channel_dim=input_data_format)
         # Rounds the height and width down to the closest multiple of size_divisor
 #         new_h = height // size_divisor * size_divisor
@@ -128,7 +109,6 @@ class GLPNImageProcessor(BaseImageProcessor):
 #             **kwargs,
 #         )
         return image
-
     def preprocess(
 #         self,
 #         images: Union["PIL.Image.Image", TensorType, List["PIL.Image.Image"], List[TensorType]],
@@ -141,9 +121,7 @@ class GLPNImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> BatchFeature:
-
 #         Preprocess the given images.
-
 #         Args:
 #             images (`PIL.Image.Image` or `TensorType` or `List[np.ndarray]` or `List[TensorType]`):
 #                 Images to preprocess. Expects a single or batch of images with pixel values ranging from 0 to 255. If
@@ -175,63 +153,52 @@ class GLPNImageProcessor(BaseImageProcessor):
 #                 - `"channels_first"` or `ChannelDimension.FIRST`: image in (num_channels, height, width) format.
 #                 - `"channels_last"` or `ChannelDimension.LAST`: image in (height, width, num_channels) format.
 #                 - `"none"` or `ChannelDimension.NONE`: image in (height, width) format.
-
 #         do_resize = do_resize if do_resize is not None else self.do_resize
 #         do_rescale = do_rescale if do_rescale is not None else self.do_rescale
 #         size_divisor = size_divisor if size_divisor is not None else self.size_divisor
 #         resample = resample if resample is not None else self.resample
-
         if do_resize and size_divisor is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("size_divisor is required for resizing")
-
 #         images = make_list_of_images(images)
-
         if not valid_images(images):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Invalid image(s)")
-
         # All transformations expect numpy arrays.
 #         images = [to_numpy_array(img) for img in images]
-
         if is_scaled_image(images[0]) and do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning_once(
 #                 "It looks like you are trying to rescale already rescaled images. If the input"
 #                 " images have pixel values between 0 and 1, set `do_rescale=False` to avoid rescaling them again."
 #             )
-
         if input_data_format is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # We assume that all images have the same channel dimension format.
 #             input_data_format = infer_channel_dimension_format(images[0])
-
         if do_resize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             images = [
 #                 self.resize(image, size_divisor=size_divisor, resample=resample, input_data_format=input_data_format)
                 for image in images
 #             ]
-
         if do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             images = [self.rescale(image, scale=1 / 255, input_data_format=input_data_format) for image in images]
-
 #         images = [
 #             to_channel_dimension_format(image, data_format, input_channel_dim=input_data_format) for image in images
 #         ]
-
 #         data = {"pixel_values": images}
         return BatchFeature(data=data, tensor_type=return_tensors)

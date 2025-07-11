@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,22 +19,15 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Callable, Optional, Union
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # XLM_PROPHETNET_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "microsoft/xprophetnet-large-wiki100-cased": (
 #         "https://huggingface.co/microsoft/xprophetnet-large-wiki100-cased/resolve/main/config.json"
 #     ),
 # }
-
-
 class XLMProphetNetConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`XLMProphetNetModel`]. It is used to instantiate a
@@ -45,10 +35,8 @@ class XLMProphetNetConfig(PretrainedConfig):
 #     configuration with the defaults will yield a similar configuration to that of the XLMProphetNet
 #     [microsoft/xprophetnet-large-wiki100-cased](https://huggingface.co/microsoft/xprophetnet-large-wiki100-cased)
 #     architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         activation_dropout (`float`, *optional*, defaults to 0.1):
 #             The dropout ratio for activations inside the fully connected layer.
@@ -107,13 +95,11 @@ class XLMProphetNetConfig(PretrainedConfig):
 #             smoothing is performed.
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
-
 #     model_type = "xlm-prophetnet"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {
 #         "num_attention_heads": "num_encoder_attention_heads",
 #     }
-
     def __init__(
 #         self,
 #         activation_dropout: Optional[float] = 0.1,
@@ -155,21 +141,17 @@ class XLMProphetNetConfig(PretrainedConfig):
 #         self.max_position_embeddings = max_position_embeddings
 #         self.init_std = init_std  # Normal(0, this parameter)
 #         self.activation_function = activation_function
-
         # parameters for xlmprophetnet
 #         self.ngram = ngram
 #         self.num_buckets = num_buckets
 #         self.relative_max_distance = relative_max_distance
 #         self.disable_ngram_loss = disable_ngram_loss
 #         self.eps = eps
-
         # 3 Types of Dropout
 #         self.attention_dropout = attention_dropout
 #         self.activation_dropout = activation_dropout
 #         self.dropout = dropout
-
 #         self.use_cache = use_cache
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,
@@ -179,11 +161,9 @@ class XLMProphetNetConfig(PretrainedConfig):
 #             decoder_start_token_id=decoder_start_token_id,
 #             **kwargs,
 #         )
-
 #     @property
     def num_hidden_layers(self) -> int:
         return self.num_encoder_layers + self.num_decoder_layers
-
 #     @num_hidden_layers.setter
     def num_hidden_layers(self, value):
 #         raise NotImplementedError(

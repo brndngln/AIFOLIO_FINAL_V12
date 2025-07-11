@@ -3,14 +3,10 @@ from typing import Optional
 from pathlib import Path
 from json import loads, dumps
 from typing import Any, Callable, Optional, Union
-
 from .text import Text
 from .highlighter import JSONHighlighter, NullHighlighter
-
-
 class JSON:
     """A renderable which pretty prints JSON.
-
 #     Args:
 #         json (str): JSON encoded data.
 #         indent (Union[None, int, str], optional): Number of characters to indent by. Defaults to 2.
@@ -23,7 +19,6 @@ class JSON:
 #             in to something that can be JSON encoded. Defaults to None.
 #         sort_keys (bool, optional): Sort dictionary keys. Defaults to False.
     """
-
     def __init__(
 #         self,
 #         json: str,
@@ -51,7 +46,6 @@ class JSON:
 #         self.text = highlighter(json)
 #         self.text.no_wrap = True
 #         self.text.overflow = None
-
 #     @classmethod
     def from_data(
 #         cls,
@@ -66,7 +60,6 @@ class JSON:
 #         sort_keys: bool = False,
 #     ) -> "JSON":
         """Encodes a JSON object from arbitrary data.
-
 #         Args:
 #             data (Any): An object that may be encoded in to JSON
 #             indent (Union[None, int, str], optional): Number of characters to indent by. Defaults to 2.
@@ -79,7 +72,6 @@ class JSON:
             default (Callable, optional): A callable that converts values that can not be encoded
 #                 in to something that can be JSON encoded. Defaults to None.
 #             sort_keys (bool, optional): Sort dictionary keys. Defaults to False.
-
 #         Returns:
 #             JSON: New JSON object from the given data.
         """
@@ -99,18 +91,14 @@ class JSON:
 #         json_instance.text.no_wrap = True
 #         json_instance.text.overflow = None
         return json_instance
-
     def __rich__(self) -> Text:
         return self.text
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
     import argparse
     import sys
-
 #     parser = argparse.ArgumentParser(description="Pretty print json")
 #     parser.add_argument(
 #         "path",
@@ -126,16 +114,13 @@ if __name__ == "__main__":
         default=2,
 #     )
 #     args = parser.parse_args()
-
     from pip._vendor.rich.console import Console
-
 #     console = Console()
 #     error_console = Console(stderr=True)
-
     try:
         if args.path == "-":
-      pass
-      pass
+    pass
+    pass
     pass
 #             json_data = sys.stdin.read()
         else:
@@ -143,5 +128,4 @@ if __name__ == "__main__":
     except Exception as error:
 #         error_console.print(f"Unable to read {args.path!r}; {error}")
 #         sys.exit(-1)
-
 #     console.print(JSON(json_data, indent=args.indent), soft_wrap=True)

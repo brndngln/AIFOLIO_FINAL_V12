@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,25 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import json
 from pathlib import Path
-
 import requests
 import timm
 import torch
 from huggingface_hub import hf_hub_download
 from PIL import Image
-
 from transformers import DeiTConfig, DeiTForImageClassificationWithTeacher, DeiTImageProcessor
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger(__name__)
-
-
 # here we list all keys to be renamed (original name on the left, our name on the right)
 def create_rename_keys(config, base_model=False):
 #     rename_keys = []
@@ -56,7 +46,6 @@ def create_rename_keys(config, base_model=False):
 #         rename_keys.append((f"blocks.{i}.mlp.fc1.bias", f"deit.encoder.layer.{i}.intermediate.dense.bias"))
 #         rename_keys.append((f"blocks.{i}.mlp.fc2.weight", f"deit.encoder.layer.{i}.output.dense.weight"))
 #         rename_keys.append((f"blocks.{i}.mlp.fc2.bias", f"deit.encoder.layer.{i}.output.dense.bias"))
-
     # projection layer + position embeddings
 #     rename_keys.extend(
 #         [
@@ -67,10 +56,9 @@ def create_rename_keys(config, base_model=False):
 #             ("pos_embed", "deit.embeddings.position_embeddings"),
 #         ]
 #     )
-
     if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
         # layernorm + pooler
 #         rename_keys.extend(
@@ -81,7 +69,6 @@ def create_rename_keys(config, base_model=False):
 #                 ("pre_logits.fc.bias", "pooler.dense.bias"),
 #             ]
 #         )
-
         # if just the base model, we should remove "deit" from all keys that start with "deit"
 #         rename_keys = [(pair[0], pair[1][4:]) if pair[1].startswith("deit") else pair for pair in rename_keys]
     else:
@@ -96,16 +83,13 @@ def create_rename_keys(config, base_model=False):
 #                 ("head_dist.bias", "distillation_classifier.bias"),
 #             ]
 #         )
-
     return rename_keys
-
-
 # we split up the matrix of each encoder layer into queries, keys and values
 def read_in_q_k_v(state_dict, config, base_model=False):
     for i in range(config.num_hidden_layers):
         if base_model:
-      pass
-      pass
+    pass
+    pass
     pass
 #             prefix =
         else:
@@ -127,25 +111,17 @@ def read_in_q_k_v(state_dict, config, base_model=False):
 #             -config.hidden_size :, :
 #         ]
 #         state_dict[f"{prefix}encoder.layer.{i}.attention.attention.value.bias"] = in_proj_bias[-config.hidden_size :]
-
-
 def rename_key(dct, old, new):
 #     val = dct.pop(old)
 #     dct[new] = val
-
-
 # We will verify our results on an image of cute cats
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     im = Image.open(requests.get(url, stream=True).raw)
     return im
-
-
 # @torch.no_grad()
 def convert_deit_checkpoint(deit_name, pytorch_dump_folder_path):
-
 #     Copy/paste/tweak models weights to our DeiT structure.
-
     # define default DeiT configuration
 #     config = DeiTConfig()
     # all deit models have fine-tuned heads
@@ -162,8 +138,8 @@ def convert_deit_checkpoint(deit_name, pytorch_dump_folder_path):
 #     config.image_size = int(deit_name[-3:])
     # size of the architecture
     if deit_name[9:].startswith("tiny"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         config.hidden_size = 192
 #         config.intermediate_size = 768
@@ -176,8 +152,8 @@ def convert_deit_checkpoint(deit_name, pytorch_dump_folder_path):
 #         config.num_hidden_layers = 12
 #         config.num_attention_heads = 6
     if deit_name[9:].startswith("base"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         pass
     elif deit_name[4:].startswith("large"):
@@ -186,22 +162,18 @@ def convert_deit_checkpoint(deit_name, pytorch_dump_folder_path):
 #         config.intermediate_size = 4096
 #         config.num_hidden_layers = 24
 #         config.num_attention_heads = 16
-
     # load original model from timm
 #     timm_model = timm.create_model(deit_name, pretrained=True)
 #     timm_model.eval()
-
     # load state_dict of original model, remove and rename some keys
 #     state_dict = timm_model.state_dict()
 #     rename_keys = create_rename_keys(config, base_model)
     for src, dest in rename_keys:
 #         rename_key(state_dict, src, dest)
 #     read_in_q_k_v(state_dict, config, base_model)
-
     # load HuggingFace model
 #     model = DeiTForImageClassificationWithTeacher(config).eval()
 #     model.load_state_dict(state_dict)
-
     # Check outputs on an image, prepared by DeiTImageProcessor
 #     size = int(
 #         (256 / 224) * config.image_size
@@ -210,21 +182,17 @@ def convert_deit_checkpoint(deit_name, pytorch_dump_folder_path):
 #     encoding = image_processor(images=prepare_img(), return_tensors="pt")
 #     pixel_values = encoding["pixel_values"]
 #     outputs = model(pixel_values)
-
 #     timm_logits = timm_model(pixel_values)
 #     assert timm_logits.shape == outputs.logits.shape
 #     assert torch.allclose(timm_logits, outputs.logits, atol=1e-3)
-
 #     Path(pytorch_dump_folder_path).mkdir(exist_ok=True)
 #     print(f"Saving model {deit_name} to {pytorch_dump_folder_path}")
 #     model.save_pretrained(pytorch_dump_folder_path)
 #     print(f"Saving image processor to {pytorch_dump_folder_path}")
 #     image_processor.save_pretrained(pytorch_dump_folder_path)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -237,6 +205,5 @@ if __name__ == "__main__":
 #     parser.add_argument(
 #         "--pytorch_dump_folder_path", default=None, type=str, help="Path to the output PyTorch model directory."
 #     )
-
 #     args = parser.parse_args()
 #     convert_deit_checkpoint(args.deit_name, args.pytorch_dump_folder_path)

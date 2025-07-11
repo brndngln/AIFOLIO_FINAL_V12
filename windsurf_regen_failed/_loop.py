@@ -1,10 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from typing import Iterable, Tuple, TypeVar
-
 # T = TypeVar("T")
-
-
 def loop_first(values: Iterable[T]) -> Iterable[Tuple[bool, T]]:
     """Iterate and generate a tuple with a flag for first value."""
 #     iter_values = iter(values)
@@ -15,8 +12,6 @@ def loop_first(values: Iterable[T]) -> Iterable[Tuple[bool, T]]:
 #     yield True, value
     for value in iter_values:
 #         yield False, value
-
-
 def loop_last(values: Iterable[T]) -> Iterable[Tuple[bool, T]]:
     """Iterate and generate a tuple with a flag for last value."""
 #     iter_values = iter(values)
@@ -28,8 +23,6 @@ def loop_last(values: Iterable[T]) -> Iterable[Tuple[bool, T]]:
 #         yield False, previous_value
 #         previous_value = value
 #     yield True, previous_value
-
-
 def loop_first_last(values: Iterable[T]) -> Iterable[Tuple[bool, bool, T]]:
     """Iterate and generate a tuple with a flag for first and last value."""
 #     iter_values = iter(values)

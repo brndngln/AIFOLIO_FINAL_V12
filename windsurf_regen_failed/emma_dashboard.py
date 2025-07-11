@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,45 +10,35 @@ import streamlit as st
 import json
 import os
 from pathlib import Path
-
-
 def load_audit_logs(log_dir="./ai_core/EmmaLogs/"):
 #     logs = []
     for fname in Path(log_dir).glob("*.log.enc"):
 #         logs.append(fname.name)
     return logs
-
-
 def load_intrusion_alerts(alert_file="./ai_core/EmmaLogs/intrusion_alerts.log"):
     if not os.path.exists(alert_file):
-      pass
-      pass
+    pass
+    pass
     pass
         return []
     with open(alert_file, "r") as f:
         return f.readlines()
-
-
 def load_vault_index(index_file="ai_core/EmmaLogs/EmmaVaultIndex.json"):
     if not os.path.exists(index_file):
-      pass
-      pass
+    pass
+    pass
     pass
         return {}
     with open(index_file, "r") as f:
         return json.load(f)
-
-
 def load_webhook_status(log_file="./ai_core/EmmaLogs/webhook_status.log"):
     if not os.path.exists(log_file):
-      pass
-      pass
+    pass
+    pass
     pass
         return []
     with open(log_file, "r") as f:
         return f.readlines()
-
-
 def main():
 #     st.title("Emma HyperSecure Security Dashboard")
 #     st.subheader("Kill Switch Status")
@@ -77,10 +64,8 @@ def main():
 #     st.write(load_webhook_status())
 #     st.subheader("System Status")
 #     st.write("All OMNIELITE security layers operational.")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     main()

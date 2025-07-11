@@ -1,23 +1,17 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Fallback primitive operations that operate on 'object' operands.
-
 # These just call the relevant Python C API function or a thin wrapper
 # around an API function. Most of these also have faster, specialized
 # ops that operate on some more specific types.
-
 # Many of these ops are given a low priority (0) so that specialized ops
 # will take precedence. If your specialized op doesnt seem to be used,
 # check that the priorities are configured properly.
-
 from __future__ import annotations
-
 from mypyc.ir.ops import ERR_MAGIC, ERR_NEVER
 from mypyc.ir.rtypes import (
 #     bool_rprimitive,
@@ -37,9 +31,7 @@ from mypyc.primitives.registry import (
 #     method_op,
 #     unary_op,
 # )
-
 # Binary operations
-
 for op, opid in [
 #     ("==", 2),  # PY_EQ
 #     ("!=", 3),  # PY_NE
@@ -58,7 +50,6 @@ for op, opid in [
 #         extra_int_constants=[(opid, c_int_rprimitive)],
 #         priority=0,
 #     )
-
 for op, funcname in [
 #     (, "PyNumber_Add"),
 #     ("-", "PyNumber_Subtract"),
@@ -81,8 +72,6 @@ for op, funcname in [
 #         error_kind=ERR_MAGIC,
 #         priority=0,
 #     )
-
-
 # function_op(
 #     name="builtins.divmod",
 #     arg_types=[object_rprimitive, object_rprimitive],
@@ -91,8 +80,6 @@ for op, funcname in [
 #     error_kind=ERR_MAGIC,
 #     priority=0,
 # )
-
-
 for op, funcname in [
 #     ("+=", "PyNumber_InPlaceAdd"),
 #     ("-=", "PyNumber_InPlaceSubtract"),
@@ -115,7 +102,6 @@ for op, funcname in [
 #         error_kind=ERR_MAGIC,
 #         priority=0,
 #     )
-
 for op, c_function in (("**", "CPyNumber_Power"), ("**=", "CPyNumber_InPlacePower")):
 #     binary_op(
 #         name=op,
@@ -125,7 +111,6 @@ for op, c_function in (("**", "CPyNumber_Power"), ("**=", "CPyNumber_InPlacePowe
 #         c_function_name=c_function,
 #         priority=0,
 #     )
-
 for arg_count, c_function in ((2, "CPyNumber_Power"), (3, "PyNumber_Power")):
 #     function_op(
 #         name="builtins.pow",
@@ -135,7 +120,6 @@ for arg_count, c_function in ((2, "CPyNumber_Power"), (3, "PyNumber_Power")):
 #         c_function_name=c_function,
 #         priority=0,
 #     )
-
 # binary_op(
 #     name="in",
 #     arg_types=[object_rprimitive, object_rprimitive],
@@ -146,10 +130,7 @@ for arg_count, c_function in ((2, "CPyNumber_Power"), (3, "PyNumber_Power")):
 #     ordering=[1, 0],
 #     priority=0,
 # )
-
-
 # Unary operations
-
 for op, funcname in [
 #     ("-", "PyNumber_Negative"),
 #     (, "PyNumber_Positive"),
@@ -163,7 +144,6 @@ for op, funcname in [
 #         error_kind=ERR_MAGIC,
 #         priority=0,
 #     )
-
 # unary_op(
 #     name="not",
 #     arg_type=object_rprimitive,
@@ -173,7 +153,6 @@ for op, funcname in [
 #     truncated_type=bool_rprimitive,
 #     priority=0,
 # )
-
 # abs(obj)
 # function_op(
 #     name="builtins.abs",
@@ -183,7 +162,6 @@ for op, funcname in [
 #     error_kind=ERR_MAGIC,
 #     priority=0,
 # )
-
 # obj1[obj2]
 # method_op(
 #     name="__getitem__",
@@ -193,7 +171,6 @@ for op, funcname in [
 #     error_kind=ERR_MAGIC,
 #     priority=0,
 # )
-
 # obj1[obj2] = obj3
 # method_op(
 #     name="__setitem__",
@@ -203,7 +180,6 @@ for op, funcname in [
 #     error_kind=ERR_NEG_INT,
 #     priority=0,
 # )
-
 # del obj1[obj2]
 # method_op(
 #     name="__delitem__",
@@ -213,7 +189,6 @@ for op, funcname in [
 #     error_kind=ERR_NEG_INT,
 #     priority=0,
 # )
-
 # hash(obj)
 # function_op(
 #     name="builtins.hash",
@@ -222,7 +197,6 @@ for op, funcname in [
 #     c_function_name="CPyObject_Hash",
 #     error_kind=ERR_MAGIC,
 # )
-
 # getattr(obj, attr)
 # py_getattr_op = function_op(
 #     name="builtins.getattr",
@@ -231,7 +205,6 @@ for op, funcname in [
 #     c_function_name="CPyObject_GetAttr",
 #     error_kind=ERR_MAGIC,
 # )
-
 # getattr(obj, attr, default)
 # function_op(
 #     name="builtins.getattr",
@@ -240,7 +213,6 @@ for op, funcname in [
 #     c_function_name="CPyObject_GetAttr3",
 #     error_kind=ERR_MAGIC,
 # )
-
 # setattr(obj, attr, value)
 # py_setattr_op = function_op(
 #     name="builtins.setattr",
@@ -249,7 +221,6 @@ for op, funcname in [
 #     c_function_name="PyObject_SetAttr",
 #     error_kind=ERR_NEG_INT,
 # )
-
 # hasattr(obj, attr)
 # py_hasattr_op = function_op(
 #     name="builtins.hasattr",
@@ -258,7 +229,6 @@ for op, funcname in [
 #     c_function_name="PyObject_HasAttr",
 #     error_kind=ERR_NEVER,
 # )
-
 # del obj.attr
 # py_delattr_op = function_op(
 #     name="builtins.delattr",
@@ -267,7 +237,6 @@ for op, funcname in [
 #     c_function_name="PyObject_DelAttr",
 #     error_kind=ERR_NEG_INT,
 # )
-
 # Call callable object with N positional arguments: func(arg1, ..., argN)
 # Arguments are (func, arg1, ..., argN).
 # py_call_op = custom_op(
@@ -278,7 +247,6 @@ for op, funcname in [
 #     var_arg_type=object_rprimitive,
 #     extra_int_constants=[(0, pointer_rprimitive)],
 # )
-
 # Call callable object using positional and/or keyword arguments (Python 3.8+)
 # py_vectorcall_op = custom_op(
 #     arg_types=[
@@ -291,7 +259,6 @@ for op, funcname in [
 #     c_function_name="_PyObject_Vectorcall",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Call method using positional and/or keyword arguments (Python 3.9+)
 # py_vectorcall_method_op = custom_op(
 #     arg_types=[
@@ -304,7 +271,6 @@ for op, funcname in [
 #     c_function_name="PyObject_VectorcallMethod",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Call callable object with positional + keyword args: func(*args, **kwargs)
 # Arguments are (func, *args tuple, **kwargs dict).
 # py_call_with_kwargs_op = custom_op(
@@ -313,7 +279,6 @@ for op, funcname in [
 #     c_function_name="PyObject_Call",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Call method with positional arguments: obj.method(arg1, ...)
 # Arguments are (object, attribute name, arg1, ...).
 # py_method_call_op = custom_op(
@@ -324,7 +289,6 @@ for op, funcname in [
 #     var_arg_type=object_rprimitive,
 #     extra_int_constants=[(0, pointer_rprimitive)],
 # )
-
 # len(obj)
 # generic_len_op = custom_op(
 #     arg_types=[object_rprimitive],
@@ -332,7 +296,6 @@ for op, funcname in [
 #     c_function_name="CPyObject_Size",
 #     error_kind=ERR_MAGIC,
 # )
-
 # len(obj)
 # same as generic_len_op, however return py_ssize_t
 # generic_ssize_t_len_op = custom_op(
@@ -341,7 +304,6 @@ for op, funcname in [
 #     c_function_name="PyObject_Size",
 #     error_kind=ERR_NEG_INT,
 # )
-
 # iter(obj)
 # iter_op = function_op(
 #     name="builtins.iter",
@@ -373,7 +335,6 @@ for op, funcname in [
 #     c_function_name="CPyIter_Next",
 #     error_kind=ERR_NEVER,
 # )
-
 # this would be aiter(obj) if it existed
 # aiter_op = custom_op(
 #     arg_types=[object_rprimitive],
@@ -381,7 +342,6 @@ for op, funcname in [
 #     c_function_name="CPy_GetAIter",
 #     error_kind=ERR_MAGIC,
 # )
-
 # this would be anext(obj) if it existed
 # anext_op = custom_op(
 #     arg_types=[object_rprimitive],

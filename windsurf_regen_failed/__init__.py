@@ -1,16 +1,12 @@
 from typing import Optional
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Flask Blueprint for Compliance Dashboard API
 # Provides: /api/audit-log, /api/alerts, /api/regulatory-status
 # Elite security, non-sentient, real-time, regulatory-ready
-
 import requests as ext_requests
 import psycopg2
 import os
@@ -18,15 +14,13 @@ import json
 from flask import Blueprint, jsonify
 from datetime import datetime
 import requests
-
-
 def load_audit_log():
 #     log_path = os.path.abspath(
 #         os.path.join(os.path.dirname(__file__), "../audit_trail.log")
 #     )
     if not os.path.exists(log_path):
-      pass
-      pass
+    pass
+    pass
     pass
         return []
 #     entries = []
@@ -48,13 +42,13 @@ def load_audit_log():
 #                     "{}",
 #                 )
                 if not event:
-      pass
-      pass
+    pass
+    pass
     pass
                     # Fallback for legacy: infer from flags
                     if any("FLAGS:" in p for p in parts):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         event = "Audit"
                     elif any("REFUND_FLAGS:" in p for p in parts):
@@ -74,8 +68,6 @@ def load_audit_log():
             except Exception:
 #                 continue
     return entries[-200:]  # Return last 200 entries
-
-
 def load_alerts():
     # Try DB first (PostgreSQL example)
 #     alerts = []
@@ -97,15 +89,15 @@ def load_alerts():
 #         pass
     # Try SIEM/Splunk
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             splunk_url = os.getenv("SPLUNK_ALERTS_API")
 #             splunk_token = os.getenv("SPLUNK_TOKEN")
             if splunk_url and splunk_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     splunk_url,
@@ -113,8 +105,8 @@ def load_alerts():
 #                     timeout=2,
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -132,22 +124,22 @@ def load_alerts():
 #             pass
     # Try ElasticSearch
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             es_url = os.getenv("ELASTIC_ALERTS_API")
 #             es_token = os.getenv("ELASTIC_TOKEN")
             if es_url and es_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     es_url, headers={"Authorization": f"Bearer {es_token}"}, timeout=2
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -165,22 +157,22 @@ def load_alerts():
 #             pass
     # Try AWS CloudWatch
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             cw_url = os.getenv("CLOUDWATCH_ALERTS_API")
 #             cw_token = os.getenv("CLOUDWATCH_TOKEN")
             if cw_url and cw_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     cw_url, headers={"Authorization": f"Bearer {cw_token}"}, timeout=2
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -198,22 +190,22 @@ def load_alerts():
 #             pass
     # Try Azure Monitor
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             az_url = os.getenv("AZURE_ALERTS_API")
 #             az_token = os.getenv("AZURE_TOKEN")
             if az_url and az_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     az_url, headers={"Authorization": f"Bearer {az_token}"}, timeout=2
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -231,15 +223,15 @@ def load_alerts():
 #             pass
     # Try IBM QRadar
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             qradar_url = os.getenv("QRADAR_ALERTS_API")
 #             qradar_token = os.getenv("QRADAR_TOKEN")
             if qradar_url and qradar_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     qradar_url,
@@ -247,8 +239,8 @@ def load_alerts():
 #                     timeout=2,
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -266,15 +258,15 @@ def load_alerts():
 #             pass
     # Try Google Chronicle
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
         try:
 #             chronicle_url = os.getenv("CHRONICLE_ALERTS_API")
 #             chronicle_token = os.getenv("CHRONICLE_TOKEN")
             if chronicle_url and chronicle_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 resp = ext_requests.get(
 #                     chronicle_url,
@@ -282,8 +274,8 @@ def load_alerts():
 #                     timeout=2,
 #                 )
                 if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                     for alert in resp.json().get("alerts", []):
 #                         alerts.append(
@@ -301,23 +293,23 @@ def load_alerts():
 #             pass
     # Fallback to file
     if not alerts:
-      pass
-      pass
+    pass
+    pass
     pass
 #         alerts_path = os.path.abspath(
 #             os.path.join(os.path.dirname(__file__), "../alerts.jsonl")
 #         )
         if os.path.exists(alerts_path):
-      pass
-      pass
+    pass
+    pass
     pass
             with open(alerts_path) as f:
                 for line in f:
                     try:
 #                         alert = json.loads(line.strip())
                         if all(k in alert for k in ("level", "message")):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             alerts.append(alert)
                     except Exception:
@@ -325,8 +317,6 @@ def load_alerts():
     return (
 #         alerts[-100:] if alerts else [{"level": "INFO", "message": "No active alerts."}]
 #     )
-
-
 def get_regulatory_status():
     # Example: Query IRS API or other regulatory service (simulate for now)
     try:
@@ -336,34 +326,22 @@ def get_regulatory_status():
     except Exception:
 #         status = "Unavailable"
     return {"status": status, "checked_at": datetime.utcnow().isoformat()}
-
-
 # compliance_api = Blueprint("compliance_api", __name__)
-
-
 def security_privacy_check():
     # Placeholder: Add user session, role, and consent checks as needed
     return True
-
-
 # @compliance_api.route("/api/audit-log")
 def api_audit_log():
 #     security_privacy_check()
     return jsonify(load_audit_log())
-
-
 # @compliance_api.route("/api/alerts")
 def api_alerts():
 #     security_privacy_check()
     return jsonify(load_alerts())
-
-
 # @compliance_api.route("/api/regulatory-status")
 def api_reg_status():
 #     security_privacy_check()
     return jsonify(get_regulatory_status())
-
-
 # @compliance_api.route("/api/compliance-charts")
 def api_compliance_charts():
 #     security_privacy_check()
@@ -379,8 +357,6 @@ def api_compliance_charts():
 #             {"x": i, "y": min(1.0, 0.1 + 0.02 * event_counts.get(e["event"], 1))}
 #         )
     return jsonify({"eventBreakdown": event_counts, "riskOverTime": risk_points})
-
-
 # @compliance_api.route("/api/user-activity")
 def api_user_activity():
 #     security_privacy_check()
@@ -409,8 +385,6 @@ def api_user_activity():
 #         },
 #     ]
     return jsonify({"activity": activity, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/geolocation-analytics")
 def api_geolocation_analytics():
 #     security_privacy_check()
@@ -423,8 +397,6 @@ def api_geolocation_analytics():
 #         {"country": "BR", "events": 5},
 #     ]
     return jsonify({"geo": geo, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/device-risk")
 def api_device_risk():
 #     security_privacy_check()
@@ -435,8 +407,6 @@ def api_device_risk():
 #         {"device": "Windows 10 PC", "user": "carol", "risk": 0.7},
 #     ]
     return jsonify({"devices": devices, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/anomaly-timeline")
 def api_anomaly_timeline():
 #     security_privacy_check()
@@ -448,8 +418,6 @@ def api_anomaly_timeline():
 #         {"time": "2025-06-07T11:10:00", "anomalies": 3},
 #     ]
     return jsonify({"timeline": timeline, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/custom-anomaly-detection")
 def api_custom_anomaly_detection():
 #     security_privacy_check()
@@ -471,8 +439,6 @@ def api_custom_anomaly_detection():
     return jsonify(
 #         {"anomalies": anomalies, "checked_at": datetime.utcnow().isoformat()}
 #     )
-
-
 # @compliance_api.route("/api/regulatory-news")
 def api_regulatory_news():
 #     security_privacy_check()
@@ -492,8 +458,6 @@ def api_regulatory_news():
 #         },
 #     ]
     return jsonify({"news": news, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/external-compliance-feeds")
 def api_external_compliance_feeds():
 #     security_privacy_check()
@@ -510,8 +474,6 @@ def api_external_compliance_feeds():
 #         {"feed": "NIST Cybersecurity News", "url": "https://csrc.nist.gov/news"},
 #     ]
     return jsonify({"feeds": feeds, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/advanced-reporting")
 def api_advanced_reporting():
 #     security_privacy_check()
@@ -533,8 +495,6 @@ def api_advanced_reporting():
 #             "checked_at": datetime.utcnow().isoformat(),
 #         }
 #     )
-
-
 # @compliance_api.route("/api/compliance-checks")
 def api_compliance_checks():
 #     security_privacy_check()
@@ -559,8 +519,6 @@ def api_compliance_checks():
 #     results.append({"check": "Sentry Monitoring Active", "status": "PASS"})
 #     results.append({"check": "Ethical Safeguards Active", "status": "PASS"})
     return jsonify({"checks": results, "checked_at": datetime.utcnow().isoformat()})
-
-
 # @compliance_api.route("/api/regulatory-api-status")
 def api_regulatory_api_status():
 #     security_privacy_check()
@@ -569,15 +527,15 @@ def api_regulatory_api_status():
 #         irs_url = os.getenv("IRS_API_URL")
 #         irs_token = os.getenv("IRS_API_TOKEN")
         if irs_url and irs_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #             resp = ext_requests.get(
 #                 irs_url, headers={"Authorization": f"Bearer {irs_token}"}, timeout=3
 #             )
             if resp.ok:
-      pass
-      pass
+    pass
+    pass
     pass
                 return jsonify(
 #                     {

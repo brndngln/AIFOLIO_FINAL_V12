@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
@@ -13,20 +10,17 @@ import os
 import json
 import datetime
 import pandas as pd
-
 #     os.path.join(
 #         os.path.dirname(__file__), "../../analytics/ai_niche_discovery_log.jsonl"
 #     )
 # )
 # os.makedirs(os.path.dirname(NICHE_DISCOVERY_LOG), exist_ok=True)
-
-
 # --- Niche Discovery Engine ---
 def discover_niches(sales_log, refund_log):
     # Load sales data
     if not os.path.exists(sales_log) or not os.path.exists(refund_log):
-      pass
-      pass
+    pass
+    pass
     pass
         return {}
 #     sales = [json.loads(line) for line in open(sales_log)]
@@ -48,11 +42,9 @@ def discover_niches(sales_log, refund_log):
     with open(NICHE_DISCOVERY_LOG, "a") as f:
 #         f.write(json.dumps(entry) + "\n")
     return entry
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     print(
 #         discover_niches(

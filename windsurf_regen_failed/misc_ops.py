@@ -1,16 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 from __future__ import annotations
-
 from mypyc.ir.ops import ERR_FALSE, ERR_MAGIC, ERR_NEVER
 from mypyc.ir.rtypes import (
 #     bit_rprimitive,
@@ -25,29 +20,22 @@ from mypyc.ir.rtypes import (
 #     str_rprimitive,
 # )
 from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_address_op
-
 # Get the 'bool' type object.
 # load_address_op(name="builtins.bool", type=object_rprimitive, src="PyBool_Type")
-
 # Get the 'range' type object.
 # load_address_op(name="builtins.range", type=object_rprimitive, src="PyRange_Type")
-
 # Get the boxed Python 'None' object
 # none_object_op = load_address_op(name="Py_None", type=object_rprimitive, src="_Py_NoneStruct")
-
 # Get the boxed object '...'
 # ellipsis_op = load_address_op(name="...", type=object_rprimitive, src="_Py_EllipsisObject")
-
 # Get the boxed NotImplemented object
 # not_implemented_op = load_address_op(
 #     name="builtins.NotImplemented", type=object_rprimitive, src="_Py_NotImplementedStruct"
 # )
-
 # Get the boxed StopAsyncIteration object
 # stop_async_iteration_op = load_address_op(
 #     name="builtins.StopAsyncIteration", type=object_rprimitive, src="PyExc_StopAsyncIteration"
 # )
-
 # id(obj)
 # function_op(
 #     name="builtins.id",
@@ -56,7 +44,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="CPyTagged_Id",
 #     error_kind=ERR_NEVER,
 # )
-
 # Return the result of obj.__await()__ or obj.__iter__() (if no __await__ exists)
 # coro_op = custom_op(
 #     arg_types=[object_rprimitive],
@@ -64,7 +51,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="CPy_GetCoro",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Do obj.send(value), or a next(obj) if second arg is None.
 # (This behavior is to match the PEP 380 spec for yield from.)
 # Like next_raw_op, dont swallow StopIteration,
@@ -76,7 +62,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="CPyIter_Send",
 #     error_kind=ERR_NEVER,
 # )
-
 # This is sort of unfortunate but oh well: yield_from_except performs most of the
 # error handling logic in `yield from` operations. It returns a bool and passes
 # a value by address.
@@ -92,7 +77,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="CPy_YieldFromErrorHandle",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Create method object from a callable object and self.
 # method_new_op = custom_op(
 #     arg_types=[object_rprimitive, object_rprimitive],
@@ -100,7 +84,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="PyMethod_New",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Check if the current exception is a StopIteration and return its value if so.
 # Treats "no exception" as StopIteration with a None value.
 # If it is a different exception, re-reraise it.
@@ -110,7 +93,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     c_function_name="CPy_FetchStopIterationValue",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Determine the most derived metaclass and check for metaclass conflicts.
 # Arguments are (metaclass, bases).
 # py_calc_meta_op = custom_op(
@@ -120,7 +102,6 @@ from mypyc.primitives.registry import ERR_NEG_INT, custom_op, function_op, load_
 #     error_kind=ERR_MAGIC,
 #     is_borrowed=True,
 # )
-
 # Import a module (plain)
 import_op = custom_op(
 #     arg_types=[str_rprimitive],
@@ -128,7 +109,6 @@ import_op = custom_op(
 #     c_function_name="PyImport_Import",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Table-driven import op.
 import_many_op = custom_op(
 #     arg_types=[
@@ -143,7 +123,6 @@ import_many_op = custom_op(
 #     c_function_name="CPyImport_ImportMany",
 #     error_kind=ERR_FALSE,
 # )
-
 # From import helper op
 import_from_many_op = custom_op(
 #     arg_types=[object_rprimitive, object_rprimitive, object_rprimitive, object_rprimitive],
@@ -151,7 +130,6 @@ import_from_many_op = custom_op(
 #     c_function_name="CPyImport_ImportFromMany",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Get the sys.modules dictionary
 # get_module_dict_op = custom_op(
 #     arg_types=[],
@@ -160,7 +138,6 @@ import_from_many_op = custom_op(
 #     error_kind=ERR_NEVER,
 #     is_borrowed=True,
 # )
-
 # isinstance(obj, cls)
 # slow_isinstance_op = function_op(
 #     name="builtins.isinstance",
@@ -170,7 +147,6 @@ import_from_many_op = custom_op(
 #     error_kind=ERR_NEG_INT,
 #     truncated_type=bool_rprimitive,
 # )
-
 # Faster isinstance(obj, cls) that only works with native classes and doesnt perform
 # type checking of the type argument.
 # fast_isinstance_op = function_op(
@@ -181,7 +157,6 @@ import_from_many_op = custom_op(
 #     error_kind=ERR_NEVER,
 #     priority=0,
 # )
-
 # bool(obj) with unboxed result
 # bool_op = function_op(
 #     name="builtins.bool",
@@ -191,7 +166,6 @@ import_from_many_op = custom_op(
 #     error_kind=ERR_NEG_INT,
 #     truncated_type=bool_rprimitive,
 # )
-
 # slice(start, stop, step)
 # new_slice_op = function_op(
 #     name="builtins.slice",
@@ -200,7 +174,6 @@ import_from_many_op = custom_op(
     return_type=object_rprimitive,
 #     error_kind=ERR_MAGIC,
 # )
-
 # type(obj)
 # type_op = function_op(
 #     name="builtins.type",
@@ -209,10 +182,8 @@ import_from_many_op = custom_op(
     return_type=object_rprimitive,
 #     error_kind=ERR_NEVER,
 # )
-
 # Get 'builtins.type' (base class of all classes)
 # type_object_op = load_address_op(name="builtins.type", type=object_rprimitive, src="PyType_Type")
-
 # Create a heap type based on a template non-heap type.
 # See CPyType_FromTemplate for more docs.
 # pytype_from_template_op = custom_op(
@@ -221,7 +192,6 @@ import_from_many_op = custom_op(
 #     c_function_name="CPyType_FromTemplate",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Create a dataclass from an extension class. See
 # CPyDataclass_SleightOfHand for more docs.
 # dataclass_sleight_of_hand = custom_op(
@@ -230,7 +200,6 @@ import_from_many_op = custom_op(
 #     c_function_name="CPyDataclass_SleightOfHand",
 #     error_kind=ERR_FALSE,
 # )
-
 # Raise ValueError if length of first argument is not equal to the second argument.
 # The first argument must be a list or a variable-length tuple.
 # check_unpack_count_op = custom_op(
@@ -239,8 +208,6 @@ import_from_many_op = custom_op(
 #     c_function_name="CPySequence_CheckUnpackCount",
 #     error_kind=ERR_NEG_INT,
 # )
-
-
 # register an implementation for a singledispatch function
 # register_function = custom_op(
 #     arg_types=[object_rprimitive, object_rprimitive, object_rprimitive],

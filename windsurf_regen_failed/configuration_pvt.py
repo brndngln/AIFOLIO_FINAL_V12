@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -24,35 +21,24 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Callable, List, Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # PVT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "pvt-tiny-224": "https://huggingface.co/Zetatech/pvt-tiny-224",
     # See all PVT models at https://huggingface.co/models?filter=pvt
 # }
-
-
 class PvtConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`PvtModel`]. It is used to instantiate an Pvt
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the Pvt
 #     [Xrenya/pvt-tiny-224](https://huggingface.co/Xrenya/pvt-tiny-224) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         image_size (`int`, *optional*, defaults to 224):
 #             The input image size
@@ -93,22 +79,16 @@ class PvtConfig(PretrainedConfig):
 #         num_labels ('int', *optional*, defaults to 1000):
 #             The number of classes.
 #     Example:
-
 #     ```python
 #     >>> from transformers import PvtModel, PvtConfig
-
 #     >>> # Initializing a PVT Xrenya/pvt-tiny-224 style configuration
 #     >>> configuration = PvtConfig()
-
 #     >>> # Initializing a model from the Xrenya/pvt-tiny-224 style configuration
 #     >>> model = PvtModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "pvt"
-
     def __init__(
 #         self,
 #         image_size: int = 224,
@@ -132,7 +112,6 @@ class PvtConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.image_size = image_size
 #         self.num_channels = num_channels
 #         self.num_encoder_blocks = num_encoder_blocks
@@ -151,11 +130,8 @@ class PvtConfig(PretrainedConfig):
 #         self.layer_norm_eps = layer_norm_eps
 #         self.num_labels = num_labels
 #         self.qkv_bias = qkv_bias
-
-
 class PvtOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -163,11 +139,9 @@ class PvtOnnxConfig(OnnxConfig):
 #                 ("pixel_values", {0: "batch", 1: "num_channels", 2: "height", 3: "width"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4
-
 #     @property
     def default_onnx_opset(self) -> int:
         return 12

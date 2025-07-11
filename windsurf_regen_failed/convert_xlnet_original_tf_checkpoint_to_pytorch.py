@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,12 +19,9 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
 import os
-
 import torch
-
 from transformers import (
 #     XLNetConfig,
 #     XLNetForQuestionAnswering,
@@ -36,8 +30,6 @@ from transformers import (
 #     load_tf_weights_in_xlnet,
 # )
 from transformers.utils import CONFIG_NAME, WEIGHTS_NAME, logging
-
-
 # GLUE_TASKS_NUM_LABELS = {
 #     "cola": 2,
 #     "mnli": 3,
@@ -49,21 +41,16 @@ from transformers.utils import CONFIG_NAME, WEIGHTS_NAME, logging
 #     "rte": 2,
 #     "wnli": 2,
 # }
-
-
 # logging.set_verbosity_info()
-
-
 def convert_xlnet_checkpoint_to_pytorch(
 #     tf_checkpoint_path, bert_config_file, pytorch_dump_folder_path, finetuning_task=None
 # ):
     # Initialise PyTorch model
 #     config = XLNetConfig.from_json_file(bert_config_file)
-
 #     finetuning_task = finetuning_task.lower() if finetuning_task is not None else
     if finetuning_task in GLUE_TASKS_NUM_LABELS:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print(f"Building PyTorch XLNetForSequenceClassification model from configuration: {config}")
 #         config.finetuning_task = finetuning_task
@@ -75,10 +62,8 @@ def convert_xlnet_checkpoint_to_pytorch(
 #         model = XLNetForQuestionAnswering(config)
     else:
 #         model = XLNetLMHeadModel(config)
-
     # Load weights from tf checkpoint
 #     load_tf_weights_in_xlnet(model, config, tf_checkpoint_path)
-
     # Save pytorch-model
 #     pytorch_weights_dump_path = os.path.join(pytorch_dump_folder_path, WEIGHTS_NAME)
 #     pytorch_config_dump_path = os.path.join(pytorch_dump_folder_path, CONFIG_NAME)
@@ -87,11 +72,9 @@ def convert_xlnet_checkpoint_to_pytorch(
 #     print(f"Save configuration file to {os.path.abspath(pytorch_config_dump_path)}")
     with open(pytorch_config_dump_path, "w", encoding="utf-8") as f:
 #         f.write(config.to_json_string())
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -123,7 +106,6 @@ if __name__ == "__main__":
 #     )
 #     args = parser.parse_args()
 #     print(args)
-
 #     convert_xlnet_checkpoint_to_pytorch(
 #         args.tf_checkpoint_path, args.xlnet_config_file, args.pytorch_dump_folder_path, args.finetuning_task
 #     )

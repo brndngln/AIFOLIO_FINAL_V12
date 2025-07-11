@@ -1,31 +1,20 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from ... import PretrainedConfig
-
-
 #     "sijunhe/nezha-cn-base": "https://huggingface.co/sijunhe/nezha-cn-base/resolve/main/config.json",
 # }
-
-
 class NezhaConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of an [`NezhaModel`]. It is used to instantiate an Nezha
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the Nezha
 #     [sijunhe/nezha-cn-base](https://huggingface.co/sijunhe/nezha-cn-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, optional, defaults to 21128):
 #             Vocabulary size of the NEZHA model. Defines the different tokens that can be represented by the
@@ -57,25 +46,18 @@ class NezhaConfig(PretrainedConfig):
 #             The dropout ratio for attached classifiers.
 #         is_decoder (`bool`, *optional*, defaults to `False`):
 #             Whether the model is used as a decoder or not. If `False`, the model is used as an encoder.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import NezhaConfig, NezhaModel
-
 #     >>> # Initializing an Nezha configuration
 #     >>> configuration = NezhaConfig()
-
 #     >>> # Initializing a model (with random weights) from the Nezha-base style configuration model
 #     >>> model = NezhaModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     pretrained_config_archive_map = NEZHA_PRETRAINED_CONFIG_ARCHIVE_MAP
 #     model_type = "nezha"
-
     def __init__(
 #         self,
 #         vocab_size=21128,
@@ -99,7 +81,6 @@ class NezhaConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers

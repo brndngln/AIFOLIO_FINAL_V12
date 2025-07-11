@@ -1,23 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-
 # analytics.py — Analytics & Compliance Blueprint
 # Elite security, ethics, and maintainability: CSRF, audit logging, modular, privacy, monitoring.
-
 from flask import Blueprint, render_template
-
 # analytics_bp = Blueprint("analytics", __name__, template_folder="templates")
-
-
 # --- Analytics Dashboard ---
 # @analytics_bp.route("/analytics")
 def analytics():
@@ -35,15 +27,13 @@ def analytics():
         with open("../analytics/compliance.log") as logf:
             for line in logf.readlines()[-10:]:
                 if "FLAG:" in line:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     alerts.append(line.strip())
     except Exception:
 #         pass
     return render_template("analytics.html", analytics=analytics_data, alerts=alerts)
-
-
 # --- Compliance Dashboard ---
 # @analytics_bp.route("/compliance")
 def compliance():
@@ -68,13 +58,11 @@ def compliance():
         with open("../analytics/compliance.log") as logf:
             for line in logf.readlines()[-10:]:
                 if "FLAG:" in line:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     alerts.append(line.strip())
     except Exception:
 #         pass
     return render_template("compliance.html", compliance=compliance_data, alerts=alerts)
-
-
 # --- TODO: Add further analytics/compliance endpoints as needed for modularity, security, monitoring, and ethics. ---

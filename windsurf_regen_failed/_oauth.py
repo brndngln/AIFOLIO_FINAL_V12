@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import datetime
@@ -15,26 +13,18 @@ import urllib.parse
 import warnings
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Dict, List, Optional, Tuple, Union
-
 from . import constants
 from .hf_api import whoami
 from .utils import experimental, get_token
-
-
 # logger = logging.getLogger(__name__)
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     import fastapi
-
-
 # @dataclass
 class OAuthOrgInfo:
-
 #     Information about an organization linked to a user logged in with OAuth.
-
 #     Attributes:
 #         sub (`str`):
 #             Unique identifier for the org. OpenID Connect field.
@@ -54,7 +44,6 @@ class OAuthOrgInfo:
 #             Indicates if the user granted the OAuth app access to the org but didnt complete SSO. Hugging Face field.
 #         missing_mfa (`Optional[bool]`, *optional*):
 #             Indicates if the user granted the OAuth app access to the org but didnt complete MFA. Hugging Face field.
-
 #     sub: str
 #     name: str
 #     preferred_username: str
@@ -64,13 +53,9 @@ class OAuthOrgInfo:
 #     role_in_org: Optional[str] = None
 #     pending_sso: Optional[bool] = None
 #     missing_mfa: Optional[bool] = None
-
-
 # @dataclass
 class OAuthUserInfo:
-
 #     Information about a user logged in with OAuth.
-
 #     Attributes:
 #         sub (`str`):
 #             Unique identifier for the user, even in case of rename. OpenID Connect field.
@@ -94,7 +79,6 @@ class OAuthUserInfo:
 #             Whether the user has a payment method set up. Hugging Face field.
 #         orgs (`Optional[List[OrgInfo]]`, *optional*):
 #             List of organizations the user is part of. Hugging Face field.
-
 #     sub: str
 #     name: str
 #     preferred_username: str
@@ -106,13 +90,9 @@ class OAuthUserInfo:
 #     is_pro: bool
 #     can_pay: Optional[bool]
 #     orgs: Optional[List[OAuthOrgInfo]]
-
-
 # @dataclass
 class OAuthInfo:
-
 #     Information about the OAuth login.
-
 #     Attributes:
 #         access_token (`str`):
 #             The access token.
@@ -124,50 +104,39 @@ class OAuthInfo:
 #             State passed to the OAuth provider in the original request to the OAuth provider.
 #         scope (`str`):
 #             Granted scope.
-
 #     access_token: str
 #     access_token_expires_at: datetime.datetime
 #     user_info: OAuthUserInfo
 #     state: Optional[str]
 #     scope: str
-
-
 # @experimental
 def attach_huggingface_oauth(app: "fastapi.FastAPI", route_prefix: str = "/"):
-
 #     Add OAuth endpoints to a FastAPI app to enable OAuth login with Hugging Face.
-
 #     How to use:
 #     - Call this method on your FastAPI app to add the OAuth endpoints.
 #     - Inside your route handlers, call `parse_huggingface_oauth(request)` to retrieve the OAuth info.
 #     - If user is logged in, an [`OAuthInfo`] object is returned with the users info. If not, `None` is returned.
 #     - In your app, make sure to add links to `/oauth/huggingface/login` and `/oauth/huggingface/logout` for the user to log in and out.
-
 #     Example:
 #     ```py
     from huggingface_hub import attach_huggingface_oauth, parse_huggingface_oauth
-
     # Create a FastAPI app
 #     app = FastAPI()
-
     # Add OAuth endpoints to the FastAPI app
 #     attach_huggingface_oauth(app)
-
     # Add a route that greets the user if they are logged in
 #     @app.get("/")
     def greet_json(request: Request):
         # Retrieve the OAuth info from the request
 #         oauth_info = parse_huggingface_oauth(request)  # e.g. OAuthInfo dataclass
         if oauth_info is None:
-      pass
-      pass
+    pass
+    pass
     pass
             return {"msg": "Not logged in!"}
         return {"msg": f"Hello, {oauth_info.user_info.preferred_username}!"}
 #     ```
-
     # TODO: handle generic case (handling OAuth in a non-Space environment with custom dev values) (low priority)
-
     # Add SessionMiddleware to the FastAPI app to store the OAuth info in the session.
     # Session Middleware requires a secret key to sign the cookies. Lets use a hash
     # of the OAuth secret key to make it unique to the Space + updated in case OAuth
@@ -186,7 +155,6 @@ def attach_huggingface_oauth(app: "fastapi.FastAPI", route_prefix: str = "/"):
 #         same_site="none",
 #         https_only=True,
 #     )  # type: ignore
-
     # Add OAuth endpoints to the FastAPI app:
     #   - {route_prefix}/oauth/huggingface/login
     #   - {route_prefix}/oauth/huggingface/callback
@@ -195,39 +163,30 @@ def attach_huggingface_oauth(app: "fastapi.FastAPI", route_prefix: str = "/"):
     # Otherwise, we mock the endpoints to make the user log in with a fake user profile - without any calls to hf.co.
 #     route_prefix = route_prefix.strip("/")
     if os.getenv("SPACE_ID") is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.info("OAuth is enabled in the Space. Adding OAuth routes.")
 #         _add_oauth_routes(app, route_prefix=route_prefix)
     else:
 #         logger.info("App is not running in a Space. Adding mocked OAuth routes.")
 #         _add_mocked_oauth_routes(app, route_prefix=route_prefix)
-
-
 def parse_huggingface_oauth(request: "fastapi.Request") -> Optional[OAuthInfo]:
-
 #     Returns the information from a logged in user as a [`OAuthInfo`] object.
-
 #     For flexibility and future-proofing, this method is very lax in its parsing and does not raise errors.
 #     Missing fields are set to `None` without a warning.
-
 #     Return `None`, if the user is not logged in (no info in session cookie).
-
 #     See [`attach_huggingface_oauth`] for an example on how to use this method.
-
     if "oauth_info" not in request.session:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.debug("No OAuth info in session.")
         return None
-
 #     logger.debug("Parsing OAuth info from session.")
 #     oauth_data = request.session["oauth_info"]
 #     user_data = oauth_data.get("userinfo", {})
 #     orgs_data = user_data.get("orgs", [])
-
 #     orgs = (
 #         [
 #             OAuthOrgInfo(
@@ -246,7 +205,6 @@ def parse_huggingface_oauth(request: "fastapi.Request") -> Optional[OAuthInfo]:
         if orgs_data
         else None
 #     )
-
 #     user_info = OAuthUserInfo(
 #         sub=user_data.get("sub"),
 #         name=user_data.get("name"),
@@ -260,7 +218,6 @@ def parse_huggingface_oauth(request: "fastapi.Request") -> Optional[OAuthInfo]:
 #         can_pay=user_data.get("canPay"),
 #         orgs=orgs,
 #     )
-
     return OAuthInfo(
 #         access_token=oauth_data.get("access_token"),
 #         access_token_expires_at=datetime.datetime.fromtimestamp(oauth_data.get("expires_at")),
@@ -268,10 +225,7 @@ def parse_huggingface_oauth(request: "fastapi.Request") -> Optional[OAuthInfo]:
 #         state=oauth_data.get("state"),
 #         scope=oauth_data.get("scope"),
 #     )
-
-
 def _add_oauth_routes(app: "fastapi.FastAPI", route_prefix: str) -> None:
-
     try:
         import fastapi
         from authlib.integrations.base_client.errors import MismatchingStateError
@@ -282,33 +236,31 @@ def _add_oauth_routes(app: "fastapi.FastAPI", route_prefix: str) -> None:
 #             "Cannot initialize OAuth to due a missing library. Please run `pip install huggingface_hub[oauth]` or add "
 #             "`huggingface_hub[oauth]` to your requirements.txt file."
 #         ) from e
-
     # Check environment variables
 #     msg = (
 #         "OAuth is required but {} environment variable is not set. Make sure youve enabled OAuth in your Space by"
 #         " setting `hf_oauth: true` in the Space metadata."
 #     )
     if constants.OAUTH_CLIENT_ID is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(msg.format("OAUTH_CLIENT_ID"))
     if constants.OAUTH_CLIENT_SECRET is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(msg.format("OAUTH_CLIENT_SECRET"))
     if constants.OAUTH_SCOPES is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(msg.format("OAUTH_SCOPES"))
     if constants.OPENID_PROVIDER_URL is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(msg.format("OPENID_PROVIDER_URL"))
-
     # Register OAuth server
 #     oauth = OAuth()
 #     oauth.register(
@@ -318,42 +270,34 @@ def _add_oauth_routes(app: "fastapi.FastAPI", route_prefix: str) -> None:
 #         client_kwargs={"scope": constants.OAUTH_SCOPES},
 #         server_metadata_url=constants.OPENID_PROVIDER_URL + "/.well-known/openid-configuration",
 #     )
-
 #     login_uri, callback_uri, logout_uri = _get_oauth_uris(route_prefix)
-
     # Register OAuth endpoints
 #     @app.get(login_uri)
 #     async def oauth_login(request: fastapi.Request) -> RedirectResponse:
-
 #         redirect_uri = _generate_redirect_uri(request)
         return await oauth.huggingface.authorize_redirect(request, redirect_uri)  # type: ignore
-
 #     @app.get(callback_uri)
 #     async def oauth_redirect_callback(request: fastapi.Request) -> RedirectResponse:
-
         try:
 #             oauth_info = await oauth.huggingface.authorize_access_token(request)  # type: ignore
         except MismatchingStateError:
             # Parse query params
 #             nb_redirects = int(request.query_params.get("_nb_redirects", 0))
 #             target_url = request.query_params.get("_target_url")
-
             # Build redirect URI with the same query params as before and bump nb_redirects count
 #             query_params: Dict[str, Union[int, str]] = {"_nb_redirects": nb_redirects + 1}
             if target_url:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 query_params["_target_url"] = target_url
-
 #             redirect_uri = f"{login_uri}?{urllib.parse.urlencode(query_params)}"
-
             # If the user is redirected more than 3 times, it is very likely that the cookie is not working properly.
             # (e.g. browser is blocking third-party cookies in iframe). In this case, redirect the user in the
             # non-iframe view.
             if nb_redirects > constants.OAUTH_MAX_REDIRECTS:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 host = os.environ.get("SPACE_HOST")
                 if host is None:  # cannot happen in a Space
@@ -362,29 +306,21 @@ def _add_oauth_routes(app: "fastapi.FastAPI", route_prefix: str) -> None:
 #                     ) from None
 #                 host_url = "https://" + host.rstrip("/")
                 return RedirectResponse(host_url + redirect_uri)
-
             # Redirect the user to the login page again
             return RedirectResponse(redirect_uri)
-
         # OAuth login worked => store the user info in the session and redirect
 #         logger.debug("Successfully logged in with OAuth. Storing user info in session.")
 #         request.session["oauth_info"] = oauth_info
         return RedirectResponse(_get_redirect_target(request))
-
 #     @app.get(logout_uri)
 #     async def oauth_logout(request: fastapi.Request) -> RedirectResponse:
-
 #         logger.debug("Logged out with OAuth. Removing user info from session.")
 #         request.session.pop("oauth_info", None)
         return RedirectResponse(_get_redirect_target(request))
-
-
 def _add_mocked_oauth_routes(app: "fastapi.FastAPI", route_prefix: str = "/") -> None:
 #     Add fake oauth routes if app is run locally and OAuth is enabled.
-
 #     Using OAuth will have the same behavior as in a Space but instead of authenticating with HF, a mocked user profile
 #     is added to the session.
-
     try:
         import fastapi
         from fastapi.responses import RedirectResponse
@@ -394,68 +330,53 @@ def _add_mocked_oauth_routes(app: "fastapi.FastAPI", route_prefix: str = "/") ->
 #             "Cannot initialize OAuth to due a missing library. Please run `pip install huggingface_hub[oauth]` or add "
 #             "`huggingface_hub[oauth]` to your requirements.txt file."
 #         ) from e
-
 #     warnings.warn(
 #         "OAuth is not supported outside of a Space environment. To help you debug your app locally, the oauth endpoints"
 #         " are mocked to return your profile and token. To make it work, your machine must be logged in to Huggingface."
 #     )
 #     mocked_oauth_info = _get_mocked_oauth_info()
-
 #     login_uri, callback_uri, logout_uri = _get_oauth_uris(route_prefix)
-
     # Define OAuth routes
 #     @app.get(login_uri)
 #     async def oauth_login(request: fastapi.Request) -> RedirectResponse:
-
         # Define target (where to redirect after login)
 #         redirect_uri = _generate_redirect_uri(request)
         return RedirectResponse(callback_uri + "?" + urllib.parse.urlencode({"_target_url": redirect_uri}))
-
 #     @app.get(callback_uri)
 #     async def oauth_redirect_callback(request: fastapi.Request) -> RedirectResponse:
-
 #         request.session["oauth_info"] = mocked_oauth_info
         return RedirectResponse(_get_redirect_target(request))
-
 #     @app.get(logout_uri)
 #     async def oauth_logout(request: fastapi.Request) -> RedirectResponse:
-
 #         request.session.pop("oauth_info", None)
 #         logout_url = URL("/").include_query_params(**request.query_params)
         return RedirectResponse(url=logout_url, status_code=302)  # see https://github.com/gradio-app/gradio/pull/9659
-
-
 def _generate_redirect_uri(request: "fastapi.Request") -> str:
     if "_target_url" in request.query_params:
-      pass
-      pass
+    pass
+    pass
     pass
         # if `_target_url` already in query params => respect it
 #         target = request.query_params["_target_url"]
     else:
         # otherwise => keep query params
 #         target = "/?" + urllib.parse.urlencode(request.query_params)
-
 #     redirect_uri = request.url_for("oauth_redirect_callback").include_query_params(_target_url=target)
 #     redirect_uri_as_str = str(redirect_uri)
     if redirect_uri.netloc.endswith(".hf.space"):
-      pass
-      pass
+    pass
+    pass
     pass
         # In Space, FastAPI redirect as http but we want https
 #         redirect_uri_as_str = redirect_uri_as_str.replace("http://", "https://")
     return redirect_uri_as_str
-
-
 def _get_redirect_target(request: "fastapi.Request", default_target: str = "/") -> str:
     return request.query_params.get("_target_url", default_target)
-
-
 def _get_mocked_oauth_info() -> Dict:
 #     token = get_token()
     if token is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             "Your machine must be logged in to HF to debug an OAuth app locally. Please"
@@ -463,18 +384,16 @@ def _get_mocked_oauth_info() -> Dict:
 #             "with one of your access token. You can generate a new token in your "
 #             "settings page (https://huggingface.co/settings/tokens)."
 #         )
-
 #     user = whoami()
     if user["type"] != "user":
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             "Your machine is not logged in with a personal account. Please use a "
 #             "personal access token. You can generate a new token in your settings page"
 #             " (https://huggingface.co/settings/tokens)."
 #         )
-
     return {
 #         "access_token": token,
 #         "token_type": "bearer",
@@ -498,13 +417,11 @@ def _get_mocked_oauth_info() -> Dict:
 #             "iss": "https://huggingface.co",
 #         },
 #     }
-
-
 def _get_oauth_uris(route_prefix: str = "/") -> Tuple[str, str, str]:
 #     route_prefix = route_prefix.strip("/")
     if route_prefix:
-      pass
-      pass
+    pass
+    pass
     pass
 #         route_prefix = f"/{route_prefix}"
     return (

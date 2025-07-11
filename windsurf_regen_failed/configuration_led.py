@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,32 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import List, Union
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # LED_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "allenai/led-base-16384": "https://huggingface.co/allenai/led-base-16384/resolve/main/config.json",
     # See all LED models at https://huggingface.co/models?filter=led
 # }
-
-
 class LEDConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`LEDModel`]. It is used to instantiate an LED
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the LED
 #     [allenai/led-base-16384](https://huggingface.co/allenai/led-base-16384) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50265):
 #             Vocabulary size of the LED model. Defines the number of different tokens that can be represented by the
@@ -91,22 +77,16 @@ class LEDConfig(PretrainedConfig):
             for more details.
 #         use_cache (`bool`, *optional*, defaults to `True`):
 #             Whether or not the model should return the last key/values attentions (not used by all models)
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import LEDModel, LEDConfig
-
 #     >>> # Initializing a LED allenai/led-base-16384 style configuration
 #     >>> configuration = LEDConfig()
-
 #     >>> # Initializing a model from the allenai/led-base-16384 style configuration
 #     >>> model = LEDModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "led"
 #     attribute_map = {
 #         "num_attention_heads": "encoder_attention_heads",
@@ -114,7 +94,6 @@ class LEDConfig(PretrainedConfig):
 #         "attention_probs_dropout_prob": "attention_dropout",
 #         "initializer_range": "init_std",
 #     }
-
     def __init__(
 #         self,
 #         vocab_size=50265,
@@ -165,7 +144,6 @@ class LEDConfig(PretrainedConfig):
 #         self.use_cache = use_cache
 #         self.num_hidden_layers = encoder_layers
 #         self.attention_window = attention_window
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,

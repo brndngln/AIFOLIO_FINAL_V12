@@ -1,22 +1,18 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from . import DefaultTable
 from fontTools.misc import sstruct
 from fontTools.misc.textTools import safeEval
 import struct
-
 # VDMX_HeaderFmt =
 # 	>                 # big endian
 # 	version:     H    # Version number (0 or 1)
 # 	numRecs:     H    # Number of VDMX groups present
 # 	numRatios:   H    # Number of aspect ratio groupings
-
 # the VMDX header is followed by an array of RatRange[numRatios] (i.e. aspect
 # ratio ranges);
 # VDMX_RatRangeFmt =
@@ -25,7 +21,6 @@ import struct
 # 	xRatio:      B    # Value to use for x-Ratio
 # 	yStartRatio: B    # Starting y-Ratio value
 # 	yEndRatio:   B    # Ending y-Ratio value
-
 # followed by an array of offset[numRatios] from start of VDMX table to the
 # VDMX Group for this ratio range (offsets will be re-calculated on compile);
 # followed by an array of Group[numRecs] records;
@@ -34,22 +29,17 @@ import struct
 # 	recs:        H    # Number of height records in this group
 # 	startsz:     B    # Starting yPelHeight
 # 	endsz:       B    # Ending yPelHeight
-
 # followed by an array of vTable[recs] records.
 # VDMX_vTableFmt =
 # 	>                 # big endian
 # 	yPelHeight:  H    # yPelHeight to which values apply
 # 	yMax:        h    # Maximum value (in pels) for this yPelHeight
 # 	yMin:        h    # Minimum value (in pels) for this yPelHeight
-
 class table_V_D_M_X_(DefaultTable.DefaultTable):
 #     Vertical Device Metrics table
-
 #     The ``VDMX`` table records changes to the vertical glyph minima
 #     and maxima that result from Truetype instructions.
-
 #     See also https://learn.microsoft.com/en-us/typography/opentype/spec/vdmx
-
     def decompile(self, data, ttFont):
 #         pos = 0  # track current position from to start of VDMX table
 #         dummy, data = sstruct.unpack2(VDMX_HeaderFmt, data, self)
@@ -107,8 +97,8 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
                 # when numRecs < numRatios there can more than one ratio range
                 # sharing the same VDMX group
                 if currOffset == offsetValue:
-      pass
-      pass
+    pass
+    pass
     pass
                     # map the group with the ratio range thas has the same
                     # index as the offset to that group (it took me a while..)
@@ -117,19 +107,15 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
         for i in range(self.numRatios):
 #             ratio = self.ratRanges[i]
             if ratio["groupIndex"] is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 from fontTools import ttLib
-
 #                 raise ttLib.TTLibError("no group defined for ratRange %d" % i)
-
     def _getOffsets(self):
-
 #         Calculate offsets to VDMX_Group records.
 #         For each ratRange return a list of offset values from the beginning of
 #         the VDMX table to a VDMX_Group.
-
 #         lenHeader = sstruct.calcsize(VDMX_HeaderFmt)
 #         lenRatRange = sstruct.calcsize(VDMX_RatRangeFmt)
 #         lenOffset = struct.calcsize(">H")
@@ -147,14 +133,12 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
 #             groupIndex = ratio["groupIndex"]
 #             offsets.append(groupOffsets[groupIndex])
         return offsets
-
     def compile(self, ttFont):
         if not (self.version == 0 or self.version == 1):
-      pass
-      pass
+    pass
+    pass
     pass
             from fontTools import ttLib
-
 #             raise ttLib.TTLibError(
 #                 "unknown format for VDMX table: version %s" % self.version
 #             )
@@ -174,7 +158,6 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
 #                 vTable = {"yPelHeight": yPelHeight, "yMax": yMax, "yMin": yMin}
 #                 data += sstruct.pack(VDMX_vTableFmt, vTable)
         return data
-
     def toXML(self, writer, ttFont):
 #         writer.simpletag("version", value=self.version)
 #         writer.newline()
@@ -214,34 +197,33 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
 #             writer.newline()
 #         writer.endtag("groups")
 #         writer.newline()
-
     def fromXML(self, name, attrs, content, ttFont):
         if name == "version":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.version = safeEval(attrs["value"])
         elif name == "ratRanges":
     pass
             if not hasattr(self, "ratRanges"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.ratRanges = []
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 name, attrs, content = element
                 if name == "ratRange":
-      pass
-      pass
+    pass
+    pass
     pass
                     if not hasattr(self, "numRatios"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.numRatios = 1
                     else:
@@ -257,24 +239,24 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
         elif name == "groups":
     pass
             if not hasattr(self, "groups"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self.groups = []
             for element in content:
                 if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 name, attrs, content = element
                 if name == "group":
-      pass
-      pass
+    pass
+    pass
     pass
                     if not hasattr(self, "numRecs"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         self.numRecs = 1
                     else:
@@ -282,14 +264,14 @@ class table_V_D_M_X_(DefaultTable.DefaultTable):
 #                     group = {}
                     for element in content:
                         if not isinstance(element, tuple):
-      pass
-      pass
+    pass
+    pass
     pass
 #                             continue
 #                         name, attrs, content = element
                         if name == "record":
-      pass
-      pass
+    pass
+    pass
     pass
 #                             yPelHeight = safeEval(attrs["yPelHeight"])
 #                             yMax = safeEval(attrs["yMax"])

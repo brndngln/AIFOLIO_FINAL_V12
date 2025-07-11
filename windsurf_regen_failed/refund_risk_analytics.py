@@ -1,21 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # Static, deterministic refund risk analytics for AIFOLIO. SAFE AI, owner-controlled, fully auditable.
-
 def calculate_refund_risk(vault_id, sales, refunds, period_days=30):
-
     if not sales:
-      pass
-      pass
+    pass
+    pass
     pass
         return {'vault_id': vault_id, 'risk': 'low', 'score': 0, 'reason': 'No sales in period'}
 #     refund_count = len([r for r in refunds if r['vault_id']==vault_id])

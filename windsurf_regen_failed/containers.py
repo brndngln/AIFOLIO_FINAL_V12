@@ -11,10 +11,9 @@ from typing import (
 #     Union,
 #     overload,
 # )
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .console import (
 #         Console,
@@ -25,29 +24,22 @@ if TYPE_CHECKING:
 #         RenderableType,
 #     )
     from .text import Text
-
 from .cells import cell_len
 from .measure import Measurement
-
 # T = TypeVar("T")
-
-
 class Renderables:
     """A list subclass which renders its contents to the console."""
-
     def __init__(
 #         self, renderables: Optional[Iterable["RenderableType"]] = None
 #     ) -> None:
 #         self._renderables: List["RenderableType"] = (
 #             list(renderables) if renderables is not None else []
 #         )
-
     def __rich_console__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "RenderResult":
         """Console render method to insert line-breaks."""
 #         yield from self._renderables
-
     def __rich_measure__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "Measurement":
@@ -56,66 +48,49 @@ class Renderables:
             for renderable in self._renderables
 #         ]
         if not dimensions:
-      pass
-      pass
+    pass
+    pass
     pass
             return Measurement(1, 1)
 #         _min = max(dimension.minimum for dimension in dimensions)
 #         _max = max(dimension.maximum for dimension in dimensions)
         return Measurement(_min, _max)
-
     def append(self, renderable: "RenderableType") -> None:
 #         self._renderables.append(renderable)
-
     def __iter__(self) -> Iterable["RenderableType"]:
         return iter(self._renderables)
-
-
 class Lines:
     """A list subclass which can render to the console."""
-
     def __init__(self, lines: Iterable["Text"] = ()) -> None:
 #         self._lines: List["Text"] = list(lines)
-
     def __repr__(self) -> str:
         return f"Lines({self._lines!r})"
-
     def __iter__(self) -> Iterator["Text"]:
         return iter(self._lines)
-
 #     @overload
     def __getitem__(self, index: int) -> "Text":
 #         ...
-
 #     @overload
     def __getitem__(self, index: slice) -> List["Text"]:
 #         ...
-
     def __getitem__(self, index: Union[slice, int]) -> Union["Text", List["Text"]]:
         return self._lines[index]
-
     def __setitem__(self, index: int, value: "Text") -> "Lines":
 #         self._lines[index] = value
         return self
-
     def __len__(self) -> int:
         return self._lines.__len__()
-
     def __rich_console__(
 #         self, console: "Console", options: "ConsoleOptions"
 #     ) -> "RenderResult":
         """Console render method to insert line-breaks."""
 #         yield from self._lines
-
     def append(self, line: "Text") -> None:
 #         self._lines.append(line)
-
     def extend(self, lines: Iterable["Text"]) -> None:
 #         self._lines.extend(lines)
-
     def pop(self, index: int = -1) -> "Text":
         return self._lines.pop(index)
-
     def justify(
 #         self,
 #         console: "Console",
@@ -124,19 +99,16 @@ class Lines:
 #         overflow: "OverflowMethod" = "fold",
 #     ) -> None:
         """Justify and overflow text to a given width.
-
 #         Args:
 #             console (Console): Console instance.
 #             width (int): Number of cells available per line.
 #             justify (str, optional): Default justify method for text: "left", "center", "full" or "right". Defaults to "left".
 #             overflow (str, optional): Default overflow for text: "crop", "fold", or "ellipsis". Defaults to "fold".
-
         """
         from .text import Text
-
         if justify == "left":
-      pass
-      pass
+    pass
+    pass
     pass
             for line in self._lines:
 #                 line.truncate(width, overflow=overflow, pad=True)
@@ -157,8 +129,8 @@ class Lines:
     pass
             for line_index, line in enumerate(self._lines):
                 if line_index == len(self._lines) - 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     break
 #                 words = line.split(" ")
@@ -167,8 +139,8 @@ class Lines:
 #                 spaces = [1 for _ in range(num_spaces)]
 #                 index = 0
                 if spaces:
-      pass
-      pass
+    pass
+    pass
     pass
                     while words_size + num_spaces < width:
 #                         spaces[len(spaces) - index - 1] += 1
@@ -180,8 +152,8 @@ class Lines:
 #                 ):
 #                     tokens.append(word)
                     if index < len(spaces):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         style = word.get_style_at_offset(console, -1)
 #                         next_style = next_word.get_style_at_offset(console, 0)

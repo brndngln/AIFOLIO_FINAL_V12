@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,27 +19,18 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from math import ceil
 from typing import List, Optional, Union
-
 import numpy as np
-
 from ...audio_utils import mel_filter_bank, spectrogram, window_function
 from ...feature_extraction_sequence_utils import BatchFeature, SequenceFeatureExtractor
 from ...utils import TensorType, logging
-
-
 # logger = logging.get_logger(__name__)
-
-
 class TvltFeatureExtractor(SequenceFeatureExtractor):
 #     r
 #     Constructs a TVLT audio feature extractor. This feature extractor can be used to prepare audios for the model.
-
 #     This feature extractor inherits from [`FeatureExtractionMixin`] which contains most of the main methods. Users
 #     should refer to this superclass for more information regarding those methods.
-
 #     Args:
 #         spectrogram_length (`Dict[str, int]` *optional*, defaults to 2048):
 #             The time length of each audio spectrogram.
@@ -61,9 +49,7 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #             Size of the Fourier transform.
 #         padding_value (`float`, *optional*, defaults to 0.0):
 #             Padding value used to pad the audio. Should correspond to silences.
-
 #     model_input_names = ["audio_values", "audio_mask"]
-
     def __init__(
 #         self,
 #         spectrogram_length=2048,
@@ -82,7 +68,6 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #             padding_value=padding_value,
 #             **kwargs,
 #         )
-
 #         self.spectrogram_length = spectrogram_length
 #         self.num_channels = num_channels
 #         self.patch_size = patch_size
@@ -100,12 +85,9 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #             norm="slaney",
 #             mel_scale="slaney",
 #         ).T
-
     def _np_extract_fbank_features(self, waveform: np.array) -> np.ndarray:
-
 #         Compute the log-mel spectrogram of the provided audio, gives similar results to Whispers original torch
 #         implementation with 1e-5 tolerance.
-
 #         log_spec = spectrogram(
 #             waveform,
 #             window_function(self.n_fft, "hann"),
@@ -120,7 +102,6 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #         log_spec = log_spec - 20.0
 #         log_spec = np.clip(log_spec / 40.0, -2.0, 0.0) + 1.0
         return log_spec
-
     def __call__(
 #         self,
 #         raw_speech: Union[np.ndarray, List[float], List[np.ndarray], List[List[float]]],
@@ -131,9 +112,7 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #         mask_audio: bool = False,
 #         **kwargs,
 #     ) -> BatchFeature:
-
 #         Main method to prepare one or several audio(s) for the model.
-
 #         Args:
 #             raw_speech (`np.ndarray`, `List[float]`, `List[np.ndarray]`, `List[List[float]]`):
 #                 The sequence or batch of sequences to be padded. Each sequence can be a numpy array, a list of float
@@ -146,14 +125,10 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
             return_attention_mask (`bool`, *optional*, default to `True`):
 #                 Whether to return the attention mask. If left to the default, will return the attention mask according
 #                 to the specific feature_extractors default. [What are attention masks?](../glossary#attention-mask)
-
 #                 <Tip>
-
 #                 For TvltTransformer models, `attention_mask` should alwys be passed for batched inference, to avoid
 #                 subtle bugs.
-
 #                 </Tip>
-
 #             sampling_rate (`int`, *optional*):
 #                 The sampling rate at which the `raw_speech` input was sampled. It is strongly recommended to pass
 #                 `sampling_rate` at the forward call to prevent silent errors and allow automatic speech recognition
@@ -162,22 +137,18 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #                 If the sampling rate is not matched, resample the input audio to match.
 #             mask_audio (`bool`, *optional*, defaults to `False`):
 #                 Whether or not to mask input audio for MAE task.
-
 #         Returns:
 #             [`BatchFeature`]: A [`BatchFeature`] with the following fields:
-
 #             - **audio_values** -- Audio values to be fed to a model, of shape (batch_size, num_channels, height,
 #               width).
-
 #             - **audio_mask** -- Audio masks to be fed to a model, of shape (batch_size, num_audio_patches).
-
         if sampling_rate is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if sampling_rate != self.sampling_rate:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "This feature extractor is set to support sampling rate"
@@ -189,19 +160,18 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #                 "It is strongly recommended to pass the `sampling_rate` argument to this function. "
 #                 "Failing to do so can result in silent errors that might be hard to debug."
 #             )
-
 #         is_batched_numpy = isinstance(raw_speech, np.ndarray) and len(raw_speech.shape) > 1
         if is_batched_numpy and len(raw_speech.shape) > 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Only mono-channel audio is supported for input to {self}")
 #         is_batched = is_batched_numpy or (
 #             isinstance(raw_speech, (list, tuple)) and (isinstance(raw_speech[0], (np.ndarray, tuple, list)))
 #         )
         if is_batched:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raw_speech = [np.asarray([speech], dtype=np.float32).T for speech in raw_speech]
         elif not is_batched and not isinstance(raw_speech, np.ndarray):
@@ -212,28 +182,26 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
 #             raw_speech = raw_speech.astype(np.float32)
         # always return batch
         if not is_batched:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raw_speech = [np.asarray([raw_speech]).T]
-
         # Convert audio signals to log mel spectrograms, truncate by time axis
 #         audio_features = [
 #             self._np_extract_fbank_features(waveform.squeeze()).T[: self.spectrogram_length] for waveform in raw_speech
 #         ]
         if isinstance(audio_features[0], List):
-      pass
-      pass
+    pass
+    pass
     pass
 #             audio_features = [np.asarray(feature, dtype=np.float32) for feature in audio_features]
-
         # Create audio attention mask
 #         max_patch_len = max(
 #             [ceil(feature.shape[0] / self.patch_size[0]) * self.freq_len for feature in audio_features]
 #         )  # The maximum number of audio patches in a batch
         if return_attention_mask:
-      pass
-      pass
+    pass
+    pass
     pass
 #             audio_mask = [
 #                 (ceil(feature.shape[0] / self.patch_size[0]) * self.freq_len) * [1]
@@ -241,7 +209,6 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
                 for feature in audio_features
 #             ]
 #             audio_mask = np.array(audio_mask).astype(np.float32)
-
         # convert into correct format for padding
 #         max_time_len = max_patch_len // self.freq_len * self.patch_size[0]  # The maximum audio size in a batch
 #         padded_audio_features = np.ones([len(audio_features), 1, max_time_len, self.feature_size]).astype(np.float32)
@@ -249,15 +216,13 @@ class TvltFeatureExtractor(SequenceFeatureExtractor):
         for i in range(len(audio_features)):
 #             feature = audio_features[i]
 #             padded_audio_features[i, :, : feature.shape[0], :] = feature
-
         # return as BatchFeature
         if return_attention_mask:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data = {"audio_values": padded_audio_features, "audio_mask": audio_mask}
         else:
 #             data = {"audio_values": padded_audio_features}
-
 #         encoded_inputs = BatchFeature(data=data, tensor_type=return_tensors)
         return encoded_inputs

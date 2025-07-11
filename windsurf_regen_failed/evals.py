@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from __future__ import annotations
-
 from typing import Iterable, Optional
 from typing_extensions import Literal
-
 import httpx
-
 from ... import _legacy_response
 from ...types import eval_list_params, eval_create_params, eval_update_params
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
@@ -40,34 +33,22 @@ from ...types.eval_delete_response import EvalDeleteResponse
 from ...types.eval_update_response import EvalUpdateResponse
 from ...types.eval_retrieve_response import EvalRetrieveResponse
 from ...types.shared_params.metadata import Metadata
-
 # __all__ = ["Evals", "AsyncEvals"]
-
-
 class Evals(SyncAPIResource):
 #     @cached_property
     def runs(self) -> Runs:
         return Runs(self._client)
-
 #     @cached_property
     def with_raw_response(self) -> EvalsWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return EvalsWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> EvalsWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return EvalsWithStreamingResponse(self)
-
     def create(
 #         self,
 #         *,
@@ -82,40 +63,29 @@ class Evals(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalCreateResponse:
-
 #         Create the structure of an evaluation that can be used to test a models
 #         performance. An evaluation is a set of testing criteria and the config for a
 #         data source, which dictates the schema of the data used in the evaluation. After
 #         creating an evaluation, you can run it on different models and model parameters.
 #         We support several types of graders and datasources. For more information, see
 #         the [Evals guide](https://platform.openai.com/docs/guides/evals).
-
 #         Args:
 #           data_source_config: The configuration for the data source used for the evaluation runs. Dictates the
 #               schema of the data used in the evaluation.
-
 #           testing_criteria: A list of graders for all eval runs in this group. Graders can reference
 #               variables in the data source using double curly braces notation, like
 #               `{{item.variable_name}}`. To reference the models output, use the `sample`
 #               namespace (ie, `{{sample.output_text}}`).
-
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format, and
+            for storing additional information about the object in a structured format, and
 #               querying for objects via API or the dashboard.
-
 #               Keys are strings with a maximum length of 64 characters. Values are strings with
 #               a maximum length of 512 characters.
-
 #           name: The name of the evaluation.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._post(
 #             "/evals",
 #             body=maybe_transform(
@@ -132,7 +102,6 @@ class Evals(SyncAPIResource):
 #             ),
 #             cast_to=EvalCreateResponse,
 #         )
-
     def retrieve(
 #         self,
 #         eval_id: str,
@@ -144,21 +113,15 @@ class Evals(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalRetrieveResponse:
-
 #         Get an evaluation by ID.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return self._get(
@@ -168,7 +131,6 @@ class Evals(SyncAPIResource):
 #             ),
 #             cast_to=EvalRetrieveResponse,
 #         )
-
     def update(
 #         self,
 #         eval_id: str,
@@ -182,30 +144,21 @@ class Evals(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalUpdateResponse:
-
 #         Update certain properties of an evaluation.
-
 #         Args:
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format, and
+            for storing additional information about the object in a structured format, and
 #               querying for objects via API or the dashboard.
-
 #               Keys are strings with a maximum length of 64 characters. Values are strings with
 #               a maximum length of 512 characters.
-
 #           name: Rename the evaluation.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return self._post(
@@ -222,7 +175,6 @@ class Evals(SyncAPIResource):
 #             ),
 #             cast_to=EvalUpdateResponse,
 #         )
-
     def list(
 #         self,
 #         *,
@@ -237,28 +189,18 @@ class Evals(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> SyncCursorPage[EvalListResponse]:
-
 #         List evaluations for a project.
-
 #         Args:
 #           after: Identifier for the last eval from the previous pagination request.
-
 #           limit: Number of evals to retrieve.
-
 #           order: Sort order for evals by timestamp. Use `asc` for ascending order or `desc` for
 #               descending order.
-
 #           order_by: Evals can be ordered by creation time or last updated time. Use `created_at` for
 #               creation time or `updated_at` for last updated time.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._get_api_list(
 #             "/evals",
 #             page=SyncCursorPage[EvalListResponse],
@@ -279,7 +221,6 @@ class Evals(SyncAPIResource):
 #             ),
 #             model=EvalListResponse,
 #         )
-
     def delete(
 #         self,
 #         eval_id: str,
@@ -291,21 +232,15 @@ class Evals(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalDeleteResponse:
-
 #         Delete an evaluation.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return self._delete(
@@ -315,32 +250,21 @@ class Evals(SyncAPIResource):
 #             ),
 #             cast_to=EvalDeleteResponse,
 #         )
-
-
 class AsyncEvals(AsyncAPIResource):
 #     @cached_property
     def runs(self) -> AsyncRuns:
         return AsyncRuns(self._client)
-
 #     @cached_property
     def with_raw_response(self) -> AsyncEvalsWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return AsyncEvalsWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> AsyncEvalsWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return AsyncEvalsWithStreamingResponse(self)
-
 #     async def create(
 #         self,
 #         *,
@@ -355,40 +279,29 @@ class AsyncEvals(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalCreateResponse:
-
 #         Create the structure of an evaluation that can be used to test a models
 #         performance. An evaluation is a set of testing criteria and the config for a
 #         data source, which dictates the schema of the data used in the evaluation. After
 #         creating an evaluation, you can run it on different models and model parameters.
 #         We support several types of graders and datasources. For more information, see
 #         the [Evals guide](https://platform.openai.com/docs/guides/evals).
-
 #         Args:
 #           data_source_config: The configuration for the data source used for the evaluation runs. Dictates the
 #               schema of the data used in the evaluation.
-
 #           testing_criteria: A list of graders for all eval runs in this group. Graders can reference
 #               variables in the data source using double curly braces notation, like
 #               `{{item.variable_name}}`. To reference the models output, use the `sample`
 #               namespace (ie, `{{sample.output_text}}`).
-
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format, and
+            for storing additional information about the object in a structured format, and
 #               querying for objects via API or the dashboard.
-
 #               Keys are strings with a maximum length of 64 characters. Values are strings with
 #               a maximum length of 512 characters.
-
 #           name: The name of the evaluation.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return await self._post(
 #             "/evals",
 #             body=await async_maybe_transform(
@@ -405,7 +318,6 @@ class AsyncEvals(AsyncAPIResource):
 #             ),
 #             cast_to=EvalCreateResponse,
 #         )
-
 #     async def retrieve(
 #         self,
 #         eval_id: str,
@@ -417,21 +329,15 @@ class AsyncEvals(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalRetrieveResponse:
-
 #         Get an evaluation by ID.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return await self._get(
@@ -441,7 +347,6 @@ class AsyncEvals(AsyncAPIResource):
 #             ),
 #             cast_to=EvalRetrieveResponse,
 #         )
-
 #     async def update(
 #         self,
 #         eval_id: str,
@@ -455,30 +360,21 @@ class AsyncEvals(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalUpdateResponse:
-
 #         Update certain properties of an evaluation.
-
 #         Args:
 #           metadata: Set of 16 key-value pairs that can be attached to an object. This can be useful
-              for storing additional information about the object in a structured format, and
+            for storing additional information about the object in a structured format, and
 #               querying for objects via API or the dashboard.
-
 #               Keys are strings with a maximum length of 64 characters. Values are strings with
 #               a maximum length of 512 characters.
-
 #           name: Rename the evaluation.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return await self._post(
@@ -495,7 +391,6 @@ class AsyncEvals(AsyncAPIResource):
 #             ),
 #             cast_to=EvalUpdateResponse,
 #         )
-
     def list(
 #         self,
 #         *,
@@ -510,28 +405,18 @@ class AsyncEvals(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> AsyncPaginator[EvalListResponse, AsyncCursorPage[EvalListResponse]]:
-
 #         List evaluations for a project.
-
 #         Args:
 #           after: Identifier for the last eval from the previous pagination request.
-
 #           limit: Number of evals to retrieve.
-
 #           order: Sort order for evals by timestamp. Use `asc` for ascending order or `desc` for
 #               descending order.
-
 #           order_by: Evals can be ordered by creation time or last updated time. Use `created_at` for
 #               creation time or `updated_at` for last updated time.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         return self._get_api_list(
 #             "/evals",
 #             page=AsyncCursorPage[EvalListResponse],
@@ -552,7 +437,6 @@ class AsyncEvals(AsyncAPIResource):
 #             ),
 #             model=EvalListResponse,
 #         )
-
 #     async def delete(
 #         self,
 #         eval_id: str,
@@ -564,21 +448,15 @@ class AsyncEvals(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> EvalDeleteResponse:
-
 #         Delete an evaluation.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not eval_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `eval_id` but received {eval_id!r}")
         return await self._delete(
@@ -588,12 +466,9 @@ class AsyncEvals(AsyncAPIResource):
 #             ),
 #             cast_to=EvalDeleteResponse,
 #         )
-
-
 class EvalsWithRawResponse:
     def __init__(self, evals: Evals) -> None:
 #         self._evals = evals
-
 #         self.create = _legacy_response.to_raw_response_wrapper(
 #             evals.create,
 #         )
@@ -609,16 +484,12 @@ class EvalsWithRawResponse:
 #         self.delete = _legacy_response.to_raw_response_wrapper(
 #             evals.delete,
 #         )
-
 #     @cached_property
     def runs(self) -> RunsWithRawResponse:
         return RunsWithRawResponse(self._evals.runs)
-
-
 class AsyncEvalsWithRawResponse:
     def __init__(self, evals: AsyncEvals) -> None:
 #         self._evals = evals
-
 #         self.create = _legacy_response.async_to_raw_response_wrapper(
 #             evals.create,
 #         )
@@ -634,16 +505,12 @@ class AsyncEvalsWithRawResponse:
 #         self.delete = _legacy_response.async_to_raw_response_wrapper(
 #             evals.delete,
 #         )
-
 #     @cached_property
     def runs(self) -> AsyncRunsWithRawResponse:
         return AsyncRunsWithRawResponse(self._evals.runs)
-
-
 class EvalsWithStreamingResponse:
     def __init__(self, evals: Evals) -> None:
 #         self._evals = evals
-
 #         self.create = to_streamed_response_wrapper(
 #             evals.create,
 #         )
@@ -659,16 +526,12 @@ class EvalsWithStreamingResponse:
 #         self.delete = to_streamed_response_wrapper(
 #             evals.delete,
 #         )
-
 #     @cached_property
     def runs(self) -> RunsWithStreamingResponse:
         return RunsWithStreamingResponse(self._evals.runs)
-
-
 class AsyncEvalsWithStreamingResponse:
     def __init__(self, evals: AsyncEvals) -> None:
 #         self._evals = evals
-
 #         self.create = async_to_streamed_response_wrapper(
 #             evals.create,
 #         )
@@ -684,7 +547,6 @@ class AsyncEvalsWithStreamingResponse:
 #         self.delete = async_to_streamed_response_wrapper(
 #             evals.delete,
 #         )
-
 #     @cached_property
     def runs(self) -> AsyncRunsWithStreamingResponse:
         return AsyncRunsWithStreamingResponse(self._evals.runs)

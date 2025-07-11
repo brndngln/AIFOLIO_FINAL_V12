@@ -1,22 +1,15 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 from __future__ import annotations
-
 from typing import List
 from typing_extensions import Literal
-
 import httpx
-
 from .... import _legacy_response
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ...._utils import maybe_transform, async_maybe_transform
@@ -29,30 +22,19 @@ from ....types.fine_tuning.checkpoints import permission_create_params, permissi
 from ....types.fine_tuning.checkpoints.permission_create_response import PermissionCreateResponse
 from ....types.fine_tuning.checkpoints.permission_delete_response import PermissionDeleteResponse
 from ....types.fine_tuning.checkpoints.permission_retrieve_response import PermissionRetrieveResponse
-
 # __all__ = ["Permissions", "AsyncPermissions"]
-
-
 class Permissions(SyncAPIResource):
 #     @cached_property
     def with_raw_response(self) -> PermissionsWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return PermissionsWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> PermissionsWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return PermissionsWithStreamingResponse(self)
-
     def create(
 #         self,
 #         fine_tuned_model_checkpoint: str,
@@ -65,26 +47,18 @@ class Permissions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> SyncPage[PermissionCreateResponse]:
-
 #         **NOTE:** Calling this endpoint requires an [admin API key](../admin-api-keys).
-
 #         This enables organization owners to share fine-tuned models with other projects
 #         in their organization.
-
 #         Args:
 #           project_ids: The project identifiers to grant access to.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
@@ -99,7 +73,6 @@ class Permissions(SyncAPIResource):
 #             model=PermissionCreateResponse,
 #             method="post",
 #         )
-
     def retrieve(
 #         self,
 #         fine_tuned_model_checkpoint: str,
@@ -115,32 +88,21 @@ class Permissions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> PermissionRetrieveResponse:
-
 #         **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-
 #         Organization owners can use this endpoint to view all permissions for a
 #         fine-tuned model checkpoint.
-
 #         Args:
 #           after: Identifier for the last permission ID from the previous pagination request.
-
 #           limit: Number of permissions to retrieve.
-
 #           order: The order in which to retrieve permissions.
-
 #           project_id: The ID of the project to get permissions for.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
@@ -164,7 +126,6 @@ class Permissions(SyncAPIResource):
 #             ),
 #             cast_to=PermissionRetrieveResponse,
 #         )
-
     def delete(
 #         self,
 #         permission_id: str,
@@ -177,31 +138,24 @@ class Permissions(SyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> PermissionDeleteResponse:
-
 #         **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-
 #         Organization owners can use this endpoint to delete a permission for a
 #         fine-tuned model checkpoint.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
 #             )
         if not permission_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `permission_id` but received {permission_id!r}")
         return self._delete(
@@ -211,28 +165,18 @@ class Permissions(SyncAPIResource):
 #             ),
 #             cast_to=PermissionDeleteResponse,
 #         )
-
-
 class AsyncPermissions(AsyncAPIResource):
 #     @cached_property
     def with_raw_response(self) -> AsyncPermissionsWithRawResponse:
-
 #         This property can be used as a prefix for any HTTP method call to return
 #         the raw response object instead of the parsed content.
-
 #         For more information, see https://www.github.com/openai/openai-python#accessing-raw-response-data-eg-headers
-
         return AsyncPermissionsWithRawResponse(self)
-
 #     @cached_property
     def with_streaming_response(self) -> AsyncPermissionsWithStreamingResponse:
-
 #         An alternative to `.with_raw_response` that doesnt eagerly read the response body.
-
 #         For more information, see https://www.github.com/openai/openai-python#with_streaming_response
-
         return AsyncPermissionsWithStreamingResponse(self)
-
     def create(
 #         self,
 #         fine_tuned_model_checkpoint: str,
@@ -245,26 +189,18 @@ class AsyncPermissions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> AsyncPaginator[PermissionCreateResponse, AsyncPage[PermissionCreateResponse]]:
-
 #         **NOTE:** Calling this endpoint requires an [admin API key](../admin-api-keys).
-
 #         This enables organization owners to share fine-tuned models with other projects
 #         in their organization.
-
 #         Args:
 #           project_ids: The project identifiers to grant access to.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
@@ -279,7 +215,6 @@ class AsyncPermissions(AsyncAPIResource):
 #             model=PermissionCreateResponse,
 #             method="post",
 #         )
-
 #     async def retrieve(
 #         self,
 #         fine_tuned_model_checkpoint: str,
@@ -295,32 +230,21 @@ class AsyncPermissions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> PermissionRetrieveResponse:
-
 #         **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-
 #         Organization owners can use this endpoint to view all permissions for a
 #         fine-tuned model checkpoint.
-
 #         Args:
 #           after: Identifier for the last permission ID from the previous pagination request.
-
 #           limit: Number of permissions to retrieve.
-
 #           order: The order in which to retrieve permissions.
-
 #           project_id: The ID of the project to get permissions for.
-
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
@@ -344,7 +268,6 @@ class AsyncPermissions(AsyncAPIResource):
 #             ),
 #             cast_to=PermissionRetrieveResponse,
 #         )
-
 #     async def delete(
 #         self,
 #         permission_id: str,
@@ -357,31 +280,24 @@ class AsyncPermissions(AsyncAPIResource):
 #         extra_body: Body | None = None,
 #         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
 #     ) -> PermissionDeleteResponse:
-
 #         **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-
 #         Organization owners can use this endpoint to delete a permission for a
 #         fine-tuned model checkpoint.
-
 #         Args:
 #           extra_headers: Send extra headers
-
 #           extra_query: Add additional query parameters to the request
-
 #           extra_body: Add additional JSON properties to the request
-
 #           timeout: Override the client-level default timeout for this request, in seconds
-
         if not fine_tuned_model_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 f"Expected a non-empty value for `fine_tuned_model_checkpoint` but received {fine_tuned_model_checkpoint!r}"
 #             )
         if not permission_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(f"Expected a non-empty value for `permission_id` but received {permission_id!r}")
         return await self._delete(
@@ -391,12 +307,9 @@ class AsyncPermissions(AsyncAPIResource):
 #             ),
 #             cast_to=PermissionDeleteResponse,
 #         )
-
-
 class PermissionsWithRawResponse:
     def __init__(self, permissions: Permissions) -> None:
 #         self._permissions = permissions
-
 #         self.create = _legacy_response.to_raw_response_wrapper(
 #             permissions.create,
 #         )
@@ -406,12 +319,9 @@ class PermissionsWithRawResponse:
 #         self.delete = _legacy_response.to_raw_response_wrapper(
 #             permissions.delete,
 #         )
-
-
 class AsyncPermissionsWithRawResponse:
     def __init__(self, permissions: AsyncPermissions) -> None:
 #         self._permissions = permissions
-
 #         self.create = _legacy_response.async_to_raw_response_wrapper(
 #             permissions.create,
 #         )
@@ -421,12 +331,9 @@ class AsyncPermissionsWithRawResponse:
 #         self.delete = _legacy_response.async_to_raw_response_wrapper(
 #             permissions.delete,
 #         )
-
-
 class PermissionsWithStreamingResponse:
     def __init__(self, permissions: Permissions) -> None:
 #         self._permissions = permissions
-
 #         self.create = to_streamed_response_wrapper(
 #             permissions.create,
 #         )
@@ -436,12 +343,9 @@ class PermissionsWithStreamingResponse:
 #         self.delete = to_streamed_response_wrapper(
 #             permissions.delete,
 #         )
-
-
 class AsyncPermissionsWithStreamingResponse:
     def __init__(self, permissions: AsyncPermissions) -> None:
 #         self._permissions = permissions
-
 #         self.create = async_to_streamed_response_wrapper(
 #             permissions.create,
 #         )

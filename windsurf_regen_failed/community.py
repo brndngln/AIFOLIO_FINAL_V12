@@ -1,35 +1,22 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 # Data structures to interact with Discussions and Pull Requests on the Hub.
-
 # See [the Discussions and Pull Requests guide](https://huggingface.co/docs/hub/repositories-pull-requests-discussions)
 for more information on Pull Requests, Discussions, and the community tab.
-
 from dataclasses import dataclass
 from datetime import datetime
 from typing import List, Literal, Optional, Union
-
 from . import constants
 from .utils import parse_datetime
-
-
 # DiscussionStatus = Literal["open", "closed", "merged", "draft"]
-
-
 # @dataclass
 class Discussion:
-
 #     A Discussion or Pull Request on the Hub.
-
 #     This dataclass is not intended to be instantiated directly.
-
 #     Attributes:
 #         title (`str`):
 #             The title of the Discussion / Pull Request
@@ -61,7 +48,6 @@ class Discussion:
 #             (property) Git reference to which changes can be pushed if this is a Pull Request, `None` otherwise.
 #         url (`str`):
 #             (property) URL of the discussion on the Hub.
-
 #     title: str
 #     status: DiscussionStatus
 #     num: int
@@ -71,36 +57,27 @@ class Discussion:
 #     is_pull_request: bool
 #     created_at: datetime
 #     endpoint: str
-
 #     @property
     def git_reference(self) -> Optional[str]:
-
 #         If this is a Pull Request , returns the git reference to which changes can be pushed.
 #         Returns `None` otherwise.
-
         if self.is_pull_request:
-      pass
-      pass
+    pass
+    pass
     pass
             return f"refs/pr/{self.num}"
         return None
-
 #     @property
     def url(self) -> str:
-
         if self.repo_type is None or self.repo_type == constants.REPO_TYPE_MODEL:
-      pass
-      pass
+    pass
+    pass
     pass
             return f"{self.endpoint}/{self.repo_id}/discussions/{self.num}"
         return f"{self.endpoint}/{self.repo_type}s/{self.repo_id}/discussions/{self.num}"
-
-
 # @dataclass
 class DiscussionWithDetails(Discussion):
-
 #     Subclass of [`Discussion`].
-
 #     Attributes:
 #         title (`str`):
 #             The title of the Discussion / Pull Request
@@ -146,25 +123,19 @@ class DiscussionWithDetails(Discussion):
 #             (property) Git reference to which changes can be pushed if this is a Pull Request, `None` otherwise.
 #         url (`str`):
 #             (property) URL of the discussion on the Hub.
-
 #     events: List["DiscussionEvent"]
 #     conflicting_files: Union[List[str], bool, None]
 #     target_branch: Optional[str]
 #     merge_commit_oid: Optional[str]
 #     diff: Optional[str]
-
-
 # @dataclass
 class DiscussionEvent:
-
 #     An event in a Discussion or Pull Request.
-
 #     Use concrete classes:
 #         * [`DiscussionComment`]
 #         * [`DiscussionStatusChange`]
 #         * [`DiscussionCommit`]
 #         * [`DiscussionTitleChange`]
-
 #     Attributes:
 #         id (`str`):
 #             The ID of the event. An hexadecimal string.
@@ -176,21 +147,15 @@ class DiscussionEvent:
 #         author (`str`):
 #             The username of the Discussion / Pull Request author.
 #             Can be `"deleted"` if the user has been deleted since.
-
 #     id: str
 #     type: str
 #     created_at: datetime
 #     author: str
-
 #     _event: dict
-
 # @dataclass
 class DiscussionComment(DiscussionEvent):
 #     A comment in a Discussion / Pull Request.
-
 #     Subclass of [`DiscussionEvent`].
-
-
 #     Attributes:
 #         id (`str`):
 #             The ID of the event. An hexadecimal string.
@@ -208,42 +173,28 @@ class DiscussionComment(DiscussionEvent):
 #             Whether or not this comment has been edited.
 #         hidden (`bool`):
 #             Whether or not this comment has been hidden.
-
 #     content: str
 #     edited: bool
 #     hidden: bool
-
 #     @property
     def rendered(self) -> str:
-
         return self._event["data"]["latest"]["html"]
-
 #     @property
     def last_edited_at(self) -> datetime:
-
         return parse_datetime(self._event["data"]["latest"]["updatedAt"])
-
 #     @property
     def last_edited_by(self) -> str:
-
         return self._event["data"]["latest"].get("author", {}).get("name", "deleted")
-
 #     @property
     def edit_history(self) -> List[dict]:
-
         return self._event["data"]["history"]
-
 #     @property
     def number_of_edits(self) -> int:
         return len(self.edit_history)
-
-
 # @dataclass
 class DiscussionStatusChange(DiscussionEvent):
 #     A change of status in a Discussion / Pull Request.
-
 #     Subclass of [`DiscussionEvent`].
-
 #     Attributes:
 #         id (`str`):
 #             The ID of the event. An hexadecimal string.
@@ -261,16 +212,11 @@ class DiscussionStatusChange(DiscussionEvent):
 #                 * `"open"`
 #                 * `"closed"`
 #                 * `"merged"` (only for Pull Requests )
-
 #     new_status: str
-
-
 # @dataclass
 class DiscussionCommit(DiscussionEvent):
 #     A commit in a Pull Request.
-
 #     Subclass of [`DiscussionEvent`].
-
 #     Attributes:
 #         id (`str`):
 #             The ID of the event. An hexadecimal string.
@@ -286,17 +232,12 @@ class DiscussionCommit(DiscussionEvent):
 #             The summary of the commit.
 #         oid (`str`):
 #             The OID / SHA of the commit, as a hexadecimal string.
-
 #     summary: str
 #     oid: str
-
-
 # @dataclass
 class DiscussionTitleChange(DiscussionEvent):
 #     A rename event in a Discussion / Pull Request.
-
 #     Subclass of [`DiscussionEvent`].
-
 #     Attributes:
 #         id (`str`):
 #             The ID of the event. An hexadecimal string.
@@ -312,17 +253,12 @@ class DiscussionTitleChange(DiscussionEvent):
 #             The previous title for the Discussion / Pull Request.
 #         new_title (`str`):
 #             The new title.
-
 #     old_title: str
 #     new_title: str
-
-
 def deserialize_event(event: dict) -> DiscussionEvent:
-
 #     event_id: str = event["id"]
 #     event_type: str = event["type"]
 #     created_at = parse_datetime(event["createdAt"])
-
 #     common_args = dict(
 #         id=event_id,
 #         type=event_type,
@@ -330,10 +266,9 @@ def deserialize_event(event: dict) -> DiscussionEvent:
 #         author=event.get("author", {}).get("name", "deleted"),
 #         _event=event,
 #     )
-
     if event_type == "comment":
-      pass
-      pass
+    pass
+    pass
     pass
         return DiscussionComment(
 #             **common_args,
@@ -342,16 +277,16 @@ def deserialize_event(event: dict) -> DiscussionEvent:
 #             content=event["data"]["latest"]["raw"],
 #         )
     if event_type == "status-change":
-      pass
-      pass
+    pass
+    pass
     pass
         return DiscussionStatusChange(
 #             **common_args,
 #             new_status=event["data"]["status"],
 #         )
     if event_type == "commit":
-      pass
-      pass
+    pass
+    pass
     pass
         return DiscussionCommit(
 #             **common_args,
@@ -359,13 +294,12 @@ def deserialize_event(event: dict) -> DiscussionEvent:
 #             oid=event["data"]["oid"],
 #         )
     if event_type == "title-change":
-      pass
-      pass
+    pass
+    pass
     pass
         return DiscussionTitleChange(
 #             **common_args,
 #             old_title=event["data"]["from"],
 #             new_title=event["data"]["to"],
 #         )
-
     return DiscussionEvent(**common_args)

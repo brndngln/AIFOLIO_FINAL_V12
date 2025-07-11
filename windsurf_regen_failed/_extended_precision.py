@@ -1,19 +1,14 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # A module with platform-specific extended precision
 # `numpy.number` subclasses.
-
 # The subclasses are defined here (instead of ``__init__.pyi``) such
 # that they can be imported conditionally via the numpys mypy plugin.
-
 from typing import TYPE_CHECKING
-
 import numpy as np
 from . import (
 #     _80Bit,
@@ -21,10 +16,9 @@ from . import (
 #     _128Bit,
 #     _256Bit,
 # )
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
 #     uint128 = np.unsignedinteger[_128Bit]
 #     uint256 = np.unsignedinteger[_256Bit]

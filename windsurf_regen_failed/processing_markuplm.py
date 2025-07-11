@@ -1,10 +1,7 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -21,27 +18,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Processor class for MarkupLM.
-
 from typing import Optional, Union
-
 from ...file_utils import TensorType
 from ...processing_utils import ProcessorMixin
 from ...tokenization_utils_base import BatchEncoding, PaddingStrategy, TruncationStrategy
-
-
 class MarkupLMProcessor(ProcessorMixin):
 #     r
 #     Constructs a MarkupLM processor which combines a MarkupLM feature extractor and a MarkupLM tokenizer into a single
 #     processor.
-
 #     [`MarkupLMProcessor`] offers all the functionalities you need to prepare data for the model.
-
 #     It first uses [`MarkupLMFeatureExtractor`] to extract nodes and corresponding xpaths from one or more HTML strings.
 #     Next, these are provided to [`MarkupLMTokenizer`] or [`MarkupLMTokenizerFast`], which turns them into token-level
 #     `input_ids`, `attention_mask`, `token_type_ids`, `xpath_tags_seq` and `xpath_subs_seq`.
-
 #     Args:
 #         feature_extractor (`MarkupLMFeatureExtractor`):
 #             An instance of [`MarkupLMFeatureExtractor`]. The feature extractor is a required input.
@@ -49,11 +38,9 @@ class MarkupLMProcessor(ProcessorMixin):
 #             An instance of [`MarkupLMTokenizer`] or [`MarkupLMTokenizerFast`]. The tokenizer is a required input.
 #         parse_html (`bool`, *optional*, defaults to `True`):
 #             Whether or not to use `MarkupLMFeatureExtractor` to parse HTML strings into nodes and corresponding xpaths.
-
 #     feature_extractor_class = "MarkupLMFeatureExtractor"
 #     tokenizer_class = ("MarkupLMTokenizer", "MarkupLMTokenizerFast")
 #     parse_html = True
-
     def __call__(
 #         self,
 #         html_strings=None,
@@ -77,60 +64,52 @@ class MarkupLMProcessor(ProcessorMixin):
         return_tensors: Optional[Union[str, TensorType]] = None,
 #         **kwargs,
 #     ) -> BatchEncoding:
-
 #         This method first forwards the `html_strings` argument to [`~MarkupLMFeatureExtractor.__call__`]. Next, it
 #         passes the `nodes` and `xpaths` aint with the additional arguments to [`~MarkupLMTokenizer.__call__`] and
         returns the output.
-
 #         Optionally, one can also provide a `text` argument which is passed aint as first sequence.
-
 #         Please refer to the docstring of the above two methods for more information.
-
         # first, create nodes and xpaths
         if self.parse_html:
-      pass
-      pass
+    pass
+    pass
     pass
             if html_strings is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Make sure to pass HTML strings in case `parse_html` is set to `True`")
-
             if nodes is not None or xpaths is not None or node_labels is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "Please dont pass nodes, xpaths nor node labels in case `parse_html` is set to `True`"
 #                 )
-
 #             features = self.feature_extractor(html_strings)
 #             nodes = features["nodes"]
 #             xpaths = features["xpaths"]
         else:
             if html_strings is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("You have passed HTML strings but `parse_html` is set to `False`.")
             if nodes is None or xpaths is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError("Make sure to pass nodes and xpaths in case `parse_html` is set to `False`")
-
         # # second, apply the tokenizer
         if questions is not None and self.parse_html:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(questions, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 questions = [questions]  # add batch dimension (as the feature extractor always adds a batch dimension)
-
 #         encoded_inputs = self.tokenizer(
 #             text=questions if questions is not None else nodes,
 #             text_pair=nodes if questions is not None else None,
@@ -152,23 +131,15 @@ class MarkupLMProcessor(ProcessorMixin):
             return_tensors=return_tensors,
 #             **kwargs,
 #         )
-
         return encoded_inputs
-
     def batch_decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to TrOCRTokenizers [`~PreTrainedTokenizer.batch_decode`]. Please refer
 #         to the docstring of this method for more information.
-
         return self.tokenizer.batch_decode(*args, **kwargs)
-
     def decode(self, *args, **kwargs):
-
 #         This method forwards all its arguments to TrOCRTokenizers [`~PreTrainedTokenizer.decode`]. Please refer to the
 #         docstring of this method for more information.
-
         return self.tokenizer.decode(*args, **kwargs)
-
 #     @property
     def model_input_names(self):
 #         tokenizer_input_names = self.tokenizer.model_input_names

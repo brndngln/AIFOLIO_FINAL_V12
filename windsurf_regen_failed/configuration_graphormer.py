@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,30 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
     # pcqm4mv1 now deprecated
 #     "graphormer-base": "https://huggingface.co/clefourrier/graphormer-base-pcqm4mv2/resolve/main/config.json",
     # See all Graphormer models at https://huggingface.co/models?filter=graphormer
 # }
-
-
 class GraphormerConfig(PretrainedConfig):
 #     r
 #     This is the configuration class to store the configuration of a [`~GraphormerModel`]. It is used to instantiate an
 #     Graphormer model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the Graphormer
 #     [graphormer-base-pcqm4mv1](https://huggingface.co/graphormer-base-pcqm4mv1) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         num_classes (`int`, *optional*, defaults to 1):
 #             Number of target classes or labels, set to n for binary classification of n tasks.
@@ -122,24 +110,18 @@ class GraphormerConfig(PretrainedConfig):
 #             Whether or not the model should return the last key/values attentions (not used by all models).
 #         traceable (`bool`, *optional*, defaults to `False`):
 #             Changes return value of the encoders inner_state to stacked tensors.
-
 #         Example:
 #             ```python
 #             >>> from transformers import GraphormerForGraphClassification, GraphormerConfig
-
 #             >>> # Initializing a Graphormer graphormer-base-pcqm4mv2 style configuration
 #             >>> configuration = GraphormerConfig()
-
 #             >>> # Initializing a model from the graphormer-base-pcqm4mv1 style configuration
 #             >>> model = GraphormerForGraphClassification(configuration)
-
 #             >>> # Accessing the model configuration
 #             >>> configuration = model.config
 #             ```
-
 #     model_type = "graphormer"
 #     keys_to_ignore_at_inference = ["past_key_values"]
-
     def __init__(
 #         self,
 #         num_classes: int = 1,
@@ -212,14 +194,12 @@ class GraphormerConfig(PretrainedConfig):
 #         self.traceable = traceable
 #         self.q_noise = q_noise
 #         self.qn_block_size = qn_block_size
-
         # These parameters are here for future extensions
         # atm, the model only supports self attention
 #         self.kdim = kdim
 #         self.vdim = vdim
 #         self.self_attention = self_attention
 #         self.bias = bias
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,

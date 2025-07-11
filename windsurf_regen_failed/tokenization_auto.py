@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,14 +19,12 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import importlib
 import json
 import os
 import warnings
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Dict, Optional, Tuple, Union
-
 from ...configuration_utils import PretrainedConfig
 from ...dynamic_module_utils import get_class_from_dynamic_module, resolve_trust_remote_code
 from ...tokenization_utils import PreTrainedTokenizer
@@ -43,22 +38,17 @@ from .configuration_auto import (
 #     model_type_to_module_name,
 #     replace_list_option_in_docstrings,
 # )
-
-
 if is_tokenizers_available():
-      pass
-      pass
+    pass
+    pass
     pass
     from ...tokenization_utils_fast import PreTrainedTokenizerFast
 else:
 #     PreTrainedTokenizerFast = None
-
-
 # logger = logging.get_logger(__name__)
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     # This significantly improves completion suggestion performance when
     # the transformers package is used with Microsofts Pylance language server.
@@ -454,49 +444,38 @@ else:
 #             ),
 #         ]
 #     )
-
-
-
-
 def tokenizer_class_from_name(class_name: str):
     if class_name == "PreTrainedTokenizerFast":
-      pass
-      pass
+    pass
+    pass
     pass
         return PreTrainedTokenizerFast
-
     for module_name, tokenizers in TOKENIZER_MAPPING_NAMES.items():
         if class_name in tokenizers:
-      pass
-      pass
     pass
-
+    pass
+    pass
 #             module = importlib.import_module(f".{module_name}", "transformers.models")
             try:
                 return getattr(module, class_name)
             except AttributeError:
 #                 continue
-
     for config, tokenizers in TOKENIZER_MAPPING._extra_content.items():
         for tokenizer in tokenizers:
             if getattr(tokenizer, "__name__", None) == class_name:
-      pass
-      pass
+    pass
+    pass
     pass
                 return tokenizer
-
     # We did not fine the class, but maybe its because a dep is missing. In that case, the class will be in the main
     # init and we return the proper dummy to get an appropriate error message.
 #     main_module = importlib.import_module("transformers")
     if hasattr(main_module, class_name):
-      pass
-      pass
+    pass
+    pass
     pass
         return getattr(main_module, class_name)
-
     return None
-
-
 def get_tokenizer_config(
 #     pretrained_model_name_or_path: Union[str, os.PathLike],
 #     cache_dir: Optional[Union[str, os.PathLike]] = None,
@@ -509,19 +488,15 @@ def get_tokenizer_config(
 #     subfolder: str = ,
 #     **kwargs,
 # ):
-
 #     Loads the tokenizer configuration from a pretrained model tokenizer configuration.
-
 #     Args:
 #         pretrained_model_name_or_path (`str` or `os.PathLike`):
 #             This can be either:
-
 #             - a string, the *model id* of a pretrained model configuration hosted inside a model repo on
 #               huggingface.co. Valid model ids can be located at the root-level, like `bert-base-uncased`, or namespaced
 #               under a user or organization name, like `dbmdz/bert-base-german-cased`.
 #             - a path to a *directory* containing a configuration file saved using the
 #               [`~PreTrainedTokenizer.save_pretrained`] method, e.g., `./my_model_directory/`.
-
 #         cache_dir (`str` or `os.PathLike`, *optional*):
 #             Path to a directory in which a downloaded pretrained model configuration should be cached if the standard
 #             cache should not be used.
@@ -545,47 +520,38 @@ def get_tokenizer_config(
 #         subfolder (`str`, *optional*, defaults to ``):
 #             In case the tokenizer config is located inside a subfolder of the model repo on huggingface.co, you can
 #             specify the folder name here.
-
 #     <Tip>
-
 #     Passing `token=True` is required when you want to use a private model.
-
 #     </Tip>
-
 #     Returns:
 #         `Dict`: The configuration of the tokenizer.
-
 #     Examples:
-
 #     ```python
     # Download configuration from huggingface.co and cache.
 #     tokenizer_config = get_tokenizer_config("bert-base-uncased")
     # This model does not have a tokenizer config so the result will be an empty dict.
 #     tokenizer_config = get_tokenizer_config("xlm-roberta-base")
-
     # Save a pretrained tokenizer locally and you can reload its config
     from transformers import AutoTokenizer
-
 #     tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 #     tokenizer.save_pretrained("tokenizer-test")
 #     tokenizer_config = get_tokenizer_config("tokenizer-test")
 #     ```
 #     use_auth_token = kwargs.pop("use_auth_token", None)
     if use_auth_token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         warnings.warn(
 #             "The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.",
 #             FutureWarning,
 #         )
         if token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("`token` and `use_auth_token` are both specified. Please set only the argument `token`.")
 #         token = use_auth_token
-
 #     commit_hash = kwargs.get("_commit_hash", None)
 #     resolved_config_file = cached_file(
 #         pretrained_model_name_or_path,
@@ -602,48 +568,37 @@ def get_tokenizer_config(
 #         _commit_hash=commit_hash,
 #     )
     if resolved_config_file is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         logger.info("Could not locate the tokenizer configuration file, will try to use the model config instead.")
         return {}
 #     commit_hash = extract_commit_hash(resolved_config_file, commit_hash)
-
     with open(resolved_config_file, encoding="utf-8") as reader:
 #         result = json.load(reader)
 #     result["_commit_hash"] = commit_hash
     return result
-
-
 class AutoTokenizer:
 #     r
 #     This is a generic tokenizer class that will be instantiated as one of the tokenizer classes of the library when
 #     created with the [`AutoTokenizer.from_pretrained`] class method.
-
 #     This class cannot be instantiated directly using `__init__()` (throws an error).
-
     def __init__(self):
 #         raise EnvironmentError(
 #             "AutoTokenizer is designed to be instantiated "
 #             "using the `AutoTokenizer.from_pretrained(pretrained_model_name_or_path)` method."
 #         )
-
 #     @classmethod
 #     @replace_list_option_in_docstrings(TOKENIZER_MAPPING_NAMES)
     def from_pretrained(cls, pretrained_model_name_or_path, *inputs, **kwargs):
-
 #         Instantiate one of the tokenizer classes of the library from a pretrained model vocabulary.
-
 #         The tokenizer class to instantiate is selected based on the `model_type` property of the config object (either
 #         passed as an argument or loaded from `pretrained_model_name_or_path` if possible), or when its missing, by
 #         falling back to using pattern matching on `pretrained_model_name_or_path`:
-
 #         List options
-
 #         Params:
 #             pretrained_model_name_or_path (`str` or `os.PathLike`):
 #                 Can be either:
-
 #                     - A string, the *model id* of a predefined tokenizer hosted inside a model repo on huggingface.co.
 #                       Valid model ids can be located at the root-level, like `bert-base-uncased`, or namespaced under a
 #                       user or organization name, like `dbmdz/bert-base-german-cased`.
@@ -689,75 +644,63 @@ class AutoTokenizer:
 #                 Will be passed to the Tokenizer `__init__()` method. Can be used to set special tokens like
 #                 `bos_token`, `eos_token`, `unk_token`, `sep_token`, `pad_token`, `cls_token`, `mask_token`,
 #                 `additional_special_tokens`. See parameters in the `__init__()` for more details.
-
 #         Examples:
-
 #         ```python
 #         >>> from transformers import AutoTokenizer
-
 #         >>> # Download vocabulary from huggingface.co and cache.
 #         >>> tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-
 #         >>> # Download vocabulary from huggingface.co (user-uploaded) and cache.
 #         >>> tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-german-cased")
-
 #         >>> # If vocabulary files are in a directory (e.g. tokenizer was saved using *save_pretrained('./test/saved_model/')*)
 #         >>> # tokenizer = AutoTokenizer.from_pretrained("./test/bert_saved_model/")
-
 #         >>> # Download vocabulary from huggingface.co and define model-specific arguments
 #         >>> tokenizer = AutoTokenizer.from_pretrained("roberta-base", add_prefix_space=True)
 #         ```
 #         use_auth_token = kwargs.pop("use_auth_token", None)
         if use_auth_token is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             warnings.warn(
 #                 "The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.",
 #                 FutureWarning,
 #             )
             if kwargs.get("token", None) is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     "`token` and `use_auth_token` are both specified. Please set only the argument `token`."
 #                 )
 #             kwargs["token"] = use_auth_token
-
 #         config = kwargs.pop("config", None)
 #         kwargs["_from_auto"] = True
-
 #         use_fast = kwargs.pop("use_fast", True)
 #         tokenizer_type = kwargs.pop("tokenizer_type", None)
 #         trust_remote_code = kwargs.pop("trust_remote_code", None)
-
         # First, lets see whether the tokenizer_type is passed so that we can leverage it
         if tokenizer_type is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             tokenizer_class = None
 #             tokenizer_class_tuple = TOKENIZER_MAPPING_NAMES.get(tokenizer_type, None)
-
             if tokenizer_class_tuple is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Passed `tokenizer_type` {tokenizer_type} does not exist. `tokenizer_type` should be one of "
 #                     f"{', '.join(c for c in TOKENIZER_MAPPING_NAMES.keys())}."
 #                 )
-
 #             tokenizer_class_name, tokenizer_fast_class_name = tokenizer_class_tuple
-
             if use_fast:
-      pass
-      pass
+    pass
+    pass
     pass
                 if tokenizer_fast_class_name is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     tokenizer_class = tokenizer_class_from_name(tokenizer_fast_class_name)
                 else:
@@ -766,73 +709,67 @@ class AutoTokenizer:
 #                         " Falling back to the slow version."
 #                     )
             if tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 tokenizer_class = tokenizer_class_from_name(tokenizer_class_name)
-
             if tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(f"Tokenizer class {tokenizer_class_name} is not currently imported.")
-
             return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
-
         # Next, lets try to use the tokenizer_config file to get the tokenizer class.
 #         tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
         if "_commit_hash" in tokenizer_config:
-      pass
-      pass
+    pass
+    pass
     pass
 #             kwargs["_commit_hash"] = tokenizer_config["_commit_hash"]
 #         config_tokenizer_class = tokenizer_config.get("tokenizer_class")
 #         tokenizer_auto_map = None
         if "auto_map" in tokenizer_config:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(tokenizer_config["auto_map"], (tuple, list)):
-      pass
-      pass
+    pass
+    pass
     pass
                 # Legacy format for dynamic tokenizers
 #                 tokenizer_auto_map = tokenizer_config["auto_map"]
             else:
 #                 tokenizer_auto_map = tokenizer_config["auto_map"].get("AutoTokenizer", None)
-
         # If that did not work, lets try to use the config.
         if config_tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
             if not isinstance(config, PretrainedConfig):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 config = AutoConfig.from_pretrained(
 #                     pretrained_model_name_or_path, trust_remote_code=trust_remote_code, **kwargs
 #                 )
 #             config_tokenizer_class = config.tokenizer_class
             if hasattr(config, "auto_map") and "AutoTokenizer" in config.auto_map:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 tokenizer_auto_map = config.auto_map["AutoTokenizer"]
-
 #         has_remote_code = tokenizer_auto_map is not None
 #         has_local_code = config_tokenizer_class is not None or type(config) in TOKENIZER_MAPPING
 #         trust_remote_code = resolve_trust_remote_code(
 #             trust_remote_code, pretrained_model_name_or_path, has_local_code, has_remote_code
 #         )
-
         if has_remote_code and trust_remote_code:
-      pass
-      pass
+    pass
+    pass
     pass
             if use_fast and tokenizer_auto_map[1] is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 class_ref = tokenizer_auto_map[1]
             else:
@@ -840,8 +777,8 @@ class AutoTokenizer:
 #             tokenizer_class = get_class_from_dynamic_module(class_ref, pretrained_model_name_or_path, **kwargs)
 #             _ = kwargs.pop("code_revision", None)
             if os.path.isdir(pretrained_model_name_or_path):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 tokenizer_class.register_for_auto_class()
             return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
@@ -849,31 +786,30 @@ class AutoTokenizer:
     pass
 #             tokenizer_class = None
             if use_fast and not config_tokenizer_class.endswith("Fast"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 tokenizer_class_candidate = f"{config_tokenizer_class}Fast"
 #                 tokenizer_class = tokenizer_class_from_name(tokenizer_class_candidate)
             if tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 tokenizer_class_candidate = config_tokenizer_class
 #                 tokenizer_class = tokenizer_class_from_name(tokenizer_class_candidate)
             if tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise ValueError(
 #                     f"Tokenizer class {tokenizer_class_candidate} does not exist or is not currently imported."
 #                 )
             return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
-
         # Otherwise we have to be creative.
         # if model is an encoder decoder, the encoder tokenizer class is used by default
         if isinstance(config, EncoderDecoderConfig):
-      pass
-      pass
+    pass
+    pass
     pass
             if type(config.decoder) is not type(config.encoder):  # noqa: E721
 #                 logger.warning(
@@ -883,22 +819,21 @@ class AutoTokenizer:
 #                     "specific tokenizer classes."
 #                 )
 #             config = config.encoder
-
 #         model_type = config_class_to_model_type(type(config).__name__)
         if model_type is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             tokenizer_class_py, tokenizer_class_fast = TOKENIZER_MAPPING[type(config)]
             if tokenizer_class_fast and (use_fast or tokenizer_class_py is None):
-      pass
-      pass
+    pass
+    pass
     pass
                 return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
             else:
                 if tokenizer_class_py is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                     return tokenizer_class_py.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
                 else:
@@ -906,17 +841,12 @@ class AutoTokenizer:
 #                         "This tokenizer cannot be instantiated. Please make sure you have `sentencepiece` installed "
 #                         "in order to use this tokenizer."
 #                     )
-
 #         raise ValueError(
 #             f"Unrecognized configuration class {config.__class__} to build an AutoTokenizer.\n"
 #             f"Model type should be one of {', '.join(c.__name__ for c in TOKENIZER_MAPPING.keys())}."
 #         )
-
     def register(config_class, slow_tokenizer_class=None, fast_tokenizer_class=None, exist_ok=False):
-
 #         Register a new tokenizer in this mapping.
-
-
 #         Args:
 #             config_class ([`PretrainedConfig`]):
 #                 The configuration corresponding to the model to register.
@@ -924,23 +854,21 @@ class AutoTokenizer:
 #                 The slow tokenizer to register.
 #             fast_tokenizer_class ([`PretrainedTokenizerFast`], *optional*):
 #                 The fast tokenizer to register.
-
         if slow_tokenizer_class is None and fast_tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You need to pass either a `slow_tokenizer_class` or a `fast_tokenizer_class")
         if slow_tokenizer_class is not None and issubclass(slow_tokenizer_class, PreTrainedTokenizerFast):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You passed a fast tokenizer in the `slow_tokenizer_class`.")
         if fast_tokenizer_class is not None and issubclass(fast_tokenizer_class, PreTrainedTokenizer):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("You passed a slow tokenizer in the `fast_tokenizer_class`.")
-
         if (
 #             slow_tokenizer_class is not None
 #             and fast_tokenizer_class is not None
@@ -953,20 +881,19 @@ class AutoTokenizer:
 #                 f"{fast_tokenizer_class.slow_tokenizer_class} and you passed {slow_tokenizer_class}. Fix one of those "
 #                 "so they match!"
 #             )
-
         # Avoid resetting a set slow/fast tokenizer if we are passing just the other ones.
         if config_class in TOKENIZER_MAPPING._extra_content:
-      pass
-      pass
+    pass
+    pass
     pass
 #             existing_slow, existing_fast = TOKENIZER_MAPPING[config_class]
             if slow_tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 slow_tokenizer_class = existing_slow
             if fast_tokenizer_class is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 fast_tokenizer_class = existing_fast

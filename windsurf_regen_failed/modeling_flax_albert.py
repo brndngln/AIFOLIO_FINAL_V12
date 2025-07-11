@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,9 +18,7 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Callable, Optional, Tuple
-
 import flax
 import flax.linen as nn
 import jax
@@ -32,7 +28,6 @@ from flax.core.frozen_dict import FrozenDict, freeze, unfreeze
 from flax.linen.attention import dot_product_attention_weights
 from flax.traverse_util import flatten_dict, unflatten_dict
 from jax import lax
-
 from ...modeling_flax_outputs import (
 #     FlaxBaseModelOutput,
 #     FlaxBaseModelOutputWithPooling,
@@ -51,19 +46,12 @@ from ...modeling_flax_utils import (
 # )
 from ...utils import ModelOutput, add_start_docstrings, add_start_docstrings_to_model_forward, logging
 from .configuration_albert import AlbertConfig
-
-
 # logger = logging.get_logger(__name__)
-
 # _CHECKPOINT_FOR_DOC = "albert-base-v2"
 # _CONFIG_FOR_DOC = "AlbertConfig"
-
-
 # @flax.struct.dataclass
 class FlaxAlbertForPreTrainingOutput(ModelOutput):
-
 #     Output type of [`FlaxAlbertForPreTraining`].
-
 #     Args:
 #         prediction_logits (`jnp.ndarray` of shape `(batch_size, sequence_length, config.vocab_size)`):
 #             Prediction scores of the language modeling head (scores for each vocabulary token before SoftMax).
@@ -73,37 +61,27 @@ class FlaxAlbertForPreTrainingOutput(ModelOutput):
 #         hidden_states (`tuple(jnp.ndarray)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
 #             Tuple of `jnp.ndarray` (one for the output of the embeddings + one for the output of each layer) of shape
 #             `(batch_size, sequence_length, hidden_size)`.
-
 #             Hidden-states of the model at the output of each layer plus the initial embedding outputs.
 #         attentions (`tuple(jnp.ndarray)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
 #             Tuple of `jnp.ndarray` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
 #             sequence_length)`.
-
 #             Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
 #             heads.
-
 #     prediction_logits: jnp.ndarray = None
 #     sop_logits: jnp.ndarray = None
 #     hidden_states: Optional[Tuple[jnp.ndarray]] = None
 #     attentions: Optional[Tuple[jnp.ndarray]] = None
-
-
-
 #     This model inherits from [`FlaxPreTrainedModel`]. Check the superclass documentation for the generic methods the
 #     library implements for all its model (such as downloading, saving and converting weights from PyTorch models)
-
 #     This model is also a
 #     [flax.linen.Module](https://flax.readthedocs.io/en/latest/api_reference/flax.linen/module.html) subclass. Use it as
 #     a regular Flax linen Module and refer to the Flax documentation for all matter related to general usage and
 #     behavior.
-
 #     Finally, this model supports inherent JAX features such as:
-
 #     - [Just-In-Time (JIT) compilation](https://jax.readthedocs.io/en/latest/jax.html#just-in-time-compilation-jit)
 #     - [Automatic Differentiation](https://jax.readthedocs.io/en/latest/jax.html#automatic-differentiation)
 #     - [Vectorization](https://jax.readthedocs.io/en/latest/jax.html#vectorization-vmap)
 #     - [Parallelization](https://jax.readthedocs.io/en/latest/jax.html#parallelization-pmap)
-
 #     Parameters:
 #         config ([`AlbertConfig`]): Model configuration class with all the parameters of the model.
 #             Initializing with a config file does not load the weights associated with the model, only the
@@ -111,50 +89,37 @@ class FlaxAlbertForPreTrainingOutput(ModelOutput):
 #         dtype (`jax.numpy.dtype`, *optional*, defaults to `jax.numpy.float32`):
 #             The data type of the computation. Can be one of `jax.numpy.float32`, `jax.numpy.float16` (on GPUs) and
 #             `jax.numpy.bfloat16` (on TPUs).
-
 #             This can be used to enable mixed-precision training or half-precision inference on GPUs or TPUs. If
 #             specified all the computation will be performed with the given `dtype`.
-
 #             **Note that this only specifies the dtype of the computation and does not influence the dtype of model
 #             parameters.**
-
 #             If you wish to change the dtype of the model parameters, see [`~FlaxPreTrainedModel.to_fp16`] and
 #             [`~FlaxPreTrainedModel.to_bf16`].
-
 #     Args:
 #         input_ids (`numpy.ndarray` of shape `({0})`):
 #             Indices of input sequence tokens in the vocabulary.
-
 #             Indices can be obtained using [`AutoTokenizer`]. See [`PreTrainedTokenizer.encode`] and
 #             [`PreTrainedTokenizer.__call__`] for details.
-
 #             [What are input IDs?](../glossary#input-ids)
 #         attention_mask (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Mask to avoid performing attention on padding token indices. Mask values selected in `[0, 1]`:
-
 #             - 1 for tokens that are **not masked**,
 #             - 0 for tokens that are **masked**.
-
 #             [What are attention masks?](../glossary#attention-mask)
 #         token_type_ids (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Segment token indices to indicate first and second portions of the inputs. Indices are selected in `[0,
 #             1]`:
-
 #             - 0 corresponds to a *sentence A* token,
 #             - 1 corresponds to a *sentence B* token.
-
 #             [What are token type IDs?](../glossary#token-type-ids)
 #         position_ids (`numpy.ndarray` of shape `({0})`, *optional*):
 #             Indices of positions of each input sequence tokens in the position embeddings. Selected in the range `[0,
 #             config.max_position_embeddings - 1]`.
         return_dict (`bool`, *optional*):
 #             Whether or not to return a [`~utils.ModelOutput`] instead of a plain tuple.
-
 class FlaxAlbertEmbeddings(nn.Module):
-
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.word_embeddings = nn.Embed(
 #             self.config.vocab_size,
@@ -173,36 +138,29 @@ class FlaxAlbertEmbeddings(nn.Module):
 #         )
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
-
     def __call__(self, input_ids, token_type_ids, position_ids, deterministic: bool = True):
         # Embed
 #         inputs_embeds = self.word_embeddings(input_ids.astype("i4"))
 #         position_embeds = self.position_embeddings(position_ids.astype("i4"))
 #         token_type_embeddings = self.token_type_embeddings(token_type_ids.astype("i4"))
-
         # Sum all embeddings
 #         hidden_states = inputs_embeds + token_type_embeddings + position_embeds
-
         # Layer Norm
 #         hidden_states = self.LayerNorm(hidden_states)
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
         return hidden_states
-
-
 class FlaxAlbertSelfAttention(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
         if self.config.hidden_size % self.config.num_attention_heads != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "`config.hidden_size`: {self.config.hidden_size} has to be a multiple of `config.num_attention_heads` "
 #                 "                   : {self.config.num_attention_heads}"
 #             )
-
 #         self.query = nn.Dense(
 #             self.config.hidden_size,
 #             dtype=self.dtype,
@@ -225,10 +183,8 @@ class FlaxAlbertSelfAttention(nn.Module):
 #         )
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
-
     def __call__(self, hidden_states, attention_mask, deterministic=True, output_attentions: bool = False):
 #         head_dim = self.config.hidden_size // self.config.num_attention_heads
-
 #         query_states = self.query(hidden_states).reshape(
 #             hidden_states.shape[:2] + (self.config.num_attention_heads, head_dim)
 #         )
@@ -238,11 +194,10 @@ class FlaxAlbertSelfAttention(nn.Module):
 #         key_states = self.key(hidden_states).reshape(
 #             hidden_states.shape[:2] + (self.config.num_attention_heads, head_dim)
 #         )
-
         # Convert the boolean attention mask to an attention bias.
         if attention_mask is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # attention mask in the form of attention bias
 #             attention_mask = jnp.expand_dims(attention_mask, axis=(-3, -2))
@@ -253,14 +208,12 @@ class FlaxAlbertSelfAttention(nn.Module):
 #             )
         else:
 #             attention_bias = None
-
 #         dropout_rng = None
         if not deterministic and self.config.attention_probs_dropout_prob > 0.0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dropout_rng = self.make_rng("dropout")
-
 #         attn_weights = dot_product_attention_weights(
 #             query_states,
 #             key_states,
@@ -272,21 +225,16 @@ class FlaxAlbertSelfAttention(nn.Module):
 #             dtype=self.dtype,
 #             precision=None,
 #         )
-
 #         attn_output = jnp.einsum("...hqk,...khd->...qhd", attn_weights, value_states)
 #         attn_output = attn_output.reshape(attn_output.shape[:2] + (-1,))
-
 #         projected_attn_output = self.dense(attn_output)
 #         projected_attn_output = self.dropout(projected_attn_output, deterministic=deterministic)
 #         layernormed_attn_output = self.LayerNorm(projected_attn_output + hidden_states)
 #         outputs = (layernormed_attn_output, attn_weights) if output_attentions else (layernormed_attn_output,)
         return outputs
-
-
 class FlaxAlbertLayer(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.attention = FlaxAlbertSelfAttention(self.config, dtype=self.dtype)
 #         self.ffn = nn.Dense(
@@ -302,7 +250,6 @@ class FlaxAlbertLayer(nn.Module):
 #         )
 #         self.full_layer_layer_norm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -319,26 +266,20 @@ class FlaxAlbertLayer(nn.Module):
 #         ffn_output = self.ffn_output(ffn_output)
 #         ffn_output = self.dropout(ffn_output, deterministic=deterministic)
 #         hidden_states = self.full_layer_layer_norm(ffn_output + attention_output)
-
 #         outputs = (hidden_states,)
-
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs += (attention_outputs[1],)
         return outputs
-
-
 class FlaxAlbertLayerCollection(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.layers = [
 #             FlaxAlbertLayer(self.config, name=str(i), dtype=self.dtype) for i in range(self.config.inner_group_num)
 #         ]
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -349,7 +290,6 @@ class FlaxAlbertLayerCollection(nn.Module):
 #     ):
 #         layer_hidden_states = ()
 #         layer_attentions = ()
-
         for layer_index, albert_layer in enumerate(self.layers):
 #             layer_output = albert_layer(
 #                 hidden_states,
@@ -358,41 +298,34 @@ class FlaxAlbertLayerCollection(nn.Module):
 #                 output_attentions=output_attentions,
 #             )
 #             hidden_states = layer_output[0]
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_attentions = layer_attentions + (layer_output[1],)
-
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 layer_hidden_states = layer_hidden_states + (hidden_states,)
-
 #         outputs = (hidden_states,)
         if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = outputs + (layer_hidden_states,)
         if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             outputs = outputs + (layer_attentions,)
         return outputs  # last-layer hidden state, (layer hidden states), (layer attentions)
-
-
 class FlaxAlbertLayerCollections(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
 #     layer_index: Optional[str] = None
-
     def setup(self):
 #         self.albert_layers = FlaxAlbertLayerCollection(self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -409,18 +342,14 @@ class FlaxAlbertLayerCollections(nn.Module):
 #             output_hidden_states=output_hidden_states,
 #         )
         return outputs
-
-
 class FlaxAlbertLayerGroups(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.layers = [
 #             FlaxAlbertLayerCollections(self.config, name=str(i), layer_index=str(i), dtype=self.dtype)
             for i in range(self.config.num_hidden_groups)
 #         ]
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -432,7 +361,6 @@ class FlaxAlbertLayerGroups(nn.Module):
 #     ):
 #         all_attentions = () if output_attentions else None
 #         all_hidden_states = (hidden_states,) if output_hidden_states else None
-
         for i in range(self.config.num_hidden_layers):
             # Index of the hidden group
 #             group_idx = int(i / (self.config.num_hidden_layers / self.config.num_hidden_groups))
@@ -444,33 +372,27 @@ class FlaxAlbertLayerGroups(nn.Module):
 #                 output_hidden_states=output_hidden_states,
 #             )
 #             hidden_states = layer_group_output[0]
-
             if output_attentions:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_attentions = all_attentions + layer_group_output[-1]
-
             if output_hidden_states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 all_hidden_states = all_hidden_states + (hidden_states,)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return tuple(v for v in [hidden_states, all_hidden_states, all_attentions] if v is not None)
         return FlaxBaseModelOutput(
 #             last_hidden_state=hidden_states, hidden_states=all_hidden_states, attentions=all_attentions
 #         )
-
-
 class FlaxAlbertEncoder(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
-
     def setup(self):
 #         self.embedding_hidden_mapping_in = nn.Dense(
 #             self.config.hidden_size,
@@ -478,7 +400,6 @@ class FlaxAlbertEncoder(nn.Module):
 #             dtype=self.dtype,
 #         )
 #         self.albert_layer_groups = FlaxAlbertLayerGroups(self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         hidden_states,
@@ -496,59 +417,44 @@ class FlaxAlbertEncoder(nn.Module):
 #             output_attentions=output_attentions,
 #             output_hidden_states=output_hidden_states,
 #         )
-
-
 class FlaxAlbertOnlyMLMHead(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
 #     bias_init: Callable[..., np.ndarray] = jax.nn.initializers.zeros
-
     def setup(self):
 #         self.dense = nn.Dense(self.config.embedding_size, dtype=self.dtype)
 #         self.activation = ACT2FN[self.config.hidden_act]
 #         self.LayerNorm = nn.LayerNorm(epsilon=self.config.layer_norm_eps, dtype=self.dtype)
 #         self.decoder = nn.Dense(self.config.vocab_size, dtype=self.dtype, use_bias=False)
 #         self.bias = self.param("bias", self.bias_init, (self.config.vocab_size,))
-
     def __call__(self, hidden_states, shared_embedding=None):
 #         hidden_states = self.dense(hidden_states)
 #         hidden_states = self.activation(hidden_states)
 #         hidden_states = self.LayerNorm(hidden_states)
-
         if shared_embedding is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             hidden_states = self.decoder.apply({"params": {"kernel": shared_embedding.T}}, hidden_states)
         else:
 #             hidden_states = self.decoder(hidden_states)
-
 #         hidden_states += self.bias
         return hidden_states
-
-
 class FlaxAlbertSOPHead(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.dropout = nn.Dropout(self.config.classifier_dropout_prob)
 #         self.classifier = nn.Dense(2, dtype=self.dtype)
-
     def __call__(self, pooled_output, deterministic=True):
 #         pooled_output = self.dropout(pooled_output, deterministic=deterministic)
 #         logits = self.classifier(pooled_output)
         return logits
-
-
 class FlaxAlbertPreTrainedModel(FlaxPreTrainedModel):
-
 #     An abstract class to handle weights initialization and a simple interface for downloading and loading pretrained
 #     models.
-
 #     config_class = AlbertConfig
 #     base_model_prefix = "albert"
-
     def __init__(
 #         self,
 #         config: AlbertConfig,
@@ -559,24 +465,20 @@ class FlaxAlbertPreTrainedModel(FlaxPreTrainedModel):
 #         **kwargs,
 #     ):
 #         super().__init__(config, module, input_shape=input_shape, seed=seed, dtype=dtype, _do_init=_do_init)
-
     def init_weights(self, rng: jax.random.PRNGKey, input_shape: Tuple, params: FrozenDict = None) -> FrozenDict:
         # init input tensors
 #         input_ids = jnp.zeros(input_shape, dtype="i4")
 #         token_type_ids = jnp.zeros_like(input_ids)
 #         position_ids = jnp.broadcast_to(jnp.arange(jnp.atleast_2d(input_ids).shape[-1]), input_shape)
 #         attention_mask = jnp.ones_like(input_ids)
-
 #         params_rng, dropout_rng = jax.random.split(rng)
 #         rngs = {"params": params_rng, "dropout": dropout_rng}
-
 #         random_params = self.module.init(
 #             rngs, input_ids, attention_mask, token_type_ids, position_ids, return_dict=False
 #         )["params"]
-
         if params is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             random_params = flatten_dict(unfreeze(random_params))
 #             params = flatten_dict(unfreeze(params))
@@ -586,7 +488,6 @@ class FlaxAlbertPreTrainedModel(FlaxPreTrainedModel):
             return freeze(unflatten_dict(params))
         else:
             return random_params
-
 #     @add_start_docstrings_to_model_forward(ALBERT_INPUTS_DOCSTRING.format("batch_size, sequence_length"))
     def __call__(
 #         self,
@@ -606,34 +507,29 @@ class FlaxAlbertPreTrainedModel(FlaxPreTrainedModel):
 #             output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
 #         )
         return_dict = return_dict if return_dict is not None else self.config.return_dict
-
         # init input tensors if not passed
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             token_type_ids = jnp.zeros_like(input_ids)
-
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = jnp.broadcast_to(jnp.arange(jnp.atleast_2d(input_ids).shape[-1]), input_ids.shape)
-
         if attention_mask is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             attention_mask = jnp.ones_like(input_ids)
-
         # Handle any PRNG if needed
 #         rngs = {}
         if dropout_rng is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rngs["dropout"] = dropout_rng
-
         return self.module.apply(
 #             {"params": params or self.params},
 #             jnp.array(input_ids, dtype="i4"),
@@ -646,19 +542,16 @@ class FlaxAlbertPreTrainedModel(FlaxPreTrainedModel):
             return_dict,
 #             rngs=rngs,
 #         )
-
-
 class FlaxAlbertModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32  # the dtype of the computation
 #     add_pooling_layer: bool = True
-
     def setup(self):
 #         self.embeddings = FlaxAlbertEmbeddings(self.config, dtype=self.dtype)
 #         self.encoder = FlaxAlbertEncoder(self.config, dtype=self.dtype)
         if self.add_pooling_layer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.pooler = nn.Dense(
 #                 self.config.hidden_size,
@@ -670,7 +563,6 @@ class FlaxAlbertModule(nn.Module):
         else:
 #             self.pooler = None
 #             self.pooler_activation = None
-
     def __call__(
 #         self,
 #         input_ids,
@@ -684,20 +576,17 @@ class FlaxAlbertModule(nn.Module):
 #     ):
         # make sure `token_type_ids` is correctly initialized when not passed
         if token_type_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             token_type_ids = jnp.zeros_like(input_ids)
-
         # make sure `position_ids` is correctly initialized when not passed
         if position_ids is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             position_ids = jnp.broadcast_to(jnp.arange(jnp.atleast_2d(input_ids).shape[-1]), input_ids.shape)
-
 #         hidden_states = self.embeddings(input_ids, token_type_ids, position_ids, deterministic=deterministic)
-
 #         outputs = self.encoder(
 #             hidden_states,
 #             attention_mask,
@@ -708,52 +597,42 @@ class FlaxAlbertModule(nn.Module):
 #         )
 #         hidden_states = outputs[0]
         if self.add_pooling_layer:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pooled = self.pooler(hidden_states[:, 0])
 #             pooled = self.pooler_activation(pooled)
         else:
 #             pooled = None
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             # if pooled is None, dont return it
             if pooled is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 return (hidden_states,) + outputs[1:]
             return (hidden_states, pooled) + outputs[1:]
-
         return FlaxBaseModelOutputWithPooling(
 #             last_hidden_state=hidden_states,
 #             pooler_output=pooled,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
 #     "The bare Albert Model transformer outputting raw hidden-states without any specific head on top.",
 # )
 class FlaxAlbertModel(FlaxAlbertPreTrainedModel):
-
-
 # append_call_sample_docstring(FlaxAlbertModel, _CHECKPOINT_FOR_DOC, FlaxBaseModelOutputWithPooling, _CONFIG_FOR_DOC)
-
-
 class FlaxAlbertForPreTrainingModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, dtype=self.dtype)
 #         self.predictions = FlaxAlbertOnlyMLMHead(config=self.config, dtype=self.dtype)
 #         self.sop_classifier = FlaxAlbertSOPHead(config=self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -776,78 +655,58 @@ class FlaxAlbertForPreTrainingModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shared_embedding = self.albert.variables["params"]["embeddings"]["word_embeddings"]["embedding"]
         else:
 #             shared_embedding = None
-
 #         hidden_states = outputs[0]
 #         pooled_output = outputs[1]
-
 #         prediction_scores = self.predictions(hidden_states, shared_embedding=shared_embedding)
 #         sop_scores = self.sop_classifier(pooled_output, deterministic=deterministic)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (prediction_scores, sop_scores) + outputs[2:]
-
         return FlaxAlbertForPreTrainingOutput(
 #             prediction_logits=prediction_scores,
 #             sop_logits=sop_scores,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     Albert Model with two heads on top as done during the pretraining: a `masked language modeling` head and a
 #     `sentence order prediction (classification)` head.
 """    """,
 # )
 class FlaxAlbertForPreTraining(FlaxAlbertPreTrainedModel):
-
-
 # FLAX_ALBERT_FOR_PRETRAINING_DOCSTRING =
 #     Returns:
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import AutoTokenizer, FlaxAlbertForPreTraining
-
 #     >>> tokenizer = AutoTokenizer.from_pretrained("albert-base-v2")
 #     >>> model = FlaxAlbertForPreTraining.from_pretrained("albert-base-v2")
-
 #     >>> inputs = tokenizer("Hello, my dog is cute", return_tensors="np")
 #     >>> outputs = model(**inputs)
-
 #     >>> prediction_logits = outputs.prediction_logits
 #     >>> seq_relationship_logits = outputs.sop_logits
 #     ```
-
 # overwrite_call_docstring(
 #     FlaxAlbertForPreTraining,
 # )
 # append_replace_return_docstrings(
 #     FlaxAlbertForPreTraining, output_type=FlaxAlbertForPreTrainingOutput, config_class=_CONFIG_FOR_DOC
 # )
-
-
 class FlaxAlbertForMaskedLMModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, add_pooling_layer=False, dtype=self.dtype)
 #         self.predictions = FlaxAlbertOnlyMLMHead(config=self.config, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -870,45 +729,34 @@ class FlaxAlbertForMaskedLMModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
         if self.config.tie_word_embeddings:
-      pass
-      pass
+    pass
+    pass
     pass
 #             shared_embedding = self.albert.variables["params"]["embeddings"]["word_embeddings"]["embedding"]
         else:
 #             shared_embedding = None
-
         # Compute the prediction scores
 #         logits = self.predictions(hidden_states, shared_embedding=shared_embedding)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxMaskedLMOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings."""Albert Model with a `language modeling` head on top.""", ALBERT_START_DOCSTRING)
 class FlaxAlbertForMaskedLM(FlaxAlbertPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxAlbertForMaskedLM, _CHECKPOINT_FOR_DOC, FlaxMaskedLMOutput, _CONFIG_FOR_DOC, revision="refs/pr/11"
 # )
-
-
 class FlaxAlbertForSequenceClassificationModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, dtype=self.dtype)
         classifier_dropout = (
@@ -921,7 +769,6 @@ class FlaxAlbertForSequenceClassificationModule(nn.Module):
 #             self.config.num_labels,
 #             dtype=self.dtype,
 #         )
-
     def __call__(
 #         self,
 #         input_ids,
@@ -944,50 +791,38 @@ class FlaxAlbertForSequenceClassificationModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = outputs[1]
 #         pooled_output = self.dropout(pooled_output, deterministic=deterministic)
 #         logits = self.classifier(pooled_output)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[2:]
-
         return FlaxSequenceClassifierOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     Albert Model transformer with a sequence classification/regression head on top (a linear layer on top of the pooled
 #     output) e.g. for GLUE tasks.
 """    """,
 # )
 class FlaxAlbertForSequenceClassification(FlaxAlbertPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxAlbertForSequenceClassification,
 #     _CHECKPOINT_FOR_DOC,
 #     FlaxSequenceClassifierOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 class FlaxAlbertForMultipleChoiceModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, dtype=self.dtype)
 #         self.dropout = nn.Dropout(rate=self.config.hidden_dropout_prob)
 #         self.classifier = nn.Dense(1, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1004,7 +839,6 @@ class FlaxAlbertForMultipleChoiceModule(nn.Module):
 #         attention_mask = attention_mask.reshape(-1, attention_mask.shape[-1]) if attention_mask is not None else None
 #         token_type_ids = token_type_ids.reshape(-1, token_type_ids.shape[-1]) if token_type_ids is not None else None
 #         position_ids = position_ids.reshape(-1, position_ids.shape[-1]) if position_ids is not None else None
-
         # Model
 #         outputs = self.albert(
 #             input_ids,
@@ -1016,35 +850,26 @@ class FlaxAlbertForMultipleChoiceModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         pooled_output = outputs[1]
 #         pooled_output = self.dropout(pooled_output, deterministic=deterministic)
 #         logits = self.classifier(pooled_output)
-
 #         reshaped_logits = logits.reshape(-1, num_choices)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (reshaped_logits,) + outputs[2:]
-
         return FlaxMultipleChoiceModelOutput(
 #             logits=reshaped_logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     Albert Model with a multiple choice classification head on top (a linear layer on top of the pooled output and a
 #     softmax) e.g. for RocStories/SWAG tasks.
 """    """,
 # )
 class FlaxAlbertForMultipleChoice(FlaxAlbertPreTrainedModel):
-
-
 # overwrite_call_docstring(
 #     FlaxAlbertForMultipleChoice, ALBERT_INPUTS_DOCSTRING.format("batch_size, num_choices, sequence_length")
 # )
@@ -1054,12 +879,9 @@ class FlaxAlbertForMultipleChoice(FlaxAlbertPreTrainedModel):
 #     FlaxMultipleChoiceModelOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 class FlaxAlbertForTokenClassificationModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, dtype=self.dtype, add_pooling_layer=False)
         classifier_dropout = (
@@ -1069,7 +891,6 @@ class FlaxAlbertForTokenClassificationModule(nn.Module):
 #         )
 #         self.dropout = nn.Dropout(rate=classifier_dropout)
 #         self.classifier = nn.Dense(self.config.num_labels, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1092,49 +913,37 @@ class FlaxAlbertForTokenClassificationModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
 #         hidden_states = self.dropout(hidden_states, deterministic=deterministic)
 #         logits = self.classifier(hidden_states)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (logits,) + outputs[1:]
-
         return FlaxTokenClassifierOutput(
 #             logits=logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     Albert Model with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for
 #     Named-Entity-Recognition (NER) tasks.
 """    """,
 # )
 class FlaxAlbertForTokenClassification(FlaxAlbertPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxAlbertForTokenClassification,
 #     _CHECKPOINT_FOR_DOC,
 #     FlaxTokenClassifierOutput,
 #     _CONFIG_FOR_DOC,
 # )
-
-
 class FlaxAlbertForQuestionAnsweringModule(nn.Module):
 #     config: AlbertConfig
 #     dtype: jnp.dtype = jnp.float32
-
     def setup(self):
 #         self.albert = FlaxAlbertModule(config=self.config, dtype=self.dtype, add_pooling_layer=False)
 #         self.qa_outputs = nn.Dense(self.config.num_labels, dtype=self.dtype)
-
     def __call__(
 #         self,
 #         input_ids,
@@ -1157,37 +966,28 @@ class FlaxAlbertForQuestionAnsweringModule(nn.Module):
 #             output_hidden_states=output_hidden_states,
             return_dict=return_dict,
 #         )
-
 #         hidden_states = outputs[0]
-
 #         logits = self.qa_outputs(hidden_states)
 #         start_logits, end_logits = logits.split(self.config.num_labels, axis=-1)
 #         start_logits = start_logits.squeeze(-1)
 #         end_logits = end_logits.squeeze(-1)
-
         if not return_dict:
-      pass
-      pass
+    pass
+    pass
     pass
             return (start_logits, end_logits) + outputs[1:]
-
         return FlaxQuestionAnsweringModelOutput(
 #             start_logits=start_logits,
 #             end_logits=end_logits,
 #             hidden_states=outputs.hidden_states,
 #             attentions=outputs.attentions,
 #         )
-
-
 # @add_start_docstrings(
-
 #     Albert Model with a span classification head on top for extractive question-answering tasks like SQuAD (a linear
 #     layers on top of the hidden-states output to compute `span start logits` and `span end logits`).
 #     "",
 # )
 class FlaxAlbertForQuestionAnswering(FlaxAlbertPreTrainedModel):
-
-
 # append_call_sample_docstring(
 #     FlaxAlbertForQuestionAnswering,
 #     _CHECKPOINT_FOR_DOC,

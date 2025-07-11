@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,42 +19,29 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Any, Mapping, Optional
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...onnx.utils import compute_effective_axis_dimension
 from ...utils import logging
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ...processing_utils import ProcessorMixin
     from ...utils import TensorType
-
-
 # logger = logging.get_logger(__name__)
-
 #     "microsoft/layoutlmv3-base": "https://huggingface.co/microsoft/layoutlmv3-base/resolve/main/config.json",
 # }
-
-
 class LayoutLMv3Config(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`LayoutLMv3Model`]. It is used to instantiate an
 #     LayoutLMv3 model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the LayoutLMv3
 #     [microsoft/layoutlmv3-base](https://huggingface.co/microsoft/layoutlmv3-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 50265):
 #             Vocabulary size of the LayoutLMv3 model. Defines the number of different tokens that can be represented by
@@ -115,24 +99,17 @@ class LayoutLMv3Config(PretrainedConfig):
 #             The size (resolution) of the patches.
         classifier_dropout (`float`, *optional*):
 #             The dropout ratio for the classification head.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import LayoutLMv3Config, LayoutLMv3Model
-
 #     >>> # Initializing a LayoutLMv3 microsoft/layoutlmv3-base style configuration
 #     >>> configuration = LayoutLMv3Config()
-
 #     >>> # Initializing a model (with random weights) from the microsoft/layoutlmv3-base style configuration
 #     >>> model = LayoutLMv3Model(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "layoutlmv3"
-
     def __init__(
 #         self,
 #         vocab_size=50265,
@@ -200,17 +177,14 @@ class LayoutLMv3Config(PretrainedConfig):
 #         self.num_channels = num_channels
 #         self.patch_size = patch_size
 #         self.classifier_dropout = classifier_dropout
-
-
 class LayoutLMv3OnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.12")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         # The order of inputs is different for question answering and sequence classification
         if self.task in ["question-answering", "sequence-classification"]:
-      pass
-      pass
+    pass
+    pass
     pass
             return OrderedDict(
 #                 [
@@ -229,15 +203,12 @@ class LayoutLMv3OnnxConfig(OnnxConfig):
 #                     ("pixel_values", {0: "batch", 1: "num_channels"}),
 #                 ]
 #             )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-5
-
 #     @property
     def default_onnx_opset(self) -> int:
         return 12
-
     def generate_dummy_inputs(
 #         self,
 #         processor: "ProcessorMixin",
@@ -249,9 +220,7 @@ class LayoutLMv3OnnxConfig(OnnxConfig):
 #         image_width: int = 40,
 #         image_height: int = 40,
 #     ) -> Mapping[str, Any]:
-
 #         Generate inputs to provide to the ONNX exporter for the specific framework
-
 #         Args:
 #             processor ([`ProcessorMixin`]):
 #                 The processor associated with this model configuration.
@@ -269,13 +238,10 @@ class LayoutLMv3OnnxConfig(OnnxConfig):
 #                 The width of the generated images.
 #             image_height (`int`, *optional*, defaults to 40):
 #                 The height of the generated images.
-
 #         Returns:
 #             Mapping[str, Any]: holding the kwargs to provide to the models forward function
-
         # A dummy image is used so OCR should not be applied
 #         setattr(processor.image_processor, "apply_ocr", False)
-
         # If dynamic axis (-1) we forward with a fixed dimension of 2 samples to avoid optimizations made by ONNX
 #         batch_size = compute_effective_axis_dimension(
 #             batch_size, fixed_dimension=OnnxConfig.default_fixed_batch, num_token_to_add=0
@@ -287,14 +253,11 @@ class LayoutLMv3OnnxConfig(OnnxConfig):
 #         )
         # Generate dummy inputs according to compute batch and sequence
 #         dummy_text = [[" ".join([processor.tokenizer.unk_token]) * seq_length]] * batch_size
-
         # Generate dummy bounding boxes
 #         dummy_bboxes = [[[48, 84, 73, 128]]] * batch_size
-
         # If dynamic axis (-1) we forward with a fixed dimension of 2 samples to avoid optimizations made by ONNX
         # batch_size = compute_effective_axis_dimension(batch_size, fixed_dimension=OnnxConfig.default_fixed_batch)
 #         dummy_image = self._generate_dummy_images(batch_size, num_channels, image_height, image_width)
-
 #         inputs = dict(
 #             processor(
 #                 dummy_image,
@@ -303,5 +266,4 @@ class LayoutLMv3OnnxConfig(OnnxConfig):
                 return_tensors=framework,
 #             )
 #         )
-
         return inputs

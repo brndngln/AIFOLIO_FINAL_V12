@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import time
@@ -11,35 +9,22 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from typing import TYPE_CHECKING, Dict, Optional, Union
-
 from huggingface_hub.errors import InferenceEndpointError, InferenceEndpointTimeoutError
-
 from .utils import get_session, logging, parse_datetime
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from .hf_api import HfApi
     from .inference._client import InferenceClient
     from .inference._generated._async_client import AsyncInferenceClient
-
 # logger = logging.get_logger(__name__)
-
-
 class InferenceEndpointStatus(str, Enum):
-
-
 class InferenceEndpointType(str, Enum):
 #     PUBlIC = "public"
-
-
 # @dataclass
 class InferenceEndpoint:
-
 #     Contains information about a deployed Inference Endpoint.
-
 #     Args:
 #         name (`str`):
 #             The unique name of the Inference Endpoint.
@@ -68,40 +53,33 @@ class InferenceEndpoint:
 #         token (`str` or `bool`, *optional*):
 #             Authentication token for the Inference Endpoint, if set when requesting the API. Will default to the
 #             locally saved token if not provided. Pass `token=False` if you dont want to send your token to the server.
-
 #     Example:
 #         ```python
 #         >>> from huggingface_hub import get_inference_endpoint
 #         >>> endpoint = get_inference_endpoint("my-text-to-image")
 #         >>> endpoint
 #         InferenceEndpoint(name='my-text-to-image', ...)
-
         # Get status
 #         >>> endpoint.status
 #         'running'
 #         >>> endpoint.url
 #         'https://my-text-to-image.region.vendor.endpoints.huggingface.cloud'
-
         # Run inference
 #         >>> endpoint.client.text_to_image(...)
-
         # Pause endpoint to save $$$
 #         >>> endpoint.pause()
-
         # ...
         # Resume and wait for deployment
 #         >>> endpoint.resume()
 #         >>> endpoint.wait()
 #         >>> endpoint.client.text_to_image(...)
 #         ```
-
     # Field in __repr__
 #     name: str = field(init=False)
 #     namespace: str
 #     repository: str = field(init=False)
 #     status: InferenceEndpointStatus = field(init=False)
 #     url: Optional[str] = field(init=False)
-
     # Other fields
 #     framework: str = field(repr=False, init=False)
 #     revision: str = field(repr=False, init=False)
@@ -109,176 +87,146 @@ class InferenceEndpoint:
 #     created_at: datetime = field(repr=False, init=False)
 #     updated_at: datetime = field(repr=False, init=False)
 #     type: InferenceEndpointType = field(repr=False, init=False)
-
     # Raw dict from the API
 #     raw: Dict = field(repr=False)
-
     # Internal fields
 #     _token: Union[str, bool, None] = field(repr=False, compare=False)
 #     _api: "HfApi" = field(repr=False, compare=False)
-
 #     @classmethod
     def from_raw(
 #         cls, raw: Dict, namespace: str, token: Union[str, bool, None] = None, api: Optional["HfApi"] = None
 #     ) -> "InferenceEndpoint":
-
         if api is None:
-      pass
-      pass
+    pass
+    pass
     pass
             from .hf_api import HfApi
-
 #             api = HfApi()
         if token is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             token = api.token
-
         # All other fields are populated in __post_init__
         return cls(raw=raw, namespace=namespace, _token=token, _api=api)
-
     def __post_init__(self) -> None:
-
 #         self._populate_from_raw()
-
 #     @property
     def client(self) -> "InferenceClient":
 #         Returns a client to make predictions on this Inference Endpoint.
-
 #         Returns:
 #             [`InferenceClient`]: an inference client pointing to the deployed endpoint.
-
 #         Raises:
 #             [`InferenceEndpointError`]: If the Inference Endpoint is not yet deployed.
-
         if self.url is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise InferenceEndpointError(
 #                 "Cannot create a client for this Inference Endpoint as it is not yet deployed. "
 #                 "Please wait for the Inference Endpoint to be deployed using `endpoint.wait()` and try again."
 #             )
         from .inference._client import InferenceClient
-
         return InferenceClient(
 #             model=self.url,
 #             token=self._token,  # type: ignore[arg-type] # boolean token shouldn't be possible. In practice it's ok.
 #         )
-
 #     @property
     def async_client(self) -> "AsyncInferenceClient":
 #         Returns a client to make predictions on this Inference Endpoint.
-
 #         Returns:
 #             [`AsyncInferenceClient`]: an asyncio-compatible inference client pointing to the deployed endpoint.
-
 #         Raises:
 #             [`InferenceEndpointError`]: If the Inference Endpoint is not yet deployed.
-
         if self.url is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise InferenceEndpointError(
 #                 "Cannot create a client for this Inference Endpoint as it is not yet deployed. "
 #                 "Please wait for the Inference Endpoint to be deployed using `endpoint.wait()` and try again."
 #             )
         from .inference._generated._async_client import AsyncInferenceClient
-
         return AsyncInferenceClient(
 #             model=self.url,
 #             token=self._token,  # type: ignore[arg-type] # boolean token shouldn't be possible. In practice it's ok.
 #         )
-
     def wait(self, timeout: Optional[int] = None, refresh_every: int = 5) -> "InferenceEndpoint":
 #         Wait for the Inference Endpoint to be deployed.
-
 #         Information from the server will be fetched every 1s. If the Inference Endpoint is not deployed after `timeout`
 #         seconds, a [`InferenceEndpointTimeoutError`] will be raised. The [`InferenceEndpoint`] will be mutated in place with the latest
 #         data.
-
 #         Args:
 #             timeout (`int`, *optional*):
 #                 The maximum time to wait for the Inference Endpoint to be deployed, in seconds. If `None`, will wait
 #                 indefinitely.
 #             refresh_every (`int`, *optional*):
 #                 The time to wait between each fetch of the Inference Endpoint status, in seconds. Defaults to 5s.
-
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
 #         Raises:
 #             [`InferenceEndpointError`]
 #                 If the Inference Endpoint ended up in a failed state.
 #             [`InferenceEndpointTimeoutError`]
 #                 If the Inference Endpoint is not deployed after `timeout` seconds.
-
         if timeout is not None and timeout < 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("`timeout` cannot be negative.")
         if refresh_every <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("`refresh_every` must be positive.")
-
 #         start = time.time()
         while True:
             if self.status == InferenceEndpointStatus.FAILED:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise InferenceEndpointError(
 #                     f"Inference Endpoint {self.name} failed to deploy. Please check the logs for more information."
 #                 )
             if self.status == InferenceEndpointStatus.UPDATE_FAILED:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise InferenceEndpointError(
 #                     f"Inference Endpoint {self.name} failed to update. Please check the logs for more information."
 #                 )
             if self.status == InferenceEndpointStatus.RUNNING and self.url is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 # Verify the endpoint is actually reachable
 #                 response = get_session().get(self.url, headers=self._api._build_hf_headers(token=self._token))
                 if response.status_code == 200:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     logger.info("Inference Endpoint is ready to be used.")
                     return self
-
             if timeout is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if time.time() - start > timeout:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise InferenceEndpointTimeoutError("Timeout while waiting for Inference Endpoint to be deployed.")
 #             logger.info(f"Inference Endpoint is not deployed yet ({self.status}). Waiting {refresh_every}s...")
 #             time.sleep(refresh_every)
 #             self.fetch()
-
     def fetch(self) -> "InferenceEndpoint":
 #         Fetch latest information about the Inference Endpoint.
-
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
 #         obj = self._api.get_inference_endpoint(name=self.name, namespace=self.namespace, token=self._token)  # type: ignore [arg-type]
 #         self.raw = obj.raw
 #         self._populate_from_raw()
         return self
-
     def update(
 #         self,
 #         *,
@@ -298,13 +246,10 @@ class InferenceEndpoint:
 #         secrets: Optional[Dict[str, str]] = None,
 #     ) -> "InferenceEndpoint":
 #         Update the Inference Endpoint.
-
 #         This method allows the update of either the compute configuration, the deployed model, or both. All arguments are
 #         optional but at least one must be provided.
-
 #         This is an alias for [`HfApi.update_inference_endpoint`]. The current object is mutated in place with the
 #         latest data from the server.
-
 #         Args:
 #             accelerator (`str`, *optional*):
 #                 The hardware accelerator to be used for inference (e.g. `"cpu"`).
@@ -318,7 +263,6 @@ class InferenceEndpoint:
 #                 The maximum number of replicas (instances) to scale to for the Inference Endpoint.
 #             scale_to_zero_timeout (`int`, *optional*):
 #                 The duration in minutes before an inactive endpoint is scaled to zero.
-
 #             repository (`str`, *optional*):
 #                 The name of the model repository associated with the Inference Endpoint (e.g. `"gpt2"`).
 #             framework (`str`, *optional*):
@@ -334,7 +278,6 @@ class InferenceEndpoint:
 #                 Secret values to inject in the container environment.
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
         # Make API call
 #         obj = self._api.update_inference_endpoint(
 #             name=self.name,
@@ -353,90 +296,66 @@ class InferenceEndpoint:
 #             secrets=secrets,
 #             token=self._token,  # type: ignore [arg-type]
 #         )
-
         # Mutate current object
 #         self.raw = obj.raw
 #         self._populate_from_raw()
         return self
-
     def pause(self) -> "InferenceEndpoint":
 #         Pause the Inference Endpoint.
-
 #         A paused Inference Endpoint will not be charged. It can be resumed at any time using [`InferenceEndpoint.resume`].
 #         This is different than scaling the Inference Endpoint to zero with [`InferenceEndpoint.scale_to_zero`], which
 #         would be automatically restarted when a request is made to it.
-
 #         This is an alias for [`HfApi.pause_inference_endpoint`]. The current object is mutated in place with the
 #         latest data from the server.
-
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
 #         obj = self._api.pause_inference_endpoint(name=self.name, namespace=self.namespace, token=self._token)  # type: ignore [arg-type]
 #         self.raw = obj.raw
 #         self._populate_from_raw()
         return self
-
     def resume(self, running_ok: bool = True) -> "InferenceEndpoint":
 #         Resume the Inference Endpoint.
-
 #         This is an alias for [`HfApi.resume_inference_endpoint`]. The current object is mutated in place with the
 #         latest data from the server.
-
 #         Args:
 #             running_ok (`bool`, *optional*):
 #                 If `True`, the method will not raise an error if the Inference Endpoint is already running. Defaults to
 #                 `True`.
-
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
 #         obj = self._api.resume_inference_endpoint(
 #             name=self.name, namespace=self.namespace, running_ok=running_ok, token=self._token
 #         )  # type: ignore [arg-type]
 #         self.raw = obj.raw
 #         self._populate_from_raw()
         return self
-
     def scale_to_zero(self) -> "InferenceEndpoint":
 #         Scale Inference Endpoint to zero.
-
 #         An Inference Endpoint scaled to zero will not be charged. It will be resume on the next request to it, with a
 #         cold start delay. This is different than pausing the Inference Endpoint with [`InferenceEndpoint.pause`], which
 #         would require a manual resume with [`InferenceEndpoint.resume`].
-
 #         This is an alias for [`HfApi.scale_to_zero_inference_endpoint`]. The current object is mutated in place with the
 #         latest data from the server.
-
 #         Returns:
 #             [`InferenceEndpoint`]: the same Inference Endpoint, mutated in place with the latest data.
-
 #         obj = self._api.scale_to_zero_inference_endpoint(name=self.name, namespace=self.namespace, token=self._token)  # type: ignore [arg-type]
 #         self.raw = obj.raw
 #         self._populate_from_raw()
         return self
-
     def delete(self) -> None:
 #         Delete the Inference Endpoint.
-
 #         This operation is not reversible. If you dont want to be charged for an Inference Endpoint, it is preferable
 #         to pause it with [`InferenceEndpoint.pause`] or scale it to zero with [`InferenceEndpoint.scale_to_zero`].
-
 #         This is an alias for [`HfApi.delete_inference_endpoint`].
-
 #         self._api.delete_inference_endpoint(name=self.name, namespace=self.namespace, token=self._token)  # type: ignore [arg-type]
-
     def _populate_from_raw(self) -> None:
 #         Populate fields from raw dictionary.
-
 #         Called in __post_init__ + each time the Inference Endpoint is updated.
-
         # Repr fields
 #         self.name = self.raw["name"]
 #         self.repository = self.raw["model"]["repository"]
 #         self.status = self.raw["status"]["state"]
 #         self.url = self.raw["status"].get("url")
-
         # Other fields
 #         self.framework = self.raw["model"]["framework"]
 #         self.revision = self.raw["model"]["revision"]

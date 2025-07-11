@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # schema.py
@@ -12,11 +10,8 @@ from typing import Optional
 #
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
-
 # Compatibility namespace for sqlalchemy.sql.schema and related.
-
 from __future__ import annotations
-
 from .sql.base import SchemaVisitor as SchemaVisitor
 from .sql.ddl import _CreateDropBase as _CreateDropBase
 from .sql.ddl import _DropView as _DropView

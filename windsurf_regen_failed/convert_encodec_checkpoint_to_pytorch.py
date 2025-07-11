@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,20 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import argparse
-
 import torch
-
 from transformers import (
 #     EncodecConfig,
 #     EncodecFeatureExtractor,
 #     EncodecModel,
 #     logging,
 # )
-
-
 # checkpoints downloaded from:
 # https://dl.fbaipublicfiles.com/encodec/v0/encodec_24khz-d7cc33bc.th
 # https://huggingface.co/facebook/musicgen-small/resolve/main/compression_state_dict.bin
 # https://dl.fbaipublicfiles.com/encodec/v0/encodec_48khz-7e698e3e.th
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger("transformers.models.encodec")
-
 #     "quantizer.vq.layers.*._codebook.inited": "quantizer.layers.*.codebook.inited",
 #     "quantizer.vq.layers.*._codebook.cluster_size": "quantizer.layers.*.codebook.cluster_size",
 #     "quantizer.vq.layers.*._codebook.embed": "quantizer.layers.*.codebook.embed",
@@ -138,32 +127,27 @@ from transformers import (
 #     **MAPPING_DECODER_48K,
 # }
 # TOP_LEVEL_KEYS = []
-
-
 def set_recursively(hf_pointer, key, value, full_name, weight_type):
     for attribute in key.split("."):
 #         hf_pointer = getattr(hf_pointer, attribute)
-
     if weight_type is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         hf_shape = getattr(hf_pointer, weight_type).shape
     else:
 #         hf_shape = hf_pointer.shape
-
     if hf_shape != value.shape:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise ValueError(
 #             f"Shape of hf {key + '.' + weight_type if weight_type is not None else ''} is {hf_shape}, but should be"
 #             f" {value.shape} for {full_name}"
 #         )
-
     if weight_type == "weight":
-      pass
-      pass
+    pass
+    pass
     pass
 #         hf_pointer.weight.data = value
     elif weight_type == "weight_g":
@@ -210,89 +194,79 @@ def set_recursively(hf_pointer, key, value, full_name, weight_type):
 #         hf_pointer.bias_hh_l1.data = value
     else:
 #         hf_pointer.data = value
-
 #     logger.info(f"{key + ('.' + weight_type if weight_type is not None else '')} was initialized from {full_name}.")
-
-
 def should_ignore(name, ignore_keys):
     for key in ignore_keys:
         if key.endswith(".*"):
-      pass
-      pass
+    pass
+    pass
     pass
             if name.startswith(key[:-1]):
-      pass
-      pass
+    pass
+    pass
     pass
                 return True
         elif ".*." in key:
     pass
 #             prefix, suffix = key.split(".*.")
             if prefix in name and suffix in name:
-      pass
-      pass
+    pass
+    pass
     pass
                 return True
         elif key in name:
     pass
             return True
     return False
-
-
 def recursively_load_weights(orig_dict, hf_model, model_name):
 #     unused_weights = []
-
     if model_name == "encodec_24khz" or "encodec_32khz":
-      pass
-      pass
+    pass
+    pass
     pass
     elif model_name == "encodec_48khz":
     pass
     else:
 #         raise ValueError(f"Unsupported model: {model_name}")
-
     for name, value in orig_dict.items():
         if should_ignore(name, IGNORE_KEYS):
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info(f"{name} was ignored")
 #             continue
-
 #         is_used = False
         for key, mapped_key in MAPPING.items():
             if "*" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 prefix, suffix = key.split(".*.")
                 if prefix in name and suffix in name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     key = suffix
-
             if key in name:
-      pass
-      pass
+    pass
+    pass
     pass
                 # HACK otherwise .embed gets initialized with .embed_avg too
                 if key.endswith("embed") and name.endswith("embed_avg"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
-
 #                 is_used = True
                 if "*" in mapped_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     layer_index = name.split(key)[0].split(".")[-2]
 #                     mapped_key = mapped_key.replace("*", layer_index)
                 if "weight_g" in name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     weight_type = "weight_g"
                 elif "weight_v" in name:
@@ -342,14 +316,11 @@ def recursively_load_weights(orig_dict, hf_model, model_name):
 #                 set_recursively(hf_model, mapped_key, value, name, weight_type)
 #             continue
         if not is_used:
-      pass
-      pass
+    pass
+    pass
     pass
 #             unused_weights.append(name)
-
 #     logger.warning(f"Unused weights: {unused_weights}")
-
-
 # @torch.no_grad()
 def convert_checkpoint(
 #     model_name,
@@ -358,20 +329,17 @@ def convert_checkpoint(
 #     config_path=None,
 #     repo_id=None,
 # ):
-
 #     Copy/paste/tweak models weights to transformers design.
-
     if config_path is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         config = EncodecConfig.from_pretrained(config_path)
     else:
 #         config = EncodecConfig()
-
     if model_name == "encodec_24khz":
-      pass
-      pass
+    pass
+    pass
     pass
 #         pass  # config is already correct
     elif model_name == "encodec_32khz":
@@ -397,9 +365,7 @@ def convert_checkpoint(
 #         config.overlap = 0.01
     else:
 #         raise ValueError(f"Unknown model name: {model_name}")
-
 #     model = EncodecModel(config)
-
 #     feature_extractor = EncodecFeatureExtractor(
 #         feature_size=config.audio_channels,
 #         sampling_rate=config.sampling_rate,
@@ -407,29 +373,25 @@ def convert_checkpoint(
 #         overlap=config.overlap,
 #     )
 #     feature_extractor.save_pretrained(pytorch_dump_folder_path)
-
 #     original_checkpoint = torch.load(checkpoint_path)
     if "best_state" in original_checkpoint:
-      pass
-      pass
+    pass
+    pass
     pass
         # we might have a training state saved, in which case discard the yaml results and just retain the weights
 #         original_checkpoint = original_checkpoint["best_state"]
 #     recursively_load_weights(original_checkpoint, model, model_name)
 #     model.save_pretrained(pytorch_dump_folder_path)
-
     if repo_id:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("Pushing to the hub...")
 #         feature_extractor.push_to_hub(repo_id)
 #         model.push_to_hub(repo_id)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
 #     parser.add_argument(
@@ -446,7 +408,6 @@ if __name__ == "__main__":
 #     parser.add_argument(
 #         "--push_to_hub", default=None, type=str, help="Where to upload the converted model on the 🤗 hub."
 #     )
-
 #     args = parser.parse_args()
 #     convert_checkpoint(
 #         args.model,

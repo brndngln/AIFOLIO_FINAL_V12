@@ -1,8 +1,6 @@
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # orm/loading.py
@@ -12,16 +10,11 @@
 # This module is part of SQLAlchemy and is released under
 # the MIT License: https://www.opensource.org/licenses/mit-license.php
 # mypy: ignore-errors
-
-
 # private module containing functions used to convert database
 # rows into object instances and associated state.
-
 # the functions here are called primarily by Query, Mapper,
 # as well as some of the attribute loading strategies.
-
 from __future__ import annotations
-
 from typing import Any
 from typing import Dict
 from typing import Iterable
@@ -33,7 +26,6 @@ from typing import Tuple
 from typing import TYPE_CHECKING
 from typing import TypeVar
 from typing import Union
-
 from . import attributes
 from . import exc as orm_exc
 from . import path_registry
@@ -58,10 +50,9 @@ from ..sql.selectable import ForUpdateArg
 from ..sql.selectable import LABEL_STYLE_TABLENAME_PLUS_COL
 from ..sql.selectable import SelectState
 from ..util import EMPTY_DICT
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ._typing import _IdentityKeyType
     from .base import LoaderCallableStatus
@@ -74,36 +65,24 @@ if TYPE_CHECKING:
     from ..engine.interfaces import _ExecuteOptions
     from ..engine.result import Result
     from ..sql import Select
-
 # _T = TypeVar("_T", bound=Any)
 # _O = TypeVar("_O", bound=object)
 # _new_runid = util.counter()
-
-
 # _PopulatorDict = Dict[str, List[Tuple[str, Any]]]
-
-
 def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #     Return a :class:`.Result` given an ORM query context.
-
 #      which came from :class:`.ORMCompileState`
-
-
-
 #     .. versionchanged:: 1.4 The instances() function now uses
-
 #     context.runid = _new_runid()
-
     if context.top_level_context:
-      pass
-      pass
+    pass
+    pass
     pass
 #         is_top_level = False
 #         context.post_load_paths = context.top_level_context.post_load_paths
     else:
 #         is_top_level = True
 #         context.post_load_paths = {}
-
 #     compile_state = context.compile_state
 #     filtered = compile_state._has_mapper_entities
 #     single_entity = (
@@ -111,7 +90,6 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #         and len(compile_state._entities) == 1
 #         and compile_state._entities[0].supports_single_entity
 #     )
-
     try:
 #         (process, labels, extra) = list(
 #             zip(
@@ -121,7 +99,6 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #                 ]
 #             )
 #         )
-
         if context.yield_per and (
 #             context.loaders_require_buffering
 #             or context.loaders_require_uniquing
@@ -132,67 +109,55 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #                 "or subqueryload().  Consider the selectinload() strategy "
 #                 "for better flexibility in loading objects."
 #             )
-
     except Exception:
         with util.safe_reraise():
 #             cursor.close()
-
     def _no_unique(entry):
 #         raise sa_exc.InvalidRequestError(
 #             "Cant use the ORM yield_per feature in conjunction with unique()"
 #         )
-
     def _not_hashable(datatype, *, legacy=False, uncertain=False):
         if not legacy:
-      pass
-      pass
     pass
-
+    pass
+    pass
             def go(obj):
                 if uncertain:
-      pass
-      pass
+    pass
+    pass
     pass
                     try:
                         return hash(obj)
                     except:
 #                         pass
-
 #                 raise sa_exc.InvalidRequestError(
 #                     "Cant apply uniqueness to row tuple containing value of "
 #                     f.type {datatype!r}; {'the values returned appear to be'
                     if uncertain else 'this datatype produces'}
 #                     "non-hashable values"
 #                 )
-
             return go
         elif not uncertain:
     pass
             return id
         else:
 #             _use_id = False
-
             def go(obj):
 #                 nonlocal _use_id
-
                 if not _use_id:
-      pass
-      pass
+    pass
+    pass
     pass
                     try:
                         return hash(obj)
                     except:
 #                         pass
-
                     # in #10459, we considered using a warning here, however
                     # as legacy query uses result.unique() in all cases, this
                     # would lead to too many warning cases.
 #                     _use_id = True
-
                 return id(obj)
-
             return go
-
 #     unique_filters = [
 #         _no_unique
         if context.yield_per
@@ -210,34 +175,28 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
         else None
         for ent in context.compile_state._entities
 #     ]
-
 #     row_metadata = SimpleResultMetaData(
 #         labels, extra, _unique_filters=unique_filters
 #     )
-
     def chunks(size):  # type: ignore
         while True:
 #             yield_per = size
-
 #             context.partials = {}
-
             if yield_per:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 fetch = cursor.fetchmany(yield_per)
-
                 if not fetch:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     break
             else:
 #                 fetch = cursor._raw_all_rows()
-
             if single_entity:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 proc = process[0]
 #                 rows = [proc(row) for row in fetch]
@@ -245,59 +204,51 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #                 rows = [
 #                     tuple([proc(row) for proc in process]) for row in fetch
 #                 ]
-
             # if we are the originating load from a query, meaning we
             # arent being called as a result of a nested "post load",
             # iterate through all the collected post loaders and fire them
             # off.  Previously this used to work recursively, however that
             # prevented deeply nested structures from being loadable
             if is_top_level:
-      pass
-      pass
+    pass
+    pass
     pass
                 if yield_per:
-      pass
-      pass
+    pass
+    pass
     pass
                     # if using yield per, memoize the state of the
                     # collection so that it can be restored
 #                     top_level_post_loads = list(
 #                         context.post_load_paths.items()
 #                     )
-
                 while context.post_load_paths:
 #                     post_loads = list(context.post_load_paths.items())
 #                     context.post_load_paths.clear()
                     for path, post_load in post_loads:
 #                         post_load.invoke(context, path)
-
                 if yield_per:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     context.post_load_paths.clear()
 #                     context.post_load_paths.update(top_level_post_loads)
-
 #             yield rows
-
             if not yield_per:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 break
-
     if context.execution_options.get("prebuffer_rows", False):
-      pass
-      pass
+    pass
+    pass
     pass
         # this is a bit of a hack at the moment.
         # I would rather have some option in the result to pre-buffer
         # internally.
 #         _prebuffered = list(chunks(None))
-
         def chunks(size):
             return iter(_prebuffered)
-
 #     result = ChunkedIteratorResult(
 #         row_metadata,
 #         chunks,
@@ -305,64 +256,47 @@ def instances(cursor: CursorResult[Any], context: QueryContext) -> Result[Any]:
 #         raw=cursor,
 #         dynamic_yield_per=cursor.context._is_server_side,
 #     )
-
     # filtered and single_entity are used to indicate to legacy Query that the
     # query has ORM entities, so legacy deduping and scalars should be called
     # on the result.
 #     result._attributes = result._attributes.union(
 #         dict(filtered=filtered, is_single_entity=single_entity)
 #     )
-
     # multi_row_eager_loaders OTOH is specific to joinedload.
     if context.compile_state.multi_row_eager_loaders:
-      pass
-      pass
     pass
-
+    pass
+    pass
         def require_unique(obj):
 #             raise sa_exc.InvalidRequestError(
 #                 "The unique() method must be invoked on this Result, "
 #                 "as it contains results that include joined eager loads "
 #                 "against collections"
 #             )
-
 #         result._unique_filter_state = (None, require_unique)
-
     if context.yield_per:
-      pass
-      pass
+    pass
+    pass
     pass
 #         result.yield_per(context.yield_per)
-
     return result
-
-
 # @util.preload_module("sqlalchemy.orm.context")
 def merge_frozen_result(session, statement, frozen_result, load=True):
 #     Merge a :class:`_engine.FrozenResult` back into a :class:`_orm.Session`,
     returning a new :class:`_engine.Result` object with :term:`persistent`
 #     objects.
-
 #     See the section :ref:`do_orm_execute_re_executing` for an example.
-
 #     .. seealso::
-
-
-
-
 #     querycontext = util.preloaded.orm_context
-
     if load:
-      pass
-      pass
+    pass
+    pass
     pass
         # flush current contents if we expect to load data
 #         session._autoflush()
-
 #     ctx = querycontext.ORMSelectCompileState._create_entities_collection(
 #         statement, legacy=False
 #     )
-
 #     autoflush = session.autoflush
     try:
 #         session.autoflush = False
@@ -372,17 +306,15 @@ def merge_frozen_result(session, statement, frozen_result, load=True):
             if isinstance(e, querycontext._MapperEntity)
 #         ]
 #         keys = [ent._label_name for ent in ctx._entities]
-
 #         keyed_tuple = result_tuple(
 #             keys, [ent._extra_entities for ent in ctx._entities]
 #         )
-
 #         result = []
         for newrow in frozen_result.rewrite_rows():
             for i in mapped_entities:
                 if newrow[i] is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     newrow[i] = session._merge(
 #                         attributes.instance_state(newrow[i]),
@@ -391,14 +323,10 @@ def merge_frozen_result(session, statement, frozen_result, load=True):
 #                         _recursive={},
 #                         _resolve_conflict_map={},
 #                     )
-
 #             result.append(keyed_tuple(newrow))
-
         return frozen_result.with_new_rows(result)
 #     finally:
 #         session.autoflush = autoflush
-
-
 # @util.became_legacy_20(
 #     ":func:`_orm.merge_result`",
 #     alternative="The function as well as the method on :class:`_orm.Query` "
@@ -411,47 +339,40 @@ def merge_result(
 #     load: bool = True,
 # ) -> Union[FrozenResult, Iterable[Any]]:
 #     Merge a result into the given :class:`.Query` objects Session.
-
 #     See :meth:`_orm.Query.merge_result` for top-level documentation on this
 #     function.
-
 #     querycontext = util.preloaded.orm_context
-
 #     session = query.session
     if load:
-      pass
-      pass
+    pass
+    pass
     pass
         # flush current contents if we expect to load data
 #         session._autoflush()
-
     # TODO: need test coverage and documentation for the FrozenResult
     # use case.
     if isinstance(iterator, FrozenResult):
-      pass
-      pass
+    pass
+    pass
     pass
 #         frozen_result = iterator
 #         iterator = iter(frozen_result.data)
     else:
 #         frozen_result = None
-
 #     ctx = querycontext.ORMSelectCompileState._create_entities_collection(
 #         query, legacy=True
 #     )
-
 #     autoflush = session.autoflush
     try:
 #         session.autoflush = False
 #         single_entity = not frozen_result and len(ctx._entities) == 1
-
         if single_entity:
-      pass
-      pass
+    pass
+    pass
     pass
             if isinstance(ctx._entities[0], querycontext._MapperEntity):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 result = [
 #                     session._merge(
@@ -473,17 +394,15 @@ def merge_result(
 #             ]
 #             result = []
 #             keys = [ent._label_name for ent in ctx._entities]
-
 #             keyed_tuple = result_tuple(
 #                 keys, [ent._extra_entities for ent in ctx._entities]
 #             )
-
             for row in iterator:
 #                 newrow = list(row)
                 for i in mapped_entities:
                     if newrow[i] is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         newrow[i] = session._merge(
 #                             attributes.instance_state(newrow[i]),
@@ -493,18 +412,15 @@ def merge_result(
 #                             _resolve_conflict_map={},
 #                         )
 #                 result.append(keyed_tuple(newrow))
-
         if frozen_result:
-      pass
-      pass
+    pass
+    pass
     pass
             return frozen_result.with_new_rows(result)
         else:
             return iter(result)
 #     finally:
 #         session.autoflush = autoflush
-
-
 def get_from_identity(
 #     session: Session,
 #     mapper: Mapper[_O],
@@ -513,28 +429,25 @@ def get_from_identity(
 # ) -> Union[LoaderCallableStatus, Optional[_O]]:
 #     Look up the given key in the given sessions identity map,
 #     check the object for expired state if found.
-
 #     instance = session.identity_map.get(key)
     if instance is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         state = attributes.instance_state(instance)
-
         if mapper.inherits and not state.mapper.isa(mapper):
-      pass
-      pass
+    pass
+    pass
     pass
             return attributes.PASSIVE_CLASS_MISMATCH
-
         # expired - ensure it still exists
         if state.expired:
-      pass
-      pass
+    pass
+    pass
     pass
             if not passive & attributes.SQL_OK:
-      pass
-      pass
+    pass
+    pass
     pass
                 # TODO: no coverage here
                 return attributes.PASSIVE_NO_RESULT
@@ -553,8 +466,6 @@ def get_from_identity(
         return instance
     else:
         return None
-
-
 def load_on_ident(
 #     session: Session,
 #     statement: Union[Select, FromStatement],
@@ -570,16 +481,14 @@ def load_on_ident(
 #     require_pk_cols: bool = False,
 #     is_user_refresh: bool = False,
 # ):
-
     if key is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         ident = key[1]
 #         identity_token = key[2]
     else:
 #         ident = identity_token = None
-
     return load_on_pk_identity(
 #         session,
 #         statement,
@@ -595,8 +504,6 @@ def load_on_ident(
 #         require_pk_cols=require_pk_cols,
 #         is_user_refresh=is_user_refresh,
 #     )
-
-
 def load_on_pk_identity(
 #     session: Session,
 #     statement: Union[Select, FromStatement],
@@ -613,18 +520,14 @@ def load_on_pk_identity(
 #     require_pk_cols: bool = False,
 #     is_user_refresh: bool = False,
 # ):
-
 #     query = statement
 #     q = query._clone()
-
 #     assert not q._is_lambda_element
-
     if load_options is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options = QueryContext.default_load_options
-
     if (
 #         statement._compile_options
 #         is SelectState.default_select_compile_options
@@ -632,43 +535,36 @@ def load_on_pk_identity(
 #         compile_options = ORMCompileState.default_compile_options
     else:
 #         compile_options = statement._compile_options
-
     if primary_key_identity is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         mapper = query._propagate_attrs["plugin_subject"]
-
 #         (_get_clause, _get_params) = mapper._get_clause
-
         # None present in ident - turn those comparisons
         # into "IS NULL"
         if None in primary_key_identity:
-      pass
-      pass
+    pass
+    pass
     pass
 #             nones = {
 #                 _get_params[col].key
                 for col, value in zip(mapper.primary_key, primary_key_identity)
                 if value is None
 #             }
-
 #             _get_clause = sql_util.adapt_criterion_to_null(_get_clause, nones)
-
             if len(nones) == len(primary_key_identity):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 util.warn(
 #                     "fully NULL primary key identity cannot load any "
 #                     "object.  This condition may raise an error in a future "
 #                     "release."
 #                 )
-
 #         q._where_criteria = (
 #             sql_util._deep_annotate(_get_clause, {"_orm_adapt": True}),
 #         )
-
 #         params = {
 #             _get_params[primary_key].key: id_val
             for id_val, primary_key in zip(
@@ -677,10 +573,9 @@ def load_on_pk_identity(
 #         }
     else:
 #         params = None
-
     if with_for_update is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         version_check = True
 #         q._for_update_arg = with_for_update
@@ -690,19 +585,17 @@ def load_on_pk_identity(
 #         q._for_update_arg = query._for_update_arg
     else:
 #         version_check = False
-
     if require_pk_cols and only_load_props:
-      pass
-      pass
+    pass
+    pass
     pass
         if not refresh_state:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise sa_exc.ArgumentError(
 #                 "refresh_state is required when require_pk_cols is present"
 #             )
-
 #         refresh_state_prokeys = refresh_state.mapper._primary_key_propkeys
 #         has_changes = {
 #             key
@@ -710,8 +603,8 @@ def load_on_pk_identity(
             if refresh_state.attrs[key].history.has_changes()
 #         }
         if has_changes:
-      pass
-      pass
+    pass
+    pass
     pass
             # raise if pending pk changes are present.
             # technically, this could be limited to the case where we have
@@ -731,7 +624,6 @@ def load_on_pk_identity(
 #                 f"{has_changes} for mapper {refresh_state.mapper} before "
 #                 "proceeding with a refresh"
 #             )
-
         # overall, the ORM has no internal flow right now for dont load the
         # primary row of an object at all, but fire off
         # selectinload/subqueryload/immediateload for some relationships.
@@ -762,19 +654,17 @@ def load_on_pk_identity(
 #         mp = refresh_state.mapper._props
         for p in only_load_props:
             if mp[p]._is_relationship:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 only_load_props = refresh_state_prokeys.union(only_load_props)
 #                 break
-
     if refresh_state and refresh_state.load_options:
-      pass
-      pass
+    pass
+    pass
     pass
 #         compile_options += {"_current_path": refresh_state.load_path.parent}
 #         q = q.options(*refresh_state.load_options)
-
 #     new_compile_options, load_options = _set_get_options(
 #         compile_options,
 #         load_options,
@@ -784,16 +674,13 @@ def load_on_pk_identity(
 #         identity_token=identity_token,
 #         is_user_refresh=is_user_refresh,
 #     )
-
 #     q._compile_options = new_compile_options
 #     q._order_by = None
-
     if no_autoflush:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options += {"_autoflush": False}
-
 #     execution_options = util.EMPTY_DICT.merge_with(
 #         execution_options, {"_sa_orm_load_options": load_options}
 #     )
@@ -807,13 +694,10 @@ def load_on_pk_identity(
 #         .unique()
 #         .scalars()
 #     )
-
     try:
         return result.one()
     except orm_exc.NoResultFound:
         return None
-
-
 def _set_get_options(
 #     compile_opt,
 #     load_opt,
@@ -827,51 +711,47 @@ def _set_get_options(
 #     compile_options = {}
 #     load_options = {}
     if version_check:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options["_version_check"] = version_check
     if populate_existing:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options["_populate_existing"] = populate_existing
     if refresh_state:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options["_refresh_state"] = refresh_state
 #         compile_options["_for_refresh_state"] = True
     if only_load_props:
-      pass
-      pass
+    pass
+    pass
     pass
 #         compile_options["_only_load_props"] = frozenset(only_load_props)
     if identity_token:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options["_identity_token"] = identity_token
-
     if is_user_refresh:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_options["_is_user_refresh"] = is_user_refresh
     if load_options:
-      pass
-      pass
+    pass
+    pass
     pass
 #         load_opt += load_options
     if compile_options:
-      pass
-      pass
+    pass
+    pass
     pass
 #         compile_opt += compile_options
-
     return compile_opt, load_opt
-
-
 def _setup_entity_query(
 #     compile_state,
 #     mapper,
@@ -885,29 +765,25 @@ def _setup_entity_query(
 #     **kw,
 # ):
     if with_polymorphic:
-      pass
-      pass
+    pass
+    pass
     pass
 #         poly_properties = mapper._iterate_polymorphic_properties(
             with_polymorphic
 #         )
     else:
 #         poly_properties = mapper._polymorphic_properties
-
 #     quick_populators = {}
-
 #     path.set(compile_state.attributes, "memoized_setups", quick_populators)
-
     # for the lead entities in the path, e.g. not eager loads, and
     # assuming a user-passed aliased class, e.g. not a from_self() or any
     # implicit aliasing, don't add columns to the SELECT that aren't
     # in the thing thats aliased.
 #     check_for_adapt = adapter and len(path) == 1 and path[-1].is_aliased_class
-
     for value in poly_properties:
         if only_load_props and value.key not in only_load_props:
-      pass
-      pass
+    pass
+    pass
     pass
 #             continue
 #         value.setup(
@@ -921,21 +797,18 @@ def _setup_entity_query(
 #             check_for_adapt=check_for_adapt,
 #             **kw,
 #         )
-
     if (
 #         polymorphic_discriminator is not None
 #         and polymorphic_discriminator is not mapper.polymorphic_on
 #     ):
         if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pd = adapter.columns[polymorphic_discriminator]
         else:
 #             pd = polymorphic_discriminator
 #         column_collection.append(pd)
-
-
 def _warn_for_runid_changed(state):
 #     util.warn(
 #         "Loading context for %s has changed within a load/refresh "
@@ -946,8 +819,6 @@ def _warn_for_runid_changed(state):
 #         "listener to ensure the context remains unchanged when the event "
 #         "handler completes." % (state_str(state),)
 #     )
-
-
 def _instance_processor(
 #     query_entity,
 #     mapper,
@@ -962,27 +833,22 @@ def _instance_processor(
 # ):
 #     Produce a mapper level row processor callable
 #     which processes rows into mapped instances.
-
     # note that this method, most of which exists in a closure
     # called _instance(), resists being broken out, as
     # attempts to do so tend to add significant function
     # call overhead.  _instance() is the most
     # performance-critical section in the whole ORM.
-
 #     identity_class = mapper._identity_class
 #     compile_state = context.compile_state
-
     # look for "row getter" functions that have been assigned aint
     # with the compile state that were cached from a previous load.
     # these are operator.itemgetter() objects that each will extract a
     # particular column from each row.
-
 #     getter_key = ("getters", mapper)
 #     getters = path.get(compile_state.attributes, getter_key, None)
-
     if getters is None:
-      pass
-      pass
+    pass
+    pass
     pass
         # no getters, so go through a list of attributes we are loading for,
         # and the ones that are column based will have already put information
@@ -993,17 +859,15 @@ def _instance_processor(
         # per attribute.
 #         props = mapper._prop_set
         if only_load_props is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             props = props.intersection(
 #                 mapper._props[k] for k in only_load_props
 #             )
-
 #         quick_populators = path.get(
 #             context.attributes, "memoized_setups", EMPTY_DICT
 #         )
-
 #         todo = []
 #         cached_populators = {
 #             "new": [],
@@ -1013,23 +877,20 @@ def _instance_processor(
 #             "existing": [],
 #             "eager": [],
 #         }
-
         if refresh_state is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # we can also get the "primary key" tuple getter function
 #             pk_cols = mapper.primary_key
-
             if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 pk_cols = [adapter.columns[c] for c in pk_cols]
 #             primary_key_getter = result._tuple_getter(pk_cols)
         else:
 #             primary_key_getter = None
-
 #         getters = {
 #             "cached_populators": cached_populators,
 #             "todo": todo,
@@ -1037,14 +898,14 @@ def _instance_processor(
 #         }
         for prop in props:
             if prop in quick_populators:
-      pass
-      pass
+    pass
+    pass
     pass
                 # this is an inlined path just for column-based attributes.
 #                 col = quick_populators[prop]
                 if col is _DEFER_FOR_STATE:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     cached_populators["new"].append(
 #                         (prop.key, prop._deferred_column_loader)
@@ -1063,8 +924,8 @@ def _instance_processor(
                 else:
 #                     getter = None
                     if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
                         # this logic had been removed for all 1.4 releases
                         # up until 1.4.18; the adapter here is particularly
@@ -1072,7 +933,6 @@ def _instance_processor(
                         # in the quick_populators right now.  The "fallback"
                         # logic below instead took over in many more cases
                         # until issue #6596 was identified.
-
                         # note there is still an issue where this codepath
                         # produces no "getter" for cases where a joined-inh
                         # mapping includes a labeled column property, meaning
@@ -1085,21 +945,20 @@ def _instance_processor(
                         # OptimizedLoadTest.test_column_expression_joined
                         # PolymorphicOnNotLocalTest.test_polymorphic_on_column_prop  # noqa: E501
                         #
-
 #                         adapted_col = adapter.columns[col]
                         if adapted_col is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             getter = result._getter(adapted_col, False)
                     if not getter:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         getter = result._getter(col, False)
                     if getter:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         cached_populators["quick"].append((prop.key, getter))
                     else:
@@ -1120,33 +979,27 @@ def _instance_processor(
                 # joinedload, basically relationships, these need to interact
                 # with the context each time to work correctly.
 #                 todo.append(prop)
-
 #         path.set(compile_state.attributes, getter_key, getters)
-
 #     cached_populators = getters["cached_populators"]
-
 #     populators = {key: list(value) for key, value in cached_populators.items()}
     for prop in getters["todo"]:
 #         prop.create_row_processor(
 #             context, query_entity, path, mapper, result, adapter, populators
 #         )
-
 #     propagated_loader_options = context.propagated_loader_options
 #     load_path = (
 #         context.compile_state.current_path + path
         if context.compile_state.current_path.path
         else path
 #     )
-
 #     session_identity_map = context.session.identity_map
-
 #     populate_existing = context.populate_existing or mapper.always_refresh
 #     load_evt = bool(mapper.class_manager.dispatch.load)
 #     refresh_evt = bool(mapper.class_manager.dispatch.refresh)
 #     persistent_evt = bool(context.session.dispatch.loaded_as_persistent)
     if persistent_evt:
-      pass
-      pass
+    pass
+    pass
     pass
 #         loaded_as_persistent = context.session.dispatch.loaded_as_persistent
 #     instance_state = attributes.instance_state
@@ -1154,32 +1007,29 @@ def _instance_processor(
 #     session_id = context.session.hash_key
 #     runid = context.runid
 #     identity_token = context.identity_token
-
 #     version_check = context.version_check
     if version_check:
-      pass
-      pass
+    pass
+    pass
     pass
 #         version_id_col = mapper.version_id_col
         if version_id_col is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 version_id_col = adapter.columns[version_id_col]
 #             version_id_getter = result._getter(version_id_col)
         else:
 #             version_id_getter = None
-
     if not refresh_state and _polymorphic_from is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         key = ("loader", path.path)
-
         if key in context.attributes and context.attributes[key].strategy == (
 #             ("selectinload_polymorphic", True),
 #         ):
@@ -1190,16 +1040,14 @@ def _instance_processor(
 #             option_entities,
 #             _polymorphic_from,
 #         )
-
         if selectin_load_via and selectin_load_via is not _polymorphic_from:
-      pass
-      pass
+    pass
+    pass
     pass
             # only_load_props goes w/ refresh_state only, and in a refresh
             # we are a single row query for the exact entity; polymorphic
             # loading does not apply
 #             assert only_load_props is None
-
 #             callable_ = _load_subclass_via_in(
 #                 context,
 #                 path,
@@ -1215,17 +1063,15 @@ def _instance_processor(
 #                 callable_,
 #                 selectin_load_via,
 #             )
-
 #     post_load = PostLoad.for_context(context, load_path, only_load_props)
-
     if refresh_state:
-      pass
-      pass
+    pass
+    pass
     pass
 #         refresh_identity_key = refresh_state.key
         if refresh_identity_key is None:
-      pass
-      pass
+    pass
+    pass
     pass
             # super-rare condition; a refresh is being called
             # on a non-instance-key instance; this is meant to only
@@ -1235,22 +1081,19 @@ def _instance_processor(
 #             )
     else:
 #         refresh_identity_key = None
-
 #         primary_key_getter = getters["primary_key_getter"]
-
     if mapper.allow_partial_pks:
-      pass
-      pass
+    pass
+    pass
     pass
 #         is_not_primary_key = _none_set.issuperset
     else:
 #         is_not_primary_key = _none_set.intersection
-
     def _instance(row):
         # determine the state that well be populating
         if refresh_identity_key:
-      pass
-      pass
+    pass
+    pass
     pass
             # fixed state that were refreshing
 #             state = refresh_state
@@ -1267,72 +1110,59 @@ def _instance_processor(
 #                 primary_key_getter(row),
 #                 identity_token,
 #             )
-
 #             instance = session_identity_map.get(identitykey)
-
             if instance is not None:
-      pass
-      pass
+    pass
+    pass
     pass
                 # existing instance
 #                 state = instance_state(instance)
 #                 dict_ = instance_dict(instance)
-
 #                 isnew = state.runid != runid
 #                 currentload = not isnew
 #                 loaded_instance = False
-
                 if version_check and version_id_getter and not currentload:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     _validate_version_id(
 #                         mapper, state, dict_, row, version_id_getter
 #                     )
-
             else:
                 # create a new instance
-
                 # check for non-NULL values in the primary key columns,
                 # else no entity is returned for the row
                 if is_not_primary_key(identitykey[1]):
-      pass
-      pass
+    pass
+    pass
     pass
                     return None
-
 #                 isnew = True
 #                 currentload = True
 #                 loaded_instance = True
-
 #                 instance = mapper.class_manager.new_instance()
-
 #                 dict_ = instance_dict(instance)
 #                 state = instance_state(instance)
 #                 state.key = identitykey
 #                 state.identity_token = identity_token
-
                 # attach instance to session.
 #                 state.session_id = session_id
 #                 session_identity_map._add_unpresent(state, identitykey)
-
 #         effective_populate_existing = populate_existing
         if refresh_state is state:
-      pass
-      pass
+    pass
+    pass
     pass
 #             effective_populate_existing = True
-
         # populate.  this looks at whether this state is new
         # for this load or was existing, and whether or not this
         # row is the first row with this identity.
         if currentload or effective_populate_existing:
-      pass
-      pass
+    pass
+    pass
     pass
             # full population routines.  Objects here are either
             # just created, or we are doing a populate_existing
-
             # be conservative about setting load_path when populate_existing
             # is in effect; want to maintain options from the original
             # load.  see test_expire->test_refresh_maintains_deferred_options
@@ -1341,7 +1171,6 @@ def _instance_processor(
 #             ):
 #                 state.load_options = propagated_loader_options
 #                 state.load_path = load_path
-
 #             _populate_full(
 #                 context,
 #                 row,
@@ -1353,40 +1182,37 @@ def _instance_processor(
 #                 effective_populate_existing,
 #                 populators,
 #             )
-
             if isnew:
-      pass
-      pass
+    pass
+    pass
     pass
                 # state.runid should be equal to context.runid / runid
                 # here, however for event checks we are being more conservative
                 # and checking against existing run id
                 # assert state.runid == runid
-
 #                 existing_runid = state.runid
-
                 if loaded_instance:
-      pass
-      pass
+    pass
+    pass
     pass
                     if load_evt:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         state.manager.dispatch.load(state, context)
                         if state.runid != existing_runid:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             _warn_for_runid_changed(state)
                     if persistent_evt:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         loaded_as_persistent(context.session, state)
                         if state.runid != existing_runid:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             _warn_for_runid_changed(state)
                 elif refresh_evt:
@@ -1395,44 +1221,39 @@ def _instance_processor(
 #                         state, context, only_load_props
 #                     )
                     if state.runid != runid:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         _warn_for_runid_changed(state)
-
                 if effective_populate_existing or state.modified:
-      pass
-      pass
+    pass
+    pass
     pass
                     if refresh_state and only_load_props:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         state._commit(dict_, only_load_props)
                     else:
 #                         state._commit_all(dict_, session_identity_map)
-
             if post_load:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 post_load.add_state(state, True)
-
         else:
             # partial population routines, for objects that were already
             # in the Session, but a row matches them; apply eager loaders
             # on existing objects, etc.
 #             unloaded = state.unloaded
 #             isnew = state not in context.partials
-
             if not isnew or unloaded or populators["eager"]:
-      pass
-      pass
+    pass
+    pass
     pass
                 # state is having a partial set of its attributes
                 # refreshed.  Populate those attributes,
                 # and add to the "context.partials" collection.
-
 #                 to_load = _populate_partial(
 #                     context,
 #                     row,
@@ -1443,36 +1264,31 @@ def _instance_processor(
 #                     unloaded,
 #                     populators,
 #                 )
-
                 if isnew:
-      pass
-      pass
+    pass
+    pass
     pass
                     if refresh_evt:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         existing_runid = state.runid
 #                         state.manager.dispatch.refresh(state, context, to_load)
                         if state.runid != existing_runid:
-      pass
-      pass
+    pass
+    pass
     pass
 #                             _warn_for_runid_changed(state)
-
 #                     state._commit(dict_, to_load)
-
             if post_load and context.invoke_all_eagers:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 post_load.add_state(state, False)
-
         return instance
-
     if mapper.polymorphic_map and not _polymorphic_from and not refresh_state:
-      pass
-      pass
+    pass
+    pass
     pass
         # if we are doing polymorphic, dispatch to a different _instance()
         # method specific to the subclass mapper
@@ -1483,13 +1299,12 @@ def _instance_processor(
 #                 identity_token,
 #             )
             if not is_not_primary_key(identitykey[1]):
-      pass
-      pass
+    pass
+    pass
     pass
                 return identitykey
             else:
                 return None
-
 #         _instance = _decorate_polymorphic_switch(
 #             _instance,
 #             context,
@@ -1501,37 +1316,30 @@ def _instance_processor(
 #             adapter,
 #             ensure_no_pk,
 #         )
-
     return _instance
-
-
 def _load_subclass_via_in(
 #     context, path, entity, polymorphic_from, option_entities
 # ):
 #     mapper = entity.mapper
-
     # TODO: polymorphic_from seems to be a Mapper in all cases.
     # this is likely not needed, but as we dont have typing in loading.py
     # yet, err on the safe side
 #     polymorphic_from_mapper = polymorphic_from.mapper
 #     not_against_basemost = polymorphic_from_mapper.inherits is not None
-
 #     zero_idx = len(mapper.base_mapper.primary_key) == 1
-
     if entity.is_aliased_class or not_against_basemost:
-      pass
-      pass
+    pass
+    pass
     pass
 #         q, enable_opt, disable_opt = mapper._subclass_load_via_in(
 #             entity, polymorphic_from
 #         )
     else:
 #         q, enable_opt, disable_opt = mapper._subclass_load_via_in_mapper
-
     def do_load(context, path, states, load_only, effective_entity):
         if not option_entities:
-      pass
-      pass
+    pass
+    pass
     pass
             # filter out states for those that would have selectinloaded
             # from another loader
@@ -1543,18 +1351,15 @@ def _load_subclass_via_in(
                 for s, v in states
                 if s.mapper._would_selectin_load_only_from_given_mapper(mapper)
 #             ]
-
             if not states:
-      pass
-      pass
+    pass
+    pass
     pass
                 return
-
 #         orig_query = context.query
-
         if path.parent:
-      pass
-      pass
+    pass
+    pass
     pass
 #             enable_opt_lcl = enable_opt._prepend_path(path)
 #             disable_opt_lcl = disable_opt._prepend_path(path)
@@ -1564,18 +1369,14 @@ def _load_subclass_via_in(
 #         options = (
 #             (enable_opt_lcl,) + orig_query._with_options + (disable_opt_lcl,)
 #         )
-
 #         q2 = q.options(*options)
-
 #         q2._compile_options = context.compile_state.default_compile_options
 #         q2._compile_options += {"_current_path": path.parent}
-
         if context.populate_existing:
-      pass
-      pass
+    pass
+    pass
     pass
 #             q2 = q2.execution_options(populate_existing=True)
-
 #         context.session.execute(
 #             q2,
 #             dict(
@@ -1585,10 +1386,7 @@ def _load_subclass_via_in(
 #                 ]
 #             ),
 #         ).unique().scalars().all()
-
     return do_load
-
-
 def _populate_full(
 #     context,
 #     row,
@@ -1601,131 +1399,116 @@ def _populate_full(
 #     populators,
 # ):
     if isnew:
-      pass
-      pass
+    pass
+    pass
     pass
         # first time we are seeing a row with this identity.
 #         state.runid = context.runid
-
         for key, getter in populators["quick"]:
 #             dict_[key] = getter(row)
         if populate_existing:
-      pass
-      pass
+    pass
+    pass
     pass
             for key, set_callable in populators["expire"]:
 #                 dict_.pop(key, None)
                 if set_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     state.expired_attributes.add(key)
         else:
             for key, set_callable in populators["expire"]:
                 if set_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     state.expired_attributes.add(key)
-
         for key, populator in populators["new"]:
 #             populator(state, dict_, row)
-
     elif load_path != state.load_path:
     pass
         # new load path, e.g. object is present in more than one
         # column position in a series of rows
 #         state.load_path = load_path
-
         # if we have data, and the data isn't in the dict, OK, let's put
         # it in.
         for key, getter in populators["quick"]:
             if key not in dict_:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dict_[key] = getter(row)
-
         # otherwise treat like an "already seen" row
         for key, populator in populators["existing"]:
 #             populator(state, dict_, row)
             # TODO:  allow "existing" populator to know this is
             # a new path for the state:
             # populator(state, dict_, row, new_path=True)
-
     else:
         # have already seen rows with this identity in this same path.
         for key, populator in populators["existing"]:
 #             populator(state, dict_, row)
-
             # TODO: same path
             # populator(state, dict_, row, new_path=False)
-
-
 def _populate_partial(
 #     context, row, state, dict_, isnew, load_path, unloaded, populators
 # ):
     if not isnew:
-      pass
-      pass
+    pass
+    pass
     pass
         if unloaded:
-      pass
-      pass
+    pass
+    pass
     pass
             # extra pass, see #8166
             for key, getter in populators["quick"]:
                 if key in unloaded:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     dict_[key] = getter(row)
-
 #         to_load = context.partials[state]
         for key, populator in populators["existing"]:
             if key in to_load:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 populator(state, dict_, row)
     else:
 #         to_load = unloaded
 #         context.partials[state] = to_load
-
         for key, getter in populators["quick"]:
             if key in to_load:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dict_[key] = getter(row)
         for key, set_callable in populators["expire"]:
             if key in to_load:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dict_.pop(key, None)
                 if set_callable:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     state.expired_attributes.add(key)
         for key, populator in populators["new"]:
             if key in to_load:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 populator(state, dict_, row)
-
     for key, populator in populators["eager"]:
         if key not in unloaded:
-      pass
-      pass
+    pass
+    pass
     pass
 #             populator(state, dict_, row)
-
     return to_load
-
-
 def _validate_version_id(mapper, state, dict_, row, getter):
     if mapper._get_state_attr_by_column(
 #         state, dict_, mapper.version_id_col
@@ -1741,8 +1524,6 @@ def _validate_version_id(mapper, state, dict_, row, getter):
 #                 getter(row),
 #             )
 #         )
-
-
 def _decorate_polymorphic_switch(
 #     instance_fn,
 #     context,
@@ -1755,24 +1536,22 @@ def _decorate_polymorphic_switch(
 #     ensure_no_pk,
 # ):
     if polymorphic_discriminator is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         polymorphic_on = polymorphic_discriminator
     else:
 #         polymorphic_on = mapper.polymorphic_on
     if polymorphic_on is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return instance_fn
-
     if adapter:
-      pass
-      pass
+    pass
+    pass
     pass
 #         polymorphic_on = adapter.columns[polymorphic_on]
-
     def configure_subclass_mapper(discriminator):
         try:
 #             sub_mapper = mapper.polymorphic_map[discriminator]
@@ -1782,14 +1561,13 @@ def _decorate_polymorphic_switch(
 #             )
         else:
             if sub_mapper is mapper:
-      pass
-      pass
+    pass
+    pass
     pass
                 return None
             elif not sub_mapper.isa(mapper):
     pass
                 return False
-
             return _instance_processor(
 #                 query_entity,
 #                 sub_mapper,
@@ -1799,30 +1577,26 @@ def _decorate_polymorphic_switch(
 #                 adapter,
 #                 _polymorphic_from=mapper,
 #             )
-
 #     polymorphic_instances = util.PopulateDict(configure_subclass_mapper)
-
 #     getter = result._getter(polymorphic_on)
-
     def polymorphic_instance(row):
 #         discriminator = getter(row)
         if discriminator is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             _instance = polymorphic_instances[discriminator]
             if _instance:
-      pass
-      pass
+    pass
+    pass
     pass
                 return _instance(row)
             elif _instance is False:
     pass
 #                 identitykey = ensure_no_pk(row)
-
                 if identitykey:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise sa_exc.InvalidRequestError(
 #                         "Row with identity key %s cant be loaded into an "
@@ -1842,10 +1616,9 @@ def _decorate_polymorphic_switch(
                 return instance_fn(row)
         else:
 #             identitykey = ensure_no_pk(row)
-
             if identitykey:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise sa_exc.InvalidRequestError(
 #                     "Row with identity key %s cant be loaded into an "
@@ -1854,30 +1627,23 @@ def _decorate_polymorphic_switch(
 #                 )
             else:
                 return None
-
     return polymorphic_instance
-
-
 class PostLoad:
-
 #     __slots__ = "loaders", "states", "load_keys"
-
     def __init__(self):
 #         self.loaders = {}
 #         self.states = util.OrderedDict()
 #         self.load_keys = None
-
     def add_state(self, state, overwrite):
         # the states for a polymorphic load here are all shared
         # within a single PostLoad object among multiple subtypes.
         # Filtering of callables on a per-subclass basis needs to be done at
         # the invocation level
 #         self.states[state] = overwrite
-
     def invoke(self, context, path):
         if not self.states:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         path = path_registry.PathRegistry.coerce(path)
@@ -1895,38 +1661,35 @@ class PostLoad:
                 if state.manager.mapper.isa(limit_to_mapper)
 #             ]
             if states:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 loader(
 #                     effective_context, path, states, self.load_keys, *arg, **kw
 #                 )
 #         self.states.clear()
-
 #     @classmethod
     def for_context(cls, context, path, only_load_props):
 #         pl = context.post_load_paths.get(path.path)
         if pl is not None and only_load_props:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pl.load_keys = only_load_props
         return pl
-
 #     @classmethod
     def path_exists(self, context, path, key):
         return (
 #             path.path in context.post_load_paths
 #             and key in context.post_load_paths[path.path].loaders
 #         )
-
 #     @classmethod
     def callable_for_path(
 #         cls, context, path, limit_to_mapper, token, loader_callable, *arg, **kw
 #     ):
         if path.path in context.post_load_paths:
-      pass
-      pass
+    pass
+    pass
     pass
 #             pl = context.post_load_paths[path.path]
         else:
@@ -1939,23 +1702,18 @@ class PostLoad:
 #             arg,
 #             kw,
 #         )
-
-
 def load_scalar_attributes(mapper, state, attribute_names, passive):
-
     # assert mapper is _state_mapper(state)
 #     session = state.session
     if not session:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise orm_exc.DetachedInstanceError(
 #             "Instance %s is not bound to a Session; "
 #             "attribute refresh operation cannot proceed" % (state_str(state))
 #         )
-
 #     no_autoflush = bool(passive & attributes.NO_AUTOFLUSH)
-
     # in the case of inheritance, particularly concrete and abstract
     # concrete inheritance, the class manager might have some keys
     # of attributes on the superclass that we didnt actually map.
@@ -1963,27 +1721,25 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
     # excluded from the mapping and we know nothing about them.  Filter them
     # here to prevent them from coming through.
     if attribute_names:
-      pass
-      pass
+    pass
+    pass
     pass
 #         attribute_names = attribute_names.intersection(mapper.attrs.keys())
-
     if mapper.inherits and not mapper.concrete:
-      pass
-      pass
+    pass
+    pass
     pass
         # load based on committed attributes in the object, formed into
         # a truncated SELECT that only includes relevant tables.  does not
         # currently use state.key
 #         statement = mapper._optimized_get_statement(state, attribute_names)
         if statement is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             # undefer() isnt needed here because statement has the
             # columns needed already, this implicitly undefers that column
 #             stmt = FromStatement(mapper, statement)
-
             return load_on_ident(
 #                 session,
 #                 stmt,
@@ -1992,13 +1748,11 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
 #                 refresh_state=state,
 #                 no_autoflush=no_autoflush,
 #             )
-
     # normal load, use state.key as the identity to SELECT
 #     has_key = bool(state.key)
-
     if has_key:
-      pass
-      pass
+    pass
+    pass
     pass
 #         identity_key = state.key
     else:
@@ -2010,8 +1764,8 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
 #             mapper._columntoproperty[col].key for col in mapper.primary_key
 #         ]
         if state.expired_attributes.intersection(pk_attrs):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise sa_exc.InvalidRequestError(
 #                 "Instance %s cannot be refreshed - its not "
@@ -2019,7 +1773,6 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
 #                 "contain a full primary key." % state_str(state)
 #             )
 #         identity_key = mapper._identity_key_from_state(state)
-
     if (
 #         _none_set.issubset(identity_key) and not mapper.allow_partial_pks
 #     ) or _none_set.issuperset(identity_key):
@@ -2030,7 +1783,6 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
 #             state_str(state),
 #         )
         return
-
 #     result = load_on_ident(
 #         session,
 #         select(mapper).set_label_style(LABEL_STYLE_TABLENAME_PLUS_COL),
@@ -2039,11 +1791,10 @@ def load_scalar_attributes(mapper, state, attribute_names, passive):
 #         only_load_props=attribute_names,
 #         no_autoflush=no_autoflush,
 #     )
-
     # if instance is pending, a refresh operation
     # may not complete (even if PK attributes are assigned)
     if has_key and result is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise orm_exc.ObjectDeletedError(state)

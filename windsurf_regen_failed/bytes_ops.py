@@ -1,16 +1,11 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-
 from __future__ import annotations
-
 from mypyc.ir.ops import ERR_MAGIC
 from mypyc.ir.rtypes import (
 #     RUnion,
@@ -31,10 +26,8 @@ from mypyc.primitives.registry import (
 #     load_address_op,
 #     method_op,
 # )
-
 # Get the 'bytes' type object.
 # load_address_op(name="builtins.bytes", type=object_rprimitive, src="PyBytes_Type")
-
 # bytes(obj)
 # function_op(
 #     name="builtins.bytes",
@@ -43,7 +36,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="PyBytes_FromObject",
 #     error_kind=ERR_MAGIC,
 # )
-
 # bytearray(obj)
 # function_op(
 #     name="builtins.bytearray",
@@ -52,7 +44,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="PyByteArray_FromObject",
 #     error_kind=ERR_MAGIC,
 # )
-
 # bytes ==/!= (return -1/0/1)
 # bytes_compare = custom_op(
 #     arg_types=[bytes_rprimitive, bytes_rprimitive],
@@ -60,7 +51,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="CPyBytes_Compare",
 #     error_kind=ERR_NEG_INT,
 # )
-
 # bytes + bytes
 # bytearray + bytearray
 # binary_op(
@@ -71,7 +61,6 @@ from mypyc.primitives.registry import (
 #     error_kind=ERR_MAGIC,
 #     steals=[True, False],
 # )
-
 # bytes[begin:end]
 # bytes_slice_op = custom_op(
 #     arg_types=[bytes_rprimitive, int_rprimitive, int_rprimitive],
@@ -79,7 +68,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="CPyBytes_GetSlice",
 #     error_kind=ERR_MAGIC,
 # )
-
 # bytes[index]
 # bytearray[index]
 # method_op(
@@ -89,7 +77,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="CPyBytes_GetItem",
 #     error_kind=ERR_MAGIC,
 # )
-
 # bytes.join(obj)
 # method_op(
 #     name="join",
@@ -98,7 +85,6 @@ from mypyc.primitives.registry import (
 #     c_function_name="CPyBytes_Join",
 #     error_kind=ERR_MAGIC,
 # )
-
 # Join bytes objects and return a new bytes.
 # The first argument is the total number of the following bytes.
 # bytes_build_op = custom_op(

@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,28 +19,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Any, Mapping, Optional, Union
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig, OnnxSeq2SeqConfigWithPast
 from ...utils import logging
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ...feature_extraction_utils import FeatureExtractionMixin
     from ...tokenization_utils_base import PreTrainedTokenizerBase
     from ...utils import TensorType
-
 # logger = logging.get_logger(__name__)
-
 #     "openai/whisper-base": "https://huggingface.co/openai/whisper-base/resolve/main/config.json",
 # }
-
 # fmt: off
 # NON_SPEECH_TOKENS = [
 #     1, 2, 7, 8, 9, 10, 14, 25,
@@ -68,19 +58,13 @@ if TYPE_CHECKING:
 #     42863, 47425, 49870, 50254, 50258, 50360, 50361, 50362
 # ]
 # fmt: on
-
-
 class WhisperConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`WhisperModel`]. It is used to instantiate a
 #     Whisper model according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the Whisper
 #     [openai/whisper-tiny](https://huggingface.co/openai/whisper-tiny) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 51865):
 #             Vocabulary size of the Whisper model. Defines the number of different tokens that can be represented by the
@@ -185,26 +169,19 @@ class WhisperConfig(PretrainedConfig):
 #         median_filter_width (`int`, *optional*, defaults to 7):
 #             Width of the median filter used to smoothen to cross-attention outputs when computing token timestamps.
 #             Should be an odd number.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import WhisperConfig, WhisperModel
-
 #     >>> # Initializing a Whisper tiny style configuration
 #     >>> configuration = WhisperConfig()
-
 #     >>> # Initializing a model (with random weights) from the tiny style configuration
 #     >>> model = WhisperModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "whisper"
 #     keys_to_ignore_at_inference = ["past_key_values"]
 #     attribute_map = {"num_attention_heads": "encoder_attention_heads", "hidden_size": "d_model"}
-
     def __init__(
 #         self,
 #         vocab_size=51865,
@@ -267,11 +244,9 @@ class WhisperConfig(PretrainedConfig):
 #         self.scale_embedding = scale_embedding  # scale factor will be sqrt(d_model) if True
 #         self.max_source_positions = max_source_positions
 #         self.max_target_positions = max_target_positions
-
         # Audio Classification-specific parameters. Feel free to ignore for other classes.
 #         self.classifier_proj_size = classifier_proj_size
 #         self.use_weighted_layer_sum = use_weighted_layer_sum
-
         # fine-tuning config parameters for SpecAugment: https://arxiv.org/abs/1904.08779
 #         self.apply_spec_augment = apply_spec_augment
 #         self.mask_time_prob = mask_time_prob
@@ -280,9 +255,7 @@ class WhisperConfig(PretrainedConfig):
 #         self.mask_feature_prob = mask_feature_prob
 #         self.mask_feature_length = mask_feature_length
 #         self.mask_feature_min_masks = mask_feature_min_masks
-
 #         self.median_filter_width = median_filter_width
-
 #         super().__init__(
 #             pad_token_id=pad_token_id,
 #             bos_token_id=bos_token_id,
@@ -293,8 +266,6 @@ class WhisperConfig(PretrainedConfig):
 #             begin_suppress_tokens=begin_suppress_tokens,
 #             **kwargs,
 #         )
-
-
 class WhisperOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
@@ -304,21 +275,18 @@ class WhisperOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #             ]
 #         )
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #             common_inputs["decoder_input_ids"] = {0: "batch"}
         else:
 #             common_inputs["decoder_input_ids"] = {0: "batch", 1: "decoder_sequence"}
-
         if self.use_past:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.fill_with_past_key_values_(common_inputs, direction="inputs")
-
         return common_inputs
-
     def generate_dummy_inputs(
 #         self,
 #         preprocessor: Union["PreTrainedTokenizerBase", "FeatureExtractionMixin"],
@@ -342,22 +310,17 @@ class WhisperOnnxConfig(OnnxSeq2SeqConfigWithPast):
 #         )
 #         encoder_sequence_length = encoder_inputs["input_features"].shape[2]
 #         seq_length = encoder_sequence_length // 2 if self.use_past else seq_length
-
 #         decoder_inputs = super().generate_dummy_inputs(
 #             preprocessor.tokenizer, batch_size, seq_length, is_pair, framework
 #         )
-
 #         dummy_inputs["input_features"] = encoder_inputs.pop("input_features")
 #         dummy_inputs["decoder_input_ids"] = decoder_inputs.pop("decoder_input_ids")
-
         if "past_key_values" in decoder_inputs:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dummy_inputs["past_key_values"] = decoder_inputs.pop("past_key_values")
-
         return dummy_inputs
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-3

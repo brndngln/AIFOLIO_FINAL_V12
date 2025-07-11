@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,40 +18,31 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Convert EfficientFormer checkpoints from the original repository.
-
 # URL: https://github.com/snap-research/EfficientFormer
-
 import argparse
 import re
 from pathlib import Path
-
 import requests
 import torch
 from PIL import Image
 from torchvision.transforms import CenterCrop, Compose, Normalize, Resize, ToTensor
-
 from transformers import (
 #     EfficientFormerConfig,
 #     EfficientFormerForImageClassificationWithTeacher,
 #     EfficientFormerImageProcessor,
 # )
 from transformers.image_utils import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD, PILImageResampling
-
-
 def rename_key(old_name, num_meta4D_last_stage):
 #     new_name = old_name
-
     if "patch_embed" in old_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         _, layer, param = old_name.split(".")
-
         if layer == "0":
-      pass
-      pass
+    pass
+    pass
     pass
 #             new_name = old_name.replace("0", "convolution1")
         elif layer == "1":
@@ -64,22 +53,21 @@ def rename_key(old_name, num_meta4D_last_stage):
 #             new_name = old_name.replace("3", "convolution2")
         else:
 #             new_name = old_name.replace("4", "batchnorm_after")
-
     if "network" in old_name and re.search(r"\d.\d", old_name):
-      pass
-      pass
+    pass
+    pass
     pass
 #         two_digit_num = r"\b\d{2}\b"
         if bool(re.search(two_digit_num, old_name)):
-      pass
-      pass
+    pass
+    pass
     pass
 #             match = re.search(r"\d.\d\d.", old_name).group()
         else:
 #             match = re.search(r"\d.\d.", old_name).group()
         if int(match[0]) < 6:
-      pass
-      pass
+    pass
+    pass
     pass
 #             trimmed_name = old_name.replace(match, )
 #             trimmed_name = trimmed_name.replace("network", match[0] + ".meta4D_layers.blocks." + match[2:-1])
@@ -87,16 +75,16 @@ def rename_key(old_name, num_meta4D_last_stage):
         else:
 #             trimmed_name = old_name.replace(match, )
             if int(match[2]) < num_meta4D_last_stage:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 trimmed_name = trimmed_name.replace("network", "meta4D_layers.blocks." + match[2])
             else:
 #                 layer_index = str(int(match[2]) - num_meta4D_last_stage)
 #                 trimmed_name = trimmed_name.replace("network", "meta3D_layers.blocks." + layer_index)
                 if "norm1" in old_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     trimmed_name = trimmed_name.replace("norm1", "layernorm1")
                 elif "norm2" in old_name:
@@ -108,16 +96,13 @@ def rename_key(old_name, num_meta4D_last_stage):
                 elif "fc2" in old_name:
     pass
 #                     trimmed_name = trimmed_name.replace("fc2", "linear_out")
-
 #             new_name = "last_stage." + trimmed_name
-
     elif "network" in old_name and re.search(r".\d.", old_name):
     pass
 #         new_name = old_name.replace("network", "intermediate_stages")
-
     if "fc" in new_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         new_name = new_name.replace("fc", "convolution")
     elif ("norm1" in new_name) and ("layernorm1" not in new_name):
@@ -127,13 +112,13 @@ def rename_key(old_name, num_meta4D_last_stage):
     pass
 #         new_name = new_name.replace("norm2", "batchnorm_after")
     if "proj" in new_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         new_name = new_name.replace("proj", "projection")
     if "dist_head" in new_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         new_name = new_name.replace("dist_head", "distillation_classifier")
     elif "head" in new_name:
@@ -148,26 +133,17 @@ def rename_key(old_name, num_meta4D_last_stage):
 #         new_name = "efficientformer." + new_name
     else:
 #         new_name = "efficientformer.encoder." + new_name
-
     return new_name
-
-
 def convert_torch_checkpoint(checkpoint, num_meta4D_last_stage):
     for key in checkpoint.copy().keys():
 #         val = checkpoint.pop(key)
 #         checkpoint[rename_key(key, num_meta4D_last_stage)] = val
-
     return checkpoint
-
-
 # We will verify our results on a COCO image
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     image = Image.open(requests.get(url, stream=True).raw)
-
     return image
-
-
 def convert_efficientformer_checkpoint(
 #     checkpoint_path: Path, efficientformer_config_file: Path, pytorch_dump_path: Path, push_to_hub: bool
 # ):
@@ -175,19 +151,15 @@ def convert_efficientformer_checkpoint(
 #     config = EfficientFormerConfig.from_json_file(efficientformer_config_file)
 #     model = EfficientFormerForImageClassificationWithTeacher(config)
 #     model_name = "_".join(checkpoint_path.split("/")[-1].split(".")[0].split("_")[:-1])
-
 #     num_meta4D_last_stage = config.depths[-1] - config.num_meta3d_blocks + 1
 #     new_state_dict = convert_torch_checkpoint(orig_state_dict, num_meta4D_last_stage)
-
 #     model.load_state_dict(new_state_dict)
 #     model.eval()
-
 #     pillow_resamplings = {
 #         "bilinear": PILImageResampling.BILINEAR,
 #         "bicubic": PILImageResampling.BICUBIC,
 #         "nearest": PILImageResampling.NEAREST,
 #     }
-
     # prepare image
 #     image = prepare_img()
 #     image_size = 256
@@ -198,7 +170,6 @@ def convert_efficientformer_checkpoint(
 #         resample=pillow_resamplings["bicubic"],
 #     )
 #     pixel_values = processor(images=image, return_tensors="pt").pixel_values
-
     # original processing pipeline
 #     image_transforms = Compose(
 #         [
@@ -209,17 +180,13 @@ def convert_efficientformer_checkpoint(
 #         ]
 #     )
 #     original_pixel_values = image_transforms(image).unsqueeze(0)
-
 #     assert torch.allclose(original_pixel_values, pixel_values)
-
 #     outputs = model(pixel_values)
 #     logits = outputs.logits
-
 #     expected_shape = (1, 1000)
-
     if "l1" in model_name:
-      pass
-      pass
+    pass
+    pass
     pass
 #         expected_logits = torch.Tensor(
 #             [-0.1312, 0.4353, -1.0499, -0.5124, 0.4183, -0.6793, -1.3777, -0.0893, -0.7358, -2.4328]
@@ -243,20 +210,17 @@ def convert_efficientformer_checkpoint(
 #         raise ValueError(
 #             f"Unknown model checkpoint: {checkpoint_path}. Supported version of efficientformer are l1, l3 and l7"
 #         )
-
     # Save Checkpoints
 #     Path(pytorch_dump_path).mkdir(exist_ok=True)
 #     model.save_pretrained(pytorch_dump_path)
 #     print(f"Checkpoint successfuly converted. Model saved at {pytorch_dump_path}")
 #     processor.save_pretrained(pytorch_dump_path)
 #     print(f"Processor successfuly saved at {pytorch_dump_path}")
-
     if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("Pushing model to the hub...")
-
 #         model.push_to_hub(
 #             repo_id=f"Bearnardd/{pytorch_dump_path}",
 #             commit_message="Add model",
@@ -267,11 +231,9 @@ def convert_efficientformer_checkpoint(
 #             commit_message="Add image processor",
 #             use_temp_dir=True,
 #         )
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
     # Required parameters
@@ -292,7 +254,6 @@ if __name__ == "__main__":
 #     parser.add_argument(
 #         "--pytorch_dump_path", default=None, type=str, required=True, help="Path to the output PyTorch model."
 #     )
-
 #     parser.add_argument("--push_to_hub", action="store_true", help="Push model and image processor to the hub")
 #     parser.add_argument(
 #         "--no-push_to_hub",
@@ -301,7 +262,6 @@ if __name__ == "__main__":
 #         help="Do not push model and image processor to the hub",
 #     )
 #     parser.set_defaults(push_to_hub=True)
-
 #     args = parser.parse_args()
 #     convert_efficientformer_checkpoint(
 #         checkpoint_path=args.pytorch_model_path,

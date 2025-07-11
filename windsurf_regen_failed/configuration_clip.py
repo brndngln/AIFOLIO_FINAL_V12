@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,42 +19,30 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Any, Mapping, Optional, Union
-
-
 if TYPE_CHECKING:
-      pass
-      pass
+    pass
+    pass
     pass
     from ...processing_utils import ProcessorMixin
     from ...utils import TensorType
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # CLIP_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "openai/clip-vit-base-patch32": "https://huggingface.co/openai/clip-vit-base-patch32/resolve/main/config.json",
     # See all CLIP models at https://huggingface.co/models?filter=clip
 # }
-
-
 class CLIPTextConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`CLIPTextModel`]. It is used to instantiate a CLIP
 #     text encoder according to the specified arguments, defining the model architecture. Instantiating a configuration
     with the defaults will yield a similar configuration to that of the text encoder of the CLIP
 #     [openai/clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         vocab_size (`int`, *optional*, defaults to 49408):
 #             Vocabulary size of the CLIP text model. Defines the number of different tokens that can be represented by
@@ -93,24 +78,17 @@ class CLIPTextConfig(PretrainedConfig):
 #             Beginning of stream token id.
 #         eos_token_id (`int`, *optional*, defaults to 49407):
 #             End of stream token id.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import CLIPTextConfig, CLIPTextModel
-
 #     >>> # Initializing a CLIPTextConfig with openai/clip-vit-base-patch32 style configuration
 #     >>> configuration = CLIPTextConfig()
-
 #     >>> # Initializing a CLIPTextModel (with random weights) from the openai/clip-vit-base-patch32 style configuration
 #     >>> model = CLIPTextModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "clip_text_model"
-
     def __init__(
 #         self,
 #         vocab_size=49408,
@@ -133,7 +111,6 @@ class CLIPTextConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(pad_token_id=pad_token_id, bos_token_id=bos_token_id, eos_token_id=eos_token_id, **kwargs)
-
 #         self.vocab_size = vocab_size
 #         self.hidden_size = hidden_size
 #         self.intermediate_size = intermediate_size
@@ -146,41 +123,31 @@ class CLIPTextConfig(PretrainedConfig):
 #         self.initializer_range = initializer_range
 #         self.initializer_factor = initializer_factor
 #         self.attention_dropout = attention_dropout
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the text config dict if we are loading from CLIPConfig
         if config_dict.get("model_type") == "clip":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["text_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class CLIPVisionConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`CLIPVisionModel`]. It is used to instantiate a
 #     configuration with the defaults will yield a similar configuration to that of the vision encoder of the CLIP
 #     [openai/clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 768):
 #             Dimensionality of the encoder layers and the pooler layer.
@@ -210,24 +177,17 @@ class CLIPVisionConfig(PretrainedConfig):
 #         initializer_factor (`float`, *optional*, defaults to 1.0):
 #             A factor for initializing all weight matrices (should be kept to 1, used internally for initialization
 #             testing).
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import CLIPVisionConfig, CLIPVisionModel
-
 #     >>> # Initializing a CLIPVisionConfig with openai/clip-vit-base-patch32 style configuration
 #     >>> configuration = CLIPVisionConfig()
-
 #     >>> # Initializing a CLIPVisionModel (with random weights) from the openai/clip-vit-base-patch32 style configuration
 #     >>> model = CLIPVisionModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "clip_vision_model"
-
     def __init__(
 #         self,
 #         hidden_size=768,
@@ -246,7 +206,6 @@ class CLIPVisionConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.hidden_size = hidden_size
 #         self.intermediate_size = intermediate_size
 #         self.projection_dim = projection_dim
@@ -260,42 +219,32 @@ class CLIPVisionConfig(PretrainedConfig):
 #         self.attention_dropout = attention_dropout
 #         self.layer_norm_eps = layer_norm_eps
 #         self.hidden_act = hidden_act
-
 #     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs) -> "PretrainedConfig":
 #         cls._set_token_in_kwargs(kwargs)
-
 #         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-
         # get the vision config dict if we are loading from CLIPConfig
         if config_dict.get("model_type") == "clip":
-      pass
-      pass
+    pass
+    pass
     pass
 #             config_dict = config_dict["vision_config"]
-
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning(
 #                 f"You are using a model of type {config_dict['model_type']} to instantiate a model of type "
 #                 f"{cls.model_type}. This is not supported for all configurations of models and can yield errors."
 #             )
-
         return cls.from_dict(config_dict, **kwargs)
-
-
 class CLIPConfig(PretrainedConfig):
-
 #     [`CLIPConfig`] is the configuration class to store the configuration of a [`CLIPModel`]. It is used to instantiate
 #     a CLIP model according to the specified arguments, defining the text model and vision model configs. Instantiating
 #     a configuration with the defaults will yield a similar configuration to that of the CLIP
 #     [openai/clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
 #     Args:
 #         text_config (`dict`, *optional*):
 #             Dictionary of configuration options used to initialize [`CLIPTextConfig`].
@@ -307,33 +256,23 @@ class CLIPConfig(PretrainedConfig):
 #             The inital value of the *logit_scale* paramter. Default is used as per the original CLIP implementation.
 #         kwargs (*optional*):
 #             Dictionary of keyword arguments.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import CLIPConfig, CLIPModel
-
 #     >>> # Initializing a CLIPConfig with openai/clip-vit-base-patch32 style configuration
 #     >>> configuration = CLIPConfig()
-
 #     >>> # Initializing a CLIPModel (with random weights) from the openai/clip-vit-base-patch32 style configuration
 #     >>> model = CLIPModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
-
 #     >>> # We can also initialize a CLIPConfig from a CLIPTextConfig and a CLIPVisionConfig
 #     >>> from transformers import CLIPTextConfig, CLIPVisionConfig
-
 #     >>> # Initializing a CLIPText and CLIPVision configuration
 #     >>> config_text = CLIPTextConfig()
 #     >>> config_vision = CLIPVisionConfig()
-
 #     >>> config = CLIPConfig.from_text_vision_configs(config_text, config_vision)
 #     ```
-
 #     model_type = "clip"
-
     def __init__(
 #         self, text_config=None, vision_config=None, projection_dim=512, logit_scale_init_value=2.6592, **kwargs
 #     ):
@@ -342,35 +281,31 @@ class CLIPConfig(PretrainedConfig):
         # of confusion!).
 #         text_config_dict = kwargs.pop("text_config_dict", None)
 #         vision_config_dict = kwargs.pop("vision_config_dict", None)
-
 #         super().__init__(**kwargs)
-
         # Instead of simply assigning `[text|vision]_config_dict` to `[text|vision]_config`, we use the values in
         # `[text|vision]_config_dict` to update the values in `[text|vision]_config`. The values should be same in most
         # cases, but we dont want to break anything regarding `_config_dict` that existed before commit `8827e1b2`.
         if text_config_dict is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if text_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 text_config = {}
-
             # This is the complete result when using `text_config_dict`.
 #             _text_config_dict = CLIPTextConfig(**text_config_dict).to_dict()
-
             # Give a warning if the values exist in both `_text_config_dict` and `text_config` but being different.
             for key, value in _text_config_dict.items():
                 if key in text_config and value != text_config[key] and key not in ["transformers_version"]:
-      pass
-      pass
+    pass
+    pass
     pass
                     # If specified in `text_config_dict`
                     if key in text_config_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         message = (
 #                             f"`{key}` is found in both `text_config_dict` and `text_config` but with different values. "
@@ -383,41 +318,37 @@ class CLIPConfig(PretrainedConfig):
 #                             f'value `text_config["{key}"]` will be overriden.'
 #                         )
 #                     logger.warning(message)
-
             # Update all values in `text_config` with the ones in `_text_config_dict`.
 #             text_config.update(_text_config_dict)
-
         if vision_config_dict is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if vision_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 vision_config = {}
-
             # This is the complete result when using `vision_config_dict`.
 #             _vision_config_dict = CLIPVisionConfig(**vision_config_dict).to_dict()
             # convert keys to string instead of integer
             if "id2label" in _vision_config_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 _vision_config_dict["id2label"] = {
 #                     str(key): value for key, value in _vision_config_dict["id2label"].items()
 #                 }
-
             # Give a warning if the values exist in both `_vision_config_dict` and `vision_config` but being different.
             for key, value in _vision_config_dict.items():
                 if key in vision_config and value != vision_config[key] and key not in ["transformers_version"]:
-      pass
-      pass
+    pass
+    pass
     pass
                     # If specified in `vision_config_dict`
                     if key in vision_config_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #                         message = (
 #                             f"`{key}` is found in both `vision_config_dict` and `vision_config` but with different "
@@ -430,43 +361,33 @@ class CLIPConfig(PretrainedConfig):
 #                             f'The value `vision_config["{key}"]` will be overriden.'
 #                         )
 #                     logger.warning(message)
-
             # Update all values in `vision_config` with the ones in `_vision_config_dict`.
 #             vision_config.update(_vision_config_dict)
-
         if text_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             text_config = {}
 #             logger.info("`text_config` is `None`. Initializing the `CLIPTextConfig` with default values.")
-
         if vision_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             vision_config = {}
 #             logger.info("`vision_config` is `None`. initializing the `CLIPVisionConfig` with default values.")
-
 #         self.text_config = CLIPTextConfig(**text_config)
 #         self.vision_config = CLIPVisionConfig(**vision_config)
-
 #         self.projection_dim = projection_dim
 #         self.logit_scale_init_value = logit_scale_init_value
 #         self.initializer_factor = 1.0
-
 #     @classmethod
     def from_text_vision_configs(cls, text_config: CLIPTextConfig, vision_config: CLIPVisionConfig, **kwargs):
 #         r
 #         Instantiate a [`CLIPConfig`] (or a derived class) from clip text model configuration and clip vision model
 #         configuration.
-
 #         Returns:
 #             [`CLIPConfig`]: An instance of a configuration object
-
         return cls(text_config=text_config.to_dict(), vision_config=vision_config.to_dict(), **kwargs)
-
-
 class CLIPOnnxConfig(OnnxConfig):
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
@@ -477,7 +398,6 @@ class CLIPOnnxConfig(OnnxConfig):
 #                 ("attention_mask", {0: "batch", 1: "sequence"}),
 #             ]
 #         )
-
 #     @property
     def outputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -488,11 +408,9 @@ class CLIPOnnxConfig(OnnxConfig):
 #                 ("image_embeds", {0: "batch"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4
-
     def generate_dummy_inputs(
 #         self,
 #         processor: "ProcessorMixin",
@@ -507,7 +425,6 @@ class CLIPOnnxConfig(OnnxConfig):
 #             processor.image_processor, batch_size=batch_size, framework=framework
 #         )
         return {**text_input_dict, **image_input_dict}
-
 #     @property
     def default_onnx_opset(self) -> int:
         return 14

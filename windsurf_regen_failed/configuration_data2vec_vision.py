@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,33 +19,23 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from collections import OrderedDict
 from typing import Mapping
-
 from packaging import version
-
 from ...configuration_utils import PretrainedConfig
 from ...onnx import OnnxConfig
 from ...utils import logging
-
-
 # logger = logging.get_logger(__name__)
-
 # DATA2VEC_VISION_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "facebook/data2vec-vision-base-ft": (
 #         "https://huggingface.co/facebook/data2vec-vision-base-ft/resolve/main/config.json"
 #     ),
 # }
-
-
 class Data2VecVisionConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`Data2VecVisionModel`]. It is used to instantiate
 #     an Data2VecVision model according to the specified arguments, defining the model architecture. Instantiating a
 #     configuration with the defaults will yield a similar configuration to that of the Data2VecVision
 #     [facebook/data2vec-vision-base](https://huggingface.co/facebook/data2vec-vision-base) architecture.
-
 #     Args:
 #         hidden_size (`int`, *optional*, defaults to 768):
 #             Dimensionality of the encoder layers and the pooler layer.
@@ -106,24 +93,17 @@ class Data2VecVisionConfig(PretrainedConfig):
 #             Whether to concatenate the output of the auxiliary head with the input before the classification layer.
 #         semantic_loss_ignore_index (`int`, *optional*, defaults to 255):
 #             The index that is ignored by the loss function of the semantic segmentation model.
-
 #     Example:
-
 #     ```python
 #     >>> from transformers import Data2VecVisionConfig, Data2VecVisionModel
-
 #     >>> # Initializing a Data2VecVision data2vec_vision-base-patch16-224-in22k style configuration
 #     >>> configuration = Data2VecVisionConfig()
-
 #     >>> # Initializing a model (with random weights) from the data2vec_vision-base-patch16-224-in22k style configuration
 #     >>> model = Data2VecVisionModel(configuration)
-
 #     >>> # Accessing the model configuration
 #     >>> configuration = model.config
 #     ```
-
 #     model_type = "data2vec-vision"
-
     def __init__(
 #         self,
 #         hidden_size=768,
@@ -156,7 +136,6 @@ class Data2VecVisionConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
 #         self.hidden_size = hidden_size
 #         self.num_hidden_layers = num_hidden_layers
 #         self.num_attention_heads = num_attention_heads
@@ -166,7 +145,6 @@ class Data2VecVisionConfig(PretrainedConfig):
 #         self.attention_probs_dropout_prob = attention_probs_dropout_prob
 #         self.initializer_range = initializer_range
 #         self.layer_norm_eps = layer_norm_eps
-
 #         self.image_size = image_size
 #         self.patch_size = patch_size
 #         self.num_channels = num_channels
@@ -187,12 +165,9 @@ class Data2VecVisionConfig(PretrainedConfig):
 #         self.auxiliary_num_convs = auxiliary_num_convs
 #         self.auxiliary_concat_input = auxiliary_concat_input
 #         self.semantic_loss_ignore_index = semantic_loss_ignore_index
-
-
 # Copied from transformers.models.vit.configuration_vit.ViTOnnxConfig
 class Data2VecVisionOnnxConfig(OnnxConfig):
 #     torch_onnx_minimum_version = version.parse("1.11")
-
 #     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
@@ -200,7 +175,6 @@ class Data2VecVisionOnnxConfig(OnnxConfig):
 #                 ("pixel_values", {0: "batch", 1: "num_channels", 2: "height", 3: "width"}),
 #             ]
 #         )
-
 #     @property
     def atol_for_validation(self) -> float:
         return 1e-4

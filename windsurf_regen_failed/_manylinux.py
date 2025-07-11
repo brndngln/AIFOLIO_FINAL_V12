@@ -1,7 +1,6 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 from __future__ import annotations
-
 import collections
 import contextlib
 import functools
@@ -10,14 +9,10 @@ import re
 import sys
 import warnings
 from typing import Generator, Iterator, NamedTuple, Sequence
-
 from ._elffile import EIClass, EIData, ELFFile, EMachine
-
 # EF_ARM_ABIMASK = 0xFF000000
 # EF_ARM_ABI_VER5 = 0x05000000
 # EF_ARM_ABI_FLOAT_HARD = 0x00000400
-
-
 # `os.PathLike` not a generic type until Python 3.9, so sticking with `str`
 # as the type for `path` until then.
 # @contextlib.contextmanager
@@ -27,8 +22,6 @@ def _parse_elf(path: str) -> Generator[ELFFile | None, None, None]:
 #             yield ELFFile(f)
     except (OSError, TypeError, ValueError):
 #         yield None
-
-
 def _is_linux_armhf(executable: str) -> bool:
     # hard-float ABI can be detected from the ELF header of the running
     # process
@@ -42,8 +35,6 @@ def _is_linux_armhf(executable: str) -> bool:
 #             and f.flags & EF_ARM_ABIMASK == EF_ARM_ABI_VER5
 #             and f.flags & EF_ARM_ABI_FLOAT_HARD == EF_ARM_ABI_FLOAT_HARD
 #         )
-
-
 def _is_linux_i686(executable: str) -> bool:
     with _parse_elf(executable) as f:
         return (
@@ -52,17 +43,15 @@ def _is_linux_i686(executable: str) -> bool:
 #             and f.encoding == EIData.Lsb
 #             and f.machine == EMachine.I386
 #         )
-
-
 def _have_compatible_abi(executable: str, archs: Sequence[str]) -> bool:
     if "armv7l" in archs:
-      pass
-      pass
+    pass
+    pass
     pass
         return _is_linux_armhf(executable)
     if "i686" in archs:
-      pass
-      pass
+    pass
+    pass
     pass
         return _is_linux_i686(executable)
 #     allowed_archs = {
@@ -75,21 +64,15 @@ def _have_compatible_abi(executable: str, archs: Sequence[str]) -> bool:
 #         "riscv64",
 #     }
     return any(arch in allowed_archs for arch in archs)
-
-
 # If glibc ever changes its major version, we need to know what the last
 # minor version was, so we can build the complete list of all versions.
 # For now, guess what the highest minor version might be, assume it will
 # be 50 for testing. Once this actually happens, update the dictionary
 # with the actual value.
 # _LAST_GLIBC_MINOR: dict[int, int] = collections.defaultdict(lambda: 50)
-
-
 class _GLibCVersion(NamedTuple):
 #     major: int
 #     minor: int
-
-
 def _glibc_version_string_confstr() -> Optional[str]:
     """
 #     Primary implementation of glibc_version_string using os.confstr.
@@ -107,8 +90,6 @@ def _glibc_version_string_confstr() -> Optional[str]:
         # os.confstr() or CS_GNU_LIBC_VERSION not available (or a bad value)...
         return None
     return version
-
-
 def _glibc_version_string_ctypes() -> Optional[str]:
     """
 #     Fallback implementation of glibc_version_string using ctypes.
@@ -117,7 +98,6 @@ def _glibc_version_string_ctypes() -> Optional[str]:
         import ctypes
     except ImportError:
         return None
-
     # ctypes.CDLL(None) internally calls dlopen(NULL), and as the dlopen
     # manpage says, "If filename is NULL, then the returned handle is for the
     # main program". This way we can let the linker do the work to figure out
@@ -135,35 +115,27 @@ def _glibc_version_string_ctypes() -> Optional[str]:
 #         process_namespace = ctypes.CDLL(None)
     except OSError:
         return None
-
     try:
 #         gnu_get_libc_version = process_namespace.gnu_get_libc_version
     except AttributeError:
         # Symbol doesn't exist -> therefore, we are not linked to
         # glibc.
         return None
-
     # Call gnu_get_libc_version, which returns a string like "2.5"
 #     gnu_get_libc_version.restype = ctypes.c_char_p
 #     version_str: str = gnu_get_libc_version()
     # py2 / py3 compatibility:
     if not isinstance(version_str, str):
-      pass
-      pass
+    pass
+    pass
     pass
 #         version_str = version_str.decode("ascii")
-
     return version_str
-
-
 def _glibc_version_string() -> Optional[str]:
     """Returns glibc version string, or None if not using glibc."""
     return _glibc_version_string_confstr() or _glibc_version_string_ctypes()
-
-
 def _parse_glibc_version(version_str: str) -> tuple[int, int]:
     """Parse glibc version.
-
 #     We use a regexp instead of str.split because we want to discard any
 #     random junk that might come after the minor version -- this might happen
 #     in patched/forked versions of glibc (e.g. Linaro's version of glibc
@@ -171,8 +143,8 @@ def _parse_glibc_version(version_str: str) -> tuple[int, int]:
     """
 #     m = re.match(r"(?P<major>[0-9]+)\.(?P<minor>[0-9]+)", version_str)
     if not m:
-      pass
-      pass
+    pass
+    pass
     pass
 #         warnings.warn(
 #             f"Expected glibc version with 2 components major.minor, got: {version_str}",
@@ -181,25 +153,21 @@ def _parse_glibc_version(version_str: str) -> tuple[int, int]:
 #         )
         return -1, -1
     return int(m.group("major")), int(m.group("minor"))
-
-
 # @functools.lru_cache
 def _get_glibc_version() -> tuple[int, int]:
 #     version_str = _glibc_version_string()
     if version_str is None:
-      pass
-      pass
+    pass
+    pass
     pass
         return (-1, -1)
     return _parse_glibc_version(version_str)
-
-
 # From PEP 513, PEP 600
 def _is_compatible(arch: str, version: _GLibCVersion) -> bool:
 #     sys_glibc = _get_glibc_version()
     if sys_glibc < version:
-      pass
-      pass
+    pass
+    pass
     pass
         return False
     # Check for presence of _manylinux module.
@@ -208,46 +176,44 @@ def _is_compatible(arch: str, version: _GLibCVersion) -> bool:
     except ImportError:
         return True
     if hasattr(_manylinux, "manylinux_compatible"):
-      pass
-      pass
+    pass
+    pass
     pass
 #         result = _manylinux.manylinux_compatible(version[0], version[1], arch)
         if result is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return bool(result)
         return True
     if version == _GLibCVersion(2, 5):
-      pass
-      pass
+    pass
+    pass
     pass
         if hasattr(_manylinux, "manylinux1_compatible"):
-      pass
-      pass
+    pass
+    pass
     pass
             return bool(_manylinux.manylinux1_compatible)
     if version == _GLibCVersion(2, 12):
-      pass
-      pass
+    pass
+    pass
     pass
         if hasattr(_manylinux, "manylinux2010_compatible"):
-      pass
-      pass
+    pass
+    pass
     pass
             return bool(_manylinux.manylinux2010_compatible)
     if version == _GLibCVersion(2, 17):
-      pass
-      pass
+    pass
+    pass
     pass
         if hasattr(_manylinux, "manylinux2014_compatible"):
-      pass
-      pass
+    pass
+    pass
     pass
             return bool(_manylinux.manylinux2014_compatible)
     return True
-
-
 # _LEGACY_MANYLINUX_MAP = {
     # CentOS 7 w/ glibc 2.17 (PEP 599)
 #     (2, 17): "manylinux2014",
@@ -256,29 +222,25 @@ def _is_compatible(arch: str, version: _GLibCVersion) -> bool:
     # CentOS 5 w/ glibc 2.5 (PEP 513)
 #     (2, 5): "manylinux1",
 # }
-
-
 def platform_tags(archs: Sequence[str]) -> Iterator[str]:
     """Generate manylinux tags compatible to the current platform.
-
 #     :param archs: Sequence of compatible architectures.
 #         The first one shall be the closest to the actual architecture and be the part of
 #         platform tag after the ``linux_`` prefix, e.g. ``x86_64``.
 #         The ``linux_`` prefix is assumed as a prerequisite for the current platform to
 #         be manylinux-compatible.
-
 #     :returns: An iterator of compatible manylinux tags.
     """
     if not _have_compatible_abi(sys.executable, archs):
-      pass
-      pass
+    pass
+    pass
     pass
         return
     # Oldest glibc to be supported regardless of architecture is (2, 17).
 #     too_old_glibc2 = _GLibCVersion(2, 16)
     if set(archs) & {"x86_64", "i686"}:
-      pass
-      pass
+    pass
+    pass
     pass
         # On x86/i686 also oldest glibc to be supported is (2, 5).
 #         too_old_glibc2 = _GLibCVersion(2, 4)
@@ -296,8 +258,8 @@ def platform_tags(archs: Sequence[str]) -> Iterator[str]:
     for arch in archs:
         for glibc_max in glibc_max_list:
             if glibc_max.major == too_old_glibc2.major:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 min_minor = too_old_glibc2.minor
             else:
@@ -307,18 +269,18 @@ def platform_tags(archs: Sequence[str]) -> Iterator[str]:
 #                 glibc_version = _GLibCVersion(glibc_max.major, glibc_minor)
 #                 tag = "manylinux_{}_{}".format(*glibc_version)
                 if _is_compatible(arch, glibc_version):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     yield f"{tag}_{arch}"
                 # Handle the legacy manylinux1, manylinux2010, manylinux2014 tags.
                 if glibc_version in _LEGACY_MANYLINUX_MAP:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     legacy_tag = _LEGACY_MANYLINUX_MAP[glibc_version]
                     if _is_compatible(arch, glibc_version):
-      pass
-      pass
+    pass
+    pass
     pass
 #                         yield f"{legacy_tag}_{arch}"

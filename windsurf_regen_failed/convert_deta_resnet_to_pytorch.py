@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -21,27 +19,18 @@ from typing import Optional
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # Convert DETA checkpoints from the original repository.
-
 # URL: https://github.com/jozhang97/DETA/tree/maste.
-
-
 import argparse
 import json
 from pathlib import Path
-
 import requests
 import torch
 from huggingface_hub import cached_download, hf_hub_download, hf_hub_url
 from PIL import Image
-
 from transformers import DetaConfig, DetaForObjectDetection, DetaImageProcessor
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
 # logger = logging.get_logger(__name__)
-
-
 def get_deta_config():
 #     config = DetaConfig(
 #         num_queries=900,
@@ -52,7 +41,6 @@ def get_deta_config():
         with_box_refine=True,
 #         two_stage=True,
 #     )
-
     # set labels
 #     config.num_labels = 91
 #     repo_id = "huggingface/label-files"
@@ -61,14 +49,10 @@ def get_deta_config():
 #     id2label = {int(k): v for k, v in id2label.items()}
 #     config.id2label = id2label
 #     config.label2id = {v: k for k, v in id2label.items()}
-
     return config
-
-
 # here we list all keys to be renamed (original name on the left, our name on the right)
 def create_rename_keys(config):
 #     rename_keys = []
-
     # stem
     # fmt: off
 #     rename_keys.append(("backbone.0.body.conv1.weight", "model.backbone.model.embedder.embedder.convolution.weight"))
@@ -81,8 +65,8 @@ def create_rename_keys(config):
         for layer_idx in range(config.backbone_config.depths[stage_idx]):
             # shortcut
             if layer_idx == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 rename_keys.append(
 #                     (
@@ -164,7 +148,6 @@ def create_rename_keys(config):
 #         rename_keys.append((f"transformer.encoder.layers.{i}.linear2.bias", f"model.encoder.layers.{i}.fc2.bias"))
 #         rename_keys.append((f"transformer.encoder.layers.{i}.norm2.weight", f"model.encoder.layers.{i}.final_layer_norm.weight"))
 #         rename_keys.append((f"transformer.encoder.layers.{i}.norm2.bias", f"model.encoder.layers.{i}.final_layer_norm.bias"))
-
     # transformer decoder
     for i in range(config.decoder_layers):
 #         rename_keys.append((f"transformer.decoder.layers.{i}.cross_attn.sampling_offsets.weight", f"model.decoder.layers.{i}.encoder_attn.sampling_offsets.weight"))
@@ -187,17 +170,11 @@ def create_rename_keys(config):
 #         rename_keys.append((f"transformer.decoder.layers.{i}.linear2.bias", f"model.decoder.layers.{i}.fc2.bias"))
 #         rename_keys.append((f"transformer.decoder.layers.{i}.norm3.weight", f"model.decoder.layers.{i}.final_layer_norm.weight"))
 #         rename_keys.append((f"transformer.decoder.layers.{i}.norm3.bias", f"model.decoder.layers.{i}.final_layer_norm.bias"))
-
     # fmt: on
-
     return rename_keys
-
-
 def rename_key(dct, old, new):
 #     val = dct.pop(old)
 #     dct[new] = val
-
-
 def read_in_decoder_q_k_v(state_dict, config):
     # transformer decoder self-attention layers
 #     hidden_size = config.d_model
@@ -214,28 +191,20 @@ def read_in_decoder_q_k_v(state_dict, config):
 #         state_dict[f"model.decoder.layers.{i}.self_attn.k_proj.bias"] = in_proj_bias[hidden_size : hidden_size * 2]
 #         state_dict[f"model.decoder.layers.{i}.self_attn.v_proj.weight"] = in_proj_weight[-hidden_size:, :]
 #         state_dict[f"model.decoder.layers.{i}.self_attn.v_proj.bias"] = in_proj_bias[-hidden_size:]
-
-
 # We will verify our results on an image of cute cats
 def prepare_img():
 #     url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 #     im = Image.open(requests.get(url, stream=True).raw)
-
     return im
-
-
 # @torch.no_grad()
 def convert_deta_checkpoint(model_name, pytorch_dump_folder_path, push_to_hub):
-
 #     Copy/paste/tweak models weights to our DETA structure.
-
     # load config
 #     config = get_deta_config()
-
     # load original state dict
     if model_name == "deta-resnet-50":
-      pass
-      pass
+    pass
+    pass
     pass
 #         filename = "adet_checkpoint0011.pth"
     elif model_name == "deta-resnet-50-24-epochs":
@@ -245,55 +214,48 @@ def convert_deta_checkpoint(model_name, pytorch_dump_folder_path, push_to_hub):
 #         raise ValueError(f"Model name {model_name} not supported")
 #     checkpoint_path = hf_hub_download(repo_id="nielsr/deta-checkpoints", filename=filename)
 #     state_dict = torch.load(checkpoint_path, map_location="cpu")["model"]
-
     # rename keys
 #     rename_keys = create_rename_keys(config)
     for src, dest in rename_keys:
 #         rename_key(state_dict, src, dest)
 #     read_in_decoder_q_k_v(state_dict, config)
-
     # fix some prefixes
     for key in state_dict.copy().keys():
         if "transformer.decoder.class_embed" in key or "transformer.decoder.bbox_embed" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             val = state_dict.pop(key)
 #             state_dict[key.replace("transformer.decoder", "model.decoder")] = val
         if "input_proj" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             val = state_dict.pop(key)
 #             state_dict["model." + key] = val
         if "level_embed" in key or "pos_trans" in key or "pix_trans" in key or "enc_output" in key:
-      pass
-      pass
+    pass
+    pass
     pass
 #             val = state_dict.pop(key)
 #             state_dict[key.replace("transformer", "model")] = val
-
     # finally, create HuggingFace model and load state dict
 #     model = DetaForObjectDetection(config)
 #     model.load_state_dict(state_dict)
 #     model.eval()
-
 #     device = "cuda" if torch.cuda.is_available() else "cpu"
 #     model.to(device)
-
     # load image processor
 #     processor = DetaImageProcessor(format="coco_detection")
-
     # verify our conversion on image
 #     img = prepare_img()
 #     encoding = processor(images=img, return_tensors="pt")
 #     pixel_values = encoding["pixel_values"]
 #     outputs = model(pixel_values.to(device))
-
     # verify logits
     if model_name == "deta-resnet-50":
-      pass
-      pass
+    pass
+    pass
     pass
 #         expected_logits = torch.tensor(
 #             [[-7.3978, -2.5406, -4.1668], [-8.2684, -3.9933, -3.8096], [-7.0515, -3.7973, -5.8516]]
@@ -305,37 +267,31 @@ def convert_deta_checkpoint(model_name, pytorch_dump_folder_path, push_to_hub):
 #             [[-7.1688, -2.4857, -4.8669], [-7.8630, -3.8154, -4.2674], [-7.2730, -4.1865, -5.5323]]
 #         )
 #         expected_boxes = torch.tensor([[0.5021, 0.4971, 0.9994], [0.2546, 0.5486, 0.4731], [0.1686, 0.1986, 0.2142]])
-
 #     assert torch.allclose(outputs.logits[0, :3, :3], expected_logits.to(device), atol=1e-4)
 #     assert torch.allclose(outputs.pred_boxes[0, :3, :3], expected_boxes.to(device), atol=1e-4)
 #     print("Everything ok!")
-
     if pytorch_dump_folder_path:
-      pass
-      pass
+    pass
+    pass
     pass
         # Save model and processor
 #         logger.info(f"Saving PyTorch model and processor to {pytorch_dump_folder_path}...")
 #         Path(pytorch_dump_folder_path).mkdir(exist_ok=True)
 #         model.save_pretrained(pytorch_dump_folder_path)
 #         processor.save_pretrained(pytorch_dump_folder_path)
-
     # Push to hub
     if push_to_hub:
-      pass
-      pass
+    pass
+    pass
     pass
 #         print("Pushing model and processor to hub...")
 #         model.push_to_hub(f"jozhang97/{model_name}")
 #         processor.push_to_hub(f"jozhang97/{model_name}")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser()
-
 #     parser.add_argument(
 #         "--model_name",
 #         type=str,

@@ -1,24 +1,17 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # V80 Owner Intent Engine — Static, SAFE AI, Owner-Controlled
 # Tracks and applies owner intent modes: Fully Automate, Oversight, Override
 # Learns from last 30 days of actions (static, deterministic, no adaptation)
-
 import datetime
-
-
 class OwnerIntentEngine:
 #     _mode = "oversight"
 #     _history = []
-
 #     @staticmethod
     def set_mode(mode):
 #         assert mode in ["auto", "oversight", "override"]
@@ -30,11 +23,9 @@ class OwnerIntentEngine:
 #                 "timestamp": datetime.datetime.utcnow().isoformat(),
 #             }
 #         )
-
 #     @staticmethod
     def get_mode():
         return OwnerIntentEngine._mode
-
 #     @staticmethod
     def record_action(action, approved):
 #         OwnerIntentEngine._history.append(
@@ -44,7 +35,6 @@ class OwnerIntentEngine:
 #                 "timestamp": datetime.datetime.utcnow().isoformat(),
 #             }
 #         )
-
 #     @staticmethod
     def get_history():
         return list(OwnerIntentEngine._history)

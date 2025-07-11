@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -20,33 +18,21 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND=, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import copy
-
 from ...configuration_utils import PretrainedConfig
 from ...utils import logging
 from ..auto import CONFIG_MAPPING
-
-
 # logger = logging.get_logger(__name__)
-
-
 # TVP_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 #     "Intel/tvp-base": "https://huggingface.co/Intel/tvp-base/resolve/main/config.json",
 # }
-
-
 class TvpConfig(PretrainedConfig):
-
 #     This is the configuration class to store the configuration of a [`TvpModel`]. It is used to instantiate an Tvp
 #     model according to the specified arguments, defining the model architecture. Instantiating a configuration with the
     defaults will yield a similar configuration to that of the Tvp
 #     [Intel/tvp-base](https://huggingface.co/Intel/tvp-base) architecture.
-
 #     Configuration objects inherit from [`PretrainedConfig`] and can be used to control the model outputs. Read the
 #     documentation from [`PretrainedConfig`] for more information.
-
-
 #     Args:
 #         backbone_config (`PretrainedConfig` or `dict`, *optional*):
 #             The configuration of the backbone model.
@@ -95,9 +81,7 @@ class TvpConfig(PretrainedConfig):
 #             The standard deviation of the truncated_normal_initializer for initializing all weight matrices.
 #         attention_probs_dropout_prob (`float`, *optional*, defaults to 0.1):
 #             The dropout probability of attention layers.
-
 #     model_type = "tvp"
-
     def __init__(
 #         self,
 #         backbone_config=None,
@@ -124,10 +108,9 @@ class TvpConfig(PretrainedConfig):
 #         **kwargs,
 #     ):
 #         super().__init__(**kwargs)
-
         if backbone_config is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.info("`backbone_config` is `None`. Initializing the config with the default `ResNet` backbone.")
 #             backbone_config = CONFIG_MAPPING["resnet"](out_features=["stage4"])
@@ -136,7 +119,6 @@ class TvpConfig(PretrainedConfig):
 #             backbone_model_type = backbone_config.get("model_type")
 #             config_class = CONFIG_MAPPING[backbone_model_type]
 #             backbone_config = config_class.from_dict(backbone_config)
-
 #         self.backbone_config = backbone_config
 #         self.distance_loss_weight = distance_loss_weight
 #         self.duration_loss_weight = duration_loss_weight
@@ -158,30 +140,23 @@ class TvpConfig(PretrainedConfig):
 #         self.hidden_act = hidden_act
 #         self.initializer_range = initializer_range
 #         self.attention_probs_dropout_prob = attention_probs_dropout_prob
-
 #     @classmethod
     def from_backbone_config(cls, backbone_config: PretrainedConfig, **kwargs):
 #         Instantiate a [`TvpConfig`] (or a derived class) from a pre-trained backbone model configuration.
-
 #         Args:
 #             backbone_config ([`PretrainedConfig`]):
 #                 The backbone configuration.
 #         Returns:
 #             [`TvpConfig`]: An instance of a configuration object
-
         return cls(backbone_config=backbone_config, **kwargs)
-
     def to_dict(self):
-
 #         Serializes this instance to a Python dictionary. Override the default [`~PretrainedConfig.to_dict`].
-
 #         Returns:
 #             `Dict[str, any]`: Dictionary of all the attributes that make up this configuration instance,
-
 #         output = copy.deepcopy(self.__dict__)
         if output["backbone_config"] is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output["backbone_config"] = self.backbone_config.to_dict()
 #         output["model_type"] = self.__class__.model_type

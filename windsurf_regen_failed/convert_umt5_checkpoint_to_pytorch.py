@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,9 +19,7 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 # Convert T5X checkpoint to PyTorch
-
 # Steps:
 # - Install gsutil according to https://cloud.google.com/storage/docs/gsutil_install
 # - Get a T5X checkpoint at https://github.com/google-research/t5x/blob/main/docs/models.md#t5-11-checkpoints Example:
@@ -36,29 +31,18 @@ from typing import Optional
 #     python3 convert_t5x_checkpoint_to_pytorch.py --t5x_checkpoint_path=$HOME/t5_1_1_small --config_file=config.json\
 #       --pytorch_dump_path=$HOME/t5_1_1_small_pt
 #     ```
-
 import argparse
 import collections
-
 import numpy as np
 import torch
 from flax import traverse_util
 from t5x import checkpoints
-
 from transformers import MT5Config, UMT5EncoderModel, UMT5ForConditionalGeneration
 from transformers.utils import logging
-
-
 # logging.set_verbosity_info()
-
-
 def t5x_relpos_bias_lookup(params, i, prefix):
-
     return params[f"{prefix}/{prefix}/relpos_bias/rel_embedding"][:, i, :]
-
-
 def t5x_attention_lookup(params, i, prefix, layer_name="attention"):
-
 #     k_tmp = k_tmp = np.ascontiguousarray(params[f"{prefix}/{prefix}/{layer_name}/key/kernel"][:, i, :, :])
 #     k = k_tmp.reshape(k_tmp.shape[0], k_tmp.shape[1] * k_tmp.shape[2])
 #     o_tmp = np.ascontiguousarray(params[f"{prefix}/{prefix}/{layer_name}/out/kernel"][:, i, :, :])
@@ -68,45 +52,31 @@ def t5x_attention_lookup(params, i, prefix, layer_name="attention"):
 #     v_tmp = np.ascontiguousarray(params[f"{prefix}/{prefix}/{layer_name}/value/kernel"][:, i, :, :])
 #     v = v_tmp.reshape(v_tmp.shape[0], v_tmp.shape[1] * v_tmp.shape[2])
     return k, o, q, v
-
-
 def t5x_mlp_lookup(params, i, prefix, split_mlp_wi=False):
-
     if split_mlp_wi:
-      pass
-      pass
+    pass
+    pass
     pass
 #         wi_0 = params[f"{prefix}/{prefix}/mlp/wi_0/kernel"][:, i, :]
 #         wi_1 = params[f"{prefix}/{prefix}/mlp/wi_1/kernel"][:, i, :]
 #         wi = (wi_0, wi_1)
     else:
 #         wi = params[f"{prefix}/{prefix}/mlp/wi/kernel"][:, i, :]
-
 #     wo = params[f"{prefix}/{prefix}/mlp/wo/kernel"][:, i, :]
     return wi, wo
-
-
 def t5x_layer_norm_lookup(params, i, prefix, layer_name):
-
     return params[f"{prefix}/{prefix}/{layer_name}/scale"][:, i]
-
-
 def convert_t5x_to_pytorch(
 #     variables: dict, *, num_layers: int, is_encoder_only: bool, scalable_attention: bool = False
 # ):
-
 #     old = traverse_util.flatten_dict(variables["target"])
 #     old = {"/".join(k): v for k, v in old.items()}
-
     # v1.1 models have a gated GeLU with wi_0 and wi_1 instead of wi
 #     split_mlp_wi = "encoder/encoder/mlp/wi_0/kernel" in old
 #     print("Split MLP:", split_mlp_wi)
-
 #     new = collections.OrderedDict()
-
     # Shared embeddings.
 #     new["shared.weight"] = old["token_embedder/embedding"]
-
     # Encoder.
     for i in range(num_layers):
         # Block i, layer 0 (Self Attention).
@@ -117,14 +87,13 @@ def convert_t5x_to_pytorch(
 #         new[f"encoder.block.{i}.layer.0.SelfAttention.o.weight"] = o.T
 #         new[f"encoder.block.{i}.layer.0.SelfAttention.q.weight"] = q.T
 #         new[f"encoder.block.{i}.layer.0.SelfAttention.v.weight"] = v.T
-
         # Block i, layer 1 (MLP).
 #         layer_norm = t5x_layer_norm_lookup(old, i, "encoder", "pre_mlp_layer_norm")
 #         wi, wo = t5x_mlp_lookup(old, i, "encoder", split_mlp_wi)
 #         new[f"encoder.block.{i}.layer.1.layer_norm.weight"] = layer_norm
         if split_mlp_wi:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new[f"encoder.block.{i}.layer.1.DenseReluDense.wi_0.weight"] = wi[0].T
 #             new[f"encoder.block.{i}.layer.1.DenseReluDense.wi_1.weight"] = wi[1].T
@@ -132,19 +101,17 @@ def convert_t5x_to_pytorch(
 #             new[f"encoder.block.{i}.layer.1.DenseReluDense.wi.weight"] = wi.T
 #         new[f"encoder.block.{i}.layer.1.DenseReluDense.wo.weight"] = wo.T
         if scalable_attention:
-      pass
-      pass
+    pass
+    pass
     pass
             # convert the rel_embedding of each layer
 #             new[f"encoder.block.{i}.layer.0.SelfAttention.relative_attention_bias.weight"] = t5x_relpos_bias_lookup(
 #                 old, i, "encoder"
 #             ).T
-
 #     new["encoder.final_layer_norm.weight"] = old["encoder/encoder_norm/scale"]
-
     if not scalable_attention:
-      pass
-      pass
+    pass
+    pass
     pass
 #         new["encoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight"] = t5x_relpos_bias_lookup(
 #             old, 0, "encoder"
@@ -152,10 +119,9 @@ def convert_t5x_to_pytorch(
 #         new["decoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight"] = t5x_relpos_bias_lookup(
 #             old, 0, "decoder"
 #         ).T
-
     if not is_encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
         # Decoder.
         for i in range(num_layers):
@@ -167,7 +133,6 @@ def convert_t5x_to_pytorch(
 #             new[f"decoder.block.{i}.layer.0.SelfAttention.o.weight"] = o.T
 #             new[f"decoder.block.{i}.layer.0.SelfAttention.q.weight"] = q.T
 #             new[f"decoder.block.{i}.layer.0.SelfAttention.v.weight"] = v.T
-
             # Block i, layer 1 (Cross Attention).
 #             layer_norm = t5x_layer_norm_lookup(old, i, "decoder", "pre_cross_attention_layer_norm")
 #             k, o, q, v = t5x_attention_lookup(old, i, "decoder", "encoder_decoder_attention")
@@ -176,81 +141,64 @@ def convert_t5x_to_pytorch(
 #             new[f"decoder.block.{i}.layer.1.EncDecAttention.o.weight"] = o.T
 #             new[f"decoder.block.{i}.layer.1.EncDecAttention.q.weight"] = q.T
 #             new[f"decoder.block.{i}.layer.1.EncDecAttention.v.weight"] = v.T
-
             # Block i, layer 2 (MLP).
 #             layer_norm = t5x_layer_norm_lookup(old, i, "decoder", "pre_mlp_layer_norm")
 #             wi, wo = t5x_mlp_lookup(old, i, "decoder", split_mlp_wi)
 #             new[f"decoder.block.{i}.layer.2.layer_norm.weight"] = layer_norm
             if split_mlp_wi:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 new[f"decoder.block.{i}.layer.2.DenseReluDense.wi_0.weight"] = wi[0].T
 #                 new[f"decoder.block.{i}.layer.2.DenseReluDense.wi_1.weight"] = wi[1].T
             else:
 #                 new[f"encoder.block.{i}.layer.2.DenseReluDense.wi.weight"] = wi.T
 #             new[f"decoder.block.{i}.layer.2.DenseReluDense.wo.weight"] = wo.T
-
             if scalable_attention:
-      pass
-      pass
+    pass
+    pass
     pass
                 # convert the rel_embedding of each layer
 #                 new[
 #                     f"decoder.block.{i}.layer.0.SelfAttention.relative_attention_bias.weight"
 #                 ] = t5x_relpos_bias_lookup(old, i, "decoder").T
-
 #         new["decoder.final_layer_norm.weight"] = old["decoder/decoder_norm/scale"]
-
         # LM Head (only in v1.1 checkpoints, in v1.0 embeddings are used instead)
         if "decoder/logits_dense/kernel" in old:
-      pass
-      pass
+    pass
+    pass
     pass
 #             new["lm_head.weight"] = old["decoder/logits_dense/kernel"].T
-
     return new
-
-
 def make_state_dict(converted_params, is_encoder_only: bool):
-
     # Make a state dict with torch tensors.
 #     state_dict = collections.OrderedDict([(k, torch.from_numpy(v.copy())) for (k, v) in converted_params.items()])
-
     # Add what is missing.
     if "encoder.embed_tokens.weight" not in state_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #         state_dict["encoder.embed_tokens.weight"] = state_dict["shared.weight"]
-
     if not is_encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
         if "decoder.embed_tokens.weight" not in state_dict:
-      pass
-      pass
+    pass
+    pass
     pass
 #             state_dict["decoder.embed_tokens.weight"] = state_dict["shared.weight"]
-
         if "lm_head.weight" not in state_dict:  # For old 1.0 models.
 #             print("Using shared word embeddings as lm_head.")
 #             state_dict["lm_head.weight"] = state_dict["shared.weight"]
-
     return state_dict
-
-
 def load_t5x_weights_in_t5(model, config, t5x_checkpoint_path, is_encoder_only, scalable_attention):
-
 #     variables = checkpoints.load_t5x_checkpoint(t5x_checkpoint_path)
 #     converted = convert_t5x_to_pytorch(
 #         variables, num_layers=config.num_layers, is_encoder_only=is_encoder_only, scalable_attention=scalable_attention
 #     )
 #     state_dict = make_state_dict(converted, is_encoder_only)
 #     model.load_state_dict(state_dict, strict=True)
-
-
 def convert_t5x_checkpoint_to_pytorch(
 #     t5x_checkpoint_path,
 #     config_file,
@@ -258,35 +206,29 @@ def convert_t5x_checkpoint_to_pytorch(
 #     is_encoder_only: bool = False,
 #     scalable_attention: bool = False,
 # ):
-
     # Initialise PyTorch model
 #     config = MT5Config.from_json_file(config_file)
 #     print(f"Building PyTorch model from configuration: {config}")
     # Non-v1.1 checkpoints could also use T5Model, but this works for all.
     # The v1.0 checkpoints will simply have an LM head that is the word embeddings.
     if is_encoder_only:
-      pass
-      pass
+    pass
+    pass
     pass
 #         model = UMT5EncoderModel(config)
     else:
 #         model = UMT5ForConditionalGeneration(config)
-
     # Load weights from tf checkpoint
 #     load_t5x_weights_in_t5(model, config, t5x_checkpoint_path, is_encoder_only, scalable_attention)
-
     # Save pytorch-model
 #     print(f"Save PyTorch model to {pytorch_dump_path}")
 #     model.save_pretrained(pytorch_dump_path)
-
     # Verify that we can load the checkpoint.
 #     model.from_pretrained(pytorch_dump_path)
 #     print("Done")
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     parser = argparse.ArgumentParser(description="Converts a native T5X checkpoint into a PyTorch checkpoint.")
     # Required parameters

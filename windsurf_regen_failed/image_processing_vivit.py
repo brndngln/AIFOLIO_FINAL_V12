@@ -1,11 +1,8 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
-
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # coding=utf-8
@@ -22,14 +19,10 @@ from typing import Optional
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 from typing import Dict, List, Optional, Union
-
 import numpy as np
-
 from transformers.utils import is_vision_available
 from transformers.utils.generic import TensorType
-
 from ...image_processing_utils import BaseImageProcessor, BatchFeature, get_size_dict
 from ...image_transforms import (
 #     get_resize_output_image_size,
@@ -48,39 +41,28 @@ from ...image_utils import (
 #     valid_images,
 # )
 from ...utils import logging
-
-
 if is_vision_available():
-      pass
-      pass
+    pass
+    pass
     pass
     import PIL
-
 # logger = logging.get_logger(__name__)
-
-
 def make_batched(videos) -> List[List[ImageInput]]:
     if isinstance(videos, (list, tuple)) and isinstance(videos[0], (list, tuple)) and is_valid_image(videos[0][0]):
-      pass
-      pass
+    pass
+    pass
     pass
         return videos
-
     elif isinstance(videos, (list, tuple)) and is_valid_image(videos[0]):
     pass
         return [videos]
-
     elif is_valid_image(videos):
     pass
         return [[videos]]
-
 #     raise ValueError(f"Could not make batched video from {videos}")
-
-
 class VivitImageProcessor(BaseImageProcessor):
 #     r
 #     Constructs a Vivit image processor.
-
 #     Args:
 #         do_resize (`bool`, *optional*, defaults to `True`):
 #             Whether to resize the images (height, width) dimensions to the specified `size`. Can be overridden by the
@@ -116,9 +98,7 @@ class VivitImageProcessor(BaseImageProcessor):
 #         image_std (`float` or `List[float]`, *optional*, defaults to `IMAGENET_STANDARD_STD`):
 #             Standard deviation to use if normalizing the image. This is a float or list of floats the length of the
 #             number of channels in the image. Can be overridden by the `image_std` parameter in the `preprocess` method.
-
 #     model_input_names = ["pixel_values"]
-
     def __init__(
 #         self,
 #         do_resize: bool = True,
@@ -139,7 +119,6 @@ class VivitImageProcessor(BaseImageProcessor):
 #         size = get_size_dict(size, default_to_square=False)
 #         crop_size = crop_size if crop_size is not None else {"height": 224, "width": 224}
 #         crop_size = get_size_dict(crop_size, param_name="crop_size")
-
 #         self.do_resize = do_resize
 #         self.size = size
 #         self.do_center_crop = do_center_crop
@@ -151,7 +130,6 @@ class VivitImageProcessor(BaseImageProcessor):
 #         self.do_normalize = do_normalize
 #         self.image_mean = image_mean if image_mean is not None else IMAGENET_STANDARD_MEAN
 #         self.image_std = image_std if image_std is not None else IMAGENET_STANDARD_STD
-
     def resize(
 #         self,
 #         image: np.ndarray,
@@ -161,9 +139,7 @@ class VivitImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> np.ndarray:
-
 #         Resize an image.
-
 #         Args:
 #             image (`np.ndarray`):
 #                 Image to resize.
@@ -177,11 +153,10 @@ class VivitImageProcessor(BaseImageProcessor):
 #                 The channel dimension format of the image. If not provided, it will be the same as the input image.
 #             input_data_format (`str` or `ChannelDimension`, *optional*):
 #                 The channel dimension format of the input image. If not provided, it will be inferred.
-
 #         size = get_size_dict(size, default_to_square=False)
         if "shortest_edge" in size:
-      pass
-      pass
+    pass
+    pass
     pass
 #             output_size = get_resize_output_image_size(
 #                 image, size["shortest_edge"], default_to_square=False, input_data_format=input_data_format
@@ -199,7 +174,6 @@ class VivitImageProcessor(BaseImageProcessor):
 #             input_data_format=input_data_format,
 #             **kwargs,
 #         )
-
     # Copied from transformers.models.efficientnet.image_processing_efficientnet.EfficientNetImageProcessor.rescale
     def rescale(
 #         self,
@@ -210,16 +184,12 @@ class VivitImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ):
-
 #         Rescale an image by a scale factor.
-
 #         If `offset` is `True`, the image has its values rescaled by `scale` and then offset by 1. If `scale` is
 #         1/127.5, the image is rescaled between [-1, 1].
 #             image = image * scale - 1
-
 #         If `offset` is `False`, and `scale` is 1/255, the image is rescaled between [0, 1].
 #             image = image * scale
-
 #         Args:
 #             image (`np.ndarray`):
 #                 Image to rescale.
@@ -231,19 +201,15 @@ class VivitImageProcessor(BaseImageProcessor):
 #                 The channel dimension format of the image. If not provided, it will be the same as the input image.
 #             input_data_format (`ChannelDimension` or `str`, *optional*):
 #                 The channel dimension format of the input image. If not provided, it will be inferred.
-
 #         rescaled_image = rescale(
 #             image, scale=scale, data_format=data_format, input_data_format=input_data_format, **kwargs
 #         )
-
         if offset:
-      pass
-      pass
+    pass
+    pass
     pass
 #             rescaled_image = rescaled_image - 1
-
         return rescaled_image
-
     def _preprocess_image(
 #         self,
 #         image: ImageInput,
@@ -261,82 +227,68 @@ class VivitImageProcessor(BaseImageProcessor):
 #         data_format: Optional[ChannelDimension] = ChannelDimension.FIRST,
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #     ) -> np.ndarray:
-
         if do_resize and size is None or resample is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Size and resample must be specified if do_resize is True.")
-
         if do_center_crop and crop_size is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Crop size must be specified if do_center_crop is True.")
-
         if do_rescale and rescale_factor is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Rescale factor must be specified if do_rescale is True.")
-
         if do_normalize and (image_mean is None or image_std is None):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("Image mean and std must be specified if do_normalize is True.")
-
         if offset and not do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError("For offset, do_rescale must also be set to True.")
-
         # All transformations expect numpy arrays.
 #         image = to_numpy_array(image)
-
         if is_scaled_image(image) and do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             logger.warning_once(
 #                 "It looks like you are trying to rescale already rescaled images. If the input"
 #                 " images have pixel values between 0 and 1, set `do_rescale=False` to avoid rescaling them again."
 #             )
-
         if input_data_format is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             input_data_format = infer_channel_dimension_format(image)
-
         if do_resize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             image = self.resize(image=image, size=size, resample=resample, input_data_format=input_data_format)
-
         if do_center_crop:
-      pass
-      pass
+    pass
+    pass
     pass
 #             image = self.center_crop(image, size=crop_size, input_data_format=input_data_format)
-
         if do_rescale:
-      pass
-      pass
+    pass
+    pass
     pass
 #             image = self.rescale(image=image, scale=rescale_factor, offset=offset, input_data_format=input_data_format)
-
         if do_normalize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             image = self.normalize(image=image, mean=image_mean, std=image_std, input_data_format=input_data_format)
-
 #         image = to_channel_dimension_format(image, data_format, input_channel_dim=input_data_format)
         return image
-
     def preprocess(
 #         self,
 #         videos: ImageInput,
@@ -356,9 +308,7 @@ class VivitImageProcessor(BaseImageProcessor):
 #         input_data_format: Optional[Union[str, ChannelDimension]] = None,
 #         **kwargs,
 #     ) -> PIL.Image.Image:
-
 #         Preprocess an image or batch of images.
-
 #         Args:
 #             videos (`ImageInput`):
 #                 Video frames to preprocess. Expects a single or batch of video frames with pixel values ranging from 0
@@ -404,7 +354,6 @@ class VivitImageProcessor(BaseImageProcessor):
 #                 - `"channels_first"` or `ChannelDimension.FIRST`: image in (num_channels, height, width) format.
 #                 - `"channels_last"` or `ChannelDimension.LAST`: image in (height, width, num_channels) format.
 #                 - `"none"` or `ChannelDimension.NONE`: image in (height, width) format.
-
 #         do_resize = do_resize if do_resize is not None else self.do_resize
 #         resample = resample if resample is not None else self.resample
 #         do_center_crop = do_center_crop if do_center_crop is not None else self.do_center_crop
@@ -414,23 +363,19 @@ class VivitImageProcessor(BaseImageProcessor):
 #         do_normalize = do_normalize if do_normalize is not None else self.do_normalize
 #         image_mean = image_mean if image_mean is not None else self.image_mean
 #         image_std = image_std if image_std is not None else self.image_std
-
 #         size = size if size is not None else self.size
 #         size = get_size_dict(size, default_to_square=False)
 #         crop_size = crop_size if crop_size is not None else self.crop_size
 #         crop_size = get_size_dict(crop_size, param_name="crop_size")
-
         if not valid_images(videos):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ValueError(
 #                 "Invalid image type. Must be of type PIL.Image.Image, numpy.ndarray, "
 #                 "torch.Tensor, tf.Tensor or jax.ndarray."
 #             )
-
 #         videos = make_batched(videos)
-
 #         videos = [
 #             [
 #                 self._preprocess_image(
@@ -453,6 +398,5 @@ class VivitImageProcessor(BaseImageProcessor):
 #             ]
             for video in videos
 #         ]
-
 #         data = {"pixel_values": videos}
         return BatchFeature(data=data, tensor_type=return_tensors)

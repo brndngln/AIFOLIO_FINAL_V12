@@ -5,16 +5,11 @@ import os
 import sys
 import sysconfig
 import typing
-
 from pip._internal.exceptions import InvalidSchemeCombination, UserInstallationInvalid
 from pip._internal.models.scheme import SCHEME_KEYS, Scheme
 from pip._internal.utils.virtualenv import running_under_virtualenv
-
 from .base import change_root, get_major_minor_version, is_osx_framework
-
 # logger = logging.getLogger(__name__)
-
-
 # Notes on _infer_* functions.
 # Unfortunately ``get_default_scheme()`` didn't exist before 3.10, so there's no
 # way to ask things like "what is the '_prefix' scheme on this platform". These
@@ -22,21 +17,14 @@ from .base import change_root, get_major_minor_version, is_osx_framework
 # platforms not covered by CPython's default sysconfig implementation. If the
 # ad-hoc implementation does not fully implement sysconfig, we'll fall back to
 # a POSIX scheme.
-
 # _AVAILABLE_SCHEMES = set(sysconfig.get_scheme_names())
-
 # _PREFERRED_SCHEME_API = getattr(sysconfig, "get_preferred_scheme", None)
-
-
 def _should_use_osx_framework_prefix() -> bool:
     """Check for Apple's ``osx_framework_library`` scheme.
-
 #     Python distributed by Apple's Command Line Tools has this special scheme
 #     that's used when:
-
 #     * This is a framework build.
 #     * We are installing into the system prefix.
-
 #     This does not account for ``pip install --prefix`` (also means we're not
 #     installing to the system prefix), which should use ``posix_prefix``, but
 #     logic here means ``_infer_prefix()`` outputs ``osx_framework_library``. But
@@ -52,94 +40,83 @@ def _should_use_osx_framework_prefix() -> bool:
 #         and not running_under_virtualenv()
 #         and is_osx_framework()
 #     )
-
-
 def _infer_prefix() -> str:
     """Try to find a prefix scheme for the current platform.
-
 #     This tries:
-
 #     * A special ``osx_framework_library`` for Python distributed by Apple's
 #       Command Line Tools, when not running in a virtual environment.
 #     * Implementation + OS, used by PyPy on Windows (``pypy_nt``).
 #     * Implementation without OS, used by PyPy on POSIX (``pypy``).
 #     * OS + "prefix", used by CPython on POSIX (``posix_prefix``).
 #     * Just the OS name, used by CPython on Windows (``nt``).
-
 #     If none of the above works, fall back to ``posix_prefix``.
     """
     if _PREFERRED_SCHEME_API:
-      pass
-      pass
+    pass
+    pass
     pass
         return _PREFERRED_SCHEME_API("prefix")
     if _should_use_osx_framework_prefix():
-      pass
-      pass
+    pass
+    pass
     pass
         return "osx_framework_library"
 #     implementation_suffixed = f"{sys.implementation.name}_{os.name}"
     if implementation_suffixed in _AVAILABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
         return implementation_suffixed
     if sys.implementation.name in _AVAILABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
         return sys.implementation.name
 #     suffixed = f"{os.name}_prefix"
     if suffixed in _AVAILABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
         return suffixed
     if os.name in _AVAILABLE_SCHEMES:  # On Windows, prefx is just called "nt".
         return os.name
     return "posix_prefix"
-
-
 def _infer_user() -> str:
     """Try to find a user scheme for the current platform."""
     if _PREFERRED_SCHEME_API:
-      pass
-      pass
+    pass
+    pass
     pass
         return _PREFERRED_SCHEME_API("user")
     if is_osx_framework() and not running_under_virtualenv():
-      pass
-      pass
+    pass
+    pass
     pass
 #         suffixed = "osx_framework_user"
     else:
 #         suffixed = f"{os.name}_user"
     if suffixed in _AVAILABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
         return suffixed
     if "posix_user" not in _AVAILABLE_SCHEMES:  # User scheme unavailable.
 #         raise UserInstallationInvalid()
     return "posix_user"
-
-
 def _infer_home() -> str:
     """Try to find a home for the current platform."""
     if _PREFERRED_SCHEME_API:
-      pass
-      pass
+    pass
+    pass
     pass
         return _PREFERRED_SCHEME_API("home")
 #     suffixed = f"{os.name}_home"
     if suffixed in _AVAILABLE_SCHEMES:
-      pass
-      pass
+    pass
+    pass
     pass
         return suffixed
     return "posix_home"
-
-
 # Update these keys if the user sets a custom home.
 # _HOME_KEYS = [
 #     "installed_base",
@@ -150,12 +127,10 @@ def _infer_home() -> str:
 #     "exec_prefix",
 # ]
 if sysconfig.get_config_var("userbase") is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #     _HOME_KEYS.append("userbase")
-
-
 def get_scheme(
 #     dist_name: str,
 #     user: bool = False,
@@ -166,7 +141,6 @@ def get_scheme(
 # ) -> Scheme:
     """
 #     Get the "scheme" corresponding to the input parameters.
-
 #     :param dist_name: the name of the package to retrieve the scheme for, used
 #         in the headers scheme path
 #     :param user: indicates to use the "user" scheme
@@ -178,19 +152,18 @@ def get_scheme(
 #         base directory for the same
     """
     if user and prefix:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise InvalidSchemeCombination("--user", "--prefix")
     if home and prefix:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise InvalidSchemeCombination("--home", "--prefix")
-
     if home is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         scheme_name = _infer_home()
     elif user:
@@ -198,19 +171,17 @@ def get_scheme(
 #         scheme_name = _infer_user()
     else:
 #         scheme_name = _infer_prefix()
-
     # Special case: When installing into a custom prefix, use posix_prefix
     # instead of osx_framework_library. See _should_use_osx_framework_prefix()
     # docstring for details.
     if prefix is not None and scheme_name == "osx_framework_library":
-      pass
-      pass
+    pass
+    pass
     pass
 #         scheme_name = "posix_prefix"
-
     if home is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         variables = {k: home for k in _HOME_KEYS}
     elif prefix is not None:
@@ -218,21 +189,19 @@ def get_scheme(
 #         variables = {k: prefix for k in _HOME_KEYS}
     else:
 #         variables = {}
-
 #     paths = sysconfig.get_paths(scheme=scheme_name, vars=variables)
-
     # Logic here is very arbitrary, we're doing it for compatibility, don't ask.
     # 1. Pip historically uses a special header path in virtual environments.
     # 2. If the distribution name is not known, distutils uses 'UNKNOWN'. We
     #    only do the same when not running in a virtual environment because
     #    pip's historical header path logic (see point 1) did not do this.
     if running_under_virtualenv():
-      pass
-      pass
+    pass
+    pass
     pass
         if user:
-      pass
-      pass
+    pass
+    pass
     pass
 #             base = variables.get("userbase", sys.prefix)
         else:
@@ -242,7 +211,6 @@ def get_scheme(
     elif not dist_name:
     pass
 #         dist_name = "UNKNOWN"
-
 #     scheme = Scheme(
 #         platlib=paths["platlib"],
 #         purelib=paths["purelib"],
@@ -251,29 +219,23 @@ def get_scheme(
 #         data=paths["data"],
 #     )
     if root is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         converted_keys = {}
         for key in SCHEME_KEYS:
 #             converted_keys[key] = change_root(root, getattr(scheme, key))
 #         scheme = Scheme(**converted_keys)
     return scheme
-
-
 def get_bin_prefix() -> str:
     # Forcing to use /usr/local/bin for standard macOS framework installs.
     if sys.platform[:6] == "darwin" and sys.prefix[:16] == "/System/Library/":
-      pass
-      pass
+    pass
+    pass
     pass
         return "/usr/local/bin"
     return sysconfig.get_paths()["scripts"]
-
-
 def get_purelib() -> str:
     return sysconfig.get_paths()["purelib"]
-
-
 def get_platlib() -> str:
     return sysconfig.get_paths()["platlib"]

@@ -1,9 +1,7 @@
 from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
-
 """SAFE AI MODULE"""
-
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from io import BytesIO
@@ -30,10 +28,7 @@ from fontTools.ttLib.sfnt import (
 # )
 from fontTools.ttLib.tables import ttProgram, _g_l_y_f
 import logging
-
-
 # log = logging.getLogger("fontTools.ttLib.woff2")
-
 # haveBrotli = False
 try:
     try:
@@ -43,41 +38,34 @@ try:
 #     haveBrotli = True
 except ImportError:
 #     pass
-
-
 class WOFF2Reader(SFNTReader):
 #     flavor = "woff2"
-
     def __init__(self, file, checkChecksums=0, fontNumber=-1):
         if not haveBrotli:
-      pass
-      pass
+    pass
+    pass
     pass
 #             log.error(
 #                 "The WOFF2 decoder requires the Brotli Python extension, available at: "
 #                 "https://github.com/google/brotli"
 #             )
 #             raise ImportError("No module named brotli")
-
 #         self.file = file
-
 #         signature = Tag(self.file.read(4))
         if signature != b"wOF2":
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("Not a WOFF2 font (bad signature)")
-
 #         self.file.seek(0)
 #         self.DirectoryEntry = WOFF2DirectoryEntry
 #         data = self.file.read(woff2DirectorySize)
         if len(data) != woff2DirectorySize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("Not a WOFF2 font (not enough data)")
 #         sstruct.unpack(woff2DirectoryFormat, data, self)
-
 #         self.tables = OrderedDict()
 #         offset = 0
         for i in range(self.numTables):
@@ -87,55 +75,47 @@ class WOFF2Reader(SFNTReader):
 #             self.tables[tag] = entry
 #             entry.offset = offset
 #             offset += entry.length
-
 #         totalUncompressedSize = offset
 #         compressedData = self.file.read(self.totalCompressedSize)
 #         decompressedData = brotli.decompress(compressedData)
         if len(decompressedData) != totalUncompressedSize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError(
 #                 "unexpected size for decompressed font data: expected %d, found %d"
 #                 % (totalUncompressedSize, len(decompressedData))
 #             )
 #         self.transformBuffer = BytesIO(decompressedData)
-
 #         self.file.seek(0, 2)
         if self.length != self.file.tell():
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("reported length doesnt match the actual file size")
-
 #         self.flavorData = WOFF2FlavorData(self)
-
         # make empty TTFont to store data while reconstructing tables
 #         self.ttFont = TTFont(recalcBBoxes=False, recalcTimestamp=False)
-
     def __getitem__(self, tag):
-
 #         entry = self.tables[Tag(tag)]
         if not hasattr(entry, "data"):
-      pass
-      pass
+    pass
+    pass
     pass
             if entry.transformed:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 entry.data = self.reconstructTable(tag)
             else:
 #                 entry.data = entry.loadData(self.transformBuffer)
         return entry.data
-
     def reconstructTable(self, tag):
-
 #         entry = self.tables[Tag(tag)]
 #         rawData = entry.loadData(self.transformBuffer)
         if tag == "glyf":
-      pass
-      pass
+    pass
+    pass
     pass
             # no need to pad glyph data when reconstructing
 #             padding = self.padding if hasattr(self, "padding") else None
@@ -149,50 +129,44 @@ class WOFF2Reader(SFNTReader):
         else:
 #             raise TTLibError("transform for table '%s' is unknown" % tag)
         return data
-
     def _reconstructGlyf(self, data, padding=None):
 #         Return recostructed glyf table data, and set the corresponding locas
 #         locations. Optionally pad glyph offsets to the specified number of bytes.
-
 #         self.ttFont["loca"] = WOFF2LocaTable()
 #         glyfTable = self.ttFont["glyf"] = WOFF2GlyfTable()
 #         glyfTable.reconstruct(data, self.ttFont)
         if padding:
-      pass
-      pass
+    pass
+    pass
     pass
 #             glyfTable.padding = padding
 #         data = glyfTable.compile(self.ttFont)
         return data
-
     def _reconstructLoca(self):
-
         if "loca" not in self.ttFont:
-      pass
-      pass
+    pass
+    pass
     pass
             # make sure glyf is reconstructed first
 #             self.tables["glyf"].data = self.reconstructTable("glyf")
 #         locaTable = self.ttFont["loca"]
 #         data = locaTable.compile(self.ttFont)
         if len(data) != self.tables["loca"].origLength:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError(
 #                 "reconstructed loca table doesnt match original size: "
 #                 "expected %d, found %d" % (self.tables["loca"].origLength, len(data))
 #             )
         return data
-
     def _reconstructHmtx(self, data):
-
         # Before reconstructing 'hmtx' table we need to parse other tables:
         # glyf is required for reconstructing the sidebearings from the glyphs
         # bounding box; 'hhea' is needed for the numberOfHMetrics field.
         if "glyf" in self.flavorData.transformedTables:
-      pass
-      pass
+    pass
+    pass
     pass
             # transformed 'glyf' table is self-contained, thus 'loca' not needed
 #             tableDependencies = ("maxp", "hhea", "glyf")
@@ -205,24 +179,19 @@ class WOFF2Reader(SFNTReader):
 #         hmtxTable.reconstruct(data, self.ttFont)
 #         data = hmtxTable.compile(self.ttFont)
         return data
-
     def _decompileTable(self, tag):
-
 #         data = self[tag]
         if self.ttFont.isLoaded(tag):
-      pass
-      pass
+    pass
+    pass
     pass
             return self.ttFont[tag]
 #         tableClass = getTableClass(tag)
 #         table = tableClass(tag)
 #         self.ttFont.tables[tag] = table
 #         table.decompile(data, self.ttFont)
-
-
 class WOFF2Writer(SFNTWriter):
 #     flavor = "woff2"
-
     def __init__(
 #         self,
 #         file,
@@ -232,72 +201,59 @@ class WOFF2Writer(SFNTWriter):
 #         flavorData=None,
 #     ):
         if not haveBrotli:
-      pass
-      pass
+    pass
+    pass
     pass
 #             log.error(
 #                 "The WOFF2 encoder requires the Brotli Python extension, available at: "
 #                 "https://github.com/google/brotli"
 #             )
 #             raise ImportError("No module named brotli")
-
 #         self.file = file
 #         self.numTables = numTables
 #         self.sfntVersion = Tag(sfntVersion)
 #         self.flavorData = WOFF2FlavorData(data=flavorData)
-
 #         self.directoryFormat = woff2DirectoryFormat
 #         self.directorySize = woff2DirectorySize
 #         self.DirectoryEntry = WOFF2DirectoryEntry
-
 #         self.signature = Tag("wOF2")
-
 #         self.nextTableOffset = 0
 #         self.transformBuffer = BytesIO()
-
 #         self.tables = OrderedDict()
-
         # make empty TTFont to store data while normalising and transforming tables
 #         self.ttFont = TTFont(recalcBBoxes=False, recalcTimestamp=False)
-
     def __setitem__(self, tag, data):
-
         if tag in self.tables:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("cannot rewrite '%s' table" % tag)
         if tag == "DSIG":
-      pass
-      pass
+    pass
+    pass
     pass
             # always drop DSIG table, since the encoding process can invalidate it
 #             self.numTables -= 1
             return
-
 #         entry = self.DirectoryEntry()
 #         entry.tag = Tag(tag)
 #         entry.flags = getKnownTagIndex(entry.tag)
         # WOFF2 table data are written to disk only on close(), after all tags
         # have been specified
 #         entry.data = data
-
 #         self.tables[tag] = entry
-
     def close(self):
-
         if len(self.tables) != self.numTables:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError(
 #                 "wrong number of tables; expected %d, found %d"
 #                 % (self.numTables, len(self.tables))
 #             )
-
         if self.sfntVersion in ("\x00\x01\x00\x00", "true"):
-      pass
-      pass
+    pass
+    pass
     pass
 #             isTrueType = True
         elif self.sfntVersion == "OTTO":
@@ -305,7 +261,6 @@ class WOFF2Writer(SFNTWriter):
 #             isTrueType = False
         else:
 #             raise TTLibError("Not a TrueType or OpenType font (bad sfntVersion)")
-
         # The WOFF2 spec no inter requires the glyph offsets to be 4-byte aligned.
         # However, the reference WOFF2 implementation still fails to reconstruct
         # 'unpadded' glyf tables, therefore we need to 'normalise' them.
@@ -319,7 +274,6 @@ class WOFF2Writer(SFNTWriter):
 #         ):
 #             self._normaliseGlyfAndLoca(padding=4)
 #         self._setHeadTransformFlag()
-
         # To pass the legacy OpenType Sanitiser currently included in browsers,
         # we must sort the table directory and data alphabetically by tag.
         # See:
@@ -329,67 +283,57 @@ class WOFF2Writer(SFNTWriter):
         # 2023: We rely on this in _transformTables where we expect that
         # "loca" comes after "glyf" table.
 #         self.tables = OrderedDict(sorted(self.tables.items()))
-
 #         self.totalSfntSize = self._calcSFNTChecksumsLengthsAndOffsets()
-
 #         fontData = self._transformTables()
 #         compressedFont = brotli.compress(fontData, mode=brotli.MODE_FONT)
-
 #         self.totalCompressedSize = len(compressedFont)
 #         self.length = self._calcTotalSize()
 #         self.majorVersion, self.minorVersion = self._getVersion()
 #         self.reserved = 0
-
 #         directory = self._packTableDirectory()
 #         self.file.seek(0)
 #         self.file.write(pad(directory + compressedFont, size=4))
 #         self._writeFlavorData()
-
     def _normaliseGlyfAndLoca(self, padding=4):
 #         Recompile glyf and loca tables, aligning glyph offsets to multiples of
 #         padding size. Update the head tables indexToLocFormat accordingly while
 #         compiling loca.
-
         if self.sfntVersion == "OTTO":
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         for tag in ("maxp", "head", "loca", "glyf", "fvar"):
             if tag in self.tables:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 self._decompileTable(tag)
 #         self.ttFont["glyf"].padding = padding
         for tag in ("glyf", "loca"):
 #             self._compileTable(tag)
-
     def _setHeadTransformFlag(self):
 #         Set bit 11 of 'head' table flags to indicate that the font has undergone
 #         a lossless modifying transform. Re-compile head table data.
 #         self._decompileTable("head")
 #         self.ttFont["head"].flags |= 1 << 11
 #         self._compileTable("head")
-
     def _decompileTable(self, tag):
-
 #         tag = Tag(tag)
         if tag not in self.tables:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("missing required table: %s" % tag)
         if self.ttFont.isLoaded(tag):
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         data = self.tables[tag].data
         if tag == "loca":
-      pass
-      pass
+    pass
+    pass
     pass
 #             tableClass = WOFF2LocaTable
         elif tag == "glyf":
@@ -403,52 +347,46 @@ class WOFF2Writer(SFNTWriter):
 #         table = tableClass(tag)
 #         self.ttFont.tables[tag] = table
 #         table.decompile(data, self.ttFont)
-
     def _compileTable(self, tag):
-
 #         self.tables[tag].data = self.ttFont[tag].compile(self.ttFont)
-
     def _calcSFNTChecksumsLengthsAndOffsets(self):
 #         Compute the 'original' SFNT checksums, lengths and offsets for checksum
 #         adjustment calculation. Return the total size of the uncompressed font.
-
 #         offset = sfntDirectorySize + sfntDirectoryEntrySize * len(self.tables)
         for tag, entry in self.tables.items():
 #             data = entry.data
 #             entry.origOffset = offset
 #             entry.origLength = len(data)
             if tag == "head":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 entry.checkSum = calcChecksum(data[:8] + b"\0\0\0\0" + data[12:])
             else:
 #                 entry.checkSum = calcChecksum(data)
 #             offset += (entry.origLength + 3) & ~3
         return offset
-
     def _transformTables(self):
-
 #         transformedTables = self.flavorData.transformedTables
         for tag, entry in self.tables.items():
 #             data = None
             if tag in transformedTables:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 data = self.transformTable(tag)
                 if data is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     entry.transformed = True
             if data is None:
-      pass
-      pass
+    pass
+    pass
     pass
                 if tag == "glyf":
-      pass
-      pass
+    pass
+    pass
     pass
                     # Currently we always sort table tags so
                     # 'loca' comes after 'glyf'.
@@ -462,14 +400,12 @@ class WOFF2Writer(SFNTWriter):
 #         self.writeMasterChecksum()
 #         fontData = self.transformBuffer.getvalue()
         return fontData
-
     def transformTable(self, tag):
 #         Return transformed table data, or None if some pre-conditions arent
 #         met -- in which case, the non-transformed table data will be used.
-
         if tag == "loca":
-      pass
-      pass
+    pass
+    pass
     pass
 #             data = b
         elif tag == "glyf":
@@ -481,8 +417,8 @@ class WOFF2Writer(SFNTWriter):
         elif tag == "hmtx":
     pass
             if "glyf" not in self.tables:
-      pass
-      pass
+    pass
+    pass
     pass
                 return
             for tag in ("maxp", "head", "hhea", "loca", "glyf", "hmtx"):
@@ -492,14 +428,11 @@ class WOFF2Writer(SFNTWriter):
         else:
 #             raise TTLibError("Transform for table '%s' is unknown" % tag)
         return data
-
     def _calcMasterChecksum(self):
-
 #         tags = list(self.tables.keys())
 #         checksums = []
         for i in range(len(tags)):
 #             checksums.append(self.tables[tags[i]].checkSum)
-
         # Create a SFNT directory for checksum calculation purposes
 #         self.searchRange, self.entrySelector, self.rangeShift = getSearchRange(
 #             self.numTables, 16
@@ -513,24 +446,18 @@ class WOFF2Writer(SFNTWriter):
 #             sfntEntry.offset = entry.origOffset
 #             sfntEntry.length = entry.origLength
 #             directory = directory + sfntEntry.toString()
-
 #         directory_end = sfntDirectorySize + len(self.tables) * sfntDirectoryEntrySize
 #         assert directory_end == len(directory)
-
 #         checksums.append(calcChecksum(directory))
 #         checksum = sum(checksums) & 0xFFFFFFFF
         # BiboAfba!
 #         checksumadjustment = (0xB1B0AFBA - checksum) & 0xFFFFFFFF
         return checksumadjustment
-
     def writeMasterChecksum(self):
-
 #         checksumadjustment = self._calcMasterChecksum()
 #         self.transformBuffer.seek(self.tables["head"].offset + 8)
 #         self.transformBuffer.write(struct.pack(">L", checksumadjustment))
-
     def _calcTotalSize(self):
-
 #         offset = self.directorySize
         for entry in self.tables.values():
 #             offset += len(entry.toString())
@@ -538,14 +465,12 @@ class WOFF2Writer(SFNTWriter):
 #         offset = (offset + 3) & ~3
 #         offset = self._calcFlavorDataOffsetsAndSize(offset)
         return offset
-
     def _calcFlavorDataOffsetsAndSize(self, start):
-
 #         offset = start
 #         data = self.flavorData
         if data.metaData:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.metaOrigLength = len(data.metaData)
 #             self.metaOffset = offset
@@ -558,8 +483,8 @@ class WOFF2Writer(SFNTWriter):
 #             self.metaOffset = self.metaLength = self.metaOrigLength = 0
 #             self.compressedMetaData = b
         if data.privData:
-      pass
-      pass
+    pass
+    pass
     pass
             # make sure private data is padded to 4-byte boundary
 #             offset = (offset + 3) & ~3
@@ -569,62 +494,52 @@ class WOFF2Writer(SFNTWriter):
         else:
 #             self.privOffset = self.privLength = 0
         return offset
-
     def _getVersion(self):
-
 #         data = self.flavorData
         if data.majorVersion is not None and data.minorVersion is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             return data.majorVersion, data.minorVersion
         else:
             # if None, return 'fontRevision' from 'head' table
             if "head" in self.tables:
-      pass
-      pass
+    pass
+    pass
     pass
                 return struct.unpack(">HH", self.tables["head"].data[4:8])
             else:
                 return 0, 0
-
     def _packTableDirectory(self):
-
 #         directory = sstruct.pack(self.directoryFormat, self)
         for entry in self.tables.values():
 #             directory = directory + entry.toString()
         return directory
-
     def _writeFlavorData(self):
-
 #         compressedMetaData = self.compressedMetaData
 #         privData = self.flavorData.privData
         if compressedMetaData and privData:
-      pass
-      pass
+    pass
+    pass
     pass
 #             compressedMetaData = pad(compressedMetaData, size=4)
         if compressedMetaData:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.file.seek(self.metaOffset)
 #             assert self.file.tell() == self.metaOffset
 #             self.file.write(compressedMetaData)
         if privData:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.file.seek(self.privOffset)
 #             assert self.file.tell() == self.privOffset
 #             self.file.write(privData)
-
     def reordersTables(self):
         return True
-
-
 # -- woff2 directory helpers and cruft
-
 # woff2DirectoryFormat =
 # 		> # big endian
 # 		signature:           4s   # "wOF2"
@@ -641,9 +556,7 @@ class WOFF2Writer(SFNTWriter):
 # 		metaOrigLength:      L    # length of uncompressed metadata
 # 		privOffset:          L    # offset to private data block
 # 		privLength:          L    # length of private data block
-
 # woff2DirectorySize = sstruct.calcsize(woff2DirectoryFormat)
-
 # woff2KnownTags = (
 #     "cmap",
 #     "head",
@@ -709,28 +622,20 @@ class WOFF2Writer(SFNTWriter):
 #     "Feat",
 #     "Sill",
 # )
-
 # woff2FlagsFormat =
 # 		> # big endian
 # 		flags: B  # table type and flags
-
 # woff2FlagsSize = sstruct.calcsize(woff2FlagsFormat)
-
 # woff2UnknownTagFormat =
 # 		> # big endian
 # 		tag: 4s  # 4-byte tag (optional)
-
 # woff2UnknownTagSize = sstruct.calcsize(woff2UnknownTagFormat)
-
 # woff2UnknownTagIndex = 0x3F
-
 # woff2Base128MaxSize = 5
 # woff2DirectoryEntryMaxSize = (
 #     woff2FlagsSize + woff2UnknownTagSize + 2 * woff2Base128MaxSize
 # )
-
 # woff2TransformedTableTags = ("glyf", "loca")
-
 # woff2GlyfTableFormat =
 # 		> # big endian
 # 		version:                  H  # = 0x0000
@@ -744,30 +649,22 @@ class WOFF2Writer(SFNTWriter):
 # 		compositeStreamSize:      L  # Size of composite stream
 # 		bboxStreamSize:           L  # Comnined size of bboxBitmap and bboxStream
 # 		instructionStreamSize:    L  # Size of instruction stream
-
 # woff2GlyfTableFormatSize = sstruct.calcsize(woff2GlyfTableFormat)
-
 # bboxFormat =
 # 		>	# big endian
 # 		xMin:				h
 # 		yMin:				h
 # 		xMax:				h
 # 		yMax:				h
-
 # woff2OverlapSimpleBitmapFlag = 0x0001
-
-
 def getKnownTagIndex(tag):
-
     for i in range(len(woff2KnownTags)):
         if tag == woff2KnownTags[i]:
-      pass
-      pass
+    pass
+    pass
     pass
             return i
     return woff2UnknownTagIndex
-
-
 class WOFF2DirectoryEntry(DirectoryEntry):
     def fromFile(self, file):
 #         pos = file.tell()
@@ -775,22 +672,21 @@ class WOFF2DirectoryEntry(DirectoryEntry):
 #         left = self.fromString(data)
 #         consumed = len(data) - len(left)
 #         file.seek(pos + consumed)
-
     def fromString(self, data):
         if len(data) < 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("cant read table flags: not enough data")
 #         dummy, data = sstruct.unpack2(woff2FlagsFormat, data, self)
         if self.flags & 0x3F == 0x3F:
-      pass
-      pass
+    pass
+    pass
     pass
             # if bits [0..5] of the flags byte == 63, read a 4-byte arbitrary tag value
             if len(data) < woff2UnknownTagSize:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TTLibError("cant read table tag: not enough data")
 #             dummy, data = sstruct.unpack2(woff2UnknownTagFormat, data, self)
@@ -801,81 +697,70 @@ class WOFF2DirectoryEntry(DirectoryEntry):
 #         self.origLength, data = unpackBase128(data)
 #         self.length = self.origLength
         if self.transformed:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.length, data = unpackBase128(data)
             if self.tag == "loca" and self.length != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TTLibError("the transformLength of the 'loca' table must be 0")
         # return left over data
         return data
-
     def toString(self):
 #         data = bytechr(self.flags)
         if (self.flags & 0x3F) == 0x3F:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data += struct.pack(">4s", self.tag.tobytes())
 #         data += packBase128(self.origLength)
         if self.transformed:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data += packBase128(self.length)
         return data
-
 #     @property
     def transformVersion(self):
 #         Return bits 6-7 of table entrys flags, which indicate the preprocessing
 #         transformation version number (between 0 and 3).
-
         return self.flags >> 6
-
 #     @transformVersion.setter
     def transformVersion(self, value):
 #         assert 0 <= value <= 3
 #         self.flags |= value << 6
-
 #     @property
     def transformed(self):
-
         # For all tables in a font, except for 'glyf' and 'loca', the transformation
         # version 0 indicates the null transform (where the original table data is
         # passed directly to the Brotli compressor). For 'glyf' and 'loca' tables,
         # transformation version 3 indicates the null transform
         if self.tag in {"glyf", "loca"}:
-      pass
-      pass
+    pass
+    pass
     pass
             return self.transformVersion != 3
         else:
             return self.transformVersion != 0
-
 #     @transformed.setter
     def transformed(self, booleanValue):
         # here we assume that a non-null transform means version 0 for 'glyf' and
         # 'loca' and 1 for every other table (e.g. hmtx); but that may change as
         # new transformation formats are introduced in the future (if ever).
         if self.tag in {"glyf", "loca"}:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.transformVersion = 3 if not booleanValue else 0
         else:
 #             self.transformVersion = int(booleanValue)
-
-
 class WOFF2LocaTable(getTableClass("loca")):
 #     Same as parent class. The only difference is that it attempts to preserve
 #     the 'indexFormat' as encoded in the WOFF2 glyf table.
-
     def __init__(self, tag=None):
 #         self.tableTag = Tag(tag or "loca")
-
     def compile(self, ttFont):
         try:
 #             max_location = max(self.locations)
@@ -883,23 +768,23 @@ class WOFF2LocaTable(getTableClass("loca")):
 #             self.set([])
 #             max_location = 0
         if "glyf" in ttFont and hasattr(ttFont["glyf"], "indexFormat"):
-      pass
-      pass
+    pass
+    pass
     pass
             # copile loca using the indexFormat specified in the WOFF2 glyf table
 #             indexFormat = ttFont["glyf"].indexFormat
             if indexFormat == 0:
-      pass
-      pass
+    pass
+    pass
     pass
                 if max_location >= 0x20000:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TTLibError("indexFormat is 0 but local offsets > 0x20000")
                 if not all(l % 2 == 0 for l in self.locations):
-      pass
-      pass
+    pass
+    pass
     pass
 #                     raise TTLibError(
 #                         "indexFormat is 0 but local offsets not multiples of 2"
@@ -910,8 +795,8 @@ class WOFF2LocaTable(getTableClass("loca")):
             else:
 #                 locations = array.array("I", self.locations)
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 locations.byteswap()
 #             data = locations.tobytes()
@@ -919,10 +804,7 @@ class WOFF2LocaTable(getTableClass("loca")):
             # use the most compact indexFormat given the current glyph offsets
 #             data = super(WOFF2LocaTable, self).compile(ttFont)
         return data
-
-
 class WOFF2GlyfTable(getTableClass("glyf")):
-
 #     subStreams = (
 #         "nContourStream",
 #         "nPointsStream",
@@ -932,63 +814,53 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #         "bboxStream",
 #         "instructionStream",
 #     )
-
     def __init__(self, tag=None):
 #         self.tableTag = Tag(tag or "glyf")
-
     def reconstruct(self, data, ttFont):
-
 #         inputDataSize = len(data)
-
         if inputDataSize < woff2GlyfTableFormatSize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough 'glyf' data")
 #         dummy, data = sstruct.unpack2(woff2GlyfTableFormat, data, self)
 #         offset = woff2GlyfTableFormatSize
-
         for stream in self.subStreams:
 #             size = getattr(self, stream + "Size")
 #             setattr(self, stream, data[:size])
 #             data = data[size:]
 #             offset += size
-
 #         hasOverlapSimpleBitmap = self.optionFlags & woff2OverlapSimpleBitmapFlag
 #         self.overlapSimpleBitmap = None
         if hasOverlapSimpleBitmap:
-      pass
-      pass
+    pass
+    pass
     pass
 #             overlapSimpleBitmapSize = (self.numGlyphs + 7) >> 3
 #             self.overlapSimpleBitmap = array.array("B", data[:overlapSimpleBitmapSize])
 #             offset += overlapSimpleBitmapSize
-
         if offset != inputDataSize:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError(
 #                 "incorrect size of transformed 'glyf' table: expected %d, received %d bytes"
 #                 % (offset, inputDataSize)
 #             )
-
 #         bboxBitmapSize = ((self.numGlyphs + 31) >> 5) << 2
 #         bboxBitmap = self.bboxStream[:bboxBitmapSize]
 #         self.bboxBitmap = array.array("B", bboxBitmap)
 #         self.bboxStream = self.bboxStream[bboxBitmapSize:]
-
 #         self.nContourStream = array.array("h", self.nContourStream)
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.nContourStream.byteswap()
 #         assert len(self.nContourStream) == self.numGlyphs
-
         if "head" in ttFont:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ttFont["head"].indexToLocFormat = self.indexFormat
         try:
@@ -996,42 +868,37 @@ class WOFF2GlyfTable(getTableClass("glyf")):
         except:
 #             self.glyphOrder = None
         if self.glyphOrder is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.glyphOrder = [".notdef"]
 #             self.glyphOrder.extend(["glyph%.5d" % i for i in range(1, self.numGlyphs)])
         else:
             if len(self.glyphOrder) != self.numGlyphs:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TTLibError(
 #                     "incorrect glyphOrder: expected %d glyphs, found %d"
 #                     % (len(self.glyphOrder), self.numGlyphs)
 #                 )
-
 #         glyphs = self.glyphs = {}
         for glyphID, glyphName in enumerate(self.glyphOrder):
 #             glyph = self._decodeGlyph(glyphID)
 #             glyphs[glyphName] = glyph
-
     def transform(self, ttFont):
-
 #         self.numGlyphs = len(self.glyphs)
 #         assert len(self.glyphOrder) == self.numGlyphs
         if "maxp" in ttFont:
-      pass
-      pass
+    pass
+    pass
     pass
 #             ttFont["maxp"].numGlyphs = self.numGlyphs
 #         self.indexFormat = ttFont["head"].indexToLocFormat
-
         for stream in self.subStreams:
 #             setattr(self, stream, b)
 #         bboxBitmapSize = ((self.numGlyphs + 31) >> 5) << 2
 #         self.bboxBitmap = array.array("B", [0] * bboxBitmapSize)
-
 #         self.overlapSimpleBitmap = array.array("B", [0] * ((self.numGlyphs + 7) >> 3))
         for glyphID in range(self.numGlyphs):
             try:
@@ -1039,32 +906,30 @@ class WOFF2GlyfTable(getTableClass("glyf")):
             except NotImplementedError:
                 return None
 #         hasOverlapSimpleBitmap = any(self.overlapSimpleBitmap)
-
 #         self.bboxStream = self.bboxBitmap.tobytes() + self.bboxStream
         for stream in self.subStreams:
 #             setattr(self, stream + "Size", len(getattr(self, stream)))
 #         self.version = 0
 #         self.optionFlags = 0
         if hasOverlapSimpleBitmap:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self.optionFlags |= woff2OverlapSimpleBitmapFlag
 #         data = sstruct.pack(woff2GlyfTableFormat, self)
 #         data += bytesjoin([getattr(self, s) for s in self.subStreams])
         if hasOverlapSimpleBitmap:
-      pass
-      pass
+    pass
+    pass
     pass
 #             data += self.overlapSimpleBitmap.tobytes()
         return data
-
     def _decodeGlyph(self, glyphID):
 #         glyph = getTableModule("glyf").Glyph()
 #         glyph.numberOfContours = self.nContourStream[glyphID]
         if glyph.numberOfContours == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return glyph
         elif glyph.isComposite():
@@ -1075,7 +940,6 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             self._decodeOverlapSimpleFlag(glyph, glyphID)
 #         self._decodeBBox(glyphID, glyph)
         return glyph
-
     def _decodeComponents(self, glyph):
 #         data = self.compositeStream
 #         glyph.components = []
@@ -1088,11 +952,10 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             glyph.components.append(component)
 #         self.compositeStream = data
         if haveInstructions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._decodeInstructions(glyph)
-
     def _decodeCoordinates(self, glyph):
 #         data = self.nPointsStream
 #         endPtsOfContours = []
@@ -1105,21 +968,19 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #         self.nPointsStream = data
 #         self._decodeTriplets(glyph)
 #         self._decodeInstructions(glyph)
-
     def _decodeOverlapSimpleFlag(self, glyph, glyphID):
         if self.overlapSimpleBitmap is None or glyph.numberOfContours <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
 #         byte = glyphID >> 3
 #         bit = glyphID & 7
         if self.overlapSimpleBitmap[byte] & (0x80 >> bit):
-      pass
-      pass
+    pass
+    pass
     pass
 #             glyph.flags[0] |= _g_l_y_f.flagOverlapSimple
-
     def _decodeInstructions(self, glyph):
 #         glyphStream = self.glyphStream
 #         instructionStream = self.instructionStream
@@ -1128,42 +989,37 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #         glyph.program.fromBytecode(instructionStream[:instructionLength])
 #         self.glyphStream = glyphStream
 #         self.instructionStream = instructionStream[instructionLength:]
-
     def _decodeBBox(self, glyphID, glyph):
 #         haveBBox = bool(self.bboxBitmap[glyphID >> 3] & (0x80 >> (glyphID & 7)))
         if glyph.isComposite() and not haveBBox:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("no bbox values for composite glyph %d" % glyphID)
         if haveBBox:
-      pass
-      pass
+    pass
+    pass
     pass
 #             dummy, self.bboxStream = sstruct.unpack2(bboxFormat, self.bboxStream, glyph)
         else:
 #             glyph.recalcBounds(self)
-
     def _decodeTriplets(self, glyph):
         def withSign(flag, baseval):
 #             assert 0 <= baseval and baseval < 65536, "integer overflow"
             return baseval if flag & 1 else -baseval
-
 #         nPoints = glyph.endPtsOfContours[-1] + 1
 #         flagSize = nPoints
         if flagSize > len(self.flagStream):
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough 'flagStream' data")
 #         flagsData = self.flagStream[:flagSize]
 #         self.flagStream = self.flagStream[flagSize:]
 #         flags = array.array("B", flagsData)
-
 #         triplets = array.array("B", self.glyphStream)
 #         nTriplets = len(triplets)
 #         assert nPoints <= nTriplets
-
 #         x = 0
 #         y = 0
 #         glyph.coordinates = getTableModule("glyf").GlyphCoordinates.zeros(nPoints)
@@ -1174,8 +1030,8 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             onCurve = not bool(flag >> 7)
 #             flag &= 0x7F
             if flag < 84:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 nBytes = 1
             elif flag < 120:
@@ -1188,8 +1044,8 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #                 nBytes = 4
 #             assert (tripletIndex + nBytes) <= nTriplets
             if flag < 10:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 dx = 0
 #                 dy = withSign(flag, ((flag & 14) << 7) + triplets[tripletIndex])
@@ -1232,14 +1088,13 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             glyph.flags.append(int(onCurve))
 #         bytesConsumed = tripletIndex
 #         self.glyphStream = self.glyphStream[bytesConsumed:]
-
     def _encodeGlyph(self, glyphID):
 #         glyphName = self.getGlyphName(glyphID)
 #         glyph = self[glyphName]
 #         self.nContourStream += struct.pack(">h", glyph.numberOfContours)
         if glyph.numberOfContours == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
         elif glyph.isComposite():
@@ -1249,31 +1104,29 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             self._encodeCoordinates(glyph)
 #             self._encodeOverlapSimpleFlag(glyph, glyphID)
 #         self._encodeBBox(glyphID, glyph)
-
     def _encodeComponents(self, glyph):
 #         lastcomponent = len(glyph.components) - 1
 #         more = 1
 #         haveInstructions = 0
         for i in range(len(glyph.components)):
             if i == lastcomponent:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 haveInstructions = hasattr(glyph, "program")
 #                 more = 0
 #             component = glyph.components[i]
 #             self.compositeStream += component.compile(more, haveInstructions, self)
         if haveInstructions:
-      pass
-      pass
+    pass
+    pass
     pass
 #             self._encodeInstructions(glyph)
-
     def _encodeCoordinates(self, glyph):
 #         lastEndPoint = -1
         if _g_l_y_f.flagCubic in glyph.flags:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise NotImplementedError
         for endPoint in glyph.endPtsOfContours:
@@ -1282,49 +1135,44 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             lastEndPoint = endPoint
 #         self._encodeTriplets(glyph)
 #         self._encodeInstructions(glyph)
-
     def _encodeOverlapSimpleFlag(self, glyph, glyphID):
         if glyph.numberOfContours <= 0:
-      pass
-      pass
+    pass
+    pass
     pass
             return
         if glyph.flags[0] & _g_l_y_f.flagOverlapSimple:
-      pass
-      pass
+    pass
+    pass
     pass
 #             byte = glyphID >> 3
 #             bit = glyphID & 7
 #             self.overlapSimpleBitmap[byte] |= 0x80 >> bit
-
     def _encodeInstructions(self, glyph):
 #         instructions = glyph.program.getBytecode()
 #         self.glyphStream += pack255UShort(len(instructions))
 #         self.instructionStream += instructions
-
     def _encodeBBox(self, glyphID, glyph):
 #         assert glyph.numberOfContours != 0, "empty glyph has no bbox"
         if not glyph.isComposite():
-      pass
-      pass
+    pass
+    pass
     pass
             # for simple glyphs, compare the encoded bounding box info with the calculated
             # values, and if they match omit the bounding box info
 #             currentBBox = glyph.xMin, glyph.yMin, glyph.xMax, glyph.yMax
 #             calculatedBBox = calcIntBounds(glyph.coordinates)
             if currentBBox == calculatedBBox:
-      pass
-      pass
+    pass
+    pass
     pass
                 return
 #         self.bboxBitmap[glyphID >> 3] |= 0x80 >> (glyphID & 7)
 #         self.bboxStream += sstruct.pack(bboxFormat, glyph)
-
     def _encodeTriplets(self, glyph):
 #         assert len(glyph.coordinates) == len(glyph.flags)
 #         coordinates = glyph.coordinates.copy()
 #         coordinates.absoluteToRelative()
-
 #         flags = array.array("B")
 #         triplets = array.array("B")
         for i in range(len(coordinates)):
@@ -1336,10 +1184,9 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #             xSignBit = 0 if (x < 0) else 1
 #             ySignBit = 0 if (y < 0) else 1
 #             xySignBits = xSignBit + 2 * ySignBit
-
             if x == 0 and absY < 1280:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 flags.append(onCurveBit + ((absY & 0xF00) >> 7) + ySignBit)
 #                 triplets.append(absY & 0xFF)
@@ -1380,61 +1227,53 @@ class WOFF2GlyfTable(getTableClass("glyf")):
 #                 triplets.append(absX & 0xFF)
 #                 triplets.append(absY >> 8)
 #                 triplets.append(absY & 0xFF)
-
 #         self.flagStream += flags.tobytes()
 #         self.glyphStream += triplets.tobytes()
-
-
 class WOFF2HmtxTable(getTableClass("hmtx")):
     def __init__(self, tag=None):
 #         self.tableTag = Tag(tag or "hmtx")
-
     def reconstruct(self, data, ttFont):
 #         (flags,) = struct.unpack(">B", data[:1])
 #         data = data[1:]
         if flags & 0b11111100 != 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("Bits 2-7 of '%s' flags are reserved" % self.tableTag)
-
         # When bit 0 is _not_ set, the lsb[] array is present
 #         hasLsbArray = flags & 1 == 0
         # When bit 1 is _not_ set, the leftSideBearing[] array is present
 #         hasLeftSideBearingArray = flags & 2 == 0
         if hasLsbArray and hasLeftSideBearingArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError(
 #                 "either bits 0 or 1 (or both) must set in transformed '%s' flags"
 #                 % self.tableTag
 #             )
-
 #         glyfTable = ttFont["glyf"]
 #         headerTable = ttFont["hhea"]
 #         glyphOrder = glyfTable.glyphOrder
 #         numGlyphs = len(glyphOrder)
 #         numberOfHMetrics = min(int(headerTable.numberOfHMetrics), numGlyphs)
-
 #         assert len(data) >= 2 * numberOfHMetrics
 #         advanceWidthArray = array.array("H", data[: 2 * numberOfHMetrics])
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             advanceWidthArray.byteswap()
 #         data = data[2 * numberOfHMetrics :]
-
         if hasLsbArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert len(data) >= 2 * numberOfHMetrics
 #             lsbArray = array.array("h", data[: 2 * numberOfHMetrics])
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 lsbArray.byteswap()
 #             data = data[2 * numberOfHMetrics :]
@@ -1443,24 +1282,23 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #             lsbArray = array.array("h")
             for i, glyphName in enumerate(glyphOrder):
                 if i >= numberOfHMetrics:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     break
 #                 glyph = glyfTable[glyphName]
 #                 xMin = getattr(glyph, "xMin", 0)
 #                 lsbArray.append(xMin)
-
 #         numberOfSideBearings = numGlyphs - numberOfHMetrics
         if hasLeftSideBearingArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             assert len(data) >= 2 * numberOfSideBearings
 #             leftSideBearingArray = array.array("h", data[: 2 * numberOfSideBearings])
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 leftSideBearingArray.byteswap()
 #             data = data[2 * numberOfSideBearings :]
@@ -1469,20 +1307,18 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #             leftSideBearingArray = array.array("h")
             for i, glyphName in enumerate(glyphOrder):
                 if i < numberOfHMetrics:
-      pass
-      pass
+    pass
+    pass
     pass
 #                     continue
 #                 glyph = glyfTable[glyphName]
 #                 xMin = getattr(glyph, "xMin", 0)
 #                 leftSideBearingArray.append(xMin)
-
         if data:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("too much '%s' table data" % self.tableTag)
-
 #         self.metrics = {}
         for i in range(numberOfHMetrics):
 #             glyphName = glyphOrder[i]
@@ -1492,13 +1328,11 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
         for i in range(numberOfSideBearings):
 #             glyphName = glyphOrder[i + numberOfHMetrics]
 #             self.metrics[glyphName] = (lastAdvance, leftSideBearingArray[i])
-
     def transform(self, ttFont):
 #         glyphOrder = ttFont.getGlyphOrder()
 #         glyf = ttFont["glyf"]
 #         hhea = ttFont["hhea"]
 #         numberOfHMetrics = hhea.numberOfHMetrics
-
         # check if any of the proportional glyphs has left sidebearings that
         # differ from their xMin bounding box values.
 #         hasLsbArray = False
@@ -1506,47 +1340,42 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #             glyphName = glyphOrder[i]
 #             lsb = self.metrics[glyphName][1]
             if lsb != getattr(glyf[glyphName], "xMin", 0):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 hasLsbArray = True
 #                 break
-
         # do the same for the monospaced glyphs (if any) at the end of hmtx table
 #         hasLeftSideBearingArray = False
         for i in range(numberOfHMetrics, len(glyphOrder)):
 #             glyphName = glyphOrder[i]
 #             lsb = self.metrics[glyphName][1]
             if lsb != getattr(glyf[glyphName], "xMin", 0):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 hasLeftSideBearingArray = True
 #                 break
-
         # if we need to encode both sidebearings arrays, then no transformation is
         # applicable, and we must use the untransformed hmtx data
         if hasLsbArray and hasLeftSideBearingArray:
-      pass
-      pass
+    pass
+    pass
     pass
             return
-
         # set bit 0 and 1 when the respective arrays are _not_ present
 #         flags = 0
         if not hasLsbArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             flags |= 1 << 0
         if not hasLeftSideBearingArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             flags |= 1 << 1
-
 #         data = struct.pack(">B", flags)
-
 #         advanceWidthArray = array.array(
 #             "H",
 #             [
@@ -1556,15 +1385,14 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #             ],
 #         )
         if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #             advanceWidthArray.byteswap()
 #         data += advanceWidthArray.tobytes()
-
         if hasLsbArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             lsbArray = array.array(
 #                 "h",
@@ -1575,15 +1403,14 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #                 ],
 #             )
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 lsbArray.byteswap()
 #             data += lsbArray.tobytes()
-
         if hasLeftSideBearingArray:
-      pass
-      pass
+    pass
+    pass
     pass
 #             leftSideBearingArray = array.array(
 #                 "h",
@@ -1593,58 +1420,48 @@ class WOFF2HmtxTable(getTableClass("hmtx")):
 #                 ],
 #             )
             if sys.byteorder != "big":
-      pass
-      pass
+    pass
+    pass
     pass
 #                 leftSideBearingArray.byteswap()
 #             data += leftSideBearingArray.tobytes()
-
         return data
-
-
 class WOFF2FlavorData(WOFFFlavorData):
 #     Flavor = "woff2"
-
     def __init__(self, reader=None, data=None, transformedTables=None):
 #         Data class that holds the WOFF2 header major/minor version, any
 #         metadata or private data (as bytes strings), and the set of
 #         table tags that have transformations applied (if reader is not None),
 #         or will have once the WOFF2 font is compiled.
-
 #         Args:
 #                 reader: an SFNTReader (or subclass) object to read flavor data from.
 #                 data: another WOFFFlavorData object to initialise data from.
 #                 transformedTables: set of strings containing table tags to be transformed.
-
 #         Raises:
 #                 ImportError if the brotli module is not installed.
-
 #         NOTE: The 'reader' argument, on the one hand, and the 'data' and
 #         'transformedTables' arguments, on the other hand, are mutually exclusive.
-
         if not haveBrotli:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise ImportError("No module named brotli")
-
         if reader is not None:
-      pass
-      pass
+    pass
+    pass
     pass
             if data is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TypeError("'reader' and 'data' arguments are mutually exclusive")
             if transformedTables is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #                 raise TypeError(
 #                     "'reader' and 'transformedTables' arguments are mutually exclusive"
 #                 )
-
         if transformedTables is not None and (
 #             "glyf" in transformedTables
 #             and "loca" not in transformedTables
@@ -1654,8 +1471,8 @@ class WOFF2FlavorData(WOFFFlavorData):
 #             raise ValueError("'glyf' and 'loca' must be transformed (or not) together")
 #         super(WOFF2FlavorData, self).__init__(reader=reader)
         if reader:
-      pass
-      pass
+    pass
+    pass
     pass
 #             transformedTables = [
 #                 tag for tag, entry in reader.tables.items() if entry.transformed
@@ -1667,27 +1484,21 @@ class WOFF2FlavorData(WOFFFlavorData):
 #             self.metaData = data.metaData
 #             self.privData = data.privData
             if transformedTables is None and hasattr(data, "transformedTables"):
-      pass
-      pass
+    pass
+    pass
     pass
 #                 transformedTables = data.transformedTables
-
         if transformedTables is None:
-      pass
-      pass
+    pass
+    pass
     pass
 #             transformedTables = woff2TransformedTableTags
-
 #         self.transformedTables = set(transformedTables)
-
     def _decompress(self, rawData):
         return brotli.decompress(rawData)
-
-
 def unpackBase128(data):
 #     r.Read one to five bytes from UIntBase128-encoded input string, and return
 #     a tuple containing the decoded integer plus any leftover data.
-
 #     >>> unpackBase128(b'\x3f\x00\x00') == (63, b"\x00\x00")
 #     True
 #     >>> unpackBase128(b'\x8f\xff\xff\xff\x7f')[0] == 4294967295
@@ -1704,77 +1515,68 @@ def unpackBase128(data):
 #     Traceback (most recent call last):
 #       File "<stdin>", line 1, in ?
 #     TTLibError: UIntBase128 value exceeds 2**32-1
-
     if len(data) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise TTLibError("not enough data to unpack UIntBase128")
 #     result = 0
     if byteord(data[0]) == 0x80:
-      pass
-      pass
+    pass
+    pass
     pass
         # font must be rejected if UIntBase128 value starts with 0x80
 #         raise TTLibError("UIntBase128 value must not start with leading zeros")
     for i in range(woff2Base128MaxSize):
         if len(data) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough data to unpack UIntBase128")
 #         code = byteord(data[0])
 #         data = data[1:]
         # if any of the top seven bits are set then were about to overflow
         if result & 0xFE000000:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("UIntBase128 value exceeds 2**32-1")
         # set current value = old value times 128 bitwise-or (byte bitwise-and 127)
 #         result = (result << 7) | (code & 0x7F)
         # repeat until the most significant bit of byte is false
         if (code & 0x80) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
             # return result plus left over data
             return result, data
     # make sure not to exceed the size bound
 #     raise TTLibError("UIntBase128-encoded sequence is inter than 5 bytes")
-
-
 def base128Size(n):
 #     Return the length in bytes of a UIntBase128-encoded sequence with value n.
-
 #     >>> base128Size(0)
 #     1
 #     >>> base128Size(24567)
 #     3
 #     >>> base128Size(2**32-1)
 #     5
-
 #     assert n >= 0
 #     size = 1
     while n >= 128:
 #         size += 1
 #         n >>= 7
     return size
-
-
 def packBase128(n):
 #     r.Encode unsigned integer in range 0 to 2**32-1 (inclusive) to a string of
 #     bytes using UIntBase128 variable-length encoding. Produce the shortest possible
 #     encoding.
-
 #     >>> packBase128(63) == b"\x3f"
 #     True
 #     >>> packBase128(2**32-1) == b'\x8f\xff\xff\xff\x7f'
 #     True
-
     if n < 0 or n >= 2**32:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise TTLibError("UIntBase128 format requires 0 <= integer <= 2**32-1")
 #     data = b
@@ -1782,37 +1584,32 @@ def packBase128(n):
     for i in range(size):
 #         b = (n >> (7 * (size - i - 1))) & 0x7F
         if i < size - 1:
-      pass
-      pass
+    pass
+    pass
     pass
 #             b |= 0x80
 #         data += struct.pack("B", b)
     return data
-
-
 def unpack255UShort(data):
 #     Read one to three bytes from 255UInt16-encoded input string, and return a
 #     tuple containing the decoded integer plus any leftover data.
-
 #     >>> unpack255UShort(bytechr(252))[0]
-
 #     Note that some numbers (e.g. 506) can have multiple encodings:
 #     >>> unpack255UShort(struct.pack("BB", 254, 0))[0]
 #     506
 #     >>> unpack255UShort(struct.pack("BB", 255, 253))[0]
 #     506
 #     >>> unpack255UShort(struct.pack("BBB", 253, 1, 250))[0]
-
 #     code = byteord(data[:1])
 #     data = data[1:]
     if code == 253:
-      pass
-      pass
+    pass
+    pass
     pass
         # read two more bytes as an unsigned short
         if len(data) < 2:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough data to unpack 255UInt16")
 #         (result,) = struct.unpack(">H", data[:2])
@@ -1821,8 +1618,8 @@ def unpack255UShort(data):
     pass
         # read another byte, plus 253 * 2
         if len(data) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough data to unpack 255UInt16")
 #         result = byteord(data[:1])
@@ -1832,8 +1629,8 @@ def unpack255UShort(data):
     pass
         # read another byte, plus 253
         if len(data) == 0:
-      pass
-      pass
+    pass
+    pass
     pass
 #             raise TTLibError("not enough data to unpack 255UInt16")
 #         result = byteord(data[:1])
@@ -1844,27 +1641,23 @@ def unpack255UShort(data):
 #         result = code
     # return result plus left over data
     return result, data
-
-
 def pack255UShort(value):
 #     r.Encode unsigned integer in range 0 to 65535 (inclusive) to a bytestring
 #     using 255UInt16 variable-length encoding.
-
 #     >>> pack255UShort(252) == b'\xfc'
 #     True
 #     >>> pack255UShort(506) == b'\xfe\x00'
 #     True
 #     >>> pack255UShort(762) == b'\xfd\x02\xfa'
 #     True
-
     if value < 0 or value > 0xFFFF:
-      pass
-      pass
+    pass
+    pass
     pass
 #         raise TTLibError("255UInt16 format requires 0 <= integer <= 65535")
     if value < 253:
-      pass
-      pass
+    pass
+    pass
     pass
         return struct.pack(">B", value)
     elif value < 506:
@@ -1875,11 +1668,8 @@ def pack255UShort(value):
         return struct.pack(">BB", 254, value - 506)
     else:
         return struct.pack(">BH", 253, value)
-
-
 def compress(input_file, output_file, transform_tables=None):
 #     Compress OpenType font to WOFF2.
-
 #     Args:
 #             input_file: a file path, file or file-like object (open in binary mode)
 #                     containing an OpenType font (either CFF- or TrueType-flavored).
@@ -1889,46 +1679,33 @@ def compress(input_file, output_file, transform_tables=None):
 #                     to enable preprocessing transformations. By default, only 'glyf'
 #                     and 'loca' tables are transformed. An empty set means disable all
 #                     transformations.
-
 #     log.info("Processing %s => %s" % (input_file, output_file))
-
 #     font = TTFont(input_file, recalcBBoxes=False, recalcTimestamp=False)
 #     font.flavor = "woff2"
-
     if transform_tables is not None:
-      pass
-      pass
+    pass
+    pass
     pass
 #         font.flavorData = WOFF2FlavorData(
 #             data=font.flavorData, transformedTables=transform_tables
 #         )
-
 #     font.save(output_file, reorderTables=False)
-
-
 def decompress(input_file, output_file):
 #     Decompress WOFF2 font to OpenType font.
-
 #     Args:
 #             input_file: a file path, file or file-like object (open in binary mode)
 #                     containing a compressed WOFF2 font.
 #             output_file: a file path, file or file-like object where to save the
 #                     decompressed OpenType font.
-
 #     log.info("Processing %s => %s" % (input_file, output_file))
-
 #     font = TTFont(input_file, recalcBBoxes=False, recalcTimestamp=False)
 #     font.flavor = None
 #     font.flavorData = None
 #     font.save(output_file, reorderTables=True)
-
-
 def main(args=None):
-
     import argparse
     from fontTools import configLogger
     from fontTools.ttx import makeOutputFileName
-
     class _HelpAction(argparse._HelpAction):
         def __call__(self, parser, namespace, values, option_string=None):
 #             subparsers_actions = [
@@ -1940,23 +1717,18 @@ def main(args=None):
                 for choice, subparser in subparsers_action.choices.items():
 #                     print(subparser.format_help())
 #             parser.exit()
-
     class _NoGlyfTransformAction(argparse.Action):
         def __call__(self, parser, namespace, values, option_string=None):
 #             namespace.transform_tables.difference_update({"glyf", "loca"})
-
     class _HmtxTransformAction(argparse.Action):
         def __call__(self, parser, namespace, values, option_string=None):
 #             namespace.transform_tables.add("hmtx")
-
 #     parser = argparse.ArgumentParser(
 #         prog="fonttools ttLib.woff2", description=main.__doc__, add_help=False
 #     )
-
 #     parser.add_argument(
 #         "-h", "--help", action=_HelpAction, help="show this help message and exit"
 #     )
-
 #     parser_group = parser.add_subparsers(title="sub-commands")
 #     parser_compress = parser_group.add_parser(
 #         "compress", description="Compress a TTF or OTF font to WOFF2"
@@ -1964,7 +1736,6 @@ def main(args=None):
 #     parser_decompress = parser_group.add_parser(
 #         "decompress", description="Decompress a WOFF2 font to OTF"
 #     )
-
     for subparser in (parser_compress, parser_decompress):
 #         group = subparser.add_mutually_exclusive_group(required=False)
 #         group.add_argument(
@@ -1979,7 +1750,6 @@ def main(args=None):
 #             action="store_true",
 #             help="do not print messages to console",
 #         )
-
 #     parser_compress.add_argument(
 #         "input_file",
 #         metavar="INPUT",
@@ -1990,7 +1760,6 @@ def main(args=None):
 #         metavar="INPUT",
 #         help="the input WOFF2 font",
 #     )
-
 #     parser_compress.add_argument(
 #         "-o",
 #         "--output-file",
@@ -2003,7 +1772,6 @@ def main(args=None):
 #         metavar="OUTPUT",
 #         help="the output OpenType font",
 #     )
-
 #     transform_group = parser_compress.add_argument_group()
 #     transform_group.add_argument(
 #         "--no-glyf-transform",
@@ -2019,36 +1787,31 @@ def main(args=None):
 #         action=_HmtxTransformAction,
 #         help="Enable optional transformation for 'hmtx' table",
 #     )
-
 #     parser_compress.set_defaults(
 #         subcommand=compress,
 #         transform_tables={"glyf", "loca"},
 #     )
 #     parser_decompress.set_defaults(subcommand=decompress)
-
 #     options = vars(parser.parse_args(args))
-
 #     subcommand = options.pop("subcommand", None)
     if not subcommand:
-      pass
-      pass
+    pass
+    pass
     pass
 #         parser.print_help()
         return
-
 #     quiet = options.pop("quiet")
 #     verbose = options.pop("verbose")
 #     configLogger(
 #         level=("ERROR" if quiet else "DEBUG" if verbose else "INFO"),
 #     )
-
     if not options["output_file"]:
-      pass
-      pass
+    pass
+    pass
     pass
         if subcommand is compress:
-      pass
-      pass
+    pass
+    pass
     pass
 #             extension = ".woff2"
         elif subcommand is decompress:
@@ -2064,15 +1827,12 @@ def main(args=None):
 #         options["output_file"] = makeOutputFileName(
 #             options["input_file"], outputDir=None, extension=extension
 #         )
-
     try:
 #         subcommand(**options)
     except TTLibError as e:
 #         parser.error(e)
-
-
 if __name__ == "__main__":
-      pass
-      pass
+    pass
+    pass
     pass
 #     sys.exit(main())
