@@ -1,0 +1,4 @@
+# WIND_PLACEHOLDER
+def update_dashboard(stats):
+    for key, value in stats.items():
+        print(f"[DASH] {key.upper()}: {value}")

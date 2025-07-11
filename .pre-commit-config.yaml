@@ -1,19 +1,55 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 23.11.0
-    hooks:
-      - id: black
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-      - id: flake8
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.1
-    hooks:
-      - id: mypy
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: check-added-large-files
+- repo: https://github.com/psf/black
+  rev: 25.1.0
+  hooks:
+  - id: black
+    name: Black Formatter
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    exclude: \.(txt|log|csv|json|md|yaml|yml|toml|ini|cfg|conf|lock|sqlite|db)$|backup_broken/
+    language_version: python3.11
+- repo: https://github.com/PyCQA/flake8
+  rev: 7.3.0
+  hooks:
+  - id: flake8
+    name: Flake8 Linter (120-char lines)
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    args: [--max-line-length=120]
+    language_version: python3.11
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v1.16.1
+  hooks:
+  - id: mypy
+    name: Mypy Type Checker
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    language_version: python3.11
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+  - id: end-of-file-fixer
+    name: EOF Fixer
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+  - id: trailing-whitespace
+    name: Trailing Whitespace Trimmer
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    exclude: \.(txt|log|csv|json|md|yaml|yml|toml|ini|cfg|conf|lock|sqlite|db)$|black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt
+  - id: check-added-large-files
+    name: Large File Checker
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    exclude: \.(txt|log|csv|json|md|yaml|yml|toml|ini|cfg|conf|lock|sqlite|db)$|black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt
+- repo: local
+  hooks:
+  - id: pytest
+    name: Pytest Runner
+    entry: pytest
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    language: system
+    types: [python]
+    pass_filenames: false
+  - id: safe-ai-docstring-check
+    name: SAFE AI Docstring Check
+    entry: python scripts/safe_ai_docstring_check.py
+    files: ^(ai_logic/|global_expansion/|tests/unit/)
+    language: python
+    types: [python]
+    pass_filenames: true
+    stages: [manual]
