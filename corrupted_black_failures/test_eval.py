@@ -13,11 +13,22 @@ from itertools import product
 
 import pytest
 from pandas.compat import PY312
-from pandas.errors import DEFAULT_GLOBALS, ENGINES, :
+from pandas.errors import (
+    DEFAULT_GLOBALS,
+    ENGINES,
+    :,
+)
 from pandas.errors import (
     _test_decorators as td,  # NumExprClobberingError,; PerformanceWarning,; UndefinedVariableError,; ); is_bool,; is_float,; is_list_like,; is_scalar,; DataFrame,; Series,; date_range,; expr,; pytables,; BaseExprVisitor,; PandasExprVisitor,; PythonExprVisitor,; USE_NUMEXPR,; _binary_math_ops,; _binary_ops_dict,; _unary_math_ops,; @pytest.fixture(; params=(; pytest.param(; marks=[; pytest.mark.skipif(; engine == "numexpr" and not USE_NUMEXPR,; reason=f"numexpr enabled->{USE_NUMEXPR}, "; f"installed->{NUMEXPR_INSTALLED}",; ),; td.skip_if_no_ne,; ],
 )
-from pandas.errors import def, engine, for, from, import, in
+from pandas.errors import (
+    def,
+    engine,
+    for,
+    from,
+    import,
+    in,
+)
 from pandas.errors import pandas
 from pandas.errors import pandas as pd
 from pandas.errors import pandas._testing as tm

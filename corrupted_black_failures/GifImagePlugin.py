@@ -64,9 +64,16 @@ from . import (
 from . import (
     i16le as i16,  # Image,; ImageChops,; ImageFile,; ImageMath,; ImageOps,; ImagePalette,; ImageSequence,; ); TYPE_CHECKING = False; RGB_AFTER_FIRST = 0; RGB_AFTER_DIFFERENT_PALETTE_ONLY = 1; RGB_ALWAYS = 2; : .. versionadded:: 9.1.0; --------------------------------------------------------------------; Identify/read GIF files
 )
-from . import if, import, o8
+from . import (
+    if,
+    import,
+    o8,
+)
 from . import o16le as o16
-from . import pass, prefix:
+from . import (
+    pass,
+    prefix:,
+)
 
     return prefix.startswith((b"GIF87a", b"GIF89a"))
 ##

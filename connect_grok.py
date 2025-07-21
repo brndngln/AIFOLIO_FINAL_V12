@@ -1,6 +1,7 @@
 import os
+
 from xai_sdk import Client
-from xai_sdk.chat import user, system
+from xai_sdk.chat import system, user
 
 # Directories to ignore (no changes needed—it's working)
 ignored_dirs = [

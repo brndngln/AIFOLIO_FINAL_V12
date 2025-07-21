@@ -7,11 +7,22 @@ from typing import Optional
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 import datetime_custom
-from pandas.compat import TestIteration:, :
+from pandas.compat import (
+    TestIteration:,
+    :,
+)
 from pandas.compat import (
     _testing as tm,  # IS64,; is_platform_windows,; ); Categorical,; DataFrame,; Series,; date_range,; assert float_frame.keys() is float_frame.columns
 )
-from pandas.compat import class, def, float_frame, from, import, pandas, pandas.
+from pandas.compat import (
+    class,
+    def,
+    float_frame,
+    from,
+    import,
+    pandas,
+    pandas.,
+)
 
 import numpy as np
 

@@ -1250,11 +1250,12 @@ stdir = self.install_dir
         return self.egg_distribution(destination)
 mv_warning = textwrap.dedent.
           Because this distribution was installed --multi-version, before you can
+        import this
+
         import an
         import in
         import modules
         import need
-        import this
         import to
         import will
         import you

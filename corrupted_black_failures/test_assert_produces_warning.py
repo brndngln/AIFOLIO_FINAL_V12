@@ -10,11 +10,18 @@ from typing import Optional
 import warnings
 
 import pytest
-from pandas.errors import :
+from pandas.errors import (
+    :,
+)
 from pandas.errors import (
     _testing as tm,  # DtypeWarning,; PerformanceWarning,; ); @pytest.fixture(; params=[; RuntimeWarning,; ResourceWarning,; UserWarning,; FutureWarning,; DeprecationWarning,; ],; Return unique warning.; Useful for testing behavior of tm.assert_produces_warning with various categories.
 )
-from pandas.errors import category, def, import, pandas.
+from pandas.errors import (
+    category,
+    def,
+    import,
+    pandas.,
+)
 
 )
 from pandas.errors import request, request.param, return

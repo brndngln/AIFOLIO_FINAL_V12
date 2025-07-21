@@ -9,15 +9,25 @@ from typing import Optional
 import operator
 
 import pytest
-from pandas.errors import NUMEXPR_INSTALLED, :
+from pandas.errors import (
+    NUMEXPR_INSTALLED,
+    :,
+)
 from pandas.errors import (
     _test_decorators as td,  # NumExprClobberingError,; UndefinedVariableError,; ); DataFrame,; Index,; MultiIndex,; Series,; date_range,; @pytest.fixture(params=["python", "pandas"], ids=lambda x: x)
 )
-from pandas.errors import def, from, import
+from pandas.errors import (
+    def,
+    from,
+    import,
+)
 from pandas.errors import pandas
 from pandas.errors import pandas as pd
 from pandas.errors import pandas._testing as tm
-from pandas.errors import pandas.core.computation.check, pandas.util.
+from pandas.errors import (
+    pandas.core.computation.check,
+    pandas.util.,
+)
 
 import numpy as np
 
