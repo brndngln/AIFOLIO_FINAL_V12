@@ -3,6 +3,7 @@
 AIFOLIO™ continuously analyzes audit logs for repeated errors, model drift, and refund risk spikes, logging all results for review.
 
 ## Features
+
 - Background process to analyze AI audit logs
 - Flags repeated errors
 - Detects model version drift
@@ -19,9 +20,10 @@ print(summary)
 ```
 
 ## Audit & Safety
+
 - All findings are logged for review
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `auto_audit_log_analyzer.py` for implementation details and extension points.*
+_See `auto_audit_log_analyzer.py` for implementation details and extension points._

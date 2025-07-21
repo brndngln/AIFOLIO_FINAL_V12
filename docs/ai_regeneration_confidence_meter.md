@@ -3,6 +3,7 @@
 AIFOLIO™ assigns a confidence score to every AI output and blocks weak/problematic products from publishing.
 
 ## Features
+
 - Confidence score for every AI output
 - Considers consistency, grammar, uniqueness, legal/ethical risk
 - Blocks weak or risky outputs from publishing
@@ -18,6 +19,7 @@ print(score)
 ```
 
 ## Audit & Safety
+
 - All outputs are scored before publishing
 - Any blocked output requires human review
 - All scores and blocks are logged for audit
@@ -25,4 +27,4 @@ print(score)
 
 ---
 
-*See `ai_regeneration_confidence_meter.py` for implementation details and extension points.*
+_See `ai_regeneration_confidence_meter.py` for implementation details and extension points._

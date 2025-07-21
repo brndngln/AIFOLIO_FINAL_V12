@@ -9,10 +9,9 @@
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # founder_auth.py
 # FastAPI endpoints for founder-only authentication and lock enforcement
-from fastapi import APIRouter, Request, HTTPException
-from .crypto_utils import verify_signature, verify_otp
-import json
-import os
+from fastapi import Request
+
+from .crypto_utils import verify_otp, verify_signature
 
 # router = APIRouter()
 
@@ -28,18 +27,12 @@ def founder_login(request: Request):
     # Device, signature, OTP checks
     if data["device_id"] != FOUNDER_LOCK_TEMPLATE["device_id"]:
         pass
-        pass
-    pass
     #         raise HTTPException(status_code=403, detail="Device mismatch")
     if not verify_signature(data["public_key"], data["challenge"], data["signature"]):
         pass
-        pass
-    pass
     #         raise HTTPException(status_code=403, detail="Signature invalid")
     if not verify_otp(data["otp_secret"], data["otp"]):
         pass
-        pass
-    pass
     #         raise HTTPException(status_code=403, detail="OTP invalid")
     return {"status": "success", "founder": FOUNDER_LOCK_TEMPLATE["founder"]}
 

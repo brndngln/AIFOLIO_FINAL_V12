@@ -3,6 +3,7 @@
 AIFOLIO™ validates cover images for legibility, brand consistency, and inappropriate imagery, with full audit logging and human preview required.
 
 ## Features
+
 - Validates cover images for text legibility
 - Checks brand consistency (placeholder logic)
 - Flags inappropriate imagery (brightness/contrast)
@@ -19,6 +20,7 @@ print(result)
 ```
 
 ## Audit & Safety
+
 - All cover images are validated before publishing
 - Any flagged output requires human review
 - All checks and flags are logged for audit
@@ -26,4 +28,4 @@ print(result)
 
 ---
 
-*See `ai_cover_image_validator.py` for implementation details and extension points.*
+_See `ai_cover_image_validator.py` for implementation details and extension points._

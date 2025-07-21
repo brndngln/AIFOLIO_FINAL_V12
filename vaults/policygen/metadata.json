@@ -1,1 +1,17 @@
-{"id":"policygen","label":"POLICYGEN™","description":"SOP + Company Policy Vault","icon":"📜","features":["sop","company_policy","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "SOP + Company Policy Vault",
+  "features": [
+    "sop",
+    "company_policy",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udcdc",
+  "id": "policygen",
+  "label": "POLICYGEN\u2122"
+}

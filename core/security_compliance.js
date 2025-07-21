@@ -5,8 +5,8 @@ export class SecurityCompliance {
     return {
       id: biz.id,
       compliant: true,
-      standards: ['GDPR', 'CCPA', 'SOC2', 'Web3'],
-      auditTrail: []
+      standards: ["GDPR", "CCPA", "SOC2", "Web3"],
+      auditTrail: [],
     };
   }
 }

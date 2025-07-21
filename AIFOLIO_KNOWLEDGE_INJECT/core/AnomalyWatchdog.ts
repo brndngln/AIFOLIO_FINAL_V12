@@ -93,7 +93,7 @@ export class AnomalyWatchdog {
 
     // Add to violations array
     this.violations.push(violation);
-    
+
     // Maintain max violations limit
     if (this.violations.length > this.maxViolations) {
       this.violations = this.violations.slice(-this.maxViolations);
@@ -197,7 +197,7 @@ export class AnomalyWatchdog {
     this.violations.forEach(violation => {
       violationsByType[violation.type] = (violationsByType[violation.type] || 0) + 1;
       violationsByComponent[violation.component] = (violationsByComponent[violation.component] || 0) + 1;
-      
+
       if (violation.severity === 'CRITICAL') {
         criticalViolations++;
       }
@@ -303,23 +303,23 @@ export class AnomalyWatchdog {
     };
 
     const color = severityColors[violation.severity];
-    
+
     console.group(`%c🚨 ANOMALY DETECTED [${violation.severity}]`, `color: ${color}; font-weight: bold;`);
     console.log(`%cType: ${violation.type}`, `color: ${color};`);
     console.log(`%cComponent: ${violation.component}`, `color: ${color};`);
     console.log(`%cDetails: ${violation.details}`, `color: ${color};`);
     console.log(`%cTime: ${violation.timestampISO}`, `color: ${color};`);
     console.log(`%cRoute: ${violation.metadata.routeContext}`, `color: ${color};`);
-    
+
     if (violation.suggestedCorrection) {
       console.log(`%c💡 Suggestion: ${violation.suggestedCorrection}`, `color: #10B981;`);
     }
-    
+
     if (violation.stackTrace && process.env.NODE_ENV === 'development') {
       console.log(`%cStack Trace:`, `color: #6B7280;`);
       console.log(violation.stackTrace);
     }
-    
+
     console.groupEnd();
   }
 
@@ -365,7 +365,7 @@ export class AnomalyWatchdog {
     if (typeof window !== 'undefined') {
       // Catch unhandled errors that might indicate logic injection
       window.addEventListener('error', (event) => {
-        if (event.error && event.error.message.includes('SENTIENCE') || 
+        if (event.error && event.error.message.includes('SENTIENCE') ||
             event.error.message.includes('LOCKDOWN')) {
           this.logViolation(
             'LOGIC_INJECTION',
@@ -381,8 +381,8 @@ export class AnomalyWatchdog {
 
       // Catch unhandled promise rejections
       window.addEventListener('unhandledrejection', (event) => {
-        if (event.reason && typeof event.reason === 'object' && 
-            event.reason.message && 
+        if (event.reason && typeof event.reason === 'object' &&
+            event.reason.message &&
             (event.reason.message.includes('SENTIENCE') || event.reason.message.includes('LOCKDOWN'))) {
           this.logViolation(
             'LOGIC_INJECTION',
@@ -402,9 +402,9 @@ export class AnomalyWatchdog {
     setInterval(() => {
       const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
       const beforeCount = this.violations.length;
-      
+
       this.violations = this.violations.filter(v => v.timestamp > oneWeekAgo);
-      
+
       if (this.violations.length < beforeCount) {
         this.saveViolationsToStorage();
         console.log(`🧹 ANOMALY WATCHDOG: Cleaned up ${beforeCount - this.violations.length} old violations`);
@@ -420,17 +420,17 @@ export const anomalyWatchdog = AnomalyWatchdog.getInstance();
 if (typeof window !== 'undefined') {
   // @ts-ignore - Global anomaly reporter
   window.__AIFOLIO_ANOMALY_WATCHDOG__ = anomalyWatchdog;
-  
+
   // @ts-ignore - Quick violation reporters
   window.__AIFOLIO_LOG_UNAUTHORIZED_PROP__ = (component: string, propKey: string, expectedProps: string[]) => {
     anomalyWatchdog.logUnauthorizedProp(component, propKey, expectedProps);
   };
-  
+
   // @ts-ignore - Rogue render reporter
   window.__AIFOLIO_LOG_ROGUE_RENDER__ = (component: string, details: string) => {
     anomalyWatchdog.logRogueRender(component, window.location.pathname, details);
   };
-  
+
   // @ts-ignore - UI mutation reporter
   window.__AIFOLIO_LOG_UI_MUTATION__ = (component: string, mutationType: string, details: string) => {
     anomalyWatchdog.logUIMutation(component, mutationType, details);

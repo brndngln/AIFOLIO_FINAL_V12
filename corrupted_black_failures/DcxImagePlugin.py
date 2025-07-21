@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -28,10 +29,13 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 from . import Image
 from ._binary import i32le as i32
 from ._util import DeferredError
 from .PcxImagePlugin import PcxImageFile
+
+
 def _accept(prefix: bytes) -> bool:
     return len(prefix) >= 4 and i32(prefix) == MAGIC
 ##

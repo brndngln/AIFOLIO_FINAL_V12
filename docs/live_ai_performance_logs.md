@@ -3,6 +3,7 @@
 AIFOLIO™ provides real-time, auditable tracking of all AI outputs with full safety, transparency, and non-sentient safeguards.
 
 ## Features
+
 - Real-time AI output logging (JSONL and SQLite)
 - Visual tail/log utility (CLI)
 - Rolling historical metrics (daily/weekly/monthly)
@@ -46,6 +47,7 @@ AIFOLIO™ provides real-time, auditable tracking of all AI outputs with full sa
    ```
 
 ## Audit & Safety
+
 - All outputs are logged with timestamps and metadata.
 - All outputs are spell-checked and previewed if errors are found.
 - Anomalies are flagged for human review.
@@ -54,4 +56,4 @@ AIFOLIO™ provides real-time, auditable tracking of all AI outputs with full sa
 
 ---
 
-*See `ai_performance_log.py` for implementation details and extension points.*
+_See `ai_performance_log.py` for implementation details and extension points._

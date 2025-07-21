@@ -1,1 +1,17 @@
-{"id":"carechart","label":"CARECHART™","description":"Health Tracker & Wellness Journal Builder Vault","icon":"💖","features":["health_tracker","wellness_journal","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Health Tracker & Wellness Journal Builder Vault",
+  "features": [
+    "health_tracker",
+    "wellness_journal",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udc96",
+  "id": "carechart",
+  "label": "CARECHART\u2122"
+}

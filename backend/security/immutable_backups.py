@@ -11,10 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant backup script and verification logic.
 
-import logging
-import os
-import shutil
-from datetime import datetime
 
 # logger = logging.getLogger(__name__)
 

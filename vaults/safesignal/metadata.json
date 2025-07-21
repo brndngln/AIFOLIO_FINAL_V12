@@ -1,1 +1,16 @@
-{"id":"safesignal","label":"SAFESIGNAL™","description":"AI Crisis Toolkit Generator Vault","icon":"🛡️","features":["crisis_toolkits","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "AI Crisis Toolkit Generator Vault",
+  "features": [
+    "crisis_toolkits",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udee1\ufe0f",
+  "id": "safesignal",
+  "label": "SAFESIGNAL\u2122"
+}

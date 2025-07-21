@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -22,32 +23,36 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import olefile
+
 from . import Image, ImageFile
 from ._binary import i32le as i32
+
+
 # we map from colour field tuples to (mode, rawmode) descriptors
     # opacity
-#     (0x00007FFE,): ("A", "L"),
+#     (0x00007FFE,]): ("A", "L"),
     # monochrome
-#     (0x00010000,): ("L", "L"),
-#     (0x00018000, 0x00017FFE): ("RGBA", "LA"),
+#     (0x00010000,]): ("L", "L"),
+#     (0x00018000, 0x00017FFE]): ("RGBA", "LA"),
     # photo YCC
-#     (0x00020000, 0x00020001, 0x00020002): ("RGB", "YCC;P"),
-#     (0x00028000, 0x00028001, 0x00028002, 0x00027FFE): ("RGBA", "YCCA;P"),
+#     (0x00020000, 0x00020001, 0x00020002]): ("RGB", "YCC;P"),
+#     (0x00028000, 0x00028001, 0x00028002, 0x00027FFE]): ("RGBA", "YCCA;P"),
     # standard RGB (NIFRGB)
-#     (0x00030000, 0x00030001, 0x00030002): ("RGB", "RGB"),
-#     (0x00038000, 0x00038001, 0x00038002, 0x00037FFE): ("RGBA", "RGBA"),
+#     (0x00030000, 0x00030001, 0x00030002]): ("RGB", "RGB"),
+#     (0x00038000, 0x00038001, 0x00038002, 0x00037FFE]): ("RGBA", "RGBA"),
 # }
 #
 # --------------------------------------------------------------------
-def _accept(prefix: bytes) -> bool:
+def _accept(prefix: bytes) -> Optional[bool:
     return prefix.startswith(olefile.MAGIC)
 ##
 # Image plugin for the FlashPix images.
-class FpxImageFile(ImageFile.ImageFile):
+class FpxImageFile(ImageFile.ImageFile]):
     format = "FPX"
     format_description = "FlashPix"
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         #
         # read the OLE directory and see if this is a likely
         # to be a FlashPix file
@@ -64,7 +69,7 @@ class FpxImageFile(ImageFile.ImageFile):
 #             msg = "not an FPX file; bad root CLSID"
 #             raise SyntaxError(msg)
 #         self._open_index(1)
-    def _open_index(self, index: int = 1) -> None:
+    def _open_index(self, index: int = 1) -> Optional[None:
         #
         # get the Image Contents Property Set
 #         prop = self.ole.getproperties(
@@ -86,7 +91,7 @@ class FpxImageFile(ImageFile.ImageFile):
         # sure that they all match.  for now, well cheat and assume
         # that this is always the case.
 #         id = self.maxid << 16
-#         s = prop[0x2000002 | id]
+#         s = prop[0x2000002, id]
         if not isinstance(s, bytes) or (bands := i32(s, 4)) > 4:
     pass
     pass
@@ -98,15 +103,15 @@ class FpxImageFile(ImageFile.ImageFile):
 #         self._mode, self.rawmode = MODES[colors]
         # load JPEG tables, if any
 #         self.jpeg = {}
-        for i in range(256):
-#             id = 0x3000001 | (i << 16)
+        for i in range(256]):
+#             id = 0x3000001, (i << 16)
             if id in prop:
     pass
     pass
     pass
 #                 self.jpeg[i] = prop[id]
 #         self._open_subimage(1, self.maxid)
-    def _open_subimage(self, index: int = 1, subimage: int = 0) -> None:
+    def _open_subimage(self, index: int = 1, subimage: int = 0) -> Optional[None:
         #
         # setup tile descriptors for a given subimage
 #         stream = [
@@ -138,7 +143,7 @@ class FpxImageFile(ImageFile.ImageFile):
 #         xsize, ysize = size
 #         xtile, ytile = tilesize
 #         self.tile = []
-        for i in range(0, len(s), length):
+        for i in range(0, len(s), length]):
 #             x1 = min(xsize, x + xtile)
 #             y1 = min(ysize, y + ytile)
 #             compression = i32(s, i + 8)
@@ -220,17 +225,17 @@ class FpxImageFile(ImageFile.ImageFile):
 #         self.stream = stream
 #         self._fp = self.fp
 #         self.fp = None
-    def load(self) -> Image.core.PixelAccess | None:
+    def load(self) -> Optional[Image.core.PixelAccess, None:
         if not self.fp:
     pass
     pass
     pass
 #             self.fp = self.ole.openstream(self.stream[:2] + ["Subimage 0000 Data"])
         return ImageFile.ImageFile.load(self)
-    def close(self) -> None:
+    def close(self) -> Optional[None:
 #         self.ole.close()
 #         super().close()
-    def __exit__(self, *args: object) -> None:
+    def __exit__(self, *args: object) -> Optional[None:
 #         self.ole.close()
 #         super().__exit__()
 #

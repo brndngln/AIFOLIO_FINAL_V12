@@ -100,11 +100,11 @@ export class VaultSchemaGuard {
     for (const key of propKeys) {
       if (!allowedProps.includes(key as any)) {
         this.logViolation('UNAUTHORIZED_PROP', componentName, `Prop "${key}" not allowed`);
-        
+
         if (process.env.NODE_ENV === 'development') {
           throw new Error(`🚨 SCHEMA VIOLATION: Prop "${key}" not allowed in ${componentName}`);
         }
-        
+
         return false;
       }
     }
@@ -115,7 +115,7 @@ export class VaultSchemaGuard {
   // VALIDATE VAULT ENTITY STRUCTURE
   static validateVaultEntity(entity: any): entity is VaultEntity {
     const requiredFields = ['id', 'title', 'status', 'theme', 'accessLevel', 'createdAt', 'updatedAt', 'metadata'];
-    
+
     for (const field of requiredFields) {
       if (!(field in entity)) {
         this.logViolation('INVALID_ENTITY', 'VaultEntity', `Missing required field: ${field}`);
@@ -230,7 +230,7 @@ export const VAULT_CONSTANTS = Object.freeze({
 if (typeof window !== 'undefined') {
   // @ts-ignore - Global schema guard
   window.__AIFOLIO_SCHEMA_GUARD__ = VaultSchemaGuard;
-  
+
   // Inject schema validation into global scope
   // @ts-ignore - Global prop validator
   window.__AIFOLIO_VALIDATE_PROPS__ = (componentName: string, props: any) => {

@@ -4,7 +4,7 @@ export class EllisonEngine {
     // SaaS builder stub
     biz.saasReady = true;
     // API endpoint stub
-    biz.api = '/api/business/' + biz.id;
+    biz.api = "/api/business/" + biz.id;
     // On-premise fallback stub
     biz.onPremise = true;
   }

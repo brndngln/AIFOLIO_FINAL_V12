@@ -3,144 +3,144 @@
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   },
   {
     "buyer_data": {
       "email": "user2@example.com"
     },
+    "fraud_flag": true,
     "sale_metadata": {
       "meta": "suspicious"
-    },
-    "fraud_flag": true
+    }
   },
   {
     "buyer_data": {
       "email": "user@example.com"
     },
+    "fraud_flag": false,
     "sale_metadata": {
       "meta": "ok"
-    },
-    "fraud_flag": false
+    }
   }
 ]

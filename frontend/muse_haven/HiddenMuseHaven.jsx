@@ -1,11 +1,11 @@
 // HiddenMuseHaven.jsx
 // Muse Haven: Hidden, owner-exclusive portal for PMP
 // Static, deterministic, SAFE AI-compliant. No sentience, no adaptation.
-import React, { useState, useEffect } from 'react';
-import OnboardingOverlay from './OnboardingOverlay';
-import ApiKeyStatus from './ApiKeyStatus';
-import IntegrationControls from '../dashboard/IntegrationControls';
-import EmmaAvatar from '../components/EmmaAvatar.jsx';
+import React, { useState, useEffect } from "react";
+import OnboardingOverlay from "./OnboardingOverlay";
+import ApiKeyStatus from "./ApiKeyStatus";
+import IntegrationControls from "../dashboard/IntegrationControls";
+import EmmaAvatar from "../components/EmmaAvatar.jsx";
 
 // Quantum encryption stub
 function quantumEncrypt(data) {
@@ -15,32 +15,50 @@ function quantumEncrypt(data) {
 // Biometric/Passphrase/Geofence auth stub
 function authenticate({ biometric, passphrase, location, time }) {
   // Static SAFE AI: only allows exact match
-  return biometric === 'OWNER_BIOMETRIC' && passphrase === 'OWNER_SECRET' && location === 'OWNER_LOCATION' && time === 'OWNER_TIME';
+  return (
+    biometric === "OWNER_BIOMETRIC" &&
+    passphrase === "OWNER_SECRET" &&
+    location === "OWNER_LOCATION" &&
+    time === "OWNER_TIME"
+  );
 }
 
 const HIDDEN_TRIGGER_SEQUENCE = [1, 2, 3, 4, 5, 6, 7]; // 7-tap pattern stub
 const VOICE_TRIGGER_PHRASE = "Muse, light my fire"; // Stub for voice trigger
-const SWIPE_TRIGGER_PATTERN = 'spiral'; // Stub for custom swipe
+const SWIPE_TRIGGER_PATTERN = "spiral"; // Stub for custom swipe
 
 // Contextual help component
 function HelpTooltip({ text, onClose }) {
   return (
-    <div style={{position:'fixed',bottom:40,right:40,background:'#333',color:'#fff',padding:18,borderRadius:8,zIndex:9998}}>
+    <div
+      style={{
+        position: "fixed",
+        bottom: 40,
+        right: 40,
+        background: "#333",
+        color: "#fff",
+        padding: 18,
+        borderRadius: 8,
+        zIndex: 9998,
+      }}
+    >
       <span>{text}</span>
-      <button style={{marginLeft:16}} onClick={onClose}>Close</button>
+      <button style={{ marginLeft: 16 }} onClick={onClose}>
+        Close
+      </button>
     </div>
   );
 }
 
 // SAFE AI COMPLIANCE: MuseComplianceCheck static enforcement
 const MuseComplianceCheck = true; // Do not remove. Required for static audit.
-const MUSE_ANTI_COLLISION_TAG = 'AIFOLIO_MUSE_ANTI_COLLISION_v1'; // Prevents unauthorized behavior
+const MUSE_ANTI_COLLISION_TAG = "AIFOLIO_MUSE_ANTI_COLLISION_v1"; // Prevents unauthorized behavior
 
 export default function HiddenMuseHaven() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [onboardingStep, setOnboardingStep] = useState(0);
   const [showCompanion, setShowCompanion] = useState(false);
-  const [avatarMode, setAvatarMode] = useState('lifestyle'); // Remove if not used in render or logic
+  const [avatarMode, setAvatarMode] = useState("lifestyle"); // Remove if not used in render or logic
   // SAFE AI-compliant state for backend integration
   const [emmaConfig, setEmmaConfig] = useState(null);
   // --- Hyper-Realistic Avatar Config Display ---
@@ -49,11 +67,11 @@ export default function HiddenMuseHaven() {
 
   useEffect(() => {
     // Example: Fetch config from backend or static file
-    fetch('/api/emma/config', {
-      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    fetch("/api/emma/config", {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
-      .then(res => res.json())
-      .then(cfg => {
+      .then((res) => res.json())
+      .then((cfg) => {
         setEmmaConfig(cfg);
         // For static preview of hyper-realistic avatar fields
         setAvatarPreview({
@@ -66,7 +84,7 @@ export default function HiddenMuseHaven() {
           wardrobe: cfg.wardrobe,
           voice_profile: cfg.voice_profile,
           behavior: cfg.behavior,
-          realism_profile: cfg.realism_profile
+          realism_profile: cfg.realism_profile,
         });
       })
       .catch(() => setAvatarPreview(null));
@@ -78,111 +96,159 @@ export default function HiddenMuseHaven() {
   // Fetch static Emma avatar config
   async function fetchEmmaConfig() {
     try {
-      const res = await fetch('/api/emma_avatar_config', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const res = await fetch("/api/emma_avatar_config", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
       const data = await res.json();
       setEmmaConfig(data.config);
       setAuditLog(JSON.stringify(data.audit, null, 2));
-    } catch (e) { setAuditLog('Error fetching Emma config'); }
+    } catch (e) {
+      setAuditLog("Error fetching Emma config");
+    }
   }
   // Fetch PMP/PLC onboarding/tutorial state
   async function fetchEmmaOnboarding() {
     try {
-      const res = await fetch('/api/pmp_plc_onboarding', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const res = await fetch("/api/pmp_plc_onboarding", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
       const data = await res.json();
       setOnboardingStatus(data.onboarding);
       setAuditLog(JSON.stringify(data.audit, null, 2));
-    } catch (e) { setAuditLog('Error fetching onboarding status'); }
+    } catch (e) {
+      setAuditLog("Error fetching onboarding status");
+    }
   }
   // Fetch PMP/PLC isolation status
   async function fetchPmpPlcIsolation() {
     try {
-      const res = await fetch('/api/pmp_plc_isolation', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const res = await fetch("/api/pmp_plc_isolation", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
       const data = await res.json();
       setIsolationStatus(data.isolation);
       setAuditLog(JSON.stringify(data.audit, null, 2));
-    } catch (e) { setAuditLog('Error fetching isolation status'); }
+    } catch (e) {
+      setAuditLog("Error fetching isolation status");
+    }
   }
   // Quantum encrypt PMP/PLC data (stub)
   async function fetchQuantumEncrypt() {
     try {
-      const res = await fetch('/api/pmp_plc_quantum_encrypt', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const res = await fetch("/api/pmp_plc_quantum_encrypt", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
       const data = await res.json();
       setAuditLog(JSON.stringify(data.audit, null, 2));
-    } catch (e) { setAuditLog('Error calling quantum encrypt'); }
+    } catch (e) {
+      setAuditLog("Error calling quantum encrypt");
+    }
   }
   // Sentience audit
   async function fetchSentienceAudit() {
     try {
-      const res = await fetch('/api/sentience_audit', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      const res = await fetch("/api/sentience_audit", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
       const data = await res.json();
       setAuditLog(JSON.stringify(data.audit, null, 2));
-    } catch (e) { setAuditLog('Error running sentience audit'); }
+    } catch (e) {
+      setAuditLog("Error running sentience audit");
+    }
   }
   // Confirm and trigger PMP/PLC kill-switch
   async function confirmPmpPlcKillSwitch() {
-    if(window.confirm('Are you sure you want to trigger the PMP/PLC kill-switch? This will instantly lockdown all PMP/PLC modules.')) {
+    if (
+      window.confirm(
+        "Are you sure you want to trigger the PMP/PLC kill-switch? This will instantly lockdown all PMP/PLC modules.",
+      )
+    ) {
       try {
-        const res = await fetch('/api/pmp_plc_killswitch', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+        const res = await fetch("/api/pmp_plc_killswitch", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
         const data = await res.json();
         setAuditLog(JSON.stringify(data.audit, null, 2));
-      } catch (e) { setAuditLog('Error triggering PMP/PLC kill-switch'); }
+      } catch (e) {
+        setAuditLog("Error triggering PMP/PLC kill-switch");
+      }
     }
   }
   // Confirm and trigger sentience kill-switch
   async function confirmSentienceKillSwitch() {
-    if(window.confirm('Are you sure you want to trigger the Sentience Kill-Switch? This will instantly lockdown all modules.')) {
+    if (
+      window.confirm(
+        "Are you sure you want to trigger the Sentience Kill-Switch? This will instantly lockdown all modules.",
+      )
+    ) {
       try {
-        const res = await fetch('/api/sentience_killswitch', { method: 'POST', headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+        const res = await fetch("/api/sentience_killswitch", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
         const data = await res.json();
         setAuditLog(JSON.stringify(data.audit, null, 2));
-      } catch (e) { setAuditLog('Error triggering sentience kill-switch'); }
+      } catch (e) {
+        setAuditLog("Error triggering sentience kill-switch");
+      }
     }
   }
   const [auth, setAuth] = useState(false);
   const [step, setStep] = useState(0);
-  const [prompt, setPrompt] = useState('');
+  const [prompt, setPrompt] = useState("");
   const [chat, setChat] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
   const [showCustomization, setShowCustomization] = useState(false);
   const [showLearning, setShowLearning] = useState(false);
-  const [learningMode, setLearningMode] = useState('manual'); // manual | active | hybrid
+  const [learningMode, setLearningMode] = useState("manual"); // manual | active | hybrid
   const [triggered, setTriggered] = useState(false);
-  const [feedback, setFeedback] = useState('');
+  const [feedback, setFeedback] = useState("");
   const [profile, setProfile] = useState({
-    name: 'You',
+    name: "You",
     kinks: [],
-    mood: 'curious',
-    boundaries: 'Respectful, no violence',
-    favoriteLook: 'Sultry Siren',
+    mood: "curious",
+    boundaries: "Respectful, no violence",
+    favoriteLook: "Sultry Siren",
     arEnabled: false,
     hapticEnabled: false,
     explicitness: 5,
     flirtation: 5,
-    voice: 'sultry',
-    body: 'voluptuous',
-    outfit: 'lingerie',
-    hair: 'cascading curls',
-    makeup: 'smoky eyes',
+    voice: "sultry",
+    body: "voluptuous",
+    outfit: "lingerie",
+    hair: "cascading curls",
+    makeup: "smoky eyes",
     sessionHistory: [],
     presets: [
-      { name: 'Tender Muse', explicitness: 3, flirtation: 8, mood: 'tender' },
-      { name: 'Kinky Vixen', explicitness: 10, flirtation: 10, mood: 'wild' },
-      { name: 'Romantic Siren', explicitness: 6, flirtation: 7, mood: 'romantic' }
-    ]
+      { name: "Tender Muse", explicitness: 3, flirtation: 8, mood: "tender" },
+      { name: "Kinky Vixen", explicitness: 10, flirtation: 10, mood: "wild" },
+      {
+        name: "Romantic Siren",
+        explicitness: 6,
+        flirtation: 7,
+        mood: "romantic",
+      },
+    ],
   });
-  const [passcode, setPasscode] = useState('');
-  const [biometric, setBiometric] = useState('');
-  const [facial, setFacial] = useState('');
-  const [behavioral, setBehavioral] = useState('');
-  const [voicePhrase, setVoicePhrase] = useState('');
+  const [passcode, setPasscode] = useState("");
+  const [biometric, setBiometric] = useState("");
+  const [facial, setFacial] = useState("");
+  const [behavioral, setBehavioral] = useState("");
+  const [voicePhrase, setVoicePhrase] = useState("");
   const [notificationPrefs, setNotificationPrefs] = useState({
     slack: false,
     discord: false,
-    email: false
+    email: false,
   });
 
   function handleSecretTap() {
-    setStep(prev => {
+    setStep((prev) => {
       const next = prev + 1;
       if (next === HIDDEN_TRIGGER_SEQUENCE.length) {
         setTriggered(true);
@@ -207,10 +273,11 @@ export default function HiddenMuseHaven() {
   function handleAuth(e) {
     e.preventDefault();
     // 3D face/passcode/biometric/behavioral biometric stub
-    const pass = passcode.length >= 16 && /[A-Z]/.test(passcode) && /[0-9]/.test(passcode);
-    const bio = biometric === 'OWNER_BIOMETRIC';
-    const face = facial === 'OWNER_FACE_3D';
-    const behav = behavioral === 'OWNER_BEHAVIOR';
+    const pass =
+      passcode.length >= 16 && /[A-Z]/.test(passcode) && /[0-9]/.test(passcode);
+    const bio = biometric === "OWNER_BIOMETRIC";
+    const face = facial === "OWNER_FACE_3D";
+    const behav = behavioral === "OWNER_BEHAVIOR";
     if (pass && bio && face && behav) {
       setAuth(true);
     }
@@ -219,29 +286,38 @@ export default function HiddenMuseHaven() {
   function handleSend(e) {
     e.preventDefault();
     // Adaptive SAFE AI: owner-controlled, stateless
-    let response = '';
-    if (learningMode !== 'manual') {
+    let response = "";
+    if (learningMode !== "manual") {
       // Simulate adaptive feedback: escalate if owner gave positive feedback last time
       const last = profile.sessionHistory[profile.sessionHistory.length - 1];
-      if (last && last.feedback === 'hot') {
-        response = 'Emma purrs: "You loved that last time... let me take you even further tonight."';
-      } else if (prompt.toLowerCase().includes('naughty')) {
-        response = 'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
+      if (last && last.feedback === "hot") {
+        response =
+          'Emma purrs: "You loved that last time... let me take you even further tonight."';
+      } else if (prompt.toLowerCase().includes("naughty")) {
+        response =
+          'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
       } else {
         response = 'Emma smiles warmly: "How can I please you today?"';
       }
     } else {
       // Manual: static
-      if (prompt.toLowerCase().includes('naughty')) {
-        response = 'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
+      if (prompt.toLowerCase().includes("naughty")) {
+        response =
+          'Emma grins, her accent sultry: "You want me to be naughty? Let me show you what I can do..."';
       } else {
         response = 'Emma smiles warmly: "How can I please you today?"';
       }
     }
     setChat([...chat, { you: prompt, emma: quantumEncrypt(response) }]);
-    setProfile({ ...profile, sessionHistory: [...profile.sessionHistory, { prompt, feedback: feedback || 'none' }] });
-    setPrompt('');
-    setFeedback('');
+    setProfile({
+      ...profile,
+      sessionHistory: [
+        ...profile.sessionHistory,
+        { prompt, feedback: feedback || "none" },
+      ],
+    });
+    setPrompt("");
+    setFeedback("");
   }
 
   function handleShowSettings() {
@@ -255,15 +331,26 @@ export default function HiddenMuseHaven() {
   }
   // Adaptive 8K image/video/text generation stub
   function generate8KContent(type) {
-    if (!auth) return 'Access Denied';
-    let tag = profile.sessionHistory.length > 2 && learningMode !== 'manual' ? '[ADAPTIVE]' : '[STATIC]';
-    return quantumEncrypt(`${tag} [8K ${type}] Emma generated just for your evolving taste.`);
+    if (!auth) return "Access Denied";
+    let tag =
+      profile.sessionHistory.length > 2 && learningMode !== "manual"
+        ? "[ADAPTIVE]"
+        : "[STATIC]";
+    return quantumEncrypt(
+      `${tag} [8K ${type}] Emma generated just for your evolving taste.`,
+    );
   }
   function generateText() {
-    if (!auth) return 'Access Denied';
-    let tag = profile.sessionHistory.length > 2 && learningMode !== 'manual' ? '[ADAPTIVE]' : '[STATIC]';
-    let preset = profile.presets[Math.floor(Math.random() * profile.presets.length)];
-    return quantumEncrypt(`${tag} Emma (${preset.name}) whispers: "Tonight, I want to make your naughtiest fantasy come true..."`);
+    if (!auth) return "Access Denied";
+    let tag =
+      profile.sessionHistory.length > 2 && learningMode !== "manual"
+        ? "[ADAPTIVE]"
+        : "[STATIC]";
+    let preset =
+      profile.presets[Math.floor(Math.random() * profile.presets.length)];
+    return quantumEncrypt(
+      `${tag} Emma (${preset.name}) whispers: "Tonight, I want to make your naughtiest fantasy come true..."`,
+    );
   }
   function handleFeedbackChange(e) {
     setFeedback(e.target.value);
@@ -274,34 +361,46 @@ export default function HiddenMuseHaven() {
 
   async function handleRotateApiKey() {
     try {
-      const res = await fetch('/api/owner/rotate-api-keys', { method: 'POST', credentials: 'include' });
+      const res = await fetch("/api/owner/rotate-api-keys", {
+        method: "POST",
+        credentials: "include",
+      });
       if (res.ok) {
-        alert('API keys rotated successfully! (static stub)');
+        alert("API keys rotated successfully! (static stub)");
       } else {
-        alert('Failed to rotate API keys.');
+        alert("Failed to rotate API keys.");
       }
     } catch (e) {
-      alert('Error rotating API keys.');
+      alert("Error rotating API keys.");
     }
   }
 
   async function handleComplianceAudit() {
     try {
-      const res = await fetch('/api/owner/compliance-audit', { method: 'POST', credentials: 'include' });
+      const res = await fetch("/api/owner/compliance-audit", {
+        method: "POST",
+        credentials: "include",
+      });
       if (res.ok) {
         const data = await res.json();
-        alert('Compliance audit completed!\n' + JSON.stringify(data.report, null, 2));
+        alert(
+          "Compliance audit completed!\n" +
+            JSON.stringify(data.report, null, 2),
+        );
       } else {
-        alert('Failed to run compliance audit.');
+        alert("Failed to run compliance audit.");
       }
     } catch (e) {
-      alert('Error running compliance audit.');
+      alert("Error running compliance audit.");
     }
   }
 
   if (!triggered) {
     return (
-      <div onClick={handleSecretTap} style={{height: '100vh', background: '#f7f7f7'}}>
+      <div
+        onClick={handleSecretTap}
+        style={{ height: "100vh", background: "#f7f7f7" }}
+      >
         {/* Disguised as innocuous utility page */}
         <h2>Performance Metrics</h2>
         <p>Running checks...</p>
@@ -312,28 +411,71 @@ export default function HiddenMuseHaven() {
   }
   if (!auth) {
     return (
-      <form onSubmit={handleAuth} style={{padding: 40}}>
+      <form onSubmit={handleAuth} style={{ padding: 40 }}>
         <h2>Muse Haven Access</h2>
-        <input value={facial} onChange={e => setFacial(e.target.value)} name="facial" placeholder="3D Facial Recognition" />
-        <input value={passcode} onChange={e => setPasscode(e.target.value)} name="passcode" type="password" placeholder="Passcode (16+ chars, A-Z, 0-9)" />
-        <input value={biometric} onChange={e => setBiometric(e.target.value)} name="biometric" placeholder="Biometric" />
-        <input value={behavioral} onChange={e => setBehavioral(e.target.value)} name="behavioral" placeholder="Behavioral Biometric" />
+        <input
+          value={facial}
+          onChange={(e) => setFacial(e.target.value)}
+          name="facial"
+          placeholder="3D Facial Recognition"
+        />
+        <input
+          value={passcode}
+          onChange={(e) => setPasscode(e.target.value)}
+          name="passcode"
+          type="password"
+          placeholder="Passcode (16+ chars, A-Z, 0-9)"
+        />
+        <input
+          value={biometric}
+          onChange={(e) => setBiometric(e.target.value)}
+          name="biometric"
+          placeholder="Biometric"
+        />
+        <input
+          value={behavioral}
+          onChange={(e) => setBehavioral(e.target.value)}
+          name="behavioral"
+          placeholder="Behavioral Biometric"
+        />
         <button type="submit">Authenticate</button>
       </form>
     );
   }
   return (
-    <div style={{padding: 40, background: '#181824', color: '#fff', minHeight: '100vh', position:'relative'}}>
+    <div
+      style={{
+        padding: 40,
+        background: "#181824",
+        color: "#fff",
+        minHeight: "100vh",
+        position: "relative",
+      }}
+    >
       {showOnboarding && (
         <OnboardingOverlay
           step={onboardingStep}
-          onNext={()=>setOnboardingStep(s=>s+1)}
-          onClose={()=>setShowOnboarding(false)}
+          onNext={() => setOnboardingStep((s) => s + 1)}
+          onClose={() => setShowOnboarding(false)}
         />
       )}
       {/* EMMA Control Center Panel */}
-      <div style={{position:'fixed',top:40,left:40,zIndex:10001,background:'#232346',color:'#fff',borderRadius:18,padding:24,minWidth:340,boxShadow:'0 8px 32px #0008'}} aria-label="EMMA Control Center">
-        <h2 style={{marginTop:0,marginBottom:12}}>EMMA Control Center</h2>
+      <div
+        style={{
+          position: "fixed",
+          top: 40,
+          left: 40,
+          zIndex: 10001,
+          background: "#232346",
+          color: "#fff",
+          borderRadius: 18,
+          padding: 24,
+          minWidth: 340,
+          boxShadow: "0 8px 32px #0008",
+        }}
+        aria-label="EMMA Control Center"
+      >
+        <h2 style={{ marginTop: 0, marginBottom: 12 }}>EMMA Control Center</h2>
         <IntegrationControls
           notificationPrefs={notificationPrefs}
           onPrefsChange={setNotificationPrefs}
@@ -342,67 +484,211 @@ export default function HiddenMuseHaven() {
         />
       </div>
       {/* MuseComplianceCheck and anti-collision tag for audit */}
-      <meta name="muse-compliance-check" content={MuseComplianceCheck ? 'TRUE' : 'FALSE'} />
+      <meta
+        name="muse-compliance-check"
+        content={MuseComplianceCheck ? "TRUE" : "FALSE"}
+      />
       <meta name="muse-anti-collision" content={MUSE_ANTI_COLLISION_TAG} />
       {/* Hyper-Realistic Avatar Preview (static, SAFE AI-compliant) */}
       {avatarPreview && (
-        <section style={{background:'#fffbe7',borderRadius:14,padding:18,marginBottom:18,boxShadow:'0 2px 12px #ffe06666'}}>
-          <h3 style={{color:'#0ea5e9',marginBottom:8}}>Emma Hyper-Realistic Avatar (Preview)</h3>
-          <pre style={{fontSize:13,background:'#f9f9f9',borderRadius:8,padding:10,overflowX:'auto'}}>
+        <section
+          style={{
+            background: "#fffbe7",
+            borderRadius: 14,
+            padding: 18,
+            marginBottom: 18,
+            boxShadow: "0 2px 12px #ffe06666",
+          }}
+        >
+          <h3 style={{ color: "#0ea5e9", marginBottom: 8 }}>
+            Emma Hyper-Realistic Avatar (Preview)
+          </h3>
+          <pre
+            style={{
+              fontSize: 13,
+              background: "#f9f9f9",
+              borderRadius: 8,
+              padding: 10,
+              overflowX: "auto",
+            }}
+          >
             {JSON.stringify(avatarPreview, null, 2)}
           </pre>
-          <div style={{fontSize:12,color:'#a16207',marginTop:6}}>SAFE AI COMPLIANT — Static, deterministic, owner-controlled. No adaptation or sentience.</div>
+          <div style={{ fontSize: 12, color: "#a16207", marginTop: 6 }}>
+            SAFE AI COMPLIANT — Static, deterministic, owner-controlled. No
+            adaptation or sentience.
+          </div>
         </section>
       )}
       {/* EMMA OMNIELITE Avatar (SAFE AI-compliant, non-sentient, owner-controlled) */}
-      <div style={{position:'fixed',top:40,right:40,zIndex:10001,display:'flex',flexDirection:'column',alignItems:'center'}} aria-label="EMMA Avatar">
-        <EmmaAvatar mode={avatarMode} companion={showCompanion} onOutfitChange={setAvatarMode} />
+      <div
+        style={{
+          position: "fixed",
+          top: 40,
+          right: 40,
+          zIndex: 10001,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        aria-label="EMMA Avatar"
+      >
+        <EmmaAvatar
+          mode={avatarMode}
+          companion={showCompanion}
+          onOutfitChange={setAvatarMode}
+        />
         <button
           aria-label="Expand to Companion Mode"
-          style={{marginTop:16,background:'#4cafef',color:'#fff',border:'none',borderRadius:18,padding:'10px 24px',fontSize:18,cursor:'pointer'}}
-          onClick={()=>setShowCompanion(!showCompanion)}
-        >{showCompanion ? 'Collapse Companion Mode' : 'Expand to Companion Mode'}</button>
+          style={{
+            marginTop: 16,
+            background: "#4cafef",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "10px 24px",
+            fontSize: 18,
+            cursor: "pointer",
+          }}
+          onClick={() => setShowCompanion(!showCompanion)}
+        >
+          {showCompanion
+            ? "Collapse Companion Mode"
+            : "Expand to Companion Mode"}
+        </button>
         <button
           aria-label="Start Avatar Onboarding"
-          style={{marginTop:8,background:'#222',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#222",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={fetchEmmaOnboarding}
-        >Avatar & Muse Haven Tutorial</button>
+        >
+          Avatar & Muse Haven Tutorial
+        </button>
         <button
           aria-label="Show Emma Config"
-          style={{marginTop:8,background:'#232346',color:'#4cafef',border:'1px solid #4cafef',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#232346",
+            color: "#4cafef",
+            border: "1px solid #4cafef",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={fetchEmmaConfig}
-        >Show Emma Avatar Config</button>
+        >
+          Show Emma Avatar Config
+        </button>
         <button
           aria-label="PMP/PLC Isolation Status"
-          style={{marginTop:8,background:'#232346',color:'#fff',border:'1px solid #4cafef',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#232346",
+            color: "#fff",
+            border: "1px solid #4cafef",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={fetchPmpPlcIsolation}
-        >Check PMP/PLC Isolation</button>
+        >
+          Check PMP/PLC Isolation
+        </button>
         <button
           aria-label="PMP/PLC Kill-Switch"
-          style={{marginTop:8,background:'#b71c1c',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#b71c1c",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={confirmPmpPlcKillSwitch}
-        >PMP/PLC Kill-Switch</button>
+        >
+          PMP/PLC Kill-Switch
+        </button>
         <button
           aria-label="Quantum Encrypt PMP/PLC Data"
-          style={{marginTop:8,background:'#212121',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#212121",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={fetchQuantumEncrypt}
-        >Quantum Encrypt PMP/PLC Data</button>
+        >
+          Quantum Encrypt PMP/PLC Data
+        </button>
         <button
           aria-label="Sentience Audit"
-          style={{marginTop:8,background:'#263238',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#263238",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={fetchSentienceAudit}
-        >Run Sentience Audit</button>
+        >
+          Run Sentience Audit
+        </button>
         <button
           aria-label="Sentience Kill-Switch"
-          style={{marginTop:8,background:'#b71c1c',color:'#fff',border:'none',borderRadius:18,padding:'8px 18px',fontSize:16,cursor:'pointer'}}
+          style={{
+            marginTop: 8,
+            background: "#b71c1c",
+            color: "#fff",
+            border: "none",
+            borderRadius: 18,
+            padding: "8px 18px",
+            fontSize: 16,
+            cursor: "pointer",
+          }}
           onClick={confirmSentienceKillSwitch}
-        >Sentience Kill-Switch</button>
+        >
+          Sentience Kill-Switch
+        </button>
         {/* Display audit logs and onboarding/config/isolation status here */}
-        <div style={{marginTop:18,maxWidth:320,color:'#fff',fontSize:13}}>
-          {emmaConfig && (<pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(emmaConfig,null,2)}</pre>)}
-          {onboardingStatus && (<div>Onboarding: {JSON.stringify(onboardingStatus)}</div>)}
-          {isolationStatus && (<div>PMP/PLC Isolation: {JSON.stringify(isolationStatus)}</div>)}
-          {auditLog && (<div style={{marginTop:8}}><b>Audit Log:</b><pre style={{whiteSpace:'pre-wrap'}}>{auditLog}</pre></div>)}
+        <div
+          style={{ marginTop: 18, maxWidth: 320, color: "#fff", fontSize: 13 }}
+        >
+          {emmaConfig && (
+            <pre style={{ whiteSpace: "pre-wrap" }}>
+              {JSON.stringify(emmaConfig, null, 2)}
+            </pre>
+          )}
+          {onboardingStatus && (
+            <div>Onboarding: {JSON.stringify(onboardingStatus)}</div>
+          )}
+          {isolationStatus && (
+            <div>PMP/PLC Isolation: {JSON.stringify(isolationStatus)}</div>
+          )}
+          {auditLog && (
+            <div style={{ marginTop: 8 }}>
+              <b>Audit Log:</b>
+              <pre style={{ whiteSpace: "pre-wrap" }}>{auditLog}</pre>
+            </div>
+          )}
         </div>
       </div>
       {/* All avatar logic is static, deterministic, SAFE AI-compliant, and fully owner-controlled. No sentience, no adaptation, no autonomous behavior. */}
@@ -410,71 +696,326 @@ export default function HiddenMuseHaven() {
       {/* Persistent onboarding relaunch button */}
       <button
         aria-label="Show onboarding tutorial"
-        style={{position:'fixed',bottom:32,left:32,zIndex:10000,background:'#222',color:'#fff',border:'none',borderRadius:24,padding:'12px 18px',fontSize:22,boxShadow:'0 2px 8px #222',cursor:'pointer'}}
-        onClick={()=>{setShowOnboarding(true);setOnboardingStep(0);}}
+        style={{
+          position: "fixed",
+          bottom: 32,
+          left: 32,
+          zIndex: 10000,
+          background: "#222",
+          color: "#fff",
+          border: "none",
+          borderRadius: 24,
+          padding: "12px 18px",
+          fontSize: 22,
+          boxShadow: "0 2px 8px #222",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          setShowOnboarding(true);
+          setOnboardingStep(0);
+        }}
         title="Show onboarding tutorial"
-      >?</button>
+      >
+        ?
+      </button>
       {/* Owner Control Center button */}
       <button
         aria-label="Owner Control Center"
-        style={{position:'fixed',top:32,left:32,zIndex:10000,background:'#4cafef',color:'#fff',border:'none',borderRadius:24,padding:'12px 18px',fontSize:20,boxShadow:'0 2px 8px #222',cursor:'pointer'}}
-        onClick={()=>setShowSettings(true)}
+        style={{
+          position: "fixed",
+          top: 32,
+          left: 32,
+          zIndex: 10000,
+          background: "#4cafef",
+          color: "#fff",
+          border: "none",
+          borderRadius: 24,
+          padding: "12px 18px",
+          fontSize: 20,
+          boxShadow: "0 2px 8px #222",
+          cursor: "pointer",
+        }}
+        onClick={() => setShowSettings(true)}
         title="Owner Control Center"
-      >⚙️</button>
+      >
+        ⚙️
+      </button>
 
-      {helpText && <HelpTooltip text={helpText} onClose={()=>setHelpText('')} />}
+      {helpText && (
+        <HelpTooltip text={helpText} onClose={() => setHelpText("")} />
+      )}
       {/* In-portal backend API/endpoint documentation for owner guidance */}
-      <div style={{position:'absolute',top:10,right:10,background:'#232336',padding:16,borderRadius:8,maxWidth:350,fontSize:13,opacity:0.85}}>
+      <div
+        style={{
+          position: "absolute",
+          top: 10,
+          right: 10,
+          background: "#232336",
+          padding: 16,
+          borderRadius: 8,
+          maxWidth: 350,
+          fontSize: 13,
+          opacity: 0.85,
+        }}
+      >
         <b>Owner API Guide</b>
         <ul>
-          <li><b>Auth:</b> <code>POST /auth</code> (3D face, passcode, biometric, behavioral)</li>
-          <li><b>Content:</b> <code>POST /generate</code> (type: text/image/video, 8K, SAFE AI-tagged)</li>
-          <li><b>Feedback:</b> <code>POST /feedback</code> (stateless, owner-controlled)</li>
-          <li><b>Kinks:</b> <code>GET /kinks</code> (suggestions, static, SAFE AI)</li>
-          <li><b>Security:</b> <code>GET /security_status</code> (quantum encryption, blockchain log)</li>
+          <li>
+            <b>Auth:</b> <code>POST /auth</code> (3D face, passcode, biometric,
+            behavioral)
+          </li>
+          <li>
+            <b>Content:</b> <code>POST /generate</code> (type: text/image/video,
+            8K, SAFE AI-tagged)
+          </li>
+          <li>
+            <b>Feedback:</b> <code>POST /feedback</code> (stateless,
+            owner-controlled)
+          </li>
+          <li>
+            <b>Kinks:</b> <code>GET /kinks</code> (suggestions, static, SAFE AI)
+          </li>
+          <li>
+            <b>Security:</b> <code>GET /security_status</code> (quantum
+            encryption, blockchain log)
+          </li>
         </ul>
-        <span style={{fontSize:11,opacity:0.7}}>See backend README for full details. All endpoints are stateless, deterministic, and SAFE AI-compliant.</span>
+        <span style={{ fontSize: 11, opacity: 0.7 }}>
+          See backend README for full details. All endpoints are stateless,
+          deterministic, and SAFE AI-compliant.
+        </span>
       </div>
-      <h2>Muse Haven – Evolving Pleasure Sanctuary <button title="Help" onClick={()=>setHelpText('This is your private, SAFE AI-compliant sanctuary. All features are owner-only and stateless.')}>?</button></h2>
-      <button onClick={handleShowSettings}>Settings <button title="Help" onClick={()=>setHelpText('Adjust triggers, authentication, and emergency lockdown here.')}>?</button></button>
-      <button onClick={handleShowCustomization}>Customization <button title="Help" onClick={()=>setHelpText('Personalize Emma’s look, persona, and explicitness here.')}>?</button></button>
-      <button onClick={handleShowLearning}>Learning Mode <button title="Help" onClick={()=>setHelpText('Toggle owner-controlled learning/adaptation. All learning is stateless and SAFE AI-compliant.')}>?</button></button>
+      <h2>
+        Muse Haven – Evolving Pleasure Sanctuary{" "}
+        <button
+          title="Help"
+          onClick={() =>
+            setHelpText(
+              "This is your private, SAFE AI-compliant sanctuary. All features are owner-only and stateless.",
+            )
+          }
+        >
+          ?
+        </button>
+      </h2>
+      <button onClick={handleShowSettings}>
+        Settings{" "}
+        <button
+          title="Help"
+          onClick={() =>
+            setHelpText(
+              "Adjust triggers, authentication, and emergency lockdown here.",
+            )
+          }
+        >
+          ?
+        </button>
+      </button>
+      <button onClick={handleShowCustomization}>
+        Customization{" "}
+        <button
+          title="Help"
+          onClick={() =>
+            setHelpText(
+              "Personalize Emma’s look, persona, and explicitness here.",
+            )
+          }
+        >
+          ?
+        </button>
+      </button>
+      <button onClick={handleShowLearning}>
+        Learning Mode{" "}
+        <button
+          title="Help"
+          onClick={() =>
+            setHelpText(
+              "Toggle owner-controlled learning/adaptation. All learning is stateless and SAFE AI-compliant.",
+            )
+          }
+        >
+          ?
+        </button>
+      </button>
       {showSettings && (
-        <div style={{background: '#222', padding: 30, margin: 10, borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.18)', maxWidth: 480}} aria-label="Owner Control Center" role="dialog">
-          <h3 style={{marginBottom:16}}>Owner Control Center <button title="Help" aria-label="Help: Owner Control Center" onClick={()=>setHelpText('This panel groups all SAFE AI owner controls: lockdown, export, audit, API keys, and security triggers.')}>?</button></h3>
-          <ul style={{listStyle:'none',padding:0}}>
-            <li style={{marginBottom:18}}>
-              <b>Security & Triggers</b> <button title="Help" aria-label="Help: Security & Triggers" onClick={()=>setHelpText('Configure secret triggers, authentication, and instant lockdown. All logic is stateless and SAFE AI-compliant.')}>?</button><br/>
-              <span>Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my fire")</span><br/>
+        <div
+          style={{
+            background: "#222",
+            padding: 30,
+            margin: 10,
+            borderRadius: 16,
+            boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            maxWidth: 480,
+          }}
+          aria-label="Owner Control Center"
+          role="dialog"
+        >
+          <h3 style={{ marginBottom: 16 }}>
+            Owner Control Center{" "}
+            <button
+              title="Help"
+              aria-label="Help: Owner Control Center"
+              onClick={() =>
+                setHelpText(
+                  "This panel groups all SAFE AI owner controls: lockdown, export, audit, API keys, and security triggers.",
+                )
+              }
+            >
+              ?
+            </button>
+          </h3>
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            <li style={{ marginBottom: 18 }}>
+              <b>Security & Triggers</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: Security & Triggers"
+                onClick={() =>
+                  setHelpText(
+                    "Configure secret triggers, authentication, and instant lockdown. All logic is stateless and SAFE AI-compliant.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
+              <span>
+                Trigger: 7-tap, spiral swipe, or voice phrase ("Muse, light my
+                fire")
+              </span>
+              <br />
               <span>Auto-lock: 5 min inactivity</span>
             </li>
-            <li style={{marginBottom:18}}>
-              <b>Emergency Lockdown</b> <button title="Help" aria-label="Help: Emergency Lockdown" onClick={()=>setHelpText('Instantly purge and lock out all access. This action is irreversible and SAFE AI-compliant.')}>?</button><br/>
-              <button style={{background: 'crimson', color: '#fff', border:'none', borderRadius:8, padding:'10px 24px', marginTop:6, fontWeight:'bold', fontSize:16, cursor:'pointer'}}
-                onClick={()=>window.confirm('Are you sure you want to trigger EMERGENCY LOCKDOWN? This cannot be undone.') && window.location.reload()}
+            <li style={{ marginBottom: 18 }}>
+              <b>Emergency Lockdown</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: Emergency Lockdown"
+                onClick={() =>
+                  setHelpText(
+                    "Instantly purge and lock out all access. This action is irreversible and SAFE AI-compliant.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
+              <button
+                style={{
+                  background: "crimson",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 8,
+                  padding: "10px 24px",
+                  marginTop: 6,
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  cursor: "pointer",
+                }}
+                onClick={() =>
+                  window.confirm(
+                    "Are you sure you want to trigger EMERGENCY LOCKDOWN? This cannot be undone.",
+                  ) && window.location.reload()
+                }
                 aria-label="Trigger Emergency Lockdown"
-              >Purge & Lock</button>
+              >
+                Purge & Lock
+              </button>
             </li>
-            <li style={{marginBottom:18}}>
-              <b>Export Audit Log</b> <button title="Help" aria-label="Help: Export Audit Log" onClick={()=>setHelpText('Download a full audit log of all owner actions for compliance and review.')}>?</button><br/>
-              <button style={{background:'#4cafef',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',marginTop:6,fontWeight:'bold',fontSize:16,cursor:'pointer'}}
-                onClick={()=>window.open('/admin/audit-log','_blank')}
+            <li style={{ marginBottom: 18 }}>
+              <b>Export Audit Log</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: Export Audit Log"
+                onClick={() =>
+                  setHelpText(
+                    "Download a full audit log of all owner actions for compliance and review.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
+              <button
+                style={{
+                  background: "#4cafef",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 8,
+                  padding: "10px 24px",
+                  marginTop: 6,
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  cursor: "pointer",
+                }}
+                onClick={() => window.open("/admin/audit-log", "_blank")}
                 aria-label="Export Audit Log"
-              >Export Audit Log</button>
+              >
+                Export Audit Log
+              </button>
             </li>
-            <li style={{marginBottom:18}}>
-              <b>Export Compliance Log</b> <button title="Help" aria-label="Help: Export Compliance Log" onClick={()=>setHelpText('Download a full compliance log for SAFE AI and legal review.')}>?</button><br/>
-              <button style={{background:'#4cafef',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',marginTop:6,fontWeight:'bold',fontSize:16,cursor:'pointer'}}
-                onClick={()=>window.open('/admin/export-history','_blank')}
+            <li style={{ marginBottom: 18 }}>
+              <b>Export Compliance Log</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: Export Compliance Log"
+                onClick={() =>
+                  setHelpText(
+                    "Download a full compliance log for SAFE AI and legal review.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
+              <button
+                style={{
+                  background: "#4cafef",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 8,
+                  padding: "10px 24px",
+                  marginTop: 6,
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  cursor: "pointer",
+                }}
+                onClick={() => window.open("/admin/export-history", "_blank")}
                 aria-label="Export Compliance Log"
-              >Export Compliance Log</button>
+              >
+                Export Compliance Log
+              </button>
             </li>
-            <li style={{marginBottom:18}}>
-              <b>API Key Status</b> <button title="Help" aria-label="Help: API Key Status" onClick={()=>setHelpText('View the SAFE AI-compliant status of all required API keys. No secrets are ever shown.')}>?</button><br/>
+            <li style={{ marginBottom: 18 }}>
+              <b>API Key Status</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: API Key Status"
+                onClick={() =>
+                  setHelpText(
+                    "View the SAFE AI-compliant status of all required API keys. No secrets are ever shown.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
               <ApiKeyStatus />
             </li>
-            <li style={{marginBottom:18}}>
-              <b>Integrations</b> <button title="Help" aria-label="Help: Integrations" onClick={()=>setHelpText('Configure integrations for Slack, Discord, and Email notifications.')}>?</button><br/>
+            <li style={{ marginBottom: 18 }}>
+              <b>Integrations</b>{" "}
+              <button
+                title="Help"
+                aria-label="Help: Integrations"
+                onClick={() =>
+                  setHelpText(
+                    "Configure integrations for Slack, Discord, and Email notifications.",
+                  )
+                }
+              >
+                ?
+              </button>
+              <br />
               <IntegrationControls
                 notificationPrefs={notificationPrefs}
                 onPrefsChange={setNotificationPrefs}
@@ -483,44 +1024,200 @@ export default function HiddenMuseHaven() {
               />
             </li>
           </ul>
-          <p style={{fontSize:12,opacity:0.7,marginTop:18}}>All authentication and lockdown logic is enforced in isolation, with no connection to business, legal, or financial modules.</p>
-          <button style={{marginTop:18,background:'#444',color:'#fff',border:'none',borderRadius:8,padding:'10px 24px',fontWeight:'bold',fontSize:16,cursor:'pointer'}}
-            onClick={()=>setShowSettings(false)}
+          <p style={{ fontSize: 12, opacity: 0.7, marginTop: 18 }}>
+            All authentication and lockdown logic is enforced in isolation, with
+            no connection to business, legal, or financial modules.
+          </p>
+          <button
+            style={{
+              marginTop: 18,
+              background: "#444",
+              color: "#fff",
+              border: "none",
+              borderRadius: 8,
+              padding: "10px 24px",
+              fontWeight: "bold",
+              fontSize: 16,
+              cursor: "pointer",
+            }}
+            onClick={() => setShowSettings(false)}
             aria-label="Close Owner Control Center"
-          >Close</button>
+          >
+            Close
+          </button>
         </div>
       )}
       {showCustomization && (
-        <div style={{background: '#333', padding: 20, margin: 10}}>
-          <h3>Emma Customization <button title="Help" onClick={()=>setHelpText('Adjust Emma’s look, body, outfit, and persona. All changes are local and owner-controlled.')}>?</button></h3>
-          <label>Look: <input value={profile.favoriteLook} onChange={e => setProfile({...profile, favoriteLook: e.target.value})} /></label><br/>
-          <label>Body: <input value={profile.body} onChange={e => setProfile({...profile, body: e.target.value})} /></label><br/>
-          <label>Outfit: <input value={profile.outfit} onChange={e => setProfile({...profile, outfit: e.target.value})} /></label><br/>
-          <label>Hair: <input value={profile.hair} onChange={e => setProfile({...profile, hair: e.target.value})} /></label><br/>
-          <label>Makeup: <input value={profile.makeup} onChange={e => setProfile({...profile, makeup: e.target.value})} /></label><br/>
-          <label>Explicitness: <input type="range" min="1" max="10" value={profile.explicitness} onChange={e => setProfile({...profile, explicitness: e.target.value})} /></label><br/>
-          <label>Flirtation: <input type="range" min="1" max="10" value={profile.flirtation} onChange={e => setProfile({...profile, flirtation: e.target.value})} /></label><br/>
-          <label>AR Mode: <input type="checkbox" checked={profile.arEnabled} onChange={e => setProfile({...profile, arEnabled: !profile.arEnabled})} /></label><br/>
-          <label>Haptic: <input type="checkbox" checked={profile.hapticEnabled} onChange={e => setProfile({...profile, hapticEnabled: !profile.hapticEnabled})} /></label><br/>
+        <div style={{ background: "#333", padding: 20, margin: 10 }}>
+          <h3>
+            Emma Customization{" "}
+            <button
+              title="Help"
+              onClick={() =>
+                setHelpText(
+                  "Adjust Emma’s look, body, outfit, and persona. All changes are local and owner-controlled.",
+                )
+              }
+            >
+              ?
+            </button>
+          </h3>
+          <label>
+            Look:{" "}
+            <input
+              value={profile.favoriteLook}
+              onChange={(e) =>
+                setProfile({ ...profile, favoriteLook: e.target.value })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            Body:{" "}
+            <input
+              value={profile.body}
+              onChange={(e) => setProfile({ ...profile, body: e.target.value })}
+            />
+          </label>
+          <br />
+          <label>
+            Outfit:{" "}
+            <input
+              value={profile.outfit}
+              onChange={(e) =>
+                setProfile({ ...profile, outfit: e.target.value })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            Hair:{" "}
+            <input
+              value={profile.hair}
+              onChange={(e) => setProfile({ ...profile, hair: e.target.value })}
+            />
+          </label>
+          <br />
+          <label>
+            Makeup:{" "}
+            <input
+              value={profile.makeup}
+              onChange={(e) =>
+                setProfile({ ...profile, makeup: e.target.value })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            Explicitness:{" "}
+            <input
+              type="range"
+              min="1"
+              max="10"
+              value={profile.explicitness}
+              onChange={(e) =>
+                setProfile({ ...profile, explicitness: e.target.value })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            Flirtation:{" "}
+            <input
+              type="range"
+              min="1"
+              max="10"
+              value={profile.flirtation}
+              onChange={(e) =>
+                setProfile({ ...profile, flirtation: e.target.value })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            AR Mode:{" "}
+            <input
+              type="checkbox"
+              checked={profile.arEnabled}
+              onChange={(e) =>
+                setProfile({ ...profile, arEnabled: !profile.arEnabled })
+              }
+            />
+          </label>
+          <br />
+          <label>
+            Haptic:{" "}
+            <input
+              type="checkbox"
+              checked={profile.hapticEnabled}
+              onChange={(e) =>
+                setProfile({
+                  ...profile,
+                  hapticEnabled: !profile.hapticEnabled,
+                })
+              }
+            />
+          </label>
+          <br />
         </div>
       )}
       {showLearning && (
-        <div style={{background: '#222', padding: 20, margin: 10}}>
-          <h3>Learning Mode <button title="Help" onClick={()=>setHelpText('Switch between manual, active, or hybrid learning. All adaptation is opt-in, stateless, and SAFE AI-compliant.')}>?</button></h3>
-          <label>Learning Mode: <select value={learningMode} onChange={handleLearningModeChange}>
-            <option value="manual">Manual (owner only)</option>
-            <option value="active">Active (feedback-driven)</option>
-            <option value="hybrid">Hybrid (manual + feedback)</option>
-          </select></label><br/>
+        <div style={{ background: "#222", padding: 20, margin: 10 }}>
+          <h3>
+            Learning Mode{" "}
+            <button
+              title="Help"
+              onClick={() =>
+                setHelpText(
+                  "Switch between manual, active, or hybrid learning. All adaptation is opt-in, stateless, and SAFE AI-compliant.",
+                )
+              }
+            >
+              ?
+            </button>
+          </h3>
+          <label>
+            Learning Mode:{" "}
+            <select value={learningMode} onChange={handleLearningModeChange}>
+              <option value="manual">Manual (owner only)</option>
+              <option value="active">Active (feedback-driven)</option>
+              <option value="hybrid">Hybrid (manual + feedback)</option>
+            </select>
+          </label>
+          <br />
           <p>Current mode: {learningMode}</p>
-          <p>All learning is owner-controlled, opt-in, stateless, and SAFE AI-compliant.</p>
+          <p>
+            All learning is owner-controlled, opt-in, stateless, and SAFE
+            AI-compliant.
+          </p>
         </div>
       )}
-      <div style={{marginTop: 20}}>
+      <div style={{ marginTop: 20 }}>
         <form onSubmit={handleSend}>
-          <input value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Type your desire..." style={{width: 300}} aria-label="Type your desire" />
-          <button type="button" title="Help" onClick={()=>setHelpText('Type your request to Emma. Feedback can be provided to guide adaptation (SAFE AI-compliant, stateless).')}>?</button>
-          <select value={feedback} onChange={handleFeedbackChange} style={{marginLeft: 10}} aria-label="Feedback">
+          <input
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="Type your desire..."
+            style={{ width: 300 }}
+            aria-label="Type your desire"
+          />
+          <button
+            type="button"
+            title="Help"
+            onClick={() =>
+              setHelpText(
+                "Type your request to Emma. Feedback can be provided to guide adaptation (SAFE AI-compliant, stateless).",
+              )
+            }
+          >
+            ?
+          </button>
+          <select
+            value={feedback}
+            onChange={handleFeedbackChange}
+            style={{ marginLeft: 10 }}
+            aria-label="Feedback"
+          >
             <option value="">Feedback</option>
             <option value="hot">🔥 Hot</option>
             <option value="more">More</option>
@@ -529,19 +1226,26 @@ export default function HiddenMuseHaven() {
           </select>
           <button type="submit">Send</button>
         </form>
-        <div style={{margin: '20px 0'}}>
+        <div style={{ margin: "20px 0" }}>
           {chat.map((c, i) => (
             <div key={i}>
-              <b>You:</b> {c.you}<br/>
+              <b>You:</b> {c.you}
+              <br />
               <b>Emma:</b> {c.emma}
             </div>
           ))}
         </div>
       </div>
-      <div style={{marginTop: 40}}>
-        <button onClick={() => alert(generateText())}>Generate Kinky Text</button>
-        <button onClick={() => alert(generate8KContent('Image'))}>Generate 8K Image</button>
-        <button onClick={() => alert(generate8KContent('Video'))}>Generate 8K Video</button>
+      <div style={{ marginTop: 40 }}>
+        <button onClick={() => alert(generateText())}>
+          Generate Kinky Text
+        </button>
+        <button onClick={() => alert(generate8KContent("Image"))}>
+          Generate 8K Image
+        </button>
+        <button onClick={() => alert(generate8KContent("Video"))}>
+          Generate 8K Video
+        </button>
       </div>
     </div>
   );

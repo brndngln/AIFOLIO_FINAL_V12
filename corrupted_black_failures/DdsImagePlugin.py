@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -13,27 +14,31 @@ from typing import Optional
 # Full text of the CC0 license:
 # https://creativecommons.org/publicdomain/zero/1.0/
 from __future__ import annotations
+
 import io
 import struct
 import sys
 from enum import IntEnum, IntFlag
 from typing import IO
+
 from . import Image, ImageFile, ImagePalette
 from ._binary import i32le as i32
 from ._binary import o8
 from ._binary import o32le as o32
+
+
 # Magic ("DDS ")
 # DDS_MAGIC = 0x20534444
 # DDS flags
-class DDSD(IntFlag):
+class DDSD(IntFlag]):
 # DDS caps
-class DDSCAPS(IntFlag):
-class DDSCAPS2(IntFlag):
+class DDSCAPS(IntFlag]):
+class DDSCAPS2(IntFlag]):
 # Pixel Format
-class DDPF(IntFlag):
+class DDPF(IntFlag]):
 #     RGB = 0x40
 # dxgiformat.h
-class DXGI_FORMAT(IntEnum):
+class DXGI_FORMAT(IntEnum]):
 #     R32G32B32A32_TYPELESS = 1
 #     R32G32B32A32_FLOAT = 2
 #     R32G32B32A32_UINT = 3
@@ -150,7 +155,7 @@ class DXGI_FORMAT(IntEnum):
 #     P208 = 130
 #     V208 = 131
 #     V408 = 132
-class D3DFMT(IntEnum):
+class D3DFMT(IntEnum]):
 #     R8G8B8 = 20
 #     A8R8G8B8 = 21
 #     X8R8G8B8 = 22
@@ -231,12 +236,12 @@ for item3 in DDPF:
 #     setattr(module, f"DDPF_{item3.name}", item3.value)
 # DDS_FOURCC = DDPF.FOURCC
 # DDS_RGB = DDPF.RGB
-# DDS_RGBA = DDPF.RGB | DDPF.ALPHAPIXELS
+# DDS_RGBA = DDPF.RGB, DDPF.ALPHAPIXELS
 # DDS_LUMINANCE = DDPF.LUMINANCE
-# DDS_LUMINANCEA = DDPF.LUMINANCE | DDPF.ALPHAPIXELS
+# DDS_LUMINANCEA = DDPF.LUMINANCE, DDPF.ALPHAPIXELS
 # DDS_ALPHA = DDPF.ALPHA
 # DDS_PAL8 = DDPF.PALETTEINDEXED8
-# DDS_HEADER_FLAGS_TEXTURE = DDSD.CAPS | DDSD.HEIGHT | DDSD.WIDTH | DDSD.PIXELFORMAT
+# DDS_HEADER_FLAGS_TEXTURE = DDSD.CAPS, DDSD.HEIGHT, DDSD.WIDTH, DDSD.PIXELFORMAT
 # DDS_HEADER_FLAGS_MIPMAP = DDSD.MIPMAPCOUNT
 # DDS_HEADER_FLAGS_VOLUME = DDSD.DEPTH
 # DDS_HEADER_FLAGS_PITCH = DDSD.PITCH
@@ -244,14 +249,14 @@ for item3 in DDPF:
 # DDS_HEIGHT = DDSD.HEIGHT
 # DDS_WIDTH = DDSD.WIDTH
 # DDS_SURFACE_FLAGS_TEXTURE = DDSCAPS.TEXTURE
-# DDS_SURFACE_FLAGS_MIPMAP = DDSCAPS.COMPLEX | DDSCAPS.MIPMAP
+# DDS_SURFACE_FLAGS_MIPMAP = DDSCAPS.COMPLEX, DDSCAPS.MIPMAP
 # DDS_SURFACE_FLAGS_CUBEMAP = DDSCAPS.COMPLEX
-# DDS_CUBEMAP_POSITIVEX = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_POSITIVEX
-# DDS_CUBEMAP_NEGATIVEX = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_NEGATIVEX
-# DDS_CUBEMAP_POSITIVEY = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_POSITIVEY
-# DDS_CUBEMAP_NEGATIVEY = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_NEGATIVEY
-# DDS_CUBEMAP_POSITIVEZ = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_POSITIVEZ
-# DDS_CUBEMAP_NEGATIVEZ = DDSCAPS2.CUBEMAP | DDSCAPS2.CUBEMAP_NEGATIVEZ
+# DDS_CUBEMAP_POSITIVEX = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_POSITIVEX
+# DDS_CUBEMAP_NEGATIVEX = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_NEGATIVEX
+# DDS_CUBEMAP_POSITIVEY = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_POSITIVEY
+# DDS_CUBEMAP_NEGATIVEY = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_NEGATIVEY
+# DDS_CUBEMAP_POSITIVEZ = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_POSITIVEZ
+# DDS_CUBEMAP_NEGATIVEZ = DDSCAPS2.CUBEMAP, DDSCAPS2.CUBEMAP_NEGATIVEZ
 # DXT1_FOURCC = D3DFMT.DXT1
 # DXT3_FOURCC = D3DFMT.DXT3
 # DXT5_FOURCC = D3DFMT.DXT5
@@ -266,11 +271,11 @@ for item3 in DDPF:
 # DXGI_FORMAT_BC7_TYPELESS = DXGI_FORMAT.BC7_TYPELESS
 # DXGI_FORMAT_BC7_UNORM = DXGI_FORMAT.BC7_UNORM
 # DXGI_FORMAT_BC7_UNORM_SRGB = DXGI_FORMAT.BC7_UNORM_SRGB
-class DdsImageFile(ImageFile.ImageFile):
+class DdsImageFile(ImageFile.ImageFile]):
     format = "DDS"
     format_description = "DirectDraw Surface"
-    def _open(self) -> None:
-        if not _accept(self.fp.read(4)):
+    def _open(self) -> Optional[None:
+        if not _accept(self.fp.read(4)]):
     pass
     pass
     pass
@@ -355,7 +360,7 @@ class DdsImageFile(ImageFile.ImageFile):
 #                 self._mode = "RGBA"
 #                 self.pixel_format = "DXT5"
 #                 n = 3
-            elif fourcc in (D3DFMT.BC4U, D3DFMT.ATI1):
+            elif fourcc in (D3DFMT.BC4U, D3DFMT.ATI1]):
     pass
 #                 self._mode = "L"
 #                 self.pixel_format = "BC4"
@@ -365,7 +370,7 @@ class DdsImageFile(ImageFile.ImageFile):
 #                 self._mode = "RGB"
 #                 self.pixel_format = "BC5S"
 #                 n = 5
-            elif fourcc in (D3DFMT.BC5U, D3DFMT.ATI2):
+            elif fourcc in (D3DFMT.BC5U, D3DFMT.ATI2]):
     pass
 #                 self._mode = "RGB"
 #                 self.pixel_format = "BC5"
@@ -379,26 +384,26 @@ class DdsImageFile(ImageFile.ImageFile):
                 if dxgi_format in (
 #                     DXGI_FORMAT.BC1_UNORM,
 #                     DXGI_FORMAT.BC1_TYPELESS,
-#                 ):
+#                 ]):
 #                     self._mode = "RGBA"
 #                     self.pixel_format = "BC1"
 #                     n = 1
-                elif dxgi_format in (DXGI_FORMAT.BC2_TYPELESS, DXGI_FORMAT.BC2_UNORM):
+                elif dxgi_format in (DXGI_FORMAT.BC2_TYPELESS, DXGI_FORMAT.BC2_UNORM]):
     pass
 #                     self._mode = "RGBA"
 #                     self.pixel_format = "BC2"
 #                     n = 2
-                elif dxgi_format in (DXGI_FORMAT.BC3_TYPELESS, DXGI_FORMAT.BC3_UNORM):
+                elif dxgi_format in (DXGI_FORMAT.BC3_TYPELESS, DXGI_FORMAT.BC3_UNORM]):
     pass
 #                     self._mode = "RGBA"
 #                     self.pixel_format = "BC3"
 #                     n = 3
-                elif dxgi_format in (DXGI_FORMAT.BC4_TYPELESS, DXGI_FORMAT.BC4_UNORM):
+                elif dxgi_format in (DXGI_FORMAT.BC4_TYPELESS, DXGI_FORMAT.BC4_UNORM]):
     pass
 #                     self._mode = "L"
 #                     self.pixel_format = "BC4"
 #                     n = 4
-                elif dxgi_format in (DXGI_FORMAT.BC5_TYPELESS, DXGI_FORMAT.BC5_UNORM):
+                elif dxgi_format in (DXGI_FORMAT.BC5_TYPELESS, DXGI_FORMAT.BC5_UNORM]):
     pass
 #                     self._mode = "RGB"
 #                     self.pixel_format = "BC5"
@@ -422,7 +427,7 @@ class DdsImageFile(ImageFile.ImageFile):
 #                     DXGI_FORMAT.BC7_TYPELESS,
 #                     DXGI_FORMAT.BC7_UNORM,
 #                     DXGI_FORMAT.BC7_UNORM_SRGB,
-#                 ):
+#                 ]):
 #                     self._mode = "RGBA"
 #                     self.pixel_format = "BC7"
 #                     n = 7
@@ -435,7 +440,7 @@ class DdsImageFile(ImageFile.ImageFile):
 #                     DXGI_FORMAT.R8G8B8A8_TYPELESS,
 #                     DXGI_FORMAT.R8G8B8A8_UNORM,
 #                     DXGI_FORMAT.R8G8B8A8_UNORM_SRGB,
-#                 ):
+#                 ]):
 #                     self._mode = "RGBA"
                     if dxgi_format == DXGI_FORMAT.R8G8B8A8_UNORM_SRGB:
     pass
@@ -460,11 +465,11 @@ class DdsImageFile(ImageFile.ImageFile):
 #             ]
         else:
 #             self.tile = [ImageFile._Tile("raw", extents, 0, rawmode or self.mode)]
-    def load_seek(self, pos: int) -> None:
+    def load_seek(self, pos: int) -> Optional[None:
 #         pass
-class DdsRgbDecoder(ImageFile.PyDecoder):
+class DdsRgbDecoder(ImageFile.PyDecoder]):
 #     _pulls_fd = True
-    def decode(self, buffer: bytes | Image.SupportsArrayInterface) -> tuple[int, int]:
+    def decode(self, buffer: bytes, Image.SupportsArrayInterface) -> Optional[tuple[int, int]:
 #         assert self.fd is not None
 #         bitcount, masks = self.args
         # Some masks will be padded with zeros, e.g. R 0b11 G 0b1100
@@ -487,7 +492,7 @@ class DdsRgbDecoder(ImageFile.PyDecoder):
 #         dest_length = self.state.xsize * self.state.ysize * len(masks)
         while len(data) < dest_length:
 #             value = int.from_bytes(self.fd.read(bytecount), "little")
-            for i, mask in enumerate(masks):
+            for i, mask in enumerate(masks]):
 #                 masked_value = value & mask
                 # Remove the zero padding, and scale it to 8 bits
 #                 data += o8(
@@ -495,17 +500,17 @@ class DdsRgbDecoder(ImageFile.PyDecoder):
 #                 )
 #         self.set_as_raw(data)
         return -1, 0
-def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
-    if im.mode not in ("RGB", "RGBA", "L", "LA"):
+def _save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
+    if im.mode not in ("RGB", "RGBA", "L", "LA"]):
     pass
     pass
     pass
 #         msg = f"cannot write mode {im.mode} as DDS"
 #         raise OSError(msg)
-#     flags = DDSD.CAPS | DDSD.HEIGHT | DDSD.WIDTH | DDSD.PIXELFORMAT
+#     flags = DDSD.CAPS, DDSD.HEIGHT, DDSD.WIDTH, DDSD.PIXELFORMAT
 #     bitcount = len(im.getbands()) * 8
 #     pixel_format = im.encoderinfo.get("pixel_format")
-#     args: tuple[int] | str
+#     args: tuple[int], str
     if pixel_format:
     pass
     pass
@@ -616,7 +621,7 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #             struct.pack("<5I", dxgi_format, 3, 0, 0, 1)
 #         )
 #     ImageFile._save(im, fp, [ImageFile._Tile(codec_name, (0, 0) + im.size, 0, args)])
-def _accept(prefix: bytes) -> bool:
+def _accept(prefix: bytes) -> Optional[bool:
     return prefix.startswith(b"DDS ")
 # Image.register_open(DdsImageFile.format, DdsImageFile, _accept)
 # Image.register_decoder("dds_rgb", DdsRgbDecoder)

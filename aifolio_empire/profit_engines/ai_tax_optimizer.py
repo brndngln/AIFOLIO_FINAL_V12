@@ -12,8 +12,7 @@
 # Static, deterministic, SAFE AI-compliant tax optimization logic for PDF business.
 # Integrates all tax strategies from core engine.
 
-from typing import Dict, Any
-import logging
+from typing import Any, Dict
 
 # logger = logging.getLogger(__name__)
 

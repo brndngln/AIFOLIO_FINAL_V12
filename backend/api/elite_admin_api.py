@@ -16,9 +16,8 @@
 # Elite API endpoints for dashboard integration, event streaming, founder controls.
 
 from __future__ import annotations
-from fastapi import APIRouter
+
 import json
-import os
 
 # router = APIRouter()
 

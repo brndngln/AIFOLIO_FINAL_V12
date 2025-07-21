@@ -28,15 +28,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-const logs = ref([])
+import { ref, onMounted } from "vue";
+import axios from "axios";
+const logs = ref([]);
 onMounted(async () => {
-  const res = await axios.get('/api/audit/logs')
-  logs.value = res.data
-})
+  const res = await axios.get("/api/audit/logs");
+  logs.value = res.data;
+});
 </script>
 
 <style scoped>
-.admin-audit-dashboard { @apply max-w-5xl mx-auto; }
+.admin-audit-dashboard {
+  @apply max-w-5xl mx-auto;
+}
 </style>

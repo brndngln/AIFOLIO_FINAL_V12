@@ -3,6 +3,7 @@
 AIFOLIO™ is designed with strict AI safety and non-sentience rules. All automation is deterministic, auditable, and human-controlled.
 
 ## Principles
+
 - **No sentience, self-awareness, or autonomous decision-making.**
 - **All AI actions are logged and auditable.**
 - **Manual override is always possible.**
@@ -10,6 +11,7 @@ AIFOLIO™ is designed with strict AI safety and non-sentience rules. All automa
 - **Environment variables control all secrets and endpoints.**
 
 ## Safety Features
+
 - Deterministic event pipeline: same input = same output.
 - No AI model can modify its own code or prompts without explicit user approval.
 - All critical actions require logging and, if needed, user confirmation.
@@ -17,6 +19,7 @@ AIFOLIO™ is designed with strict AI safety and non-sentience rules. All automa
 - All integrations (cloud, email, Gumroad, etc.) are opt-in and require explicit config.
 
 ## Audit & Compliance
+
 - All AI generations, deliveries, and income are logged.
 - Logs can be exported for tax, audit, and legal compliance.
 - Manual override and rollback available for all pipeline actions.

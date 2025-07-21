@@ -16,8 +16,7 @@
 #   behavior (static, table-driven only).
 
 from __future__ import annotations
-import logging
-from datetime import datetime
+
 from typing import List
 
 # LOG_PATH = "../../distribution/legal_exports/cross_market_promo_log.txt"

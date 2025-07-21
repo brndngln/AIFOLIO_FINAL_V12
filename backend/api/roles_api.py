@@ -8,8 +8,9 @@
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-from fastapi import APIRouter, Body
-from security.role_manager import set_admin_roles, list_admins
+from fastapi import Body
+
+from security.role_manager import list_admins
 
 # router = APIRouter()
 

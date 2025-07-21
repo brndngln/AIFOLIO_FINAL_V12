@@ -1,1 +1,17 @@
-{"id":"ritualux","label":"RITUALUX™","description":"AI Ritual & Ceremony Designer Vault","icon":"🕯️","features":["rituals","ceremonies","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "AI Ritual & Ceremony Designer Vault",
+  "features": [
+    "rituals",
+    "ceremonies",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udd6f\ufe0f",
+  "id": "ritualux",
+  "label": "RITUALUX\u2122"
+}

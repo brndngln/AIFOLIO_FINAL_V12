@@ -3,6 +3,7 @@
 AIFOLIO™ provides a secure, auditable, and non-sentient UI for editing and tuning AI prompts by niche or product type.
 
 ## Features
+
 - Streamlit-based interactive UI
 - Prompt preview window (deterministic, non-sentient)
 - Anti-pattern detector (flags risky or non-compliant prompts)
@@ -29,6 +30,7 @@ AIFOLIO™ provides a secure, auditable, and non-sentient UI for editing and tun
    - Admins can review audit log in the UI
 
 ## Safety & Audit
+
 - No prompt goes live without human approval
 - All changes are logged and fingerprinted
 - No sentient or autonomous logic is present
@@ -36,4 +38,4 @@ AIFOLIO™ provides a secure, auditable, and non-sentient UI for editing and tun
 
 ---
 
-*See `prompt_tuning_ui.py` for implementation details and extension points.*
+_See `prompt_tuning_ui.py` for implementation details and extension points._

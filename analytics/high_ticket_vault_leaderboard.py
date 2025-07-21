@@ -11,11 +11,9 @@
 
 # Static, deterministic leaderboard for high-ticket vaults. SAFE AI, owner-controlled, fully auditable.
 
+from typing import Any, Dict, List
+
 # High-Ticket Vault Leaderboard
-from core.compliance.sentience_firewall import sentience_firewall
-
-
-from typing import List, Dict, Any
 
 
 # @sentience_firewall

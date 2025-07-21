@@ -13,7 +13,7 @@
 # - Measures how refunds affect vault performance (SAFE, static)
 # - Outputs data for admin dashboard
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 def analyze_refund_impact(vault_data: Dict[str, Any]) -> Dict[str, Any]:

@@ -1,16 +1,16 @@
 [
   {
-    "id": "talent_discovery",
-    "title": "Talent Discovery Engine",
     "description": "Reveal hidden skills and passions based on user answers.",
+    "id": "talent_discovery",
     "prompt": "You are a talent coach. Discover hidden talents for: {user_profile}. Include starter kit suggestions.",
-    "style": "motivational, energetic"
+    "style": "motivational, energetic",
+    "title": "Talent Discovery Engine"
   },
   {
-    "id": "growth_map",
-    "title": "Personal Growth Map Generator",
     "description": "Create a personalized growth map with milestones and skill trees.",
+    "id": "growth_map",
     "prompt": "You are a growth strategist. Build a growth map for: {user_goal}. Include milestones and motivational notes.",
-    "style": "aesthetic, inspiring"
+    "style": "aesthetic, inspiring",
+    "title": "Personal Growth Map Generator"
   }
 ]

@@ -1,8 +1,10 @@
-from typing import Optional
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 import os
 import re
 import traceback
+from typing import Optional
+
+
 def is_broken_python(content):
     # Basic structure test for catastrophic syntax issues
     try:

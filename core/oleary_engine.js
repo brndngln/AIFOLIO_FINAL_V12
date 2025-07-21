@@ -6,6 +6,6 @@ export class OLearyEngine {
     // Licensing logic stub
     biz.license = `LICENSE-${biz.id}`;
     // Auto-tiered pricing stub
-    biz.pricingTier = biz.analytics.profit > 1000000 ? 'Elite' : 'Standard';
+    biz.pricingTier = biz.analytics.profit > 1000000 ? "Elite" : "Standard";
   }
 }

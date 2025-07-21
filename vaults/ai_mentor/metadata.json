@@ -1,1 +1,17 @@
-{"id":"ai_mentor","label":"AI-MENTOR™","description":"Youth Motivation + Study Guide Vault","icon":"👨‍🎓","features":["motivation","study_guides","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Youth Motivation + Study Guide Vault",
+  "features": [
+    "motivation",
+    "study_guides",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udc68\u200d\ud83c\udf93",
+  "id": "ai_mentor",
+  "label": "AI-MENTOR\u2122"
+}

@@ -13,5 +13,6 @@ scan_directory_for_integrity('/path/to/your/dir')
 - Errors are logged per file.
 
 ## Audit & Safety
+
 - No sentient/learning logic.
 - Fully deterministic and business-aligned.

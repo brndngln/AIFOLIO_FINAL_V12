@@ -4,8 +4,8 @@ export class Web3NFT {
     // Stub: Mint NFT for business ownership
     return {
       nftId: `NFT-${biz.id}`,
-      owner: 'Owner',
-      metadata: biz
+      owner: "Owner",
+      metadata: biz,
     };
   }
 }

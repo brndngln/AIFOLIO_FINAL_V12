@@ -8,10 +8,11 @@ export default function PDFQueueViewer({ token }) {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("/api/pdf-queue", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(res => setQueue(res.data))
+    axios
+      .get("/api/pdf-queue", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setQueue(res.data))
       .catch(() => setQueue([]))
       .finally(() => setLoading(false));
   }, [token]);
@@ -19,10 +20,14 @@ export default function PDFQueueViewer({ token }) {
   return (
     <div className="pdf-queue-viewer">
       <h3>PDF Generation Queue</h3>
-      {loading ? <div>Loading queue...</div> : (
+      {loading ? (
+        <div>Loading queue...</div>
+      ) : (
         <ul>
           {queue.map((item, i) => (
-            <li key={i}>{item.filename} — {item.status}</li>
+            <li key={i}>
+              {item.filename} — {item.status}
+            </li>
           ))}
         </ul>
       )}

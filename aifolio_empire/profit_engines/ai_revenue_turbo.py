@@ -11,8 +11,7 @@
 
 # Static, deterministic, SAFE AI-compliant focus mode and conversion booster for max profit per vault.
 
-from typing import Dict, Any
-import logging
+from typing import Any, Dict
 
 # logger = logging.getLogger(__name__)
 

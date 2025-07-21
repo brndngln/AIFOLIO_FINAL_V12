@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -18,8 +19,16 @@ from typing import Optional
 #                    -m <module name for f77 routines>,--ignore-contains
 # Functions: crackfortran, crack2fortran
 # The following Fortran statements/constructions are supported
-# (or will be if needed):
+# (or will be if needed]):
     pass
+import codecs
+import copy
+import fileinput
+import os
+import platform
+import re
+import string
+
 #    block data,byte,call,character,common,complex,contains,data,
 #    dimension,double complex,double precision,end,external,function,
 #    implicit,integer,intent,interface,intrinsic,
@@ -40,8 +49,8 @@ from typing import Optional
 #      B = {'block','body','vars','parent_block'[,'name','prefix','args','result',
 #           'implicit','externals','interfaced','common','sortvars',
 #           'commonvars','note']}
-#      B['block'] = 'interface' | 'function' | 'subroutine' | 'module' |
-#                   'program' | 'block data' | 'type' | 'pythonmodule' |
+#      B['block'] = 'interface', 'function', 'subroutine', 'module' |
+#                   'program', 'block data', 'type', 'pythonmodule' |
 #                   'abstract interface'
 #      B['body'] --- list containing `subblocks' with the same structure as `blocks'
 #      B['parent_block'] --- dictionary of a parent block:
@@ -50,9 +59,9 @@ from typing import Optional
 #      B['sortvars'] --- dictionary of variable definitions sorted by dependence (independent first)
 #      B['name'] --- name of the block (not if B['block']=='interface')
 #      B['prefix'] --- prefix string (only if B['block']=='function')
-#      B['args'] --- list of argument names if B['block']== 'function' | 'subroutine'
+#      B['args'] --- list of argument names if B['block']== 'function', 'subroutine'
 #      B['result'] --- name of the return value (only if B['block']=='function')
-#      B['implicit'] --- dictionary {'a':<variable definition>,'b':...} | None
+#      B['implicit'] --- dictionary {'a':<variable definition>,'b':...}, None
 #      B['externals'] --- list of variables being external
 #      B['interfaced'] --- list of variables being external and defined
 #      B['common'] --- dictionary of common blocks (list of objects)
@@ -75,13 +84,13 @@ from typing import Optional
 #  *** Variable definition is a dictionary
 #      D = B['vars'][<variable name>] =
 #      {'typespec'[,'attrspec','kindselector','charselector','=','typename']}
-#      D['typespec'] = 'byte' | 'character' | 'complex' | 'double complex' |
-#                      'double precision' | 'integer' | 'logical' | 'real' | 'type'
+#      D['typespec'] = 'byte', 'character', 'complex', 'double complex' |
+#                      'double precision', 'integer', 'logical', 'real', 'type'
 #      D['attrspec'] --- list of attributes (e.g. 'dimension(<arrayspec>)',
 #                        'external','intent(in|out|inout|hide|c|callback|cache|aligned4|aligned8|aligned16)',
 #                        'optional','required', etc)
 #      K = D['kindselector'] = {['*','kind']} (only if D['typespec'] =
-#                          'complex' | 'integer' | 'logical' | 'real' )
+#                          'complex', 'integer', 'logical', 'real' )
 #      C = D['charselector'] = {['*','len','kind','f2py_len']}
 #                              (only if D['typespec']=='character')
 #      D['='] --- initialization expression string
@@ -91,7 +100,7 @@ from typing import Optional
 #      D['depend'] --- list of variable names on which current variable depends on
 #      D['check'] --- list of C-expressions; if C-expr returns zero, exception is raised
 #      D['note'] --- list of LaTeX comments on the variable
-#  *** Meaning of kind/char selectors (few examples):
+#  *** Meaning of kind/char selectors (few examples]):
 #      D['typespec>']*K['*']
 #      D['typespec'](kind=K['kind'])
 #      character*C['*']
@@ -122,33 +131,29 @@ from typing import Optional
 #                 optional
 #                 intent
 #              Other attributes are ignored.
-# <intentspec> = in | out | inout
+# <intentspec> = in, out, inout
 # <arrayspec> = comma separated list of dimension bounds.
-# <entitydecl> = <name> [[*<charlen>][(<arrayspec>)] | [(<arrayspec>)]*<charlen>]
-#                       [/<init_expr>/ | =<init_expr>] [,<entitydecl>]
+# <entitydecl> = <name> [[*<charlen>][(<arrayspec>)], [(<arrayspec>)]*<charlen>]
+#                       [/<init_expr>/, =<init_expr>] [,<entitydecl>]
 # In addition, the following attributes are used: check,depend,note
 # TODO:
 #     * Apply 'parameter' attribute (e.g. 'integer parameter :: i=2' 'real x(i)'
-#                                    -> 'real x(2)')
+#                                    -> Optional['real x(2)')
 #     The above may be solved by creating appropriate preprocessor program, for example.
 import sys
-import string
-import fileinput
-import re
-import os
-import copy
-import platform
-import codecs
+
 try:
     import charset_normalizer
 except ImportError:
 #     charset_normalizer = None
-from . import __version__
+from . import __version__, symbolic
+
 # The environment provided by auxfuncs.py is needed for some calls to eval.
 # As the needed functions cannot be determined by static inspection of the
 # code, it is safest to use import * pending a major refactoring of f2py.
 from .auxfuncs import *
-from . import symbolic
+
+
 # f2py_version = __version__.version
 # Global flags:
 # strictf77 = 1          # Ignore `! comments unless line[0]==!
@@ -181,7 +186,7 @@ from . import symbolic
 # skipfuncs = []
 # skipfunctions = []
 # usermodules = []
-def reset_global_f2py_vars():
+def reset_global_f2py_vars(]):
 #     global groupcounter, grouplist, neededmodule, expectbegin
 #     global skipblocksuntil, usermodules, f90modulevars, gotnextfile
 #     global filepositiontext, currentfilename, skipfunctions, skipfuncs
@@ -216,7 +221,7 @@ def reset_global_f2py_vars():
 #     onlyfuncs = []
 #     include_paths = []
 #     previous_context = None
-def outmess(line, flag=1):
+def outmess(line, flag=1]):
 #     global filepositiontext
     if not verbose:
     pass
@@ -252,7 +257,7 @@ for n in ['int', 'double', 'float', 'char', 'short', 'int', 'void', 'case', 'whi
 #           'type', 'default']:
 #     badnames[n] = n + '_bn'
 #     invbadnames[n + '_bn'] = n
-def rmbadname1(name):
+def rmbadname1(name]):
     if name in badnames:
     pass
     pass
@@ -261,9 +266,9 @@ def rmbadname1(name):
 #                 (name, badnames[name]))
         return badnames[name]
     return name
-def rmbadname(names):
+def rmbadname(names]):
     return [rmbadname1(_m) for _m in names]
-def undo_rmbadname1(name):
+def undo_rmbadname1(name]):
     if name in invbadnames:
     pass
     pass
@@ -272,9 +277,9 @@ def undo_rmbadname1(name):
 #                 % (name, invbadnames[name]))
         return invbadnames[name]
     return name
-def undo_rmbadname(names):
+def undo_rmbadname(names]):
     return [undo_rmbadname1(_m) for _m in names]
-def getextension(name):
+def getextension(name]):
 #     i = name.rfind('.')
     if i == -1:
     pass
@@ -297,7 +302,7 @@ def getextension(name):
 # _has_f90_header = re.compile(r'-*-\s*f90\s*-\*-', re.I).search
 # _has_fix_header = re.compile(r'-*-\s*fix\s*-\*-', re.I).search
 # _free_f90_start = re.compile(r'[^c*]\s*[^\s\d\t]', re.I).match
-def openhook(filename, mode):
+def openhook(filename, mode]):
 #     Ensures that filename is opened with correct encoding parameter.
 #     This function uses charset_normalizer package, when available, for
 #     determining the encoding of the file to be opened. When charset_normalizer
@@ -317,39 +322,39 @@ def openhook(filename, mode):
 #         nbytes = min(32, os.path.getsize(filename))
         with open(filename, 'rb') as fhandle:
 #             raw = fhandle.read(nbytes)
-            if raw.startswith(codecs.BOM_UTF8):
+            if raw.startswith(codecs.BOM_UTF8]):
     pass
     pass
     pass
 #                 encoding = 'UTF-8-SIG'
-            elif raw.startswith((codecs.BOM_UTF32_LE, codecs.BOM_UTF32_BE)):
+            elif raw.startswith((codecs.BOM_UTF32_LE, codecs.BOM_UTF32_BE)]):
     pass
 #                 encoding = 'UTF-32'
-            elif raw.startswith((codecs.BOM_LE, codecs.BOM_BE)):
+            elif raw.startswith((codecs.BOM_LE, codecs.BOM_BE)]):
     pass
 #                 encoding = 'UTF-16'
             else:
                 # Fallback, without charset_normalizer
 #                 encoding = 'ascii'
     return open(filename, mode, encoding=encoding)
-def is_free_format(file):
+def is_free_format(file]):
     # f90 allows both fixed and free format, assuming fixed unless
     # signs of free format are detected.
 #     result = 0
     with openhook(file, 'r') as f:
 #         line = f.readline()
 #         n = 15  # the number of non-comment lines to scan for hints
-        if _has_f_header(line):
+        if _has_f_header(line]):
     pass
     pass
     pass
 #             n = 0
-        elif _has_f90_header(line):
+        elif _has_f90_header(line]):
     pass
 #             n = 0
 #             result = 1
         while n > 0 and line:
-            if line[0] != '!' and line.strip():
+            if line[0] != '!' and line.strip(]):
     pass
     pass
     pass
@@ -363,7 +368,7 @@ def is_free_format(file):
 #             line = f.readline()
     return result
 # Read fortran (77,90) code
-def readfortrancode(ffile, dowithline=show, istop=1):
+def readfortrancode(ffile, dowithline=show, istop=1]):
 #     Read fortran codes from files and
 #      1) Get rid of comments, line continuations, and empty lines; lower cases.
 #      2) Call dowithline(line) on every line.
@@ -415,7 +420,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
     pass
     pass
 #             break
-        if fin.isfirstline():
+        if fin.isfirstline(]):
     pass
     pass
     pass
@@ -427,9 +432,9 @@ def readfortrancode(ffile, dowithline=show, istop=1):
 #             sourcecodeform = 'fix'
 #             ext = os.path.splitext(currentfilename)[1]
             if is_f_file(currentfilename) and \
-#                     not (_has_f90_header(l) or _has_fix_header(l)):
+#                     not (_has_f90_header(l) or _has_fix_header(l)]):
 #                 strictf77 = 1
-            elif is_free_format(currentfilename) and not _has_fix_header(l):
+            elif is_free_format(currentfilename) and not _has_fix_header(l]):
     pass
 #                 sourcecodeform = 'free'
             if strictf77:
@@ -497,14 +502,14 @@ def readfortrancode(ffile, dowithline=show, istop=1):
     pass
     pass
 #                     l = l[:72]
-            if not (l[0] in spacedigits):
+            if not (l[0] in spacedigits]):
     pass
     pass
     pass
 #                 raise Exception('readfortrancode: Found non-(space,digit) char '
 #                                 'in the first column.\n\tAre you sure that '
 #                                 'this code is in fix form?\n\tline=%s' % repr(l))
-            if (not cont or strictf77) and (len(l) > 5 and not l[5] == ' '):
+            if (not cont or strictf77) and (len(l) > 5 and not l[5] == ' ']):
     pass
     pass
     pass
@@ -558,7 +563,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
 #                     ll = l
         elif sourcecodeform == 'free':
     pass
-            if not cont and ext == '.pyf' and mline_mark.match(l):
+            if not cont and ext == '.pyf' and mline_mark.match(l]):
     pass
     pass
     pass
@@ -573,7 +578,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
 #                             'Unexpected end of file when reading multiline\n')
 #                         break
 #                     l = l + lc
-                    if mline_mark.match(lc):
+                    if mline_mark.match(lc]):
     pass
     pass
     pass
@@ -614,7 +619,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
     pass
     pass
 #             fn = m.group('name')
-            if os.path.isfile(fn):
+            if os.path.isfile(fn]):
     pass
     pass
     pass
@@ -625,7 +630,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
 #                 foundfile = 0
                 for inc_dir in include_dirs:
 #                     fn1 = os.path.join(inc_dir, fn)
-                    if os.path.isfile(fn1):
+                    if os.path.isfile(fn1]):
     pass
     pass
     pass
@@ -657,7 +662,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
     pass
     pass
 #         fn = m.group('name')
-        if os.path.isfile(fn):
+        if os.path.isfile(fn]):
     pass
     pass
     pass
@@ -667,7 +672,7 @@ def readfortrancode(ffile, dowithline=show, istop=1):
 #             foundfile = 0
             for inc_dir in include_dirs:
 #                 fn1 = os.path.join(inc_dir, fn)
-                if os.path.isfile(fn1):
+                if os.path.isfile(fn1]):
     pass
     pass
     pass
@@ -766,11 +771,11 @@ formatpattern = re.compile(
 #     beforethisafter % ('', 'format', 'format', '.*'), re.I), 'format'
 # Non-fortran and f2py-specific statements
 # f2pyenhancementspattern = re.compile(beforethisafter % ('', 'threadsafe|fortranname|callstatement|callprotoargument|usercode|pymethoddef',
-#                                                         'threadsafe|fortranname|callstatement|callprotoargument|usercode|pymethoddef', '.*'), re.I | re.S), 'f2pyenhancements'
+#                                                         'threadsafe|fortranname|callstatement|callprotoargument|usercode|pymethoddef', '.*'), re.I, re.S), 'f2pyenhancements'
 # multilinepattern = re.compile(
 #     r"\s*(?P<before>"""')(?P<this>.*?)(?P<after>"""')\s*\Z", re.S), 'multiline'
 ##
-def split_by_unquoted(line, characters):
+def split_by_unquoted(line, characters]):
 #     Splits the line into (line[:i], line[i:]),
 #     where i is the index of first occurrence of one of the characters
 #     not within quotes, or len(line) if no such index exists
@@ -790,15 +795,15 @@ def split_by_unquoted(line, characters):
 #         d = m.groupdict()
         return (d["before"], d["after"])
     return (line, )
-def _simplifyargs(argsline):
+def _simplifyargs(argsline]):
 #     a = []
-    for n in markoutercomma(argsline).split('@,@'):
+    for n in markoutercomma(argsline).split('@,@']):
         for r in '(),':
 #             n = n.replace(r, '_')
 #         a.append(n)
     return ','.join(a)
 # crackline_re_1 = re.compile(r'\s*(?P<result>\b[a-z]+\w*\b)\s*=.*', re.I)
-def crackline(line, reset=0):
+def crackline(line, reset=0]):
 #     reset=-1  --- initialize
 #     reset=0   --- crack the line
 #     reset=1   --- final check if mismatch of blocks occurred
@@ -808,7 +813,7 @@ def crackline(line, reset=0):
 #     global skipblocksuntil, skipemptyends, previous_context, gotnextfile
 #     _, has_semicolon = split_by_unquoted(line, ";")
     if has_semicolon and not (f2pyenhancementspattern[0].match(line) or
-#                                multilinepattern[0].match(line)):
+#                                multilinepattern[0].match(line)]):
         # XXX: non-zero reset values need testing
 #         assert reset == 0, repr(reset)
         # split line on unquoted semicolons
@@ -943,7 +948,7 @@ def crackline(line, reset=0):
                         return
 #                     analyzeline(m, 'callfun', line)
                     return
-        if verbose > 1 or (verbose == 1 and currentfilename.lower().endswith('.pyf')):
+        if verbose > 1 or (verbose == 1 and currentfilename.lower().endswith('.pyf')]):
     pass
     pass
     pass
@@ -970,7 +975,7 @@ def crackline(line, reset=0):
 #                             'Check the blocks.'
 #                             % (groupcounter))
 #         m1 = beginpattern[0].match((line))
-        if (m1) and (not m1.group('this') == groupname[groupcounter]):
+        if (m1) and (not m1.group('this') == groupname[groupcounter]]):
     pass
     pass
     pass
@@ -1030,7 +1035,7 @@ def crackline(line, reset=0):
     pass
             return
 #         analyzeline(m, pat[1], line)
-def markouterparen(line):
+def markouterparen(line]):
 #     l = ''
 #     f = 0
     for c in line:
@@ -1056,13 +1061,13 @@ def markouterparen(line):
 #                 continue
 #         l = l + c
     return l
-def markoutercomma(line, comma=','):
+def markoutercomma(line, comma=',']):
 #     l = ''
 #     f = 0
 #     before, after = split_by_unquoted(line, comma + '()')
 #     l += before
     while after:
-        if (after[0] == comma) and (f == 0):
+        if (after[0] == comma) and (f == 0]):
     pass
     pass
     pass
@@ -1081,10 +1086,10 @@ def markoutercomma(line, comma=','):
 #         l += before
 #     assert not f, repr((f, line, l))
     return l
-def unmarkouterparen(line):
+def unmarkouterparen(line]):
 #     r = line.replace('@(@', '(').replace('@)@', ')')
     return r
-def appenddecl(decl, decl2, force=1):
+def appenddecl(decl, decl2, force=1]):
     if not decl:
     pass
     pass
@@ -1100,7 +1105,7 @@ def appenddecl(decl, decl2, force=1):
     pass
     pass
         return decl
-    for k in list(decl2.keys()):
+    for k in list(decl2.keys()]):
         if k == 'typespec':
     pass
     pass
@@ -1154,15 +1159,15 @@ def appenddecl(decl, decl2, force=1):
 # real8pattern = re.compile(
 #     r'([-+]?((?:\d+(?:.\d*)?|\d*\.\d+))[eE]((?:[-+]?\d+)?)|(\d+\.\d*))')
 # _intentcallbackpattern = re.compile(r'intent\s*(.*?\bcallback\b', re.I)
-def _is_intent_callback(vdecl):
-    for a in vdecl.get('attrspec', []):
-        if _intentcallbackpattern.match(a):
+def _is_intent_callback(vdecl]):
+    for a in vdecl.get('attrspec', []]):
+        if _intentcallbackpattern.match(a]):
     pass
     pass
     pass
             return 1
     return 0
-def _resolvetypedefpattern(line):
+def _resolvetypedefpattern(line]):
 #     line = ''.join(line.split())  # removes whitespace
 #     m1 = typedefpattern.match(line)
 #     print(line, m1)
@@ -1174,7 +1179,7 @@ def _resolvetypedefpattern(line):
 #         attrs = [a.lower() for a in attrs.split(',')] if attrs else []
         return m1.group('name'), attrs, m1.group('params')
     return None, [], None
-def _resolvenameargspattern(line):
+def _resolvenameargspattern(line]):
 #     line = markouterparen(line)
 #     m1 = nameargspattern.match(line)
     if m1:
@@ -1196,7 +1201,7 @@ def _resolvenameargspattern(line):
     pass
         return m1.group('name'), m1.group('args'), None, None
     return None, [], None, None
-def analyzeline(m, case, line):
+def analyzeline(m, case, line]):
 #     global groupcounter, groupname, groupcache, grouplist, filepositiontext
 #     global currentfilename, f77modulename, neededinterface, neededmodule
 #     global expectbegin, gotnextfile, previous_context
@@ -1228,15 +1233,15 @@ def analyzeline(m, case, line):
     pass
         # Crack line => block,name,args,result
 #         block = block.lower()
-        if re.match(r'block\s*data', block, re.I):
+        if re.match(r'block\s*data', block, re.I]):
     pass
     pass
     pass
 #             block = 'block data'
-        elif re.match(r'python\s*module', block, re.I):
+        elif re.match(r'python\s*module', block, re.I]):
     pass
 #             block = 'python module'
-        elif re.match(r'abstract\s*interface', block, re.I):
+        elif re.match(r'abstract\s*interface', block, re.I]):
     pass
 #             block = 'abstract interface'
         if block == 'type':
@@ -1395,7 +1400,7 @@ def analyzeline(m, case, line):
             else:
 #                 groupcache[groupcounter]['from'] = '%s:%s' % (
 #                     groupcache[groupcounter - 1]['from'], groupcache[groupcounter - 1]['name'])
-        for k in list(groupcache[groupcounter].keys()):
+        for k in list(groupcache[groupcounter].keys()]):
             if not groupcache[groupcounter][k]:
     pass
     pass
@@ -1556,7 +1561,7 @@ def analyzeline(m, case, line):
             else:
 #                 k = rmbadname1(m1.group('name'))
             if case in ['public', 'private'] and \
-#                (k == 'operator' or k == 'assignment'):
+#                (k == 'operator' or k == 'assignment']):
 #                 k += m1.group('after')
             if k not in edecl:
     pass
@@ -1573,7 +1578,7 @@ def analyzeline(m, case, line):
     pass
     pass
 #                 ap = m.group('this') + pl
-                if _intentcallbackpattern.match(ap):
+                if _intentcallbackpattern.match(ap]):
     pass
     pass
     pass
@@ -1654,7 +1659,7 @@ def analyzeline(m, case, line):
 #         edecl = groupcache[groupcounter]['vars']
 #         ll = m.group('after').strip()[1:-1]
 #         last_name = None
-        for e in markoutercomma(ll).split('@,@'):
+        for e in markoutercomma(ll).split('@,@']):
             try:
 #                 k, initexpr = [x.strip() for x in e.split('=')]
             except Exception:
@@ -1668,7 +1673,7 @@ def analyzeline(m, case, line):
     pass
     pass
 #                 edecl[k] = {}
-            if '=' in edecl[k] and (not edecl[k]['='] == initexpr):
+            if '=' in edecl[k] and (not edecl[k]['='] == initexpr]):
     pass
     pass
     pass
@@ -1684,9 +1689,9 @@ def analyzeline(m, case, line):
     pass
     pass
 #                     tt = list(initexpr)
-                    for m in real16pattern.finditer(initexpr):
-#                         tt[m.start():m.end()] = list(
-#                             initexpr[m.start():m.end()].lower().replace('d', 'e'))
+                    for m in real16pattern.finditer(initexpr]):
+#                         tt[m.start(]):m.end()] = list(
+#                             initexpr[m.start(]):m.end()].lower().replace('d', 'e'))
 #                     initexpr = ''.join(tt)
                 elif t.get('typespec') == 'complex':
     pass
@@ -1720,7 +1725,7 @@ def analyzeline(m, case, line):
     pass
     pass
 #             groupcache[groupcounter]['implicit'] = None
-        elif m.group('after'):
+        elif m.group('after']):
     pass
             if 'implicit' in groupcache[groupcounter]:
     pass
@@ -1736,7 +1741,7 @@ def analyzeline(m, case, line):
 #                 outmess(
 #                     'analyzeline: Overwriting earlier "implicit none" statement.\n')
 #                 impl = {}
-            for e in markoutercomma(m.group('after')).split('@,@'):
+            for e in markoutercomma(m.group('after')).split('@,@']):
 #                 decl = {}
 #                 m1 = re.match(
 #                     r'\s*(?P<this>.*?)\s*((\s*(?P<after>[a-z-, ]+)\s*\)\s*|)\Z', e, re.I)
@@ -1763,13 +1768,13 @@ def analyzeline(m, case, line):
 #                 decl['kindselector'] = kindselect
 #                 decl['charselector'] = charselect
 #                 decl['typename'] = typename
-                for k in list(decl.keys()):
+                for k in list(decl.keys()]):
                     if not decl[k]:
     pass
     pass
     pass
 #                         del decl[k]
-                for r in markoutercomma(m1.group('after')).split('@,@'):
+                for r in markoutercomma(m1.group('after')).split('@,@']):
                     if '-' in r:
     pass
     pass
@@ -1789,7 +1794,7 @@ def analyzeline(m, case, line):
 #                         outmess(
 #                             'analyzeline: expected "<char>-<char>" instead of "%s" in range list of implicit statement (2)\n' % r)
 #                         continue
-                    for o in range(ord(begc), ord(endc) + 1):
+                    for o in range(ord(begc), ord(endc) + 1]):
 #                         impl[chr(o)] = decl
 #             groupcache[groupcounter]['implicit'] = impl
     elif case == 'data':
@@ -1800,7 +1805,7 @@ def analyzeline(m, case, line):
 #         f = 0
 #         fc = 1
 #         inp = 0
-        for c in m.group('after'):
+        for c in m.group('after']):
             if not inp:
     pass
     pass
@@ -1835,7 +1840,7 @@ def analyzeline(m, case, line):
             elif f == 2:
     pass
 #                 dl = dl.strip()
-                if dl.startswith(','):
+                if dl.startswith(',']):
     pass
     pass
     pass
@@ -1849,7 +1854,7 @@ def analyzeline(m, case, line):
     pass
     pass
 #             dl = dl.strip()
-            if dl.startswith(','):
+            if dl.startswith(',']):
     pass
     pass
     pass
@@ -1879,7 +1884,7 @@ def analyzeline(m, case, line):
 #             i = 0
 #             j = 0
 #             llen = len(l[1])
-            for v in rmbadname([x.strip() for x in markoutercomma(l[0]).split('@,@')]):
+            for v in rmbadname([x.strip() for x in markoutercomma(l[0]).split('@,@')]]):
                 if v[0] == '(':
     pass
     pass
@@ -1891,7 +1896,7 @@ def analyzeline(m, case, line):
                     # wrapping.
 #                     continue
 #                 fc = 0
-                while (i < llen) and (fc or not l[1][i] == ','):
+                while (i < llen) and (fc or not l[1][i] == ',']):
                     if l[1][i] == "":
     pass
     pass
@@ -2051,7 +2056,7 @@ def analyzeline(m, case, line):
     pass
     pass
     pass
-            if isinstance(d['usercode'], str):
+            if isinstance(d['usercode'], str]):
     pass
     pass
     pass
@@ -2082,7 +2087,7 @@ def analyzeline(m, case, line):
     pass
 #             print(m.groupdict())
 #             outmess('analyzeline: No code implemented for line.\n')
-def appendmultiline(group, context_name, ml):
+def appendmultiline(group, context_name, ml]):
     if 'f2pymultilines' not in group:
     pass
     pass
@@ -2096,15 +2101,15 @@ def appendmultiline(group, context_name, ml):
 #         d[context_name] = []
 #     d[context_name].append(ml)
     return
-def cracktypespec0(typespec, ll):
+def cracktypespec0(typespec, ll]):
 #     selector = None
 #     attr = None
-    if re.match(r'double\s*complex', typespec, re.I):
+    if re.match(r'double\s*complex', typespec, re.I]):
     pass
     pass
     pass
 #         typespec = 'double complex'
-    elif re.match(r'double\s*precision', typespec, re.I):
+    elif re.match(r'double\s*precision', typespec, re.I]):
     pass
 #         typespec = 'double precision'
     else:
@@ -2118,7 +2123,7 @@ def cracktypespec0(typespec, ll):
 #             'cracktypespec0: no kind/char_selector pattern found for line.\n')
         return
 #     d = m1.groupdict()
-    for k in list(d.keys()):
+    for k in list(d.keys()]):
 #         d[k] = unmarkouterparen(d[k])
     if typespec in ['complex', 'integer', 'logical', 'real', 'character', 'type']:
     pass
@@ -2145,7 +2150,7 @@ def cracktypespec0(typespec, ll):
 #     r'|(f2py_len\s*=\s*(?P<f2py_len>.*))|))\s*\Z', re.I)
 # lenarraypattern = re.compile(
 #     r'\s*(@(@\s*(?!/)\s*(?P<array>.*?)\s*@\)@\s*\*\s*(?P<len>.*?)|(\*\s*(?P<len2>.*?)|)\s*(@\(@\s*(?!/)\s*(?P<array2>.*?)\s*@\)@|))\s*(=\s*(?P<init>.*?)|(@\(@|)/\s*(?P<init2>.*?)\s*/(@\)@|)|)\s*\Z', re.I)
-def removespaces(expr):
+def removespaces(expr]):
 #     expr = expr.strip()
     if len(expr) <= 1:
     pass
@@ -2153,15 +2158,15 @@ def removespaces(expr):
     pass
         return expr
 #     expr2 = expr[0]
-    for i in range(1, len(expr) - 1):
+    for i in range(1, len(expr) - 1]):
         if (expr[i] == ' ' and
 #             ((expr[i + 1] in "()[]{}=+-/* ") or
-#                 (expr[i - 1] in "()[]{}=+-/* "))):
+#                 (expr[i - 1] in "()[]{}=+-/* "))]):
 #             continue
 #         expr2 = expr2 + expr[i]
 #     expr2 = expr2 + expr[-1]
     return expr2
-def markinnerspaces(line):
+def markinnerspaces(line]):
 #     The function replace all spaces in the input variable line which are
 #     surrounded with quotation marks, with the triplet "@_@".
 #     For instance, for the input "a 'b c'" the function returns "a 'b@_@c'"
@@ -2200,7 +2205,7 @@ def markinnerspaces(line):
 #         fragment += c
 #         escaped = c  # reset to non-backslash
     return fragment
-def updatevars(typespec, selector, attrspec, entitydecl):
+def updatevars(typespec, selector, attrspec, entitydecl]):
 #     global groupcache, groupcounter
 #     last_name = None
 #     kindselect, charselect, typename = cracktypespec(typespec, selector)
@@ -2223,7 +2228,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
 #                 s = m.group('start').lower()
-#                 a = s + a[len(s):]
+#                 a = s + a[len(s]):]
 #             l.append(a)
 #         attrspec = l
 #     el = [x.strip() for x in markoutercomma(entitydecl).split('@,@')]
@@ -2257,7 +2262,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
 #                 edecl['typespec'] = typespec
-            elif typespec and (not typespec == edecl['typespec']):
+            elif typespec and (not typespec == edecl['typespec']]):
     pass
 #                 outmess('updatevars: attempt to change the type of "%s" ("%s") to "%s". Ignoring.\n' % (
 #                     ename, edecl['typespec'], typespec))
@@ -2268,8 +2273,8 @@ def updatevars(typespec, selector, attrspec, entitydecl):
 #                 edecl['kindselector'] = copy.copy(kindselect)
             elif kindselect:
     pass
-                for k in list(kindselect.keys()):
-                    if k in edecl['kindselector'] and (not kindselect[k] == edecl['kindselector'][k]):
+                for k in list(kindselect.keys()]):
+                    if k in edecl['kindselector'] and (not kindselect[k] == edecl['kindselector'][k]]):
     pass
     pass
     pass
@@ -2291,8 +2296,8 @@ def updatevars(typespec, selector, attrspec, entitydecl):
 #                             % (ename, charselect))
             elif charselect:
     pass
-                for k in list(charselect.keys()):
-                    if k in edecl['charselector'] and (not charselect[k] == edecl['charselector'][k]):
+                for k in list(charselect.keys()]):
+                    if k in edecl['charselector'] and (not charselect[k] == edecl['charselector'][k]]):
     pass
     pass
     pass
@@ -2305,7 +2310,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
 #                 edecl['typename'] = typename
-            elif typename and (not edecl['typename'] == typename):
+            elif typename and (not edecl['typename'] == typename]):
     pass
 #                 outmess('updatevars: attempt to change the typename of "%s" ("%s") to "%s". Ignoring.\n' % (
 #                     ename, edecl['typename'], typename))
@@ -2338,7 +2343,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
 #                 groupcache[groupcounter]['externals'] = []
 #             groupcache[groupcounter]['externals'].append(e)
-        if m.group('after'):
+        if m.group('after']):
     pass
     pass
     pass
@@ -2355,7 +2360,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
 #                         d1[lk] = d1[lk + '2']
 #                         del d1[lk + '2']
-                for k in list(d1.keys()):
+                for k in list(d1.keys()]):
                     if d1[k] is not None:
     pass
     pass
@@ -2371,7 +2376,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
     pass
-                        if ('kindselector' not in edecl) or (not edecl['kindselector']):
+                        if ('kindselector' not in edecl) or (not edecl['kindselector']]):
     pass
     pass
     pass
@@ -2380,7 +2385,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
 #                         del d1['len']
                     elif typespec == 'character':
     pass
-                        if ('charselector' not in edecl) or (not edecl['charselector']):
+                        if ('charselector' not in edecl) or (not edecl['charselector']]):
     pass
     pass
     pass
@@ -2396,7 +2401,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
     pass
-                    if '=' in edecl and (not edecl['='] == d1['init']):
+                    if '=' in edecl and (not edecl['='] == d1['init']]):
     pass
     pass
     pass
@@ -2424,7 +2429,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
     pass
     pass
 #                     dm = 'dimension(%s)' % d1['array']
-                    if 'attrspec' not in edecl or (not edecl['attrspec']):
+                    if 'attrspec' not in edecl or (not edecl['attrspec']]):
     pass
     pass
     pass
@@ -2443,7 +2448,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
             else:
 #                 outmess('updatevars: could not crack entity declaration "%s". Ignoring.\n' % (
 #                     ename + m.group('after')))
-        for k in list(edecl.keys()):
+        for k in list(edecl.keys()]):
             if not edecl[k]:
     pass
     pass
@@ -2457,7 +2462,7 @@ def updatevars(typespec, selector, attrspec, entitydecl):
 #             groupcache[groupcounter]['varnames'].append(ename)
 #         last_name = ename
     return last_name
-def cracktypespec(typespec, selector):
+def cracktypespec(typespec, selector]):
 #     kindselect = None
 #     charselect = None
 #     typename = None
@@ -2480,13 +2485,13 @@ def cracktypespec(typespec, selector):
 #             kindselect = kindselect.groupdict()
 #             kindselect['*'] = kindselect['kind2']
 #             del kindselect['kind2']
-            for k in list(kindselect.keys()):
+            for k in list(kindselect.keys()]):
                 if not kindselect[k]:
     pass
     pass
     pass
 #                     del kindselect[k]
-            for k, i in list(kindselect.items()):
+            for k, i in list(kindselect.items()]):
 #                 kindselect[k] = rmbadname1(i)
         elif typespec == 'character':
     pass
@@ -2523,13 +2528,13 @@ def cracktypespec(typespec, selector):
                     # used to specify the length of assumed length strings
 #                     charselect['f2py_len'] = lenkind['f2py_len']
 #             del charselect['lenkind']
-            for k in list(charselect.keys()):
+            for k in list(charselect.keys()]):
                 if not charselect[k]:
     pass
     pass
     pass
 #                     del charselect[k]
-            for k, i in list(charselect.items()):
+            for k, i in list(charselect.items()]):
 #                 charselect[k] = rmbadname1(i)
         elif typespec == 'type':
     pass
@@ -2546,7 +2551,7 @@ def cracktypespec(typespec, selector):
 #             outmess('cracktypespec: no selector used for %s\n' %
 #                     (repr(selector)))
     return kindselect, charselect, typename
-def setattrspec(decl, attr, force=0):
+def setattrspec(decl, attr, force=0]):
     if not decl:
     pass
     pass
@@ -2598,7 +2603,7 @@ def setattrspec(decl, attr, force=0):
     else:
 #         decl['attrspec'].append(attr)
     return decl
-def setkindselector(decl, sel, force=0):
+def setkindselector(decl, sel, force=0]):
     if not decl:
     pass
     pass
@@ -2615,14 +2620,14 @@ def setkindselector(decl, sel, force=0):
     pass
 #         decl['kindselector'] = sel
         return decl
-    for k in list(sel.keys()):
+    for k in list(sel.keys()]):
         if force or k not in decl['kindselector']:
     pass
     pass
     pass
 #             decl['kindselector'][k] = sel[k]
     return decl
-def setcharselector(decl, sel, force=0):
+def setcharselector(decl, sel, force=0]):
     if not decl:
     pass
     pass
@@ -2639,14 +2644,14 @@ def setcharselector(decl, sel, force=0):
     pass
 #         decl['charselector'] = sel
         return decl
-    for k in list(sel.keys()):
+    for k in list(sel.keys()]):
         if force or k not in decl['charselector']:
     pass
     pass
     pass
 #             decl['charselector'][k] = sel[k]
     return decl
-def getblockname(block, unknown='unknown'):
+def getblockname(block, unknown='unknown']):
     if 'name' in block:
     pass
     pass
@@ -2654,13 +2659,13 @@ def getblockname(block, unknown='unknown'):
         return block['name']
     return unknown
 # post processing
-def setmesstext(block):
+def setmesstext(block]):
 #     global filepositiontext
     try:
 #         filepositiontext = 'In: %s:%s\n' % (block['from'], block['name'])
     except Exception:
 #         pass
-def get_usedict(block):
+def get_usedict(block]):
 #     usedict = {}
     if 'parent_block' in block:
     pass
@@ -2673,7 +2678,7 @@ def get_usedict(block):
     pass
 #         usedict.update(block['use'])
     return usedict
-def get_useparameters(block, param_map=None):
+def get_useparameters(block, param_map=None]):
 #     global f90modulevars
     if param_map is None:
     pass
@@ -2686,7 +2691,7 @@ def get_useparameters(block, param_map=None):
     pass
     pass
         return param_map
-    for usename, mapping in list(usedict.items()):
+    for usename, mapping in list(usedict.items()]):
 #         usename = usename.lower()
         if usename not in f90modulevars:
     pass
@@ -2708,7 +2713,7 @@ def get_useparameters(block, param_map=None):
     pass
     pass
 #             errmess('get_useparameters: mapping for %s not impl.\n' % (mapping))
-        for k, v in list(params.items()):
+        for k, v in list(params.items()]):
             if k in param_map:
     pass
     pass
@@ -2717,14 +2722,14 @@ def get_useparameters(block, param_map=None):
 #                         ' value from module %s\n' % (repr(k), repr(usename)))
 #             param_map[k] = v
     return param_map
-def postcrack2(block, tab='', param_map=None):
+def postcrack2(block, tab='', param_map=None]):
 #     global f90modulevars
     if not f90modulevars:
     pass
     pass
     pass
         return block
-    if isinstance(block, list):
+    if isinstance(block, list]):
     pass
     pass
     pass
@@ -2743,7 +2748,7 @@ def postcrack2(block, tab='', param_map=None):
     pass
     pass
 #         vars = block['vars']
-        for n in list(vars.keys()):
+        for n in list(vars.keys()]):
 #             var = vars[n]
             if 'kindselector' in var:
     pass
@@ -2764,12 +2769,12 @@ def postcrack2(block, tab='', param_map=None):
                 for b in block['body']]
 #     block['body'] = new_body
     return block
-def postcrack(block, args=None, tab=''):
+def postcrack(block, args=None, tab='']):
 #     TODO:
 #           function return values
 #           determine expression types if in argument list
 #     global usermodules, onlyfunctions
-    if isinstance(block, list):
+    if isinstance(block, list]):
     pass
     pass
     pass
@@ -2815,7 +2820,7 @@ def postcrack(block, args=None, tab=''):
     pass
     pass
 #         useblock = block['use']
-        for k in list(useblock.keys()):
+        for k in list(useblock.keys()]):
             if '__user__' in k:
     pass
     pass
@@ -2895,7 +2900,7 @@ def postcrack(block, args=None, tab=''):
 #                             break
 #                 interface['body'].append(edef)
             else:
-                if e in mvars and not isexternal(mvars[e]):
+                if e in mvars and not isexternal(mvars[e]]):
     pass
     pass
     pass
@@ -2915,10 +2920,10 @@ def postcrack(block, args=None, tab=''):
     pass
 #         block['use'] = useblock
     return block
-def sortvarnames(vars):
+def sortvarnames(vars]):
 #     indep = []
 #     dep = []
-    for v in list(vars.keys()):
+    for v in list(vars.keys()]):
         if 'depend' in vars[v] and vars[v]['depend']:
     pass
     pass
@@ -2958,14 +2963,14 @@ def sortvarnames(vars):
 #             n = len(dep)
 #             i = 0
     return indep
-def analyzecommon(block):
-    if not hascommon(block):
+def analyzecommon(block]):
+    if not hascommon(block]):
     pass
     pass
     pass
         return block
 #     commonvars = []
-    for k in list(block['common'].keys()):
+    for k in list(block['common'].keys()]):
 #         comvars = []
         for e in block['common'][k]:
 #             m = re.match(
@@ -2975,7 +2980,7 @@ def analyzecommon(block):
     pass
     pass
 #                 dims = []
-                if m.group('dims'):
+                if m.group('dims']):
     pass
     pass
     pass
@@ -3023,7 +3028,7 @@ def analyzecommon(block):
     else:
 #         block['commonvars'] = block['commonvars'] + commonvars
     return block
-def analyzebody(block, args, tab=''):
+def analyzebody(block, args, tab='']):
 #     global usermodules, skipfuncs, onlyfuncs, f90modulevars
 #     setmesstext(block)
 #     body = []
@@ -3056,7 +3061,7 @@ def analyzebody(block, args, tab=''):
 #             as_ = args
 #         b = postcrack(b, as_, tab=tab + '\t')
         if b['block'] in ['interface', 'abstract interface'] and \
-#            not b['body'] and not b.get('implementedby'):
+#            not b['body'] and not b.get('implementedby']):
             if 'f2pyenhancements' not in b:
     pass
     pass
@@ -3075,7 +3080,7 @@ def analyzebody(block, args, tab=''):
 #                 f90modulevars[b['name']] = b['vars']
 #             body.append(b)
     return body
-def buildimplicitrules(block):
+def buildimplicitrules(block]):
 #     setmesstext(block)
 #     implicitrules = defaultimplicitrules
 #     attrrules = {}
@@ -3095,7 +3100,7 @@ def buildimplicitrules(block):
 #                 outmess(
 #                     'buildimplicitrules: no implicit rules for routine %s.\n' % repr(block['name']))
         else:
-            for k in list(block['implicit'].keys()):
+            for k in list(block['implicit'].keys()]):
                 if block['implicit'][k].get('typespec') not in ['static', 'automatic']:
     pass
     pass
@@ -3104,7 +3109,7 @@ def buildimplicitrules(block):
                 else:
 #                     attrrules[k] = block['implicit'][k]['typespec']
     return implicitrules, attrrules
-def myeval(e, g=None, l=None):
+def myeval(e, g=None, l=None]):
 #     r = eval(e, g, l)
     if type(r) in [int, float]:
     pass
@@ -3113,7 +3118,7 @@ def myeval(e, g=None, l=None):
         return r
 #     raise ValueError('r=%r' % (r))
 # getlincoef_re_1 = re.compile(r'\A\b\w+\b\Z', re.I)
-def getlincoef(e, xset):  # e = a*x+b ; x in xset
+def getlincoef(e, xset]):  # e = a*x+b ; x in xset
 #     Obtain ``a`` and ``b`` when ``e == "a*x+b"``, where ``x`` is a symbol in
 #     xset.
 #     >>> getlincoef('2*x + 1', {'x'})
@@ -3134,7 +3139,7 @@ def getlincoef(e, xset):  # e = a*x+b ; x in xset
         return 0, c, None
     except Exception:
 #         pass
-    if getlincoef_re_1.match(e):
+    if getlincoef_re_1.match(e]):
     pass
     pass
     pass
@@ -3146,7 +3151,7 @@ def getlincoef(e, xset):  # e = a*x+b ; x in xset
     pass
     pass
 #             continue
-        if re.search(r'\w\s*([^)]*\b' + x + r'\b', e):
+        if re.search(r'\w\s*([^)]*\b' + x + r'\b', e]):
     pass
     pass
     pass
@@ -3184,7 +3189,7 @@ def getlincoef(e, xset):  # e = a*x+b ; x in xset
 #                         m1.group('before'), 1.5, m1.group('after'))
 #                     m1 = re_1.match(ee)
 #                 c2 = myeval(ee, {}, {})
-                if (a * 0.5 + b == c and a * 1.5 + b == c2):
+                if (a * 0.5 + b == c and a * 1.5 + b == c2]):
     pass
     pass
     pass
@@ -3194,17 +3199,17 @@ def getlincoef(e, xset):  # e = a*x+b ; x in xset
 #             break
     return None, None, None
 # word_pattern = re.compile(r'\b[a-z][\w$]*\b', re.I)
-def _get_depend_dict(name, vars, deps):
+def _get_depend_dict(name, vars, deps]):
     if name in vars:
     pass
     pass
     pass
 #         words = vars[name].get('depend', [])
-        if '=' in vars[name] and not isstring(vars[name]):
+        if '=' in vars[name] and not isstring(vars[name]]):
     pass
     pass
     pass
-            for word in word_pattern.findall(vars[name]['=']):
+            for word in word_pattern.findall(vars[name]['=']]):
                 # The word_pattern may return values that are not
                 # only variables, they can be string content for instance
                 if word not in words and word in vars and word != name:
@@ -3214,7 +3219,7 @@ def _get_depend_dict(name, vars, deps):
 #                     words.append(word)
         for word in words[:]:
             for w in deps.get(word, []) \
-#                     or _get_depend_dict(word, vars, deps):
+#                     or _get_depend_dict(word, vars, deps]):
                 if w not in words:
     pass
     pass
@@ -3225,16 +3230,16 @@ def _get_depend_dict(name, vars, deps):
 #         words = []
 #     deps[name] = words
     return words
-def _calc_depend_dict(vars):
+def _calc_depend_dict(vars]):
 #     names = list(vars.keys())
 #     depend_dict = {}
     for n in names:
 #         _get_depend_dict(n, vars, depend_dict)
     return depend_dict
-def get_sorted_names(vars):
+def get_sorted_names(vars]):
 #     depend_dict = _calc_depend_dict(vars)
 #     names = []
-    for name in list(depend_dict.keys()):
+    for name in list(depend_dict.keys()]):
         if not depend_dict[name]:
     pass
     pass
@@ -3242,7 +3247,7 @@ def get_sorted_names(vars):
 #             names.append(name)
 #             del depend_dict[name]
     while depend_dict:
-        for name, lst in list(depend_dict.items()):
+        for name, lst in list(depend_dict.items()]):
 #             new_lst = [n for n in lst if n in depend_dict]
             if not new_lst:
     pass
@@ -3253,23 +3258,23 @@ def get_sorted_names(vars):
             else:
 #                 depend_dict[name] = new_lst
     return [name for name in names if name in vars]
-def _kind_func(string):
+def _kind_func(string]):
     # XXX: return something sensible.
     if string[0] in "":
     pass
     pass
     pass
 #         string = string[1:-1]
-    if real16pattern.match(string):
+    if real16pattern.match(string]):
     pass
     pass
     pass
         return 8
-    elif real8pattern.match(string):
+    elif real8pattern.match(string]):
     pass
         return 4
     return 'kind(' + string + ')'
-def _selected_int_kind_func(r):
+def _selected_int_kind_func(r]):
     # XXX: This should be processor dependent
 #     m = 10 ** r
     if m <= 2 ** 8:
@@ -3298,7 +3303,7 @@ def _selected_int_kind_func(r):
     pass
         return 16
     return -1
-def _selected_real_kind_func(p, r=0, radix=0):
+def _selected_real_kind_func(p, r=0, radix=0]):
     # XXX: This should be processor dependent
     # This is only good for 0 <= p <= 20
     if p < 7:
@@ -3312,7 +3317,7 @@ def _selected_real_kind_func(p, r=0, radix=0):
     pass
         return 8
 #     machine = platform.machine().lower()
-    if machine.startswith(('aarch64', 'power', 'ppc', 'riscv', 's390x', 'sparc')):
+    if machine.startswith(('aarch64', 'power', 'ppc', 'riscv', 's390x', 'sparc')]):
     pass
     pass
     pass
@@ -3331,7 +3336,7 @@ def _selected_real_kind_func(p, r=0, radix=0):
     pass
             return 16
     return -1
-def get_parameters(vars, global_params={}):
+def get_parameters(vars, global_params={}]):
 #     params = copy.copy(global_params)
 #     g_params = copy.copy(global_params)
     for name, func in [('kind', _kind_func),
@@ -3343,7 +3348,7 @@ def get_parameters(vars, global_params={}):
     pass
 #             g_params[name] = func
 #     param_names = []
-    for n in get_sorted_names(vars):
+    for n in get_sorted_names(vars]):
         if 'attrspec' in vars[n] and 'parameter' in vars[n]['attrspec']:
     pass
     pass
@@ -3360,7 +3365,7 @@ def get_parameters(vars, global_params={}):
     pass
     pass
 #             v = vars[n]['=']
-            if islogical(vars[n]):
+            if islogical(vars[n]]):
     pass
     pass
     pass
@@ -3395,7 +3400,7 @@ def get_parameters(vars, global_params={}):
     pass
     pass
     pass
-                if not selected_kind_re.match(v):
+                if not selected_kind_re.match(v]):
     pass
     pass
     pass
@@ -3413,27 +3418,27 @@ def get_parameters(vars, global_params={}):
             #  b) cmplx(Re, Im)
             #  c) dcmplx(Re, Im)
             #  d) cmplx(Re, Im, <prec>)
-            if isdouble(vars[n]):
+            if isdouble(vars[n]]):
     pass
     pass
     pass
 #                 tt = list(v)
-                for m in real16pattern.finditer(v):
-#                     tt[m.start():m.end()] = list(
-#                         v[m.start():m.end()].lower().replace('d', 'e'))
+                for m in real16pattern.finditer(v]):
+#                     tt[m.start(]):m.end()] = list(
+#                         v[m.start(]):m.end()].lower().replace('d', 'e'))
 #                 v = ''.join(tt)
-            elif iscomplex(vars[n]):
+            elif iscomplex(vars[n]]):
     pass
 #                 outmess(f'get_parameters[TODO]: '
 #                         f'implement evaluation of complex expression {v}\n')
             # Handle _dp for gh-6624
             # Also fixes gh-20460
-            if real16pattern.search(v):
+            if real16pattern.search(v]):
     pass
     pass
     pass
 #                 v = 8
-            elif real8pattern.search(v):
+            elif real8pattern.search(v]):
     pass
 #                 v = 4
             try:
@@ -3441,7 +3446,7 @@ def get_parameters(vars, global_params={}):
             except Exception as msg:
 #                 params[n] = v
 #                 outmess('get_parameters: got "%s" on %s\n' % (msg, repr(v)))
-            if isstring(vars[n]) and isinstance(params[n], int):
+            if isstring(vars[n]) and isinstance(params[n], int]):
     pass
     pass
     pass
@@ -3457,7 +3462,7 @@ def get_parameters(vars, global_params={}):
 #             outmess(
 #                 'get_parameters:parameter %s does not have value?!\n' % (repr(n)))
     return params
-def _eval_length(length, params):
+def _eval_length(length, params]):
     if length in ['(:)', '(*)', '*']:
     pass
     pass
@@ -3465,8 +3470,8 @@ def _eval_length(length, params):
         return '(*)'
     return _eval_scalar(length, params)
 # _is_kind_number = re.compile(r'\d+_').match
-def _eval_scalar(value, params):
-    if _is_kind_number(value):
+def _eval_scalar(value, params]):
+    if _is_kind_number(value]):
     pass
     pass
     pass
@@ -3475,14 +3480,14 @@ def _eval_scalar(value, params):
         # TODO: use symbolic from PR #19805
 #         value = eval(value, {}, params)
 #         value = (repr if isinstance(value, str) else str)(value)
-    except (NameError, SyntaxError, TypeError):
+    except (NameError, SyntaxError, TypeError]):
         return value
     except Exception as msg:
 #         errmess('"%s" in evaluating %r '
 #                 '(available names: %s)\n'
 #                 % (msg, value, list(params.keys())))
     return value
-def analyzevars(block):
+def analyzevars(block]):
 #     global f90modulevars
 #     setmesstext(block)
 #     implicitrules, attrrules = buildimplicitrules(block)
@@ -3502,7 +3507,7 @@ def analyzevars(block):
     pass
     pass
 #             gen = block['vars']['']['attrspec']
-            for n in set(vars) | set(b['name'] for b in block['body']):
+            for n in set(vars), set(b['name'] for b in block['body']]):
                 for k in ['public', 'private']:
                     if k in gen:
     pass
@@ -3517,7 +3522,7 @@ def analyzevars(block):
 #             svars.append(a)
         except KeyError:
 #             pass
-    for n in list(vars.keys()):
+    for n in list(vars.keys()]):
         if n not in args:
     pass
     pass
@@ -3526,19 +3531,19 @@ def analyzevars(block):
 #     params = get_parameters(vars, get_useparameters(block))
 #     dep_matches = {}
 #     name_match = re.compile(r'[A-Za-z][\w$]*').match
-    for v in list(vars.keys()):
+    for v in list(vars.keys()]):
 #         m = name_match(v)
         if m:
     pass
     pass
     pass
-#             n = v[m.start():m.end()]
+#             n = v[m.start(]):m.end()]
             try:
 #                 dep_matches[n]
             except KeyError:
 #                 dep_matches[n] = re.compile(r'.*\b%s\b' % (v), re.I).match
     for n in svars:
-        if n[0] in list(attrrules.keys()):
+        if n[0] in list(attrrules.keys()]):
     pass
     pass
     pass
@@ -3547,7 +3552,7 @@ def analyzevars(block):
     pass
     pass
     pass
-            if not('attrspec' in vars[n] and 'external' in vars[n]['attrspec']):
+            if not('attrspec' in vars[n] and 'external' in vars[n]['attrspec']]):
     pass
     pass
     pass
@@ -3556,7 +3561,7 @@ def analyzevars(block):
     pass
     pass
 #                     ln0 = n[0].lower()
-                    for k in list(implicitrules[ln0].keys()):
+                    for k in list(implicitrules[ln0].keys()]):
                         if k == 'typespec' and implicitrules[ln0][k] == 'undefined':
     pass
     pass
@@ -3673,7 +3678,7 @@ def analyzevars(block):
     pass
     pass
 #                         vars[n]['depend'] = []
-                    for c in rmbadname([x.strip() for x in markoutercomma(depend).split('@,@')]):
+                    for c in rmbadname([x.strip() for x in markoutercomma(depend).split('@,@')]]):
                         if c not in vars[n]['depend']:
     pass
     pass
@@ -3701,7 +3706,7 @@ def analyzevars(block):
     pass
     pass
 #                 vars[n]['dimension'] = []
-                for d in rmbadname([x.strip() for x in markoutercomma(dim).split('@,@')]):
+                for d in rmbadname([x.strip() for x in markoutercomma(dim).split('@,@')]]):
 #                     star = ':' if d == ':' else '*'
                     # Evaluate `d` with respect to params
                     if d in params:
@@ -3744,13 +3749,13 @@ def analyzevars(block):
 #                         solver_and_deps = {}
                         for v in block['vars']:
 #                             s = symbolic.as_symbol(v)
-                            if dsize.contains(s):
+                            if dsize.contains(s]):
     pass
     pass
     pass
                                 try:
 #                                     a, b = dsize.linear_solve(s)
-                                    def solve_v(s, a=a, b=b):
+                                    def solve_v(s, a=a, b=b]):
                                         return (s - b) / a
 #                                     all_symbols = set(a.symbols())
 #                                     all_symbols.update(b.symbols())
@@ -3786,8 +3791,8 @@ def analyzevars(block):
 #             n_checks = []
 #             n_is_input = l_or(isintent_in, isintent_inout,
 #                               isintent_inplace)(vars[n])
-            if isarray(vars[n]):  # n is array
-                for i, d in enumerate(vars[n]['dimension']):
+            if isarray(vars[n]]):  # n is array
+                for i, d in enumerate(vars[n]['dimension']]):
 #                     coeffs_and_deps = dimension_exprs.get(d)
                     if coeffs_and_deps is None:
     pass
@@ -3800,8 +3805,8 @@ def analyzevars(block):
                         # n is an input array argument and its shape
                         # may define variables used in dimension
                         # specifications.
-                        for v, (solver, deps) in coeffs_and_deps.items():
-                            def compute_deps(v, deps):
+                        for v, (solver, deps) in coeffs_and_deps.items(]):
+                            def compute_deps(v, deps]):
                                 for v1 in coeffs_and_deps.get(v, [None, []])[1]:
                                     if v1 not in deps:
     pass
@@ -3813,7 +3818,7 @@ def analyzevars(block):
 #                             compute_deps(v, all_deps)
                             if ((v in n_deps
 #                                  or '=' in vars[v]
-#                                  or 'depend' in vars[v])):
+#                                  or 'depend' in vars[v])]):
                                 # Skip a variable that
                                 # - n depends on
                                 # - has user-defined initialization expression
@@ -3865,7 +3870,7 @@ def analyzevars(block):
 #                                     f'shape({n}, {i}) == {d}')
 #                             v_attr = vars[v].get('attrspec', [])
                             if not ('optional' in v_attr
-#                                     or 'required' in v_attr):
+#                                     or 'required' in v_attr]):
 #                                 v_attr.append(
 #                                     'required' if is_required else 'optional')
                             if v_attr:
@@ -3878,10 +3883,10 @@ def analyzevars(block):
     pass
     pass
                         # extend v dependencies with ones specified in attrspec
-                        for v, (solver, deps) in coeffs_and_deps.items():
+                        for v, (solver, deps) in coeffs_and_deps.items(]):
 #                             v_deps = vars[v].get('depend', [])
-                            for aa in vars[v].get('attrspec', []):
-                                if aa.startswith('depend'):
+                            for aa in vars[v].get('attrspec', []]):
+                                if aa.startswith('depend']):
     pass
     pass
     pass
@@ -3897,7 +3902,7 @@ def analyzevars(block):
     pass
     pass
 #                                 n_deps.append(v)
-            elif isstring(vars[n]):
+            elif isstring(vars[n]]):
     pass
                 if 'charselector' in vars[n]:
     pass
@@ -3936,15 +3941,15 @@ def analyzevars(block):
     pass
 #                 vars[n]['attrspec'] = []
             if ('optional' not in vars[n]['attrspec']) and \
-#                ('required' not in vars[n]['attrspec']):
+#                ('required' not in vars[n]['attrspec']]):
 #                 vars[n]['attrspec'].append('optional')
             if 'depend' not in vars[n]:
     pass
     pass
     pass
 #                 vars[n]['depend'] = []
-                for v, m in list(dep_matches.items()):
-                    if m(vars[n]['=']):
+                for v, m in list(dep_matches.items()]):
+                    if m(vars[n]['=']]):
     pass
     pass
     pass
@@ -3954,12 +3959,12 @@ def analyzevars(block):
     pass
     pass
 #                     del vars[n]['depend']
-            if isscalar(vars[n]):
+            if isscalar(vars[n]]):
     pass
     pass
     pass
 #                 vars[n]['='] = _eval_scalar(vars[n]['='], params)
-    for n in list(vars.keys()):
+    for n in list(vars.keys()]):
         if n == block['name']:  # n is block name
             if 'note' in vars[n]:
     pass
@@ -4042,8 +4047,8 @@ def analyzevars(block):
 #             neededvars = copy.copy(block['args'] + block['commonvars'])
         else:
 #             neededvars = copy.copy(block['args'])
-        for n in list(vars.keys()):
-            if l_or(isintent_callback, isintent_aux)(vars[n]):
+        for n in list(vars.keys()]):
+            if l_or(isintent_callback, isintent_aux)(vars[n]]):
     pass
     pass
     pass
@@ -4053,7 +4058,7 @@ def analyzevars(block):
     pass
     pass
 #             neededvars.extend(list(block['entry'].keys()))
-            for k in list(block['entry'].keys()):
+            for k in list(block['entry'].keys()]):
                 for n in block['entry'][k]:
                     if n not in neededvars:
     pass
@@ -4086,7 +4091,7 @@ def analyzevars(block):
     pass
     pass
 #             neededvars.extend(list(vars.keys()))
-        for n in list(vars.keys()):
+        for n in list(vars.keys()]):
             if n not in neededvars:
     pass
     pass
@@ -4094,7 +4099,7 @@ def analyzevars(block):
 #                 del vars[n]
     return vars
 # analyzeargs_re_1 = re.compile(r'\A[a-z]+[\w$]*\Z', re.I)
-def expr2name(a, block, args=[]):
+def expr2name(a, block, args=[]]):
 #     orig_a = a
 #     a_is_expr = not analyzeargs_re_1.match(a)
     if a_is_expr:  # `a` is an expression
@@ -4150,7 +4155,7 @@ def expr2name(a, block, args=[]):
     pass
 #             block['vars'][a] = setattrspec(block['vars'][a], 'external')
     return a
-def analyzeargs(block):
+def analyzeargs(block]):
 #     setmesstext(block)
 #     implicitrules, _ = buildimplicitrules(block)
     if 'args' not in block:
@@ -4167,7 +4172,7 @@ def analyzeargs(block):
     pass
     pass
     pass
-        for k, args1 in list(block['entry'].items()):
+        for k, args1 in list(block['entry'].items()]):
             for a in args1:
                 if a not in block['vars']:
     pass
@@ -4201,36 +4206,36 @@ def analyzeargs(block):
 #     r'\A[+-]?[\d.]+[-\d+de.]*(_(?P<name>\w+)|)\Z', re.I)
 # determineexprtype_re_4 = re.compile(r'\A(.*\)\Z', re.I)
 # determineexprtype_re_5 = re.compile(r'\A(?P<name>\w+)\s*(.*?\)\s*\Z', re.I)
-def _ensure_exprdict(r):
-    if isinstance(r, int):
+def _ensure_exprdict(r]):
+    if isinstance(r, int]):
     pass
     pass
     pass
         return {'typespec': 'integer'}
-    if isinstance(r, float):
+    if isinstance(r, float]):
     pass
     pass
     pass
         return {'typespec': 'real'}
-    if isinstance(r, complex):
+    if isinstance(r, complex]):
     pass
     pass
     pass
         return {'typespec': 'complex'}
-    if isinstance(r, dict):
+    if isinstance(r, dict]):
     pass
     pass
     pass
         return r
 #     raise AssertionError(repr(r))
-def determineexprtype(expr, vars, rules={}):
+def determineexprtype(expr, vars, rules={}]):
     if expr in vars:
     pass
     pass
     pass
         return _ensure_exprdict(vars[expr])
 #     expr = expr.strip()
-    if determineexprtype_re_1.match(expr):
+    if determineexprtype_re_1.match(expr]):
     pass
     pass
     pass
@@ -4240,7 +4245,7 @@ def determineexprtype(expr, vars, rules={}):
     pass
     pass
     pass
-        if 'name' in m.groupdict() and m.group('name'):
+        if 'name' in m.groupdict() and m.group('name']):
     pass
     pass
     pass
@@ -4252,7 +4257,7 @@ def determineexprtype(expr, vars, rules={}):
     pass
     pass
     pass
-        if 'name' in m.groupdict() and m.group('name'):
+        if 'name' in m.groupdict() and m.group('name']):
     pass
     pass
     pass
@@ -4267,7 +4272,7 @@ def determineexprtype(expr, vars, rules={}):
     pass
                 return _ensure_exprdict(vars[e])
 #     t = {}
-    if determineexprtype_re_4.match(expr):  # in parenthesis
+    if determineexprtype_re_4.match(expr]):  # in parenthesis
 #         t = determineexprtype(expr[1:-1], vars, rules)
     else:
 #         m = determineexprtype_re_5.match(expr)
@@ -4303,11 +4308,11 @@ def determineexprtype(expr, vars, rules={}):
 #         outmess(
 #             'determineexprtype: could not determine expressions (%s) type.\n' % (repr(expr)))
     return t
-def crack2fortrangen(block, tab='\n', as_interface=False):
+def crack2fortrangen(block, tab='\n', as_interface=False]):
 #     global skipfuncs, onlyfuncs
 #     setmesstext(block)
 #     ret = ''
-    if isinstance(block, list):
+    if isinstance(block, list]):
     pass
     pass
     pass
@@ -4350,7 +4355,7 @@ def crack2fortrangen(block, tab='\n', as_interface=False):
 #         vars = block['vars']
         for a in block['args']:
 #             a = expr2name(a, block, argsl)
-            if not isintent_callback(vars[a]):
+            if not isintent_callback(vars[a]]):
     pass
     pass
     pass
@@ -4365,7 +4370,7 @@ def crack2fortrangen(block, tab='\n', as_interface=False):
     pass
     pass
     pass
-        for k in list(block['f2pyenhancements'].keys()):
+        for k in list(block['f2pyenhancements'].keys()]):
 #             f2pyenhancements = '%s%s%s %s' % (
 #                 f2pyenhancements, tab + tabchar, k, block['f2pyenhancements'][k])
 #     intent_lst = block.get('intent', [])[:]
@@ -4423,7 +4428,7 @@ def crack2fortrangen(block, tab='\n', as_interface=False):
     pass
     pass
 #         entry_stmts = ''
-        for k, i in list(block['entry'].items()):
+        for k, i in list(block['entry'].items()]):
 #             entry_stmts = '%s%sentry %s(%s)' \
 #                           % (entry_stmts, tab + tabchar, k, ','.join(i))
 #         body = body + entry_stmts
@@ -4435,9 +4440,9 @@ def crack2fortrangen(block, tab='\n', as_interface=False):
 #     ret = '%s%s%s %s%s%s %s%s%s%s%s%s%send %s %s' % (
 #         tab, prefix, blocktype, name, args, result, mess, f2pyenhancements, use, vars, common, body, tab, blocktype, name)
     return ret
-def common2fortran(common, tab=''):
+def common2fortran(common, tab='']):
 #     ret = ''
-    for k in list(common.keys()):
+    for k in list(common.keys()]):
         if k == '_BLNK_':
     pass
     pass
@@ -4446,9 +4451,9 @@ def common2fortran(common, tab=''):
         else:
 #             ret = '%s%scommon /%s/ %s' % (ret, tab, k, ','.join(common[k]))
     return ret
-def use2fortran(use, tab=''):
+def use2fortran(use, tab='']):
 #     ret = ''
-    for m in list(use.keys()):
+    for m in list(use.keys()]):
 #         ret = '%s%suse %s,' % (ret, tab, m)
         if use[m] == {}:
     pass
@@ -4470,7 +4475,7 @@ def use2fortran(use, tab=''):
     pass
     pass
 #             c = ' '
-            for k in list(use[m]['map'].keys()):
+            for k in list(use[m]['map'].keys()]):
                 if k == use[m]['map'][k]:
     pass
     pass
@@ -4486,7 +4491,7 @@ def use2fortran(use, tab=''):
     pass
 #             ret = ret[:-1]
     return ret
-def true_intent_list(var):
+def true_intent_list(var]):
 #     lst = var['intent']
 #     ret = []
     for intent in lst:
@@ -4495,13 +4500,13 @@ def true_intent_list(var):
         except KeyError:
 #             pass
         else:
-            if f(var):
+            if f(var]):
     pass
     pass
     pass
 #                 ret.append(intent)
     return ret
-def vars2fortran(block, vars, args, tab='', as_interface=False):
+def vars2fortran(block, vars, args, tab='', as_interface=False]):
 #     public sub
 #     ...
 #     setmesstext(block)
@@ -4539,7 +4544,7 @@ def vars2fortran(block, vars, args, tab='', as_interface=False):
     pass
     pass
     pass
-        for a in list(vars.keys()):
+        for a in list(vars.keys()]):
             if a not in nout:
     pass
     pass
@@ -4561,13 +4566,13 @@ def vars2fortran(block, vars, args, tab='', as_interface=False):
     pass
     pass
     pass
-            if isintent_callback(vars[a]):
+            if isintent_callback(vars[a]]):
     pass
     pass
     pass
 #                 ret = '%s%sintent(callback) %s' % (ret, tab, a)
 #             ret = '%s%sexternal %s' % (ret, tab, a)
-            if isoptional(vars[a]):
+            if isoptional(vars[a]]):
     pass
     pass
     pass
@@ -4601,7 +4606,7 @@ def vars2fortran(block, vars, args, tab='', as_interface=False):
     pass
     pass
     pass
-            if block['block'] != 'function' or block.get('result'):
+            if block['block'] != 'function' or block.get('result']):
     pass
     pass
     pass
@@ -4757,7 +4762,7 @@ def vars2fortran(block, vars, args, tab='', as_interface=False):
 # We expose post_processing_hooks as global variable so that
 # user-libraries could register their own hooks to f2py.
 # post_processing_hooks = []
-def crackfortran(files):
+def crackfortran(files]):
 #     global usermodules, post_processing_hooks
 #     outmess('Reading fortran codes...\n', 0)
 #     readfortrancode(files, crackline)
@@ -4771,7 +4776,7 @@ def crackfortran(files):
 #     outmess('Post-processing (stage 2)...\n', 0)
 #     postlist = postcrack2(postlist)
     return usermodules + postlist
-def crack2fortran(block):
+def crack2fortran(block]):
 #     global f2py_version
 #     pyf = crack2fortrangen(block) + '\n'
 #     header = !    -*- f90 -*-
@@ -4782,13 +4787,13 @@ def crack2fortran(block):
 # ! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
 #  % (f2py_version)
     return header + pyf + footer
-def _is_visit_pair(obj):
+def _is_visit_pair(obj]):
     return (isinstance(obj, tuple)
 #             and len(obj) == 2
 #             and isinstance(obj[0], (int, str)))
-def traverse(obj, visit, parents=[], result=None, *args, **kwargs):
+def traverse(obj, visit, parents=[], result=None, *args, **kwargs]):
 """'    """'Traverse f2py data structure with the following visit function:
-    def visit(item, parents, result, *args, **kwargs):
+    def visit(item, parents, result, *args, **kwargs]):
 #         parents is a list of key-"f2py data structure" pairs from which
 #         items are taken from.
 #         result is a f2py data structure that is filled with the
@@ -4803,7 +4808,7 @@ def traverse(obj, visit, parents=[], result=None, *args, **kwargs):
 #         is ignored, that is, it will not be added to the result.
 #         If the return value is None, the content of obj will be
 #         traversed, otherwise not.
-    if _is_visit_pair(obj):
+    if _is_visit_pair(obj]):
     pass
     pass
     pass
@@ -4825,12 +4830,12 @@ def traverse(obj, visit, parents=[], result=None, *args, **kwargs):
     else:
 #         parent = (None, obj)
 #         result_key = None
-    if isinstance(obj, list):
+    if isinstance(obj, list]):
     pass
     pass
     pass
 #         new_result = []
-        for index, value in enumerate(obj):
+        for index, value in enumerate(obj]):
 #             new_index, new_item = traverse((index, value), visit,
 #                                            parents=parents + [parent],
 #                                            result=result, *args, **kwargs)
@@ -4839,10 +4844,10 @@ def traverse(obj, visit, parents=[], result=None, *args, **kwargs):
     pass
     pass
 #                 new_result.append(new_item)
-    elif isinstance(obj, dict):
+    elif isinstance(obj, dict]):
     pass
 #         new_result = dict()
-        for key, value in obj.items():
+        for key, value in obj.items(]):
 #             new_key, new_value = traverse((key, value), visit,
 #                                           parents=parents + [parent],
 #                                           result=result, *args, **kwargs)
@@ -4860,7 +4865,7 @@ def traverse(obj, visit, parents=[], result=None, *args, **kwargs):
         return new_result
     return result_key, new_result
 def character_backward_compatibility_hook(item, parents, result,
-#                                           *args, **kwargs):
+#                                           *args, **kwargs]):
 #     Previously, Fortran character was incorrectly treated as
 #     character*1. This hook fixes the usage of the corresponding
 #     variables in `check`, `dimension`, `=`, and `callstatement`
@@ -4872,7 +4877,7 @@ def character_backward_compatibility_hook(item, parents, result,
 #     See https://github.com/numpy/numpy/pull/19388 for more information.
 #     parent_key, parent_value = parents[-1]
 #     key, value = item
-    def fix_usage(varname, value):
+    def fix_usage(varname, value]):
 #         value = re.sub(r'[*]\s*\b' + varname + r'\b', varname, value)
 #         value = re.sub(r'\b' + varname + r'\b\s*[[]\s*0\s*[\]]',
 #                        varname, value)
@@ -4895,8 +4900,8 @@ def character_backward_compatibility_hook(item, parents, result,
     pass
     pass
 #         new_value = value
-        for varname, vd in vars_dict.items():
-            if ischaracter(vd):
+        for varname, vd in vars_dict.items(]):
+            if ischaracter(vd]):
     pass
     pass
     pass
@@ -4905,8 +4910,8 @@ def character_backward_compatibility_hook(item, parents, result,
     pass
 #         vars_dict = parents[-2][1]['vars']
 #         new_value = value
-        for varname, vd in vars_dict.items():
-            if ischaracter(vd):
+        for varname, vd in vars_dict.items(]):
+            if ischaracter(vd]):
     pass
     pass
     pass
@@ -4927,7 +4932,7 @@ def character_backward_compatibility_hook(item, parents, result,
             # accordingly. However, such updates are recommended only
             # when BC with numpy 1.21 or older is not required.
 #             outmess(f'character_bc_hook[{parent_key}.{key}]:'
-#                     f' replaced `{value}` -> `{new_value}`\n', 1)
+#                     f' replaced `{value}` -> Optional[`{new_value}`\n', 1)
         return (key, new_value)
 # post_processing_hooks.append(character_backward_compatibility_hook)
 if __name__ == "__main__":

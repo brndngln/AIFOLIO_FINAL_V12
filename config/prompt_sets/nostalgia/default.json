@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to NOSTALGIA™! Create memory books and tributes at the elite level."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to NOSTALGIA\u2122! Create memory books and tributes at the elite level."
+    }
+  ]
+}

@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant guardrail logic for all AI modules.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

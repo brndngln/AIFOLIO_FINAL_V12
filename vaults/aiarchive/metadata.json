@@ -1,1 +1,17 @@
-{"id":"aiarchive","label":"AIARCHIVE™","description":"Automated Ebook + Resource Pack Creator Vault","icon":"🗃️","features":["ebooks","resource_packs","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Automated Ebook + Resource Pack Creator Vault",
+  "features": [
+    "ebooks",
+    "resource_packs",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\uddc3\ufe0f",
+  "id": "aiarchive",
+  "label": "AIARCHIVE\u2122"
+}

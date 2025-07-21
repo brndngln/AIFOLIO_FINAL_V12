@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -48,10 +49,14 @@ from typing import Optional
 # bytes for that mipmap level.
 # Note: All data is stored in little-Endian (Intel) byte order.
 from __future__ import annotations
+
 import struct
 from enum import IntEnum
 from io import BytesIO
+
 from . import Image, ImageFile
+
+
 class Format(IntEnum):
 #     DXT1 = 0
 class FtexImageFile(ImageFile.ImageFile):
@@ -59,9 +64,6 @@ class FtexImageFile(ImageFile.ImageFile):
     format_description = "Texture File Format (IW2:EOC)"
     def _open(self) -> None:
         if not _accept(self.fp.read(4)):
-    pass
-    pass
-    pass
 #             msg = "not an FTEX file"
 #             raise SyntaxError(msg)
 #         struct.unpack("<i", self.fp.read(4))  # version
@@ -75,13 +77,9 @@ class FtexImageFile(ImageFile.ImageFile):
 #         (mipmap_size,) = struct.unpack("<i", self.fp.read(4))
 #         data = self.fp.read(mipmap_size)
         if format == Format.DXT1:
-    pass
-    pass
-    pass
 #             self._mode = "RGBA"
 #             self.tile = [ImageFile._Tile("bcn", (0, 0) + self.size, 0, (1,))]
         elif format == Format.UNCOMPRESSED:
-    pass
 #             self._mode = "RGB"
 #             self.tile = [ImageFile._Tile("raw", (0, 0) + self.size, 0, "RGB")]
         else:

@@ -16,8 +16,7 @@
 #   table-driven only.
 
 from __future__ import annotations
-import logging
-from datetime import datetime
+
 from typing import Optional
 
 # LOG_PATH = "../../distribution/legal_exports/archive_optimization_log.txt"

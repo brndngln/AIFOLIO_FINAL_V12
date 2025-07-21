@@ -1,8 +1,8 @@
 {
-  "sentience": false,
-  "self_awareness": false,
-  "recursive_autonomy": false,
-  "self_replication": false,
+  "agent_self_permission": false,
   "generative_personality": false,
-  "agent_self_permission": false
+  "recursive_autonomy": false,
+  "self_awareness": false,
+  "self_replication": false,
+  "sentience": false
 }

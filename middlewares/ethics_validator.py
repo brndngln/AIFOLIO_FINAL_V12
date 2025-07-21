@@ -17,10 +17,10 @@
 # through the OMNIELITE Ethics Engine before rendering.
 
 from __future__ import annotations
-from typing import Dict, Any
-from ethics_engine import OmnieliteEthicsEngine, EthicsViolation
-import sys
-import os
+
+from typing import Any, Dict
+
+from ethics_engine import EthicsViolation
 
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 

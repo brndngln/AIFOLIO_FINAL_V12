@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to THERAPIQ™! Generate elite therapy styles instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to THERAPIQ\u2122! Generate elite therapy styles instantly."
+    }
+  ]
+}

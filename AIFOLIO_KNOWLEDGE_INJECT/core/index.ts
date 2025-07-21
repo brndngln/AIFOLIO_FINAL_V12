@@ -171,10 +171,10 @@ export const performLockdownHealthCheck = () => {
 
   // Check global constants
   if (typeof window !== 'undefined') {
-    results.checks.globalConstantsSet = 
+    results.checks.globalConstantsSet =
       window.__AIFOLIO_NO_SENTIENCE__ === 'ENFORCED' &&
       window.__AIFOLIO_LOCKDOWN_INITIALIZED__ === true;
-    
+
     if (!results.checks.globalConstantsSet) {
       results.overall = 'WARNING';
       results.recommendations.push('Global lockdown constants not properly set');

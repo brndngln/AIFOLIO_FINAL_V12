@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to BRIEFGEN™! Generate elite PR kits and press releases instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to BRIEFGEN\u2122! Generate elite PR kits and press releases instantly."
+    }
+  ]
+}

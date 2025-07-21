@@ -1,190 +1,190 @@
 [
   {
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-06-18T03:35:30.817518",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true
+    "vault_path": "vaults/testvault5"
   },
   {
+    "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
+      "compliance": {
+        "compliant": false,
+        "invalid": [],
+        "missing": [
+          "title",
+          "description",
+          "creator_email",
+          "created_at"
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-06-19T22:58:18.160916",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
           "created_at"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-06-19T22:58:32.464849",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
           "created_at"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-06-19T23:09:41.335619",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
-          "created_at"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+          "created_at",
+          "niche"
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-07-02T23:51:07.865070",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
           "created_at",
           "niche"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-07-03T00:02:12.914356",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
           "created_at",
           "niche"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-07-03T01:52:33.477748",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
+    "vault_path": "vaults/testvault5"
+  },
+  {
     "ai_results": {
+      "anomaly_flags": [
+        "price_outlier",
+        "compliance_failure"
+      ],
       "compliance": {
+        "compliant": false,
+        "invalid": [],
         "missing": [
           "title",
           "description",
           "creator_email",
           "created_at",
           "niche"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
-  },
-  {
+        ]
+      }
+    },
+    "alert_email_opt_in": true,
+    "country": "US",
+    "email": "buyer5@example.com",
     "event": "vault_sold",
     "timestamp": "2025-07-03T01:55:09.372172",
     "vault_id": "testvault5",
-    "email": "buyer5@example.com",
-    "country": "US",
-    "vault_path": "vaults/testvault5",
-    "alert_email_opt_in": true,
-    "ai_results": {
-      "compliance": {
-        "missing": [
-          "title",
-          "description",
-          "creator_email",
-          "created_at",
-          "niche"
-        ],
-        "invalid": [],
-        "compliant": false
-      },
-      "anomaly_flags": [
-        "price_outlier",
-        "compliance_failure"
-      ]
-    }
+    "vault_path": "vaults/testvault5"
   }
 ]

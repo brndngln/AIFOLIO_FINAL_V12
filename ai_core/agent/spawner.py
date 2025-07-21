@@ -9,8 +9,6 @@
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
 from typing import Any
-from ai_core.agent.agent_template import SafeAIAgent
-from ai_core.emma_governor import EmmaGovernor
 
 # governor = EmmaGovernor()
 

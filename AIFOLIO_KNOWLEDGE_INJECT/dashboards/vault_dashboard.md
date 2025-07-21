@@ -1,1 +1,0 @@
-# Vault Dashboard — OMNIELITE/ELITE Integration\n\nThis dashboard provides a summary and analytics for all elite vaults integrated into AIFOLIO_FINAL_V12.\n\n- Tracks usage, revenue, and audit logs\n- Owner-readable, SAFE AI-compliant\n- Updated as new vaults and analytics modules are integrated\n\n_Last updated: 2025-06-29T23:51:54-06:00_\n

@@ -1,43 +1,68 @@
 {
+  "connections": {
+    "Check Last Rotation": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Telegram Alert",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Hourly Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Check Last Rotation",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
   "name": "Secret Rotation Failure Alert (Omnilock)",
   "nodes": [
     {
+      "name": "Hourly Trigger",
       "parameters": {
         "cronExpression": "0 * * * *",
         "timezone": "UTC"
       },
-      "name": "Hourly Trigger",
+      "position": [
+        200,
+        300
+      ],
       "type": "n8n-nodes-base.cron",
-      "typeVersion": 1,
-      "position": [200, 300]
+      "typeVersion": 1
     },
     {
+      "name": "Check Last Rotation",
       "parameters": {
         "functionCode": "const fs = require('fs');\nconst path = 'logs/secret_rotation.json';\nif (fs.existsSync(path)) {\n  const logs = JSON.parse(fs.readFileSync(path, 'utf8'));\n  const last = logs[logs.length-1];\n  if (!last || last.status !== 'SUCCESS' || (Date.now() - new Date(last.timestamp).getTime()) > 25*3600*1000) {\n    return [{ alert: true, last_status: last ? last.status : 'none' }];\n  }\n}\nreturn [{ alert: false }];"
       },
-      "name": "Check Last Rotation",
+      "position": [
+        400,
+        300
+      ],
       "type": "n8n-nodes-base.function",
-      "typeVersion": 1,
-      "position": [400, 300]
+      "typeVersion": 1
     },
     {
+      "name": "Send Telegram Alert",
       "parameters": {
         "chatId": "@AIFOLIO_ALERTS",
         "message": "[AIFOLIO OMNILOCK] Secret rotation failed or delayed! Immediate review required.",
         "options": {}
       },
-      "name": "Send Telegram Alert",
+      "position": [
+        600,
+        300
+      ],
       "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1,
-      "position": [600, 300]
+      "typeVersion": 1
     }
-  ],
-  "connections": {
-    "Hourly Trigger": {
-      "main": [[{"node": "Check Last Rotation", "type": "main", "index": 0}]]
-    },
-    "Check Last Rotation": {
-      "main": [[{"node": "Send Telegram Alert", "type": "main", "index": 0}]]
-    }
-  }
+  ]
 }

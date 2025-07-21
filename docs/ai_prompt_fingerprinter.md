@@ -3,6 +3,7 @@
 AIFOLIO™ fingerprints every prompt with a unique hash for full traceability and audit compliance.
 
 ## Features
+
 - Adds unique hash/fingerprint to every prompt
 - Traceable in all logs and audit trails
 - Logs all fingerprints in `/analytics/ai_prompt_fingerprint_log.jsonl`
@@ -19,10 +20,11 @@ print(fp)
 ```
 
 ## Audit & Safety
+
 - All prompts are fingerprinted and logged
 - All fingerprints are traceable for compliance
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `ai_prompt_fingerprinter.py` for implementation details and extension points.*
+_See `ai_prompt_fingerprinter.py` for implementation details and extension points._

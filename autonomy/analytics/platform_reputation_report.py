@@ -11,7 +11,7 @@
 
 # - Aggregate reviews, static only
 
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 
 def platform_reputation_report(reviews: List[Dict[str, Any]]) -> Dict[str, Any]:

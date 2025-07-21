@@ -19,9 +19,12 @@ const panels = [
   { label: "Compliance", component: <ComplianceExportsPanel /> },
   { label: "Validation", component: <SafeguardValidationLayer /> },
   { label: "Analytics", component: <AnalyticsDashboard /> },
-  { label: "Bundle Recommender", component: <StaticBundleRecommendationPanel /> },
+  {
+    label: "Bundle Recommender",
+    component: <StaticBundleRecommendationPanel />,
+  },
   { label: "GDPR Dashboard", component: <GDPRDashboardPanel /> },
-  { label: "Future Enhancements", component: <FutureStaticEnhancements /> }
+  { label: "Future Enhancements", component: <FutureStaticEnhancements /> },
 ];
 
 function SafeAIDashboard() {

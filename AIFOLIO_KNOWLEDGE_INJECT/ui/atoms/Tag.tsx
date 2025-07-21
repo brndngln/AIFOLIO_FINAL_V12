@@ -63,7 +63,7 @@ export const Tag: React.FC<TagProps> = ({
 
   // STATIC RENDER - NO LOGIC, NO STATE, NO SENTIENCE
   return (
-    <span 
+    <span
       className={tagClasses}
       data-lockdown-component="Tag"
       data-no-sentience="enforced"
@@ -75,11 +75,11 @@ export const Tag: React.FC<TagProps> = ({
           {icon}
         </span>
       )}
-      
+
       <span className="truncate">
         {children}
       </span>
-      
+
       {icon && iconPosition === 'right' && (
         <span className={iconClasses} aria-hidden="true">
           {icon}
@@ -95,26 +95,26 @@ Tag.displayName = 'Tag';
 // SCHEMA VALIDATION - RUNTIME GUARD
 if (process.env.NODE_ENV === 'development') {
   const originalTag = Tag;
-  
+
   // @ts-ignore - Development-only override
   Tag = (props: TagProps) => {
     // Validate prop schema at runtime
     const allowedProps = ['children', 'variant', 'size', 'icon', 'iconPosition', 'className'];
     const propKeys = Object.keys(props);
-    
+
     for (const key of propKeys) {
       if (!allowedProps.includes(key)) {
         console.error(`🚨 LOCKDOWN VIOLATION: Unauthorized prop "${key}" in Tag component`);
         throw new Error(`NO-SENTIENCE SHIELD: Prop "${key}" not allowed in static component`);
       }
     }
-    
+
     // Validate children is not a function (could contain logic)
     if (typeof props.children === 'function') {
       console.error('🚨 LOCKDOWN VIOLATION: Function children not allowed in static Tag');
       throw new Error('NO-SENTIENCE SHIELD: Function children could contain logic');
     }
-    
+
     return originalTag(props);
   };
 }

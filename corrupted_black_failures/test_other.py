@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -6,8 +7,11 @@ from typing import Optional
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # Tests for various Pyflakes behavior.
 from sys import version_info
+
 from pyflakes import messages as m
 from pyflakes.test.harness import TestCase, skip, skipIf
+
+
 class Test(TestCase):
     def test_duplicateArgs(self):
 #         self.flakes('def fu(bar, bar): pass', m.DuplicateArgument)
@@ -1174,9 +1178,9 @@ class TestUnusedAssignment(TestCase):
 #             pass
 """'        """')
     def test_withStatementSubscript(self):
-#         No warnings are emitted for using a subscript as the target of a
-#         C{with} statement.
-#         self.flakes(
+No warnings are emitted for using a subscript as the target of a
+          C{with} statement.
+          self.flakes(
         import foo
         with open('foo') as foo[0]:
 #             pass
@@ -1328,9 +1332,9 @@ class TestUnusedAssignment(TestCase):
             except tokenize.TokenError: pass
 """'        """')
     def test_exceptWithoutNameInFunctionTuple(self):
-#         Dont issue false warning when an unnamed exception is used.
-#         This example catches a tuple of exception types.
-#         self.flakes(
+Dont issue false warning when an unnamed exception is used.
+          This example catches a tuple of exception types.
+          self.flakes(
         import tokenize
         def foo():
             try: pass
@@ -1380,7 +1384,7 @@ class TestUnusedAssignment(TestCase):
 #         print(f'\x7b4*baz\N{RIGHT CURLY BRACKET}')
 """'        """')
     def test_assign_expr(self):
-#         self.flakes(
+self.flakes(
         from foo import y
 #         print(x := y)
 #         print(x)
@@ -1665,8 +1669,9 @@ class TestIncompatiblePrintOperator(TestCase):
 #         print("Hello")
 """'        """')
     def test_invalid_print_when_imported_from_future(self):
-#         exc = self.flakes(
+exc = self.flakes(
         from __future__ import print_function
+
         import sys
 #         print >>sys.stderr, "Hello"
 """'        """', m.InvalidPrintSyntax).messages[0]
@@ -1688,7 +1693,7 @@ class TestIncompatiblePrintOperator(TestCase):
 #         a = lambda: print
 """'        """')
     def test_print_returned_in_function(self):
-#         self.flakes(
+self.flakes(
         from __future__ import print_function
         def a():
             return print

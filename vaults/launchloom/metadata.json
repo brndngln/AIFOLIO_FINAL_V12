@@ -1,1 +1,16 @@
-{"id":"launchloom","label":"LAUNCHLOOM™","description":"Product Launch Plan Generator Vault","icon":"🚀","features":["launch_plans","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Product Launch Plan Generator Vault",
+  "features": [
+    "launch_plans",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\ude80",
+  "id": "launchloom",
+  "label": "LAUNCHLOOM\u2122"
+}

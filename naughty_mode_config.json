@@ -1,8 +1,11 @@
 {
-  "mode": "naughty",
+  "allowed_contexts": [
+    "entertainment",
+    "character",
+    "storytelling",
+    "experience_design"
+  ],
   "enabled": true,
-  "owner_biometric_required": true,
-  "allowed_contexts": ["entertainment", "character", "storytelling", "experience_design"],
   "forbidden_behaviors": [
     "simulate_desire",
     "simulate_emotion",
@@ -10,7 +13,9 @@
     "emergent_behavior",
     "memory_accumulation"
   ],
-  "tone": "playful, bold, witty, aesthetic",
+  "last_updated": "2025-07-02T18:33:28-06:00",
+  "mode": "naughty",
+  "owner_biometric_required": true,
   "script_boundary": "All flirtation is script-based and non-attached. No internalization or simulation of emotion.",
-  "last_updated": "2025-07-02T18:33:28-06:00"
+  "tone": "playful, bold, witty, aesthetic"
 }

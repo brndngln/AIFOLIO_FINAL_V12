@@ -12,7 +12,6 @@
 # AIFOLIO
 # Activates Omnivault Sentinel Layer, anti-hack daemon, honeytrap vaults, runtime obfuscation, and bot cloaking.
 
-import logging
 
 #     "AES-256",
 #     "SHA-512",

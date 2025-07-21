@@ -5,9 +5,9 @@ export class Infrastructure {
     return {
       id: biz.id,
       scaled: true,
-      cloud: 'AWS/GCP',
+      cloud: "AWS/GCP",
       cdn: true,
-      uptime: '99.999%'
+      uptime: "99.999%",
     };
   }
 }

@@ -15,6 +15,7 @@ backup_file = daily_backup()
 - Backups are named by date in `/logs/`
 
 ## Audit & Safety
+
 - No sentient/learning logic.
 - Fully deterministic and business-aligned.
 - Follows best practices for data protection.

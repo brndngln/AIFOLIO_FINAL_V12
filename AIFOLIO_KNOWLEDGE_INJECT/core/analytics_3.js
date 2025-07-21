@@ -7,8 +7,8 @@ export class Analytics3 {
       profit: biz.analytics?.profit || 0,
       traffic: biz.successMatrix?.traffic || 0,
       LTV: biz.successMatrix?.LTV || 0,
-      conversions: Math.floor(Math.random()*10000),
-      roi: Math.random().toFixed(2)
+      conversions: Math.floor(Math.random() * 10000),
+      roi: Math.random().toFixed(2),
     };
   }
 }

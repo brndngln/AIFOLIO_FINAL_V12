@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -9,6 +10,7 @@ from typing import Optional
 # See the `CSSSelector` class for details.
 # This is a thin wrapper around cssselect 0.7 or later.
 from . import etree
+
 try:
     import cssselect as external_cssselect
 except ImportError:

@@ -1,1 +1,17 @@
-{"id":"luxdesigner","label":"LUXDESIGNER™","description":"Branding + Packaging Designer Vault","icon":"🎨","features":["branding","packaging","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Branding + Packaging Designer Vault",
+  "features": [
+    "branding",
+    "packaging",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83c\udfa8",
+  "id": "luxdesigner",
+  "label": "LUXDESIGNER\u2122"
+}

@@ -6,8 +6,8 @@ export class MemoryFeedbackEngine {
   }
   adaptPrompt(prompt, score) {
     // Stub: Adjust prompt based on feedback score
-    if(score > 80) return prompt + ' (Top Performer)';
-    if(score < 30) return prompt + ' (Needs Improvement)';
+    if (score > 80) return prompt + " (Top Performer)";
+    if (score < 30) return prompt + " (Needs Improvement)";
     return prompt;
   }
 }

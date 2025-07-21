@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -9,17 +10,20 @@ from functools import lru_cache
 from marshal import dumps, loads
 from random import randint
 from typing import Any, Dict, Iterable, List, Optional, Type, Union, cast
+
 from . import errors
 from .color import Color, ColorParseError, ColorSystem, blend_rgb
 from .repr import Result, rich_repr
 from .terminal_theme import DEFAULT_TERMINAL_THEME, TerminalTheme
+
+
 # Style instances and style definitions are often interchangeable
 # StyleType = Union[str, "Style"]
 class _Bit:
 #     __slots__ = ["bit"]
-    def __init__(self, bit_no: int) -> None:
+    def __init__(self, bit_no: int) -> Optional[None:
 #         self.bit = 1 << bit_no
-    def __get__(self, obj: "Style", objtype: Type["Style"]) -> Optional[bool]:
+    def __get__(self, obj: "Style", objtype: Type["Style"]) -> Optional[Optional[bool]:
         if obj._set_attributes & self.bit:
     pass
     pass
@@ -33,22 +37,22 @@ class Style:
 #     as bold, italic etc. The attributes have 3 states: they can either be on
 #     (``True``), off (``False``), or not set (``None``).
 #     Args:
-#         color (Union[Color, str], optional): Color of terminal text. Defaults to None.
-#         bgcolor (Union[Color, str], optional): Color of terminal background. Defaults to None.
-#         bold (bool, optional): Enable bold text. Defaults to None.
-#         dim (bool, optional): Enable dim text. Defaults to None.
-#         italic (bool, optional): Enable italic text. Defaults to None.
-#         underline (bool, optional): Enable underlined text. Defaults to None.
-#         blink (bool, optional): Enabled blinking text. Defaults to None.
-#         blink2 (bool, optional): Enable fast blinking text. Defaults to None.
-#         reverse (bool, optional): Enabled reverse text. Defaults to None.
-#         conceal (bool, optional): Enable concealed text. Defaults to None.
-#         strike (bool, optional): Enable strikethrough text. Defaults to None.
-#         underline2 (bool, optional): Enable doubly underlined text. Defaults to None.
-#         frame (bool, optional): Enable framed text. Defaults to None.
-#         encircle (bool, optional): Enable encircled text. Defaults to None.
-#         overline (bool, optional): Enable overlined text. Defaults to None.
-#         link (str, link): Link URL. Defaults to None.
+#         color (Union[Color, str], optional]): Color of terminal text. Defaults to None.
+#         bgcolor (Union[Color, str], optional]): Color of terminal background. Defaults to None.
+#         bold (bool, optional]): Enable bold text. Defaults to None.
+#         dim (bool, optional]): Enable dim text. Defaults to None.
+#         italic (bool, optional]): Enable italic text. Defaults to None.
+#         underline (bool, optional]): Enable underlined text. Defaults to None.
+#         blink (bool, optional]): Enabled blinking text. Defaults to None.
+#         blink2 (bool, optional]): Enable fast blinking text. Defaults to None.
+#         reverse (bool, optional]): Enabled reverse text. Defaults to None.
+#         conceal (bool, optional]): Enable concealed text. Defaults to None.
+#         strike (bool, optional]): Enable strikethrough text. Defaults to None.
+#         underline2 (bool, optional]): Enable doubly underlined text. Defaults to None.
+#         frame (bool, optional]): Enable framed text. Defaults to None.
+#         encircle (bool, optional]): Enable encircled text. Defaults to None.
+#         overline (bool, optional]): Enable overlined text. Defaults to None.
+#         link (str, link]): Link URL. Defaults to None.
 #     _color: Optional[Color]
 #     _bgcolor: Optional[Color]
 #     _attributes: int
@@ -128,10 +132,10 @@ class Style:
 #         overline: Optional[bool] = None,
 #         link: Optional[str] = None,
 #         meta: Optional[Dict[str, Any]] = None,
-#     ):
+#     ]):
 #         self._ansi: Optional[str] = None
 #         self._style_definition: Optional[str] = None
-        def _make_color(color: Union[Color, str]) -> Color:
+        def _make_color(color: Union[Color, str]) -> Optional[Color:
             return color if isinstance(color, Color) else Color.parse(color)
 #         self._color = None if color is None else _make_color(color)
 #         self._bgcolor = None if bgcolor is None else _make_color(bgcolor)
@@ -181,16 +185,16 @@ class Style:
 #         self._hash: Optional[int] = None
 #         self._null = not (self._set_attributes or color or bgcolor or link or meta)
 #     @classmethod
-    def null(cls) -> "Style":
+    def null(cls) -> Optional["Style":
         return NULL_STYLE
 #     @classmethod
     def from_color(
 #         cls, color: Optional[Color] = None, bgcolor: Optional[Color] = None
-#     ) -> "Style":
+#     ) -> Optional["Style":
 #         Create a new style with colors and no attributes.
 #         Returns:
-#             color (Optional[Color]): A (foreground) color, or None for no color. Defaults to None.
-#             bgcolor (Optional[Color]): A (background) color, or None for no color. Defaults to None.
+#             color (Optional[Color]]): A (foreground) color, or None for no color. Defaults to None.
+#             bgcolor (Optional[Color]]): A (background) color, or None for no color. Defaults to None.
 #         style: Style = cls.__new__(Style)
 #         style._ansi = None
 #         style._style_definition = None
@@ -205,10 +209,10 @@ class Style:
 #         style._hash = None
         return style
 #     @classmethod
-    def from_meta(cls, meta: Optional[Dict[str, Any]]) -> "Style":
+    def from_meta(cls, meta: Optional[Dict[str, Any]]) -> Optional["Style":
 #         Create a new style with meta data.
 #         Returns:
-#             meta (Optional[Dict[str, Any]]): A dictionary of meta data. Defaults to None.
+#             meta (Optional[Dict[str, Any]]]): A dictionary of meta data. Defaults to None.
 #         style: Style = cls.__new__(Style)
 #         style._ansi = None
 #         style._style_definition = None
@@ -223,13 +227,13 @@ class Style:
 #         style._null = not (meta)
         return style
 #     @classmethod
-    def on(cls, meta: Optional[Dict[str, Any]] = None, **handlers: Any) -> "Style":
+    def on(cls, meta: Optional[Dict[str, Any]] = None, **handlers: Any) -> Optional["Style":
 #         Create a blank style with meta information.
 #         Example:
 #             style = Style.on(click=self.on_click)
 #         Args:
-#             meta (Optional[Dict[str, Any]], optional): An optional dict of meta information.
-#             **handlers (Any): Keyword arguments are translated in to handlers.
+#             meta (Optional[Dict[str, Any]], optional]): An optional dict of meta information.
+#             **handlers (Any]): Keyword arguments are translated in to handlers.
 #         Returns:
 #             Style: A Style with meta information attached.
 #         meta = {} if meta is None else meta
@@ -249,9 +253,9 @@ class Style:
 #     encircle = _Bit(11)
 #     overline = _Bit(12)
 #     @property
-    def link_id(self) -> str:
+    def link_id(self) -> Optional[str:
         return self._link_id
-    def __str__(self) -> str:
+    def __str__(self) -> Optional[str:
         if self._style_definition is None:
     pass
     pass
@@ -268,17 +272,17 @@ class Style:
     pass
     pass
 #                     append("bold" if self.bold else "not bold")
-                if bits & (1 << 1):
+                if bits & (1 << 1]):
     pass
     pass
     pass
 #                     append("dim" if self.dim else "not dim")
-                if bits & (1 << 2):
+                if bits & (1 << 2]):
     pass
     pass
     pass
 #                     append("italic" if self.italic else "not italic")
-                if bits & (1 << 3):
+                if bits & (1 << 3]):
     pass
     pass
     pass
@@ -287,27 +291,27 @@ class Style:
     pass
     pass
     pass
-                if bits & (1 << 4):
+                if bits & (1 << 4]):
     pass
     pass
     pass
 #                     append("blink" if self.blink else "not blink")
-                if bits & (1 << 5):
+                if bits & (1 << 5]):
     pass
     pass
     pass
 #                     append("blink2" if self.blink2 else "not blink2")
-                if bits & (1 << 6):
+                if bits & (1 << 6]):
     pass
     pass
     pass
 #                     append("reverse" if self.reverse else "not reverse")
-                if bits & (1 << 7):
+                if bits & (1 << 7]):
     pass
     pass
     pass
 #                     append("conceal" if self.conceal else "not conceal")
-                if bits & (1 << 8):
+                if bits & (1 << 8]):
     pass
     pass
     pass
@@ -316,22 +320,22 @@ class Style:
     pass
     pass
     pass
-                if bits & (1 << 9):
+                if bits & (1 << 9]):
     pass
     pass
     pass
 #                     append("underline2" if self.underline2 else "not underline2")
-                if bits & (1 << 10):
+                if bits & (1 << 10]):
     pass
     pass
     pass
 #                     append("frame" if self.frame else "not frame")
-                if bits & (1 << 11):
+                if bits & (1 << 11]):
     pass
     pass
     pass
 #                     append("encircle" if self.encircle else "not encircle")
-                if bits & (1 << 12):
+                if bits & (1 << 12]):
     pass
     pass
     pass
@@ -355,12 +359,12 @@ class Style:
 #                 append(self._link)
 #             self._style_definition = " ".join(attributes) or "none"
         return self._style_definition
-    def __bool__(self) -> bool:
+    def __bool__(self) -> Optional[bool:
         return not self._null
-    def _make_ansi_codes(self, color_system: ColorSystem) -> str:
+    def _make_ansi_codes(self, color_system: ColorSystem) -> Optional[str:
 #         Generate ANSI codes for this style.
 #         Args:
-#             color_system (ColorSystem): Color system.
+#             color_system (ColorSystem]): Color system.
 #         Returns:
 #             str: String containing codes.
         if self._ansi is None:
@@ -399,8 +403,8 @@ class Style:
     pass
     pass
     pass
-                    for bit in range(4, 9):
-                        if attributes & (1 << bit):
+                    for bit in range(4, 9]):
+                        if attributes & (1 << bit]):
     pass
     pass
     pass
@@ -409,8 +413,8 @@ class Style:
     pass
     pass
     pass
-                    for bit in range(9, 13):
-                        if attributes & (1 << bit):
+                    for bit in range(9, 13]):
+                        if attributes & (1 << bit]):
     pass
     pass
     pass
@@ -433,11 +437,11 @@ class Style:
         return self._ansi
 #     @classmethod
 #     @lru_cache(maxsize=1024)
-    def normalize(cls, style: str) -> str:
+    def normalize(cls, style: str) -> Optional[str:
 #         Normalize a style definition so that styles with the same effect have the same string
 #         representation.
 #         Args:
-#             style (str): A style definition.
+#             style (str]): A style definition.
 #         Returns:
 #             str: Normal form of style definition.
         try:
@@ -445,7 +449,7 @@ class Style:
         except errors.StyleSyntaxError:
             return style.strip().lower()
 #     @classmethod
-    def pick_first(cls, *values: Optional[StyleType]) -> StyleType:
+    def pick_first(cls, *values: Optional[StyleType]) -> Optional[StyleType:
         for value in values:
             if value is not None:
     pass
@@ -453,7 +457,7 @@ class Style:
     pass
                 return value
 #         raise ValueError("expected at least one non-None style")
-    def __rich_repr__(self) -> Result:
+    def __rich_repr__(self) -> Optional[Result:
 #         yield "color", self.color, None
 #         yield "bgcolor", self.bgcolor, None
 #         yield "bold", self.bold, None,
@@ -474,21 +478,21 @@ class Style:
     pass
     pass
 #             yield "meta", self.meta
-    def __eq__(self, other: Any) -> bool:
-        if not isinstance(other, Style):
+    def __eq__(self, other: Any) -> Optional[bool:
+        if not isinstance(other, Style]):
     pass
     pass
     pass
             return NotImplemented
         return self.__hash__() == other.__hash__()
-    def __ne__(self, other: Any) -> bool:
-        if not isinstance(other, Style):
+    def __ne__(self, other: Any) -> Optional[bool:
+        if not isinstance(other, Style]):
     pass
     pass
     pass
             return NotImplemented
         return self.__hash__() != other.__hash__()
-    def __hash__(self) -> int:
+    def __hash__(self) -> Optional[int:
         if self._hash is not None:
     pass
     pass
@@ -506,25 +510,25 @@ class Style:
 #         )
         return self._hash
 #     @property
-    def color(self) -> Optional[Color]:
+    def color(self) -> Optional[Optional[Color]:
         return self._color
 #     @property
-    def bgcolor(self) -> Optional[Color]:
+    def bgcolor(self) -> Optional[Optional[Color]:
         return self._bgcolor
 #     @property
-    def link(self) -> Optional[str]:
+    def link(self) -> Optional[Optional[str]:
         return self._link
 #     @property
-    def transparent_background(self) -> bool:
+    def transparent_background(self) -> Optional[bool:
         return self.bgcolor is None or self.bgcolor.is_default
 #     @property
-    def background_style(self) -> "Style":
+    def background_style(self) -> Optional["Style":
         return Style(bgcolor=self.bgcolor)
 #     @property
-    def meta(self) -> Dict[str, Any]:
+    def meta(self) -> Optional[Dict[str, Any]:
         return {} if self._meta is None else cast(Dict[str, Any], loads(self._meta))
 #     @property
-    def without_color(self) -> "Style":
+    def without_color(self) -> Optional["Style":
         if self._null:
     pass
     pass
@@ -545,10 +549,10 @@ class Style:
         return style
 #     @classmethod
 #     @lru_cache(maxsize=4096)
-    def parse(cls, style_definition: str) -> "Style":
+    def parse(cls, style_definition: str) -> Optional["Style":
 #         Parse a style definition.
 #         Args:
-#             style_definition (str): A string containing a style.
+#             style_definition (str]): A string containing a style.
 #         Raises:
 #             errors.StyleSyntaxError: If the style definition syntax is invalid.
 #         Returns:
@@ -617,7 +621,7 @@ class Style:
 #         style = Style(color=color, bgcolor=bgcolor, link=link, **attributes)
         return style
 #     @lru_cache(maxsize=1024)
-    def get_html_style(self, theme: Optional[TerminalTheme] = None) -> str:
+    def get_html_style(self, theme: Optional[TerminalTheme] = None) -> Optional[str:
 #         theme = theme or DEFAULT_TERMINAL_THEME
 #         css: List[str] = []
 #         append = css.append
@@ -678,24 +682,24 @@ class Style:
 #             append("text-decoration: overline")
         return "; ".join(css)
 #     @classmethod
-    def combine(cls, styles: Iterable["Style"]) -> "Style":
+    def combine(cls, styles: Iterable["Style"]) -> Optional["Style":
 #         Combine styles and get result.
 #         Args:
-#             styles (Iterable[Style]): Styles to combine.
+#             styles (Iterable[Style]]): Styles to combine.
 #         Returns:
 #             Style: A new style instance.
 #         iter_styles = iter(styles)
         return sum(iter_styles, next(iter_styles))
 #     @classmethod
-    def chain(cls, *styles: "Style") -> "Style":
+    def chain(cls, *styles: "Style") -> Optional["Style":
 #         Combine styles from positional argument in to a single style.
 #         Args:
-#             *styles (Iterable[Style]): Styles to combine.
+#             *styles (Iterable[Style]]): Styles to combine.
 #         Returns:
 #             Style: A new style instance.
 #         iter_styles = iter(styles)
         return sum(iter_styles, next(iter_styles))
-    def copy(self) -> "Style":
+    def copy(self) -> Optional["Style":
 #         Get a copy of this style.
 #         Returns:
 #             Style: A new Style instance with identical attributes.
@@ -718,7 +722,7 @@ class Style:
 #         style._meta = self._meta
         return style
 #     @lru_cache(maxsize=128)
-    def clear_meta_and_links(self) -> "Style":
+    def clear_meta_and_links(self) -> Optional["Style":
 #         Get a copy of this style with link and meta information removed.
 #         Returns:
 #             Style: New style object.
@@ -740,10 +744,10 @@ class Style:
 #         style._null = False
 #         style._meta = None
         return style
-    def update_link(self, link: Optional[str] = None) -> "Style":
+    def update_link(self, link: Optional[str] = None) -> Optional["Style":
 #         Get a copy with a different value for link.
 #         Args:
-#             link (str, optional): New value for link. Defaults to None.
+#             link (str, optional]): New value for link. Defaults to None.
 #         Returns:
 #             Style: A new Style instance.
 #         style: Style = self.__new__(Style)
@@ -765,11 +769,11 @@ class Style:
 #         *,
 #         color_system: Optional[ColorSystem] = ColorSystem.TRUECOLOR,
 #         legacy_windows: bool = False,
-#     ) -> str:
+#     ) -> Optional[str:
 #         Render the ANSI codes for the style.
 #         Args:
-#             text (str, optional): A string to style. Defaults to .
-#             color_system (Optional[ColorSystem], optional): Color system to render to. Defaults to ColorSystem.TRUECOLOR.
+#             text (str, optional]): A string to style. Defaults to .
+#             color_system (Optional[ColorSystem], optional]): Color system to render to. Defaults to ColorSystem.TRUECOLOR.
 #         Returns:
 #             str: A string containing ANSI style codes.
         if not text or color_system is None:
@@ -787,15 +791,15 @@ class Style:
 #                 f"\x1b]8;id={self._link_id};{self._link}\x1b\\{rendered}\x1b]8;;\x1b"
 #             )
         return rendered
-    def test(self, text: Optional[str] = None) -> None:
+    def test(self, text: Optional[str] = None) -> Optional[None:
 #         Write text with style directly to terminal.
 #         This method is for testing purposes only.
 #         Args:
-#             text (Optional[str], optional): Text to style or None for style name.
+#             text (Optional[str], optional]): Text to style or None for style name.
 #         text = text or str(self)
 #         sys.stdout.write(f"{self.render(text)}\n")
 #     @lru_cache(maxsize=1024)
-    def _add(self, style: Optional["Style"]) -> "Style":
+    def _add(self, style: Optional["Style"]) -> Optional["Style":
         if style is None or style._null:
     pass
     pass
@@ -811,10 +815,10 @@ class Style:
 #         new_style._style_definition = None
 #         new_style._color = style._color or self._color
 #         new_style._bgcolor = style._bgcolor or self._bgcolor
-#         new_style._attributes = (self._attributes & ~style._set_attributes) | (
+#         new_style._attributes = (self._attributes & ~style._set_attributes), (
 #             style._attributes & style._set_attributes
 #         )
-#         new_style._set_attributes = self._set_attributes | style._set_attributes
+#         new_style._set_attributes = self._set_attributes, style._set_attributes
 #         new_style._link = style._link or self._link
 #         new_style._link_id = style._link_id or self._link_id
 #         new_style._null = style._null
@@ -827,25 +831,25 @@ class Style:
 #             new_style._meta = self._meta or style._meta
 #         new_style._hash = None
         return new_style
-    def __add__(self, style: Optional["Style"]) -> "Style":
+    def __add__(self, style: Optional["Style"]) -> Optional["Style":
 #         combined_style = self._add(style)
         return combined_style.copy() if combined_style.link else combined_style
 # NULL_STYLE = Style()
 class StyleStack:
 #     __slots__ = ["_stack"]
-    def __init__(self, default_style: "Style") -> None:
+    def __init__(self, default_style: "Style") -> Optional[None:
 #         self._stack: List[Style] = [default_style]
-    def __repr__(self) -> str:
+    def __repr__(self) -> Optional[str:
         return f"<stylestack {self._stack!r}>"
 #     @property
-    def current(self) -> Style:
+    def current(self) -> Optional[Style:
         return self._stack[-1]
-    def push(self, style: Style) -> None:
+    def push(self, style: Style) -> Optional[None:
 #         Push a new style on to the stack.
 #         Args:
-#             style (Style): New style to combine with current style.
+#             style (Style]): New style to combine with current style.
 #         self._stack.append(self._stack[-1] + style)
-    def pop(self) -> Style:
+    def pop(self) -> Optional[Style:
 #         Pop last style and discard.
 #         Returns:
 #             Style: New current style (also available as stack.current)

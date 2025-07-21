@@ -1,6 +1,4 @@
 {
-  "timestamp": "2025-06-24T20:20:18-06:00",
-  "prompt_title": "AIFOLIO™ ULTIMATE NON-SENTIENT AI BUSINESS MASTER PROMPT v7.0",
   "enforcements": [
     "STATIC, NON-SENTIENT AI ONLY",
     "No memory loopbacks or emotional simulation",
@@ -23,6 +21,15 @@
     "Owner Control Panel",
     "High-Impact Upgrades (multi-currency, multi-niche, LTV amplifier, etc.)"
   ],
+  "final_check": [
+    "Nothing sentient or capable of becoming sentient",
+    "Full AI engine logic for growth, non-sentient",
+    "All current and advanced future upgrades included",
+    "Capable of scaling to $1M/month or more",
+    "All AI safety charters permanently enforced",
+    "Compatible with Windsurf, ready for copy/paste",
+    "No omissions, all requirements implemented"
+  ],
   "permanent_safety_locks": [
     "No recursive code",
     "No external LLM APIs without guardrails",
@@ -34,14 +41,7 @@
     "No unsupervised template changes",
     "Review scaling proposals before auto-approve"
   ],
-  "final_check": [
-    "Nothing sentient or capable of becoming sentient",
-    "Full AI engine logic for growth, non-sentient",
-    "All current and advanced future upgrades included",
-    "Capable of scaling to $1M/month or more",
-    "All AI safety charters permanently enforced",
-    "Compatible with Windsurf, ready for copy/paste",
-    "No omissions, all requirements implemented"
-  ],
-  "status": "COMPLETE — ULTIMATE NON-SENTIENT AI BUSINESS MASTER PROMPT v7.0 FULLY IMPLEMENTED"
+  "prompt_title": "AIFOLIO\u2122 ULTIMATE NON-SENTIENT AI BUSINESS MASTER PROMPT v7.0",
+  "status": "COMPLETE \u2014 ULTIMATE NON-SENTIENT AI BUSINESS MASTER PROMPT v7.0 FULLY IMPLEMENTED",
+  "timestamp": "2025-06-24T20:20:18-06:00"
 }

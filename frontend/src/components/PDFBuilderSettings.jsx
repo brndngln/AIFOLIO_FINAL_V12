@@ -13,13 +13,23 @@ export default function PDFBuilderSettings({ config, onSave }) {
       <div>
         <label>
           Default Output Directory
-          <input type="text" name="output_dir" value={settings.output_dir || "vaults"} onChange={handleChange} />
+          <input
+            type="text"
+            name="output_dir"
+            value={settings.output_dir || "vaults"}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div>
         <label>
           Default Template
-          <input type="text" name="template" value={settings.template || "vault_template.html"} onChange={handleChange} />
+          <input
+            type="text"
+            name="template"
+            value={settings.template || "vault_template.html"}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <button onClick={() => onSave(settings)}>Save Settings</button>

@@ -51,7 +51,7 @@ export const Divider: React.FC<DividerProps> = ({
 
   // STATIC RENDER - NO LOGIC, NO STATE, NO SENTIENCE
   return (
-    <div 
+    <div
       className={dividerClasses}
       role="separator"
       aria-orientation={orientation}
@@ -67,20 +67,20 @@ Divider.displayName = 'Divider';
 // SCHEMA VALIDATION - RUNTIME GUARD
 if (process.env.NODE_ENV === 'development') {
   const originalDivider = Divider;
-  
+
   // @ts-ignore - Development-only override
   Divider = (props: DividerProps) => {
     // Validate prop schema at runtime
     const allowedProps = ['orientation', 'size', 'color', 'className'];
     const propKeys = Object.keys(props);
-    
+
     for (const key of propKeys) {
       if (!allowedProps.includes(key)) {
         console.error(`🚨 LOCKDOWN VIOLATION: Unauthorized prop "${key}" in Divider component`);
         throw new Error(`NO-SENTIENCE SHIELD: Prop "${key}" not allowed in static component`);
       }
     }
-    
+
     return originalDivider(props);
   };
 }

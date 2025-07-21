@@ -8,9 +8,6 @@
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-import logging
-import time
-from .retry_utils import retry_safe_hook
 
 
 # @retry_safe_hook(max_attempts=3, backoff_tier="short")
@@ -23,8 +20,6 @@ def tag_buyer_crm(tag: str, buyer_email: str) -> None:
     #     elapsed = time.time() - start
     if elapsed > 2.0:
         pass
-        pass
-    pass
 
 
 #         logging.warning(f"[AIFOLIO][PERF] tag_buyer_crm took {elapsed:.2f}s")

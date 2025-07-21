@@ -1,1 +1,16 @@
-{"id":"brandcast","label":"BRANDCAST™","description":"AI Personal Brand Builder Vault","icon":"📢","features":["brand_building","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "AI Personal Brand Builder Vault",
+  "features": [
+    "brand_building",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udce2",
+  "id": "brandcast",
+  "label": "BRANDCAST\u2122"
+}

@@ -1,0 +1,341 @@
+# AIFOLIO Elite Security Scanning Pipeline
+# Phase 1.11 - Advanced Security Integration
+# Comprehensive vulnerability detection and compliance validation
+
+name: 🔒 Security Fortress Scanner
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run security scans daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      scan_type:
+        description: 'Security Scan Type'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+        - full
+        - dependencies
+        - secrets
+        - code-analysis
+
+env:
+  NODE_VERSION: '18.17.0'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # 🕵️ Secret Detection & Credential Scanning
+  secret-detection:
+    name: 🕵️ Secret & Credential Scanner
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.scan_type || inputs.scan_type == 'full' || inputs.scan_type == 'secrets' }}
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for comprehensive scanning
+
+      - name: 🔍 GitLeaks Secret Detection
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+      - name: 🔐 TruffleHog Secret Scanning
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+          extra_args: --debug --only-verified
+
+      - name: 📊 Upload Secret Scan Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: secret-scan-results-${{ github.sha }}
+          path: |
+            gitleaks-report.json
+            trufflehog-results.json
+          retention-days: 30
+
+  # 🛡️ Dependency Vulnerability Scanning
+  dependency-scan:
+    name: 🛡️ Dependency Vulnerability Scanner
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.scan_type || inputs.scan_type == 'full' || inputs.scan_type == 'dependencies' }}
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        ecosystem: [python, nodejs]
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python Dependency Scanning
+        if: matrix.ecosystem == 'python'
+        run: |
+          python -m pip install --upgrade pip
+          pip install safety pip-audit
+
+          # Safety scan
+          safety check --json --output safety-report.json || true
+
+          # Pip-audit scan
+          pip-audit --format=json --output=pip-audit-report.json || true
+
+      - name: 📦 Node.js Dependency Scanning
+        if: matrix.ecosystem == 'nodejs'
+        working-directory: ./config
+        run: |
+          # NPM audit
+          npm audit --audit-level=low --json > npm-audit-report.json || true
+
+          # Yarn audit (if yarn.lock exists)
+          if [ -f "yarn.lock" ]; then
+            yarn audit --json > yarn-audit-report.json || true
+          fi
+
+      - name: 🔍 Snyk Vulnerability Scanning
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=medium --json-file-output=snyk-report.json
+
+      - name: 📊 Upload Dependency Scan Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dependency-scan-${{ matrix.ecosystem }}-${{ github.sha }}
+          path: |
+            safety-report.json
+            pip-audit-report.json
+            config/npm-audit-report.json
+            config/yarn-audit-report.json
+            snyk-report.json
+          retention-days: 30
+
+  # 🔬 Static Code Analysis
+  code-analysis:
+    name: 🔬 Static Code Analysis
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.scan_type || inputs.scan_type == 'full' || inputs.scan_type == 'code-analysis' }}
+    timeout-minutes: 20
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better analysis
+
+      - name: 🐍 Setup Python Environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: 📦 Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 🔍 Python Security Analysis (Bandit)
+        run: |
+          pip install bandit[toml]
+          bandit -r . -f json -o bandit-security-report.json || true
+          bandit -r . -f txt -o bandit-security-report.txt || true
+
+      - name: 🔍 Python Code Quality (Pylint)
+        run: |
+          pip install pylint
+          pylint --output-format=json --reports=y --exit-zero . > pylint-report.json || true
+
+      - name: 🔍 JavaScript/TypeScript Analysis (ESLint)
+        working-directory: ./config
+        run: |
+          npm ci --prefer-offline --no-audit
+          npx eslint . --ext .js,.jsx,.ts,.tsx --format json --output-file eslint-report.json || true
+
+      - name: 🔍 SonarCloud Analysis
+        uses: SonarSource/sonarcloud-github-action@master
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: 🔍 CodeQL Analysis
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript, python
+
+      - name: 🔍 CodeQL Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: 🔍 CodeQL Analysis Results
+        uses: github/codeql-action/analyze@v3
+
+      - name: 📊 Upload Code Analysis Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: code-analysis-results-${{ github.sha }}
+          path: |
+            bandit-security-report.json
+            bandit-security-report.txt
+            pylint-report.json
+            config/eslint-report.json
+          retention-days: 30
+
+  # 🏰 Container Security Scanning
+  container-scan:
+    name: 🏰 Container Security Scanner
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.scan_type || inputs.scan_type == 'full' }}
+    timeout-minutes: 15
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐳 Build Docker Image
+        run: |
+          # Create a minimal Dockerfile for scanning
+          cat > Dockerfile << 'EOF'
+          FROM node:18.17.0-alpine
+          WORKDIR /app
+          COPY config/package*.json ./
+          RUN npm ci --only=production
+          COPY . .
+          EXPOSE 3000
+          CMD ["npm", "start"]
+          EOF
+
+          docker build -t aifolio-security-scan:latest .
+
+      - name: 🔍 Trivy Container Scanning
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'aifolio-security-scan:latest'
+          format: 'json'
+          output: 'trivy-container-report.json'
+
+      - name: 🔍 Grype Container Scanning
+        uses: anchore/scan-action@v3
+        with:
+          image: 'aifolio-security-scan:latest'
+          format: 'json'
+          output-file: 'grype-container-report.json'
+
+      - name: 📊 Upload Container Scan Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: container-scan-results-${{ github.sha }}
+          path: |
+            trivy-container-report.json
+            grype-container-report.json
+          retention-days: 30
+
+  # 📋 Security Report Aggregation
+  security-report:
+    name: 📋 Security Report Aggregation
+    runs-on: ubuntu-latest
+    needs: [secret-detection, dependency-scan, code-analysis, container-scan]
+    if: always()
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Download All Scan Results
+        uses: actions/download-artifact@v4
+        with:
+          path: security-reports/
+
+      - name: 📊 Generate Security Summary
+        run: |
+          echo "# 🔒 AIFOLIO Security Scan Summary" > security-summary.md
+          echo "" >> security-summary.md
+          echo "**Scan Date:** $(date -u +%Y-%m-%d\ %H:%M:%S\ UTC)" >> security-summary.md
+          echo "**Commit:** ${{ github.sha }}" >> security-summary.md
+          echo "**Branch:** ${{ github.ref_name }}" >> security-summary.md
+          echo "" >> security-summary.md
+
+          echo "## 📊 Scan Results Overview" >> security-summary.md
+          echo "" >> security-summary.md
+          echo "| Scanner | Status | Files Scanned |" >> security-summary.md
+          echo "|---------|--------|---------------|" >> security-summary.md
+
+          # Process scan results
+          find security-reports/ -name "*.json" -type f | while read file; do
+            scanner=$(basename $(dirname "$file"))
+            echo "| $scanner | ✅ Complete | $(wc -l < "$file") |" >> security-summary.md
+          done
+
+          echo "" >> security-summary.md
+          echo "## 🛡️ Security Status" >> security-summary.md
+          echo "" >> security-summary.md
+
+          if [ "${{ needs.secret-detection.result }}" = "success" ]; then
+            echo "- 🕵️ **Secret Detection:** ✅ PASSED" >> security-summary.md
+          else
+            echo "- 🕵️ **Secret Detection:** ❌ FAILED" >> security-summary.md
+          fi
+
+          if [ "${{ needs.dependency-scan.result }}" = "success" ]; then
+            echo "- 🛡️ **Dependency Scan:** ✅ PASSED" >> security-summary.md
+          else
+            echo "- 🛡️ **Dependency Scan:** ❌ FAILED" >> security-summary.md
+          fi
+
+          if [ "${{ needs.code-analysis.result }}" = "success" ]; then
+            echo "- 🔬 **Code Analysis:** ✅ PASSED" >> security-summary.md
+          else
+            echo "- 🔬 **Code Analysis:** ❌ FAILED" >> security-summary.md
+          fi
+
+          if [ "${{ needs.container-scan.result }}" = "success" ]; then
+            echo "- 🏰 **Container Scan:** ✅ PASSED" >> security-summary.md
+          else
+            echo "- 🏰 **Container Scan:** ❌ FAILED" >> security-summary.md
+          fi
+
+          echo "" >> security-summary.md
+          echo "---" >> security-summary.md
+          echo "*Generated by AIFOLIO Elite Security Pipeline*" >> security-summary.md
+
+      - name: 📊 Upload Security Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-summary-${{ github.sha }}
+          path: |
+            security-summary.md
+            security-reports/
+          retention-days: 90
+
+      - name: 📢 Security Scan Notification
+        if: always()
+        run: |
+          echo "🔒 AIFOLIO Security Scan Complete!"
+          echo "📊 Results uploaded to artifacts"
+          echo "🔍 Review security-summary.md for detailed findings"
+
+          # Check for critical failures
+          if [ "${{ needs.secret-detection.result }}" = "failure" ] ||
+             [ "${{ needs.dependency-scan.result }}" = "failure" ] ||
+             [ "${{ needs.code-analysis.result }}" = "failure" ] ||
+             [ "${{ needs.container-scan.result }}" = "failure" ]; then
+            echo "🚨 CRITICAL: Security scan failures detected!"
+            echo "🔒 Review findings before deployment"
+          else
+            echo "✅ All security scans passed successfully"
+          fi

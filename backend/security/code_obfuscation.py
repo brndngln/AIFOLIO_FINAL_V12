@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant code obfuscation config and audit logger.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

@@ -3,6 +3,7 @@
 AIFOLIO™ analyzes refund reasons, predicts refund risks, and provides dashboard trends for product optimization.
 
 ## Features
+
 - Refund reason sentiment scanner
 - Refund probability predictor (flags high-risk products)
 - Dashboard view of refund trends
@@ -21,10 +22,11 @@ print(trends)
 ```
 
 ## Audit & Safety
+
 - All refund reasons and risks are logged
 - High-risk products are flagged for review
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `gumroad_refund_optimizer.py` for implementation details and extension points.*
+_See `gumroad_refund_optimizer.py` for implementation details and extension points._

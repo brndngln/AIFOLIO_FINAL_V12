@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -26,8 +27,11 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 from . import Image, ImageFile
 from ._binary import i16le as i16
+
+
 #
 # helpers
 def _accept(prefix: bytes) -> bool:
@@ -42,9 +46,6 @@ class PixarImageFile(ImageFile.ImageFile):
 #         assert self.fp is not None
 #         s = self.fp.read(4)
         if not _accept(s):
-    pass
-    pass
-    pass
 #             msg = "not a PIXAR file"
 #             raise SyntaxError(msg)
         # read rest of header
@@ -53,9 +54,6 @@ class PixarImageFile(ImageFile.ImageFile):
         # get channel/depth descriptions
 #         mode = i16(s, 424), i16(s, 426)
         if mode == (14, 2):
-    pass
-    pass
-    pass
 #             self._mode = "RGB"
         # FIXME: to be continued...
         # create tile descriptor (assuming "dumped")

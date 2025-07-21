@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -16,12 +17,15 @@ from typing import Optional
 # module could be used to parse it. However, PEP 508 introduced operators such
 # as ~= and === which arent in Python, necessitating a different approach.
 import os
+import platform
 import re
 import sys
-import platform
+
 from .compat import string_types
 from .util import in_venv, parse_marker
 from .version import LegacyVersion as LV
+
+
 # __all__ = ['interpret']
 # _VERSION_PATTERN = re.compile(r'((\d+(.\d+)*\w*)|'(\d+(\.\d+)*\w*)'|"(\d+(\.\d+)*\w*)")')
 # _VERSION_MARKERS = {'python_version', 'python_full_version'}

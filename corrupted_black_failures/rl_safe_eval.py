@@ -1,7 +1,14 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
+import ast
+import copy
+import math
+import os
+import re
+
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #this code is copied/stolen/borrowed/modified from various sources including
@@ -9,12 +16,19 @@ from typing import Optional
 #https://github.com/zopefoundation/RestrictedPython
 #https://github.com/danthedeckie/simpleeval
 #hopefully we are standing on giants shoulders
-import sys, os, ast, re, weakref, time, copy, math, types
+import sys
+
 # eval_debug = int(os.environ.get('EVAL_DEBUG','0'))
 # strTypes = (bytes,str)
 # isPy39 = sys.version_info[:2]>=(3,9)
 # haveNameConstant = hasattr(ast,'NameConstant')
 import textwrap
+import types
+import weakref
+
+import time_custom
+
+
 class BadCode(ValueError):
 # 	pass
 # For AugAssign the operator must be converted to a string.

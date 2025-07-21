@@ -11,10 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant HMAC SHA256 signature validation for webhooks.
 
-import logging
-import hmac
-import hashlib
-import os
 
 # logger = logging.getLogger(__name__)
 

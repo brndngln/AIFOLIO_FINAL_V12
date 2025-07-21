@@ -3,6 +3,7 @@
 AIFOLIO™ ensures all emails and receipts are delivered reliably using multi-channel fallback and full audit logging.
 
 ## Features
+
 - Primary: Postmark API (with webhooks)
 - Secondary: SMTP2GO or SendGrid fallback
 - Admin alerts via Telegram (Slack optional)
@@ -19,10 +20,11 @@ send_email('test@gamil.com', 'Test Subject', 'Test Body')
 ```
 
 ## Audit & Safety
+
 - All delivery attempts are logged
 - If all channels fail, admin is alerted via Telegram
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `failsafe_email_delivery.py` for implementation details and extension points.*
+_See `failsafe_email_delivery.py` for implementation details and extension points._

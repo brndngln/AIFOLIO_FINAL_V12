@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to CRYPTOMIND™! Unlock elite crypto education and DeFi toolkits."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to CRYPTOMIND\u2122! Unlock elite crypto education and DeFi toolkits."
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
-  "house": 0.3,
-  "wedding": 0.2,
-  "sailboat": 0.1,
-  "r_and_d": 0.15,
   "emergency": 0.15,
-  "micro_hiring": 0.1
+  "house": 0.3,
+  "micro_hiring": 0.1,
+  "r_and_d": 0.15,
+  "sailboat": 0.1,
+  "wedding": 0.2
 }

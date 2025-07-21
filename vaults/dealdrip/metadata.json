@@ -1,1 +1,17 @@
-{"id":"dealdrip","label":"DEALDRIP™","description":"Sales Page & Offer Stack Generator Vault","icon":"💰","features":["sales_pages","offers","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Sales Page & Offer Stack Generator Vault",
+  "features": [
+    "sales_pages",
+    "offers",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udcb0",
+  "id": "dealdrip",
+  "label": "DEALDRIP\u2122"
+}

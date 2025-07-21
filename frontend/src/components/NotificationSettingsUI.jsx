@@ -17,31 +17,56 @@ export default function NotificationSettingsUI({ config, onSave }) {
       <div>
         <label>
           Discord Webhook URL
-          <input type="text" name="discord_webhook" value={settings.discord_webhook || ""} onChange={handleChange} />
+          <input
+            type="text"
+            name="discord_webhook"
+            value={settings.discord_webhook || ""}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div>
         <label>
           Email To
-          <input type="email" name="email_to" value={settings.email_to || ""} onChange={handleChange} />
+          <input
+            type="email"
+            name="email_to"
+            value={settings.email_to || ""}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div>
         <label>
           Gumroad URL
-          <input type="text" name="gumroad_url" value={settings.gumroad_url || ""} onChange={handleChange} />
+          <input
+            type="text"
+            name="gumroad_url"
+            value={settings.gumroad_url || ""}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div>
         <label>
           Notion URL
-          <input type="text" name="notion_url" value={settings.notion_url || ""} onChange={handleChange} />
+          <input
+            type="text"
+            name="notion_url"
+            value={settings.notion_url || ""}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div>
         <label>
           Custom Webhook
-          <input type="text" name="custom_webhook" value={settings.custom_webhook || ""} onChange={handleChange} />
+          <input
+            type="text"
+            name="custom_webhook"
+            value={settings.custom_webhook || ""}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <button onClick={() => onSave(settings)}>Save Settings</button>

@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -107,6 +108,8 @@ format. It is an ASCII string which contains a Python literal expression
 # columns.  The version 2.0 format extends the header size to 4 GiB.
 # `numpy.save` will automatically save in 2.0 format if the data requires it,
 else it will always use the more compatible 1.0 format.
+import warnings
+
 # The description of the fourth element of the header therefore has become:
 # The next 4 bytes form a little-endian unsigned int: the length of the header
 # data HEADER_LEN.
@@ -121,26 +124,23 @@ else it will always use the more compatible 1.0 format.
 # :doc:`"npy-format" NEP <neps:nep-0001-npy-format>`, however details have
 # evolved with time and this document is more current.
 import numpy
-import warnings
+from numpy.compat import (  # isfileobj, os_fspath, pickle; ); __all__ = []; allow growth within the address space of a 64 bit machine aint one axis; difference between version 1.0 and 2.0 is a 4 byte (I) header length; instead of 2 bytes (H) allowing storage of large structured arrays; _header_size_info = {; (1, 0): ('<H', 'latin1'),; (2, 0): ('<I', 'latin1'),; (3, 0): ('<I', 'utf8'),; }; Pythons literal_eval is not actually safe for large inputs, since parsing; may become slow or even cause interpreter crashes.; This is an arbitrary, low limit which should make it safe in practice.; _MAX_HEADER_SIZE = 10000
+    None]:,
+    0,
+    1,
+    2,
+    3,
+    :,
+    [,
+    _check_version,
+    def,
+    if,
+    in,
+    not,
+    version,
+)
 from numpy.lib.utils import safe_eval
-from numpy.compat import (
-#     isfileobj, os_fspath, pickle
-#     )
-# __all__ = []
-# allow growth within the address space of a 64 bit machine aint one axis
-# difference between version 1.0 and 2.0 is a 4 byte (I) header length
-# instead of 2 bytes (H) allowing storage of large structured arrays
-# _header_size_info = {
-#     (1, 0): ('<H', 'latin1'),
-#     (2, 0): ('<I', 'latin1'),
-#     (3, 0): ('<I', 'utf8'),
-# }
-# Pythons literal_eval is not actually safe for large inputs, since parsing
-# may become slow or even cause interpreter crashes.
-# This is an arbitrary, low limit which should make it safe in practice.
-# _MAX_HEADER_SIZE = 10000
-def _check_version(version):
-    if version not in [(1, 0), (2, 0), (3, 0), None]:
+
     pass
     pass
     pass
@@ -308,7 +308,7 @@ def header_data_from_array_1_0(array):
 #     d['descr'] = dtype_to_descr(array.dtype)
     return d
 def _wrap_header(header, version):
-#     Takes a stringified header, and attaches the prefix and padding to it
+Takes a stringified header, and attaches the prefix and padding to it
     import struct
 #     assert version is not None
 #     fmt, encoding = _header_size_info[version]
@@ -446,15 +446,15 @@ def read_array_header_2_0(fp, max_header_size=_MAX_HEADER_SIZE):
     return _read_array_header(
 #             fp, version=(2, 0), max_header_size=max_header_size)
 def _filter_header(s):
-#     Clean up 'L' in npz header ints.
-#     Cleans up the 'L' in strings representing integers. Needed to allow npz
-#     headers produced in Python2 to be read in Python3.
-#     Parameters
-#     s : string
-#         Npy file header.
-#     Returns
-#     header : str
-#         Cleaned up header.
+Clean up 'L' in npz header ints.
+      Cleans up the 'L' in strings representing integers. Needed to allow npz
+      headers produced in Python2 to be read in Python3.
+      Parameters
+      s : string
+          Npy file header.
+      Returns
+      header : str
+          Cleaned up header.
     import tokenize
     from io import StringIO
 #     tokens = []
@@ -471,7 +471,7 @@ def _filter_header(s):
 #         last_token_was_number = (token_type == tokenize.NUMBER)
     return tokenize.untokenize(tokens)
 def _read_array_header(fp, version, max_header_size=_MAX_HEADER_SIZE):
-#     see read_array_header_1_0
+see read_array_header_1_0
     # Read an unsigned, little-endian short int which has the length of the
     # header.
     import struct

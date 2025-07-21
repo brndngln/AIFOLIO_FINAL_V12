@@ -15,7 +15,6 @@
 
 def test_fuse_static_prompts() -> None:
     """Function docstring. # SAFE AI"""
-    pass
 
 
 #     Test static prompt fusion.

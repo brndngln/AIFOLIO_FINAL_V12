@@ -38,26 +38,26 @@ export const RenderCage: React.FC<RenderCageProps> = ({
     if (typeof window !== 'undefined') {
       // @ts-ignore - Global lockdown constant
       window.__AIFOLIO_NO_SENTIENCE__ = 'ENFORCED';
-      
+
       // Disable dangerous global functions in strict mode
       if (strictMode) {
         const originalEval = window.eval;
         const originalFunction = window.Function;
         const originalSetTimeout = window.setTimeout;
         const originalSetInterval = window.setInterval;
-        
+
         // Override eval to block dynamic code execution
         window.eval = () => {
           logViolation('LOGIC_INJECTION', 'RenderCage', 'Attempted eval() execution blocked');
           throw new Error('🚨 NO-SENTIENCE SHIELD: eval() disabled in lockdown mode');
         };
-        
+
         // Override Function constructor
         window.Function = (...args: any[]) => {
           logViolation('LOGIC_INJECTION', 'RenderCage', 'Attempted Function() constructor blocked');
           throw new Error('🚨 NO-SENTIENCE SHIELD: Function() constructor disabled in lockdown mode');
         };
-        
+
         // Monitor setTimeout/setInterval for unauthorized async logic
         window.setTimeout = (callback: any, delay?: number) => {
           if (typeof callback === 'string') {
@@ -66,7 +66,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
           }
           return originalSetTimeout(callback, delay);
         };
-        
+
         window.setInterval = (callback: any, delay?: number) => {
           if (typeof callback === 'string') {
             logViolation('LOGIC_INJECTION', 'RenderCage', 'String-based setInterval blocked');
@@ -74,7 +74,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
           }
           return originalSetInterval(callback, delay);
         };
-        
+
         // Cleanup on unmount
         return () => {
           window.eval = originalEval;
@@ -103,7 +103,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
     };
 
     setViolations(prev => [...prev.slice(-49), violation]); // Keep last 50 violations
-    
+
     // Console logging for immediate feedback
     console.error(`🚨 LOCKDOWN VIOLATION [${type}]:`, {
       component,
@@ -132,12 +132,12 @@ export const RenderCage: React.FC<RenderCageProps> = ({
 
       // In a real app, this would write to a log file or send to a logging service
       console.warn('📝 VIOLATION LOG ENTRY:', JSON.stringify(logEntry, null, 2));
-      
+
       // Store in localStorage for development debugging
       const existingLogs = JSON.parse(localStorage.getItem('aifolio_lockdown_violations') || '[]');
       existingLogs.push(logEntry);
       localStorage.setItem('aifolio_lockdown_violations', JSON.stringify(existingLogs.slice(-100)));
-      
+
     } catch (error) {
       console.error('Failed to write violation log:', error);
     }
@@ -153,7 +153,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
 
   // MASTER RENDER - ABSOLUTE FIREWALL ACTIVE
   return (
-    <div 
+    <div
       className={cageClasses}
       data-lockdown-component="RenderCage"
       data-no-sentience="enforced"
@@ -164,7 +164,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
       {/* LOCKDOWN STATUS INDICATOR */}
       {enableDebugger && (
         <div className="fixed top-4 right-4 z-[9999] bg-red-900 text-red-100 px-3 py-2 rounded-lg shadow-lg text-xs font-mono">
-          🛡️ LOCKDOWN: {isLockdownActive ? 'ACTIVE' : 'DISABLED'} | 
+          🛡️ LOCKDOWN: {isLockdownActive ? 'ACTIVE' : 'DISABLED'} |
           Violations: {violations.length}
         </div>
       )}
@@ -194,7 +194,7 @@ export const RenderCage: React.FC<RenderCageProps> = ({
       )}
 
       {/* PROTECTED CHILDREN RENDER */}
-      <div 
+      <div
         className="render-cage-content"
         data-protected="true"
         data-sentience-blocked="true"

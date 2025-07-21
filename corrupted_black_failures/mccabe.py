@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -8,10 +9,12 @@ from typing import Optional
 #     Ned Batchelder
 #     http://nedbatchelder.com/blog/200803/python_code_complexity_microtool.html
 from __future__ import with_statement
+
 import optparse
 import sys
 import tokenize
 from collections import defaultdict
+
 try:
     import ast
     from ast import iter_child_nodes

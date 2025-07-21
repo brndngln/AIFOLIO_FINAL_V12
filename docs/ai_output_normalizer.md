@@ -3,6 +3,7 @@
 AIFOLIO™ ensures every AI output is checked for tone, reading level, brand guidelines, legal-safe phrasing, and spelling, with full audit logging.
 
 ## Features
+
 - Checks tone (professional, friendly, neutral, authoritative)
 - Checks reading level (Flesch-Kincaid grade)
 - Checks brand guideline terms
@@ -21,6 +22,7 @@ print(result)
 ```
 
 ## Audit & Safety
+
 - All outputs are checked before publishing
 - Any flagged output requires human review
 - All checks and flags are logged for audit
@@ -28,4 +30,4 @@ print(result)
 
 ---
 
-*See `ai_output_normalizer.py` for implementation details and extension points.*
+_See `ai_output_normalizer.py` for implementation details and extension points._

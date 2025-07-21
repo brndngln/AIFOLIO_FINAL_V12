@@ -1,43 +1,68 @@
 {
+  "connections": {
+    "Daily Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Rotate Secret Script",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Rotate Secret Script": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Send Telegram Alert",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
   "name": "Rotate OpenAI Key (Omnilock)",
   "nodes": [
     {
+      "name": "Daily Trigger",
       "parameters": {
         "cronExpression": "0 4 * * *",
         "timezone": "UTC"
       },
-      "name": "Daily Trigger",
+      "position": [
+        200,
+        300
+      ],
       "type": "n8n-nodes-base.cron",
-      "typeVersion": 1,
-      "position": [200, 300]
+      "typeVersion": 1
     },
     {
+      "name": "Rotate Secret Script",
       "parameters": {
         "command": "python3 security/rotate_secret.py"
       },
-      "name": "Rotate Secret Script",
+      "position": [
+        400,
+        300
+      ],
       "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
-      "position": [400, 300]
+      "typeVersion": 1
     },
     {
+      "name": "Send Telegram Alert",
       "parameters": {
         "chatId": "@AIFOLIO_ALERTS",
         "message": "[AIFOLIO OMNILOCK] OpenAI key rotated. Check logs for status.",
         "options": {}
       },
-      "name": "Send Telegram Alert",
+      "position": [
+        600,
+        300
+      ],
       "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1,
-      "position": [600, 300]
+      "typeVersion": 1
     }
-  ],
-  "connections": {
-    "Daily Trigger": {
-      "main": [[{"node": "Rotate Secret Script", "type": "main", "index": 0}]]
-    },
-    "Rotate Secret Script": {
-      "main": [[{"node": "Send Telegram Alert", "type": "main", "index": 0}]]
-    }
-  }
+  ]
 }

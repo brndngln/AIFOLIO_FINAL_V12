@@ -1,19 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Box, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, CircularProgress } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Box,
+  Typography,
+  Paper,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  CircularProgress,
+} from "@mui/material";
 
 const PolicyMappingPanel = () => {
   const [mappings, setMappings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('/api/policy/mapping').then(res => setMappings(res.data)).finally(() => setLoading(false));
+    axios
+      .get("/api/policy/mapping")
+      .then((res) => setMappings(res.data))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <Box sx={{ p: 3, bgcolor: '#f8f8f8', borderRadius: 2, mb: 2 }}>
-      <Typography variant="h6" mb={2}>Policy Mapping to External Standards</Typography>
-      {loading ? <CircularProgress /> : (
+    <Box sx={{ p: 3, bgcolor: "#f8f8f8", borderRadius: 2, mb: 2 }}>
+      <Typography variant="h6" mb={2}>
+        Policy Mapping to External Standards
+      </Typography>
+      {loading ? (
+        <CircularProgress />
+      ) : (
         <Paper>
           <Table size="small">
             <TableHead>

@@ -4,7 +4,7 @@ export class HormoziVaynerEngine {
     // Stub: Generate a viral hook for a product
     return {
       hook: `Unlock ${product.name} with this story...`,
-      story: 'This product changed lives by...'
+      story: "This product changed lives by...",
     };
   }
 }

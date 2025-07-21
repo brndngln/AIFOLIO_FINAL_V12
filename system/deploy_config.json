@@ -1,19 +1,26 @@
 {
-  "version": "v12",
-  "status": "deployable",
-  "last_updated": "2025-06-03T20:03:41-06:00",
   "error_handling": {
+    "logging_level": "INFO",
     "retry_attempts": 3,
-    "timeout_seconds": 30,
-    "logging_level": "INFO"
+    "timeout_seconds": 30
   },
+  "last_updated": "2025-06-03T20:03:41-06:00",
   "security": {
-    "non_sentient": true,
     "max_learning_iterations": 0,
+    "non_sentient": true,
     "self_modification": false
   },
+  "status": "deployable",
   "validation": {
-    "required_fields": ["version", "status"],
-    "status_values": ["deployable", "pending", "failed"]
-  }
+    "required_fields": [
+      "version",
+      "status"
+    ],
+    "status_values": [
+      "deployable",
+      "pending",
+      "failed"
+    ]
+  },
+  "version": "v12"
 }

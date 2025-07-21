@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -9,8 +10,11 @@ from typing import Optional
 # put it in a mypyc-compiled file.
 import ast
 from typing import Final
+
 import mypy.nodes
 from mypy.visitor import ExpressionVisitor
+
+
 class _NodeEvaluator(ExpressionVisitor[object]):
     def visit_int_expr(self, o: mypy.nodes.IntExpr) -> int:
         return o.value

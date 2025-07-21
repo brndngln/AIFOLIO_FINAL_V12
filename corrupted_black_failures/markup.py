@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -8,11 +9,13 @@ import re
 from ast import literal_eval
 from operator import attrgetter
 from typing import Callable, Iterable, List, Match, NamedTuple, Optional, Tuple, Union
+
 from ._emoji_replace import _emoji_replace
 from .emoji import EmojiVariant
 from .errors import MarkupError
 from .style import Style
 from .text import Span, Text
+
 # RE_TAGS = re.compile(
     """((\\*)\[([a-z#/@][^[]*?)])""",
 #     re.VERBOSE,
@@ -229,12 +232,12 @@ def render(
 #     text.spans = sorted(spans[::-1], key=attrgetter("start"))
     return text
 if __name__ == "__main__":  # pragma: no cover
-#         "[red]Hello World[/red]",
-#         "[magenta]Hello [b]World[/b]",
-#         "[bold]Bold[italic] bold and italic [/bold]italic[/italic]",
-#         "Click [link=https://www.willmcgugan.com]here[/link] to visit my Blog",
-#         ":warning-emoji: [bold red blink] DANGER![/]",
-#     ]
+"[red]Hello World[/red]",
+          "[magenta]Hello [b]World[/b]",
+          "[bold]Bold[italic] bold and italic [/bold]italic[/italic]",
+          "Click [link=https://www.willmcgugan.com]here[/link] to visit my Blog",
+          ":warning-emoji: [bold red blink] DANGER![/]",
+      ]
     from pip._vendor.rich import print
     from pip._vendor.rich.table import Table
 #     grid = Table("Markup", "Result", padding=(0, 1))

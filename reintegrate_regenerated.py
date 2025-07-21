@@ -27,4 +27,6 @@ for root, _, files in os.walk(originals_dir):
 with open(log_path, "w") as log_file:
     log_file.write("\n".join(log_lines))
 
-print(f"\n✅ Reintegration complete. {replaced} files replaced. Log saved to {log_path}")
+print(
+    f"\n✅ Reintegration complete. {replaced} files replaced. Log saved to {log_path}"
+)

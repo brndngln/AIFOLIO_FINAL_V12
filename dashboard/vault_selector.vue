@@ -28,43 +28,52 @@
 </template>
 
 <script>
-import vaultRegistry from '@/config/vault_registry.json'
+import vaultRegistry from "@/config/vault_registry.json";
 
 export default {
-  name: 'VaultSelector',
+  name: "VaultSelector",
   data() {
     return {
       vaults: vaultRegistry,
       selectedVault: vaultRegistry[0].id,
-      hoverVault: null
-    }
+      hoverVault: null,
+    };
   },
   methods: {
     selectVault(id) {
-      this.selectedVault = id
-      this.$emit('vault-selected', id)
+      this.selectedVault = id;
+      this.$emit("vault-selected", id);
     },
     getVaultDescription(id) {
       const desc = {
-        templiq_templates: 'Generate templates, courses, planners, and export in multiple formats.',
-        therapiq_therapy: 'Personalized therapy frameworks, journaling, and emotional mapping.',
-        ritualux_rituals: 'Design spiritual rituals, ceremonies, and visual altar layouts.',
-        talentvault_explorer: 'Discover talents, hobbies, and create personalized growth maps.',
-        rebelremedy_recipes: 'Build wellness kits, herbal blends, and printable remedy guides.',
-        contentdrop_network: 'Autonomous content drops, scheduling, and subscription management.',
-        templatevault_hub: 'Mega-library, drag-and-drop builder, and licensing for templates.'
-      }
-      return desc[id] || ''
-    }
-  }
-}
+        templiq_templates:
+          "Generate templates, courses, planners, and export in multiple formats.",
+        therapiq_therapy:
+          "Personalized therapy frameworks, journaling, and emotional mapping.",
+        ritualux_rituals:
+          "Design spiritual rituals, ceremonies, and visual altar layouts.",
+        talentvault_explorer:
+          "Discover talents, hobbies, and create personalized growth maps.",
+        rebelremedy_recipes:
+          "Build wellness kits, herbal blends, and printable remedy guides.",
+        contentdrop_network:
+          "Autonomous content drops, scheduling, and subscription management.",
+        templatevault_hub:
+          "Mega-library, drag-and-drop builder, and licensing for templates.",
+      };
+      return desc[id] || "";
+    },
+  },
+};
 </script>
 
 <style scoped>
 .vault-selector {
   background: rgba(24, 24, 32, 0.97);
   border-radius: 2.5rem;
-  box-shadow: 0 8px 40px 0 #00ffe7a0, 0 1.5px 5px #000a;
+  box-shadow:
+    0 8px 40px 0 #00ffe7a0,
+    0 1.5px 5px #000a;
   padding: 2rem 2.5rem;
   margin: 2rem auto;
   max-width: 900px;
@@ -82,7 +91,7 @@ export default {
   height: 48px;
 }
 .elite-label {
-  font-family: 'elite_sans', sans-serif;
+  font-family: "elite_sans", sans-serif;
   font-size: 2.1rem;
   letter-spacing: 0.08em;
   color: #00ffe7;
@@ -117,12 +126,17 @@ export default {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: box-shadow 0.16s, transform 0.13s;
+  transition:
+    box-shadow 0.16s,
+    transform 0.13s;
   position: relative;
-  font-family: 'elite_sans', sans-serif;
+  font-family: "elite_sans", sans-serif;
 }
-.vault-card.active, .vault-card:hover {
-  box-shadow: 0 4px 24px #00ffe7a0, 0 1.5px 5px #000a;
+.vault-card.active,
+.vault-card:hover {
+  box-shadow:
+    0 4px 24px #00ffe7a0,
+    0 1.5px 5px #000a;
   transform: translateY(-4px) scale(1.045);
   background: linear-gradient(120deg, #00ffe7 10%, #181c2f 100%);
 }
@@ -152,10 +166,12 @@ export default {
   pointer-events: none;
   z-index: 10;
 }
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.17s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

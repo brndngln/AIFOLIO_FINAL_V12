@@ -1,0 +1,41 @@
+[flake8]
+# AIFOLIO Elite Flake8 Configuration
+# Phase 1.10∞ - Immortal Commit Protocol
+
+# Maximum line length
+max-line-length = 88
+
+# Ignore specific error codes
+ignore =
+    E203,  # whitespace before ':'
+    E501,  # line too long (handled by black)
+    E741,  # ambiguous variable name
+    W503,  # line break before binary operator
+    F811,  # redefinition of unused variable
+    F821,  # undefined name
+    E402,  # module level import not at top of file
+    E902   # FileNotFoundError
+
+# Exclude directories and files
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    .tox,
+    .eggs,
+    *.egg,
+    build,
+    dist,
+    .pytest_cache,
+    .mypy_cache,
+    quarantine_non_python,
+    node_modules
+
+# Per-file ignores
+per-file-ignores =
+    __init__.py:F401,F403
+    */migrations/*:E501,F401
+    */tests/*:F401,F403,E501
+    */test_*.py:F401,F403,E501
+    **/quarantine_non_python/**:E501,F811,F821,E402

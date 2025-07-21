@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to CARECHART™! Track health and wellness at the elite level."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to CARECHART\u2122! Track health and wellness at the elite level."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# AIFOLIO Elite System - Commit Message Hook
+# Validates commit messages against conventional commit format
+
+echo "🔍 Validating commit message..."
+
+npx commitlint --edit $1
+
+echo "✅ Commit message validated!"

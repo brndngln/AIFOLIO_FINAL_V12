@@ -3,6 +3,7 @@
 AIFOLIO™ blocks low-quality or risky AI outputs from being published, with full audit and human review.
 
 ## Features
+
 - Reviews every new product/output before publishing
 - Scores grammar, factuality, style, readability, legal flags
 - Blocks any output with low scores or legal risks
@@ -18,6 +19,7 @@ print(result)
 ```
 
 ## Audit & Safety
+
 - All outputs are scored before publishing
 - Any blocked output requires human review
 - All reviews and blocks are logged for audit
@@ -25,4 +27,4 @@ print(result)
 
 ---
 
-*See `ai_quality_gatekeeper.py` for implementation details and extension points.*
+_See `ai_quality_gatekeeper.py` for implementation details and extension points._

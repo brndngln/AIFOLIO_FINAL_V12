@@ -4,14 +4,14 @@
 module.exports = {
   registerVault: (metadata, handler) => {
     // TODO: Integrate with vault registry and core engine
-    console.log('Vault registered:', metadata.id);
+    console.log("Vault registered:", metadata.id);
   },
   registerPromptSet: (vaultId, prompts) => {
     // TODO: Integrate with prompt set registry
-    console.log('Prompt set registered for', vaultId);
+    console.log("Prompt set registered for", vaultId);
   },
   registerUIPlugin: (plugin) => {
     // TODO: Integrate with dashboard/plugin registry
-    console.log('UI plugin registered:', plugin.name);
-  }
+    console.log("UI plugin registered:", plugin.name);
+  },
 };

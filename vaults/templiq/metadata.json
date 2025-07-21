@@ -1,1 +1,17 @@
-{"id":"templiq","label":"TEMPLIQ™","description":"Templates + Course Generator Vault","icon":"🧾","features":["templates","courses","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Templates + Course Generator Vault",
+  "features": [
+    "templates",
+    "courses",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83e\uddfe",
+  "id": "templiq",
+  "label": "TEMPLIQ\u2122"
+}

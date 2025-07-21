@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -32,37 +33,35 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import io
 import logging
 from typing import IO
+
 from . import Image, ImageFile, ImagePalette
 from ._binary import i16le as i16
 from ._binary import o8
 from ._binary import o16le as o16
+
+
 # logger = logging.getLogger(__name__)
-def _accept(prefix: bytes) -> bool:
+def _accept(prefix: bytes) -> Optional[bool:
     return prefix[0] == 10 and prefix[1] in [0, 2, 3, 5]
 ##
 # Image plugin for Paintbrush images.
-class PcxImageFile(ImageFile.ImageFile):
+class PcxImageFile(ImageFile.ImageFile]):
     format = "PCX"
     format_description = "Paintbrush"
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         # header
 #         assert self.fp is not None
 #         s = self.fp.read(128)
-        if not _accept(s):
-    pass
-    pass
-    pass
+        if not _accept(s]):
 #             msg = "not a PCX file"
 #             raise SyntaxError(msg)
         # image
 #         bbox = i16(s, 4), i16(s, 6), i16(s, 8) + 1, i16(s, 10) + 1
         if bbox[2] <= bbox[0] or bbox[3] <= bbox[1]:
-    pass
-    pass
-    pass
 #             msg = "bad PCX image size"
 #             raise SyntaxError(msg)
 #         logger.debug("BBox: %s %s %s %s", *bbox)
@@ -80,41 +79,26 @@ class PcxImageFile(ImageFile.ImageFile):
 #         )
 #         self.info["dpi"] = i16(s, 12), i16(s, 14)
         if bits == 1 and planes == 1:
-    pass
-    pass
-    pass
 #             mode = rawmode = "1"
-        elif bits == 1 and planes in (2, 4):
-    pass
+        elif bits == 1 and planes in (2, 4]):
 #             mode = "P"
 #             rawmode = f"P;{planes}L"
 #             self.palette = ImagePalette.raw("RGB", s[16:64])
         elif version == 5 and bits == 8 and planes == 1:
-    pass
 #             mode = rawmode = "L"
             # FIXME: hey, this doesnt work with the incremental loader !!!
 #             self.fp.seek(-769, io.SEEK_END)
 #             s = self.fp.read(769)
             if len(s) == 769 and s[0] == 12:
-    pass
-    pass
-    pass
                 # check if the palette is linear grayscale
-                for i in range(256):
+                for i in range(256]):
                     if s[i * 3 + 1 : i * 3 + 4] != o8(i) * 3:
-    pass
-    pass
-    pass
 #                         mode = rawmode = "P"
 #                         break
                 if mode == "P":
-    pass
-    pass
-    pass
 #                     self.palette = ImagePalette.raw("RGB", s[1:])
 #             self.fp.seek(128)
         elif version == 5 and bits == 8 and planes == 3:
-    pass
 #             mode = "RGB"
 #             rawmode = "RGB;L"
         else:
@@ -129,9 +113,6 @@ class PcxImageFile(ImageFile.ImageFile):
         # While the specification states that this must be even,
         # not all images follow this
         if provided_stride != stride:
-    pass
-    pass
-    pass
 #             stride += stride % 2
 #         bbox = (0, 0) + self.size
 #         logger.debug("size: %sx%s", *self.size)
@@ -146,7 +127,7 @@ class PcxImageFile(ImageFile.ImageFile):
 #     "P": (5, 8, 1, "P"),
 #     "RGB": (5, 8, 3, "RGB;L"),
 # }
-def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
+def _save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
     try:
 #         version, bits, planes, rawmode = SAVE[im.mode]
     except KeyError as e:
@@ -196,19 +177,15 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #         im, fp, [ImageFile._Tile("pcx", (0, 0) + im.size, 0, (rawmode, bits * planes))]
 #     )
     if im.mode == "P":
-    pass
-    pass
-    pass
         # colour palette
 #         fp.write(o8(12))
 #         palette = im.im.getpalette("RGB", "RGB")
 #         palette += b"\x00" * (768 - len(palette))
 #         fp.write(palette)  # 768 bytes
     elif im.mode == "L":
-    pass
         # grayscale palette
 #         fp.write(o8(12))
-        for i in range(256):
+        for i in range(256]):
 #             fp.write(o8(i) * 3)
 # --------------------------------------------------------------------
 # registry

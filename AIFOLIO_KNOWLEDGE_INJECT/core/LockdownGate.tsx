@@ -17,7 +17,7 @@ interface LockdownGateProps {
 // Component registry for validation
 const APPROVED_COMPONENTS = [
   'Divider',
-  'Tag', 
+  'Tag',
   'SectionTitle',
   'InlineNote',
   'TooltipHint',
@@ -64,7 +64,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
       setCurrentRoute(path);
-      
+
       // Check if current route is approved
       const isRouteApproved = allowedRoutes.some(route => {
         // Handle parameterized routes
@@ -77,7 +77,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
         const violation = `Unauthorized route: ${path}`;
         setViolations(prev => [...prev, violation]);
         reportViolation('ROGUE_RENDER', 'LockdownGate', violation);
-        
+
         if (blockUnknownComponents) {
           setGateStatus('BLOCKED');
           return;
@@ -91,7 +91,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
     if (strictPropValidation) {
       validateComponentTree(children);
     }
-    
+
     // If no violations and route is approved, allow render
     if (violations.length === 0) {
       setGateStatus('APPROVED');
@@ -104,13 +104,13 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
 
     if (React.isValidElement(node)) {
       const componentName = getComponentName(node);
-      
+
       // Check if component is approved
       if (componentName && !allowedComponents.includes(componentName as any)) {
         const violation = `Unauthorized component: ${componentName}`;
         setViolations(prev => [...prev, violation]);
         reportViolation('ROGUE_RENDER', 'LockdownGate', violation);
-        
+
         if (blockUnknownComponents) {
           setGateStatus('BLOCKED');
           return;
@@ -121,7 +121,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
       if (componentName && COMPONENT_PROP_SCHEMAS[componentName as keyof typeof COMPONENT_PROP_SCHEMAS]) {
         const allowedProps = COMPONENT_PROP_SCHEMAS[componentName as keyof typeof COMPONENT_PROP_SCHEMAS];
         const nodeProps = Object.keys(node.props || {});
-        
+
         for (const prop of nodeProps) {
           if (!allowedProps.includes(prop as any) && prop !== 'children') {
             const violation = `Unauthorized prop "${prop}" in ${componentName}`;
@@ -182,7 +182,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
   // BLOCKED STATE RENDER
   if (gateStatus === 'BLOCKED') {
     return (
-      <div 
+      <div
         className="lockdown-gate-blocked min-h-screen bg-red-950 text-red-100 flex items-center justify-center"
         data-lockdown-component="LockdownGate"
         data-gate-status="BLOCKED"
@@ -194,7 +194,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
           <p className="text-red-300 mb-6">
             Unauthorized component or route detected. Render blocked by NO-SENTIENCE SHIELD.
           </p>
-          
+
           {violations.length > 0 && (
             <div className="bg-red-900 p-4 rounded-lg text-left">
               <h2 className="font-semibold mb-2">Violations Detected:</h2>
@@ -205,7 +205,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
               </ul>
             </div>
           )}
-          
+
           <div className="mt-6 text-xs text-red-400">
             Route: {currentRoute} | Gate Status: {gateStatus}
           </div>
@@ -217,7 +217,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
   // CHECKING STATE RENDER
   if (gateStatus === 'CHECKING') {
     return (
-      <div 
+      <div
         className="lockdown-gate-checking min-h-screen bg-yellow-950 text-yellow-100 flex items-center justify-center"
         data-lockdown-component="LockdownGate"
         data-gate-status="CHECKING"
@@ -235,7 +235,7 @@ export const LockdownGate: React.FC<LockdownGateProps> = ({
 
   // APPROVED STATE RENDER
   return (
-    <div 
+    <div
       className={gateClasses}
       data-lockdown-component="LockdownGate"
       data-gate-status="APPROVED"

@@ -1,11 +1,36 @@
 {
-  "version": "OMNIELITE_V3",
   "billionaire_minds": 67,
+  "compliance": [
+    "SAFE AI",
+    "GDPR",
+    "CCPA",
+    "SOC2",
+    "carbon-neutral"
+  ],
   "engines": [
-    "musk_engine.js", "oleary_engine.js", "bezos_engine.js", "zuck_engine.js", "buffett_engine.js", "ellison_engine.js", "arnault_engine.js", "gates_engine.js", "jobs_fadell_engine.js", "hormozi_vayner_engine.js"
+    "musk_engine.js",
+    "oleary_engine.js",
+    "bezos_engine.js",
+    "zuck_engine.js",
+    "buffett_engine.js",
+    "ellison_engine.js",
+    "arnault_engine.js",
+    "gates_engine.js",
+    "jobs_fadell_engine.js",
+    "hormozi_vayner_engine.js"
   ],
   "features": [
-    "problem-first prompt priority", "UX emotion-pull feedback loop", "viral storytelling", "infinite scaling", "zero daily input", "real-time simulation", "fallback logic", "optimization cycles", "viral hooks", "feedback integration", "intelligence memory"
+    "problem-first prompt priority",
+    "UX emotion-pull feedback loop",
+    "viral storytelling",
+    "infinite scaling",
+    "zero daily input",
+    "real-time simulation",
+    "fallback logic",
+    "optimization cycles",
+    "viral hooks",
+    "feedback integration",
+    "intelligence memory"
   ],
-  "compliance": ["SAFE AI", "GDPR", "CCPA", "SOC2", "carbon-neutral"]
+  "version": "OMNIELITE_V3"
 }

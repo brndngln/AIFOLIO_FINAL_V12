@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
-import os
 import re
 from pathlib import Path
-from typing import Optional
 
 ROOT_DIR = Path(__file__).resolve().parent
 FAILED_LIST = ROOT_DIR / "clean_unreformattable_files.txt"
+
 
 def fix_typing_syntax(line: str) -> str:
     # Replace Python 3.10+ union types with Optional[]
@@ -16,9 +15,9 @@ def fix_typing_syntax(line: str) -> str:
     line = re.sub(r"->\s*str\s*\|\s*int", "-> Union[str, int]", line)
     return line
 
+
 def fix_indentation_and_pass(lines: list[str]) -> list[str]:
     fixed = []
-    indent_stack = []
 
     for line in lines:
         stripped = line.lstrip()
@@ -34,6 +33,7 @@ def fix_indentation_and_pass(lines: list[str]) -> list[str]:
         fixed.append(fixed_line)
 
     return fixed
+
 
 def process_file(file_path: Path):
     try:
@@ -54,6 +54,7 @@ def process_file(file_path: Path):
     except Exception as e:
         print(f"[SKIPPED] {file_path} — {e}")
 
+
 def main():
     if not FAILED_LIST.exists():
         print("Missing: clean_unreformattable_files.txt")
@@ -67,6 +68,7 @@ def main():
             process_file(path)
         else:
             print(f"[MISSING] {path}")
+
 
 if __name__ == "__main__":
     main()

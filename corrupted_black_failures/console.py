@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -11,100 +12,96 @@ import threading
 import zlib
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from datetime import datetime
 from functools import wraps
 from getpass import getpass
 from html import escape
 from inspect import isclass
 from itertools import islice
 from math import ceil
-from time import monotonic
 from types import FrameType, ModuleType, TracebackType
-from typing import (
-#     IO,
-#     TYPE_CHECKING,
-#     Any,
-#     Callable,
-#     Dict,
-#     Iterable,
-#     List,
-#     Mapping,
-#     NamedTuple,
-#     Optional,
-#     TextIO,
-#     Tuple,
-#     Type,
-#     Union,
-#     cast,
-# )
-from pip._vendor.rich._null_file import NULL_FILE
-if sys.version_info >= (3, 8):
-    pass
+from typing import (  # IO,; TYPE_CHECKING,; Any,; Callable,; Dict,; Iterable,; List,; Mapping,; NamedTuple,; Optional,; TextIO,; Tuple,; Type,; Union,; cast,; )
+    NULL_FILE,
+    3,
+    8,
+    :,
+    >=,
+    from,
+    if,
+    import,
+    pass,
+    pip._vendor.rich._null_file,
+    sys.version_info,
+)
+
+from datetime_custom import datetime_custom
+from time_custom import monotonic
+
     pass
     pass
     from typing import Literal, Protocol, runtime_checkable
 else:
-    from pip._vendor.typing_extensions import (
-#         Literal,
-#         runtime_checkable,
-#     )  # pragma: no cover
-from . import errors, themes
-from ._emoji_replace import _emoji_replace
-from ._export_format import CONSOLE_HTML_FORMAT, CONSOLE_SVG_FORMAT
-from ._fileno import get_fileno
-from ._log_render import FormatTimeCallable, LogRender
-from .align import Align, AlignMethod
-from .color import ColorSystem, blend_rgb
-from .control import Control
-from .emoji import EmojiVariant
-from .highlighter import NullHighlighter, ReprHighlighter
-from .markup import render as render_markup
-from .measure import Measurement, measure_renderables
-from .pager import Pager, SystemPager
-from .pretty import Pretty, is_expandable
-from .protocol import rich_cast
-from .region import Region
-from .scope import render_scope
-from .screen import Screen
-from .segment import Segment
-from .style import Style, StyleType
-from .styled import Styled
-from .terminal_theme import DEFAULT_TERMINAL_THEME, SVG_EXPORT_THEME, TerminalTheme
-from .text import Text, TextType
-from .theme import Theme, ThemeStack
-if TYPE_CHECKING:
-    pass
-    pass
-    pass
+    from pip._vendor.typing_extensions import (  # pragma: no cover
+        Literal,
+        runtime_checkable,
+    )
+
     from ._windows import WindowsConsoleFeatures
     from .live import Live
     from .status import Status
-# HighlighterType = Callable[[Union[str, "Text"]], "Text"]
-# JustifyMethod = Literal["default", "left", "center", "right", "full"]
-# OverflowMethod = Literal["fold", "crop", "ellipsis", "ignore"]
-class NoChange:
-#     pass
-# NO_CHANGE = NoChange()
-try:
-#     _STDIN_FILENO = sys.__stdin__.fileno()  # type: ignore[union-attr]
-except Exception:
-#     _STDIN_FILENO = 0
-try:
-#     _STDOUT_FILENO = sys.__stdout__.fileno()  # type: ignore[union-attr]
-except Exception:
-#     _STDOUT_FILENO = 1
-try:
-#     _STDERR_FILENO = sys.__stderr__.fileno()  # type: ignore[union-attr]
-except Exception:
-#     _STDERR_FILENO = 2
-# _STD_STREAMS = (_STDIN_FILENO, _STDOUT_FILENO, _STDERR_FILENO)
-# _STD_STREAMS_OUTPUT = (_STDOUT_FILENO, _STDERR_FILENO)
-# _TERM_COLORS = {
-#     "kitty": ColorSystem.EIGHT_BIT,
-#     "256color": ColorSystem.EIGHT_BIT,
-#     "16color": ColorSystem.STANDARD,
-# }
-class ConsoleDimensions(NamedTuple):
+
+     . import errors, themes
+     ._emoji_replace import _emoji_replace
+     ._export_format import CONSOLE_HTML_FORMAT, CONSOLE_SVG_FORMAT
+     ._fileno import get_fileno
+     ._log_render import FormatTimeCallable, LogRender
+     .align import Align, AlignMethod
+     .color import ColorSystem, blend_rgb
+     .control import Control
+     .emoji import EmojiVariant
+     .highlighter import NullHighlighter, ReprHighlighter
+     .markup import render as render_markup
+     .measure import Measurement, measure_renderables
+     .pager import Pager, SystemPager
+     .pretty import Pretty, is_expandable
+     .protocol import rich_cast
+     .region import Region
+     .scope import render_scope
+     .screen import Screen
+     .segment import Segment
+     .style import Style, StyleType
+     .styled import Styled
+     .terminal_theme import DEFAULT_TERMINAL_THEME, SVG_EXPORT_THEME, TerminalTheme
+     .text import Text, TextType
+     .theme import Theme, ThemeStack
+    YPE_CHECKING:
+    pass
+    pass
+    pass
+    ghlighterType = Callable[[Union[str, "Text"]], "Text"]
+    stifyMethod = Literal["default", "left", "center", "right", "full"]
+    erflowMethod = Literal["fold", "crop", "ellipsis", "ignore"]
+    s NoChange:
+      pass
+    _CHANGE = NoChange()
+
+      _STDIN_FILENO = sys.__stdin__.fileno()  # type: ignore[union-attr]
+    pt Exception:
+      _STDIN_FILENO = 0
+
+      _STDOUT_FILENO = sys.__stdout__.fileno()  # type: ignore[union-attr]
+    pt Exception:
+      _STDOUT_FILENO = 1
+
+      _STDERR_FILENO = sys.__stderr__.fileno()  # type: ignore[union-attr]
+    pt Exception:
+      _STDERR_FILENO = 2
+    TD_STREAMS = (_STDIN_FILENO, _STDOUT_FILENO, _STDERR_FILENO)
+    TD_STREAMS_OUTPUT = (_STDOUT_FILENO, _STDERR_FILENO)
+    ERM_COLORS = {
+      "kitty": ColorSystem.EIGHT_BIT,
+      "256color": ColorSystem.EIGHT_BIT,
+      "16color": ColorSystem.STANDARD,
+    s ConsoleDimensions(NamedTuple):
 #     width: int
 #     height: int
 # @dataclass
@@ -1028,23 +1025,23 @@ class Console:
         else:
 #             self.control(Control.clear())
     def status(
-#         self,
-#         status: RenderableType,
-#         *,
-#         spinner: str = "dots",
-#         spinner_style: StyleType = "status.spinner",
-#         speed: float = 1.0,
-#         refresh_per_second: float = 12.5,
-#     ) -> "Status":
-#         Display a status and spinner.
-#         Args:
-#             status (RenderableType): A status renderable (str or Text typically).
-#             spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to "dots".
-#             spinner_style (StyleType, optional): Style of spinner. Defaults to "status.spinner".
-#             speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.
-#             refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.
-#         Returns:
-#             Status: A Status object that may be used as a context manager.
+self,
+          status: RenderableType,
+          *,
+          spinner: str = "dots",
+          spinner_style: StyleType = "status.spinner",
+          speed: float = 1.0,
+          refresh_per_second: float = 12.5,
+        -> "Status":
+          Display a status and spinner.
+          Args:
+              status (RenderableType): A status renderable (str or Text typically).
+              spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to "dots".
+              spinner_style (StyleType, optional): Style of spinner. Defaults to "status.spinner".
+              speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.
+              refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.
+          Returns:
+              Status: A Status object that may be used as a context manager.
         from .status import Status
 #         status_renderable = Status(
 #             status,
@@ -1438,19 +1435,19 @@ class Console:
 #             renderables = [Styled(renderable, style) for renderable in renderables]
         return renderables
     def rule(
-#         self,
-#         title: TextType = ,
-#         *,
-#         characters: str = "─",
-#         style: Union[str, Style] = "rule.line",
-#         align: AlignMethod = "center",
-#     ) -> None:
-#         Draw a line with optional centered title.
-#         Args:
-#             title (str, optional): Text to render over the rule. Defaults to .
-#             characters (str, optional): Character(s) to form the line. Defaults to "─".
-#             style (str, optional): Style of line. Defaults to "rule.line".
-#             align (str, optional): How to align the title, one of "left", "center", or "right". Defaults to "center".
+self,
+          title: TextType = ,
+          *,
+          characters: str = "─",
+          style: Union[str, Style] = "rule.line",
+          align: AlignMethod = "center",
+        -> None:
+          Draw a line with optional centered title.
+          Args:
+              title (str, optional): Text to render over the rule. Defaults to .
+              characters (str, optional): Character(s) to form the line. Defaults to "─".
+              style (str, optional): Style of line. Defaults to "rule.line".
+              align (str, optional): How to align the title, one of "left", "center", or "right". Defaults to "center".
         from .rule import Rule
 #         rule = Rule(title=title, characters=characters, style=style, align=align)
 #         self.print(rule)
@@ -1635,8 +1632,8 @@ class Console:
 #             check_circular (bool, optional): Check for circular references. Defaults to True.
 #             allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.
             default (Callable, optional): A callable that converts values that can not be encoded
-#                 in to something that can be JSON encoded. Defaults to None.
-#             sort_keys (bool, optional): Sort dictionary keys. Defaults to False.
+in to something that can be JSON encoded. Defaults to None.
+              sort_keys (bool, optional): Sort dictionary keys. Defaults to False.
         from pip._vendor.rich.json import JSON
         if json is None:
     pass
@@ -1727,25 +1724,25 @@ class Console:
 #         self._buffer.extend(segments)
 #         self._check_buffer()
     def print_exception(
-#         self,
-#         *,
-#         width: Optional[int] = 100,
-#         extra_lines: int = 3,
-#         theme: Optional[str] = None,
-#         word_wrap: bool = False,
-#         show_locals: bool = False,
-#         suppress: Iterable[Union[str, ModuleType]] = (),
-#         max_frames: int = 100,
-#     ) -> None:
-#         Prints a rich render of the last exception and traceback.
-#         Args:
-#             width (Optional[int], optional): Number of characters used to render code. Defaults to 100.
-#             extra_lines (int, optional): Additional lines of code to render. Defaults to 3.
-#             theme (str, optional): Override pygments theme used in traceback
-#             word_wrap (bool, optional): Enable word wrapping of int lines. Defaults to False.
-#             show_locals (bool, optional): Enable display of local variables. Defaults to False.
-#             suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.
-#             max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.
+self,
+          *,
+          width: Optional[int] = 100,
+          extra_lines: int = 3,
+          theme: Optional[str] = None,
+          word_wrap: bool = False,
+          show_locals: bool = False,
+          suppress: Iterable[Union[str, ModuleType]] = (),
+          max_frames: int = 100,
+        -> None:
+          Prints a rich render of the last exception and traceback.
+          Args:
+              width (Optional[int], optional): Number of characters used to render code. Defaults to 100.
+              extra_lines (int, optional): Additional lines of code to render. Defaults to 3.
+              theme (str, optional): Override pygments theme used in traceback
+              word_wrap (bool, optional): Enable word wrapping of int lines. Defaults to False.
+              show_locals (bool, optional): Enable display of local variables. Defaults to False.
+              suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.
+              max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.
         from .traceback import Traceback
 #         traceback = Traceback(
 #             width=width,
@@ -1935,8 +1932,12 @@ class Console:
     pass
     pass
     pass
-                            from pip._vendor.rich._win32_console import LegacyWindowsTerm
-                            from pip._vendor.rich._windows_renderer import legacy_windows_render
+                            from pip._vendor.rich._win32_console import (
+                                LegacyWindowsTerm,
+                            )
+                            from pip._vendor.rich._windows_renderer import (
+                                legacy_windows_render,
+                            )
 #                             buffer = self._buffer[:]
                             if self.no_color and self._color_system:
     pass
@@ -2216,28 +2217,28 @@ class Console:
         with open(path, "w", encoding="utf-8") as write_file:
 #             write_file.write(html)
     def export_svg(
-#         self,
-#         *,
-#         title: str = "Rich",
-#         theme: Optional[TerminalTheme] = None,
-#         clear: bool = True,
-#         code_format: str = CONSOLE_SVG_FORMAT,
-#         font_aspect_ratio: float = 0.61,
-#         unique_id: Optional[str] = None,
-#     ) -> str:
-#         Generate an SVG from the console contents (requires record=True in Console constructor).
-#         Args:
-#             title (str, optional): The title of the tab in the output image
-#             theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal
-#             clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``
-#             code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables
-#                 into the string in order to form the final SVG output. The default template used and the variables
-#                 injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.
-#             font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``
-#                 string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).
-#                 If you aren't specifying a different font inside ``code_format``, you probably don't need this.
-#             unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node
-#                 ids). If not set, this defaults to a computed value based on the recorded content.
+self,
+          *,
+          title: str = "Rich",
+          theme: Optional[TerminalTheme] = None,
+          clear: bool = True,
+          code_format: str = CONSOLE_SVG_FORMAT,
+          font_aspect_ratio: float = 0.61,
+          unique_id: Optional[str] = None,
+        -> str:
+          Generate an SVG from the console contents (requires record=True in Console constructor).
+          Args:
+              title (str, optional): The title of the tab in the output image
+              theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal
+              clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``
+              code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables
+                  into the string in order to form the final SVG output. The default template used and the variables
+                  injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.
+              font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``
+                  string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).
+                  If you aren't specifying a different font inside ``code_format``, you probably don't need this.
+              unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node
+                  ids). If not set, this defaults to a computed value based on the recorded content.
         from pip._vendor.rich.cells import cell_len
 #         style_cache: Dict[Style, str] = {}
         def get_svg_style(style: Style) -> str:

@@ -10,9 +10,11 @@ export class GlobalizationLayer {
   }
   massLocalize(vaults, locales, currencies) {
     let clones = [];
-    for(const vault of vaults) {
-      for(let i = 0; i < locales.length; i++) {
-        clones.push(this.localizeVault(vault, locales[i], currencies[i] || 'USD'));
+    for (const vault of vaults) {
+      for (let i = 0; i < locales.length; i++) {
+        clones.push(
+          this.localizeVault(vault, locales[i], currencies[i] || "USD"),
+        );
       }
     }
     return clones;

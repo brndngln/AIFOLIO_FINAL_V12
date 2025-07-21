@@ -8,9 +8,6 @@
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-import requests
-import json
-from datetime import datetime
 
 
 def send_webhook(url, event_type, payload):

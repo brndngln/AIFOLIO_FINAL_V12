@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to DEALDRIP™! Unlock elite deal flow and business bundles."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to DEALDRIP\u2122! Unlock elite deal flow and business bundles."
+    }
+  ]
+}

@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to GRANTGENIUS™! Write grants and budgets at the highest level."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to GRANTGENIUS\u2122! Write grants and budgets at the highest level."
+    }
+  ]
+}

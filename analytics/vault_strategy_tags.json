@@ -1,5 +1,13 @@
 {
-  "timestamp": "2025-06-24T20:03:56-06:00",
+  "phase_tags": [
+    "PHASE-10-READY",
+    "PHASE-11-READY",
+    "PHASE-12-READY",
+    "SAFE-AI-LOCKED",
+    "SAFE_AI_UPGRADES_ACTIVE",
+    "NON_SENTIENT",
+    "DETERMINISTIC_ONLY"
+  ],
   "strategy_tags": [
     "AUGUSTA_RULE",
     "HIRE_YOUR_KIDS",
@@ -84,13 +92,5 @@
     "SWG_INTEGRATION",
     "ICAP_MIGRATION"
   ],
-  "phase_tags": [
-    "PHASE-10-READY",
-    "PHASE-11-READY",
-    "PHASE-12-READY",
-    "SAFE-AI-LOCKED",
-    "SAFE_AI_UPGRADES_ACTIVE",
-    "NON_SENTIENT",
-    "DETERMINISTIC_ONLY"
-  ]
+  "timestamp": "2025-06-24T20:03:56-06:00"
 }

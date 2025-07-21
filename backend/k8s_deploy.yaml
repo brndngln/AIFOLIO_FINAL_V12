@@ -14,13 +14,13 @@ spec:
         app: pmp-backend
     spec:
       containers:
-      - name: pmp-backend
-        image: pmp-backend:latest
-        ports:
-        - containerPort: 8000
-        env:
-        - name: SAFE_AI_MODE
-          value: "true"
+        - name: pmp-backend
+          image: pmp-backend:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SAFE_AI_MODE
+              value: "true"
 ---
 apiVersion: v1
 kind: Service
@@ -30,6 +30,6 @@ spec:
   selector:
     app: pmp-backend
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

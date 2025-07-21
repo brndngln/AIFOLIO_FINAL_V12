@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to REVIEWRITE™! Generate elite affiliate product reviews instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to REVIEWRITE™! Generate elite affiliate product reviews instantly."
+    }
+  ]
+}

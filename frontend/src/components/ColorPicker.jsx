@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { useTheme } from '../theme/ThemeProvider';
+import React, { useState } from "react";
+import { useTheme } from "../theme/ThemeProvider";
 
 function ColorPicker({ component, property, defaultValue }) {
   const { setTheme } = useTheme();
-  const [color, setColor] = useState(localStorage.getItem(`color-${component}-${property}`) || defaultValue);
+  const [color, setColor] = useState(
+    localStorage.getItem(`color-${component}-${property}`) || defaultValue,
+  );
 
   const handleChange = (e) => {
     const newColor = e.target.value;
@@ -11,21 +13,23 @@ function ColorPicker({ component, property, defaultValue }) {
     localStorage.setItem(`color-${component}-${property}`, newColor);
 
     // Update theme object with new color
-    setTheme(prev => ({
+    setTheme((prev) => ({
       ...prev,
       customColors: {
         ...prev.customColors,
         [component]: {
           ...(prev.customColors?.[component] || {}),
-          [property]: newColor
-        }
-      }
+          [property]: newColor,
+        },
+      },
     }));
   };
 
   return (
     <div className="flex items-center space-x-2">
-      <label className="text-sm">{property.replace(/([A-Z])/g, ' $1').trim()}:</label>
+      <label className="text-sm">
+        {property.replace(/([A-Z])/g, " $1").trim()}:
+      </label>
       <input
         type="color"
         value={color}

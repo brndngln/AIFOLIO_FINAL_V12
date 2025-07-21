@@ -1,85 +1,915 @@
 [
-  {"name": "Charlie Munger", "traits": ["rationality", "long-term thinking"], "archetype": "Investor", "risk_profile": "conservative", "ethics": "high", "scaling_logic": "compound interest, mental models"},
-  {"name": "Ray Dalio", "traits": ["macro analysis", "radical transparency"], "archetype": "Hedge Fund Founder", "risk_profile": "balanced", "ethics": "high", "scaling_logic": "diversification, principles"},
-  {"name": "Steve Jobs", "traits": ["innovation", "design obsession"], "archetype": "Product Visionary", "risk_profile": "high", "ethics": "medium", "scaling_logic": "iconic branding, user experience"},
-  {"name": "Estée Lauder", "traits": ["brand building", "resilience"], "archetype": "Beauty Pioneer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "luxury marketing, global expansion"},
-  {"name": "Elon Musk", "traits": ["moonshot thinking", "engineering"], "archetype": "Tech Industrialist", "risk_profile": "very high", "ethics": "medium", "scaling_logic": "vertical integration, disruption"},
-  {"name": "Akio Morita", "traits": ["globalization", "product quality"], "archetype": "Electronics Innovator", "risk_profile": "medium", "ethics": "high", "scaling_logic": "international markets, design"},
-  {"name": "Mo Ibrahim", "traits": ["telecom vision", "governance"], "archetype": "African Tycoon", "risk_profile": "medium", "ethics": "high", "scaling_logic": "infrastructure, ethical business"},
-  {"name": "Rihanna", "traits": ["branding", "cultural impact"], "archetype": "Cultural Mogul", "risk_profile": "high", "ethics": "medium", "scaling_logic": "celebrity leverage, product lines"},
-  {"name": "Andrew Carnegie", "traits": ["philanthropy", "steel empire"], "archetype": "Industrialist", "risk_profile": "high", "ethics": "medium", "scaling_logic": "vertical integration, scale"},
-  {"name": "Zhang Xin", "traits": ["real estate", "urbanization"], "archetype": "Property Developer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "urban growth, partnerships"},
-  {"name": "Oprah Winfrey", "traits": ["media power", "philanthropy"], "archetype": "Media Mogul", "risk_profile": "high", "ethics": "high", "scaling_logic": "personal brand, trust"},
-  {"name": "Nandan Nilekani", "traits": ["public tech", "systems thinking"], "archetype": "Tech Statesman", "risk_profile": "medium", "ethics": "high", "scaling_logic": "public-private scale"},
-  {"name": "Melanie Perkins", "traits": ["design democratization", "resilience"], "archetype": "Startup CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "global SaaS, UX"},
-  {"name": "Sara Blakely", "traits": ["bootstrapping", "product intuition"], "archetype": "Consumer Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "direct-to-consumer, branding"},
-  {"name": "Masayoshi Son", "traits": ["bold bets", "vision"], "archetype": "Venture Capitalist", "risk_profile": "very high", "ethics": "medium", "scaling_logic": "mega-funding, platform scale"},
-  {"name": "Strive Masiyiwa", "traits": ["telecom", "philanthropy"], "archetype": "African Entrepreneur", "risk_profile": "medium", "ethics": "high", "scaling_logic": "infrastructure, social impact"},
-  {"name": "Whitney Wolfe Herd", "traits": ["social apps", "female leadership"], "archetype": "Tech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network effects, brand"},
-  {"name": "Jack Ma", "traits": ["e-commerce", "resilience"], "archetype": "Marketplace Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "platform scale, logistics"},
-  {"name": "Adena Friedman", "traits": ["finance", "innovation"], "archetype": "Finance CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "market structure, fintech"},
-  {"name": "Cher Wang", "traits": ["hardware", "vision"], "archetype": "Tech Hardware Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "device innovation, global reach"},
-  {"name": "Li Ka-shing", "traits": ["diversification", "deal-making"], "archetype": "Conglomerate Builder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "cross-sector, global"},
-  {"name": "Indra Nooyi", "traits": ["strategy", "sustainability"], "archetype": "Corporate Leader", "risk_profile": "medium", "ethics": "high", "scaling_logic": "brand transformation, ESG"},
-  {"name": "Reed Hastings", "traits": ["disruption", "culture"], "archetype": "Streaming Pioneer", "risk_profile": "high", "ethics": "medium", "scaling_logic": "subscription, global content"},
-  {"name": "Anne Wojcicki", "traits": ["biotech", "consumer health"], "archetype": "Health Tech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "direct-to-consumer, data"},
-  {"name": "Zhang Yiming", "traits": ["algorithms", "globalization"], "archetype": "Tech Visionary", "risk_profile": "high", "ethics": "medium", "scaling_logic": "content platforms, scale"},
-  {"name": "Patrick Collison", "traits": ["payments", "speed"], "archetype": "Fintech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "API scale, developer focus"},
-  {"name": "Arianna Huffington", "traits": ["media", "wellness"], "archetype": "Media Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "content, wellness"},
-  {"name": "David Steward", "traits": ["IT", "resilience"], "archetype": "Tech Services Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "enterprise, contracts"},
-  {"name": "Isabel dos Santos", "traits": ["energy", "infrastructure"], "archetype": "African Investor", "risk_profile": "high", "ethics": "medium", "scaling_logic": "sector scale, partnerships"},
-  {"name": "John Collison", "traits": ["payments", "product"], "archetype": "Fintech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "API scale, global reach"},
-  {"name": "Susan Wojcicki", "traits": ["platforms", "advertising"], "archetype": "Tech CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "scaling, monetization"},
-  {"name": "Reshma Saujani", "traits": ["education", "advocacy"], "archetype": "Nonprofit Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "movement building, policy"},
-  {"name": "Fred Swaniker", "traits": ["education", "leadership"], "archetype": "African Educator", "risk_profile": "medium", "ethics": "high", "scaling_logic": "talent pipeline, networks"},
-  {"name": "Barrett Comiskey", "traits": ["hardware", "innovation"], "archetype": "Inventor", "risk_profile": "medium", "ethics": "high", "scaling_logic": "patents, licensing"},
-  {"name": "Jessica Alba", "traits": ["branding", "health"], "archetype": "Consumer Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "celebrity, product"},
-  {"name": "Jan Koum", "traits": ["messaging", "privacy"], "archetype": "App Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network scale, security"},
-  {"name": "Yvon Chouinard", "traits": ["sustainability", "philanthropy"], "archetype": "Outdoor Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "mission, brand"},
-  {"name": "Daniel Ek", "traits": ["music", "platforms"], "archetype": "Streaming Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "subscription, global"},
-  {"name": "Aileen Lee", "traits": ["venture", "diversity"], "archetype": "VC Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network, early stage"},
-  {"name": "Ritesh Agarwal", "traits": ["hospitality", "youth"], "archetype": "Young Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "franchise, scale"},
-  {"name": "Marc Andreessen", "traits": ["software", "vision"], "archetype": "VC Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "platforms, investments"},
-  {"name": "Naval Ravikant", "traits": ["angel investing", "wisdom"], "archetype": "Angel Investor", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network, leverage"},
-  {"name": "Zhou Qunfei", "traits": ["manufacturing", "resilience"], "archetype": "Tech Manufacturer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "supply chain, innovation"},
-  {"name": "Peter Thiel", "traits": ["contrarian", "capital"], "archetype": "VC Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "network, disruption"},
-  {"name": "Whitney Wolfe Herd", "traits": ["social apps", "female leadership"], "archetype": "Tech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network effects, brand"},
-  {"name": "Nneka Ede", "traits": ["sports", "pioneering"], "archetype": "Sports Owner", "risk_profile": "medium", "ethics": "high", "scaling_logic": "club acquisition, community"},
-  {"name": "Tony Elumelu", "traits": ["banking", "philanthropy"], "archetype": "Banking Tycoon", "risk_profile": "medium", "ethics": "high", "scaling_logic": "pan-African finance, entrepreneurship"},
-  {"name": "Anne Boden", "traits": ["fintech", "innovation"], "archetype": "Digital Bank Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "mobile banking, user experience"},
-  {"name": "Lisa Su", "traits": ["semiconductors", "turnaround"], "archetype": "Tech CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "engineering, product focus"},
-  {"name": "Robert F. Smith", "traits": ["private equity", "philanthropy"], "archetype": "PE Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "enterprise software, impact"},
-  {"name": "Gina Rinehart", "traits": ["mining", "expansion"], "archetype": "Mining Magnate", "risk_profile": "high", "ethics": "medium", "scaling_logic": "resource scale, diversification"},
-  {"name": "Roshni Nadar Malhotra", "traits": ["IT", "succession"], "archetype": "IT Chairwoman", "risk_profile": "medium", "ethics": "high", "scaling_logic": "global IT, family business"},
-  {"name": "Daniel Zhang", "traits": ["e-commerce", "leadership"], "archetype": "Marketplace CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "platform scale, innovation"},
-  {"name": "Melinda Gates", "traits": ["philanthropy", "impact"], "archetype": "Philanthropist", "risk_profile": "medium", "ethics": "high", "scaling_logic": "global health, education"},
-  {"name": "Lei Jun", "traits": ["mobile", "ecosystem"], "archetype": "Tech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "hardware, ecosystem"},
-  {"name": "Wang Laichun", "traits": ["electronics", "manufacturing"], "archetype": "Tech Manufacturer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "supply chain, innovation"},
-  {"name": "Kiran Mazumdar-Shaw", "traits": ["biotech", "entrepreneurship"], "archetype": "Biotech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "innovation, global health"},
-  {"name": "Jay-Z", "traits": ["music", "business"], "archetype": "Cultural Mogul", "risk_profile": "high", "ethics": "medium", "scaling_logic": "brand expansion, investments"},
-  {"name": "Folorunsho Alakija", "traits": ["oil", "fashion"], "archetype": "Businesswoman", "risk_profile": "high", "ethics": "high", "scaling_logic": "sector diversification, philanthropy"},
-  {"name": "Ho Ching", "traits": ["investment", "governance"], "archetype": "Sovereign Fund CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "state assets, global reach"},
-  {"name": "Andrew Forrest", "traits": ["mining", "philanthropy"], "archetype": "Mining Tycoon", "risk_profile": "high", "ethics": "medium", "scaling_logic": "scale, giving"},
-  {"name": "Sheila Johnson", "traits": ["media", "hospitality"], "archetype": "Media Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "diversification, brand"},
-  {"name": "Helena Morrissey", "traits": ["finance", "diversity"], "archetype": "Finance Leader", "risk_profile": "medium", "ethics": "high", "scaling_logic": "asset management, advocacy"},
-  {"name": "Tadashi Yanai", "traits": ["retail", "globalization"], "archetype": "Retail Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "brand scaling, supply chain"},
-  {"name": "Mary Barra", "traits": ["automotive", "leadership"], "archetype": "Auto CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "manufacturing, innovation"},
-  {"name": "Strive Masiyiwa", "traits": ["telecom", "philanthropy"], "archetype": "African Entrepreneur", "risk_profile": "medium", "ethics": "high", "scaling_logic": "infrastructure, social impact"},
-  {"name": "Zhou Qunfei", "traits": ["glass manufacturing", "resilience"], "archetype": "Tech Manufacturer", "risk_profile": "medium", "ethics": "high", "scaling_logic": "supply chain, innovation"},
-  {"name": "Adriana Cisneros", "traits": ["media", "family business"], "archetype": "Media CEO", "risk_profile": "medium", "ethics": "high", "scaling_logic": "content, global expansion"},
-  {"name": "Tunde Folawiyo", "traits": ["energy", "diversification"], "archetype": "Energy Tycoon", "risk_profile": "high", "ethics": "medium", "scaling_logic": "sector expansion, legacy"},
-  {"name": "Cher Wang", "traits": ["hardware", "vision"], "archetype": "Tech Hardware Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "device innovation, global reach"},
-  {"name": "Reshma Saujani", "traits": ["education", "advocacy"], "archetype": "Nonprofit Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "movement building, policy"},
-  {"name": "Fred Swaniker", "traits": ["education", "leadership"], "archetype": "African Educator", "risk_profile": "medium", "ethics": "high", "scaling_logic": "talent pipeline, networks"},
-  {"name": "Barrett Comiskey", "traits": ["hardware", "innovation"], "archetype": "Inventor", "risk_profile": "medium", "ethics": "high", "scaling_logic": "patents, licensing"},
-  {"name": "Jessica Alba", "traits": ["branding", "health"], "archetype": "Consumer Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "celebrity, product"},
-  {"name": "Jan Koum", "traits": ["messaging", "privacy"], "archetype": "App Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network scale, security"},
-  {"name": "Yvon Chouinard", "traits": ["sustainability", "philanthropy"], "archetype": "Outdoor Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "mission, brand"},
-  {"name": "Daniel Ek", "traits": ["music", "platforms"], "archetype": "Streaming Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "subscription, global"},
-  {"name": "Aileen Lee", "traits": ["venture", "diversity"], "archetype": "VC Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network, early stage"},
-  {"name": "Ritesh Agarwal", "traits": ["hospitality", "youth"], "archetype": "Young Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "franchise, scale"},
-  {"name": "Marc Andreessen", "traits": ["software", "vision"], "archetype": "VC Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "platforms, investments"},
-  {"name": "Naval Ravikant", "traits": ["angel investing", "wisdom"], "archetype": "Angel Investor", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network, leverage"},
-  {"name": "Peter Thiel", "traits": ["contrarian", "capital"], "archetype": "VC Founder", "risk_profile": "high", "ethics": "medium", "scaling_logic": "network, disruption"},
-  {"name": "Whitney Wolfe Herd", "traits": ["social apps", "female leadership"], "archetype": "Tech Founder", "risk_profile": "medium", "ethics": "high", "scaling_logic": "network effects, brand"}
+  {
+    "archetype": "Investor",
+    "ethics": "high",
+    "name": "Charlie Munger",
+    "risk_profile": "conservative",
+    "scaling_logic": "compound interest, mental models",
+    "traits": [
+      "rationality",
+      "long-term thinking"
+    ]
+  },
+  {
+    "archetype": "Hedge Fund Founder",
+    "ethics": "high",
+    "name": "Ray Dalio",
+    "risk_profile": "balanced",
+    "scaling_logic": "diversification, principles",
+    "traits": [
+      "macro analysis",
+      "radical transparency"
+    ]
+  },
+  {
+    "archetype": "Product Visionary",
+    "ethics": "medium",
+    "name": "Steve Jobs",
+    "risk_profile": "high",
+    "scaling_logic": "iconic branding, user experience",
+    "traits": [
+      "innovation",
+      "design obsession"
+    ]
+  },
+  {
+    "archetype": "Beauty Pioneer",
+    "ethics": "high",
+    "name": "Est\u00e9e Lauder",
+    "risk_profile": "medium",
+    "scaling_logic": "luxury marketing, global expansion",
+    "traits": [
+      "brand building",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "Tech Industrialist",
+    "ethics": "medium",
+    "name": "Elon Musk",
+    "risk_profile": "very high",
+    "scaling_logic": "vertical integration, disruption",
+    "traits": [
+      "moonshot thinking",
+      "engineering"
+    ]
+  },
+  {
+    "archetype": "Electronics Innovator",
+    "ethics": "high",
+    "name": "Akio Morita",
+    "risk_profile": "medium",
+    "scaling_logic": "international markets, design",
+    "traits": [
+      "globalization",
+      "product quality"
+    ]
+  },
+  {
+    "archetype": "African Tycoon",
+    "ethics": "high",
+    "name": "Mo Ibrahim",
+    "risk_profile": "medium",
+    "scaling_logic": "infrastructure, ethical business",
+    "traits": [
+      "telecom vision",
+      "governance"
+    ]
+  },
+  {
+    "archetype": "Cultural Mogul",
+    "ethics": "medium",
+    "name": "Rihanna",
+    "risk_profile": "high",
+    "scaling_logic": "celebrity leverage, product lines",
+    "traits": [
+      "branding",
+      "cultural impact"
+    ]
+  },
+  {
+    "archetype": "Industrialist",
+    "ethics": "medium",
+    "name": "Andrew Carnegie",
+    "risk_profile": "high",
+    "scaling_logic": "vertical integration, scale",
+    "traits": [
+      "philanthropy",
+      "steel empire"
+    ]
+  },
+  {
+    "archetype": "Property Developer",
+    "ethics": "high",
+    "name": "Zhang Xin",
+    "risk_profile": "medium",
+    "scaling_logic": "urban growth, partnerships",
+    "traits": [
+      "real estate",
+      "urbanization"
+    ]
+  },
+  {
+    "archetype": "Media Mogul",
+    "ethics": "high",
+    "name": "Oprah Winfrey",
+    "risk_profile": "high",
+    "scaling_logic": "personal brand, trust",
+    "traits": [
+      "media power",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Tech Statesman",
+    "ethics": "high",
+    "name": "Nandan Nilekani",
+    "risk_profile": "medium",
+    "scaling_logic": "public-private scale",
+    "traits": [
+      "public tech",
+      "systems thinking"
+    ]
+  },
+  {
+    "archetype": "Startup CEO",
+    "ethics": "high",
+    "name": "Melanie Perkins",
+    "risk_profile": "medium",
+    "scaling_logic": "global SaaS, UX",
+    "traits": [
+      "design democratization",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "Consumer Founder",
+    "ethics": "high",
+    "name": "Sara Blakely",
+    "risk_profile": "medium",
+    "scaling_logic": "direct-to-consumer, branding",
+    "traits": [
+      "bootstrapping",
+      "product intuition"
+    ]
+  },
+  {
+    "archetype": "Venture Capitalist",
+    "ethics": "medium",
+    "name": "Masayoshi Son",
+    "risk_profile": "very high",
+    "scaling_logic": "mega-funding, platform scale",
+    "traits": [
+      "bold bets",
+      "vision"
+    ]
+  },
+  {
+    "archetype": "African Entrepreneur",
+    "ethics": "high",
+    "name": "Strive Masiyiwa",
+    "risk_profile": "medium",
+    "scaling_logic": "infrastructure, social impact",
+    "traits": [
+      "telecom",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Tech Founder",
+    "ethics": "high",
+    "name": "Whitney Wolfe Herd",
+    "risk_profile": "medium",
+    "scaling_logic": "network effects, brand",
+    "traits": [
+      "social apps",
+      "female leadership"
+    ]
+  },
+  {
+    "archetype": "Marketplace Founder",
+    "ethics": "medium",
+    "name": "Jack Ma",
+    "risk_profile": "high",
+    "scaling_logic": "platform scale, logistics",
+    "traits": [
+      "e-commerce",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "Finance CEO",
+    "ethics": "high",
+    "name": "Adena Friedman",
+    "risk_profile": "medium",
+    "scaling_logic": "market structure, fintech",
+    "traits": [
+      "finance",
+      "innovation"
+    ]
+  },
+  {
+    "archetype": "Tech Hardware Founder",
+    "ethics": "high",
+    "name": "Cher Wang",
+    "risk_profile": "medium",
+    "scaling_logic": "device innovation, global reach",
+    "traits": [
+      "hardware",
+      "vision"
+    ]
+  },
+  {
+    "archetype": "Conglomerate Builder",
+    "ethics": "medium",
+    "name": "Li Ka-shing",
+    "risk_profile": "high",
+    "scaling_logic": "cross-sector, global",
+    "traits": [
+      "diversification",
+      "deal-making"
+    ]
+  },
+  {
+    "archetype": "Corporate Leader",
+    "ethics": "high",
+    "name": "Indra Nooyi",
+    "risk_profile": "medium",
+    "scaling_logic": "brand transformation, ESG",
+    "traits": [
+      "strategy",
+      "sustainability"
+    ]
+  },
+  {
+    "archetype": "Streaming Pioneer",
+    "ethics": "medium",
+    "name": "Reed Hastings",
+    "risk_profile": "high",
+    "scaling_logic": "subscription, global content",
+    "traits": [
+      "disruption",
+      "culture"
+    ]
+  },
+  {
+    "archetype": "Health Tech Founder",
+    "ethics": "high",
+    "name": "Anne Wojcicki",
+    "risk_profile": "medium",
+    "scaling_logic": "direct-to-consumer, data",
+    "traits": [
+      "biotech",
+      "consumer health"
+    ]
+  },
+  {
+    "archetype": "Tech Visionary",
+    "ethics": "medium",
+    "name": "Zhang Yiming",
+    "risk_profile": "high",
+    "scaling_logic": "content platforms, scale",
+    "traits": [
+      "algorithms",
+      "globalization"
+    ]
+  },
+  {
+    "archetype": "Fintech Founder",
+    "ethics": "high",
+    "name": "Patrick Collison",
+    "risk_profile": "medium",
+    "scaling_logic": "API scale, developer focus",
+    "traits": [
+      "payments",
+      "speed"
+    ]
+  },
+  {
+    "archetype": "Media Founder",
+    "ethics": "high",
+    "name": "Arianna Huffington",
+    "risk_profile": "medium",
+    "scaling_logic": "content, wellness",
+    "traits": [
+      "media",
+      "wellness"
+    ]
+  },
+  {
+    "archetype": "Tech Services Founder",
+    "ethics": "high",
+    "name": "David Steward",
+    "risk_profile": "medium",
+    "scaling_logic": "enterprise, contracts",
+    "traits": [
+      "IT",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "African Investor",
+    "ethics": "medium",
+    "name": "Isabel dos Santos",
+    "risk_profile": "high",
+    "scaling_logic": "sector scale, partnerships",
+    "traits": [
+      "energy",
+      "infrastructure"
+    ]
+  },
+  {
+    "archetype": "Fintech Founder",
+    "ethics": "high",
+    "name": "John Collison",
+    "risk_profile": "medium",
+    "scaling_logic": "API scale, global reach",
+    "traits": [
+      "payments",
+      "product"
+    ]
+  },
+  {
+    "archetype": "Tech CEO",
+    "ethics": "high",
+    "name": "Susan Wojcicki",
+    "risk_profile": "medium",
+    "scaling_logic": "scaling, monetization",
+    "traits": [
+      "platforms",
+      "advertising"
+    ]
+  },
+  {
+    "archetype": "Nonprofit Founder",
+    "ethics": "high",
+    "name": "Reshma Saujani",
+    "risk_profile": "medium",
+    "scaling_logic": "movement building, policy",
+    "traits": [
+      "education",
+      "advocacy"
+    ]
+  },
+  {
+    "archetype": "African Educator",
+    "ethics": "high",
+    "name": "Fred Swaniker",
+    "risk_profile": "medium",
+    "scaling_logic": "talent pipeline, networks",
+    "traits": [
+      "education",
+      "leadership"
+    ]
+  },
+  {
+    "archetype": "Inventor",
+    "ethics": "high",
+    "name": "Barrett Comiskey",
+    "risk_profile": "medium",
+    "scaling_logic": "patents, licensing",
+    "traits": [
+      "hardware",
+      "innovation"
+    ]
+  },
+  {
+    "archetype": "Consumer Founder",
+    "ethics": "high",
+    "name": "Jessica Alba",
+    "risk_profile": "medium",
+    "scaling_logic": "celebrity, product",
+    "traits": [
+      "branding",
+      "health"
+    ]
+  },
+  {
+    "archetype": "App Founder",
+    "ethics": "high",
+    "name": "Jan Koum",
+    "risk_profile": "medium",
+    "scaling_logic": "network scale, security",
+    "traits": [
+      "messaging",
+      "privacy"
+    ]
+  },
+  {
+    "archetype": "Outdoor Founder",
+    "ethics": "high",
+    "name": "Yvon Chouinard",
+    "risk_profile": "medium",
+    "scaling_logic": "mission, brand",
+    "traits": [
+      "sustainability",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Streaming Founder",
+    "ethics": "high",
+    "name": "Daniel Ek",
+    "risk_profile": "medium",
+    "scaling_logic": "subscription, global",
+    "traits": [
+      "music",
+      "platforms"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "high",
+    "name": "Aileen Lee",
+    "risk_profile": "medium",
+    "scaling_logic": "network, early stage",
+    "traits": [
+      "venture",
+      "diversity"
+    ]
+  },
+  {
+    "archetype": "Young Founder",
+    "ethics": "medium",
+    "name": "Ritesh Agarwal",
+    "risk_profile": "high",
+    "scaling_logic": "franchise, scale",
+    "traits": [
+      "hospitality",
+      "youth"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "medium",
+    "name": "Marc Andreessen",
+    "risk_profile": "high",
+    "scaling_logic": "platforms, investments",
+    "traits": [
+      "software",
+      "vision"
+    ]
+  },
+  {
+    "archetype": "Angel Investor",
+    "ethics": "high",
+    "name": "Naval Ravikant",
+    "risk_profile": "medium",
+    "scaling_logic": "network, leverage",
+    "traits": [
+      "angel investing",
+      "wisdom"
+    ]
+  },
+  {
+    "archetype": "Tech Manufacturer",
+    "ethics": "high",
+    "name": "Zhou Qunfei",
+    "risk_profile": "medium",
+    "scaling_logic": "supply chain, innovation",
+    "traits": [
+      "manufacturing",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "medium",
+    "name": "Peter Thiel",
+    "risk_profile": "high",
+    "scaling_logic": "network, disruption",
+    "traits": [
+      "contrarian",
+      "capital"
+    ]
+  },
+  {
+    "archetype": "Tech Founder",
+    "ethics": "high",
+    "name": "Whitney Wolfe Herd",
+    "risk_profile": "medium",
+    "scaling_logic": "network effects, brand",
+    "traits": [
+      "social apps",
+      "female leadership"
+    ]
+  },
+  {
+    "archetype": "Sports Owner",
+    "ethics": "high",
+    "name": "Nneka Ede",
+    "risk_profile": "medium",
+    "scaling_logic": "club acquisition, community",
+    "traits": [
+      "sports",
+      "pioneering"
+    ]
+  },
+  {
+    "archetype": "Banking Tycoon",
+    "ethics": "high",
+    "name": "Tony Elumelu",
+    "risk_profile": "medium",
+    "scaling_logic": "pan-African finance, entrepreneurship",
+    "traits": [
+      "banking",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Digital Bank Founder",
+    "ethics": "high",
+    "name": "Anne Boden",
+    "risk_profile": "medium",
+    "scaling_logic": "mobile banking, user experience",
+    "traits": [
+      "fintech",
+      "innovation"
+    ]
+  },
+  {
+    "archetype": "Tech CEO",
+    "ethics": "high",
+    "name": "Lisa Su",
+    "risk_profile": "medium",
+    "scaling_logic": "engineering, product focus",
+    "traits": [
+      "semiconductors",
+      "turnaround"
+    ]
+  },
+  {
+    "archetype": "PE Founder",
+    "ethics": "high",
+    "name": "Robert F. Smith",
+    "risk_profile": "medium",
+    "scaling_logic": "enterprise software, impact",
+    "traits": [
+      "private equity",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Mining Magnate",
+    "ethics": "medium",
+    "name": "Gina Rinehart",
+    "risk_profile": "high",
+    "scaling_logic": "resource scale, diversification",
+    "traits": [
+      "mining",
+      "expansion"
+    ]
+  },
+  {
+    "archetype": "IT Chairwoman",
+    "ethics": "high",
+    "name": "Roshni Nadar Malhotra",
+    "risk_profile": "medium",
+    "scaling_logic": "global IT, family business",
+    "traits": [
+      "IT",
+      "succession"
+    ]
+  },
+  {
+    "archetype": "Marketplace CEO",
+    "ethics": "high",
+    "name": "Daniel Zhang",
+    "risk_profile": "medium",
+    "scaling_logic": "platform scale, innovation",
+    "traits": [
+      "e-commerce",
+      "leadership"
+    ]
+  },
+  {
+    "archetype": "Philanthropist",
+    "ethics": "high",
+    "name": "Melinda Gates",
+    "risk_profile": "medium",
+    "scaling_logic": "global health, education",
+    "traits": [
+      "philanthropy",
+      "impact"
+    ]
+  },
+  {
+    "archetype": "Tech Founder",
+    "ethics": "high",
+    "name": "Lei Jun",
+    "risk_profile": "medium",
+    "scaling_logic": "hardware, ecosystem",
+    "traits": [
+      "mobile",
+      "ecosystem"
+    ]
+  },
+  {
+    "archetype": "Tech Manufacturer",
+    "ethics": "high",
+    "name": "Wang Laichun",
+    "risk_profile": "medium",
+    "scaling_logic": "supply chain, innovation",
+    "traits": [
+      "electronics",
+      "manufacturing"
+    ]
+  },
+  {
+    "archetype": "Biotech Founder",
+    "ethics": "high",
+    "name": "Kiran Mazumdar-Shaw",
+    "risk_profile": "medium",
+    "scaling_logic": "innovation, global health",
+    "traits": [
+      "biotech",
+      "entrepreneurship"
+    ]
+  },
+  {
+    "archetype": "Cultural Mogul",
+    "ethics": "medium",
+    "name": "Jay-Z",
+    "risk_profile": "high",
+    "scaling_logic": "brand expansion, investments",
+    "traits": [
+      "music",
+      "business"
+    ]
+  },
+  {
+    "archetype": "Businesswoman",
+    "ethics": "high",
+    "name": "Folorunsho Alakija",
+    "risk_profile": "high",
+    "scaling_logic": "sector diversification, philanthropy",
+    "traits": [
+      "oil",
+      "fashion"
+    ]
+  },
+  {
+    "archetype": "Sovereign Fund CEO",
+    "ethics": "high",
+    "name": "Ho Ching",
+    "risk_profile": "medium",
+    "scaling_logic": "state assets, global reach",
+    "traits": [
+      "investment",
+      "governance"
+    ]
+  },
+  {
+    "archetype": "Mining Tycoon",
+    "ethics": "medium",
+    "name": "Andrew Forrest",
+    "risk_profile": "high",
+    "scaling_logic": "scale, giving",
+    "traits": [
+      "mining",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Media Founder",
+    "ethics": "high",
+    "name": "Sheila Johnson",
+    "risk_profile": "medium",
+    "scaling_logic": "diversification, brand",
+    "traits": [
+      "media",
+      "hospitality"
+    ]
+  },
+  {
+    "archetype": "Finance Leader",
+    "ethics": "high",
+    "name": "Helena Morrissey",
+    "risk_profile": "medium",
+    "scaling_logic": "asset management, advocacy",
+    "traits": [
+      "finance",
+      "diversity"
+    ]
+  },
+  {
+    "archetype": "Retail Founder",
+    "ethics": "high",
+    "name": "Tadashi Yanai",
+    "risk_profile": "medium",
+    "scaling_logic": "brand scaling, supply chain",
+    "traits": [
+      "retail",
+      "globalization"
+    ]
+  },
+  {
+    "archetype": "Auto CEO",
+    "ethics": "high",
+    "name": "Mary Barra",
+    "risk_profile": "medium",
+    "scaling_logic": "manufacturing, innovation",
+    "traits": [
+      "automotive",
+      "leadership"
+    ]
+  },
+  {
+    "archetype": "African Entrepreneur",
+    "ethics": "high",
+    "name": "Strive Masiyiwa",
+    "risk_profile": "medium",
+    "scaling_logic": "infrastructure, social impact",
+    "traits": [
+      "telecom",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Tech Manufacturer",
+    "ethics": "high",
+    "name": "Zhou Qunfei",
+    "risk_profile": "medium",
+    "scaling_logic": "supply chain, innovation",
+    "traits": [
+      "glass manufacturing",
+      "resilience"
+    ]
+  },
+  {
+    "archetype": "Media CEO",
+    "ethics": "high",
+    "name": "Adriana Cisneros",
+    "risk_profile": "medium",
+    "scaling_logic": "content, global expansion",
+    "traits": [
+      "media",
+      "family business"
+    ]
+  },
+  {
+    "archetype": "Energy Tycoon",
+    "ethics": "medium",
+    "name": "Tunde Folawiyo",
+    "risk_profile": "high",
+    "scaling_logic": "sector expansion, legacy",
+    "traits": [
+      "energy",
+      "diversification"
+    ]
+  },
+  {
+    "archetype": "Tech Hardware Founder",
+    "ethics": "high",
+    "name": "Cher Wang",
+    "risk_profile": "medium",
+    "scaling_logic": "device innovation, global reach",
+    "traits": [
+      "hardware",
+      "vision"
+    ]
+  },
+  {
+    "archetype": "Nonprofit Founder",
+    "ethics": "high",
+    "name": "Reshma Saujani",
+    "risk_profile": "medium",
+    "scaling_logic": "movement building, policy",
+    "traits": [
+      "education",
+      "advocacy"
+    ]
+  },
+  {
+    "archetype": "African Educator",
+    "ethics": "high",
+    "name": "Fred Swaniker",
+    "risk_profile": "medium",
+    "scaling_logic": "talent pipeline, networks",
+    "traits": [
+      "education",
+      "leadership"
+    ]
+  },
+  {
+    "archetype": "Inventor",
+    "ethics": "high",
+    "name": "Barrett Comiskey",
+    "risk_profile": "medium",
+    "scaling_logic": "patents, licensing",
+    "traits": [
+      "hardware",
+      "innovation"
+    ]
+  },
+  {
+    "archetype": "Consumer Founder",
+    "ethics": "high",
+    "name": "Jessica Alba",
+    "risk_profile": "medium",
+    "scaling_logic": "celebrity, product",
+    "traits": [
+      "branding",
+      "health"
+    ]
+  },
+  {
+    "archetype": "App Founder",
+    "ethics": "high",
+    "name": "Jan Koum",
+    "risk_profile": "medium",
+    "scaling_logic": "network scale, security",
+    "traits": [
+      "messaging",
+      "privacy"
+    ]
+  },
+  {
+    "archetype": "Outdoor Founder",
+    "ethics": "high",
+    "name": "Yvon Chouinard",
+    "risk_profile": "medium",
+    "scaling_logic": "mission, brand",
+    "traits": [
+      "sustainability",
+      "philanthropy"
+    ]
+  },
+  {
+    "archetype": "Streaming Founder",
+    "ethics": "high",
+    "name": "Daniel Ek",
+    "risk_profile": "medium",
+    "scaling_logic": "subscription, global",
+    "traits": [
+      "music",
+      "platforms"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "high",
+    "name": "Aileen Lee",
+    "risk_profile": "medium",
+    "scaling_logic": "network, early stage",
+    "traits": [
+      "venture",
+      "diversity"
+    ]
+  },
+  {
+    "archetype": "Young Founder",
+    "ethics": "medium",
+    "name": "Ritesh Agarwal",
+    "risk_profile": "high",
+    "scaling_logic": "franchise, scale",
+    "traits": [
+      "hospitality",
+      "youth"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "medium",
+    "name": "Marc Andreessen",
+    "risk_profile": "high",
+    "scaling_logic": "platforms, investments",
+    "traits": [
+      "software",
+      "vision"
+    ]
+  },
+  {
+    "archetype": "Angel Investor",
+    "ethics": "high",
+    "name": "Naval Ravikant",
+    "risk_profile": "medium",
+    "scaling_logic": "network, leverage",
+    "traits": [
+      "angel investing",
+      "wisdom"
+    ]
+  },
+  {
+    "archetype": "VC Founder",
+    "ethics": "medium",
+    "name": "Peter Thiel",
+    "risk_profile": "high",
+    "scaling_logic": "network, disruption",
+    "traits": [
+      "contrarian",
+      "capital"
+    ]
+  },
+  {
+    "archetype": "Tech Founder",
+    "ethics": "high",
+    "name": "Whitney Wolfe Herd",
+    "risk_profile": "medium",
+    "scaling_logic": "network effects, brand",
+    "traits": [
+      "social apps",
+      "female leadership"
+    ]
+  }
 ]

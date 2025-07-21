@@ -12,7 +12,6 @@
 # core/event_definitions.py
 # Expanded event types for elite empire automation. Strictly typed for OMNIELITE SAFE AI integration.
 
-from typing import List
 
 #     "PDF_CREATED",
 #     "AI_ANOMALY_DETECTED",

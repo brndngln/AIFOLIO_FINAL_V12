@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>AIFOLIO™ Owner Dashboard</title>
+    <meta name="description" content="AIFOLIO Elite System - Owner Dashboard with analytics, compliance, and monetization controls">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AIFOLIO Dashboard">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/static/dashboard.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+      <h1 id="dashboard-title">AIFOLIO™ Owner Dashboard</h1>
+      <nav role="navigation" aria-label="Main Navigation">
+        <a href="/analytics">Analytics</a>
+        <a href="/compliance">Compliance</a>
+        <a href="/monetization">Monetization</a>
+        <a href="/license">License Management</a>
+        <a href="/generate">Generate Product</a>
+        <a href="/reviewer_training">Reviewer Training</a>
+        <a href="/documentation">Documentation</a>
+        <a href="/audit">Audit Trail</a>
+        <a href="/logout">Logout</a>
+      </nav>
+      <button
+        id="theme-toggle"
+        aria-pressed="false"
+        aria-label="Toggle high-contrast theme"
+      >
+        Toggle High Contrast
+      </button>
+    </header>
+    <main id="main-content" role="main" tabindex="-1">
+      {% block content %}{% endblock %}
+      <div class="export-buttons">
+        <form action="/export/pdf" method="get" style="display: inline">
+          <button type="submit" aria-label="Export documentation as PDF">
+            Export PDF
+          </button>
+        </form>
+        <form action="/export/csv" method="get" style="display: inline">
+          <button type="submit" aria-label="Export documentation as CSV">
+            Export CSV
+          </button>
+        </form>
+        <!-- Accessibility Audit & Export -->
+        <form
+          action="/accessibility_audit"
+          method="get"
+          style="display: inline"
+        >
+          <button type="submit" aria-label="Run Accessibility Audit">
+            Run Accessibility Audit
+          </button>
+        </form>
+        <form
+          action="/accessibility_audit/export/pdf"
+          method="get"
+          style="display: inline"
+        >
+          <button type="submit" aria-label="Export Accessibility Report as PDF">
+            Export Accessibility PDF
+          </button>
+        </form>
+        <form
+          action="/accessibility_audit/export/csv"
+          method="get"
+          style="display: inline"
+        >
+          <button type="submit" aria-label="Export Accessibility Report as CSV">
+            Export Accessibility CSV
+          </button>
+        </form>
+        <!-- Route-specific Accessibility Audit -->
+        <form
+          action="/accessibility_audit/route"
+          method="post"
+          style="display: inline"
+        >
+          <input
+            type="text"
+            name="route_url"
+            placeholder="Dashboard Route URL"
+            aria-label="Dashboard Route URL"
+            required
+            style="width: 200px"
+          />
+          <button type="submit" aria-label="Run Audit on Route">
+            Audit Route
+          </button>
+        </form>
+        <!-- Compliance CSV Export -->
+        <form
+          action="/compliance/export/csv"
+          method="get"
+          style="display: inline"
+        >
+          <button type="submit" aria-label="Export Compliance Log as CSV">
+            Export Compliance CSV
+          </button>
+        </form>
+        <!-- Advanced Analytics & Legal Export Navigation -->
+        <a
+          href="/analytics"
+          class="button"
+          aria-label="Go to Advanced Analytics"
+          >Advanced Analytics</a
+        >
+        <a href="/legal_export" class="button" aria-label="Go to Legal Export"
+          >Legal Export</a
+        >
+      </div>
+    </main>
+    <script>
+      document
+        .getElementById("theme-toggle")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("high-contrast");
+          this.setAttribute(
+            "aria-pressed",
+            document.body.classList.contains("high-contrast"),
+          );
+        });
+    </script>
+  </body>
+</html>

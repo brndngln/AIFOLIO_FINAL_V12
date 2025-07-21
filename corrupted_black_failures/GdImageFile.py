@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -27,26 +28,27 @@ from typing import Optional
 #     implementation is provided for convenience and demonstrational
 #     purposes only.
 from __future__ import annotations
+
 from typing import IO
+
 from . import ImageFile, ImagePalette, UnidentifiedImageError
 from ._binary import i16be as i16
 from ._binary import i32be as i32
 from ._typing import StrOrBytesPath
-class GdImageFile(ImageFile.ImageFile):
+
+
+class GdImageFile(ImageFile.ImageFile]):
 #     Image plugin for the GD uncompressed format.  Note that this format
 #     is not supported by the standard :py:func:`PIL.Image.open()` function.  To use
 #     this plugin, you have to import the :py:mod:`PIL.GdImageFile` module and
 #     use the :py:func:`PIL.GdImageFile.open()` function.
     format = "GD"
     format_description = "GD uncompressed images"
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         # Header
 #         assert self.fp is not None
 #         s = self.fp.read(1037)
         if i16(s) not in [65534, 65535]:
-    pass
-    pass
-    pass
 #             msg = "Not a valid GD 2.x .gd file"
 #             raise SyntaxError(msg)
 #         self._mode = "P"
@@ -56,9 +58,6 @@ class GdImageFile(ImageFile.ImageFile):
         # transparency index
 #         tindex = i32(s, 7 + true_color_offset)
         if tindex < 256:
-    pass
-    pass
-    pass
 #             self.info["transparency"] = tindex
 #         self.palette = ImagePalette.raw(
 #             "RGBX", s[7 + true_color_offset + 6 : 7 + true_color_offset + 6 + 256 * 4]
@@ -71,13 +70,10 @@ class GdImageFile(ImageFile.ImageFile):
 #                 "L",
 #             )
 #         ]
-def open(fp: StrOrBytesPath | IO[bytes], mode: str = "r") -> GdImageFile:
+def open(fp: StrOrBytesPath, IO[bytes], mode: str = "r") -> Optional[GdImageFile:
 #     Load texture from a GD image file.
 #         is given, it must be "r".
     if mode != "r":
-    pass
-    pass
-    pass
 #         msg = "bad mode"
 #         raise ValueError(msg)
     try:

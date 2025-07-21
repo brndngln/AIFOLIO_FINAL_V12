@@ -15,7 +15,7 @@
 # compliance and traceability. Extension points for integrations are documented.
 
 from __future__ import annotations
-from fastapi import APIRouter
+
 from backend.ai.compliance_gap import analyze_gaps
 
 # router = APIRouter()

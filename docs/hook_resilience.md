@@ -34,4 +34,4 @@ AIFOLIO™ post-sale hooks are engineered for maximum reliability, auditability,
 
 ---
 
-*See `retry_utils.py` and related modules for implementation details.*
+_See `retry_utils.py` and related modules for implementation details._

@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to TEMPLATEHUB™! Access elite templates and licensing instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to TEMPLATEHUB\u2122! Access elite templates and licensing instantly."
+    }
+  ]
+}

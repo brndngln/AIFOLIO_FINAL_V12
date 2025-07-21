@@ -14,7 +14,6 @@
 # - Static, non-sentient. Injects UTC timestamp into AI outputs for audit trail.
 
 from __future__ import annotations
-from datetime import datetime
 
 
 def inject_timestamp(output: str) -> str:

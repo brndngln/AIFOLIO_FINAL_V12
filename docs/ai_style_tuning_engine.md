@@ -3,6 +3,7 @@
 AIFOLIO™ enforces style and brand consistency and checks for plagiarism in all AI outputs, with full audit logging.
 
 ## Features
+
 - AI style tuning per niche
 - Style consistency enforcer (prevents drift)
 - Anti-plagiarism checker (hash-based)
@@ -24,6 +25,7 @@ print(plagiarism, consistent, missing)
 ```
 
 ## Audit & Safety
+
 - All outputs are checked for style and plagiarism
 - Any flagged output requires human review
 - All checks and flags are logged for audit
@@ -31,4 +33,4 @@ print(plagiarism, consistent, missing)
 
 ---
 
-*See `ai_style_tuning_engine.py` for implementation details and extension points.*
+_See `ai_style_tuning_engine.py` for implementation details and extension points._

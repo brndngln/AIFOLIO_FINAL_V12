@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -23,14 +24,18 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import io
 from typing import BinaryIO, Callable
+
 from . import FontFile, Image
 from ._binary import i8
 from ._binary import i16be as b16
 from ._binary import i16le as l16
 from ._binary import i32be as b32
 from ._binary import i32le as l32
+
+
 # --------------------------------------------------------------------
 # declarations
 # PCF_MAGIC = 0x70636601  # "\x01fcp"
@@ -48,11 +53,11 @@ from ._binary import i32le as l32
 #     lambda bits: ((bits + 31) >> 3) & ~3,
 #     lambda bits: ((bits + 63) >> 3) & ~7,
 # ]
-def sz(s: bytes, o: int) -> bytes:
+def sz(s: bytes, o: int) -> Optional[bytes:
     return s[o : s.index(b"\0", o)]
-class PcfFontFile(FontFile.FontFile):
+class PcfFontFile(FontFile.FontFile]):
 #     name = "name"
-    def __init__(self, fp: BinaryIO, charset_encoding: str = "iso8859-1"):
+    def __init__(self, fp: BinaryIO, charset_encoding: str = "iso8859-1"]):
 #         self.charset_encoding = charset_encoding
 #         magic = l32(fp.read(4))
         if magic != PCF_MAGIC:
@@ -64,7 +69,7 @@ class PcfFontFile(FontFile.FontFile):
 #         super().__init__()
 #         count = l32(fp.read(4))
 #         self.toc = {}
-        for i in range(count):
+        for i in range(count]):
 #             type = l32(fp.read(4))
 #             self.toc[type] = l32(fp.read(4)), l32(fp.read(4)), l32(fp.read(4))
 #         self.fp = fp
@@ -74,7 +79,7 @@ class PcfFontFile(FontFile.FontFile):
 #         encoding = self._load_encoding()
         #
         # create glyph structure
-        for ch, ix in enumerate(encoding):
+        for ch, ix in enumerate(encoding]):
             if ix is not None:
     pass
     pass
@@ -97,7 +102,7 @@ class PcfFontFile(FontFile.FontFile):
 #                 )
     def _getformat(
 #         self, tag: int
-#     ) -> tuple[BinaryIO, int, Callable[[bytes], int], Callable[[bytes], int]]:
+#     ) -> Optional[tuple[BinaryIO, int, Callable[[bytes], int], Callable[[bytes], int]]:
         format, size, offset = self.toc[tag]
 #         fp = self.fp
 #         fp.seek(offset)
@@ -110,7 +115,7 @@ class PcfFontFile(FontFile.FontFile):
         else:
 #             i16, i32 = l16, l32
         return fp, format, i16, i32
-    def _load_properties(self) -> dict[bytes, bytes | int]:
+    def _load_properties(self) -> Optional[dict[bytes, bytes, int]:
         #
         # font properties
 #         properties = {}
@@ -125,10 +130,10 @@ class PcfFontFile(FontFile.FontFile):
 #             fp.seek(4 - (nprops & 3), io.SEEK_CUR)  # pad
 #         data = fp.read(i32(fp.read(4)))
         for k, s, v in p:
-#             property_value: bytes | int = sz(data, v) if s else v
+#             property_value: bytes, int = sz(data, v) if s else v
 #             properties[sz(data, k)] = property_value
         return properties
-    def _load_metrics(self) -> list[tuple[int, int, int, int, int, int, int, int]]:
+    def _load_metrics(self) -> Optional[list[tuple[int, int, int, int, int, int, int, int]]:
         #
         # font metrics
 #         metrics: list[tuple[int, int, int, int, int, int, int, int]] = []
@@ -139,7 +144,7 @@ class PcfFontFile(FontFile.FontFile):
     pass
     pass
             # "compressed" metrics
-            for i in range(i16(fp.read(2))):
+            for i in range(i16(fp.read(2))]):
 #                 left = i8(fp.read(1)) - 128
 #                 right = i8(fp.read(1)) - 128
 #                 width = i8(fp.read(1)) - 128
@@ -150,7 +155,7 @@ class PcfFontFile(FontFile.FontFile):
 #                 append((xsize, ysize, left, right, width, ascent, descent, 0))
         else:
             # "jumbo" metrics
-            for i in range(i32(fp.read(4))):
+            for i in range(i32(fp.read(4))]):
 #                 left = i16(fp.read(2))
 #                 right = i16(fp.read(2))
 #                 width = i16(fp.read(2))
@@ -163,12 +168,12 @@ class PcfFontFile(FontFile.FontFile):
         return metrics
     def _load_bitmaps(
 #         self, metrics: list[tuple[int, int, int, int, int, int, int, int]]
-#     ) -> list[Image.Image]:
+#     ) -> Optional[list[Image.Image]:
         #
         # bitmap data
 #         fp, format, i16, i32 = self._getformat(PCF_BITMAPS)
 #         nbitmaps = i32(fp.read(4))
-        if nbitmaps != len(metrics):
+        if nbitmaps != len(metrics]):
     pass
     pass
     pass
@@ -190,23 +195,23 @@ class PcfFontFile(FontFile.FontFile):
     pass
 #             mode = "1"
 #         bitmaps = []
-        for i in range(nbitmaps):
+        for i in range(nbitmaps]):
 #             xsize, ysize = metrics[i][:2]
 #             b, e = offsets[i : i + 2]
 #             bitmaps.append(
 #                 Image.frombytes("1", (xsize, ysize), data[b:e], "raw", mode, pad(xsize))
 #             )
         return bitmaps
-    def _load_encoding(self) -> list[int | None]:
+    def _load_encoding(self) -> Optional[list[int, None]:
 #         fp, format, i16, i32 = self._getformat(PCF_BDF_ENCODINGS)
 #         first_col, last_col = i16(fp.read(2)), i16(fp.read(2))
 #         first_row, last_row = i16(fp.read(2)), i16(fp.read(2))
 #         i16(fp.read(2))  # default
 #         nencoding = (last_col - first_col + 1) * (last_row - first_row + 1)
         # map character code to bitmap index
-#         encoding: list[int | None] = [None] * min(256, nencoding)
+#         encoding: list[int, None] = [None] * min(256, nencoding)
 #         encoding_offsets = [i16(fp.read(2)) for _ in range(nencoding)]
-        for i in range(first_col, len(encoding)):
+        for i in range(first_col, len(encoding)]):
             try:
 #                 encoding_offset = encoding_offsets[
 #                     ord(bytearray([i]).decode(self.charset_encoding))

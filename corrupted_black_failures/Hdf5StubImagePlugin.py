@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -16,26 +17,27 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import os
 from typing import IO
+
 from . import Image, ImageFile
+
+
 # _handler = None
-def register_handler(handler: ImageFile.StubHandler | None) -> None:
+def register_handler(handler: ImageFile.StubHandler, None) -> Optional[None:
 #     Install application-specific HDF5 image handler.
 #     global _handler
 #     _handler = handler
 # --------------------------------------------------------------------
 # Image adapter
-def _accept(prefix: bytes) -> bool:
+def _accept(prefix: bytes) -> Optional[bool:
     return prefix.startswith(b"\x89HDF\r\n\x1a\n")
-class HDF5StubImageFile(ImageFile.StubImageFile):
+class HDF5StubImageFile(ImageFile.StubImageFile]):
     format = "HDF5"
     format_description = "HDF5"
-    def _open(self) -> None:
-        if not _accept(self.fp.read(8)):
-    pass
-    pass
-    pass
+    def _open(self) -> Optional[None:
+        if not _accept(self.fp.read(8)]):
 #             msg = "Not an HDF file"
 #             raise SyntaxError(msg)
 #         self.fp.seek(-8, os.SEEK_CUR)
@@ -44,17 +46,11 @@ class HDF5StubImageFile(ImageFile.StubImageFile):
 #         self._size = 1, 1
 #         loader = self._load()
         if loader:
-    pass
-    pass
-    pass
 #             loader.open(self)
-    def _load(self) -> ImageFile.StubHandler | None:
+    def _load(self) -> Optional[ImageFile.StubHandler, None:
         return _handler
-def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
-    if _handler is None or not hasattr(_handler, "save"):
-    pass
-    pass
-    pass
+def _save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
+    if _handler is None or not hasattr(_handler, "save"]):
 #         msg = "HDF5 save handler not installed"
 #         raise OSError(msg)
 #     _handler.save(im, fp, filename)

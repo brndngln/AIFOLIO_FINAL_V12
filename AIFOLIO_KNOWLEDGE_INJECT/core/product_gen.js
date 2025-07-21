@@ -5,9 +5,9 @@ export class ProductGen {
     return {
       businessId: biz.id,
       type,
-      status: 'generated',
+      status: "generated",
       gpu: true,
-      previewUrl: `/products/${biz.id}_${type}.png`
+      previewUrl: `/products/${biz.id}_${type}.png`,
     };
   }
 }

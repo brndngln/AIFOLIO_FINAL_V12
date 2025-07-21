@@ -3,6 +3,7 @@
 AIFOLIO™ supports automatic backup of vault data, AI prompts, covers, and PDFs to Google Drive or Dropbox.
 
 ## Setup
+
 - Install dependencies:
   - `pip install pydrive dropbox`
 - Set credentials:
@@ -17,6 +18,7 @@ python autonomy/pipeline/cloud_sync.py dropbox  # Backup all data to Dropbox
 ```
 
 Backups include:
+
 - /analytics/
 - /vaults/
 - /prompts/

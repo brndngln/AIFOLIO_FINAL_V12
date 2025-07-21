@@ -8,7 +8,7 @@
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-from fastapi import APIRouter
+
 from backend.ai.reviewer_analytics import reviewer_stats
 
 # router = APIRouter()

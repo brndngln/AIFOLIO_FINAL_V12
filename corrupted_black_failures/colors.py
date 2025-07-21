@@ -1,7 +1,10 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
+import functools
+
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 #Copyright ReportLab Europe Ltd. 2000-2017
@@ -39,11 +42,15 @@ from typing import Optional
 # Traceback (most recent call last):
 #     ....
 # ValueError: css color 'pcmyka(100,0,0,0)' has wrong number of components
-import math, re, functools
-from reportlab.lib.rl_accel import fp_str
-from reportlab.lib.utils import asNative, isStr, rl_safe_eval, rl_extended_literal_eval
-from reportlab import rl_config
+import math
+import re
 from ast import literal_eval
+
+from reportlab import rl_config
+from reportlab.lib.rl_accel import fp_str
+from reportlab.lib.utils import asNative, isStr, rl_extended_literal_eval, rl_safe_eval
+
+
 class Color:
 #     This class is used to represent color.  Components red, green, blue
 #     are in the range 0 (dark) to 1 (full intensity).

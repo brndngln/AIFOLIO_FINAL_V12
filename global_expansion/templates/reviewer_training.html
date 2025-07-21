@@ -1,17 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Reviewer Training</title>
-</head>
-<body>
-  <h1>Log Reviewer Training</h1>
-  <form method="post">
-    <input name="reviewer" placeholder="Reviewer Name" required /><br />
-    <input name="action" placeholder="Action (approve, reject, escalate)" required /><br />
-    <input name="notes" placeholder="Notes" /><br />
-    <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
-    <button type="submit">Log Training</button>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reviewer Training</title>
+  </head>
+  <body>
+    <h1>Log Reviewer Training</h1>
+    <form method="post">
+      <input name="reviewer" placeholder="Reviewer Name" required /><br />
+      <input
+        name="action"
+        placeholder="Action (approve, reject, escalate)"
+        required
+      /><br />
+      <input name="notes" placeholder="Notes" /><br />
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+      <button type="submit">Log Training</button>
+    </form>
+  </body>
 </html>

@@ -28,8 +28,6 @@ def check_vault_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
     #     invalid = []
     if "creator_email" in metadata and "@" not in metadata["creator_email"]:
         pass
-        pass
-    pass
     #         invalid.append("creator_email")
     #     compliant = not missing and not invalid
     return {"missing": missing, "invalid": invalid, "compliant": compliant}

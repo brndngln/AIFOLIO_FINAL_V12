@@ -1,9 +1,87 @@
 {
-  "PDF_CREATED": ["webhook", "slack", "n8n", "notion", "airtable", {"if": {"field": "downloads", "op": ">", "value": 100}, "then": "log"}],
-  "VAULT_UPDATED": ["vault", "webhook", "notion", "airtable"],
-  "REVENUE_THRESHOLD_REACHED": ["webhook", "slack", "notion", "airtable", {"if": {"field": "revenue", "op": ">=", "value": 100}, "then": "n8n"}, {"if": {"field": "revenue", "op": ">=", "value": 25}, "then": "sms"}],
-  "COMPLIANCE_FLAG": ["compliance", "webhook", "slack", "notion", "airtable", {"if": {"field": "severity", "op": "==", "value": "critical"}, "then": "sms"}, {"if": {"field": "severity", "op": "==", "value": "critical"}, "then": "log"}],
-  "USER_SUBSCRIBED": ["webhook", "n8n", "notion", "airtable"],
-  "TAG_MATCHED": ["webhook", "slack", "notion", "airtable"],
-  "AI_GENERATION_COMPLETE": ["webhook", "n8n", "notion", "airtable", "log"]
+  "AI_GENERATION_COMPLETE": [
+    "webhook",
+    "n8n",
+    "notion",
+    "airtable",
+    "log"
+  ],
+  "COMPLIANCE_FLAG": [
+    "compliance",
+    "webhook",
+    "slack",
+    "notion",
+    "airtable",
+    {
+      "if": {
+        "field": "severity",
+        "op": "==",
+        "value": "critical"
+      },
+      "then": "sms"
+    },
+    {
+      "if": {
+        "field": "severity",
+        "op": "==",
+        "value": "critical"
+      },
+      "then": "log"
+    }
+  ],
+  "PDF_CREATED": [
+    "webhook",
+    "slack",
+    "n8n",
+    "notion",
+    "airtable",
+    {
+      "if": {
+        "field": "downloads",
+        "op": ">",
+        "value": 100
+      },
+      "then": "log"
+    }
+  ],
+  "REVENUE_THRESHOLD_REACHED": [
+    "webhook",
+    "slack",
+    "notion",
+    "airtable",
+    {
+      "if": {
+        "field": "revenue",
+        "op": ">=",
+        "value": 100
+      },
+      "then": "n8n"
+    },
+    {
+      "if": {
+        "field": "revenue",
+        "op": ">=",
+        "value": 25
+      },
+      "then": "sms"
+    }
+  ],
+  "TAG_MATCHED": [
+    "webhook",
+    "slack",
+    "notion",
+    "airtable"
+  ],
+  "USER_SUBSCRIBED": [
+    "webhook",
+    "n8n",
+    "notion",
+    "airtable"
+  ],
+  "VAULT_UPDATED": [
+    "vault",
+    "webhook",
+    "notion",
+    "airtable"
+  ]
 }

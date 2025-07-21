@@ -8,10 +8,12 @@
       <span class="font-semibold">Device ID:</span> {{ lock.device_id }}
     </div>
     <div class="mb-2">
-      <span class="font-semibold">Biometric Required:</span> {{ lock.biometric_required ? 'Yes' : 'No' }}
+      <span class="font-semibold">Biometric Required:</span>
+      {{ lock.biometric_required ? "Yes" : "No" }}
     </div>
     <div class="mb-2">
-      <span class="font-semibold">Emergency Backup:</span> {{ lock.emergency_backup }}
+      <span class="font-semibold">Emergency Backup:</span>
+      {{ lock.emergency_backup }}
     </div>
     <div class="mb-2">
       <span class="font-semibold">Signed At:</span> {{ lock.signed_at }}
@@ -20,15 +22,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-const lock = ref({})
+import { ref, onMounted } from "vue";
+import axios from "axios";
+const lock = ref({});
 onMounted(async () => {
-  const res = await axios.get('/api/founder/lock')
-  lock.value = res.data
-})
+  const res = await axios.get("/api/founder/lock");
+  lock.value = res.data;
+});
 </script>
 
 <style scoped>
-.founder-lock-status { @apply max-w-md mx-auto; }
+.founder-lock-status {
+  @apply max-w-md mx-auto;
+}
 </style>

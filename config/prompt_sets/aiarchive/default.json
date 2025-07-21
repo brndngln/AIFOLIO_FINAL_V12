@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to AIARCHIVE™! Unlock elite AI archives and business frameworks."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to AIARCHIVE\u2122! Unlock elite AI archives and business frameworks."
+    }
+  ]
+}

@@ -2,11 +2,11 @@
 export function sanitizeInput(input) {
   // Basic escaping for XSS
   return String(input)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 export function validateForm(fields) {
@@ -20,5 +20,5 @@ export function validateForm(fields) {
 export function getCSRFToken() {
   // Example: fetch from meta tag or cookie
   const el = document.querySelector('meta[name="csrf-token"]');
-  return el ? el.content : '';
+  return el ? el.content : "";
 }

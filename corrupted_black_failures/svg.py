@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -6,10 +7,12 @@ from typing import Optional
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
+
 import re
 from functools import lru_cache
 from itertools import chain, count
 from typing import Dict, Iterable, Iterator, List, Optional, Set, Tuple
+
 try:
     from lxml import etree
 except ImportError:
@@ -19,6 +22,8 @@ except ImportError:
 from fontTools import ttLib
 from fontTools.subset.util import _add_method
 from fontTools.ttLib.tables.S_V_G_ import SVGDocument
+
+
 # __all__ = ["subset_glyphs"]
 # GID_RE = re.compile(r"^glyph(\d+)$")
 #     "svg": "http://www.w3.org/2000/svg",

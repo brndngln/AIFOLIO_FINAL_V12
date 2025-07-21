@@ -3,6 +3,7 @@
 Welcome to the AIFOLIO_FINAL_V12™ documentation hub. Here you'll find operational guides, safety blueprints, analytics previews, roadmap, and integration docs for all core features.
 
 ## 📚 Documentation Index
+
 - [Non-Sentient Upgrade Safety Blueprint](./safety_blueprint.md)
 - [Product Roadmap](./roadmap.md)
 - [Analytics Dashboard Preview](./analytics_dashboard.md)

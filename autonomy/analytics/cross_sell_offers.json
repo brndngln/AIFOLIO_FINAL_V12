@@ -1,42 +1,42 @@
 [
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   },
   {
     "buyer_email": "user2@example.com",
-    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!",
-    "current_vault": "vault2"
+    "current_vault": "vault2",
+    "offer": "Special offer: Get 20% off on your next AIFOLIO vault!"
   }
 ]

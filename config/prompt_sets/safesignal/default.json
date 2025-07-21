@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to SAFESIGNAL™! Generate crisis toolkits and resources instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to SAFESIGNAL\u2122! Generate crisis toolkits and resources instantly."
+    }
+  ]
+}

@@ -1,20 +1,38 @@
 {
-  "outline": ["Section 1", "Section 2", "Section 3", "Section 4", "Section 5"],
-  "screenshots": ["page_1_watermarked_AIFOLIO.png"],
-  "testimonials": [
-    {"persona": "Sara T., freelancer", "text": "I never thought this vault would make such a difference. Now I'm making real progress!"}
-  ],
-  "review_stats": {"avg_rating": 4.8, "total_reviews": 18, "featured_review": "Finally a blueprint that works! This paid for itself in 2 days."},
+  "auto_price_testing": true,
+  "benefit_summary": "Unlock proven strategies from top experts and save hours with done-for-you assets.",
   "benefits": [
-    "Learn how to generate $100–$500/mo using AI tools",
+    "Learn how to generate $100\u2013$500/mo using AI tools",
     "Launch a complete PDF funnel in under 48 hours",
     "Automated vault templates ready to deploy"
   ],
-  "benefit_summary": "Unlock proven strategies from top experts and save hours with done-for-you assets.",
-  "value_score": 90,
-  "price": 27,
-  "auto_price_testing": true,
+  "gdpr_opt_out": false,
   "niche": "ai",
-  "payout_config": {"type": "stripe", "webhook": "https://example.com/webhook"},
-  "gdpr_opt_out": false
+  "outline": [
+    "Section 1",
+    "Section 2",
+    "Section 3",
+    "Section 4",
+    "Section 5"
+  ],
+  "payout_config": {
+    "type": "stripe",
+    "webhook": "https://example.com/webhook"
+  },
+  "price": 27,
+  "review_stats": {
+    "avg_rating": 4.8,
+    "featured_review": "Finally a blueprint that works! This paid for itself in 2 days.",
+    "total_reviews": 18
+  },
+  "screenshots": [
+    "page_1_watermarked_AIFOLIO.png"
+  ],
+  "testimonials": [
+    {
+      "persona": "Sara T., freelancer",
+      "text": "I never thought this vault would make such a difference. Now I'm making real progress!"
+    }
+  ],
+  "value_score": 90
 }

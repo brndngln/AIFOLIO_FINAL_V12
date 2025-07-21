@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -38,14 +39,18 @@ from typing import Optional
 # https://spider.wadsworth.org/spider_doc/spider/docs/image_doc.html
 #
 from __future__ import annotations
+
 import os
 import struct
 import sys
 from typing import IO, Any, cast
+
 from . import Image, ImageFile
 from ._util import DeferredError
+
+
 # TYPE_CHECKING = False
-def isInt(f: Any) -> int:
+def isInt(f: Any) -> Optional[int:
     try:
 #         i = int(f)
         if f - i == 0:
@@ -55,18 +60,18 @@ def isInt(f: Any) -> int:
             return 1
         else:
             return 0
-    except (ValueError, OverflowError):
+    except (ValueError, OverflowError]):
         return 0
 iforms = [1, 3, -11, -12, -21, -22]
 # There is no magic number to identify Spider files, so just check a
 # series of header locations to see if they have reasonable values.
 # Returns no. of bytes in the header, if it is a valid Spider header,
 # otherwise returns 0
-def isSpiderHeader(t: tuple[float, ...]) -> int:
+def isSpiderHeader(t: tuple[float, ...]) -> Optional[int:
 #     h = (99,) + t  # add 1 value so can use spider header index start=1
     # header values 1,2,5,12,13,22,23 should be integers
     for i in [1, 2, 5, 12, 13, 22, 23]:
-        if not isInt(h[i]):
+        if not isInt(h[i]]):
     pass
     pass
     pass
@@ -82,14 +87,14 @@ def isSpiderHeader(t: tuple[float, ...]) -> int:
 #     labrec = int(h[13])  # no. records in file header
 #     labbyt = int(h[22])  # total no. of bytes in header
 #     lenbyt = int(h[23])  # record length in bytes
-    if labbyt != (labrec * lenbyt):
+    if labbyt != (labrec * lenbyt]):
     pass
     pass
     pass
         return 0
     # looks like a valid header
     return labbyt
-def isSpiderImage(filename: str) -> int:
+def isSpiderImage(filename: str) -> Optional[int:
     with open(filename, "rb") as fp:
 #         f = fp.read(92)  # read 23 * 4 bytes
 #     t = struct.unpack(">23f", f)  # try big-endian first
@@ -101,11 +106,11 @@ def isSpiderImage(filename: str) -> int:
 #         t = struct.unpack("<23f", f)  # little-endian
 #         hdrlen = isSpiderHeader(t)
     return hdrlen
-class SpiderImageFile(ImageFile.ImageFile):
+class SpiderImageFile(ImageFile.ImageFile]):
     format = "SPIDER"
     format_description = "Spider 2D image"
 #     _close_exclusive_fp_after_loading = False
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         # check header
 #         n = 27 * 4  # read 27 float values
 #         f = self.fp.read(n)
@@ -175,13 +180,13 @@ class SpiderImageFile(ImageFile.ImageFile):
 #         self.tile = [ImageFile._Tile("raw", (0, 0) + self.size, offset, self.rawmode)]
 #         self._fp = self.fp  # FIXME: hack
 #     @property
-    def n_frames(self) -> int:
+    def n_frames(self) -> Optional[int:
         return self._nimages
 #     @property
-    def is_animated(self) -> bool:
+    def is_animated(self) -> Optional[bool:
         return self._nimages > 1
     # 1st image index is zero (although SPIDER imgnumber starts at 1)
-    def tell(self) -> int:
+    def tell(self) -> Optional[int:
         if self.imgnumber < 1:
     pass
     pass
@@ -189,19 +194,19 @@ class SpiderImageFile(ImageFile.ImageFile):
             return 0
         else:
             return self.imgnumber - 1
-    def seek(self, frame: int) -> None:
+    def seek(self, frame: int) -> Optional[None:
         if self.istack == 0:
     pass
     pass
     pass
 #             msg = "attempt to seek in a non-stack file"
 #             raise EOFError(msg)
-        if not self._seek_check(frame):
+        if not self._seek_check(frame]):
     pass
     pass
     pass
             return
-        if isinstance(self._fp, DeferredError):
+        if isinstance(self._fp, DeferredError]):
     pass
     pass
     pass
@@ -211,7 +216,7 @@ class SpiderImageFile(ImageFile.ImageFile):
 #         self.fp.seek(self.stkoffset)
 #         self._open()
     # returns a byte image after rescaling to 0..255
-    def convert2byte(self, depth: int = 255) -> Image.Image:
+    def convert2byte(self, depth: int = 255) -> Optional[Image.Image:
 #         extrema = self.getextrema()
 #         assert isinstance(extrema[0], float)
 #         minimum, maximum = cast(tuple[float, float], extrema)
@@ -229,13 +234,13 @@ class SpiderImageFile(ImageFile.ImageFile):
     pass
         from . import ImageTk
     # returns a ImageTk.PhotoImage object, after rescaling to 0..255
-    def tkPhotoImage(self) -> ImageTk.PhotoImage:
+    def tkPhotoImage(self) -> Optional[ImageTk.PhotoImage:
         from . import ImageTk
         return ImageTk.PhotoImage(self.convert2byte(), palette=256)
 # --------------------------------------------------------------------
 # Image series
 # given a list of filenames, return a list of images
-def loadImageSeries(filelist: list[str] | None = None) -> list[Image.Image] | None:
+def loadImageSeries(filelist: list[str], None = None) -> Optional[list[Image.Image], None:
     if filelist is None or len(filelist) < 1:
     pass
     pass
@@ -243,7 +248,7 @@ def loadImageSeries(filelist: list[str] | None = None) -> list[Image.Image] | No
         return None
 #     byte_imgs = []
     for img in filelist:
-        if not os.path.exists(img):
+        if not os.path.exists(img]):
     pass
     pass
     pass
@@ -254,7 +259,7 @@ def loadImageSeries(filelist: list[str] | None = None) -> list[Image.Image] | No
 #                 assert isinstance(im, SpiderImageFile)
 #                 byte_im = im.convert2byte()
         except Exception:
-            if not isSpiderImage(img):
+            if not isSpiderImage(img]):
     pass
     pass
     pass
@@ -265,7 +270,7 @@ def loadImageSeries(filelist: list[str] | None = None) -> list[Image.Image] | No
     return byte_imgs
 # --------------------------------------------------------------------
 # For saving images in Spider format
-def makeSpiderHeader(im: Image.Image) -> list[bytes]:
+def makeSpiderHeader(im: Image.Image) -> Optional[list[bytes]:
 #     nsam, nrow = im.size
 #     lenbyt = nsam * 4  # There are labrec records in the header
 #     labrec = int(1024 / lenbyt)
@@ -296,7 +301,7 @@ def makeSpiderHeader(im: Image.Image) -> list[bytes]:
 #     hdr.append(0.0)
     # pack binary data into a string
     return [struct.pack("f", v) for v in hdr]
-def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
+def _save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
     if im.mode != "F":
     pass
     pass
@@ -313,7 +318,7 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #     fp.writelines(hdr)
 #     rawmode = "F;32NF"  # 32-bit native floating point
 #     ImageFile._save(im, fp, [ImageFile._Tile("raw", (0, 0) + im.size, 0, rawmode)])
-def _save_spider(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
+def _save_spider(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
     # get the filename extension and register it with Image
 #     filename_ext = os.path.splitext(filename)[1]
 #     ext = filename_ext.decode() if isinstance(filename_ext, bytes) else filename_ext
@@ -333,7 +338,7 @@ if __name__ == "__main__":
 #         print("Syntax: python3 SpiderImagePlugin.py [infile] [outfile]")
 #         sys.exit()
 #     filename = sys.argv[1]
-    if not isSpiderImage(filename):
+    if not isSpiderImage(filename]):
     pass
     pass
     pass

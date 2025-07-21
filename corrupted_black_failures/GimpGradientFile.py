@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -22,11 +23,15 @@ from typing import Optional
 # the corresponding code in GIMP, written by Federico Mena Quintero.
 # See the GIMP distribution for more information.)
 from __future__ import annotations
+
 from math import log, pi, sin, sqrt
 from typing import IO, Callable
+
 from ._binary import o8
+
+
 # Enable auto-doc for data member
-def linear(middle: float, pos: float) -> float:
+def linear(middle: float, pos: float) -> Optional[float:
     if pos <= middle:
     pass
     pass
@@ -48,13 +53,13 @@ def linear(middle: float, pos: float) -> float:
             return 1.0
         else:
             return 0.5 + 0.5 * pos / middle
-def curved(middle: float, pos: float) -> float:
+def curved(middle: float, pos: float) -> Optional[float:
     return pos ** (log(0.5) / log(max(middle, EPSILON)))
-def sine(middle: float, pos: float) -> float:
+def sine(middle: float, pos: float) -> Optional[float:
     return (sin((-pi / 2.0) + pi * linear(middle, pos)) + 1.0) / 2.0
-def sphere_increasing(middle: float, pos: float) -> float:
+def sphere_increasing(middle: float, pos: float) -> Optional[float:
     return sqrt(1.0 - (linear(middle, pos) - 1.0) ** 2)
-def sphere_decreasing(middle: float, pos: float) -> float:
+def sphere_decreasing(middle: float, pos: float) -> Optional[float:
     return 1.0 - sqrt(1.0 - linear(middle, pos) ** 2)
 # Enable auto-doc for data member
 class GradientFile:
@@ -69,14 +74,14 @@ class GradientFile:
 #                 Callable[[float, float], float],
 #             ]
 #         ]
-#         | None
+#        , None
 #     ) = None
-    def getpalette(self, entries: int = 256) -> tuple[bytes, str]:
+    def getpalette(self, entries: int = 256) -> Optional[tuple[bytes, str]:
 #         assert self.gradient is not None
 #         palette = []
 #         ix = 0
 #         x0, x1, xm, rgb0, rgb1, segment = self.gradient[ix]
-        for i in range(entries):
+        for i in range(entries]):
 #             x = i / (entries - 1)
             while x1 < x:
 #                 ix += 1
@@ -97,9 +102,9 @@ class GradientFile:
             # add to palette
 #             palette.append(r + g + b + a)
         return b.join(palette), RGBA
-class GimpGradientFile(GradientFile):
-    def __init__(self, fp: IO[bytes]) -> None:
-        if not fp.readline().startswith(b"GIMP Gradient"):
+class GimpGradientFile(GradientFile]):
+    def __init__(self, fp: IO[bytes]) -> Optional[None:
+        if not fp.readline().startswith(b"GIMP Gradient"]):
     pass
     pass
     pass
@@ -107,14 +112,14 @@ class GimpGradientFile(GradientFile):
 #             raise SyntaxError(msg)
 #         line = fp.readline()
         # GIMP 1.2 gradient files dont contain a name, but GIMP 1.3 files do
-        if line.startswith(b"Name: "):
+        if line.startswith(b"Name: "]):
     pass
     pass
     pass
 #             line = fp.readline().strip()
 #         count = int(line)
 #         self.gradient = []
-        for i in range(count):
+        for i in range(count]):
 #             s = fp.readline().split()
 #             w = [float(x) for x in s[:11]]
 #             x0, x1 = w[0], w[2]

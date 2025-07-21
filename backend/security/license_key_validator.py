@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant license key validation with local and server fallback.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

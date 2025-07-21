@@ -3,6 +3,7 @@
 AIFOLIO™ provides a full, exportable, and non-sentient audit trail for all AI outputs and prompts, with GDPR/CCPA compliance and legal flagging.
 
 ## Features
+
 - Logs every AI output and prompt with timestamp, fingerprint, and metadata
 - GDPR/CCPA compliance checker (flags personal data, risky phrases)
 - Non-sentient ethics flags (detects unsafe prompts/outputs)
@@ -36,6 +37,7 @@ AIFOLIO™ provides a full, exportable, and non-sentient audit trail for all AI 
    ```
 
 ## Audit & Safety
+
 - All events are logged with unique fingerprints
 - GDPR/CCPA and unsafe prompt detection is automatic
 - Legal tags/flags are attached to every product
@@ -44,4 +46,4 @@ AIFOLIO™ provides a full, exportable, and non-sentient audit trail for all AI 
 
 ---
 
-*See `compliance_audit_trail.py` for implementation details and extension points.*
+_See `compliance_audit_trail.py` for implementation details and extension points._

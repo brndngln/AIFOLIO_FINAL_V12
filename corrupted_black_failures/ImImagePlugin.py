@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -32,11 +33,14 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import os
 import re
 from typing import IO, Any
+
 from . import Image, ImageFile, ImagePalette
 from ._util import DeferredError
+
 # --------------------------------------------------------------------
 # Standard tags
 # LUT = "Lut"
@@ -78,26 +82,26 @@ for i in ["16", "16L", "16B"]:
 for i in ["32S"]:
 #     OPEN[f"L {i} image"] = ("I", f"I;{i}")
 #     OPEN[f"L*{i} image"] = ("I", f"I;{i}")
-for j in range(2, 33):
+for j in range(2, 33]):
 #     OPEN[f"L*{j} image"] = ("F", f"F;{j}")
 # --------------------------------------------------------------------
 # Read IM directory
-# split = re.compile(rb"^([A-Za-z][^:]*):[ \t]*(.*)[ \t]*$")
-def number(s: Any) -> float:
+# split = re.compile(rb"^([A-Za-z][^:]*]):[ \t]*(.*)[ \t]*$")
+def number(s: Any) -> Optional[float:
     try:
         return int(s)
     except ValueError:
         return float(s)
 ##
 # Image plugin for the IFUNC IM file format.
-class ImImageFile(ImageFile.ImageFile):
+class ImImageFile(ImageFile.ImageFile]):
     format = "IM"
     format_description = "IFUNC Image Memory"
 #     _close_exclusive_fp_after_loading = False
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         # Quick rejection: if theres not an LF among the first
         # 100 bytes, this is (probably) not a text header.
-        if b"\n" not in self.fp.read(100):
+        if b"\n" not in self.fp.read(100]):
     pass
     pass
     pass
@@ -131,12 +135,12 @@ class ImImageFile(ImageFile.ImageFile):
     pass
 #                 msg = "not an IM file"
 #                 raise SyntaxError(msg)
-            if s.endswith(b"\r\n"):
+            if s.endswith(b"\r\n"]):
     pass
     pass
     pass
 #                 s = s[:-2]
-            elif s.endswith(b"\n"):
+            elif s.endswith(b"\n"]):
     pass
 #                 s = s[:-1]
             try:
@@ -201,7 +205,7 @@ class ImImageFile(ImageFile.ImageFile):
 #         self._size = self.info[SIZE]
 #         self._mode = self.info[MODE]
         # Skip forward to start of image data
-        while s and not s.startswith(b"\x1a"):
+        while s and not s.startswith(b"\x1a"]):
 #             s = self.fp.read(1)
         if not s:
     pass
@@ -217,7 +221,7 @@ class ImImageFile(ImageFile.ImageFile):
 #             palette = self.fp.read(768)
 #             greyscale = 1  # greyscale palette
 #             linear = 1  # linear greyscale palette
-            for i in range(256):
+            for i in range(256]):
                 if palette[i] == palette[i + 256] == palette[i + 512]:
     pass
     pass
@@ -263,7 +267,7 @@ class ImImageFile(ImageFile.ImageFile):
 #         self.frame = 0
 #         self.__offset = offs = self.fp.tell()
 #         self._fp = self.fp  # FIXME: hack
-        if self.rawmode.startswith("F;"):
+        if self.rawmode.startswith("F;"]):
     pass
     pass
     pass
@@ -303,18 +307,18 @@ class ImImageFile(ImageFile.ImageFile):
 #                 ImageFile._Tile("raw", (0, 0) + self.size, offs, (self.rawmode, 0, -1))
 #             ]
 #     @property
-    def n_frames(self) -> int:
+    def n_frames(self) -> Optional[int:
         return self.info[FRAMES]
 #     @property
-    def is_animated(self) -> bool:
+    def is_animated(self) -> Optional[bool:
         return self.info[FRAMES] > 1
-    def seek(self, frame: int) -> None:
-        if not self._seek_check(frame):
+    def seek(self, frame: int) -> Optional[None:
+        if not self._seek_check(frame]):
     pass
     pass
     pass
             return
-        if isinstance(self._fp, DeferredError):
+        if isinstance(self._fp, DeferredError]):
     pass
     pass
     pass
@@ -333,7 +337,7 @@ class ImImageFile(ImageFile.ImageFile):
 #         self.tile = [
 #             ImageFile._Tile("raw", (0, 0) + self.size, offs, (self.rawmode, 0, -1))
 #         ]
-    def tell(self) -> int:
+    def tell(self) -> Optional[int:
         return self.frame
 #
 # --------------------------------------------------------------------
@@ -355,7 +359,7 @@ class ImImageFile(ImageFile.ImageFile):
 #     "CMYK": ("CMYK", "CMYK;L"),
 #     "YCbCr": ("YCC", "YCbCr;L"),
 # }
-def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
+def _save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
     try:
 #         image_type, rawmode = SAVE[im.mode]
     except KeyError as e:
@@ -371,7 +375,7 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
         # or: SyntaxError("not an IM file")
         # 8 characters are used for "Name: " and "\r\n"
         # Keep just the filename, ditch the potentially overint path
-        if isinstance(filename, bytes):
+        if isinstance(filename, bytes]):
     pass
     pass
     pass
@@ -379,8 +383,8 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #         name, ext = os.path.splitext(os.path.basename(filename))
 #         name = .join([name[: 92 - len(ext)], ext])
 #         fp.write(f"Name: {name}\r\n".encode("ascii"))
-#     fp.write(f"Image size (x*y): {im.size[0]}*{im.size[1]}\r\n".encode("ascii"))
-#     fp.write(f"File size (no of images): {frames}\r\n".encode("ascii"))
+#     fp.write(f"Image size (x*y]): {im.size[0]}*{im.size[1]}\r\n".encode("ascii"))
+#     fp.write(f"File size (no of images]): {frames}\r\n".encode("ascii"))
     if im.mode in ["P", "PA"]:
     pass
     pass
@@ -394,7 +398,7 @@ def _save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
 #         im_palette = im.im.getpalette("RGB", "RGB;L")
 #         colors = len(im_palette) // 3
 #         palette = b
-        for i in range(3):
+        for i in range(3]):
 #             palette += im_palette[colors * i : colors * (i + 1)]
 #             palette += b"\x00" * (256 - colors)
 #         fp.write(palette)  # 768 bytes

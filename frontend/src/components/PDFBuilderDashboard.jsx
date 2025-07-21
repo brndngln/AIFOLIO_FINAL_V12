@@ -9,7 +9,7 @@ const PDF_BUILDERS = [
   { key: "revenue-conversion", label: "AI Revenue & Conversion Report" },
   { key: "customer-welcome", label: "Customer Welcome Pack" },
   { key: "niche-ebook", label: "Niche Authority eBook" },
-  { key: "email-funnel-blueprint", label: "Email Funnel Blueprint" }
+  { key: "email-funnel-blueprint", label: "Email Funnel Blueprint" },
 ];
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
   success: false,
   error: null,
   downloadLink: null,
-  activeBuilder: null
+  activeBuilder: null,
 };
 
 // [WINDSURF FIXED ✅]
@@ -34,14 +34,21 @@ export default function PDFBuilderDashboard({ token }) {
     try {
       // TODO: Replace with actual data collection UI per builder
       const payload = { data: formData };
-      const res = await axios.post(
-        `/pdf/${key}`,
-        payload,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      setState({ ...initialState, success: true, downloadLink: res.data, activeBuilder: key });
+      const res = await axios.post(`/pdf/${key}`, payload, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setState({
+        ...initialState,
+        success: true,
+        downloadLink: res.data,
+        activeBuilder: key,
+      });
     } catch (err) {
-      setState({ ...initialState, error: err.response?.data?.detail || err.message, activeBuilder: key });
+      setState({
+        ...initialState,
+        error: err.response?.data?.detail || err.message,
+        activeBuilder: key,
+      });
     }
   };
 
@@ -56,7 +63,9 @@ export default function PDFBuilderDashboard({ token }) {
             disabled={state.loading && state.activeBuilder === builder.key}
             className="pdf-builder-btn"
           >
-            {state.loading && state.activeBuilder === builder.key ? "Generating..." : builder.label}
+            {state.loading && state.activeBuilder === builder.key
+              ? "Generating..."
+              : builder.label}
           </button>
         ))}
       </div>
@@ -73,14 +82,21 @@ export default function PDFBuilderDashboard({ token }) {
       </div>
       {state.success && (
         <div className="pdf-success">
-          <span role="img" aria-label="success">✅</span> PDF generated!
-          <a href={`/${state.downloadLink}`} target="_blank" rel="noopener noreferrer">View Download Link</a>
+          <span role="img" aria-label="success">
+            ✅
+          </span>{" "}
+          PDF generated!
+          <a
+            href={`/${state.downloadLink}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Download Link
+          </a>
           <span className="safe-ai-badge">SAFE AI Verified</span>
         </div>
       )}
-      {state.error && (
-        <div className="pdf-error">{state.error}</div>
-      )}
+      {state.error && <div className="pdf-error">{state.error}</div>}
     </div>
   );
 }

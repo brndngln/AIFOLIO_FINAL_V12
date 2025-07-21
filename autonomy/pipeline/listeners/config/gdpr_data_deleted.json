@@ -1,6 +1,8 @@
 {
-  "retry_count": 2,
-  "fallback_channels": ["email"],
+  "critical": true,
+  "fallback_channels": [
+    "email"
+  ],
   "log_level": "info",
-  "critical": true
+  "retry_count": 2
 }

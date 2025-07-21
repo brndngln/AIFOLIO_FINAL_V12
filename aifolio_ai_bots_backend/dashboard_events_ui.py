@@ -12,8 +12,6 @@
 # AIFOLIO
 # Events tab, real-time feed, manual triggers, schema editor, overlays, and lockdown on sentience signal.
 
-import logging
-
 
 def add_event(event):
     #     logging.info(f"Dashboard event: {event}")
@@ -33,7 +31,5 @@ def lock_dashboard_if_sentience(signal_detected):
     #     global DASHBOARD_LOCKED
     if signal_detected:
         pass
-        pass
-    pass
     #         logging.critical("Dashboard locked due to sentience signal!")
     return DASHBOARD_LOCKED

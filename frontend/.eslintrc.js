@@ -5,23 +5,23 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  parser: '@babel/eslint-parser',
+  parser: "@babel/eslint-parser",
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
     requireConfigFile: false,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
-  plugins: ['react'],
+  extends: ["eslint:recommended", "plugin:react/recommended"],
+  plugins: ["react"],
   rules: {
-    'react/prop-types': 'off',
-    'no-unused-vars': 'warn',
-    'no-console': 'off',
-    'react/react-in-jsx-scope': 'off',
+    "react/prop-types": "off",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "react/react-in-jsx-scope": "off",
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };

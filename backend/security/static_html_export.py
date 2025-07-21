@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant static HTML export for sensitive views (no dynamic JS).
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

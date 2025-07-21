@@ -1,69 +1,105 @@
 {
+  "active": false,
+  "connections": {
+    "Call /generate-vault": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Wait 5 seconds",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Wait 5 seconds": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Telegram Alert",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Call /generate-vault",
+            "type": "main"
+          }
+        ]
+      ]
+    }
+  },
   "name": "AIFOLIO_Vault_Automation",
   "nodes": [
     {
+      "id": "Webhook",
+      "name": "Webhook Trigger",
       "parameters": {
         "httpMethod": "GET",
         "path": "aifolio-trigger"
       },
-      "id": "Webhook",
-      "name": "Webhook Trigger",
+      "position": [
+        250,
+        300
+      ],
       "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [250, 300]
+      "typeVersion": 1
     },
     {
-      "parameters": {
-        "url": "http://localhost:8000/generate-vault",
-        "method": "GET",
-        "responseFormat": "json"
-      },
       "id": "HTTPRequest",
       "name": "Call /generate-vault",
+      "parameters": {
+        "method": "GET",
+        "responseFormat": "json",
+        "url": "http://localhost:8000/generate-vault"
+      },
+      "position": [
+        500,
+        300
+      ],
       "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 1,
-      "position": [500, 300]
+      "typeVersion": 1
     },
     {
+      "id": "Wait",
+      "name": "Wait 5 seconds",
       "parameters": {
         "amount": 5,
         "unit": "seconds"
       },
-      "id": "Wait",
-      "name": "Wait 5 seconds",
+      "position": [
+        750,
+        300
+      ],
       "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [750, 300]
+      "typeVersion": 1
     },
     {
-      "parameters": {
-        "message": "✅ AIFOLIO Vault successfully created!",
-        "chatId": "YOUR_TELEGRAM_CHAT_ID",
-        "additionalFields": {}
-      },
-      "id": "Telegram",
-      "name": "Telegram Alert",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1,
       "credentials": {
         "telegramApi": {
           "id": "replace-with-your-token",
           "name": "My Telegram Bot"
         }
       },
-      "position": [1000, 300]
+      "id": "Telegram",
+      "name": "Telegram Alert",
+      "parameters": {
+        "additionalFields": {},
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "message": "\u2705 AIFOLIO Vault successfully created!"
+      },
+      "position": [
+        1000,
+        300
+      ],
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1
     }
-  ],
-  "connections": {
-    "Webhook Trigger": {
-      "main": [[{ "node": "Call /generate-vault", "type": "main", "index": 0 }]]
-    },
-    "Call /generate-vault": {
-      "main": [[{ "node": "Wait 5 seconds", "type": "main", "index": 0 }]]
-    },
-    "Wait 5 seconds": {
-      "main": [[{ "node": "Telegram Alert", "type": "main", "index": 0 }]]
-    }
-  },
-  "active": false
+  ]
 }

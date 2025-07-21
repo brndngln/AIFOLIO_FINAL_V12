@@ -1,0 +1,268 @@
+# AIFOLIO Elite Docker Compose Configuration
+# Phase 1.11 - Advanced CI/CD Integration
+# Production-ready multi-service deployment
+
+version: '3.8'
+
+services:
+  # Main Application Server
+  aifolio-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: aifolio-elite
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgresql://aifolio:${DB_PASSWORD:-secure_password}@postgres:5432/aifolio
+      - JWT_SECRET=${JWT_SECRET:-your-super-secret-jwt-key}
+      - API_KEY=${API_KEY:-your-api-key}
+    volumes:
+      - app_logs:/var/log/aifolio
+      - app_data:/app/data
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - aifolio-network
+    healthcheck:
+      test: ["CMD", "/app/healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aifolio.rule=Host(`aifolio.local`)"
+      - "traefik.http.services.aifolio.loadbalancer.server.port=80"
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: aifolio-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=aifolio
+      - POSTGRES_USER=aifolio
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-secure_password}
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - aifolio-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aifolio -d aifolio"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command: >
+      postgres
+      -c max_connections=200
+      -c shared_buffers=128MB
+      -c effective_cache_size=512MB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+
+  # Redis Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: aifolio-redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - aifolio-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Nginx Load Balancer (Optional)
+  nginx-lb:
+    image: nginx:alpine
+    container_name: aifolio-nginx-lb
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx-lb.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - aifolio-app
+    networks:
+      - aifolio-network
+    profiles:
+      - load-balancer
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: aifolio-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - aifolio-network
+    profiles:
+      - monitoring
+
+  # Grafana Dashboard
+  grafana:
+    image: grafana/grafana:latest
+    container_name: aifolio-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
+    depends_on:
+      - prometheus
+    networks:
+      - aifolio-network
+    profiles:
+      - monitoring
+
+  # Log Aggregation with ELK Stack
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: aifolio-elasticsearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - aifolio-network
+    profiles:
+      - logging
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    container_name: aifolio-logstash
+    restart: unless-stopped
+    volumes:
+      - ./docker/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+      - app_logs:/var/log/aifolio:ro
+    depends_on:
+      - elasticsearch
+    networks:
+      - aifolio-network
+    profiles:
+      - logging
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: aifolio-kibana
+    restart: unless-stopped
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    networks:
+      - aifolio-network
+    profiles:
+      - logging
+
+  # Backup Service
+  backup:
+    image: postgres:15-alpine
+    container_name: aifolio-backup
+    restart: "no"
+    environment:
+      - PGPASSWORD=${DB_PASSWORD:-secure_password}
+    volumes:
+      - backup_data:/backups
+      - ./docker/backup.sh:/backup.sh:ro
+    command: /backup.sh
+    depends_on:
+      - postgres
+    networks:
+      - aifolio-network
+    profiles:
+      - backup
+
+# Network Configuration
+networks:
+  aifolio-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Volume Configuration
+volumes:
+  postgres_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/postgres
+  redis_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/redis
+  app_logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./logs
+  app_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/app
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  elasticsearch_data:
+    driver: local
+  backup_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./backups

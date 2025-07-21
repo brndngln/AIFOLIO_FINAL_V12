@@ -1,8 +1,9 @@
+import ast
+import configparser
 import os
 import subprocess
-import ast
 from pathlib import Path
-import configparser
+
 import yaml
 
 # Set project root
@@ -65,16 +66,16 @@ def fix_precommit_config():
                 hook["stages"] = ["manual"]
                 updated = True
             if hook.get("id") == "trailing-whitespace":
-                hook[
-                    "exclude"
-                ] = r"black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt"
+                hook["exclude"] = (
+                    r"black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt"
+                )
                 updated = True
             if repo.get("repo") == "https://github.com/pre-commit/pre-commit-hooks":
                 for hook in repo.get("hooks", []):
                     if hook.get("id") == "check-added-large-files":
-                        hook[
-                            "exclude"
-                        ] = r"black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt"
+                        hook["exclude"] = (
+                            r"black_parse_errors\.txt|windsurf_reintegration_log\.txt|quarantine_scan_report\.txt|fix_log\.txt"
+                        )
                         updated = True
     if updated:
         with open(config_path, "w") as f:

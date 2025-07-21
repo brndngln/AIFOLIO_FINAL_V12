@@ -4,12 +4,12 @@ export class BezosEngine {
     // Infinite expansion stub
     biz.expanded = true;
     // DeepSearch market scan stub
-    biz.marketScan = 'DeepSearch complete';
+    biz.marketScan = "DeepSearch complete";
     // Success matrix dashboard stub
     biz.successMatrix = {
-      traffic: Math.floor(Math.random()*100000),
-      LTV: Math.floor(Math.random()*10000),
-      CTR: Math.random().toFixed(2)
+      traffic: Math.floor(Math.random() * 100000),
+      LTV: Math.floor(Math.random() * 10000),
+      CTR: Math.random().toFixed(2),
     };
   }
 }

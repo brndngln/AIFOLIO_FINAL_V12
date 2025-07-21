@@ -1,1 +1,17 @@
-{"id":"rebelremedy","label":"REBELREMEDY™","description":"AI Recipe + Wellness Generator Vault","icon":"🌿","features":["recipes","wellness","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "AI Recipe + Wellness Generator Vault",
+  "features": [
+    "recipes",
+    "wellness",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83c\udf3f",
+  "id": "rebelremedy",
+  "label": "REBELREMEDY\u2122"
+}

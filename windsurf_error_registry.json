@@ -1,8 +1,8 @@
 [
   {
     "error_id": "8d5b0e06dc6a4f2496afb31b159044c1",
-    "status": "RESOLVED",
     "immune": true,
-    "last_occurrence": "auto-sealed"
+    "last_occurrence": "auto-sealed",
+    "status": "RESOLVED"
   }
 ]

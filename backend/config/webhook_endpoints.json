@@ -1,5 +1,5 @@
 {
+  "report_ready": "https://your-n8n-instance.com/webhook/compliance-report",
   "sla_breach": "https://hooks.slack.com/services/XXX/YYY/ZZZ",
-  "violation_detected": "https://discord.com/api/webhooks/AAA/BBB",
-  "report_ready": "https://your-n8n-instance.com/webhook/compliance-report"
+  "violation_detected": "https://discord.com/api/webhooks/AAA/BBB"
 }

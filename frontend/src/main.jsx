@@ -1,15 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import ThemeProvider from '../theme/ThemeProvider.jsx'
-import App from './App'
-import { register as registerServiceWorker } from './registerServiceWorker'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "@/App";
+import ThemeProvider from "@/theme/ThemeProvider";
+import { register as registerServiceWorker } from "@/registerServiceWorker";
 
-registerServiceWorker()
+// Optional: Only register service worker in production
+if (import.meta.env.PROD && registerServiceWorker) {
+  registerServiceWorker();
+}
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </React.StrictMode>
-)
+  </React.StrictMode>,
+);

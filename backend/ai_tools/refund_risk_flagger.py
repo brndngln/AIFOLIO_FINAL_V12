@@ -16,8 +16,8 @@
 # Static, deterministic refund risk flagger. No learning or adaptation.
 
 from __future__ import annotations
-from typing import Dict, Any
-import logging
+
+from typing import Any, Dict
 
 # logger = logging.getLogger(__name__)
 
@@ -32,13 +32,9 @@ def flag_refund_risk(user_id: str, region: str, refund_count: int) -> Dict[str, 
     #     flags = []
     if region in STATIC_HIGH_RISK_REGIONS:
         pass
-        pass
-    pass
     #         flags.append("high_risk_region")
     if user_id in STATIC_REPEAT_REFUND_USERS or refund_count > 2:
         pass
-        pass
-    pass
     #         flags.append("repeat_refunder")
     #     explanation = (
     #         f"Flags assigned: {flags}" if flags else "No refund risk flags assigned."

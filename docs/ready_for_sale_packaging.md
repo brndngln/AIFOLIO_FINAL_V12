@@ -3,6 +3,7 @@
 AIFOLIO™ validates all files, generates a final checklist, and provides PDF visual previews before product release.
 
 ## Features
+
 - Package integrity checker (validates all files)
 - AI-generated final checklist per product
 - PDF visual preview before release
@@ -21,6 +22,7 @@ print(preview)
 ```
 
 ## Audit & Safety
+
 - All files are validated before release
 - Human preview is required for every checklist
 - All checks and previews are logged for audit
@@ -28,4 +30,4 @@ print(preview)
 
 ---
 
-*See `ready_for_sale_packaging.py` for implementation details and extension points.*
+_See `ready_for_sale_packaging.py` for implementation details and extension points._

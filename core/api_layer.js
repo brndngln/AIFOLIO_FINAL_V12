@@ -2,7 +2,7 @@
 export class APILayer {
   getBusiness(id) {
     // Stub: Return business data
-    return { id, status: 'active', data: {} };
+    return { id, status: "active", data: {} };
   }
   listBusinesses() {
     // Stub: Return all businesses

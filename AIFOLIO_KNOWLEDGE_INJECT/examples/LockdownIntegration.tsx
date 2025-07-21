@@ -10,17 +10,17 @@ import {
   SectionTitle,
   InlineNote,
   TooltipHint,
-  
+
   // Lockdown Components
   RenderCage,
   LockdownGate,
   LockdownDebugger,
-  
+
   // System Functions
   initializeLockdownSystem,
   getLockdownStatus,
   performLockdownHealthCheck,
-  
+
   // Schema Types
   createVaultID,
   createVaultTitle,
@@ -61,7 +61,7 @@ export const LockdownIntegrationExample: React.FC = () => {
   }, []);
 
   return (
-    <RenderCage 
+    <RenderCage
       enableDebugger={true}
       strictMode={true}
       className="min-h-screen bg-gray-50 dark:bg-gray-900"
@@ -69,7 +69,7 @@ export const LockdownIntegrationExample: React.FC = () => {
       <LockdownGate
         allowedComponents={[
           'Divider',
-          'Tag', 
+          'Tag',
           'SectionTitle',
           'InlineNote',
           'TooltipHint'
@@ -85,18 +85,18 @@ export const LockdownIntegrationExample: React.FC = () => {
         <div className="container mx-auto px-6 py-8">
           {/* HEADER SECTION */}
           <div className="text-center mb-12">
-            <SectionTitle 
-              level={2} 
-              size="2xl" 
-              weight="bold" 
+            <SectionTitle
+              level={2}
+              size="2xl"
+              weight="bold"
               color="default"
               className="mb-4"
             >
               🛡️ AIFOLIO Lockdown System Demo
             </SectionTitle>
-            
-            <InlineNote 
-              variant="info" 
+
+            <InlineNote
+              variant="info"
               size="md"
               icon={<span>🔒</span>}
               className="mb-6"
@@ -187,25 +187,25 @@ export const LockdownIntegrationExample: React.FC = () => {
                     Tooltip Hints (CSS Only)
                   </SectionTitle>
                   <div className="space-y-3">
-                    <TooltipHint 
-                      hint="This tooltip appears on top" 
-                      position="top" 
+                    <TooltipHint
+                      hint="This tooltip appears on top"
+                      position="top"
                       size="sm"
                     >
                       <Tag variant="primary" size="md">Hover for top tooltip</Tag>
                     </TooltipHint>
-                    
-                    <TooltipHint 
-                      hint="This tooltip appears on the right side" 
-                      position="right" 
+
+                    <TooltipHint
+                      hint="This tooltip appears on the right side"
+                      position="right"
                       size="md"
                     >
                       <Tag variant="secondary" size="md">Hover for right tooltip</Tag>
                     </TooltipHint>
-                    
-                    <TooltipHint 
-                      hint="This is a larger tooltip with more information" 
-                      position="bottom" 
+
+                    <TooltipHint
+                      hint="This is a larger tooltip with more information"
+                      position="bottom"
                       size="lg"
                     >
                       <Tag variant="success" size="md">Hover for large tooltip</Tag>
@@ -243,7 +243,7 @@ export const LockdownIntegrationExample: React.FC = () => {
             <SectionTitle level={3} size="lg" weight="semibold" color="default" className="mb-4">
               Vault Entity Example
             </SectionTitle>
-            
+
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div>
                 <InlineNote variant="muted" size="sm" className="mb-2">Vault ID:</InlineNote>
@@ -273,7 +273,7 @@ export const LockdownIntegrationExample: React.FC = () => {
             <SectionTitle level={3} size="lg" weight="semibold" color="danger" className="mb-4">
               🛡️ Lockdown Status
             </SectionTitle>
-            
+
             <div className="grid md:grid-cols-3 gap-4 mb-4">
               <div className="text-center">
                 <Tag variant="success" size="lg" className="mb-2">ACTIVE</Tag>
@@ -304,7 +304,7 @@ export const LockdownIntegrationExample: React.FC = () => {
         </div>
 
         {/* LOCKDOWN DEBUGGER - DEV ONLY */}
-        <LockdownDebugger 
+        <LockdownDebugger
           enabled={process.env.NODE_ENV === 'development'}
           position="bottom-right"
           minimized={false}

@@ -13,14 +13,11 @@
 # Real-time funnel logs and A/B test logic. SAFE AI: static, deterministic, owner-controlled.
 
 from typing import Dict
-import logging
 
 
 def log_funnel_event(pdf_id: str, event: str, group: str) -> Dict[str, str]:
     if group not in STATIC_AB_GROUPS:
         pass
-        pass
-    pass
     #         group = "A"
     #     entry = {"pdf_id": pdf_id, "event": event, "group": group}
     #     logging.info(f"Gumroad ROI Sync: {entry}")

@@ -16,8 +16,9 @@
 # Failover & Self-Repair: Vault Failsafe Mirror Trigger, Module Repair Daemon.
 
 from __future__ import annotations
-from typing import Dict, Any
+
 import copy
+from typing import Any, Dict
 
 
 class VaultFailsafeMirror:

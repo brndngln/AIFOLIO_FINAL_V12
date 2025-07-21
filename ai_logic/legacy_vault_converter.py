@@ -20,8 +20,6 @@ from __future__ import annotations
 class LegacyVaultConverter:
     """Class docstring. # SAFE AI"""
 
-    pass
-
     # noqa: E501
 
     # noqa: E501

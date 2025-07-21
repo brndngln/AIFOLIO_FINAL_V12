@@ -1,0 +1,185 @@
+# AIFOLIO Elite System - Git Aliases Configuration
+# AI-powered command shortcuts for perfect Git workflow
+#
+# To use these aliases, add to your ~/.gitconfig:
+# [include]
+#     path = /path/to/this/.gitconfig-aliases
+#
+# Or run: git config --global include.path "/path/to/this/.gitconfig-aliases"
+
+[alias]
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 📊 STATUS & INFORMATION
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Beautiful log with graph
+    lg = log --graph --decorate --pretty=format:'%C(auto)%h %C(cyan)%d %C(white)%s %C(dim white)[%an]%C(reset)' --abbrev-commit --all
+
+    # Detailed log with stats
+    ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%C(reset) %s %C(white)- %an, %ar%C(reset)' --numstat
+
+    # One-line log
+    lo = log --oneline --decorate --graph --all
+
+    # Quick status
+    st = status --short --branch
+    scan = status --short --branch
+
+    # Show branches with last commit
+    br = branch -v
+
+    # Show remote branches
+    rbr = branch -r -v
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🚀 COMMIT & STAGING
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Smart commit with Commitizen
+    ship = "!f() { git add . && npm run commit; }; f"
+
+    # Quick save (for WIP)
+    save = commit -am "chore: savepoint - work in progress"
+
+    # Amend last commit
+    amend = commit --amend --no-edit
+
+    # Amend with new message
+    redo = commit --amend
+
+    # Stage all changes
+    aa = add --all
+
+    # Interactive staging
+    ap = add --patch
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🔄 UNDO & RESET
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Soft undo last commit
+    undo = reset --soft HEAD~1
+
+    # Hard reset to last commit
+    wipe = "!f() { echo 'Are you sure? This will permanently delete uncommitted changes.'; read -p 'Type YES to confirm: ' confirm; if [ \"$confirm\" = \"YES\" ]; then git clean -fd && git reset --hard; else echo 'Cancelled.'; fi; }; f"
+
+    # Reset to specific commit
+    goto = "!f() { git reset --hard $1; }; f"
+
+    # Unstage files
+    unstage = reset HEAD --
+
+    # Discard changes in working directory
+    discard = checkout --
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🌐 REMOTE & SYNC
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Smart pull with rebase
+    reload = "!f() { git fetch origin --prune && git pull --rebase; }; f"
+
+    # Push current branch
+    push-current = "!git push -u origin $(git branch --show-current)"
+
+    # Force push with lease (safer)
+    force = push --force-with-lease
+
+    # Sync with upstream
+    sync = "!f() { git fetch upstream && git checkout main && git merge upstream/main && git push origin main; }; f"
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🌿 BRANCH MANAGEMENT
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Create and switch to new branch
+    nb = checkout -b
+
+    # Switch to branch
+    co = checkout
+
+    # Delete merged branches (cleanup)
+    prune = "!f() { git remote prune origin && git branch --merged | egrep -v \"(^\\*|main|master|dev|develop)\" | xargs -r git branch -d; }; f"
+
+    # Show branches by date
+    recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🔍 SEARCH & DIFF
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Search in commit messages
+    find = "!f() { git log --grep=\"$1\" --oneline; }; f"
+
+    # Search in code
+    grep = grep -n --heading --break
+
+    # Show changes
+    changes = diff --name-status
+
+    # Show diff with word highlighting
+    wdiff = diff --word-diff=color
+
+    # Show staged changes
+    staged = diff --cached
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🏷️ TAGS & RELEASES
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # List tags
+    tags = tag -l --sort=-version:refname
+
+    # Create annotated tag
+    tag-release = "!f() { git tag -a $1 -m \"Release $1\"; }; f"
+
+    # Push tags
+    push-tags = push --tags
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🛠️ MAINTENANCE & CLEANUP
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Optimize repository
+    optimize = "!f() { git gc --aggressive --prune=now && git repack -ad; }; f"
+
+    # Show repository size
+    size = "!f() { git count-objects -vH; }; f"
+
+    # Verify repository integrity
+    verify = fsck --full
+
+    # Show contributors
+    contributors = shortlog -sn
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🚨 EMERGENCY & RECOVERY
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Emergency commit (bypasses hooks)
+    emergency = "!f() { git commit --no-verify -m \"emergency: $1\"; }; f"
+
+    # Recover deleted branch
+    recover = "!f() { git checkout -b $1 $(git rev-parse $1); }; f"
+
+    # Show reflog
+    history = reflog --pretty=format:'%C(auto)%h %<|(20)%gd %C(blue)%cr%C(reset) %gs (%s)'
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # 🎯 AIFOLIO SPECIFIC
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    # Quick feature branch
+    feature = "!f() { git checkout -b feature/$1; }; f"
+
+    # Quick hotfix branch
+    hotfix = "!f() { git checkout -b hotfix/$1; }; f"
+
+    # Quick release branch
+    release = "!f() { git checkout -b release/$1; }; f"
+
+    # Deploy to staging
+    deploy-staging = "!f() { git push origin $(git branch --show-current):staging; }; f"
+
+    # Deploy to production
+    deploy-prod = "!f() { echo 'Deploying to production...'; git push origin $(git branch --show-current):production; }; f"

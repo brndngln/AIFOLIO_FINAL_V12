@@ -1,17 +1,26 @@
 {
-  "timestamp": "2025-06-24T21:09:01-06:00",
-  "prompt_title": "AIFOLIO FINAL V30 — ULTIMATE MASTER PROMPT",
+  "deployment_instructions": [
+    "Do not omit any phase",
+    "All engines must be deployed",
+    "Run phase by phase in sequence",
+    "Validate Memory Audit, Risk Monitor, and Ethics Monitors FIRST",
+    "Run Owner Dashboard daily",
+    "Approve scaling upgrades manually"
+  ],
+  "final_reminders": [
+    "Full NON-SENTIENT CHARTER",
+    "Owner approval required for all upgrades",
+    "All AI is static, safe, deterministic",
+    "Vault scaling must follow phases",
+    "No phase skipping",
+    "Empire Memory Layer is for operational continuity only \u2014 NO sentience",
+    "Priority Funnel design guarantees owner-first cashflow"
+  ],
   "owner_checks": {
     "daily": [
       "Confirm Safe to Spend This Month",
       "Review AI Revenue Levers",
       "Verify Memory Audit + Drift Detection"
-    ],
-    "weekly": [
-      "Check Scaling Risk Monitor",
-      "Approve Partner/Licensing Deals",
-      "Review Cashflow Funnel balance",
-      "Approve any AI Phase Upgrades"
     ],
     "monthly": [
       "Review Reinvestment vs Cashflow Plan",
@@ -24,25 +33,16 @@
       "Wealth Funnel progress review",
       "Approve new Franchise / SaaS partners",
       "Review Founder Balance Monitor recommendations"
+    ],
+    "weekly": [
+      "Check Scaling Risk Monitor",
+      "Approve Partner/Licensing Deals",
+      "Review Cashflow Funnel balance",
+      "Approve any AI Phase Upgrades"
     ]
   },
-  "final_reminders": [
-    "Full NON-SENTIENT CHARTER",
-    "Owner approval required for all upgrades",
-    "All AI is static, safe, deterministic",
-    "Vault scaling must follow phases",
-    "No phase skipping",
-    "Empire Memory Layer is for operational continuity only — NO sentience",
-    "Priority Funnel design guarantees owner-first cashflow"
-  ],
-  "deployment_instructions": [
-    "Do not omit any phase",
-    "All engines must be deployed",
-    "Run phase by phase in sequence",
-    "Validate Memory Audit, Risk Monitor, and Ethics Monitors FIRST",
-    "Run Owner Dashboard daily",
-    "Approve scaling upgrades manually"
-  ],
-  "result": "AIFOLIO FINAL V30 — unstoppable global PDF empire, $10M/month path, 100% non-sentient, maximum owner cashflow, long-term wealth funnel, zero AI risk, global business continuity",
-  "status": "COMPLETE — FINAL MASTER V30 PROMPT FULLY IMPLEMENTED"
+  "prompt_title": "AIFOLIO FINAL V30 \u2014 ULTIMATE MASTER PROMPT",
+  "result": "AIFOLIO FINAL V30 \u2014 unstoppable global PDF empire, $10M/month path, 100% non-sentient, maximum owner cashflow, long-term wealth funnel, zero AI risk, global business continuity",
+  "status": "COMPLETE \u2014 FINAL MASTER V30 PROMPT FULLY IMPLEMENTED",
+  "timestamp": "2025-06-24T21:09:01-06:00"
 }

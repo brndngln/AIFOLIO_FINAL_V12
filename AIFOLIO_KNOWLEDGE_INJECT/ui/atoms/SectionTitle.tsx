@@ -90,32 +90,32 @@ SectionTitle.displayName = 'SectionTitle';
 // SCHEMA VALIDATION - RUNTIME GUARD
 if (process.env.NODE_ENV === 'development') {
   const originalSectionTitle = SectionTitle;
-  
+
   // @ts-ignore - Development-only override
   SectionTitle = (props: SectionTitleProps) => {
     // Validate prop schema at runtime
     const allowedProps = ['children', 'level', 'size', 'weight', 'color', 'className'];
     const propKeys = Object.keys(props);
-    
+
     for (const key of propKeys) {
       if (!allowedProps.includes(key)) {
         console.error(`🚨 LOCKDOWN VIOLATION: Unauthorized prop "${key}" in SectionTitle component`);
         throw new Error(`NO-SENTIENCE SHIELD: Prop "${key}" not allowed in static component`);
       }
     }
-    
+
     // Validate level is within allowed range
     if (props.level && (props.level < 2 || props.level > 6)) {
       console.error('🚨 LOCKDOWN VIOLATION: Invalid heading level in SectionTitle');
       throw new Error('NO-SENTIENCE SHIELD: Heading level must be between 2-6');
     }
-    
+
     // Validate children is not a function (could contain logic)
     if (typeof props.children === 'function') {
       console.error('🚨 LOCKDOWN VIOLATION: Function children not allowed in static SectionTitle');
       throw new Error('NO-SENTIENCE SHIELD: Function children could contain logic');
     }
-    
+
     return originalSectionTitle(props);
   };
 }

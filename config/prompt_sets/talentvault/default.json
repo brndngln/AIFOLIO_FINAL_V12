@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to TALENTVAULT™! Discover hobbies and skills at an elite level."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to TALENTVAULT\u2122! Discover hobbies and skills at an elite level."
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 AIFOLIO™ tracks sales, refunds, and quality by niche, with profitability prediction and audit logging.
 
 ## Features
+
 - Tracks PDF sales and refunds by niche
 - AI content scoring — quality rating per niche
 - Niche profitability predictor (trend-based)
@@ -21,10 +22,11 @@ print(prediction)
 ```
 
 ## Audit & Safety
+
 - All sales and refunds are logged by niche
 - Profitability is predicted based on real data
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `niche_performance_tracker.py` for implementation details and extension points.*
+_See `niche_performance_tracker.py` for implementation details and extension points._

@@ -1,1 +1,17 @@
-{"id":"contractiq","label":"CONTRACTIQ™","description":"Freelance & Business Contract Generator Vault","icon":"📄","features":["contracts","freelance","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Freelance & Business Contract Generator Vault",
+  "features": [
+    "contracts",
+    "freelance",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udcc4",
+  "id": "contractiq",
+  "label": "CONTRACTIQ\u2122"
+}

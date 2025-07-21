@@ -65,7 +65,7 @@ export const LockdownDebugger: React.FC<LockdownDebuggerProps> = ({
       const renderEndTime = performance.now();
       const renderTime = renderEndTime - renderStartTime;
       renderTimes.push(renderTime);
-      
+
       // Keep only last 100 render times
       if (renderTimes.length > 100) {
         renderTimes = renderTimes.slice(-100);
@@ -91,7 +91,7 @@ export const LockdownDebugger: React.FC<LockdownDebuggerProps> = ({
         const storedViolations = JSON.parse(
           localStorage.getItem('aifolio_lockdown_violations') || '[]'
         );
-        
+
         const formattedViolations: ViolationHistory[] = storedViolations.map((v: any) => ({
           id: v.id,
           timestamp: v.timestamp,
@@ -112,7 +112,7 @@ export const LockdownDebugger: React.FC<LockdownDebuggerProps> = ({
 
     // Check lockdown status
     const checkLockdownStatus = () => {
-      const lockdownActive = typeof window !== 'undefined' && 
+      const lockdownActive = typeof window !== 'undefined' &&
         window.__AIFOLIO_NO_SENTIENCE__ === 'ENFORCED';
       setIsLockdownActive(lockdownActive);
     };
@@ -179,7 +179,7 @@ export const LockdownDebugger: React.FC<LockdownDebuggerProps> = ({
 
   // DEBUGGER RENDER
   return (
-    <div 
+    <div
       className={debuggerClasses}
       data-lockdown-component="LockdownDebugger"
       data-no-sentience="enforced"
@@ -269,7 +269,7 @@ export const LockdownDebugger: React.FC<LockdownDebuggerProps> = ({
                   </button>
                 )}
               </div>
-              
+
               {violations.length === 0 ? (
                 <div className="text-green-400 text-xs">✅ No violations detected</div>
               ) : (

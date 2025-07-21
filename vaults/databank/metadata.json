@@ -1,1 +1,17 @@
-{"id":"databank","label":"DATABANK™","description":"Dataset & Spreadsheet Generator Vault","icon":"📊","features":["datasets","spreadsheets","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Dataset & Spreadsheet Generator Vault",
+  "features": [
+    "datasets",
+    "spreadsheets",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udcca",
+  "id": "databank",
+  "label": "DATABANK\u2122"
+}

@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to PETPLAN™! Create animal care and adoption PDFs instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to PETPLAN\u2122! Create animal care and adoption PDFs instantly."
+    }
+  ]
+}

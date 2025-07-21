@@ -8,8 +8,9 @@
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI
 # design standards.
-from fastapi import APIRouter, Query
-from backend.compliance.report_exporter import export_json, export_csv, export_pdf
+from fastapi import Query
+
+from backend.compliance.report_exporter import export_csv, export_json, export_pdf
 
 # router = APIRouter()
 

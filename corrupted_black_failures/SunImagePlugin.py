@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -23,8 +24,11 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 from . import Image, ImageFile, ImagePalette
 from ._binary import i32be as i32
+
+
 def _accept(prefix: bytes) -> bool:
     return len(prefix) >= 4 and i32(prefix) == 0x59A66A95
 ##

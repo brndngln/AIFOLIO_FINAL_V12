@@ -29,7 +29,7 @@ def generate_heatmap(reviewer_events):
     # OMNIPROOF: Monetization signal detection
     # detect_signals({"reviewer_data": reviewer_events})
 
-    from collections import Counter
+    pass
 
     #     streaks = Counter(e["reviewer"] for e in reviewer_events if e["event"] == "streak")
     #     accuracy = Counter(

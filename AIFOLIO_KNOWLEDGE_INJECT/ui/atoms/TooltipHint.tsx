@@ -66,14 +66,14 @@ export const TooltipHint: React.FC<TooltipHintProps> = ({
   // STATIC RENDER - NO LOGIC, NO STATE, NO SENTIENCE
   // CSS-ONLY HOVER - NO EVENT LISTENERS
   return (
-    <div 
+    <div
       className={wrapperClasses}
       data-lockdown-component="TooltipHint"
       data-no-sentience="enforced"
       data-position={position}
     >
       {children}
-      
+
       {/* CSS-ONLY TOOLTIP - NO JAVASCRIPT */}
       <div className={tooltipClasses}>
         <div className="relative">
@@ -91,32 +91,32 @@ TooltipHint.displayName = 'TooltipHint';
 // SCHEMA VALIDATION - RUNTIME GUARD
 if (process.env.NODE_ENV === 'development') {
   const originalTooltipHint = TooltipHint;
-  
+
   // @ts-ignore - Development-only override
   TooltipHint = (props: TooltipHintProps) => {
     // Validate prop schema at runtime
     const allowedProps = ['children', 'hint', 'position', 'size', 'className'];
     const propKeys = Object.keys(props);
-    
+
     for (const key of propKeys) {
       if (!allowedProps.includes(key)) {
         console.error(`🚨 LOCKDOWN VIOLATION: Unauthorized prop "${key}" in TooltipHint component`);
         throw new Error(`NO-SENTIENCE SHIELD: Prop "${key}" not allowed in static component`);
       }
     }
-    
+
     // Validate children is not a function (could contain logic)
     if (typeof props.children === 'function') {
       console.error('🚨 LOCKDOWN VIOLATION: Function children not allowed in static TooltipHint');
       throw new Error('NO-SENTIENCE SHIELD: Function children could contain logic');
     }
-    
+
     // Validate hint is a string (no dynamic content)
     if (typeof props.hint !== 'string') {
       console.error('🚨 LOCKDOWN VIOLATION: Hint must be static string in TooltipHint');
       throw new Error('NO-SENTIENCE SHIELD: Hint must be static string, no dynamic content');
     }
-    
+
     return originalTooltipHint(props);
   };
 }

@@ -11,8 +11,7 @@
 
 # Static, deterministic, SAFE AI-compliant MRR stacking and offer test matrix.
 
-from typing import Dict, Any
-import logging
+from typing import Any, Dict
 
 # logger = logging.getLogger(__name__)
 

@@ -15,7 +15,6 @@
 
 def test_optimize_applies_static_strategies() -> None:
     """Function docstring. # SAFE AI"""
-    pass
 
 
 #     Test static strategy application.

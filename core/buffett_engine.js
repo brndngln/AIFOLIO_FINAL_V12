@@ -6,6 +6,6 @@ export class BuffettEngine {
     // AI performance memory stub
     biz.performanceMemory = [];
     // Risk firewall stub
-    biz.riskFirewall = 'active';
+    biz.riskFirewall = "active";
   }
 }

@@ -58,7 +58,7 @@ export const InlineNote: React.FC<InlineNoteProps> = ({
 
   // STATIC RENDER - NO LOGIC, NO STATE, NO SENTIENCE
   return (
-    <span 
+    <span
       className={noteClasses}
       data-lockdown-component="InlineNote"
       data-no-sentience="enforced"
@@ -71,7 +71,7 @@ export const InlineNote: React.FC<InlineNoteProps> = ({
           {icon}
         </span>
       )}
-      
+
       <span className="min-w-0">
         {children}
       </span>
@@ -85,26 +85,26 @@ InlineNote.displayName = 'InlineNote';
 // SCHEMA VALIDATION - RUNTIME GUARD
 if (process.env.NODE_ENV === 'development') {
   const originalInlineNote = InlineNote;
-  
+
   // @ts-ignore - Development-only override
   InlineNote = (props: InlineNoteProps) => {
     // Validate prop schema at runtime
     const allowedProps = ['children', 'variant', 'size', 'icon', 'className'];
     const propKeys = Object.keys(props);
-    
+
     for (const key of propKeys) {
       if (!allowedProps.includes(key)) {
         console.error(`🚨 LOCKDOWN VIOLATION: Unauthorized prop "${key}" in InlineNote component`);
         throw new Error(`NO-SENTIENCE SHIELD: Prop "${key}" not allowed in static component`);
       }
     }
-    
+
     // Validate children is not a function (could contain logic)
     if (typeof props.children === 'function') {
       console.error('🚨 LOCKDOWN VIOLATION: Function children not allowed in static InlineNote');
       throw new Error('NO-SENTIENCE SHIELD: Function children could contain logic');
     }
-    
+
     return originalInlineNote(props);
   };
 }

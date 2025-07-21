@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to LORELOOM™! Create elite children's books and myths."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to LORELOOM\u2122! Create elite children's books and myths."
+    }
+  ]
+}

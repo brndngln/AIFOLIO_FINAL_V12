@@ -20,7 +20,6 @@
 
 def test_init_placeholder() -> None:
     """Function docstring. # SAFE AI"""
-    pass
 
 
 #     Test static placeholder init.

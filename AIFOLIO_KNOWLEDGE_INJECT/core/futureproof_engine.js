@@ -2,7 +2,7 @@
 export class FutureproofEngine {
   adaptForFuture(vault) {
     // Stub: Add futureproof tags
-    vault.futureproof = ['AR', 'Voice', 'Wearables'];
+    vault.futureproof = ["AR", "Voice", "Wearables"];
     return vault;
   }
 }

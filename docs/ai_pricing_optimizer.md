@@ -3,6 +3,7 @@
 AIFOLIO™ suggests dynamic price ranges for each product based on niche, competitor prices, refund risk, and sales history, with full audit logging and business-only logic.
 
 ## Features
+
 - Dynamic price suggestion per product
 - Considers niche, competitor prices, refund risk, and sales history
 - Logs all suggestions in `/analytics/ai_pricing_optimizer_log.jsonl`
@@ -17,10 +18,11 @@ print(price)
 ```
 
 ## Audit & Safety
+
 - All price suggestions are logged for audit
 - No sentient, learning, or autonomous logic is present
 - All logic is deterministic and business-aligned
 
 ---
 
-*See `ai_pricing_optimizer.py` for implementation details and extension points.*
+_See `ai_pricing_optimizer.py` for implementation details and extension points._

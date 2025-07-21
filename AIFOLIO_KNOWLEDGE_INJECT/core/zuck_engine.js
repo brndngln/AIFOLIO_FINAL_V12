@@ -6,6 +6,6 @@ export class ZuckEngine {
     // Auto-post stub
     biz.autoPost = true;
     // Behavior mapping stub
-    biz.behaviorMap = ['share', 'like', 'unlock'];
+    biz.behaviorMap = ["share", "like", "unlock"];
   }
 }

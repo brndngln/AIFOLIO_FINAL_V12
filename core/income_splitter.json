@@ -1,13 +1,25 @@
 {
   "default": {
-    "reinvestment": 0.4,
-    "liquidity": 0.3,
+    "emergency": 0.05,
     "goals": 0.2,
-    "rnd": 0.05,
-    "emergency": 0.05
+    "liquidity": 0.3,
+    "reinvestment": 0.4,
+    "rnd": 0.05
   },
   "tiers": {
-    "low": {"reinvestment": 0.2, "liquidity": 0.5, "goals": 0.2, "rnd": 0.05, "emergency": 0.05},
-    "high": {"reinvestment": 0.5, "liquidity": 0.2, "goals": 0.2, "rnd": 0.05, "emergency": 0.05}
+    "high": {
+      "emergency": 0.05,
+      "goals": 0.2,
+      "liquidity": 0.2,
+      "reinvestment": 0.5,
+      "rnd": 0.05
+    },
+    "low": {
+      "emergency": 0.05,
+      "goals": 0.2,
+      "liquidity": 0.5,
+      "reinvestment": 0.2,
+      "rnd": 0.05
+    }
   }
 }

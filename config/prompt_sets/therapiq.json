@@ -1,16 +1,16 @@
 [
   {
-    "id": "cbt_framework",
-    "title": "CBT Therapy Framework Generator",
     "description": "Build a cognitive-behavioral therapy framework for any goal.",
+    "id": "cbt_framework",
     "prompt": "You are a CBT therapist. Generate a therapy plan for: {user_goal}. Include journaling prompts and emotional mapping.",
-    "style": "calm, clinical"
+    "style": "calm, clinical",
+    "title": "CBT Therapy Framework Generator"
   },
   {
-    "id": "shadow_work_kit",
-    "title": "Shadow Work Kit",
     "description": "Guide for deep self-reflection and emotional healing.",
+    "id": "shadow_work_kit",
     "prompt": "You are a shadow work facilitator. Create a session for: {user_focus}. Include exercises and journaling prompts.",
-    "style": "spiritual, soothing"
+    "style": "spiritual, soothing",
+    "title": "Shadow Work Kit"
   }
 ]

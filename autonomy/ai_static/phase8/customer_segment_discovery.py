@@ -15,8 +15,7 @@
 # - Logs all discoveries for admin review. No dynamic or adaptive behavior.
 
 from __future__ import annotations
-import logging
-from datetime import datetime
+
 from typing import List
 
 # LOG_PATH = "../../distribution/legal_exports/customer_segment_log.txt"

@@ -6,7 +6,7 @@ export class EthicsFirewall {
       sentient: false,
       compliant: true,
       legal: true,
-      ethical: true
+      ethical: true,
     };
   }
 }

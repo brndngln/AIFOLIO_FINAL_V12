@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -60,6 +61,8 @@ from typing import Optional
 # you, if needed.
 ##
 import re
+
+
 # xpath_tokenizer_re = re.compile(
 #     "("
 #     [^]*|[^]*|

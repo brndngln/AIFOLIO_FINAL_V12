@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 """Module docstring. # SAFE AI"""
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE

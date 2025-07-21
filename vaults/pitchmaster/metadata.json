@@ -1,1 +1,17 @@
-{"id":"pitchmaster","label":"PITCHMASTER™","description":"Startup Pitch Deck Generator Vault","icon":"📈","features":["pitch_decks","startup","pdf_export","ai_logic"],"compliance":["SAFE_AI","owner_control","audit_trail"]}
+{
+  "compliance": [
+    "SAFE_AI",
+    "owner_control",
+    "audit_trail"
+  ],
+  "description": "Startup Pitch Deck Generator Vault",
+  "features": [
+    "pitch_decks",
+    "startup",
+    "pdf_export",
+    "ai_logic"
+  ],
+  "icon": "\ud83d\udcc8",
+  "id": "pitchmaster",
+  "label": "PITCHMASTER\u2122"
+}

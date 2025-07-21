@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -8,10 +9,12 @@ from typing import Optional
 #!/usr/bin/env python3
 # SAFE AI Docstring Compliance Check Script
 """Scans Python files for OMNIELITE SAFE AI docstring compliance."""
-import sys
 import ast
 import os
+import sys
 from typing import List
+
+
 # SAFE_AI_MARKER = "# SAFE AI"
 def check_file(filename: str) -> List[str]:
 #     errors = []

@@ -1,6 +1,10 @@
 // OMNIELITE AI Prompt Engine
 // Shared, SAFE AI-compliant logic for all vaults
-import { loadPromptSet, applySafetyFilters, sessionMemory } from './prompt_executor.js';
+import {
+  loadPromptSet,
+  applySafetyFilters,
+  sessionMemory,
+} from "./prompt_executor.js";
 
 export default class AIFolioPromptEngine {
   constructor(vaultId) {
@@ -9,9 +13,12 @@ export default class AIFolioPromptEngine {
     this.memory = sessionMemory();
   }
   async generatePrompt(promptId, userInput) {
-    const promptTemplate = this.promptSet.find(p => p.id === promptId);
-    if (!promptTemplate) throw new Error('Prompt not found');
-    let prompt = promptTemplate.prompt.replace(/\{([^}]+)\}/g, (_, k) => userInput[k] || '');
+    const promptTemplate = this.promptSet.find((p) => p.id === promptId);
+    if (!promptTemplate) throw new Error("Prompt not found");
+    let prompt = promptTemplate.prompt.replace(
+      /\{([^}]+)\}/g,
+      (_, k) => userInput[k] || "",
+    );
     prompt = applySafetyFilters(prompt, this.vaultId);
     return { prompt, style: promptTemplate.style, title: promptTemplate.title };
   }

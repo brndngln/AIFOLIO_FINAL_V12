@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to LAUNCHLOOM™! Launch elite products and plans instantly."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to LAUNCHLOOM\u2122! Launch elite products and plans instantly."
+    }
+  ]
+}

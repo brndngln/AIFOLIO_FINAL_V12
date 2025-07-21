@@ -1,82 +1,127 @@
 [
   {
-    "id": "r_hannah",
-    "name": "Hannah Lee",
-    "type": "human",
-    "expertise": ["FDA", "GDPR"],
     "accuracy": 0.98,
     "assigned": 0,
-    "badges": ["policy_defender"],
-    "email": "hannah.lee@aifolio.com"
+    "badges": [
+      "policy_defender"
+    ],
+    "email": "hannah.lee@aifolio.com",
+    "expertise": [
+      "FDA",
+      "GDPR"
+    ],
+    "id": "r_hannah",
+    "name": "Hannah Lee",
+    "type": "human"
   },
   {
-    "id": "r_omar",
-    "name": "Omar Syed",
-    "type": "human",
-    "expertise": ["Copyright", "Amazon", "FTC"],
     "accuracy": 0.96,
     "assigned": 0,
-    "badges": ["sla_champion"],
-    "email": "omar.syed@aifolio.com"
+    "badges": [
+      "sla_champion"
+    ],
+    "email": "omar.syed@aifolio.com",
+    "expertise": [
+      "Copyright",
+      "Amazon",
+      "FTC"
+    ],
+    "id": "r_omar",
+    "name": "Omar Syed",
+    "type": "human"
   },
   {
-    "id": "r_ai_01",
-    "name": "AIFOLIO AI Reviewer",
-    "type": "ai",
-    "expertise": ["Gumroad", "Etsy", "HIPAA"],
     "accuracy": 0.92,
     "assigned": 0,
     "badges": [],
-    "email": "ai-reviewer@aifolio.com"
+    "email": "ai-reviewer@aifolio.com",
+    "expertise": [
+      "Gumroad",
+      "Etsy",
+      "HIPAA"
+    ],
+    "id": "r_ai_01",
+    "name": "AIFOLIO AI Reviewer",
+    "type": "ai"
   },
   {
-    "id": "r_jordan",
-    "name": "Jordan Kim",
-    "type": "human",
-    "expertise": ["GDPR", "HIPAA", "Etsy"],
     "accuracy": 0.94,
     "assigned": 0,
-    "badges": ["reviewer_ace"],
-    "email": "jordan.kim@aifolio.com"
+    "badges": [
+      "reviewer_ace"
+    ],
+    "email": "jordan.kim@aifolio.com",
+    "expertise": [
+      "GDPR",
+      "HIPAA",
+      "Etsy"
+    ],
+    "id": "r_jordan",
+    "name": "Jordan Kim",
+    "type": "human"
   },
   {
-    "id": "r_sophia",
-    "name": "Sophia Martinez",
-    "type": "human",
-    "expertise": ["GDPR", "Copyright", "Gumroad"],
     "accuracy": 0.99,
     "assigned": 0,
-    "badges": ["sla_champion", "reviewer_ace"],
-    "email": "sophia.martinez@aifolio.com"
+    "badges": [
+      "sla_champion",
+      "reviewer_ace"
+    ],
+    "email": "sophia.martinez@aifolio.com",
+    "expertise": [
+      "GDPR",
+      "Copyright",
+      "Gumroad"
+    ],
+    "id": "r_sophia",
+    "name": "Sophia Martinez",
+    "type": "human"
   },
   {
-    "id": "r_aarav",
-    "name": "Aarav Patel",
-    "type": "human",
-    "expertise": ["FTC", "Amazon", "Etsy"],
     "accuracy": 0.97,
     "assigned": 0,
-    "badges": ["policy_defender"],
-    "email": "aarav.patel@aifolio.com"
+    "badges": [
+      "policy_defender"
+    ],
+    "email": "aarav.patel@aifolio.com",
+    "expertise": [
+      "FTC",
+      "Amazon",
+      "Etsy"
+    ],
+    "id": "r_aarav",
+    "name": "Aarav Patel",
+    "type": "human"
   },
   {
-    "id": "r_ai_02",
-    "name": "AIFOLIO AI Reviewer Pro",
-    "type": "ai",
-    "expertise": ["Amazon", "GDPR", "HIPAA", "KDP"],
     "accuracy": 0.93,
     "assigned": 0,
     "badges": [],
-    "email": "ai-pro@aifolio.com"
+    "email": "ai-pro@aifolio.com",
+    "expertise": [
+      "Amazon",
+      "GDPR",
+      "HIPAA",
+      "KDP"
+    ],
+    "id": "r_ai_02",
+    "name": "AIFOLIO AI Reviewer Pro",
+    "type": "ai"
   },
   {
-    "id": "r_linda",
-    "name": "Linda Zhao",
-    "type": "human",
-    "expertise": ["HIPAA", "FDA", "GDPR"],
     "accuracy": 0.95,
     "assigned": 0,
-    "badges": ["sla_champion"],
-    "email": "linda.zhao@aifolio.com"
+    "badges": [
+      "sla_champion"
+    ],
+    "email": "linda.zhao@aifolio.com",
+    "expertise": [
+      "HIPAA",
+      "FDA",
+      "GDPR"
+    ],
+    "id": "r_linda",
+    "name": "Linda Zhao",
+    "type": "human"
   }
 ]

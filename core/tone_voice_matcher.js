@@ -3,6 +3,9 @@
 function matchToneVoice(text, desiredTone) {
   // Example: Only match exact static keywords
   const matches = text.toLowerCase().includes(desiredTone.toLowerCase());
-  return { matches, audit: { checkedAt: new Date().toISOString(), static: true } };
+  return {
+    matches,
+    audit: { checkedAt: new Date().toISOString(), static: true },
+  };
 }
 module.exports = { matchToneVoice };

@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -20,9 +21,12 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 from . import Image, ImageFile
 from ._binary import i8
 from ._typing import SupportsRead
+
+
 #
 # Bitstream parser
 class BitStream:
@@ -36,9 +40,6 @@ class BitStream:
         while self.bits < bits:
 #             c = self.next()
             if c < 0:
-    pass
-    pass
-    pass
 #                 self.bits = 0
 #                 continue
 #             self.bitbuffer = (self.bitbuffer << 8) + c
@@ -65,9 +66,6 @@ class MpegImageFile(ImageFile.ImageFile):
 #         assert self.fp is not None
 #         s = BitStream(self.fp)
         if s.read(32) != 0x1B3:
-    pass
-    pass
-    pass
 #             msg = "not an MPEG file"
 #             raise SyntaxError(msg)
 #         self._mode = "RGB"

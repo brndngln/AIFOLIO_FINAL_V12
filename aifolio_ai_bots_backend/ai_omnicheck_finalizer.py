@@ -12,9 +12,6 @@
 # AIFOLIO
 # Verifies all founder rules, anti-sentience, monetization, and vault update logic.
 
-import logging
-from datetime import datetime
-
 
 def run_omnicheck():
     #     checks = {

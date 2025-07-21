@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to REBELREMEDY™! Generate elite recipes and wellness plans."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to REBELREMEDY\u2122! Generate elite recipes and wellness plans."
+    }
+  ]
+}

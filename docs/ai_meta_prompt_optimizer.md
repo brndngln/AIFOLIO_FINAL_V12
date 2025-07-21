@@ -3,6 +3,7 @@
 AIFOLIO™ logs and suggests meta-prompt improvements for higher conversions, lower refunds, and better readability, always requiring human review.
 
 ## Features
+
 - Continuously logs and suggests meta-prompt improvements
 - Considers conversion rate, refund rate, readability
 - Changes only go live after human review
@@ -18,10 +19,11 @@ print(suggestion)
 ```
 
 ## Audit & Safety
+
 - All suggestions require human review before going live
 - All logs are exportable for audit
 - No sentient, learning, or autonomous logic is present
 
 ---
 
-*See `ai_meta_prompt_optimizer.py` for implementation details and extension points.*
+_See `ai_meta_prompt_optimizer.py` for implementation details and extension points._

@@ -17,8 +17,6 @@
 # SAFE AI, owner-controlled, fully auditable.
 
 from __future__ import annotations
-from fastapi import APIRouter
-import os
 
 # router = APIRouter()
 

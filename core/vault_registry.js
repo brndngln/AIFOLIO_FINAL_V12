@@ -2,11 +2,11 @@
 // This registry dynamically discovers, registers, and exposes all vaults for elite business workflows
 // All logic is static, deterministic, owner-controlled, and fully auditable
 
-const fs = require('fs');
-const path = require('path');
-const licenseManager = require('./license_manager');
+const fs = require("fs");
+const path = require("path");
+const licenseManager = require("./license_manager");
 
-const VAULTS_DIR = path.resolve(__dirname, '../vaults');
+const VAULTS_DIR = path.resolve(__dirname, "../vaults");
 
 /**
  * Discover all vaults in the vaults directory and register their metadata.
@@ -14,17 +14,19 @@ const VAULTS_DIR = path.resolve(__dirname, '../vaults');
  */
 function discoverVaults() {
   const vaults = [];
-  fs.readdirSync(VAULTS_DIR, { withFileTypes: true }).forEach(dirent => {
+  fs.readdirSync(VAULTS_DIR, { withFileTypes: true }).forEach((dirent) => {
     if (dirent.isDirectory()) {
       const vaultPath = path.join(VAULTS_DIR, dirent.name);
-      const metaFile = path.join(vaultPath, 'metadata.json');
+      const metaFile = path.join(vaultPath, "metadata.json");
       if (fs.existsSync(metaFile)) {
-        const metadata = JSON.parse(fs.readFileSync(metaFile, 'utf-8'));
+        const metadata = JSON.parse(fs.readFileSync(metaFile, "utf-8"));
         vaults.push({
           ...metadata,
           id: dirent.name,
           path: vaultPath,
-          hasBundleGenerator: fs.existsSync(path.join(vaultPath, 'bundle_generator.js')),
+          hasBundleGenerator: fs.existsSync(
+            path.join(vaultPath, "bundle_generator.js"),
+          ),
           hasLicense: metadata.licenseEnabled === true,
         });
       }
@@ -44,7 +46,7 @@ function getAllVaults() {
  * Get a specific vault by ID
  */
 function getVaultById(vaultId) {
-  return getAllVaults().find(v => v.id === vaultId);
+  return getAllVaults().find((v) => v.id === vaultId);
 }
 
 /**
@@ -55,7 +57,7 @@ function generateVaultLicenseKey(vaultId, userId) {
   if (vault && vault.hasLicense) {
     return licenseManager.generateLicenseKey(userId, vaultId);
   }
-  throw new Error('Vault does not support licensing or not found.');
+  throw new Error("Vault does not support licensing or not found.");
 }
 
 /**

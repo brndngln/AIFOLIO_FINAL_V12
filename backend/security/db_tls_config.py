@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant config for at-rest and in-transit encryption.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

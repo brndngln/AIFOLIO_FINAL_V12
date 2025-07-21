@@ -1,6 +1,6 @@
-import react from 'eslint-plugin-react';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
+import react from "eslint-plugin-react";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
@@ -27,17 +27,17 @@ export default [
   {
     plugins: {
       react,
-      '@typescript-eslint': tsPlugin,
+      "@typescript-eslint": tsPlugin,
     },
     languageOptions: {
       parser: tsParser,
     },
     settings: {
-      react: { version: 'detect' },
+      react: { version: "detect" },
     },
     rules: {
-      'react/prop-types': 'off',
-      'react/react-in-jsx-scope': 'off',
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
     },
   },
 ];

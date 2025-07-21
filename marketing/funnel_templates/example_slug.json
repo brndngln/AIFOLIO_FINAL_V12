@@ -1,20 +1,24 @@
 {
-  "landing": {
-    "headline": "Unlock Elite Results Instantly!",
-    "subheadline": "Trusted by 1,000+ entrepreneurs.",
-    "cta": "Get Started Now"
+  "email": {
+    "body": "Here's how to get the most value from your new purchase.",
+    "subject": "Welcome to Elite Vaults!"
   },
-  "upsell": {
-    "headline": "Upgrade for More Profit!",
-    "features": ["Bonus templates", "VIP support", "Lifetime updates"],
-    "cta": "Upgrade Now"
+  "landing": {
+    "cta": "Get Started Now",
+    "headline": "Unlock Elite Results Instantly!",
+    "subheadline": "Trusted by 1,000+ entrepreneurs."
   },
   "thank_you": {
-    "message": "Thank you for your purchase! Check your inbox for access.",
-    "cta": "Explore More Products"
+    "cta": "Explore More Products",
+    "message": "Thank you for your purchase! Check your inbox for access."
   },
-  "email": {
-    "subject": "Welcome to Elite Vaults!",
-    "body": "Here's how to get the most value from your new purchase."
+  "upsell": {
+    "cta": "Upgrade Now",
+    "features": [
+      "Bonus templates",
+      "VIP support",
+      "Lifetime updates"
+    ],
+    "headline": "Upgrade for More Profit!"
   }
 }

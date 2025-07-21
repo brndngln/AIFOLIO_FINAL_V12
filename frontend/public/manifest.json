@@ -1,21 +1,21 @@
 {
-  "name": "AIFOLIO",
-  "short_name": "AIFOLIO",
-  "description": "AIFOLIO — Lean, deterministic, OWNER-controlled SAFE AI. Installable dashboard app.",
-  "start_url": ".",
-  "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0ea5e9",
+  "description": "AIFOLIO \u2014 Lean, deterministic, OWNER-controlled SAFE AI. Installable dashboard app.",
+  "display": "standalone",
   "icons": [
     {
-      "src": "icon-192.png",
       "sizes": "192x192",
+      "src": "icon-192.png",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
       "sizes": "512x512",
+      "src": "icon-512.png",
       "type": "image/png"
     }
-  ]
+  ],
+  "name": "AIFOLIO",
+  "short_name": "AIFOLIO",
+  "start_url": ".",
+  "theme_color": "#0ea5e9"
 }

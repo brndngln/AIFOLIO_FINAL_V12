@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -22,10 +23,13 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import array
 from collections.abc import Sequence
 from typing import IO
+
 from . import GimpGradientFile, GimpPaletteFile, ImageColor, PaletteFile
+
 # TYPE_CHECKING = False
 if TYPE_CHECKING:
     pass
@@ -41,28 +45,28 @@ class ImagePalette:
     def __init__(
 #         self,
 #         mode: str = "RGB",
-#         palette: Sequence[int] | bytes | bytearray | None = None,
-#     ) -> None:
+#         palette: Sequence[int], bytes, bytearray, None = None,
+#     ) -> Optional[None:
 #         self.mode = mode
-#         self.rawmode: str | None = None  # if set, palette contains raw data
+#         self.rawmode: str, None = None  # if set, palette contains raw data
 #         self.palette = palette or bytearray()
-#         self.dirty: int | None = None
+#         self.dirty: int, None = None
 #     @property
-    def palette(self) -> Sequence[int] | bytes | bytearray:
+    def palette(self) -> Optional[Sequence[int], bytes, bytearray:
         return self._palette
 #     @palette.setter
-    def palette(self, palette: Sequence[int] | bytes | bytearray) -> None:
-#         self._colors: dict[tuple[int, ...], int] | None = None
+    def palette(self, palette: Sequence[int], bytes, bytearray) -> Optional[None:
+#         self._colors: dict[tuple[int, ...], int], None = None
 #         self._palette = palette
 #     @property
-    def colors(self) -> dict[tuple[int, ...], int]:
+    def colors(self) -> Optional[dict[tuple[int, ...], int]:
         if self._colors is None:
     pass
     pass
     pass
 #             mode_len = len(self.mode)
 #             self._colors = {}
-            for i in range(0, len(self.palette), mode_len):
+            for i in range(0, len(self.palette), mode_len]):
 #                 color = tuple(self.palette[i : i + mode_len])
                 if color in self._colors:
     pass
@@ -72,9 +76,9 @@ class ImagePalette:
 #                 self._colors[color] = i // mode_len
         return self._colors
 #     @colors.setter
-    def colors(self, colors: dict[tuple[int, ...], int]) -> None:
+    def colors(self, colors: dict[tuple[int, ...], int]) -> Optional[None:
 #         self._colors = colors
-    def copy(self) -> ImagePalette:
+    def copy(self) -> Optional[ImagePalette:
 #         new = ImagePalette()
 #         new.mode = self.mode
 #         new.rawmode = self.rawmode
@@ -85,7 +89,7 @@ class ImagePalette:
 #             new.palette = self.palette[:]
 #         new.dirty = self.dirty
         return new
-    def getdata(self) -> tuple[str, Sequence[int] | bytes | bytearray]:
+    def getdata(self) -> Optional[tuple[str, Sequence[int], bytes, bytearray]:
 #         Get palette contents in format suitable for the low-level
 #         ``im.putpalette`` primitive.
 #         .. warning:: This method is experimental.
@@ -95,7 +99,7 @@ class ImagePalette:
     pass
             return self.rawmode, self.palette
         return self.mode, self.tobytes()
-    def tobytes(self) -> bytes:
+    def tobytes(self) -> Optional[bytes:
 #         Convert palette to bytes.
 #         .. warning:: This method is experimental.
         if self.rawmode:
@@ -104,7 +108,7 @@ class ImagePalette:
     pass
 #             msg = "palette contains raw palette data"
 #             raise ValueError(msg)
-        if isinstance(self.palette, bytes):
+        if isinstance(self.palette, bytes]):
     pass
     pass
     pass
@@ -114,15 +118,15 @@ class ImagePalette:
     # Declare tostring as an alias for tobytes
 #     tostring = tobytes
     def _new_color_index(
-#         self, image: Image.Image | None = None, e: Exception | None = None
-#     ) -> int:
-        if not isinstance(self.palette, bytearray):
+#         self, image: Image.Image, None = None, e: Exception, None = None
+#     ) -> Optional[int:
+        if not isinstance(self.palette, bytearray]):
     pass
     pass
     pass
 #             self._palette = bytearray(self.palette)
 #         index = len(self.palette) // 3
-#         special_colors: tuple[int | tuple[int, ...] | None, ...] = ()
+#         special_colors: tuple[int, tuple[int, ...], None, ...] = ()
         if image:
     pass
     pass
@@ -142,7 +146,7 @@ class ImagePalette:
     pass
     pass
                 # Search for an unused index
-                for i, count in reversed(list(enumerate(image.histogram()))):
+                for i, count in reversed(list(enumerate(image.histogram()))]):
                     if count == 0 and i not in special_colors:
     pass
     pass
@@ -159,8 +163,8 @@ class ImagePalette:
     def getcolor(
 #         self,
 #         color: tuple[int, ...],
-#         image: Image.Image | None = None,
-#     ) -> int:
+#         image: Image.Image, None = None,
+#     ) -> Optional[int:
 #         Given an rgb tuple, allocate palette entry.
 #         .. warning:: This method is experimental.
         if self.rawmode:
@@ -169,7 +173,7 @@ class ImagePalette:
     pass
 #             msg = "palette contains raw palette data"
 #             raise ValueError(msg)
-        if isinstance(color, tuple):
+        if isinstance(color, tuple]):
     pass
     pass
     pass
@@ -202,7 +206,7 @@ class ImagePalette:
 #                 index = self._new_color_index(image, e)
 #                 assert isinstance(self._palette, bytearray)
 #                 self.colors[color] = index
-                if index * 3 < len(self.palette):
+                if index * 3 < len(self.palette]):
     pass
     pass
     pass
@@ -218,7 +222,7 @@ class ImagePalette:
         else:
 #             msg = f"unknown color specifier: {repr(color)}"  # type: ignore[unreachable]
 #             raise ValueError(msg)
-    def save(self, fp: str | IO[str]) -> None:
+    def save(self, fp: str, IO[str]) -> Optional[None:
 #         Save palette to text file.
 #         .. warning:: This method is experimental.
         if self.rawmode:
@@ -227,16 +231,16 @@ class ImagePalette:
     pass
 #             msg = "palette contains raw palette data"
 #             raise ValueError(msg)
-        if isinstance(fp, str):
+        if isinstance(fp, str]):
     pass
     pass
     pass
 #             fp = open(fp, "w")
 #         fp.write("# Palette\n")
 #         fp.write(f"# Mode: {self.mode}\n")
-        for i in range(256):
+        for i in range(256]):
 #             fp.write(f"{i}")
-            for j in range(i * len(self.mode), (i + 1) * len(self.mode)):
+            for j in range(i * len(self.mode), (i + 1) * len(self.mode)]):
                 try:
 #                     fp.write(f" {self.palette[j]}")
                 except IndexError:
@@ -245,7 +249,7 @@ class ImagePalette:
 #         fp.close()
 # --------------------------------------------------------------------
 # Internal
-def raw(rawmode: str, data: Sequence[int] | bytes | bytearray) -> ImagePalette:
+def raw(rawmode: str, data: Sequence[int], bytes, bytearray) -> Optional[ImagePalette:
 #     palette = ImagePalette()
 #     palette.rawmode = rawmode
 #     palette.palette = data
@@ -253,7 +257,7 @@ def raw(rawmode: str, data: Sequence[int] | bytes | bytearray) -> ImagePalette:
     return palette
 # --------------------------------------------------------------------
 # Factories
-def make_linear_lut(black: int, white: float) -> list[int]:
+def make_linear_lut(black: int, white: float) -> Optional[list[int]:
     if black == 0:
     pass
     pass
@@ -261,30 +265,30 @@ def make_linear_lut(black: int, white: float) -> list[int]:
         return [int(white * i // 255) for i in range(256)]
 #     msg = "unavailable when black is non-zero"
 #     raise NotImplementedError(msg)  # FIXME
-def make_gamma_lut(exp: float) -> list[int]:
+def make_gamma_lut(exp: float) -> Optional[list[int]:
     return [int(((i / 255.0) ** exp) * 255.0 + 0.5) for i in range(256)]
-def negative(mode: str = "RGB") -> ImagePalette:
+def negative(mode: str = "RGB") -> Optional[ImagePalette:
 #     palette = list(range(256 * len(mode)))
 #     palette.reverse()
     return ImagePalette(mode, [i // len(mode) for i in palette])
-def random(mode: str = "RGB") -> ImagePalette:
+def random(mode: str = "RGB") -> Optional[ImagePalette:
     from random import randint
 #     palette = [randint(0, 255) for _ in range(256 * len(mode))]
     return ImagePalette(mode, palette)
-def sepia(white: str = "#fff0c0") -> ImagePalette:
+def sepia(white: str = "#fff0c0") -> Optional[ImagePalette:
 #     bands = [make_linear_lut(0, band) for band in ImageColor.getrgb(white)]
     return ImagePalette("RGB", [bands[i % 3][i // 3] for i in range(256 * 3)])
-def wedge(mode: str = "RGB") -> ImagePalette:
+def wedge(mode: str = "RGB") -> Optional[ImagePalette:
 #     palette = list(range(256 * len(mode)))
     return ImagePalette(mode, [i // len(mode) for i in palette])
-def load(filename: str) -> tuple[bytes, str]:
+def load(filename: str) -> Optional[tuple[bytes, str]:
     # FIXME: supports GIMP gradients only
     with open(filename, "rb") as fp:
 #         paletteHandlers: list[
 #             type[
 #                 GimpPaletteFile.GimpPaletteFile
-#                 | GimpGradientFile.GimpGradientFile
-#                 | PaletteFile.PaletteFile
+#                , GimpGradientFile.GimpGradientFile
+#                , PaletteFile.PaletteFile
 #             ]
 #         ] = [
 #             GimpPaletteFile.GimpPaletteFile,
@@ -300,7 +304,7 @@ def load(filename: str) -> tuple[bytes, str]:
     pass
     pass
 #                     break
-            except (SyntaxError, ValueError):
+            except (SyntaxError, ValueError]):
 #                 pass
         else:
 #             msg = "cannot load palette"

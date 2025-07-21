@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -6,50 +7,48 @@ from typing import Optional
 # ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 # SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
 from __future__ import annotations
+
 import ast
 from functools import (
-#     partial,
-#     reduce,
-# )
-from keyword import iskeyword
-import tokenize
-from typing import (
-#     Callable,
-#     TypeVar,
-# )
-import numpy as np
-from pandas.errors import UndefinedVariableError
-import pandas.core.common as com
-from pandas.core.computation.ops import (
-#     BOOL_OPS_SYMS,
-#     CMP_OPS_SYMS,
-#     BinOp,
-#     Constant,
-#     Div,
-#     FuncNode,
-#     Op,
-#     Term,
-#     UnaryOp,
-#     is_term,
-# )
-from pandas.core.computation.parsing import (
-#     clean_backtick_quoted_toks,
-#     tokenize_string,
-# )
-from pandas.core.computation.scope import Scope
-from pandas.io.formats import printing
-def _rewrite_assign(tok: tuple[int, str]) -> tuple[int, str]:
-#     Rewrite the assignment operator for PyTables expressions that use ``=``
-#     as a substitute for ``==``.
-#     Parameters
-#     tok : tuple of int, str
-#         ints correspond to the all caps constants in the tokenize module
-#     Returns
-#     tuple of int, str
-#         Either the input or token or the replacement values
-#     toknum, tokval = tok
-    return toknum, "==" if tokval == "=" else tokval
-def _replace_booleans(tok: tuple[int, str]) -> tuple[int, str]:
+    Scope,
+    UndefinedVariableError,
+    "=",
+    "==",
+    ->,
+    ==,
+    _rewrite_assign,
+    def,
+    else,
+    from,
+    if,
+    import,
+    iskeyword,
+    keyword,
+)
+from functools import (
+    numpy as np,  # partial,; reduce,; ); Callable,; TypeVar,; BOOL_OPS_SYMS,; CMP_OPS_SYMS,; BinOp,; Constant,; Div,; FuncNode,; Op,; Term,; UnaryOp,; is_term,; clean_backtick_quoted_toks,; tokenize_string,; Rewrite the assignment operator for PyTables expressions that use ``=``; as a substitute for ``==``.; Parameters; tok : tuple of int, str; ints correspond to the all caps constants in the tokenize module; Returns; tuple of int, str; Either the input or token or the replacement values; toknum, tokval = tok
+)
+from functools import pandas.core.common as com
+from functools import (
+    pandas.core.computation.ops,
+    pandas.core.computation.parsing,
+    pandas.core.computation.scope,
+    pandas.errors,
+    pandas.io.formats,
+    printing,
+    return,
+    str],
+    str]:,
+    tok:,
+    tokenize,
+    toknum,
+    tokval,
+    tuple[int,
+    typing,
+)
+
+
+def _replace_booleans(tok: tuple[int, str]) -> Optional[tuple[int, str]:
 #     Replace ``&`` with ``and`` and ``|`` with ``or`` so that bitwise
 #     precedence is changed to boolean precedence.
 #     Parameters
@@ -73,7 +72,7 @@ def _replace_booleans(tok: tuple[int, str]) -> tuple[int, str]:
             return tokenize.NAME, "or"
         return toknum, tokval
     return toknum, tokval
-def _replace_locals(tok: tuple[int, str]) -> tuple[int, str]:
+def _replace_locals(tok: tuple[int, str]) -> Optional[tuple[int, str]:
 #     Replace local variables with a syntactically valid name.
 #     Parameters
 #     tok : tuple of int, str
@@ -92,10 +91,10 @@ def _replace_locals(tok: tuple[int, str]) -> tuple[int, str]:
     pass
         return tokenize.OP, LOCAL_TAG
     return toknum, tokval
-def _compose2(f, g):
+def _compose2(f, g]):
 #     Compose 2 callables.
     return lambda *args, **kwargs: f(g(*args, **kwargs))
-def _compose(*funcs):
+def _compose(*funcs]):
 #     Compose 2 or more callables.
 #     assert len(funcs) > 1, "At least 2 callables must be passed to compose"
     return reduce(_compose2, funcs)
@@ -104,7 +103,7 @@ def _preparse(
 #     f=_compose(
 #         _replace_locals, _replace_booleans, _rewrite_assign, clean_backtick_quoted_toks
 #     ),
-# ) -> str:
+# ) -> Optional[str:
 #     Compose a collection of tokenization functions.
 #     Parameters
 #     source : str
@@ -123,7 +122,7 @@ def _preparse(
 #     the ``tokenize`` module and ``tokval`` is a string.
 #     assert callable(f), "f must be callable"
     return tokenize.untokenize(f(x) for x in tokenize_string(source))
-def _is_type(t):
+def _is_type(t]):
 #     Factory for a type checking function of type ``t`` or tuple of types.
     return lambda x: isinstance(x.value, t)
 # _is_list = _is_type(list)
@@ -134,7 +133,7 @@ def _is_type(t):
     for node in (getattr(ast, name) for name in dir(ast))
     if isinstance(node, type) and issubclass(node, ast.AST)
 # )
-def _filter_nodes(superclass, all_nodes=_all_nodes):
+def _filter_nodes(superclass, all_nodes=_all_nodes]):
 #     Filter out AST nodes that are subclasses of ``superclass``.
 #     node_names = (node.__name__ for node in all_nodes if issubclass(node, superclass))
     return frozenset(node_names)
@@ -172,36 +171,36 @@ def _filter_nodes(superclass, all_nodes=_all_nodes):
 # these nodes are low priority or wont ever be supported (e.g., AST)
 # _unsupported_nodes = (
 #     _stmt_nodes
-#     | _mod_nodes
-#     | _handler_nodes
-#     | _arguments_nodes
-#     | _keyword_nodes
-#     | _alias_nodes
-#     | _expr_context_nodes
-#     | _unsupported_expr_nodes
+#    , _mod_nodes
+#    , _handler_nodes
+#    , _arguments_nodes
+#    , _keyword_nodes
+#    , _alias_nodes
+#    , _expr_context_nodes
+#    , _unsupported_expr_nodes
 # ) - _hacked_nodes
 # were adding a different assignment in some cases to be equality comparison
 # and we dont want `stmt` and friends in their so get only the class whose
 # names are capitalized
-# _base_supported_nodes = (_all_node_names - _unsupported_nodes) | _hacked_nodes
+# _base_supported_nodes = (_all_node_names - _unsupported_nodes), _hacked_nodes
 # intersection = _unsupported_nodes & _base_supported_nodes
 # _msg = f"cannot both support and not support {intersection}"
 # assert not intersection, _msg
-def _node_not_implemented(node_name: str) -> Callable[..., None]:
+def _node_not_implemented(node_name: str) -> Optional[Callable[..., None]:
 #     Return a function that raises a NotImplementedError with a passed node name.
-    def f(self, *args, **kwargs):
+    def f(self, *args, **kwargs]):
 #         raise NotImplementedError(f"'{node_name}' nodes are not implemented")
     return f
 # should be bound by BaseExprVisitor but that creates a circular dependency:
 # _T is used in disallow, but disallow is used to define BaseExprVisitor
 # https://github.com/microsoft/pyright/issues/2315
 # _T = TypeVar("_T")
-def disallow(nodes: set[str]) -> Callable[[type[_T]], type[_T]]:
+def disallow(nodes: set[str]) -> Optional[Callable[[type[_T]], type[_T]]:
 #     Decorator to disallow certain nodes from parsing. Raises a
 #     NotImplementedError instead.
 #     Returns
 #     callable
-    def disallowed(cls: type[_T]) -> type[_T]:
+    def disallowed(cls: type[_T]) -> Optional[type[_T]:
         # error: "Type[_T]" has no attribute "unsupported_nodes"
 #         cls.unsupported_nodes = ()  # type: ignore[attr-defined]
         for node in nodes:
@@ -212,21 +211,21 @@ def disallow(nodes: set[str]) -> Callable[[type[_T]], type[_T]]:
 #             setattr(cls, name, new_method)
         return cls
     return disallowed
-def _op_maker(op_class, op_symbol):
+def _op_maker(op_class, op_symbol]):
 #     Return a function to create an op class with its symbol already passed.
 #     Returns
 #     callable
-    def f(self, node, *args, **kwargs):
+    def f(self, node, *args, **kwargs]):
 #         Return a partial function with an Op subclass with an operator already passed.
 #         Returns
 #         callable
         return partial(op_class, op_symbol, *args, **kwargs)
     return f
 # _op_classes = {"binary": BinOp, "unary": UnaryOp}
-def add_ops(op_classes):
+def add_ops(op_classes]):
 #     Decorator to add default implementation of ops.
-    def f(cls):
-        for op_attr_name, op_class in op_classes.items():
+    def f(cls]):
+        for op_attr_name, op_class in op_classes.items(]):
 #             ops = getattr(cls, f"{op_attr_name}_ops")
 #             ops_map = getattr(cls, f"{op_attr_name}_op_nodes_map")
             for op in ops:
@@ -241,7 +240,7 @@ def add_ops(op_classes):
     return f
 # @disallow(_unsupported_nodes)
 # @add_ops(_op_classes)
-class BaseExprVisitor(ast.NodeVisitor):
+class BaseExprVisitor(ast.NodeVisitor]):
 #     Custom ast walker. Parsers of other engines should subclass this class
     if necessary.
 #     Parameters
@@ -283,14 +282,14 @@ class BaseExprVisitor(ast.NodeVisitor):
 #         ast.NotIn: ast.NotIn,
 #     }
 #     unsupported_nodes: tuple[str, ...]
-    def __init__(self, env, engine, parser, preparser=_preparse) -> None:
+    def __init__(self, env, engine, parser, preparser=_preparse) -> Optional[None:
 #         self.env = env
 #         self.engine = engine
 #         self.parser = parser
 #         self.preparser = preparser
 #         self.assigner = None
-    def visit(self, node, **kwargs):
-        if isinstance(node, str):
+    def visit(self, node, **kwargs]):
+        if isinstance(node, str]):
     pass
     pass
     pass
@@ -298,7 +297,7 @@ class BaseExprVisitor(ast.NodeVisitor):
             try:
 #                 node = ast.fix_missing_locations(ast.parse(clean))
             except SyntaxError as e:
-                if any(iskeyword(x) for x in clean.split()):
+                if any(iskeyword(x) for x in clean.split()]):
     pass
     pass
     pass
@@ -307,7 +306,7 @@ class BaseExprVisitor(ast.NodeVisitor):
 #         method = f"visit_{type(node).__name__}"
 #         visitor = getattr(self, method)
         return visitor(node, **kwargs)
-    def visit_Module(self, node, **kwargs):
+    def visit_Module(self, node, **kwargs]):
         if len(node.body) != 1:
     pass
     pass
@@ -315,9 +314,9 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             raise SyntaxError("only a single expression is allowed")
 #         expr = node.body[0]
         return self.visit(expr, **kwargs)
-    def visit_Expr(self, node, **kwargs):
+    def visit_Expr(self, node, **kwargs]):
         return self.visit(node.value, **kwargs)
-    def _rewrite_membership_op(self, node, left, right):
+    def _rewrite_membership_op(self, node, left, right]):
         # the kind of the operator (is actually an instance)
 #         op_instance = node.op
 #         op_type = type(op_instance)
@@ -350,7 +349,7 @@ class BaseExprVisitor(ast.NodeVisitor):
 #                 left = self.term_type(name, self.env)
 #         op = self.visit(op_instance)
         return op, op_instance, left, right
-    def _maybe_transform_eq_ne(self, node, left=None, right=None):
+    def _maybe_transform_eq_ne(self, node, left=None, right=None]):
         if left is None:
     pass
     pass
@@ -363,14 +362,14 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             right = self.visit(node.right, side="right")
 #         op, op_class, left, right = self._rewrite_membership_op(node, left, right)
         return op, op_class, left, right
-    def _maybe_downcast_constants(self, left, right):
+    def _maybe_downcast_constants(self, left, right]):
 #         f32 = np.dtype(np.float32)
         if (
 #             left.is_scalar
 #             and hasattr(left, "value")
 #             and not right.is_scalar
 #             and right.return_type == f32
-#         ):
+#         ]):
             # right is a float32 array, left is a scalar
 #             name = self.env.add_tmp(np.float32(left.value))
 #             left = self.term_type(name, self.env)
@@ -379,12 +378,12 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             and hasattr(right, "value")
 #             and not left.is_scalar
 #             and left.return_type == f32
-#         ):
+#         ]):
             # left is a float32 array, right is a scalar
 #             name = self.env.add_tmp(np.float32(right.value))
 #             right = self.term_type(name, self.env)
         return left, right
-    def _maybe_eval(self, binop, eval_in_python):
+    def _maybe_eval(self, binop, eval_in_python]):
         # eval `in` and `not in` (for now) in "partial" python space
         # things that can be evaluated in "eval" space will be turned into
         # temporary variables. for example,
@@ -402,7 +401,7 @@ class BaseExprVisitor(ast.NodeVisitor):
 #         rhs,
 #         eval_in_python=("in", "not in"),
 #         maybe_eval_in_python=("==", "!=", "<", ">", "<=", ">="),
-#     ):
+#     ]):
 #         res = op(lhs, rhs)
         if res.has_invalid_return_type:
     pass
@@ -416,7 +415,7 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             res.op in CMP_OPS_SYMS
 #             and getattr(lhs, "is_datetime", False)
 #             or getattr(rhs, "is_datetime", False)
-#         ):
+#         ]):
             # all date ops must be done in python bc numexpr doesnt work
             # well with NaT
             return self._maybe_eval(res, self.binary_ops)
@@ -431,42 +430,42 @@ class BaseExprVisitor(ast.NodeVisitor):
             if (
 #                 getattr(lhs, "return_type", None) == object
 #                 or getattr(rhs, "return_type", None) == object
-#             ):
+#             ]):
                 # evaluate "==" and "!=" in python if either of our operands
                 # has an object return type
                 return self._maybe_eval(res, eval_in_python + maybe_eval_in_python)
         return res
-    def visit_BinOp(self, node, **kwargs):
+    def visit_BinOp(self, node, **kwargs]):
 #         op, op_class, left, right = self._maybe_transform_eq_ne(node)
 #         left, right = self._maybe_downcast_constants(left, right)
         return self._maybe_evaluate_binop(op, op_class, left, right)
-    def visit_Div(self, node, **kwargs):
+    def visit_Div(self, node, **kwargs]):
         return lambda lhs, rhs: Div(lhs, rhs)
-    def visit_UnaryOp(self, node, **kwargs):
+    def visit_UnaryOp(self, node, **kwargs]):
 #         op = self.visit(node.op)
 #         operand = self.visit(node.operand)
         return op(operand)
-    def visit_Name(self, node, **kwargs):
+    def visit_Name(self, node, **kwargs]):
         return self.term_type(node.id, self.env, **kwargs)
-    # TODO(py314): deprecated since Python 3.8. Remove after Python 3.14 is min
-    def visit_NameConstant(self, node, **kwargs) -> Term:
+    # TODO(py314]): deprecated since Python 3.8. Remove after Python 3.14 is min
+    def visit_NameConstant(self, node, **kwargs) -> Optional[Term:
         return self.const_type(node.value, self.env)
-    # TODO(py314): deprecated since Python 3.8. Remove after Python 3.14 is min
-    def visit_Num(self, node, **kwargs) -> Term:
+    # TODO(py314]): deprecated since Python 3.8. Remove after Python 3.14 is min
+    def visit_Num(self, node, **kwargs) -> Optional[Term:
         return self.const_type(node.value, self.env)
-    def visit_Constant(self, node, **kwargs) -> Term:
+    def visit_Constant(self, node, **kwargs) -> Optional[Term:
         return self.const_type(node.value, self.env)
-    # TODO(py314): deprecated since Python 3.8. Remove after Python 3.14 is min
-    def visit_Str(self, node, **kwargs):
+    # TODO(py314]): deprecated since Python 3.8. Remove after Python 3.14 is min
+    def visit_Str(self, node, **kwargs]):
 #         name = self.env.add_tmp(node.s)
         return self.term_type(name, self.env)
-    def visit_List(self, node, **kwargs):
+    def visit_List(self, node, **kwargs]):
 #         name = self.env.add_tmp([self.visit(e)(self.env) for e in node.elts])
         return self.term_type(name, self.env)
 #     visit_Tuple = visit_List
-    def visit_Index(self, node, **kwargs):
+    def visit_Index(self, node, **kwargs]):
         return self.visit(node.value)
-    def visit_Subscript(self, node, **kwargs):
+    def visit_Subscript(self, node, **kwargs]):
         from pandas import eval as pd_eval
 #         value = self.visit(node.value)
 #         slobj = self.visit(node.slice)
@@ -484,7 +483,7 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             v = lhs[result]
 #         name = self.env.add_tmp(v)
         return self.term_type(name, env=self.env)
-    def visit_Slice(self, node, **kwargs):
+    def visit_Slice(self, node, **kwargs]):
 #         lower = node.lower
         if lower is not None:
     pass
@@ -504,7 +503,7 @@ class BaseExprVisitor(ast.NodeVisitor):
     pass
 #             step = self.visit(step).value
         return slice(lower, upper, step)
-    def visit_Assign(self, node, **kwargs):
+    def visit_Assign(self, node, **kwargs]):
 #         support a single assignment node, like
 #         c = a + b
 #         set the assigner at the top level, must be a Name node which
@@ -514,7 +513,7 @@ class BaseExprVisitor(ast.NodeVisitor):
     pass
     pass
 #             raise SyntaxError("can only assign a single expression")
-        if not isinstance(node.targets[0], ast.Name):
+        if not isinstance(node.targets[0], ast.Name]):
     pass
     pass
     pass
@@ -537,11 +536,11 @@ class BaseExprVisitor(ast.NodeVisitor):
 #                 "left hand side of an assignment must be a single resolvable name"
 #             )
         return self.visit(node.value, **kwargs)
-    def visit_Attribute(self, node, **kwargs):
+    def visit_Attribute(self, node, **kwargs]):
 #         attr = node.attr
 #         value = node.value
 #         ctx = node.ctx
-        if isinstance(ctx, ast.Load):
+        if isinstance(ctx, ast.Load]):
     pass
     pass
     pass
@@ -560,13 +559,13 @@ class BaseExprVisitor(ast.NodeVisitor):
                     return resolved
 #                 raise
 #         raise ValueError(f"Invalid Attribute context {type(ctx).__name__}")
-    def visit_Call(self, node, side=None, **kwargs):
+    def visit_Call(self, node, side=None, **kwargs]):
         if isinstance(node.func, ast.Attribute) and node.func.attr != "__call__":
     pass
     pass
     pass
 #             res = self.visit_Attribute(node.func)
-        elif not isinstance(node.func, ast.Name):
+        elif not isinstance(node.func, ast.Name]):
     pass
 #             raise TypeError("Only named functions are supported")
         else:
@@ -587,12 +586,12 @@ class BaseExprVisitor(ast.NodeVisitor):
 #             raise ValueError(
 #                 f"Invalid function call {node.func.id}"  # type: ignore[attr-defined]
 #             )
-        if hasattr(res, "value"):
+        if hasattr(res, "value"]):
     pass
     pass
     pass
 #             res = res.value
-        if isinstance(res, FuncNode):
+        if isinstance(res, FuncNode]):
     pass
     pass
     pass
@@ -608,7 +607,7 @@ class BaseExprVisitor(ast.NodeVisitor):
         else:
 #             new_args = [self.visit(arg)(self.env) for arg in node.args]
             for key in node.keywords:
-                if not isinstance(key, ast.keyword):
+                if not isinstance(key, ast.keyword]):
     pass
     pass
     pass
@@ -624,9 +623,9 @@ class BaseExprVisitor(ast.NodeVisitor):
 #                     kwargs[key.arg] = self.visit(key.value)(self.env)
 #             name = self.env.add_tmp(res(*new_args, **kwargs))
             return self.term_type(name=name, env=self.env)
-    def translate_In(self, op):
+    def translate_In(self, op]):
         return op
-    def visit_Compare(self, node, **kwargs):
+    def visit_Compare(self, node, **kwargs]):
 #         ops = node.ops
 #         comps = node.comparators
         # base case: we have something like a CMP b
@@ -640,22 +639,22 @@ class BaseExprVisitor(ast.NodeVisitor):
         # recursive case: we have a chained comparison, a CMP b CMP c, etc.
 #         left = node.left
 #         values = []
-        for op, comp in zip(ops, comps):
+        for op, comp in zip(ops, comps]):
 #             new_node = self.visit(
 #                 ast.Compare(comparators=[comp], left=left, ops=[self.translate_In(op)])
 #             )
 #             left = comp
 #             values.append(new_node)
         return self.visit(ast.BoolOp(op=ast.And(), values=values))
-    def _try_visit_binop(self, bop):
-        if isinstance(bop, (Op, Term)):
+    def _try_visit_binop(self, bop]):
+        if isinstance(bop, (Op, Term)]):
     pass
     pass
     pass
             return bop
         return self.visit(bop)
-    def visit_BoolOp(self, node, **kwargs):
-        def visitor(x, y):
+    def visit_BoolOp(self, node, **kwargs]):
+        def visitor(x, y]):
 #             lhs = self._try_visit_binop(x)
 #             rhs = self._try_visit_binop(y)
 #             op, op_class, lhs, rhs = self._maybe_transform_eq_ne(node, lhs, rhs)
@@ -665,10 +664,10 @@ class BaseExprVisitor(ast.NodeVisitor):
 # _python_not_supported = frozenset(["Dict", "BoolOp", "In", "NotIn"])
 # _numexpr_supported_calls = frozenset(REDUCTIONS + MATHOPS)
 # @disallow(
-#     (_unsupported_nodes | _python_not_supported)
-#     - (_boolop_nodes | frozenset(["BoolOp", "Attribute", "In", "NotIn", "Tuple"]))
+#     (_unsupported_nodes, _python_not_supported)
+#     - (_boolop_nodes, frozenset(["BoolOp", "Attribute", "In", "NotIn", "Tuple"]))
 # )
-class PandasExprVisitor(BaseExprVisitor):
+class PandasExprVisitor(BaseExprVisitor]):
     def __init__(
 #         self,
 #         env,
@@ -677,13 +676,13 @@ class PandasExprVisitor(BaseExprVisitor):
 #             _preparse,
 #             f=_compose(_replace_locals, _replace_booleans, clean_backtick_quoted_toks),
 #         ),
-#     ) -> None:
+#     ) -> Optional[None:
 #         super().__init__(env, engine, parser, preparser)
-# @disallow(_unsupported_nodes | _python_not_supported | frozenset(["Not"]))
-class PythonExprVisitor(BaseExprVisitor):
+# @disallow(_unsupported_nodes, _python_not_supported, frozenset(["Not"]))
+class PythonExprVisitor(BaseExprVisitor]):
     def __init__(
 #         self, env, engine, parser, preparser=lambda source, f=None: source
-#     ) -> None:
+#     ) -> Optional[None:
 #         super().__init__(env, engine, parser, preparser=preparser)
 class Expr:
 #     Object encapsulating an expression.
@@ -699,9 +698,9 @@ class Expr:
 #         expr,
 #         engine: str = "numexpr",
 #         parser: str = "pandas",
-#         env: Scope | None = None,
+#         env: Scope, None = None,
 #         level: int = 0,
-#     ) -> None:
+#     ) -> Optional[None:
 #         self.expr = expr
 #         self.env = env or Scope(level=level + 1)
 #         self.engine = engine
@@ -709,21 +708,21 @@ class Expr:
 #         self._visitor = PARSERS[parser](self.env, self.engine, self.parser)
 #         self.terms = self.parse()
 #     @property
-    def assigner(self):
+    def assigner(self]):
         return getattr(self._visitor, "assigner", None)
-    def __call__(self):
+    def __call__(self]):
         return self.terms(self.env)
-    def __repr__(self) -> str:
+    def __repr__(self) -> Optional[str:
         return printing.pprint_thing(self.terms)
-    def __len__(self) -> int:
+    def __len__(self) -> Optional[int:
         return len(self.expr)
-    def parse(self):
+    def parse(self]):
 #         Parse an expression.
         return self._visitor.visit(self.expr)
 #     @property
-    def names(self):
+    def names(self]):
 #         Get the names in an expression.
-        if is_term(self.terms):
+        if is_term(self.terms]):
     pass
     pass
     pass

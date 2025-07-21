@@ -1,72 +1,72 @@
 [
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-06-18T03:35:30.816750",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-06-19T22:56:36.300166",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-06-19T22:58:18.159682",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-06-19T22:58:32.463950",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-06-19T23:09:41.334783",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-07-02T23:50:38.062090",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-07-02T23:51:07.863848",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-07-03T00:02:12.912421",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
+    "buyer_email": "buyer2@example.com",
     "event": "vault_refunded",
+    "reason": "N/A",
     "timestamp": "2025-07-03T01:52:33.476154",
-    "vault_id": "testvault2",
-    "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "vault_id": "testvault2"
   },
   {
-    "event": "vault_refunded",
-    "timestamp": "2025-07-03T01:55:09.370367",
-    "vault_id": "testvault2",
     "buyer_email": "buyer2@example.com",
-    "reason": "N/A"
+    "event": "vault_refunded",
+    "reason": "N/A",
+    "timestamp": "2025-07-03T01:55:09.370367",
+    "vault_id": "testvault2"
   }
 ]

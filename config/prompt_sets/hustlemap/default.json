@@ -1,1 +1,8 @@
-{"prompts":[{"id":"welcome","text":"Welcome to HUSTLEMAP™! Build elite small business blueprints."}]}
+{
+  "prompts": [
+    {
+      "id": "welcome",
+      "text": "Welcome to HUSTLEMAP\u2122! Build elite small business blueprints."
+    }
+  ]
+}

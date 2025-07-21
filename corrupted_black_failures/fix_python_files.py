@@ -1,5 +1,5 @@
-import os
 import ast
+import os
 
 base_dir = os.getcwd()
 quarantine_dir = os.path.join(base_dir, "quarantine_non_python")

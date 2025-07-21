@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -23,8 +24,12 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import olefile
+
 from . import Image, TiffImagePlugin
+
+
 #
 # --------------------------------------------------------------------
 def _accept(prefix: bytes) -> bool:
@@ -53,9 +58,6 @@ class MicImageFile(TiffImagePlugin.TiffImageFile):
         # if we didnt find any images, this is probably not
         # an MIC file.
         if not self.images:
-    pass
-    pass
-    pass
 #             msg = "not an MIC file; no image entries"
 #             raise SyntaxError(msg)
 #         self.frame = -1
@@ -65,9 +67,6 @@ class MicImageFile(TiffImagePlugin.TiffImageFile):
 #         self.seek(0)
     def seek(self, frame: int) -> None:
         if not self._seek_check(frame):
-    pass
-    pass
-    pass
             return
 #         filename = self.images[frame]
 #         self.fp = self.ole.openstream(filename)

@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -30,14 +31,18 @@ from typing import Optional
 # See the README file for information on usage and redistribution.
 #
 from __future__ import annotations
+
 import os
 from typing import IO, Any
+
 from . import Image, ImageFile, ImagePalette
 from ._binary import i16le as i16
 from ._binary import i32le as i32
 from ._binary import o8
 from ._binary import o16le as o16
 from ._binary import o32le as o32
+
+
 #
 # --------------------------------------------------------------------
 # Read BMP file
@@ -51,21 +56,21 @@ from ._binary import o32le as o32
 #     32: ("RGB", "BGRX"),
 # }
 # USE_RAW_ALPHA = False
-def _accept(prefix: bytes) -> bool:
+def _accept(prefix: bytes) -> Optional[bool:
     return prefix.startswith(b"BM")
-def _dib_accept(prefix: bytes) -> bool:
+def _dib_accept(prefix: bytes) -> Optional[bool:
     return i32(prefix) in [12, 40, 52, 56, 64, 108, 124]
 # =============================================================================
 # Image plugin for the Windows BMP format.
 # =============================================================================
-class BmpImageFile(ImageFile.ImageFile):
+class BmpImageFile(ImageFile.ImageFile]):
     # ------------------------------------------------------------- Description
     format_description = "Windows Bitmap"
     format = "BMP"
     # -------------------------------------------------- BMP Compression values
-    for k, v in COMPRESSIONS.items():
+    for k, v in COMPRESSIONS.items(]):
 #         vars()[k] = v
-    def _bitmap(self, header: int = 0, offset: int = 0) -> None:
+    def _bitmap(self, header: int = 0, offset: int = 0) -> Optional[None:
 #         read, seek = self.fp.read, self.fp.seek
         if header:
     pass
@@ -73,7 +78,7 @@ class BmpImageFile(ImageFile.ImageFile):
     pass
 #             seek(header)
         # read bmp header size @offset 14 (this is part of the header size)
-#         file_info: dict[str, bool | int | tuple[int, ...]] = {
+#         file_info: dict[str, bool, int, tuple[int, ...]] = {
 #             "header_size": i32(read(4)),
 #             "direction": -1,
 #         }
@@ -101,7 +106,7 @@ class BmpImageFile(ImageFile.ImageFile):
         #  64: BITMAPCOREHEADER2/OS22XBITMAPHEADER
         # 108: BITMAPV4HEADER
         # 124: BITMAPV5HEADER
-        elif file_info["header_size"] in (40, 52, 56, 64, 108, 124):
+        elif file_info["header_size"] in (40, 52, 56, 64, 108, 124]):
     pass
 #             file_info["y_flip"] = header_data[7] == 0xFF
 #             file_info["direction"] = 1 if file_info["y_flip"] else -1
@@ -140,7 +145,7 @@ class BmpImageFile(ImageFile.ImageFile):
 #                         masks.append("a_mask")
                     else:
 #                         file_info["a_mask"] = 0x0
-                    for idx, mask in enumerate(masks):
+                    for idx, mask in enumerate(masks]):
 #                         file_info[mask] = i32(header_data, 36 + idx * 4)
                 else:
                     # 40 byte headers only have the three components in the
@@ -218,17 +223,17 @@ class BmpImageFile(ImageFile.ImageFile):
 #                 16: [(0xF800, 0x7E0, 0x1F), (0x7C00, 0x3E0, 0x1F)],
 #             }
 #             MASK_MODES = {
-#                 (32, (0xFF0000, 0xFF00, 0xFF, 0x0)): "BGRX",
-#                 (32, (0xFF000000, 0xFF0000, 0xFF00, 0x0)): "XBGR",
-#                 (32, (0xFF000000, 0xFF00, 0xFF, 0x0)): "BGXR",
-#                 (32, (0xFF000000, 0xFF0000, 0xFF00, 0xFF)): "ABGR",
-#                 (32, (0xFF, 0xFF00, 0xFF0000, 0xFF000000)): "RGBA",
-#                 (32, (0xFF0000, 0xFF00, 0xFF, 0xFF000000)): "BGRA",
-#                 (32, (0xFF000000, 0xFF00, 0xFF, 0xFF0000)): "BGAR",
-#                 (32, (0x0, 0x0, 0x0, 0x0)): "BGRA",
-#                 (24, (0xFF0000, 0xFF00, 0xFF)): "BGR",
-#                 (16, (0xF800, 0x7E0, 0x1F)): "BGR;16",
-#                 (16, (0x7C00, 0x3E0, 0x1F)): "BGR;15",
+#                 (32, (0xFF0000, 0xFF00, 0xFF, 0x0)]): "BGRX",
+#                 (32, (0xFF000000, 0xFF0000, 0xFF00, 0x0)]): "XBGR",
+#                 (32, (0xFF000000, 0xFF00, 0xFF, 0x0)]): "BGXR",
+#                 (32, (0xFF000000, 0xFF0000, 0xFF00, 0xFF)]): "ABGR",
+#                 (32, (0xFF, 0xFF00, 0xFF0000, 0xFF000000)]): "RGBA",
+#                 (32, (0xFF0000, 0xFF00, 0xFF, 0xFF000000)]): "BGRA",
+#                 (32, (0xFF000000, 0xFF00, 0xFF, 0xFF0000)]): "BGAR",
+#                 (32, (0x0, 0x0, 0x0, 0x0)]): "BGRA",
+#                 (24, (0xFF0000, 0xFF00, 0xFF)]): "BGR",
+#                 (16, (0xF800, 0x7E0, 0x1F)]): "BGR;16",
+#                 (16, (0x7C00, 0x3E0, 0x1F)]): "BGR;15",
 #             }
             if file_info["bits"] in SUPPORTED:
     pass
@@ -237,14 +242,14 @@ class BmpImageFile(ImageFile.ImageFile):
                 if (
 #                     file_info["bits"] == 32
 #                     and file_info["rgba_mask"] in SUPPORTED[file_info["bits"]]
-#                 ):
+#                 ]):
 #                     assert isinstance(file_info["rgba_mask"], tuple)
 #                     raw_mode = MASK_MODES[(file_info["bits"], file_info["rgba_mask"])]
 #                     self._mode = "RGBA" if "A" in raw_mode else self.mode
                 elif (
 #                     file_info["bits"] in (24, 16)
 #                     and file_info["rgb_mask"] in SUPPORTED[file_info["bits"]]
-#                 ):
+#                 ]):
 #                     assert isinstance(file_info["rgb_mask"], tuple)
 #                     raw_mode = MASK_MODES[(file_info["bits"], file_info["rgb_mask"])]
                 else:
@@ -257,12 +262,12 @@ class BmpImageFile(ImageFile.ImageFile):
     pass
             if file_info["bits"] == 32 and (
 #                 header == 22 or USE_RAW_ALPHA  # 32-bit .cur offset
-#             ):
+#             ]):
 #                 raw_mode, self._mode = "BGRA", "RGBA"
         elif file_info["compression"] in (
 #             self.COMPRESSIONS["RLE8"],
 #             self.COMPRESSIONS["RLE4"],
-#         ):
+#         ]):
 #             decoder_name = "bmp_rle"
         else:
 #             msg = f"Unsupported BMP compression ({file_info['compression']})"
@@ -270,7 +275,7 @@ class BmpImageFile(ImageFile.ImageFile):
         # --------------- Once the header is processed, process the palette/LUT
         if self.mode == "P":  # Paletted for 1, 4 and 8 bit images
             # ---------------------------------------------------- 1-bit images
-            if not (0 < file_info["colors"] <= 65536):
+            if not (0 < file_info["colors"] <= 65536]):
     pass
     pass
     pass
@@ -287,7 +292,7 @@ class BmpImageFile(ImageFile.ImageFile):
                     else list(range(file_info["colors"]))
 #                 )
                 # ----------------- Check if grayscale and ignore palette if so
-                for ind, val in enumerate(indices):
+                for ind, val in enumerate(indices]):
 #                     rgb = palette[ind * padding : ind * padding + 3]
                     if rgb != o8(val) * 3:
     pass
@@ -326,11 +331,11 @@ class BmpImageFile(ImageFile.ImageFile):
 #                 tuple(args),
 #             )
 #         ]
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
         # read 14 bytes: magic number, filesize, reserved, header final offset
 #         head_data = self.fp.read(14)
         # choke if the file does not have the required magic bytes
-        if not _accept(head_data):
+        if not _accept(head_data]):
     pass
     pass
     pass
@@ -340,9 +345,9 @@ class BmpImageFile(ImageFile.ImageFile):
 #         offset = i32(head_data, 10)
         # load bitmap information (offset=raster info)
 #         self._bitmap(offset=offset)
-class BmpRleDecoder(ImageFile.PyDecoder):
+class BmpRleDecoder(ImageFile.PyDecoder]):
 #     _pulls_fd = True
-    def decode(self, buffer: bytes | Image.SupportsArrayInterface) -> tuple[int, int]:
+    def decode(self, buffer: bytes, Image.SupportsArrayInterface) -> Optional[tuple[int, int]:
 #         assert self.fd is not None
 #         rle4 = self.args[1]
 #         data = bytearray()
@@ -374,7 +379,7 @@ class BmpRleDecoder(ImageFile.PyDecoder):
     pass
 #                     first_pixel = o8(byte[0] >> 4)
 #                     second_pixel = o8(byte[0] & 0x0F)
-                    for index in range(num_pixels):
+                    for index in range(num_pixels]):
                         if index % 2 == 0:
     pass
     pass
@@ -444,10 +449,10 @@ class BmpRleDecoder(ImageFile.PyDecoder):
 # =============================================================================
 # Image plugin for the DIB format (BMP alias)
 # =============================================================================
-class DibImageFile(BmpImageFile):
+class DibImageFile(BmpImageFile]):
     format = "DIB"
     format_description = "Windows Bitmap"
-    def _open(self) -> None:
+    def _open(self) -> Optional[None:
 #         self._bitmap()
 #
 # --------------------------------------------------------------------
@@ -458,11 +463,11 @@ class DibImageFile(BmpImageFile):
 #     "RGB": ("BGR", 24, 0),
 #     "RGBA": ("BGRA", 32, 0),
 # }
-def _dib_save(im: Image.Image, fp: IO[bytes], filename: str | bytes) -> None:
+def _dib_save(im: Image.Image, fp: IO[bytes], filename: str, bytes) -> Optional[None:
 #     _save(im, fp, filename, False)
 def _save(
-#     im: Image.Image, fp: IO[bytes], filename: str | bytes, bitmap_header: bool = True
-# ) -> None:
+#     im: Image.Image, fp: IO[bytes], filename: str, bytes, bitmap_header: bool = True
+# ) -> Optional[None:
     try:
 #         rawmode, bits, colors = SAVE[im.mode]
     except KeyError as e:

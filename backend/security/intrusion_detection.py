@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant challenge-response, Captcha, and canary token logic.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

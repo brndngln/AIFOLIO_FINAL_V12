@@ -11,7 +11,6 @@
 
 # Static, deterministic, SAFE AI-compliant DKIM/SPF/DMARC validation and TLS mail server config.
 
-import logging
 
 # logger = logging.getLogger(__name__)
 

@@ -5,8 +5,8 @@ export class EcomSync {
     return {
       productId: product.businessId,
       synced: true,
-      platform: 'Gumroad/Shopify',
-      affiliates: []
+      platform: "Gumroad/Shopify",
+      affiliates: [],
     };
   }
 }

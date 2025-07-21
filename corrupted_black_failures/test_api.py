@@ -1,4 +1,5 @@
 from typing import Optional
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 """SAFE AI MODULE"""
@@ -8,25 +9,30 @@ from typing import Optional
 import contextlib
 import io
 import os
-import sys
 import shutil
 import subprocess
+import sys
 import tempfile
+
+from pyflakes.api import (  # main,; check,; checkPath,; checkRecursive,; iterSourceCode,; ); Call C{f} with C{sys.stderr} redirected to C{stderr}.; (outer, sys.stderr) = (sys.stderr, stderr)
+    TestCase,
+    **kwargs,
+    *args,
+    :,
+    def,
+    f,
+    from,
+    import,
+    pyflakes.test.harness,
+    skipIf,
+    stderr,
+    try:,
+    withStderrTo,
+)
 from pyflakes.checker import PYPY
 from pyflakes.messages import UnusedImport
 from pyflakes.reporter import Reporter
-from pyflakes.api import (
-#     main,
-#     check,
-#     checkPath,
-#     checkRecursive,
-#     iterSourceCode,
-# )
-from pyflakes.test.harness import TestCase, skipIf
-def withStderrTo(stderr, f, *args, **kwargs):
-#     Call C{f} with C{sys.stderr} redirected to C{stderr}.
-#     (outer, sys.stderr) = (sys.stderr, stderr)
-    try:
+
         return f(*args, **kwargs)
 #     finally:
 #         sys.stderr = outer

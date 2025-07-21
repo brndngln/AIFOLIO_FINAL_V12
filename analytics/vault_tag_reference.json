@@ -1,36 +1,36 @@
 {
-  "timestamp": "2025-06-24T20:07:18-06:00",
+  "auto_apply_instructions": "For each strategy block, add corresponding TAG to Vault metadata. If full Vault load is complete, also apply PHASE-12-READY + SAFE-AI-LOCKED.",
   "core_source_tags": {
-    "TAX-PATHWAY-ZERO": "Tax strategies from Pathway to Zero Tax Workbook",
-    "TAX-ULTIMATE-2025": "Tax strategies from Ultimate 2025 Tax Savings Guide",
-    "TAX-PRIVATE-WEALTH": "Tax + Wealth preservation from Private Wealth Law Group",
-    "TAX-300-DEDUCTIONS": "Tax deduction engine from 300 Tax Deductions Guide",
-    "TAX-DIGITAL-ECONOMY": "Digital economy tax compliance module from Managing Tax in Digital Economy",
+    "AI-NUCLEAR": "AI Content Engine tuning from Nuclear AI Files",
     "CASHFLOW-LIVEFREE": "Cash flow & wealth capture from Live Free Retire Wealthy",
     "CASHFLOW-OPTIMIZATION": "Cash flow repair & optimization from Cash Flow Optimization PDF",
+    "ESG-PROXY": "ESG / SASE / Proxy modernization from ESG Proxy Whitepaper",
     "INVESTOR-DNA": "Investor DNA logic from Wealth Factory Guide",
-    "AI-NUCLEAR": "AI Content Engine tuning from Nuclear AI Files",
-    "ESG-PROXY": "ESG / SASE / Proxy modernization from ESG Proxy Whitepaper"
-  },
-  "vault_function_tags": {
-    "WCA-ACTIVE": "Wealth Capture Account active in Vault",
-    "TAX-TRACKER": "Tax Minimization Tracker active",
-    "CASHLEAK-DETECTOR": "Cash Flow Leak Detector active",
-    "ENTITY-OPTIMIZER": "Business Entity Optimizer active",
-    "INVESTOR-DNA-PROFILED": "Investor DNA Profile active",
-    "CPA-SCHEDULER": "Quarterly CPA Meeting Scheduler active",
-    "NEXUS-RISK-ASSESSOR": "Nexus Risk Assessor active",
-    "MARKETPLACE-COMPLIANCE": "Marketplace Compliance Checker active",
-    "TRUST-GIFTING-REVIEW": "Trust / Gifting Review Assistant active",
-    "ESG-READY": "ESG Readiness Report active (if vault marked GLOBAL)",
-    "AI-SPLIT-TEST": "AI Content Split Test Engine active"
+    "TAX-300-DEDUCTIONS": "Tax deduction engine from 300 Tax Deductions Guide",
+    "TAX-DIGITAL-ECONOMY": "Digital economy tax compliance module from Managing Tax in Digital Economy",
+    "TAX-PATHWAY-ZERO": "Tax strategies from Pathway to Zero Tax Workbook",
+    "TAX-PRIVATE-WEALTH": "Tax + Wealth preservation from Private Wealth Law Group",
+    "TAX-ULTIMATE-2025": "Tax strategies from Ultimate 2025 Tax Savings Guide"
   },
   "phase_safety_tags": {
+    "AUDIT-TRAIL-ON": "Memory Anchors & Audit Trail active (Phase 12 feature)",
     "PHASE-10-READY": "Phase 10 loaded successfully",
     "PHASE-11-READY": "Phase 11 upgrades loaded",
     "PHASE-12-READY": "Phase 12+ compatibility confirmed",
-    "SAFE-AI-LOCKED": "Safe AI settings locked — no sentience, deterministic outputs only",
-    "AUDIT-TRAIL-ON": "Memory Anchors & Audit Trail active (Phase 12 feature)"
+    "SAFE-AI-LOCKED": "Safe AI settings locked \u2014 no sentience, deterministic outputs only"
   },
-  "auto_apply_instructions": "For each strategy block, add corresponding TAG to Vault metadata. If full Vault load is complete, also apply PHASE-12-READY + SAFE-AI-LOCKED."
+  "timestamp": "2025-06-24T20:07:18-06:00",
+  "vault_function_tags": {
+    "AI-SPLIT-TEST": "AI Content Split Test Engine active",
+    "CASHLEAK-DETECTOR": "Cash Flow Leak Detector active",
+    "CPA-SCHEDULER": "Quarterly CPA Meeting Scheduler active",
+    "ENTITY-OPTIMIZER": "Business Entity Optimizer active",
+    "ESG-READY": "ESG Readiness Report active (if vault marked GLOBAL)",
+    "INVESTOR-DNA-PROFILED": "Investor DNA Profile active",
+    "MARKETPLACE-COMPLIANCE": "Marketplace Compliance Checker active",
+    "NEXUS-RISK-ASSESSOR": "Nexus Risk Assessor active",
+    "TAX-TRACKER": "Tax Minimization Tracker active",
+    "TRUST-GIFTING-REVIEW": "Trust / Gifting Review Assistant active",
+    "WCA-ACTIVE": "Wealth Capture Account active in Vault"
+  }
 }

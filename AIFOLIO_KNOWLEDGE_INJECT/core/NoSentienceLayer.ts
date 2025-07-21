@@ -132,7 +132,7 @@ export class NoSentienceLayer {
     this.restoreOriginalAPIs();
 
     this.isActive = false;
-    
+
     // Log deactivation as critical violation
     anomalyWatchdog.logViolation(
       'LOGIC_INJECTION',
@@ -209,7 +209,7 @@ export class NoSentienceLayer {
     // Block Date constructor for dynamic time access
     const originalDate = window.Date;
     this.originalAPIs.set('Date', originalDate);
-    
+
     // Allow static date creation but block dynamic time-based logic
     window.Date = class extends originalDate {
       constructor(...args: any[]) {
@@ -244,7 +244,7 @@ export class NoSentienceLayer {
     // Block localStorage access in UI components
     const originalLocalStorage = window.localStorage;
     this.originalAPIs.set('localStorage', originalLocalStorage);
-    
+
     Object.defineProperty(window, 'localStorage', {
       get: () => {
         const stack = new Error().stack || '';
@@ -259,7 +259,7 @@ export class NoSentienceLayer {
     // Block sessionStorage access in UI components
     const originalSessionStorage = window.sessionStorage;
     this.originalAPIs.set('sessionStorage', originalSessionStorage);
-    
+
     Object.defineProperty(window, 'sessionStorage', {
       get: () => {
         const stack = new Error().stack || '';
@@ -292,7 +292,7 @@ export class NoSentienceLayer {
     if (navigator.geolocation) {
       const originalGeolocation = navigator.geolocation;
       this.originalAPIs.set('geolocation', originalGeolocation);
-      
+
       Object.defineProperty(navigator, 'geolocation', {
         get: () => {
           const stack = new Error().stack || '';
@@ -312,7 +312,7 @@ export class NoSentienceLayer {
     // Monitor setTimeout for UI components
     const originalSetTimeout = window.setTimeout;
     this.originalAPIs.set('setTimeout', originalSetTimeout);
-    
+
     window.setTimeout = (callback: any, delay?: number, ...args: any[]) => {
       const stack = new Error().stack || '';
       if (stack.includes('ui/') || stack.includes('atoms/')) {
@@ -325,7 +325,7 @@ export class NoSentienceLayer {
     // Monitor setInterval for UI components
     const originalSetInterval = window.setInterval;
     this.originalAPIs.set('setInterval', originalSetInterval);
-    
+
     window.setInterval = (callback: any, delay?: number, ...args: any[]) => {
       const stack = new Error().stack || '';
       if (stack.includes('ui/') || stack.includes('atoms/')) {
@@ -342,7 +342,7 @@ export class NoSentienceLayer {
     // Monitor addEventListener for UI components
     const originalAddEventListener = EventTarget.prototype.addEventListener;
     this.originalAPIs.set('addEventListener', originalAddEventListener);
-    
+
     EventTarget.prototype.addEventListener = function(type: string, listener: any, options?: any) {
       const stack = new Error().stack || '';
       if (stack.includes('ui/atoms/') && !['mouseenter', 'mouseleave'].includes(type)) {
@@ -358,7 +358,7 @@ export class NoSentienceLayer {
 
     // Create CSP meta tag if it doesn't exist
     let cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]') as HTMLMetaElement;
-    
+
     if (!cspMeta) {
       cspMeta = document.createElement('meta');
       cspMeta.httpEquiv = 'Content-Security-Policy';
@@ -424,7 +424,7 @@ export class NoSentienceLayer {
     };
 
     this.blockedCalls.push(blockedCall);
-    
+
     // Keep only last 100 blocked calls
     if (this.blockedCalls.length > 100) {
       this.blockedCalls = this.blockedCalls.slice(-100);
@@ -493,7 +493,7 @@ export const noSentienceLayer = NoSentienceLayer.getInstance();
 if (typeof window !== 'undefined') {
   // @ts-ignore - Global NSL access
   window.__AIFOLIO_NSL__ = noSentienceLayer;
-  
+
   // Auto-activate in production or when explicitly enabled
   if (process.env.NODE_ENV === 'production' || process.env.AIFOLIO_NSL_ENABLED === 'true') {
     noSentienceLayer.activate();

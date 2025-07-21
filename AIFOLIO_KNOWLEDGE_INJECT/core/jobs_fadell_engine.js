@@ -4,8 +4,8 @@ export class JobsFadellEngine {
     // Stub: Analyze feedback for emotional resonance
     return {
       resonance: Math.random().toFixed(2),
-      emotion: 'delight',
-      action: 'amplify'
+      emotion: "delight",
+      action: "amplify",
     };
   }
 }

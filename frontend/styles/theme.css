@@ -2,18 +2,18 @@
 :root {
   /* Base Colors */
   --bg: #000000;
-  --text: #F5EAD4;
-  --card: #1A1A1A;
-  --panel: #0F0F0F;
+  --text: #f5ead4;
+  --card: #1a1a1a;
+  --panel: #0f0f0f;
 
   /* Accent Colors */
-  --accent: #2E3D2E;
-  --accent-hover: #3D503D;
-  --secondary: #516B51;
+  --accent: #2e3d2e;
+  --accent-hover: #3d503d;
+  --secondary: #516b51;
 
   /* CTA Colors */
-  --cta: #D2B48C;
-  --cta-hover: #E4C49E;
+  --cta: #d2b48c;
+  --cta-hover: #e4c49e;
 
   /* Typography */
   --font-size-xs: 0.75rem;
@@ -156,10 +156,10 @@
 [data-theme="dark"] {
   --bg: #000000;
   --text: #ffffff;
-  --card: #1A1A1A;
-  --accent: #516B51;
-  --cta: #D2B48C;
-  --cta-hover: #E4C49E;
+  --card: #1a1a1a;
+  --accent: #516b51;
+  --cta: #d2b48c;
+  --cta-hover: #e4c49e;
   --success: #2dd4bf;
   --error: #f87171;
   --warning: #fcd34d;
