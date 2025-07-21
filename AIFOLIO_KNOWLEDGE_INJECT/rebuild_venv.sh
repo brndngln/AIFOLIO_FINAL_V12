@@ -5,7 +5,7 @@
 set -e  # Exit on any error
 
 echo "🧠 Rebuilding Python 3.13.5 environment..."
-echo "🌪️ WINDSURF FORTRESS: IMMORTAL LOCKDOWN PROTOCOL"
+echo "🌪️ WINDSURF FORTRESS: IMMORTAL LOCKDOWN PROTOCOL v12.3"
 
 # Step 1: Nuke old environment
 echo "🧨 Removing old .venv..."
@@ -14,6 +14,7 @@ rm -rf .venv
 # Step 2: Set Python version
 echo "📦 Setting Python version to system (3.13.5)..."
 echo "system" > .python-version
+pyenv local system
 
 # Step 3: Create new virtual environment
 echo "🧪 Creating new virtual environment..."
@@ -54,7 +55,7 @@ else
 fi
 
 echo ""
-echo "🌌 COSMIC REBIRTH COMPLETE ✅"
+echo "🌌 FORTRESS LOCKDOWN COMPLETE ✅"
 echo "🔒 Environment rebuilt and locked to Python 3.13.5"
 echo "🛡️ Pre-commit hooks active with version guard"
 echo "⚡ Ready for immortal commits!"
