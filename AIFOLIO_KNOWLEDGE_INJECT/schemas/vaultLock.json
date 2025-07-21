@@ -1,0 +1,214 @@
+{
+  "lockdownVersion": "1.9X++",
+  "schemaVersion": "1.0.0",
+  "timestamp": "2024-12-19T00:00:00.000Z",
+  "checksum": "vault_lock_snapshot_001",
+  "description": "Manual interface snapshots for anomaly detection and render diffing",
+  
+  "approvedComponents": {
+    "Divider": {
+      "displayName": "Divider",
+      "props": ["orientation", "size", "color", "className"],
+      "variants": {
+        "orientation": ["horizontal", "vertical"],
+        "size": ["xs", "sm", "md", "lg", "xl"],
+        "color": ["light", "medium", "dark", "accent"]
+      },
+      "renderSignature": "static_visual_separator",
+      "sentience": "BLOCKED",
+      "logicRisk": "NONE"
+    },
+    
+    "Tag": {
+      "displayName": "Tag",
+      "props": ["children", "variant", "size", "icon", "iconPosition", "className"],
+      "variants": {
+        "variant": ["default", "primary", "secondary", "success", "warning", "danger"],
+        "size": ["xs", "sm", "md", "lg"],
+        "iconPosition": ["left", "right"]
+      },
+      "renderSignature": "static_label_with_optional_icon",
+      "sentience": "BLOCKED",
+      "logicRisk": "NONE"
+    },
+    
+    "SectionTitle": {
+      "displayName": "SectionTitle",
+      "props": ["children", "level", "size", "weight", "color", "className"],
+      "variants": {
+        "level": [2, 3, 4, 5, 6],
+        "size": ["xs", "sm", "md", "lg", "xl", "2xl"],
+        "weight": ["normal", "medium", "semibold", "bold"],
+        "color": ["default", "muted", "accent", "success", "warning", "danger"]
+      },
+      "renderSignature": "static_heading_element",
+      "sentience": "BLOCKED",
+      "logicRisk": "NONE"
+    },
+    
+    "InlineNote": {
+      "displayName": "InlineNote",
+      "props": ["children", "variant", "size", "icon", "className"],
+      "variants": {
+        "variant": ["muted", "info", "success", "warning", "danger"],
+        "size": ["xs", "sm", "md"]
+      },
+      "renderSignature": "static_muted_text_with_optional_icon",
+      "sentience": "BLOCKED",
+      "logicRisk": "NONE"
+    },
+    
+    "TooltipHint": {
+      "displayName": "TooltipHint",
+      "props": ["children", "hint", "position", "size", "className"],
+      "variants": {
+        "position": ["top", "bottom", "left", "right"],
+        "size": ["sm", "md", "lg"]
+      },
+      "renderSignature": "css_only_hover_tooltip",
+      "sentience": "BLOCKED",
+      "logicRisk": "NONE",
+      "eventListeners": "NONE_CSS_ONLY"
+    }
+  },
+  
+  "lockdownComponents": {
+    "RenderCage": {
+      "displayName": "RenderCage",
+      "purpose": "Master visual boundary enforcing render-only mode",
+      "features": ["violation_logging", "eval_blocking", "function_constructor_blocking"],
+      "sentience": "ENFORCEMENT_LAYER",
+      "logicRisk": "CONTROLLED"
+    },
+    
+    "LockdownGate": {
+      "displayName": "LockdownGate",
+      "purpose": "Route and component validator with safelist checking",
+      "features": ["component_validation", "route_validation", "prop_schema_checking"],
+      "sentience": "ENFORCEMENT_LAYER",
+      "logicRisk": "CONTROLLED"
+    },
+    
+    "LockdownDebugger": {
+      "displayName": "LockdownDebugger",
+      "purpose": "Developer HUD for real-time monitoring and anomaly detection",
+      "features": ["metrics_collection", "violation_display", "performance_monitoring"],
+      "sentience": "ENFORCEMENT_LAYER",
+      "logicRisk": "DEV_ONLY"
+    }
+  },
+  
+  "vaultEntitySchema": {
+    "requiredFields": [
+      "id",
+      "title", 
+      "status",
+      "theme",
+      "accessLevel",
+      "createdAt",
+      "updatedAt",
+      "metadata"
+    ],
+    "fieldTypes": {
+      "id": "VaultID",
+      "title": "VaultTitle",
+      "status": "VaultStatus",
+      "theme": "VaultTheme",
+      "accessLevel": "AccessLevel",
+      "createdAt": "number",
+      "updatedAt": "number",
+      "metadata": "object"
+    },
+    "enumValues": {
+      "VaultStatus": ["active", "archived", "locked", "pending", "error"],
+      "VaultTheme": ["light", "dark", "auto", "system"],
+      "AccessLevel": ["public", "private", "restricted", "admin"]
+    }
+  },
+  
+  "approvedRoutes": [
+    "/",
+    "/vault",
+    "/vault/:id",
+    "/settings",
+    "/debug"
+  ],
+  
+  "blockedFeatures": {
+    "dynamicImports": "BLOCKED",
+    "evalFunction": "BLOCKED",
+    "functionConstructor": "BLOCKED",
+    "stringBasedTimeouts": "BLOCKED",
+    "stringBasedIntervals": "BLOCKED",
+    "conditionalRenderingBasedOnBehavior": "BLOCKED",
+    "asyncUILogic": "BLOCKED",
+    "customEventListenersOutsideApprovedList": "BLOCKED",
+    "statefulHooksInVaultComponents": "BLOCKED",
+    "timeBasedRendering": "BLOCKED",
+    "userActionStorageInUI": "BLOCKED",
+    "propMutationAfterMount": "BLOCKED"
+  },
+  
+  "enforcementLayers": {
+    "noSentinenceShield": {
+      "status": "ACTIVE",
+      "globalConstant": "process.env.NO_AI_SENTIENCE = 'ENFORCED'",
+      "runtimeChecks": "ENABLED",
+      "violationLogging": "ENABLED"
+    },
+    
+    "schemaGuards": {
+      "status": "ACTIVE",
+      "runtimeValidation": "ENABLED",
+      "propValidation": "ENABLED",
+      "entityValidation": "ENABLED"
+    },
+    
+    "renderLockdown": {
+      "status": "ACTIVE",
+      "componentWhitelist": "ENFORCED",
+      "routeWhitelist": "ENFORCED",
+      "propSchemaValidation": "ENFORCED"
+    }
+  },
+  
+  "violationTypes": [
+    "UNAUTHORIZED_PROP",
+    "ROGUE_RENDER", 
+    "LOGIC_INJECTION",
+    "STATE_MUTATION",
+    "INVALID_ENTITY",
+    "SCHEMA_VIOLATION"
+  ],
+  
+  "logFiles": {
+    "lockdownViolations": "lockdown_violations.log",
+    "renderRogue": "render_rogue.log", 
+    "uiMutationAttempts": "ui_mutation_attempts.log",
+    "schemaViolations": "schema_violations.log"
+  },
+  
+  "constants": {
+    "MAX_TITLE_LENGTH": 200,
+    "MAX_COMPONENTS_PER_VAULT": 100,
+    "MAX_VIOLATIONS_STORED": 100,
+    "VIOLATION_CHECK_INTERVAL_MS": 2000,
+    "METRICS_UPDATE_INTERVAL_MS": 1000,
+    "MAX_RENDER_TIMES_TRACKED": 100
+  },
+  
+  "cspHeaders": {
+    "script-src": "'self'",
+    "object-src": "'none'",
+    "eval": "DISABLED",
+    "unsafe-inline": "DISABLED",
+    "unsafe-eval": "DISABLED"
+  },
+  
+  "integrityChecks": {
+    "componentSignatureValidation": "ENABLED",
+    "propImmutabilityChecks": "ENABLED",
+    "renderTreeValidation": "ENABLED",
+    "anomalyDetection": "ENABLED"
+  }
+}
