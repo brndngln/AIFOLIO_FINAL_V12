@@ -3,5 +3,5 @@
 # File: __init__.py
 
 
-def placeholder():
+def placeholder() -> None:
     print("TODO: regenerate logic for __init__")
