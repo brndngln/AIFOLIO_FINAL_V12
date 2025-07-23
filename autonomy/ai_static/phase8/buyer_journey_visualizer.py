@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all visualizations for admin review. No dynamic, learning, or autonomous
 #   behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import List
 
@@ -31,10 +32,11 @@ from typing import List
 
 
 def visualize_buyer_journey(triggered_by: str) -> List[str]:
+    pass
     #     Visualizes static buyer journey stages. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()
-    #     event = (
+    #     event = ()
     #         f"[{timestamp}] BUYER JOURNEY: {JOURNEY_STAGES} | Triggered by: {triggered_by}"
     #     )
     #     logging.info(event)

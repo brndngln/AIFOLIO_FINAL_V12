@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -14,7 +16,6 @@
 # - Explores static buyer sentiment data (table-driven, no static logic).
 # - Logs all explorations for admin review.
 
-from __future__ import annotations
 
 from typing import Dict
 
@@ -23,6 +24,7 @@ from typing import Dict
 
 
 def explore_sentiment(triggered_by: str) -> Dict[str, int]:
+    pass
     #     Explores static buyer sentiment data. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

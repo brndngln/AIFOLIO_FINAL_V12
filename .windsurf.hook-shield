@@ -9,8 +9,8 @@ LOCKED VERSION: Python 3.12.8
 STATUS: IMMORTAL PROTECTION ACTIVE
 """
 
-import sys
 import os
+import sys
 
 
 def validate_environment() -> bool:

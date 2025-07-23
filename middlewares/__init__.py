@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """SAFE AI MODULE"""
 
 """SAFE AI MODULE"""
@@ -12,5 +14,3 @@
 # Static, deterministic, audit-compliant, owner-controlled, non-adaptive logic.
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
-
-from __future__ import annotations

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all competitor checks for admin review. No dynamic, learning, or
 #   autonomous behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import List
 
@@ -24,6 +25,7 @@ from typing import List
 
 
 def scan_competitors(triggered_by: str) -> List[str]:
+    pass
     #     Scans static competitor data. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

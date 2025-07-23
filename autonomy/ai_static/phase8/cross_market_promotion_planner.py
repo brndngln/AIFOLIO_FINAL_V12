@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all suggestions for admin review. No dynamic, learning, or autonomous
 #   behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import List
 
@@ -24,6 +25,7 @@ from typing import List
 
 
 def plan_cross_market_promotions(triggered_by: str) -> List[str]:
+    pass
     #     Suggests static cross-market promotion plans. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

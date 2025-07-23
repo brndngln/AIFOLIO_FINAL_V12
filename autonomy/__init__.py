@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """SAFE AI MODULE"""
 
 """SAFE AI MODULE"""
@@ -12,5 +14,3 @@
 # OMNIELITE SAFE AI MODULE MARKER
 # SAFE AI: Static, deterministic, owner-controlled.
 # No adaptive or sentient logic.
-
-from __future__ import annotations

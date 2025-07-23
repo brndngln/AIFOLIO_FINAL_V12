@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -14,12 +16,12 @@
 # - Static, non-sentient. Generates output variants from pre-approved templates.
 # - All variants require human approval. No autonomous content creation.
 
-from __future__ import annotations
 
 from typing import List
 
 
 def generate_variants(text: str, templates: List[str]) -> List[str]:
+    pass
     #     Generates output variants using pre-approved templates. Static only.
 
     return [template.format(text=text) for template in templates]

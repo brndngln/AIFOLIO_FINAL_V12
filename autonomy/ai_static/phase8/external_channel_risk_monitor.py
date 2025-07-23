@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -14,7 +16,6 @@
 # - Flags social/reputation risks from static sources (table-driven).
 # - Logs all detections for admin review. No dynamic or adaptive behavior.
 
-from __future__ import annotations
 
 # LOG_PATH = "../../distribution/legal_exports/external_channel_risk_log.txt"
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
@@ -23,6 +24,7 @@ from __future__ import annotations
 
 
 def monitor_external_channel(channel: str, triggered_by: str) -> str:
+    pass
     #     Monitors static external channel risks. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

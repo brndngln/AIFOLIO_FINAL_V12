@@ -1,0 +1,117 @@
+{
+  "black": {
+    "status": "failed",
+    "files_changed": 0,
+    "errors": [
+      "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 148, in _get_module_details\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"src/black/__init__.py\", line 34, in <module>\nImportError: cannot import name 'PathSpec' from 'pathspec' (/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/pathspec.py)\n"
+    ]
+  },
+  "isort": {
+    "status": "failed",
+    "files_changed": 0,
+    "errors": [
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.venv/bin/python: No module named isort\n"
+    ]
+  },
+  "flake8": {
+    "status": "violations_found",
+    "violations": 0,
+    "errors": []
+  },
+  "mypy": {
+    "status": "success",
+    "errors": 0,
+    "warnings": 0,
+    "notes": []
+  },
+  "bandit": {
+    "status": "success",
+    "issues": 0,
+    "severity": {},
+    "errors": []
+  },
+  "dangerous_patterns": {
+    "status": "success",
+    "found": [
+      {
+        "file": "diagnose_setup.py",
+        "line": 47,
+        "pattern": "os.system() function",
+        "code": "result = os.system(script)"
+      },
+      {
+        "file": "check_setup.py",
+        "line": 20,
+        "pattern": "subprocess with shell=True",
+        "code": "result = subprocess.call(script, shell=True)"
+      },
+      {
+        "file": "comprehensive_linting_cleanup.py",
+        "line": 263,
+        "pattern": "eval() function",
+        "code": "(r'\\beval\\s*\\(', 'eval() function'),"
+      },
+      {
+        "file": "comprehensive_linting_cleanup.py",
+        "line": 264,
+        "pattern": "exec() function",
+        "code": "(r'\\bexec\\s*\\(', 'exec() function'),"
+      },
+      {
+        "file": "comprehensive_linting_cleanup.py",
+        "line": 266,
+        "pattern": "os.system() function",
+        "code": "(r'os\\.system\\s*\\(', 'os.system() function'),"
+      },
+      {
+        "file": "corrupted_black_failures/evalexpr.py",
+        "line": 13,
+        "pattern": "eval() function",
+        "code": "return eval(expr, {\"__builtins__\": {}}, context)"
+      },
+      {
+        "file": "corrupted_black_failures/eval.py",
+        "line": 32,
+        "pattern": "eval() function",
+        "code": "_instance = Eval()"
+      },
+      {
+        "file": "aifolio_empire/profit_engines/ai_tax_optimizer.py",
+        "line": 43,
+        "pattern": "dynamic __import__",
+        "code": "#         \"timestamp\": __import__(\"datetime\").datetime.utcnow().isoformat() + \"Z\","
+      },
+      {
+        "file": "analytics/marketplace_trend_analyzer.py",
+        "line": 36,
+        "pattern": "dynamic __import__",
+        "code": "#         \"timestamp\": __import__(\"datetime\").datetime.utcnow().isoformat() + \"Z\","
+      },
+      {
+        "file": "AIFOLIO_KNOWLEDGE_INJECT/features/empire/backend/profit_engines/ai_tax_optimizer.py",
+        "line": 42,
+        "pattern": "dynamic __import__",
+        "code": "#         \"timestamp\": __import__(\"datetime\").datetime.utcnow().isoformat() + \"Z\","
+      },
+      {
+        "file": "AIFOLIO_KNOWLEDGE_INJECT/features/analytics/data/marketplace_trend_analyzer.py",
+        "line": 37,
+        "pattern": "dynamic __import__",
+        "code": "#         \"timestamp\": __import__(\"datetime\").datetime.utcnow().isoformat() + \"Z\","
+      }
+    ],
+    "fixed": []
+  },
+  "shebang_updates": {
+    "status": "success",
+    "updated": [],
+    "errors": []
+  },
+  "import_conflicts": {
+    "status": "success",
+    "conflicts": [
+      "corrupted_black_failures/html.py"
+    ],
+    "resolved": []
+  }
+}

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -16,7 +18,6 @@
 # SAFE AI static user/partner management for admin panel. This is a static,
 # deterministic, non-adaptive user registry for SAFE AI compliance.
 
-from __future__ import annotations
 
 #     {
 #         "username": "admin",

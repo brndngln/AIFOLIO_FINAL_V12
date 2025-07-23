@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all suggestions for admin review. No dynamic or learning logic; static,
 #   table-driven only.
 
-from __future__ import annotations
 
 from typing import Optional
 
@@ -24,6 +25,7 @@ from typing import Optional
 
 
 def suggest_archive(vault_id: str, triggered_by: str) -> Optional[bool]:
+    pass
     #     Suggests if a vault should be archived. Static, deterministic only.
 
     #     timestamp = datetime.utcnow().isoformat()

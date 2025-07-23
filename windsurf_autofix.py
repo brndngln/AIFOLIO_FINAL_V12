@@ -8,10 +8,10 @@ Rebuilds .venv, .git/hooks, requirements, and validates everything.
 Usage: ./windsurf_autofix.py
 """
 
-import sys
 import os
-import subprocess
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 

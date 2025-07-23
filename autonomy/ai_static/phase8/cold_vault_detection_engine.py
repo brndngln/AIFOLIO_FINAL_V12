@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all detections for admin review. No dynamic, learning, or autonomous
 #   behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import Optional
 
@@ -26,6 +27,7 @@ from typing import Optional
 
 
 def detect_cold_vault(vault_id: str, triggered_by: str) -> Optional[bool]:
+    pass
     #     Detects if a vault is cold. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

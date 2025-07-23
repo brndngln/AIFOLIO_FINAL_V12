@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,13 +17,13 @@
 # - No production impact, logs all test runs. No loops or self-calling functions;
 #   no dynamic or learning logic.
 
-from __future__ import annotations
 
 # LOG_PATH = "../../distribution/legal_exports/ai_test_sandbox_log.txt"
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 
 def run_ai_sandbox_test(module_name: str, test_case: str, triggered_by: str) -> str:
+    pass
     #     Runs a static test for a module in the sandbox. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

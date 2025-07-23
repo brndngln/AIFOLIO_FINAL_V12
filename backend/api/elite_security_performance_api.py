@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -16,13 +18,13 @@
 # Elite security audit and performance API for AIFOLIO. Static, deterministic,
 # SAFE AI, owner-controlled, fully auditable.
 
-from __future__ import annotations
 
 # router = APIRouter()
 
 
 # @router.get("/security/audit")
 def security_audit():
+    pass
     #     results = {
     #         "env_vars": list(os.environ.keys()),
     #         "api_key_leak": False,
@@ -37,9 +39,11 @@ def security_audit():
 
 # @router.get("/performance/latency")
 def performance_latency():
+    pass
     return {"latency_ms": 42, "status": "PASS"}
 
 
 # @router.get("/performance/load")
 def performance_load():
+    pass
     return {"load_test": "PASS", "max_rps": 1000, "recommendation": "No bottlenecks"}

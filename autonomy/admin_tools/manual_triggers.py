@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -16,10 +18,9 @@
 # re-send receipts, rebuild reports. All actions logged, no automation, no
 # optimization.
 
-from __future__ import annotations
-
 
 def manual_rerun_analytics() -> str:
+    pass
     #     Manually triggers analytics re-run. Static, deterministic only.
 
     # Admin-triggered only
@@ -27,6 +28,7 @@ def manual_rerun_analytics() -> str:
 
 
 def manual_resend_receipts() -> str:
+    pass
     #     Manually triggers receipts re-send. Static, deterministic only.
 
     # Admin-triggered only
@@ -34,6 +36,7 @@ def manual_resend_receipts() -> str:
 
 
 def manual_rebuild_reports() -> str:
+    pass
     #     Manually triggers report rebuild. Static, deterministic only.
 
     # Admin-triggered only

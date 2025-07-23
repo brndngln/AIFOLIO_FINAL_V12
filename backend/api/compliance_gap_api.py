@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -14,7 +16,6 @@
 # No sentient, adaptive, or self-modifying code. All logic is reviewed for audit
 # compliance and traceability. Extension points for integrations are documented.
 
-from __future__ import annotations
 
 from backend.ai.compliance_gap import analyze_gaps
 
@@ -23,4 +24,5 @@ from backend.ai.compliance_gap import analyze_gaps
 
 # @router.get("/api/compliance/gaps")
 def get_gaps():
+    pass
     return analyze_gaps()

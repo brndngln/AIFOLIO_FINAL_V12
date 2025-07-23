@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all projections for admin review. No dynamic, learning, or autonomous
 #   behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import Dict
 
@@ -24,6 +25,7 @@ from typing import Dict
 
 
 def project_cashflow(triggered_by: str) -> Dict[str, int]:
+    pass
     #     Projects static cashflow values. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

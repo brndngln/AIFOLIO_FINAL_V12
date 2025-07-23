@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -15,7 +17,6 @@
 # - Logs all findings for admin review. No dynamic, learning, or autonomous
 #   behavior (static, table-driven only).
 
-from __future__ import annotations
 
 from typing import List
 
@@ -24,11 +25,12 @@ from typing import List
 
 
 def find_content_gaps(vault_id: str, triggered_by: str) -> List[str]:
+    pass
     #     Finds static content gaps for a vault. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()
     #     gaps = CONTENT_GAPS.get(vault_id, [])
-    #     event = (
+    #     event = ()
     #         f"[{timestamp}] CONTENT GAP: {vault_id} = {gaps} | Triggered by: {triggered_by}"
     #     )
     #     logging.info(event)

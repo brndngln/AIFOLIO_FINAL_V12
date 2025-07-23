@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
@@ -14,13 +16,13 @@
 # - Maps static customer satisfaction sentiment (table-driven).
 # - Logs all maps for admin review. No dynamic or adaptive behavior.
 
-from __future__ import annotations
 
 # LOG_PATH = "../../distribution/legal_exports/customer_satisfaction_log.txt"
 # logging.basicConfig(filename=LOG_PATH, level=logging.INFO)
 
 
 def map_customer_satisfaction(vault_id: str, triggered_by: str) -> str:
+    pass
     #     Maps static customer satisfaction sentiment. Static only.
 
     #     timestamp = datetime.utcnow().isoformat()

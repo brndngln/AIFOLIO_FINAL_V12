@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """SAFE AI MODULE"""
 
 """SAFE AI MODULE"""
@@ -14,6 +16,5 @@
 # compliance and traceability. Extension points for integrations are documented.
 # Exports PDF + JSON for financial summary, terms, license.
 
-from __future__ import annotations
 
 # PDF + JSON exporters for financial summary, terms, license
