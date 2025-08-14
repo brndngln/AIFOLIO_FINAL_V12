@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:58:48
+Timestamp: 2025-08-13 20:59:05
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,23 +8,34 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_448.json
-- Changed files in last changeset: 6
+- Last changeset: changeset_465.json
+- Changed files in last changeset: 17
 
 ## Changed Files
 
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/siem_alerts_auto.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/hsm_airgap_demo.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/emma_usb_token.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/audit.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/hsm_airgap_auto.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/emma_crypto_qr.py
+- frontend/src/components/PartnerCertificationExportPanel.jsx
+- frontend/src/components/SalesHeatmapPanel.jsx
+- frontend/src/components/PrivacyStatusBar.jsx
+- frontend/src/components/PartnerCertificationForm.jsx
+- frontend/src/components/FractalRevenueHeatmapPanel.jsx
+- frontend/src/__tests__/test_color_customization.test.jsx
+- financial/__init__.py
+- admin_export/__init__.py
+- config/vault_control_flags.json
+- config/vault_registry_backup.json
+- config/license_mode.json
+- config/prompt_sets/contentdrop_network.json
+- config/prompt_sets/templatevault_hub.json
+- config/prompt_sets/ritualux_rituals.json
+- config/prompt_sets/rebelremedy_recipes.json
+- config/prompt_sets/templiq_templates.json
+- config/prompt_sets/talentvault_explorer.json
 
 ## Validation
 
 Passed: True
-Duration: 0.349s
-Python compiled: 6; lint tool: pyflakes
+Duration: 0.346s
+Python compiled: 2; lint tool: pyflakes
 
 ## Next Steps
 
