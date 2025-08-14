@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:08:15
+Timestamp: 2025-08-13 20:08:42
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,37 +8,36 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_89.json
-- Changed files in last changeset: 20
+- Last changeset: changeset_114.json
+- Changed files in last changeset: 19
 
 ## Changed Files
 
-- absolute.py
-- range.py
-- _loop.py
-- modeling_blip_text.py
-- prompt_fingerprinting.py
-- download.py
-- processing_nougat.py
-- test_eddsa.py
-- datetimes.py
-- conversation_item_create_event_param.py
-- compression.py
-- vault_content_uniqueness_analyzer.py
-- parsed_chat_completion.py
-- test_handlers_scrypt.py
-- convert_deta_resnet_to_pytorch.py
-- replicate.py
-- applications.py
-- configuration_convnextv2.py
-- ai_safety.py
-- supervised_hyperparameters.py
+- _l_c_a_r.py
+- ImageDraw.py
+- _xet.py
+- renderbase.py
+- retry_safe_hooks.py
+- modeling_rag.py
+- notion_push.py
+- tokenization_mgp_str.py
+- multi_brand_engine.py
+- test_errstate.py
+- json_backup.py
+- _runtime.py
+- index_command.py
+- configuration_mpnet.py
+- modeling_levit.py
+- test_nep50_promotions.py
+- response_file_search_call_in_progress_event.py
+- policy_mapping.py
+- edit.py
 
 ## Validation
 
 Passed: True
-Duration: 0.403s
-Python compiled: 20; lint tool: pyflakes
+Duration: 0.433s
+Python compiled: 19; lint tool: pyflakes
 
 ## Next Steps
 
