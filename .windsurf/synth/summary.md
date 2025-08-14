@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:57:03
+Timestamp: 2025-08-13 20:57:29
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,24 +8,22 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_348.json
-- Changed files in last changeset: 7
+- Last changeset: changeset_373.json
+- Changed files in last changeset: 5
 
 ## Changed Files
 
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/test_agents_health.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/ceevee.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/test_agent_utils.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/adam.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/emmi.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/cassie.py
-- quarantine_non_python/quarantine_non_python/aifolio_ai_bots_backend/agents/bobby.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/profitwarp/ai_revenue_loop.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/profitwarp/fractal_vault_engine.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/profitwarp/empire_scaling_os.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/profitwarp/profitwarp_seeder.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/profitwarp/pdf_quantum_generator.py
 
 ## Validation
 
 Passed: True
-Duration: 0.354s
-Python compiled: 7; lint tool: pyflakes
+Duration: 0.347s
+Python compiled: 5; lint tool: pyflakes
 
 ## Next Steps
 
