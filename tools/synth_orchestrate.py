@@ -22,6 +22,7 @@ Usage examples:
 from __future__ import annotations
 
 import argparse
+import math
 import json
 import os
 import re
@@ -191,6 +192,16 @@ def main():
     ap.add_argument("--max-failures", type=int, default=1, help="Abort after this many failures")
     args = ap.parse_args()
 
+    # Determine maximum batch index from candidates, if available
+    max_batch: Optional[int] = None
+    try:
+        cand = json.loads((SYNTH_DIR / "candidates.json").read_text(encoding="utf-8"))
+        total_candidates = len(cand.get("candidates") or [])
+        if total_candidates:
+            max_batch = math.ceil(total_candidates / args.size)
+    except Exception:
+        max_batch = None
+
     # Determine start batch
     start_batch: Optional[int] = args.start_batch
     if start_batch is None and args.resume:
@@ -205,11 +216,14 @@ def main():
     total_committed = 0
     batch = start_batch
 
-    log_event("orchestrate_start", start_batch=start_batch, end_batch=args.end_batch, size=args.size)
+    log_event("orchestrate_start", start_batch=start_batch, end_batch=args.end_batch, size=args.size, max_batch=max_batch)
 
     while True:
         if args.end_batch is not None and batch > args.end_batch:
             log_event("orchestrate_stop", reason="end_batch_reached", last_batch=batch - 1)
+            break
+        if max_batch is not None and batch > max_batch:
+            log_event("orchestrate_stop", reason="all_batches_exhausted", last_batch=batch - 1, max_batch=max_batch)
             break
         # Apply
         apply_cmd = f"python3 tools/synth_apply.py --batch {batch} --size {args.size}"
@@ -224,8 +238,13 @@ def main():
             continue
         cs = parse_changeset_from_apply_output(apply_res.out)
         if cs is None:
-            # No more candidates or unexpected output
-            if "Wrote 0 files" in apply_res.out or "no candidates" in apply_res.out.lower():
+            # Empty batch or unexpected output
+            out_l = apply_res.out.lower()
+            if "nothing to write in this batch" in out_l or "wrote 0 files" in out_l:
+                log_event("apply_empty_batch", batch=batch)
+                batch += 1
+                continue
+            if "no candidates" in out_l:
                 log_event("orchestrate_stop", reason="no_more_candidates", batch=batch)
                 break
             # Treat as failure to avoid loops
