@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:09:37
+Timestamp: 2025-08-13 20:10:04
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,35 +8,35 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_164.json
+- Last changeset: changeset_189.json
 - Changed files in last changeset: 19
 
 ## Changed Files
 
-- tokenization_big_bird.py
-- test_export_failed.py
-- vault.py
-- rparsexml.py
-- _hf_folder.py
-- indexable.py
-- _cache_assets.py
-- _oauth.py
-- exc.py
-- ai_anomaly_detector.py
-- financial_legal_filter.py
-- test_extint128.py
-- rrule.py
-- telegram_alerts.py
-- reachability.py
-- custom_inspect_module.py
-- grader_run_response.py
-- image_processing_layoutlmv2.py
-- test_cython.py
+- analytics_view.py
+- connector.py
+- aioodbc.py
+- modeling_umt5.py
+- processing_speech_to_text_2.py
+- fine_tune_create_params.py
+- modeling_mbart.py
+- automation_enhancements.py
+- configuration_m2m_100.py
+- completion_usage.py
+- bar.py
+- test_casting_unittests.py
+- test_repr.py
+- msvccompiler.py
+- datetimelike.py
+- configuration_vitmatte.py
+- bcrypt.py
+- ai_cover_image_validator.py
+- configuration_align.py
 
 ## Validation
 
 Passed: True
-Duration: 0.392s
+Duration: 0.394s
 Python compiled: 19; lint tool: pyflakes
 
 ## Next Steps
