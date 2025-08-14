@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:10:31
+Timestamp: 2025-08-13 20:10:58
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,36 +8,36 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_214.json
+- Last changeset: changeset_239.json
 - Changed files in last changeset: 20
 
 ## Changed Files
 
-- upload_large_folder.py
-- vault_dispatcher.py
-- eval_delete_response.py
-- test_send_confirmation_email.py
-- woff2.py
-- entities.py
-- vector_store_file.py
-- modeling_roberta.py
-- anti_reverse_engineering.py
-- param_functions.py
-- CFF2ToCFF.py
-- _fields.py
-- configuration_seamless_m4t.py
-- modeling_flax_beit.py
-- progress.py
-- pagination.py
-- modeling_convbert.py
-- code_interpreter_output_image.py
-- _stack.py
-- crypto_utils.py
+- modeling_falcon.py
+- test_other.py
+- benchmark_args_tf.py
+- modeling_tf_mbart.py
+- textobject.py
+- test_partial_indexing.py
+- test_to_excel.py
+- vault_flagged_for_review.py
+- feats.py
+- quantization_config.py
+- compliance_feed.py
+- test_datetimes.py
+- validate_market_fit.py
+- helpers.py
+- nebius.py
+- test_clip.py
+- ecdh.py
+- generate_legacy_storage_files.py
+- conversation_item_truncate_event_param.py
+- post_sale_dispatcher.py
 
 ## Validation
 
 Passed: True
-Duration: 0.423s
+Duration: 0.443s
 Python compiled: 20; lint tool: pyflakes
 
 ## Next Steps
