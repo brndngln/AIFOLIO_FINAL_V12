@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:11:35
+Timestamp: 2025-08-13 20:56:08
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,28 +8,27 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_273.json
-- Changed files in last changeset: 11
+- Last changeset: changeset_298.json
+- Changed files in last changeset: 10
 
 ## Changed Files
 
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/fix_everything_now.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/aifolio_knowledge_extractor.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/workflow_seeder_engine.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/owner_lockdown.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/sales_optimizer.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/ai_domestication_protocol.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/prompt_optimizer.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/ethics_qualityguard.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/license_risk_monitor.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/visual_context.py
-- quarantine_non_python/quarantine_non_python/quarantine_non_python/ai_engines/sentience_guard.py
+- quarantine_non_python/quarantine_non_python/backend/ai_prompt_engine/generate_vault.py
+- quarantine_non_python/quarantine_non_python/backend/ai/policy_recommender.py
+- quarantine_non_python/quarantine_non_python/backend/ai/compliance_gap.py
+- quarantine_non_python/quarantine_non_python/backend/ai/reviewer_routing.py
+- quarantine_non_python/quarantine_non_python/backend/ai/reviewer_analytics.py
+- quarantine_non_python/quarantine_non_python/backend/ai/policy_mapping.py
+- quarantine_non_python/quarantine_non_python/backend/ai/anomaly_root_cause.py
+- quarantine_non_python/quarantine_non_python/backend/ai/remediation_recommender.py
+- quarantine_non_python/quarantine_non_python/backend/ai/remediation_workflow.py
+- quarantine_non_python/quarantine_non_python/backend/ai/compliance_feed.py
 
 ## Validation
 
 Passed: True
-Duration: 0.372s
-Python compiled: 11; lint tool: pyflakes
+Duration: 0.365s
+Python compiled: 10; lint tool: pyflakes
 
 ## Next Steps
 
