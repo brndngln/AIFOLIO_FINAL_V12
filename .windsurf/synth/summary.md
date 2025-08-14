@@ -1,6 +1,6 @@
 # AIFOLIO Synthesis Summary
 
-Timestamp: 2025-08-13 20:58:22
+Timestamp: 2025-08-13 20:58:48
 
 Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 
@@ -8,28 +8,23 @@ Repo root: /Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12
 - Inventory files: 24514
 - Candidates detected: 21176
 - Specs generated: 21176
-- Last changeset: changeset_423.json
-- Changed files in last changeset: 11
+- Last changeset: changeset_448.json
+- Changed files in last changeset: 6
 
 ## Changed Files
 
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/jurisdiction_matrix.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/scheduled_reexport.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/legal_export.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_mesh.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_summary.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_accessibility_audit.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/gdpr_deletion_request.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_audit.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/webhook_notifier.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_diff.py
-- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/legal/policy_translator.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/siem_alerts_auto.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/hsm_airgap_demo.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/emma_usb_token.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/audit.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/hsm_airgap_auto.py
+- quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/ai_core/emma_crypto_qr.py
 
 ## Validation
 
 Passed: True
-Duration: 0.388s
-Python compiled: 11; lint tool: pyflakes
+Duration: 0.349s
+Python compiled: 6; lint tool: pyflakes
 
 ## Next Steps
 
