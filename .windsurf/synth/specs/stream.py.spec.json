@@ -1,0 +1,578 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "stream.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/streams.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http2.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http2.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__init__.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/backports/tarfile/__init__.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/asyncquery.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_temp.py",
+      "kind": "test",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/context.py",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./internal/streams/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./internal/streams/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/chunkstream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/png.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer-async.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/loose-envify/loose-envify.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/agent-base/dist/helpers.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/agent-base/dist/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/index.js",
+      "kind": "require",
+      "raw": "./providers/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/index.js",
+      "kind": "require",
+      "raw": "./stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/stream.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/iconv-lite/lib/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/iconv-lite/lib/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/iconv-lite/lib/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/combined-stream/lib/combined_stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readdirp/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readdirp/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/http-request.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/index.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/cli.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/watch-cli.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/watch.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/es/shared/watch.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/lib/readable-stream-browser.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/form-data/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/form-data/lib/form_data.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/delayed-stream/lib/delayed_stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/asynckit/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/https-proxy-agent/dist/parse-proxy-response.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/follow-redirects/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/index.js",
+      "kind": "require",
+      "raw": "./providers/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/stream.js",
+      "kind": "require",
+      "raw": "../readers/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/stream.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/stream.d.ts",
+      "kind": "import",
+      "raw": "readers/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/utils/index.js",
+      "kind": "require",
+      "raw": "./stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/utils/stream.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/utils/index.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/readers/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/readers/stream.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/readers/async.js",
+      "kind": "require",
+      "raw": "./stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/readers/async.d.ts",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyexec/dist/main.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/caniuse-lite/data/features.js",
+      "kind": "require",
+      "raw": "./features/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/merge2/index.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/adapters/http.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/adapters/http.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/helpers/AxiosTransformStream.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/helpers/AxiosTransformStream.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/helpers/ZlibHeaderTransformStream.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/helpers/ZlibHeaderTransformStream.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/helpers/formDataToStream.js",
+      "kind": "import",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/readable.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/writable.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/lib/_stream_readable.js",
+      "kind": "require",
+      "raw": "./internal/streams/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/lib/_stream_writable.js",
+      "kind": "require",
+      "raw": "./internal/streams/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/lib/internal/streams/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/index.js",
+      "kind": "require",
+      "raw": "./lib/stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket-server.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/stream.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/receiver.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/sender.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket.js",
+      "kind": "require",
+      "raw": "stream",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

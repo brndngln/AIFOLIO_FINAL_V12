@@ -1,0 +1,41 @@
+{
+  "timestamp": 1755140240.522246,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/aifolio_secrets/test_rotation_success.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/aifolio_secrets/audit_logger.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/aifolio_secrets/test_reload_injection.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/aifolio_secrets/rotate_secret.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/server.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/triggers/refund_loss_detector.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/triggers/suspicious_tax_flow.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/triggers/deduction_drop_monitor.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/triggers/income_mismatch_alert.py",
+      "action": "updated"
+    }
+  ]
+}

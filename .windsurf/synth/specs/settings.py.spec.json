@@ -1,0 +1,518 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "settings.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/sorting.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/__init__.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/core.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/api.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/parse.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/identify.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/main.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/wrap.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/output.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/setuptools_commands.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/backends/arangodb.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_install_scripts.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/session.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/session.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/__init__.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/__init__.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_functors.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_weakref.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_module.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_detect.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_detect.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_nested.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_fglobals.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_mixins.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_selected.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_file.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_functions.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_threads.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_abc.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_moduledict.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_properties.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_objects.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_properties.cpython-312.pyc",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_detect.cpython-312.pyc",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/ext/django/utils.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/ext/django/utils.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django_source.py",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django_source.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_bcrypt.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/index.js",
+      "kind": "require",
+      "raw": "./settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/index.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/sync.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/stream.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/providers/async.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/common.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/common.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/reader.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/async.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.stat/out/index.js",
+      "kind": "require",
+      "raw": "./settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.stat/out/index.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.stat/out/providers/sync.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.stat/out/providers/async.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/index.js",
+      "kind": "require",
+      "raw": "./settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/index.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/providers/sync.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/providers/async.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/index.js",
+      "kind": "require",
+      "raw": "./settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/index.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/provider.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/filters/entry.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/filters/error.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/filters/deep.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/transformers/entry.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/providers/matchers/matcher.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/managers/tasks.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/fast-glob/out/readers/reader.d.ts",
+      "kind": "import",
+      "raw": "settings",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

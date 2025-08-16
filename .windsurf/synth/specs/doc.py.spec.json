@@ -1,0 +1,104 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "doc.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_contracts.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/doc/source/__pycache__/conf.cpython-312.pyc",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_functions.py",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functions.cpython-312.pyc",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/index.d.ts",
+      "kind": "import",
+      "raw": "doc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/nwsapi/src/nwsapi.js",
+      "kind": "import",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/queryFn.test.tsx",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine-html.js",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_function_base.pyi",
+      "kind": "test",
+      "raw": "doc",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

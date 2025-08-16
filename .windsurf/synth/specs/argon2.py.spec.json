@@ -1,0 +1,116 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "argon2.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/hash.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "import",
+      "raw": "argon2._calc_hash",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "test",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "import",
+      "raw": "argon2._calc_hash",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/django.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/argon2.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/argon2.py",
+      "kind": "import",
+      "raw": "argon2",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/argon2.py",
+      "kind": "import",
+      "raw": "argon2.h",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/argon2.py",
+      "kind": "import",
+      "raw": "argon2.h",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

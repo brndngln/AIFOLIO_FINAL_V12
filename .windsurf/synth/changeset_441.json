@@ -1,0 +1,33 @@
+{
+  "timestamp": 1755140319.783573,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autorepair/autorepair_daemon.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/windsurf/windsurf_sentinel.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/windsurf/error_logger.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/api/safe_ai_endpoints.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/api/gumroad_api.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/api/safe_ai_endpoints_batch16_20.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/api/affiliate_api.py",
+      "action": "updated"
+    }
+  ]
+}

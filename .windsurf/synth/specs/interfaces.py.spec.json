@@ -1,0 +1,152 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "interfaces.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/__init__.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http2.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http11.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/connection.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http2.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http11.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/connection.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/stdlib.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/base/docstring_checker.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/config/argument.py",
+      "kind": "import",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_posix.py",
+      "kind": "test",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/create-element.js",
+      "kind": "require",
+      "raw": "../interfaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/browser/Window.js",
+      "kind": "require",
+      "raw": "../living/interfaces",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

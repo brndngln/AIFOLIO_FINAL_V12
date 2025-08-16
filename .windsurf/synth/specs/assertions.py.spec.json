@@ -1,0 +1,98 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "assertions.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@types/babel__generator/index.d.ts",
+      "kind": "import",
+      "raw": "attributes/assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chai/lib/chai.js",
+      "kind": "import",
+      "raw": "chai/core/assertions.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/typescript.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/typescript.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_tsc.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_tsc.js",
+      "kind": "import",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test-d.tsx",
+      "kind": "test",
+      "raw": "assertions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "test",
+      "raw": "assertions",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

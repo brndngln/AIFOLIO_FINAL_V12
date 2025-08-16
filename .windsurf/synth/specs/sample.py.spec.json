@@ -1,0 +1,170 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "sample.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_clib.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_extension.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_dist.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_session.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "import",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context_deprecated.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/collection.js",
+      "kind": "require",
+      "raw": "./sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/sample.js",
+      "kind": "require",
+      "raw": "../sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test-d.ts",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/strings/conftest.py",
+      "kind": "test",
+      "raw": "sample",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

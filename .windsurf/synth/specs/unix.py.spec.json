@@ -1,0 +1,122 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "unix.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/inferno.py",
+      "kind": "import",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/unixccompiler.py",
+      "kind": "import",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sysconfig.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_unix.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_connections.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_unicode.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_testutils.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_connections.cpython-312.pyc",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_testutils.cpython-312.pyc",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_unicode.cpython-312.pyc",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_scrypt.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_hosts.py",
+      "kind": "test",
+      "raw": "unix",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

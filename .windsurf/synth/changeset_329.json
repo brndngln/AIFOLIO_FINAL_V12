@@ -1,0 +1,41 @@
+{
+  "timestamp": 1755140201.824864,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/jurisdiction_matrix.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/scheduled_reexport.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/legal_export.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_mesh.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_summary.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_accessibility_audit.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/gdpr_deletion_request.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_audit.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/webhook_notifier.py",
+      "action": "updated"
+    }
+  ]
+}

@@ -329,7 +329,7 @@ export class AnomalyWatchdog {
       if (Notification.permission === 'granted') {
         new Notification('🚨 CRITICAL LOCKDOWN VIOLATION', {
           body: `${violation.component}: ${violation.details}`,
-          icon: '/favicon.ico'
+          icon: '/favicon.svg'
         });
       }
     }

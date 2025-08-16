@@ -1,0 +1,80 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "controller.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/controller.pie.d.ts",
+      "kind": "import",
+      "raw": "controller.doughnut.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.bar.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.bubble.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.doughnut.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.line.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.polarArea.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.pie.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.radar.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/controllers/index.d.ts",
+      "kind": "import",
+      "raw": "controller.scatter.js",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

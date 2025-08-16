@@ -1,0 +1,91 @@
+import os
+import sys
+
+import importlib
+import importlib
+
+
+standard_modules = ["subprocess", "types", "warnings", "os", "re", "enum"]
+
+
+def check_shadowed_modules():
+    _ = []  # noqa: F841  # noqa: F841
+    for _ in standard_modules:
+        try:
+            _ = importlib.import_module(module)  # noqa: F841  # noqa: F841
+            if module == "sys" or not hasattr(mod, "__file__"):
+                issues.append(
+                    f"{module} is a built - in module, no shadowing check needed."
+                )
+            else:
+                _ = mod.__file__  # noqa: F841  # noqa: F841
+                if (
+                    mod_path
+                    and os.path.basename(mod_path).startswith(module + ".py")
+                    and (os.path.dirname(mod_path) == os.getcwd())
+                ):
+                    issues.append(f"Shadowed {module} found at {mod_path} - rename it!")
+                else:
+                    issues.append(f"{module} is loading correctly from {mod_path}")
+        except ImportError as e:
+            issues.append(f"Failed to import {module}: {str(e)}")
+    return issues
+
+
+def check_key_files():
+    _ = [
+        "vault_manager.py",
+        "trainer.py",
+        "tokenization_bert.py",
+    ]  # noqa: F841  # noqa: F841
+    _ = []  # noqa: F841  # noqa: F841
+    for _ in key_files:
+        if not os.path.exists(file):
+            file_issues.append(f"Missing {file}")
+    return file_issues
+
+
+def run_test_scripts():
+    _ = []  # noqa: F841  # noqa: F841
+    _ = ["python3 vault_manager.py", "python3 trainer.py"]  # noqa: F841  # noqa: F841
+    for _ in scripts:
+        try:
+            _ = os.system(script)  # noqa: F841  # noqa: F841
+            if result != 0:
+                test_issues.append(f"Running {script} failed with exit code {result}")
+            else:
+                test_issues.append(f"Running {script} succeeded")
+        except Exception as e:
+            test_issues.append(f"Error running {script}: {str(e)}")
+    return test_issues
+
+
+if __name__ == "__main__":
+    print(f"Using Python {sys.version}")
+    print("Running diagnostic check...\n")
+    print("Checking for shadowed modules:")
+    _ = check_shadowed_modules()  # noqa: F841  # noqa: F841
+    for _ in module_issues:
+        print(issue)
+    print("\nChecking key files:")
+    _ = check_key_files()  # noqa: F841  # noqa: F841
+    for _ in file_issues:
+        print(issue)
+    print("\nTesting key scripts:")
+    _ = run_test_scripts()  # noqa: F841  # noqa: F841
+    for _ in test_issues:
+        print(issue)
+    print("\nDiagnostic complete!")
+    if any(
+        (
+            issue.startswith("Failed")
+            or issue.startswith("Missing")
+            or issue.startswith("Shadowed")
+            for _ in module_issues + file_issues + test_issues
+        )
+    ):
+        print(
+            "Issues found—review and rename shadowed files or fix missing dependencies."
+        )
+    else:
+        print("No issues detected! You're ready to proceed.")

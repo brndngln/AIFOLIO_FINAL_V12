@@ -1,0 +1,770 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_core.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/shellingham/__init__.py",
+      "kind": "import",
+      "raw": "_core",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/shellingham/posix/proc.py",
+      "kind": "import",
+      "raw": "_core",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/shellingham/posix/__init__.py",
+      "kind": "import",
+      "raw": "_core",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/shellingham/posix/ps.py",
+      "kind": "import",
+      "raw": "_core",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "_core._subprocesses",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_thread.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._fileio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._fileio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._fileio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._fileio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._resources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._signals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._streams",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._subprocesses",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._subprocesses",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._tempfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/__init__.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/from_thread.py",
+      "kind": "import",
+      "raw": "_core",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/from_thread.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/from_thread.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/from_thread.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/lowlevel.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_interpreter.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_interpreter.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/pytest_plugin.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/pytest_plugin.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_streams.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_streams.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_tasks.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/__init__.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/__init__.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_sockets.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_sockets.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._streams",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._sockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._streams",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._synchronization",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "_core._tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_tempfile.py",
+      "kind": "import",
+      "raw": "_core._fileio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/memory.py",
+      "kind": "import",
+      "raw": "_core._testing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/tls.py",
+      "kind": "import",
+      "raw": "_core._typedattr",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

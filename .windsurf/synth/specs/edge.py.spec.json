@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "edge.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/graph/query_result.py",
+      "kind": "import",
+      "raw": "edge",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/graph/__init__.py",
+      "kind": "import",
+      "raw": "edge",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/graph/path.py",
+      "kind": "import",
+      "raw": "edge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/devWarnings.test.tsx",
+      "kind": "test",
+      "raw": "edge",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

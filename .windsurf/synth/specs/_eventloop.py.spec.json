@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_eventloop.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/from_thread.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/__init__.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_signals.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_tasks.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_testing.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_sockets.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_subprocesses.py",
+      "kind": "import",
+      "raw": "_eventloop",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

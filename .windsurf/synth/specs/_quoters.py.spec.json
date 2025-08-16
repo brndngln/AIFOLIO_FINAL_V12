@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_quoters.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/yarl/_url.py",
+      "kind": "import",
+      "raw": "_quoters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yarl/_query.py",
+      "kind": "import",
+      "raw": "_quoters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yarl/_parse.py",
+      "kind": "import",
+      "raw": "_quoters",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

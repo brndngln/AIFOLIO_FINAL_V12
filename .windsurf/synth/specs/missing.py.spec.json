@@ -1,0 +1,290 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "missing.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/runtime.py",
+      "kind": "import",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/debug.py",
+      "kind": "import",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "missing.f",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_spawn.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_core.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/__init__.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sysconfig.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_modified.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_check.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_unix.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_scrypt.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_pbkdf2.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_pbkdf2.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_digest.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context_deprecated.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_scrypt.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_builtin_md4.py",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test-d.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test-d.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/devWarnings.test.tsx",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fetchBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "missing",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

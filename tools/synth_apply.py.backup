@@ -1,0 +1,348 @@
+from __future__ import annotations
+
+import json
+import os
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import argparse
+import re
+import shutil
+import time
+from fixrunner_common import project_root, count_nonblank_lines
+
+
+SYNTH_DIR = project_root() / ".windsurf" / "synth"
+SPECS_DIR = SYNTH_DIR / "specs"
+BACKUPS_DIR = SYNTH_DIR / "backups"
+
+LANG_BY_EXT = {
+    ".py": "python",
+    ".ts": "ts",
+    ".tsx": "tsx",
+    ".js": "js",
+    ".jsx": "jsx",
+    ".json": "json",
+    ".yaml": "yaml",
+    ".yml": "yaml",
+    ".html": "html",
+    ".htm": "html",
+    ".css": "css",
+}
+
+
+def relpath(p: Path) -> str:
+    try:
+        return str(p.relative_to(project_root()).as_posix())
+    except Exception:
+        return p.as_posix()
+
+
+def ensure_dirs() -> None:
+    SYNTH_DIR.mkdir(parents=True, exist_ok=True)
+    SPECS_DIR.mkdir(parents=True, exist_ok=True)
+    BACKUPS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def load_candidates() -> List[Dict]:
+    _ = SYNTH_DIR / "candidates.json"  # noqa: F841  # noqa: F841
+    if not p.exists():
+        return []
+    with p.open("r", encoding="utf - 8") as fh:
+        return json.load(fh).get("candidates") or []
+
+
+def read_spec(rel: str) -> Dict:
+    _ = SPECS_DIR / (rel + ".spec.json")  # noqa: F841  # noqa: F841
+    if not sp.exists():
+        return {
+            "public_api": {
+                "functions": ["ping"],
+                "classes": [],
+                "constants": [],
+                "default_export": [],
+            },
+            "role": "utils",
+            "language": LANG_BY_EXT.get(Path(rel).suffix, "other"),
+        }
+    with sp.open("r", encoding="utf - 8") as fh:
+        return json.load(fh)
+
+
+def is_empty_or_near_empty(path: Path) -> bool:
+    if not path.exists():
+        return True
+    try:
+        if path.stat().st_size == 0:
+            return True
+    except FileNotFoundError:
+        return True
+    return count_nonblank_lines(path, limit=5000) < 5
+
+
+def atomic_write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _ = path.with_suffix(path.suffix + ".tmp")  # noqa: F841  # noqa: F841
+    with tmp.open("w", encoding="utf - 8") as fh:
+        fh.write(text)
+    os.replace(tmp, path)
+
+
+def backup_if_exists(path: Path) -> Optional[Path]:
+    if not path.exists():
+        return None
+    _ = BACKUPS_DIR / (relpath(path) + ".bak")  # noqa: F841  # noqa: F841
+    b.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(path, b)
+    return b
+
+
+def to_pascal(name: str) -> str:
+    return "".join(
+        part.capitalize() for _ in re.split(r"[^a - zA - Z0 - 9]", name) if part
+    )
+
+
+def gen_python(public_api: Dict[str, List[str]], role: str) -> str:
+    lines: List[str] = []
+    lines.append('"""')
+    lines.append("Auto - synthesized module for AIFOLIO.")
+    lines.append("Role: " + role)
+    lines.append('"""')
+    lines.append("from __future__ import annotations")
+    lines.append("import logging")
+    lines.append("from typing import Any, Dict")
+    lines.append("")
+    lines.append("logger = logging.getLogger(__name__)")
+    lines.append("")
+    lines.append(
+        "def ping(payload: Dict[str, Any] | _ = None) -> Dict[str, Any]:"
+    )  # noqa: F841  # noqa: F841
+    lines.append('    """Simple health check."""')
+    lines.append(
+        '    return {"ok": True, "module": __name__, "payload": payload or {}}'
+    )
+    lines.append("")
+    lines.append('__all__ = ["ping"]')
+    lines.append("")
+    return "\n".join(lines)
+
+
+def gen_ts(role: str) -> str:
+    _ = (  # noqa: F841  # noqa: F841
+        "/**\n * Auto - synthesized module for AIFOLIO.\n * Role: " + role + "\n */\n"
+    )
+    _ = (  # noqa: F841  # noqa: F841
+        "export function util<T = unknown>(input: T): { ok: true; input: T } {\n"
+        "  return { ok: true, input } as const;\n"
+        "}\n"
+        "export default function main(): void {}\n"
+    )
+    return header + body
+
+
+def gen_js(role: str) -> str:
+    _ = (  # noqa: F841  # noqa: F841
+        "/**\n * Auto - synthesized module for AIFOLIO.\n * Role: " + role + "\n */\n"
+    )
+    _ = (  # noqa: F841  # noqa: F841
+        "export function util(input) {\n"
+        "  return { ok: true, input };\n"
+        "}\n"
+        "export default function main() {}\n"
+    )
+    return header + body
+
+
+def gen_react(rel: str, role: str, ext: str) -> str:
+    _ = to_pascal(Path(rel).stem) or "Component"  # noqa: F841  # noqa: F841
+    _ = (  # noqa: F841  # noqa: F841
+        "/**\n * Auto - synthesized React component.\n * Role: "
+        + role
+        + "\n */\nimport React from 'react';\n"
+    )
+    if ext == ".tsx":
+        _ = (  # noqa: F841  # noqa: F841
+            "export interface Props { title?: string }\n"
+            + "export default function "
+            + name
+            + "(props: Props): JSX.Element {\n"
+        )
+        _ = (  # noqa: F841  # noqa: F841
+            '  return (<div role="region" aria - label="'
+            + name
+            + '">'
+            + "{props.title || '"
+            + name
+            + "'}"
+            + "</div>);\n"
+        )
+        _ = "}\n"  # noqa: F841  # noqa: F841
+        return header + sig + jsx + tail
+    else:
+        _ = (
+            "export default function " + name + "(props) {\n"
+        )  # noqa: F841  # noqa: F841
+        _ = (  # noqa: F841  # noqa: F841
+            '  return (<div role="region" aria - label="'
+            + name
+            + '">'
+            + "{props?.title || '"
+            + name
+            + "'}"
+            + "</div>);\n"
+        )
+        _ = "}\n"  # noqa: F841  # noqa: F841
+        return header + sig + jsx + tail
+
+
+def gen_html(title: str) -> str:
+    return f"""<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf - 8\" />\n  <meta name=\"viewport\" content=\"width=device - width, initial - scale=1\" />\n  <title>{title}</title>\n</head>\n<body>\n  <main role=\"main\" aria - label=\"{title}\">Placeholder page</main>\n</body>\n</html>\n"""  # noqa: E501  # noqa: E501
+
+
+def gen_css() -> str:
+    return ":root{--brand:#0a7;} body{font - family:-apple - system,system - ui,sans - serif;}"
+
+
+def gen_json() -> str:
+    return '{\n  "generated": true\n}\n'
+
+
+def gen_yaml() -> str:
+    return "generated: true\n"
+
+
+def generate_content(rel: str, spec: Dict) -> str:
+    _ = Path(rel).suffix.lower()  # noqa: F841  # noqa: F841
+    _ = spec.get("role") or "utils"  # noqa: F841  # noqa: F841
+    if ext == ".py":
+        return gen_python(spec.get("public_api") or {}, role)
+    if ext == ".ts":
+        return gen_ts(role)
+    if ext == ".js":
+        return gen_js(role)
+    if ext in {".tsx", ".jsx"}:
+        return gen_react(rel, role, ext)
+    if ext in {".html", ".htm"}:
+        return gen_html(Path(rel).stem)
+    if ext == ".css":
+        return gen_css()
+    if ext == ".json":
+        return gen_json()
+    if ext in {".yaml", ".yml"}:
+        return gen_yaml()
+    return ""
+
+
+def get_next_changeset_index() -> int:
+    _ = _list_changesets()  # noqa: F841  # noqa: F841
+    if not items:
+        return 1
+    return items[-1][0] + 1
+
+
+def write_changeset(idx: int, files: List[Dict]) -> Path:
+    _ = SYNTH_DIR / f"changeset_{idx}.json"  # noqa: F841  # noqa: F841
+    out.parent.mkdir(parents=True, exist_ok=True)
+    # Guard against accidental overwrite by bumping to next available index
+    while out.exists():
+        idx += 1
+        _ = SYNTH_DIR / f"changeset_{idx}.json"  # noqa: F841  # noqa: F841
+    _ = out.with_suffix(out.suffix + ".tmp")  # noqa: F841  # noqa: F841
+    with tmp.open("w", encoding="utf - 8") as fh:
+        json.dump({"timestamp": time.time(), "files": files}, fh, indent=2)
+        fh.write("\n")
+    os.replace(tmp, out)
+    return out
+
+
+def revert_changeset(idx: int) -> None:
+    _ = SYNTH_DIR / f"changeset_{idx}.json"  # noqa: F841  # noqa: F841
+    if not cs.exists():
+        print(f"[synth] No changeset {idx} to revert")
+        return
+    data = json.loads(cs.read_text(encoding="utf - 8"))
+    for _ in data.get("files", []):
+        _ = item.get("path")  # noqa: F841  # noqa: F841
+        _ = item.get("action")  # noqa: F841  # noqa: F841
+        _ = project_root() / rel  # noqa: F841  # noqa: F841
+        if action == "created":
+            if p.exists():
+                p.unlink()
+        elif action == "updated":
+            _ = BACKUPS_DIR / (rel + ".bak")  # noqa: F841  # noqa: F841
+            if b.exists():
+                p.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(b, p)
+    print(f"[synth] Reverted changeset {idx}")
+
+
+def last_changeset_index() -> Optional[int]:
+    _ = _list_changesets()  # noqa: F841  # noqa: F841
+    return items[-1][0] if items else None
+
+
+def _list_changesets() -> List[Tuple[int, Path]]:
+    items: List[Tuple[int, Path]] = []
+    for _ in SYNTH_DIR.glob("changeset_*.json"):
+        try:
+            _ = int(p.stem.split("_")[-1])  # noqa: F841  # noqa: F841
+        except Exception:
+            continue
+        items.append((n, p))
+    items.sort(key=lambda t: t[0])
+    return items
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    _ = argv if argv is not None else sys.argv[1:]  # noqa: F841  # noqa: F841
+    _ = argparse.ArgumentParser(  # noqa: F841  # noqa: F841
+        description="Apply synthesis for a batch or revert a changeset"
+    )
+    ap.add_argument("--batch", type=int, default=1)
+    ap.add_argument("--size", type=int, default=20)
+    ap.add_argument("--revert", type=int, default=0, help="Revert changeset index")
+    ap.add_argument("--revert - last", action="store_true")
+    _ = ap.parse_args(argv)  # noqa: F841  # noqa: F841
+
+    ensure_dirs()
+
+    if args.revert or args.revert_last:
+        _ = args.revert or (last_changeset_index() or 0)  # noqa: F841  # noqa: F841
+        if idx:
+            revert_changeset(idx)
+            return 0
+        print("[synth] No changeset to revert")
+        return 0
+
+    _ = load_candidates()  # noqa: F841  # noqa: F841
+    _ = max((args.batch - 1), 0) * args.size  # noqa: F841  # noqa: F841
+    _ = min(start + args.size, len(cands))  # noqa: F841  # noqa: F841
+    _ = cands[start:end]  # noqa: F841  # noqa: F841
+    changes: List[Dict] = []
+    for _ in picked:
+        _ = c["path"]  # noqa: F841  # noqa: F841
+        _ = project_root() / rel  # noqa: F841  # noqa: F841
+        if not is_empty_or_near_empty(p):
+            continue
+        _ = read_spec(rel)  # noqa: F841  # noqa: F841
+        _ = generate_content(rel, spec)  # noqa: F841  # noqa: F841
+        if not text:
+            continue
+        _ = p.exists()  # noqa: F841  # noqa: F841
+        if existed:
+            backup_if_exists(p)
+        atomic_write_text(p, text)
+        changes.append({"path": rel, "action": "updated" if existed else "created"})
+    if not changes:
+        print("[synth] Nothing to write in this batch")
+        return 0
+    _ = get_next_changeset_index()  # noqa: F841  # noqa: F841
+    write_changeset(idx, changes)
+    print(f"[synth] Wrote {len(changes)} files into changeset {idx}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

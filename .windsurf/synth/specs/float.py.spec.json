@@ -1,0 +1,470 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "float.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/layout/containers.py",
+      "kind": "import",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/downloads/__init__.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_contracts.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_posix.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process_all.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_bsd.cpython-312.pyc",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tomlkit/_types.py",
+      "kind": "import",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/tags.js",
+      "kind": "require",
+      "raw": "./core/float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/schema.js",
+      "kind": "require",
+      "raw": "./float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/core/schema.js",
+      "kind": "require",
+      "raw": "./float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/tags.js",
+      "kind": "import",
+      "raw": "core/float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js",
+      "kind": "import",
+      "raw": "float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/core/schema.js",
+      "kind": "import",
+      "raw": "float.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/js-yaml/index.js",
+      "kind": "require",
+      "raw": "./lib/type/float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/js-yaml/lib/schema/json.js",
+      "kind": "require",
+      "raw": "../type/float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "property-descriptors/float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/index.js",
+      "kind": "require",
+      "raw": "./property-descriptors/float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.css",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/generate_umath_validation_data.cpp",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/random.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/index_tricks.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/scalars.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/twodim_base.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/multiarray.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/array_constructors.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/dtype.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ufunc_config.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/nested_sequence.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arithmetic.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arrayprint.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/comparisons.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/random.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/simple.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/numerictypes.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/mod.py",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/type_check.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ctypeslib.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numeric.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_function_base.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/getlimits.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/fft.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/random.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ufunclike.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/mod.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/constants.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/index_tricks.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/scalars.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/npyio.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/array_constructors.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_conversion.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/fromnumeric.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/dtype.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/testing.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numerictypes.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/einsumfunc.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/stride_tricks.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/comparisons.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/shape_base.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arraysetops.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/memmap.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arithmetic.pyi",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/f2cmap/.f2py_f2cmap",
+      "kind": "test",
+      "raw": "float",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

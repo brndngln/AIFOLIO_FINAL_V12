@@ -1,0 +1,518 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "defaults.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/violation.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/processor.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/style_guide.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/checker.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/main/options.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/main/application.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_win32_console.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/input/__init__.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/output/__init__.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/output/color_depth.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/styles/__init__.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/options.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/config_parser.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/data.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_win32_console.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/app/utils.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/app/base.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/bin/upgrade.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_extension.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/main.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/context.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/context.py",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_pbkdf2.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/object.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/defaults.js",
+      "kind": "require",
+      "raw": "../defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/defaultsAll.js",
+      "kind": "require",
+      "raw": "../defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "defaults.color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/core/core.typedRegistry.d.ts",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/core/core.defaults.d.ts",
+      "kind": "import",
+      "raw": "defaults.color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/coverage.js",
+      "kind": "import",
+      "raw": "chunks/defaults.B7q_naMc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/config.js",
+      "kind": "import",
+      "raw": "chunks/defaults.B7q_naMc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.js",
+      "kind": "import",
+      "raw": "chunks/defaults.B7q_naMc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "defaults.B7q_naMc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "defaults.B7q_naMc.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/lib/object.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/lib/index.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAction.test-d.tsx",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/mapBuilders.test-d.ts",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test-d.ts",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fetchBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/refetchingBehaviors.test.tsx",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/cacheCollection.test.ts",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/util/resolveConfig.js",
+      "kind": "require",
+      "raw": "./defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/util/resolveConfig.js",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/util/resolveConfig.js",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/axios.js",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/core/dispatchRequest.js",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/core/transformData.js",
+      "kind": "import",
+      "raw": "defaults",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

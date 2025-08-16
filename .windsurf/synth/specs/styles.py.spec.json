@@ -1,0 +1,1052 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "styles.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/toolkit.py",
+      "kind": "import",
+      "raw": "styles.base",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/element.py",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/element.py",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/container.py",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/menu.py",
+      "kind": "import",
+      "raw": "styles.base",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/button.py",
+      "kind": "import",
+      "raw": "styles.base",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/input.py",
+      "kind": "import",
+      "raw": "styles.base",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich_toolkit/progress.py",
+      "kind": "import",
+      "raw": "styles.base",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/dist/react-transition-group.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/dist/react-transition-group.js",
+      "kind": "import",
+      "raw": "styles.css",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/esm/CSSTransition.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/esm/CSSTransition.js",
+      "kind": "import",
+      "raw": "styles.css",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/cjs/CSSTransition.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-transition-group/cjs/CSSTransition.js",
+      "kind": "import",
+      "raw": "styles.css",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/canvg/lib/util/index.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js",
+      "kind": "test",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/OverridableComponent.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.d.ts",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Paper/Paper.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tabs/Tabs.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popper/Popper.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Pagination/Pagination.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Box/Box.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Box/Box.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Backdrop/Backdrop.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.production.min.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/umd/material-ui.development.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogTitle/DialogTitle.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Snackbar/Snackbar.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepContent/StepContent.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonBase/ButtonBase.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ScopedCssBaseline/ScopedCssBaseline.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Step/Step.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/index.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Box/Box.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/CssVarsProvider.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/index.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/createTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/createStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TextField/TextField.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Slider/Slider.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SvgIcon/SvgIcon.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputBase/InputBase.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Stepper/Stepper.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/MenuItem/MenuItem.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormLabel/FormLabel.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SnackbarContent/SnackbarContent.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepButton/StepButton.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItem/ListItem.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popover/Popover.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Container/Container.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/createTheme.d.ts",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/CssVarsProvider.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/createTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.d.ts",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/CssVarsProvider.d.ts",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/createStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TablePagination/TablePagination.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogContentText/DialogContentText.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDial/SpeedDial.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Button/Button.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Link/getTextDecoration.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Link/Link.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CssBaseline/CssBaseline.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormHelperText/FormHelperText.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Menu/Menu.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepLabel/StepLabel.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Avatar/Avatar.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Typography/Typography.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormControl/FormControl.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/PaginationItem/PaginationItem.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/index.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Box/Box.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/CssVarsProvider.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/index.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/createTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/createStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Icon/Icon.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/index.js",
+      "kind": "require",
+      "raw": "./styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Popper/Popper.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Tooltip/Tooltip.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Box/Box.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Snackbar/Snackbar.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Skeleton/Skeleton.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ToggleButton/ToggleButton.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/withStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/CssVarsProvider.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/makeStyles.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/index.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/withTheme.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/createTheme.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/createStyles.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Unstable_Grid2/Grid2.js",
+      "kind": "require",
+      "raw": "../styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StyledEngineProvider/index.d.ts",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Modal/Modal.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepIcon/StepIcon.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputLabel/InputLabel.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialAction/SpeedDialAction.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Breadcrumbs/Breadcrumbs.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepConnector/StepConnector.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialIcon/SpeedDialIcon.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/GlobalStyles/GlobalStyles.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Unstable_Grid2/Grid2Props.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemButton/ListItemButton.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Grid/Grid.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Badge/Badge.d.ts",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vitest/pretty-format/dist/index.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/material/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "mui/styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "styles",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/@mui_material.js",
+      "kind": "import",
+      "raw": "styles.css",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/ui/Button.test.tsx",
+      "kind": "test",
+      "raw": "styles",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

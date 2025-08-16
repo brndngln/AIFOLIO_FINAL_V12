@@ -1,0 +1,218 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "cells.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_wrap.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/containers.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_wrap.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/containers.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/pretty.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/rule.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/text.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/syntax.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/segment.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/panel.py",
+      "kind": "import",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useSortBy.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowState.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowSelect.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFlexLayout.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useAbsoluteLayout.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGroupBy.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useColumnOrder.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useExpanded.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGridLayout.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useBlockLayout.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useResizeColumns.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/hooks/tests/useTable.test.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lz-string-spec.js",
+      "kind": "test",
+      "raw": "cells",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

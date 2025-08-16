@@ -1,0 +1,56 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "encoder.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyasn1/codec/der/encoder.py",
+      "kind": "import",
+      "raw": "encoder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyasn1/codec/cer/encoder.py",
+      "kind": "import",
+      "raw": "encoder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rsa/key.py",
+      "kind": "import",
+      "raw": "encoder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rsa/key.py",
+      "kind": "import",
+      "raw": "encoder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "encoder",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

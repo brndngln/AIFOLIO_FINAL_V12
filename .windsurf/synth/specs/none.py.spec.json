@@ -1,0 +1,254 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "none.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_setupcfg.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/__init__.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_install.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_osx.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_extension.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_driver.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_extension.cpython-312.pyc",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_driver.cpython-312.pyc",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.css",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/f2cmap/isoFortranEnvMap.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/kind/foo.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/value_attrspec/gh21665.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/negative_bounds/issue_20853.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape/foo_mod.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape/foo_free.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape/foo_use.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_non_compound.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_both.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_integer.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_compound.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_real.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/string/fixed_string.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/callback/gh18335.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/size/foo.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/regression/inout.f90",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/crackfortran/gh17859.f",
+      "kind": "test",
+      "raw": "none",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

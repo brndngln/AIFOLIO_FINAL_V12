@@ -1,0 +1,53 @@
+{
+  "timestamp": 1755140317.961946,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/UPGRADES that are done/MoreUpgrades3/analytics/engagement_tracker.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/hooks/dispatcher/event_dispatcher.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/hooks/dispatcher/hook_resilience.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/scan_env_secrets.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/dispatch_vault_refunded.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/batch_affiliate_simulation.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/dispatch_export_failed.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/dispatch_vault_test_run.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/threat_feed_stub.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/pin_python_dependencies.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/dispatch_vault_downloaded.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/scripts/dispatch_vault_sold.py",
+      "action": "updated"
+    }
+  ]
+}

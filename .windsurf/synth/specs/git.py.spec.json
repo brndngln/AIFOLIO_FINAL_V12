@@ -1,0 +1,308 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "git.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/package_to_lint.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/package_to_lint.py",
+      "kind": "import",
+      "raw": "git.cmd",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/package_to_lint.py",
+      "kind": "import",
+      "raw": "git.repo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/primer_run_command.py",
+      "kind": "import",
+      "raw": "git.repo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/primer_prepare_command.py",
+      "kind": "import",
+      "raw": "git.cmd",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/testutils/_primer/primer_prepare_command.py",
+      "kind": "import",
+      "raw": "git.repo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/store.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/main.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/staged_files_only.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/languages/node.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/commands/run.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/commands/try_repo.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/commands/install_uninstall.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/commands/autoupdate.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/meta_hooks/check_hooks_apply.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/meta_hooks/check_useless_excludes.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/version.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/cli/baseline.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/fixtures.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/git.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/pbr_json.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_core.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_pbr_json.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_util.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_util.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_core.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_integration.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_pbr_json.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "git",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "git.BVQ8w_Sw.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/esrecurse/gulpfile.babel.js",
+      "kind": "import",
+      "raw": "git",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

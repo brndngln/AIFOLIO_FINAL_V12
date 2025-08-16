@@ -1,0 +1,1682 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "exc.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/protocols.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/protocols.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/protocols.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/protocols.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/builder.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/builder.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/builder.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/builder.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/objects.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/objects.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/manager.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/manager.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/manager.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/manager.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/manager.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/bases.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_classes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_random.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_six.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_namedtuple_enum.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_functools.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_typing.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_typing.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_typing.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_typing.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_builtin_inference.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/resolver.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/resolver.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/formdata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_py.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_py.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_c.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_c.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_exceptions.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/utils.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/connection.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/connection.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/connection.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/fernet.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/starlette/_exception_handler.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/server.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/frames.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/framing.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/extensions/permessage_deflate.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/to_process.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc.__cause__",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc.__cause__",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc.__cause__",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc.__cause__",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_eventloop.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/buffered.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/buffered.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/tls.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/tls.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/tls.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/file.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/streams/file.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_decoders.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_auth.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/default.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/cli.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/cli.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_telegramobject.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_bot.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_bot.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_bot.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_jobqueue.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_callbackdatacache.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_updater.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_picklepersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_picklepersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_picklepersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_picklepersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_dictpersistence.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_utils/webhookhandler.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/request/_baserequest.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/request/_baserequest.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/request/_httpxrequest.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/request/_httpxrequest.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/wsproto_impl.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/loaders/base.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/metadata.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/spawn.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_util.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/__init__.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/activation/python/activate_this.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/main.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/main.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/main.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/deprecated/config.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/deprecated/config.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/pool.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/black/__init__.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_misc.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process_all.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_windows.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_testutils.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process_all.cpython-312.pyc",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_file.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_response.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_response.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/_deltas.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/_assistants.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/debugging.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/findpaths.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/findpaths.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/totp.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/registry.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/apache.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/pwd.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/context.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/exc.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/crypto/digest.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/crypto/des.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/crypto/scrypt/__init__.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/ext/django/utils.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_registry.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_digest.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_scrypt.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_scrypt.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/utils/binary.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/handlers/argon2.py",
+      "kind": "import",
+      "raw": "exc",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

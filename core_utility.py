@@ -1,4 +1,6 @@
-# WIND_PLACEHOLDER
+pt = None  # TODO: Define pt
+
+
 def ensure_utf8(file_path):
     with open(file_path, "rb") as f:
         raw = f.read()

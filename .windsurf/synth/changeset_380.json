@@ -1,0 +1,37 @@
+{
+  "timestamp": 1755140256.0183501,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/integrity_monitor.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/pdf_signing.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/rate_limiting.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/private_ci_cd.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/safe_ai_policy_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/gdpr_ccpa_exports.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/audit_logging.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/anti_reverse_engineering.py",
+      "action": "updated"
+    }
+  ]
+}

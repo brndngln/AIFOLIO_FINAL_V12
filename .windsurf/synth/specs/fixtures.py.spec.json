@@ -1,0 +1,218 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "fixtures.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_integration_zope_interface.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_core.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_core.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_files.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_files.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_files.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_core.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_integration.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/mark/structures.py",
+      "kind": "import",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/combinedTest.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/utils.spec.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/entity_slice_enhancer.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/entity_state.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/state_adapter.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/unsorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/state_selectors.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/sorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "fixtures",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

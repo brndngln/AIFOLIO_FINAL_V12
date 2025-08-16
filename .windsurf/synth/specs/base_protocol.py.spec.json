@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "base_protocol.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/streams.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_protocol.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_proto.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/http_writer.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/http_parser.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/writer.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_py.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_c.py",
+      "kind": "import",
+      "raw": "base_protocol",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

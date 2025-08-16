@@ -1,0 +1,66 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "jsx",
+  "path": "AIFOLIO_KNOWLEDGE_INJECT/ui/ThemeEditorPanel.jsx",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "Themeeditorpanel"
+    ],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/ui/index.js",
+      "kind": "import",
+      "raw": "ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/ui/index.ts",
+      "kind": "import",
+      "raw": "ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/layouts/AppWrapper.test.tsx",
+      "kind": "test",
+      "raw": "ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.jsx",
+      "kind": "import",
+      "raw": "ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.jsx",
+      "kind": "import",
+      "raw": "ui/ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.tsx",
+      "kind": "import",
+      "raw": "ThemeEditorPanel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.tsx",
+      "kind": "import",
+      "raw": "ui/ThemeEditorPanel",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

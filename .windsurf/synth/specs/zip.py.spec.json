@@ -1,0 +1,224 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "zip.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/columns.py",
+      "kind": "import",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/columns.py",
+      "kind": "import",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_virtualenv.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_egg.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/helpers.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_bdist.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_bdist_dumb.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_archive_util.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_find_distributions.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/data/my-test-package-zip/my-test-package.zip",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/data/my-test-package_zipped-egg/my_test_package-1.0-py3.7.egg",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/data/my-test-package_unpacked-egg/my_test_package-1.0-py3.7.egg/EGG-INFO/SOURCES.txt",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_system.cpython-312.pyc",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/array.js",
+      "kind": "require",
+      "raw": "./zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/zipAll.js",
+      "kind": "require",
+      "raw": "../zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/zip.js",
+      "kind": "require",
+      "raw": "../zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/iterator/zip.js",
+      "kind": "require",
+      "raw": "../../full/iterator/zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/simple.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/npyio.pyi",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/strings/conftest.py",
+      "kind": "test",
+      "raw": "zip",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

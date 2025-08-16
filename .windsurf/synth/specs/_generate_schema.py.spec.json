@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_generate_schema.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py",
+      "kind": "import",
+      "raw": "_generate_schema",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py",
+      "kind": "import",
+      "raw": "_generate_schema",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_std_types_schema.py",
+      "kind": "import",
+      "raw": "_generate_schema",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py",
+      "kind": "import",
+      "raw": "_generate_schema",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

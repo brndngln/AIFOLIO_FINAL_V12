@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "jsx",
+  "path": "dashboard/admin_panels/phase9_static_modules_panel.jsx",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "Phase9StaticModulesPanel"
+    ],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "dashboard/frontend/src/Phase9ModulesDashboard.js",
+      "kind": "import",
+      "raw": "admin_panels/phase9_static_modules_panel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/Phase9ModulesDashboard.js",
+      "kind": "import",
+      "raw": "admin_panels/phase9_static_modules_panel",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/Phase9ModulesDashboard.js",
+      "kind": "import",
+      "raw": "admin_panels/phase9_static_modules_panel",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

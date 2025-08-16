@@ -1,0 +1,29 @@
+{
+  "timestamp": 1755140300.057228,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/testimonial_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/value_score_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/review_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/vault_preview_builder.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/showcase_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/autonomy/showcase/outline_engine.py",
+      "action": "updated"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp": 1755140226.524731,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/ai_core/emma_security/emma_hsm_auth.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/ai_core/emma_security/emma_alerts.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/ai_core/emma_security/emma_remote_logger.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/ai_core/agent/agent_template.py",
+      "action": "updated"
+    }
+  ]
+}

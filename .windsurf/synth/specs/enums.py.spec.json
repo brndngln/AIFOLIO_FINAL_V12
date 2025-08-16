@@ -1,0 +1,278 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "enums.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/index.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/offset.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/arrow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/computeStyles.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/preventOverflow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/flip.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/hide.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/utils/computeAutoPlacement.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/utils/getBasePlacement.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/utils/detectOverflow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/utils/orderModifiers.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/utils/computeOffsets.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/dom-utils/getClippingRect.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/types.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/index.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/index.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/arrow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/computeStyles.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/arrow.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/preventOverflow.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/offset.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/flip.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/computeStyles.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/hide.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/detectOverflow.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getVariation.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/computeAutoPlacement.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getBasePlacement.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/detectOverflow.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getOppositePlacement.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getBasePlacement.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/orderModifiers.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/computeOffsets.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/utils/computeOffsets.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js",
+      "kind": "import",
+      "raw": "enums.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/dom-utils/getClippingRect.d.ts",
+      "kind": "import",
+      "raw": "enums",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "sessions.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py",
+      "kind": "import",
+      "raw": "sessions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "sessions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/__init__.py",
+      "kind": "import",
+      "raw": "sessions",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

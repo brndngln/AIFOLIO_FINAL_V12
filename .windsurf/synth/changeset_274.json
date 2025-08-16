@@ -1,0 +1,25 @@
+{
+  "timestamp": 1755140137.167617,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/aifolio_secrets/emergency_purge.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/aifolio_secrets/test_rotation_success.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/aifolio_secrets/audit_logger.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/aifolio_secrets/test_reload_injection.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/aifolio_secrets/rotate_secret.py",
+      "action": "updated"
+    }
+  ]
+}

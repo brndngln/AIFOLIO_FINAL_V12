@@ -1,0 +1,146 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_migration.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/config.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/error_wrappers.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/decorator.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/validators.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/tools.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/env_settings.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/__init__.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/types.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/class_validators.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/networks.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/utils.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/errors.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/dataclasses.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/parse.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/typing.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/main.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/datetime_parse.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/json.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/generics.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/schema.py",
+      "kind": "import",
+      "raw": "_migration",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

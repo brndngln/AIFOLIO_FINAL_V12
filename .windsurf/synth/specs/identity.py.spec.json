@@ -1,0 +1,572 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "identity.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/util.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_castFunction.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseSortedIndex.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/max.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseIteratee.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseRest.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseOrderBy.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseSetToString.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/sum.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/invert.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/mean.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/min.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/_baseSetData.js",
+      "kind": "require",
+      "raw": "./identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/identity.js",
+      "kind": "require",
+      "raw": "../identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/visit.js",
+      "kind": "require",
+      "raw": "./nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/index.js",
+      "kind": "require",
+      "raw": "./nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/test-events.js",
+      "kind": "require",
+      "raw": "./nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/index.d.ts",
+      "kind": "import",
+      "raw": "nodes/identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/public-api.js",
+      "kind": "require",
+      "raw": "./nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Scalar.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/YAMLMap.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/addPairToJSMap.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/YAMLSeq.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/toJS.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Alias.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Node.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Pair.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Collection.d.ts",
+      "kind": "import",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Pair.d.ts",
+      "kind": "import",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Node.d.ts",
+      "kind": "import",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/nodes/Collection.js",
+      "kind": "require",
+      "raw": "./identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/stringify/stringify.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/stringify/stringifyCollection.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/stringify/stringifyDocument.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/stringify/stringifyPair.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-flow-collection.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/composer.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-collection.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-node.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-scalar.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/util-map-includes.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/Schema.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/Schema.d.ts",
+      "kind": "import",
+      "raw": "nodes/identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/pairs.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/merge.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/omap.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/set.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/common/seq.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/common/map.js",
+      "kind": "require",
+      "raw": "../../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/Document.d.ts",
+      "kind": "import",
+      "raw": "nodes/identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/anchors.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/directives.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/createNode.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/Document.js",
+      "kind": "require",
+      "raw": "../nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/visit.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/index.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/public-api.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/Scalar.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/YAMLMap.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/addPairToJSMap.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/YAMLSeq.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/toJS.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/Alias.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/Node.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/Pair.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/nodes/Collection.js",
+      "kind": "import",
+      "raw": "identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/stringify/stringify.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/stringify/stringifyCollection.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/stringify/stringifyDocument.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/stringify/stringifyPair.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/resolve-flow-collection.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/composer.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/compose-collection.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/compose-node.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/compose-scalar.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/compose/util-map-includes.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/Schema.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/pairs.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/merge.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/omap.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/set.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/common/seq.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/common/map.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/doc/anchors.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/doc/directives.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/doc/createNode.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/doc/Document.js",
+      "kind": "import",
+      "raw": "nodes/identity.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi",
+      "kind": "test",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ufuncs.pyi",
+      "kind": "test",
+      "raw": "identity",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/array_constructors.pyi",
+      "kind": "test",
+      "raw": "identity",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

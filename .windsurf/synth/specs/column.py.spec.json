@@ -1,0 +1,200 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "column.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/types.d.ts",
+      "kind": "import",
+      "raw": "core/column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/index.js",
+      "kind": "require",
+      "raw": "./core/column.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/index.d.ts",
+      "kind": "import",
+      "raw": "core/column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/core/table.js",
+      "kind": "require",
+      "raw": "./column.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/features/ColumnFaceting.d.ts",
+      "kind": "import",
+      "raw": "column.getFacetedRowModel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/features/ColumnFaceting.d.ts",
+      "kind": "import",
+      "raw": "column.getFacetedRowModel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/types.ts",
+      "kind": "import",
+      "raw": "core/column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/index.ts",
+      "kind": "import",
+      "raw": "core/column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/core/table.ts",
+      "kind": "import",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/features/ColumnFaceting.ts",
+      "kind": "import",
+      "raw": "column.getFacetedRowModel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/features/ColumnFaceting.ts",
+      "kind": "import",
+      "raw": "column.getFacetedRowModel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useSortBy.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowState.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowSelect.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFlexLayout.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useAbsoluteLayout.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGroupBy.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useColumnOrder.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useExpanded.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGridLayout.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useBlockLayout.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useResizeColumns.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/hooks/tests/useTable.test.js",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/recarray_from_file.fits",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/apply/conftest.py",
+      "kind": "test",
+      "raw": "column",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

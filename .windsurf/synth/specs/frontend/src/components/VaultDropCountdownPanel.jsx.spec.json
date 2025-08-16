@@ -1,0 +1,60 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "jsx",
+  "path": "frontend/src/components/VaultDropCountdownPanel.jsx",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "Vaultdropcountdownpanel"
+    ],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AnalyticsDashboard.jsx",
+      "kind": "import",
+      "raw": "VaultDropCountdownPanel",
+      "symbols": []
+    }
+  ],
+  "role": "components",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

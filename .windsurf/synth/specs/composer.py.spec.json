@@ -1,0 +1,158 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "composer.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/loader.py",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/index.js",
+      "kind": "require",
+      "raw": "./compose/composer.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/public-api.d.ts",
+      "kind": "import",
+      "raw": "compose/composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/index.d.ts",
+      "kind": "import",
+      "raw": "compose/composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/public-api.js",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/public-api.js",
+      "kind": "require",
+      "raw": "./compose/composer.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-doc.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-node.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-block-scalar.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-collection.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-flow-collection.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-props.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/compose-scalar.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-end.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/util-flow-indent-check.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-flow-scalar.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-block-seq.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/compose/resolve-block-map.d.ts",
+      "kind": "import",
+      "raw": "composer",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/index.js",
+      "kind": "import",
+      "raw": "compose/composer.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/public-api.js",
+      "kind": "import",
+      "raw": "compose/composer.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/public-api.js",
+      "kind": "import",
+      "raw": "composer.compose",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "composer.compose",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

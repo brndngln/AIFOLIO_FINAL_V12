@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "response_computer_tool_call_param.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/__init__.py",
+      "kind": "import",
+      "raw": "response_computer_tool_call_param",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_item_param.py",
+      "kind": "import",
+      "raw": "response_computer_tool_call_param",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_param.py",
+      "kind": "import",
+      "raw": "response_computer_tool_call_param",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

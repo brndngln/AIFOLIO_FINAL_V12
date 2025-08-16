@@ -1,0 +1,908 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "state.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/main.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_make.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/states.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/contrib/testing/worker.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/concurrency/asynpool.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/concurrency/prefork.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/strategy.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/heartbeat.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/apps/worker.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/apps/worker.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/msvc.py",
+      "kind": "import",
+      "raw": "state.json",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_file_util.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_connections.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_registry.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django_source.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_digest.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako_inflate.js",
+      "kind": "import",
+      "raw": "state.wsize",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako_inflate.js",
+      "kind": "import",
+      "raw": "state.wnext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako.js",
+      "kind": "import",
+      "raw": "state.wsize",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako.js",
+      "kind": "import",
+      "raw": "state.wnext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/lib/zlib/inflate.js",
+      "kind": "import",
+      "raw": "state.wsize",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/lib/zlib/inflate.js",
+      "kind": "import",
+      "raw": "state.wnext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "state.wsize",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "state.wnext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-redux/dist/react-redux.d.ts",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-redux/src/components/connect.tsx",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-redux/src/components/connect.tsx",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-redux/src/components/connect.tsx",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/types/identifyShadowedGlobals.d.ts",
+      "kind": "import",
+      "raw": "parser/tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "parser/tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/types/parser/index.d.ts",
+      "kind": "import",
+      "raw": "tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/types/parser/traverser/base.d.ts",
+      "kind": "import",
+      "raw": "tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/parser/traverser/statement.js",
+      "kind": "import",
+      "raw": "tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/parser/traverser/base.js",
+      "kind": "import",
+      "raw": "tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/parser/traverser/expression.js",
+      "kind": "import",
+      "raw": "tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/parser/traverser/statement.js",
+      "kind": "require",
+      "raw": "../tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/parser/traverser/base.js",
+      "kind": "require",
+      "raw": "../tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/parser/traverser/expression.js",
+      "kind": "require",
+      "raw": "../tokenizer/state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/index.VByaPkjc.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useSortBy.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowState.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowSelect.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useColumnOrder.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/hooks/tests/useTable.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/router.ts",
+      "kind": "import",
+      "raw": "state.fetchers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/router.ts",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.umd.js",
+      "kind": "import",
+      "raw": "state.fetchers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.umd.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.js",
+      "kind": "import",
+      "raw": "state.fetchers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.cjs.js",
+      "kind": "import",
+      "raw": "state.fetchers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@remix-run/router/dist/router.cjs.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "import",
+      "raw": "state.wsize",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "import",
+      "raw": "state.wnext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/dist/query/index.d.ts",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/immutableStateInvariantMiddleware.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/combineSlices.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/configureStore.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createReducer.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/autoBatchEnhancer.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createDraftSafeSelector.withTypes.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/combineSlices.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createEntityAdapter.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/combinedTest.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createReducer.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/configureStore.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createDraftSafeSelector.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/matchers.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/mapBuilders.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/serializableStateInvariantMiddleware.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/utils/helpers.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/dynamicMiddleware/tests/react.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/dynamicMiddleware/tests/index.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/createApi.ts",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/core/buildThunks.ts",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/matchers.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/devWarnings.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildSlice.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/infiniteQueries.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/matchers.test-d.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpserts.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fetchBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/errorHandling.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test-d.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.withTypes.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test-d.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/effectScenarios.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.withTypes.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/entity_slice_enhancer.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/entity_state.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/state_adapter.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/unsorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/state_selectors.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/sorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router-dom/dist/react-router-dom.development.js",
+      "kind": "import",
+      "raw": "state.fetchers.entries",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router-dom/dist/index.js",
+      "kind": "import",
+      "raw": "state.fetchers.entries",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router-dom/dist/umd/react-router-dom.development.js",
+      "kind": "import",
+      "raw": "state.fetchers.entries",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/asynckit/parallel.js",
+      "kind": "require",
+      "raw": "./lib/state.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/asynckit/serialOrdered.js",
+      "kind": "require",
+      "raw": "./lib/state.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/cli/build/watching.js",
+      "kind": "import",
+      "raw": "state.contextDependencies",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/cli/build/watching.js",
+      "kind": "import",
+      "raw": "state.configBag.dependencies",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/cli/build/watching.js",
+      "kind": "import",
+      "raw": "state.contextDependencies",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/cli/build/watching.js",
+      "kind": "import",
+      "raw": "state.configBag.dependencies",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/index.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/react-router.development.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/umd/react-router.development.js",
+      "kind": "import",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/ui/Button.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/layouts/AppWrapper.test.tsx",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/hooks/useToggle.test.ts",
+      "kind": "test",
+      "raw": "state",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

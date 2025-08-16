@@ -1,0 +1,500 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "color.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/logging_handler.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pre_commit/commands/run.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/bar.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/ansi.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/console.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/style.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/bar.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/syntax.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/progress_bar.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/ansi.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_extension.py",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/deprecated/json.py",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/autoprefixer/lib/hacks/gradient.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/chart.js",
+      "kind": "import",
+      "raw": "kurkle/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/helpers.js",
+      "kind": "import",
+      "raw": "kurkle/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/chunks/helpers.dataset.js",
+      "kind": "import",
+      "raw": "kurkle/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/helpers/helpers.color.d.ts",
+      "kind": "import",
+      "raw": "kurkle/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/image.d.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/property-descriptors/box-shadow.d.ts",
+      "kind": "import",
+      "raw": "types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/property-descriptors/text-shadow.d.ts",
+      "kind": "import",
+      "raw": "types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/render/canvas/canvas-renderer.d.ts",
+      "kind": "import",
+      "raw": "css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/iframe-element-container.d.ts",
+      "kind": "import",
+      "raw": "css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/index.js",
+      "kind": "require",
+      "raw": "./css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/index.js",
+      "kind": "require",
+      "raw": "./property-descriptors/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/index.js",
+      "kind": "require",
+      "raw": "./types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js",
+      "kind": "require",
+      "raw": "../color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js.map",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js",
+      "kind": "require",
+      "raw": "../color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/gradient.js",
+      "kind": "require",
+      "raw": "../color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/-webkit-gradient.js",
+      "kind": "require",
+      "raw": "../color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/__tests__/radial-gradient.js",
+      "kind": "require",
+      "raw": "../../color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/__tests__/radial-gradient.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/box-shadow.js",
+      "kind": "require",
+      "raw": "../types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/text-shadow.js",
+      "kind": "require",
+      "raw": "../types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "require",
+      "raw": "../../types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js",
+      "kind": "require",
+      "raw": "../../types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/render/canvas/canvas-renderer.js",
+      "kind": "require",
+      "raw": "../../css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/render/canvas/foreignobject-renderer.js",
+      "kind": "require",
+      "raw": "../../css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js",
+      "kind": "require",
+      "raw": "../css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/dom/replaced-elements/iframe-element-container.js",
+      "kind": "require",
+      "raw": "../../css/types/color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/dist/esm/js/convert.js",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/dist/esm/js/util.js",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/dist/esm/js/resolve.js",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/dist/esm/js/relative-color.js",
+      "kind": "import",
+      "raw": "color.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/src/js/convert.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/src/js/util.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/src/js/resolve.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@asamuzakjp/css-color/src/js/relative-color.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/util/dataTypes.js",
+      "kind": "require",
+      "raw": "./color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/util/withAlphaVariable.js",
+      "kind": "require",
+      "raw": "./color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/util/dataTypes.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/util/withAlphaVariable.js",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@kurkle/color/dist/color.d.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@kurkle/color/dist/color.d.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@kurkle/color/dist/color.d.ts",
+      "kind": "import",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.css",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/__tests__/test_color_customization.test.jsx",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx",
+      "kind": "test",
+      "raw": "color",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

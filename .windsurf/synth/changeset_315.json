@@ -1,0 +1,73 @@
+{
+  "timestamp": 1755140185.0289652,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/notification/notification_manager.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/hook_outcome_predictor.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/outbound_webhook.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/send_receipt_email.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/request_review.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/hook_replay_cli.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/retry_utils.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/hook_signature_fingerprinter.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/trigger_upsell_suggestion.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/log_receipt.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/monitoring.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/fraud_check.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/file_tax_compliance.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/hook_dispatcher.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/track_analytics.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/log_vault_sale.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/post_sale_hooks/refund_trigger_predictor.py",
+      "action": "updated"
+    }
+  ]
+}

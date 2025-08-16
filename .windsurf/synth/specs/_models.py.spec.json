@@ -1,0 +1,2240 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_models.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_api.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_trace.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/interfaces.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http2.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http11.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/connection.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/interfaces.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http2.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http11.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/connection.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_types.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_main.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_api.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_client.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_exceptions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_auth.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/asgi.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/default.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/base.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/mock.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/wsgi.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_types.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_base_client.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_legacy_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_legacy_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_exceptions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/other_file_chunking_strategy_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/model_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/upload.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/completion.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/embedding.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_store.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/moderation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/image_gen_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/image_edit_partial_image_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/batch.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/image_gen_partial_image_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/completion_choice.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/model.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/file_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/create_embedding_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/image_edit_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/batch_request_counts.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_list_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_store_search_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_update_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/images_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/completion_usage.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_custom_data_source_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/batch_error.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_store_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_delete_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/static_file_chunking_strategy_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/static_file_chunking_strategy.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/container_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/moderation_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/container_list_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/image.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_stored_completions_data_source_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/container_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/file_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/file_search_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_tool_choice_function.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_stream_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/thread.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/thread_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_tool_choice.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/code_interpreter_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/function_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_speech_stopped_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_client_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/rate_limits_updated_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_content.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_text_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_output_item_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_with_reference.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_committed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_audio_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_deleted_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_text_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/session.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_content_part_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_truncate_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_cleared_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_output_item_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_append_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_cancel_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_created_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_content_part_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/transcription_session_updated_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_server_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/session_update_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/transcription_session.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/session_created_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_input_audio_transcription_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_delete_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_response_usage.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_clear_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_create_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_audio_transcript_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_create_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_created_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_function_call_arguments_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_created_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_truncated_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/error_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_response_status.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_retrieve_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_input_audio_transcription_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_commit_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/conversation_item_input_audio_transcription_failed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/transcription_session_update.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/session_updated_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_audio_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/input_audio_buffer_speech_started_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_function_call_arguments_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_audio_transcript_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/session_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/text_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/run.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/file_citation_delta_annotation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/message_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/refusal_content_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/message_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/text_content_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/message.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/file_path_delta_annotation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_file_content_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_file_delta_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_file.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/file_citation_annotation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_url_delta_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/refusal_delta_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_url_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/message_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/text.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/required_action_function_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_file_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/text_delta_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_url.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/file_path_annotation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/image_url_content_block.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/run_step_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/tool_call_delta_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/function_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/run_step.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/file_search_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/file_search_tool_call_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/tool_calls_step_details.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/code_interpreter_tool_call_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/code_interpreter_output_image.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/run_step_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/code_interpreter_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/code_interpreter_logs.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/message_creation_step_details.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/run_step_delta_message_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/function_tool_call_delta.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_stores/vector_store_file_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_stores/file_content_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_stores/vector_store_file_batch.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_stores/vector_store_file.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_jsonl_run_data_source.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_cancel_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/eval_api_error.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_list_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_delete_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/runs/output_item_list_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/runs/output_item_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/reinforcement_hyperparameters.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/dpo_method.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/supervised_method.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/reinforcement_method.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/fine_tuning_job.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/fine_tuning_job_wandb_integration.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/supervised_hyperparameters.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/fine_tuning_job_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/fine_tuning_job_wandb_integration_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/dpo_hyperparameters.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/checkpoints/permission_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/checkpoints/permission_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/checkpoints/permission_delete_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/jobs/fine_tuning_job_checkpoint.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/alpha/grader_run_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/alpha/grader_validate_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_message.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/parsed_chat_completion.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_chunk.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_token_logprob.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_deleted.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_message_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_audio.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_web_search_call_searching_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/parsed_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/file_search_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_text_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_image_gen_call_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_error_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_message.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_function_web_search.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_file_search_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_call_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_text_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_part_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_item_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_web_search_call_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_audio_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_image_gen_call_partial_image_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_queued_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_text_annotation_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_computer_tool_call_output_screenshot.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_text_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_function_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_call_failed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_error.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_content_part_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_list_tools_failed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_incomplete_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_file_search_call_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_item_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_refusal.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_image.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_call_arguments_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_created_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/tool_choice_types.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_content_part_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_text.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_web_search_call_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/tool_choice_mcp.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_list_tools_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_call_interpreting_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_image_gen_call_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_refusal_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_format_text_json_schema_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_failed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_call_code_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_audio_transcript_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_list_tools_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_usage.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/easy_input_message.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_call_arguments_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_call_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_message_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_function_call_arguments_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/web_search_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_computer_tool_call_output_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/function_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_function_tool_call_output_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_image_gen_call_generating_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_text_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_call_code_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_text.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_file_search_call_searching_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_output_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_refusal_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_item.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_file_search_call_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_audio_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/computer_tool.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_function_call_arguments_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_part_added_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_code_interpreter_call_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_audio_transcript_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_in_progress_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/tool_choice_function.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_prompt.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_computer_tool_call.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_input_file.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_item_list.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_mcp_call_completed_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_reasoning_summary_text_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/uploads/upload_part.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/response_format_text.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/response_format_json_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/error_object.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/reasoning.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/compound_filter.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/response_format_json_schema.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/function_definition.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared/comparison_filter.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription_segment.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription_text_done_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/translation_verbose.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription_word.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/translation.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription_text_delta_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/audio/transcription_verbose.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/containers/file_retrieve_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/containers/file_list_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/containers/file_create_response.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/batch_completed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/response_completed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/fine_tuning_job_succeeded_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/batch_failed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/eval_run_succeeded_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/response_failed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/eval_run_failed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/batch_expired_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/response_incomplete_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/fine_tuning_job_failed_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/fine_tuning_job_cancelled_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/batch_cancelled_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/eval_run_canceled_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/webhooks/response_cancelled_webhook_event.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/python_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/score_model_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/label_model_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/multi_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/string_check_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/graders/text_similarity_grader.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/webhooks.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_cli.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_utils.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/files.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/models.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/completions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/audio.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/image.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/fine_tuning/jobs.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_api/chat/completions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_tools/fine_tunes.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/cli/_tools/migrate.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/azure.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/_parsing/_responses.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/_parsing/_completions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/_assistants.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_completions.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/chat/_events.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/responses/_responses.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/httpx/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.13/site-packages/httpx/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.13/site-packages/openai/types/responses/tool_choice_types.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.13/site-packages/openai/types/responses/response_text_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/venv/lib/python3.13/site-packages/httpx/__init__.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/venv/lib/python3.13/site-packages/openai/types/responses/tool_choice_types.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/venv/lib/python3.13/site-packages/openai/types/responses/response_text_config.py",
+      "kind": "import",
+      "raw": "_models",
+      "symbols": []
+    }
+  ],
+  "role": "models",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

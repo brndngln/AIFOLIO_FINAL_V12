@@ -1,0 +1,302 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "binary.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/operators.py",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/sysconfig.py",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sysconfig.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/util.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_core.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_hooks.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_commands.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/LICENSE.txt",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/_setup_hooks.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dateutil/tz/tz.py",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_bcrypt.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/tags.js",
+      "kind": "require",
+      "raw": "./yaml-1.1/binary.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/yaml-1.1/schema.js",
+      "kind": "require",
+      "raw": "./binary.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/tags.js",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/tags.js",
+      "kind": "import",
+      "raw": "yaml-1.1/binary.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js",
+      "kind": "import",
+      "raw": "binary.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/js-yaml/index.js",
+      "kind": "require",
+      "raw": "./lib/type/binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/js-yaml/lib/schema/default.js",
+      "kind": "require",
+      "raw": "../type/binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/recarray_from_file.fits",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/lib_utils.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/simple.py",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_utils.pyi",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_field_blocks.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/utf8_filename.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/almost_match_boundary_without_final_hyphen.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/almost_match_boundary_without_LF.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_field.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/almost_match_boundary.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/quoted_printable_encoding.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/base64_encoding.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_field_single_file.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_file.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/multiple_files.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/multiple_fields.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/almost_match_boundary_without_CR.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_field_longer.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/multipart/tests/test_data/http/single_field_with_leading_newlines.yaml",
+      "kind": "test",
+      "raw": "binary",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/mypy/operators.py",
+      "kind": "import",
+      "raw": "binary",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

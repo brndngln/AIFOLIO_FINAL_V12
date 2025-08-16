@@ -1,0 +1,224 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "hashes.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/fernet.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/_oid.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/backends/openssl/backend.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/hmac.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/pkcs7.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/ssh.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/utils.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/padding.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/x509/ocsp.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/x509/base.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/backends/cryptography_backend.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_internal/models/direct_url.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/security/utils.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/dnssecalgs/rsa.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/dnssecalgs/ecdsa.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/dnssecalgs/dsa.py",
+      "kind": "import",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/tox_support.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_scrypt.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_bcrypt.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_pbkdf2.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_pbkdf2.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_digest.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_win32.py",
+      "kind": "test",
+      "raw": "hashes",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

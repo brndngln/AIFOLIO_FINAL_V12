@@ -1,0 +1,21 @@
+{
+  "timestamp": 1755140241.534286,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/__init__.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/visual_tax_dashboard.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/export/pdf_tax_visuals.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/zero_tax_trigger_filter.py",
+      "action": "updated"
+    }
+  ]
+}

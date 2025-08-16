@@ -1,0 +1,124 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "other",
+  "path": "memory.lock",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/client.py",
+      "kind": "import",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/client.py",
+      "kind": "import",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_aix.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_memleaks.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_memleaks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_aix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_logger.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/lib.scripthost.d.ts",
+      "kind": "import",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/refetchingBehaviors.test.tsx",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "memory",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

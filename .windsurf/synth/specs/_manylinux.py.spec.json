@@ -1,0 +1,86 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_manylinux.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/tags.py",
+      "kind": "import",
+      "raw": "_manylinux.platform_tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/_manylinux.py",
+      "kind": "import",
+      "raw": "_manylinux",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/vendored/packaging/tags.py",
+      "kind": "import",
+      "raw": "_manylinux.platform_tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/vendored/packaging/_manylinux.py",
+      "kind": "import",
+      "raw": "_manylinux",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/tags.py",
+      "kind": "import",
+      "raw": "_manylinux.platform_tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/_manylinux.py",
+      "kind": "import",
+      "raw": "_manylinux",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/tags.py",
+      "kind": "import",
+      "raw": "_manylinux.platform_tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/_manylinux.py",
+      "kind": "import",
+      "raw": "_manylinux",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/tags.py",
+      "kind": "import",
+      "raw": "_manylinux.platform_tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/_manylinux.py",
+      "kind": "import",
+      "raw": "_manylinux",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

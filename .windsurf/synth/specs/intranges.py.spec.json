@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "intranges.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/idna/__init__.py",
+      "kind": "import",
+      "raw": "intranges",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/idna/core.py",
+      "kind": "import",
+      "raw": "intranges",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/idna/__init__.py",
+      "kind": "import",
+      "raw": "intranges",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/idna/core.py",
+      "kind": "import",
+      "raw": "intranges",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "filter.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_distutils_adoption.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_filelist.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_bdist_dumb.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_working_set.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/collection.js",
+      "kind": "require",
+      "raw": "./filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/filter.js",
+      "kind": "require",
+      "raw": "../filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/autoprefixer/lib/prefixes.js",
+      "kind": "require",
+      "raw": "./hacks/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/dom-helpers/esm/index.js",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/dom-helpers/esm/index.d.ts",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/dom-helpers/cjs/index.d.ts",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/esrecurse/gulpfile.babel.js",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGroupBy.test.js",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/array/filter.js",
+      "kind": "require",
+      "raw": "../../es/array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/array/virtual/filter.js",
+      "kind": "require",
+      "raw": "../../../es/array/virtual/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/typed-array/filter.js",
+      "kind": "require",
+      "raw": "../../es/typed-array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/iterator/filter.js",
+      "kind": "require",
+      "raw": "../../es/iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/instance/filter.js",
+      "kind": "require",
+      "raw": "../../es/instance/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/array/filter.js",
+      "kind": "require",
+      "raw": "../../actual/array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/array/virtual/filter.js",
+      "kind": "require",
+      "raw": "../../../actual/array/virtual/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/typed-array/filter.js",
+      "kind": "require",
+      "raw": "../../actual/typed-array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/iterator/filter.js",
+      "kind": "require",
+      "raw": "../../actual/iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/async-iterator/filter.js",
+      "kind": "require",
+      "raw": "../../actual/async-iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/instance/filter.js",
+      "kind": "require",
+      "raw": "../../actual/instance/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/array/filter.js",
+      "kind": "require",
+      "raw": "../../stable/array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/array/virtual/filter.js",
+      "kind": "require",
+      "raw": "../../../stable/array/virtual/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/typed-array/filter.js",
+      "kind": "require",
+      "raw": "../../stable/typed-array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/iterator/filter.js",
+      "kind": "require",
+      "raw": "../../stable/iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/instance/filter.js",
+      "kind": "require",
+      "raw": "../../stable/instance/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/array/filter.js",
+      "kind": "require",
+      "raw": "../../full/array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/array/virtual/filter.js",
+      "kind": "require",
+      "raw": "../../../full/array/virtual/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/typed-array/filter.js",
+      "kind": "require",
+      "raw": "../../full/typed-array/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/iterator/filter.js",
+      "kind": "require",
+      "raw": "../../full/iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/map/filter.js",
+      "kind": "require",
+      "raw": "../../full/map/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/async-iterator/filter.js",
+      "kind": "require",
+      "raw": "../../full/async-iterator/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/instance/filter.js",
+      "kind": "require",
+      "raw": "../../full/instance/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/set/filter.js",
+      "kind": "require",
+      "raw": "../../full/set/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/es/instance/filter.js",
+      "kind": "require",
+      "raw": "../array/virtual/filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAction.test-d.tsx",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpserts.test.tsx",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/refetchingBehaviors.test.tsx",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "filter",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/testing.pyi",
+      "kind": "test",
+      "raw": "filter",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

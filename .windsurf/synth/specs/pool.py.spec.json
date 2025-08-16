@@ -1,0 +1,104 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "pool.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_config.py",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/concurrency/asynpool.py",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/components.py",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/context.py",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process_all.py",
+      "kind": "test",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process_all.cpython-312.pyc",
+      "kind": "test",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "pool",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/random.pyi",
+      "kind": "test",
+      "raw": "pool",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

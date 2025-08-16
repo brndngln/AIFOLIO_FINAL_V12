@@ -1,0 +1,5090 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "styled.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/tree.py",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/tree.py",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/console.py",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.js",
+      "kind": "require",
+      "raw": "./styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/createBox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/Container/createContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/Unstable_Grid/createGrid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/Stack/createStack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/createBox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/Container/createContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/Unstable_Grid/createGrid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/Stack/createStack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/Container/createContainer.js",
+      "kind": "require",
+      "raw": "../styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/Unstable_Grid/createGrid.js",
+      "kind": "require",
+      "raw": "../styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/createBox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/Container/createContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/Unstable_Grid/createGrid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/Stack/createStack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/Stack/createStack.js",
+      "kind": "require",
+      "raw": "../styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Card/Card.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Card/Card.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Autocomplete/Autocomplete.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Input/Input.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Input/Input.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AccordionDetails/AccordionDetails.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Alert/Alert.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Accordion/Accordion.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Step/Step.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Step/Step.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Card/Card.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Card/Card.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Autocomplete/Autocomplete.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Input/Input.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Input/Input.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AccordionDetails/AccordionDetails.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Alert/Alert.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Accordion/Accordion.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Step/Step.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Step/Step.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Slider/Slider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Container/Container.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Container/Container.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Button/Button.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Button/Button.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Link/Link.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Link/Link.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AccordionActions/AccordionActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Table/Table.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Table/Table.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/zero-styled/index.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AlertTitle/AlertTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/List/List.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/List/List.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Avatar/Avatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Switch/Switch.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Select/Select.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Select/Select.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/AccordionSummary/AccordionSummary.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/Badge/Badge.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Slider/Slider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Container/Container.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Container/Container.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.d.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.d.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Button/Button.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Button/Button.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Link/Link.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Link/Link.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AccordionActions/AccordionActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Table/Table.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Table/Table.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/zero-styled/index.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/zero-styled/index.d.ts",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AlertTitle/AlertTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/List/List.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/List/List.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Avatar/Avatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Switch/Switch.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageListItemBar/ImageListItemBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Paper/Paper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageList/ImageList.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tabs/Tabs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListSubheader/ListSubheader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AvatarGroup/AvatarGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AppBar/AppBar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableFooter/TableFooter.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Popper/Popper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Drawer/Drawer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Pagination/Pagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tooltip/Tooltip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/MobileStepper/MobileStepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Rating/Rating.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Radio/Radio.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Radio/RadioButtonIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Card/Card.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Card/Card.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Backdrop/Backdrop.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonGroup/ButtonGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Autocomplete/Autocomplete.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Hidden/HiddenCss.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableCell/TableCell.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableRow/TableRow.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableHead/TableHead.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardActions/CardActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Input/Input.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Input/Input.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AccordionDetails/AccordionDetails.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Alert/Alert.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogTitle/DialogTitle.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Accordion/Accordion.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Snackbar/Snackbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Skeleton/Skeleton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FilledInput/FilledInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepContent/StepContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonBase/ButtonBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ButtonBase/TouchRipple.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormGroup/FormGroup.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Chip/Chip.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Toolbar/Toolbar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Fab/Fab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/internal/SwitchBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Checkbox/Checkbox.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemIcon/ListItemIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Step/Step.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Step/Step.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ToggleButton/ToggleButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TextField/TextField.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SwipeableDrawer/SwipeArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TabScrollButton/TabScrollButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Slider/Slider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableContainer/TableContainer.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SvgIcon/SvgIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputBase/InputBase.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Stepper/Stepper.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/MenuItem/MenuItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardActionArea/CardActionArea.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Collapse/Collapse.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogActions/DialogActions.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Tab/Tab.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormLabel/FormLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SnackbarContent/SnackbarContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepButton/StepButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemText/ListItemText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItem/ListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Dialog/Dialog.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Popover/Popover.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Container/Container.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Container/Container.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableSortLabel/TableSortLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/index.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ImageListItem/ImageListItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TablePagination/TablePagination.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/NativeSelect/NativeSelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogContentText/DialogContentText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardMedia/CardMedia.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDial/SpeedDial.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Button/Button.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Button/Button.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Link/Link.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Link/Link.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/OutlinedInput/OutlinedInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/OutlinedInput/NotchedOutline.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AccordionActions/AccordionActions.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Table/Table.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Table/Table.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputAdornment/InputAdornment.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/zero-styled/index.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AlertTitle/AlertTitle.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/List/List.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/List/List.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Divider/Divider.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormHelperText/FormHelperText.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Menu/Menu.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/DialogContent/DialogContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepLabel/StepLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Avatar/Avatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Typography/Typography.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Switch/Switch.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormControl/FormControl.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/IconButton/IconButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/PaginationItem/PaginationItem.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Select/Select.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Select/Select.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/AccordionSummary/AccordionSummary.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/Badge/Badge.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Select/SelectInput.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Select/Select.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Select/Select.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Stack/Stack.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/BottomNavigation/BottomNavigation.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Icon/Icon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ImageListItemBar/ImageListItemBar.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Paper/Paper.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ImageList/ImageList.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Tabs/Tabs.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListSubheader/ListSubheader.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/AvatarGroup/AvatarGroup.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/AppBar/AppBar.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/BottomNavigationAction/BottomNavigationAction.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableFooter/TableFooter.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Drawer/Drawer.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Pagination/Pagination.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/MobileStepper/MobileStepper.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ToggleButtonGroup/ToggleButtonGroup.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Rating/Rating.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Radio/Radio.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Radio/RadioButtonIcon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Card/Card.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Backdrop/Backdrop.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ButtonGroup/ButtonGroup.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Hidden/HiddenCss.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableCell/TableCell.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableRow/TableRow.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableHead/TableHead.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CardActions/CardActions.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Input/Input.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/DialogTitle/DialogTitle.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Skeleton/Skeleton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FilledInput/FilledInput.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/StepContent/StepContent.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ButtonBase/ButtonBase.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ButtonBase/TouchRipple.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FormGroup/FormGroup.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Chip/Chip.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ScopedCssBaseline/ScopedCssBaseline.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Toolbar/Toolbar.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Fab/Fab.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItemSecondaryAction/ListItemSecondaryAction.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/internal/SwitchBase.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Checkbox/Checkbox.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItemIcon/ListItemIcon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Step/Step.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ToggleButton/ToggleButton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TextField/TextField.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SwipeableDrawer/SwipeArea.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TabScrollButton/TabScrollButton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableContainer/TableContainer.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SvgIcon/SvgIcon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/InputBase/InputBase.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Stepper/Stepper.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/MenuItem/MenuItem.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CardActionArea/CardActionArea.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Collapse/Collapse.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/DialogActions/DialogActions.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Tab/Tab.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FormLabel/FormLabel.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SnackbarContent/SnackbarContent.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/StepButton/StepButton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItemText/ListItemText.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItem/ListItem.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Dialog/Dialog.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Popover/Popover.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Container/Container.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableSortLabel/TableSortLabel.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/index.js",
+      "kind": "require",
+      "raw": "./styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ImageListItem/ImageListItem.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TablePagination/TablePagination.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/NativeSelect/NativeSelectInput.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/DialogContentText/DialogContentText.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CardMedia/CardMedia.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SpeedDial/SpeedDial.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Button/Button.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Link/Link.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/OutlinedInput/OutlinedInput.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/OutlinedInput/NotchedOutline.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Table/Table.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/InputAdornment/InputAdornment.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/zero-styled/index.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/List/List.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Divider/Divider.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FormHelperText/FormHelperText.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Menu/Menu.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/DialogContent/DialogContent.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/StepLabel/StepLabel.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Typography/Typography.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FormControl/FormControl.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/IconButton/IconButton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/PaginationItem/PaginationItem.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Select/SelectInput.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Select/Select.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Stack/Stack.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/BottomNavigation/BottomNavigation.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Icon/Icon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItemAvatar/ListItemAvatar.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Modal/Modal.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/StepIcon/StepIcon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/InputLabel/InputLabel.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/TableBody/TableBody.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CardContent/CardContent.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SpeedDialAction/SpeedDialAction.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Breadcrumbs/Breadcrumbs.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/StepConnector/StepConnector.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CardHeader/CardHeader.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/LinearProgress/LinearProgress.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/FormControlLabel/FormControlLabel.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/ListItemButton/ListItemButton.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/Grid/Grid.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/CircularProgress/CircularProgress.js",
+      "kind": "require",
+      "raw": "../styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemAvatar/ListItemAvatar.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/AccordionSummary/AccordionSummary.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Modal/Modal.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepIcon/StepIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/InputLabel/InputLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/TableBody/TableBody.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardContent/CardContent.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialAction/SpeedDialAction.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Breadcrumbs/Breadcrumbs.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Breadcrumbs/BreadcrumbCollapsed.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/StepConnector/StepConnector.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CardHeader/CardHeader.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/SpeedDialIcon/SpeedDialIcon.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/LinearProgress/LinearProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Unstable_Grid2/Grid2.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/FormControlLabel/FormControlLabel.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/ListItemButton/ListItemButton.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Grid/Grid.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/Badge/Badge.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/CircularProgress/CircularProgress.js",
+      "kind": "import",
+      "raw": "styles/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/index.js",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/index.d.ts",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/index.d.ts",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/index.d.ts",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/legacy/index.js",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/modern/index.js",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/styled-engine/node/index.js",
+      "kind": "require",
+      "raw": "@emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/macro.d.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/macro.d.ts",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/macro.d.ts",
+      "kind": "import",
+      "raw": "emotion/styled",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/src/index.ts",
+      "kind": "import",
+      "raw": "styled",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,12 +1,10 @@
+pt = None  # TODO: Define pt
 import os
+
 import shutil
 
-# SAFE AI: This script is non-sentient, static, deterministic, owner-controlled, and audit-compliant.
 
-# Source backup folder
 backup_folder = "./windsurf_backup_replaced/"
-
-# Mapping of common target directories (based on scan patterns; add more if needed)
 path_mappings = {
     "core/": [
         "windsurf_core.py",
@@ -32,15 +30,11 @@ path_mappings = {
         "ai_pricing_strategist.py",
     ],
     "vaults/": ["vault_revenue_optimizer.py", "vault_funding_manager.py"],
-    # Add custom mappings here, e.g., 'custom_dir/': ['file.py']
 }
-
-# Backup dir for originals during restoration
 restore_backup_dir = "./restore_backup/"
 os.makedirs(restore_backup_dir, exist_ok=True)
 
 
-# Function to restore a file
 def restore_file(source_path, target_path):
     if os.path.exists(source_path):
         if os.path.exists(target_path):
@@ -55,24 +49,16 @@ def restore_file(source_path, target_path):
         print(f"Skipped: Source {source_path} not found")
 
 
-# Perform restoration
 for target_dir, files in path_mappings.items():
     os.makedirs(target_dir, exist_ok=True)
     for file in files:
         source = os.path.join(backup_folder, file)
         target = os.path.join(target_dir, file)
         restore_file(source, target)
-
-# Handle any unmatched files in backup (copy to root or custom dir)
 for root, dirs, files in os.walk(backup_folder):
     for file in files:
-        if file not in [
-            f for sublist in path_mappings.values() for f in sublist
-        ]:  # Skip already handled
+        if file not in [f for sublist in path_mappings.values() for f in sublist]:
             source = os.path.join(root, file)
-            target = os.path.join(
-                ".", file
-            )  # Or change to a subdir like './restored_misc/'
+            target = os.path.join(".", file)
             restore_file(source, target)
-
 print("Restoration complete! Check logs above. Run tests to verify.")

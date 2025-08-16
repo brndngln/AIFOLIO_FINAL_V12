@@ -1,0 +1,86 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_make.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/setters.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/validators.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_cmp.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/__init__.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_next_gen.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_version_info.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/converters.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_funcs.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/filters.py",
+      "kind": "import",
+      "raw": "_make",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "_make",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

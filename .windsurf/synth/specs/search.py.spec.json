@@ -1,0 +1,248 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "search.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/redismodules.py",
+      "kind": "import",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/redismodules.py",
+      "kind": "import",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/buffer.py",
+      "kind": "import",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/key_binding/bindings/search.py",
+      "kind": "import",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_setuptools.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist_info.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_filelist.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_dist.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_aix.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_osx.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_osx.cpython-312.pyc",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_aix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_wsgi.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_wsgi.cpython-312.pyc",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/doc/source/index.rst",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_store_search_response.py",
+      "kind": "import",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/regexp/search.js",
+      "kind": "require",
+      "raw": "../../es/regexp/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/symbol/search.js",
+      "kind": "require",
+      "raw": "../../es/symbol/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/string/search.js",
+      "kind": "require",
+      "raw": "../../es/string/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/regexp/search.js",
+      "kind": "require",
+      "raw": "../../actual/regexp/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/symbol/search.js",
+      "kind": "require",
+      "raw": "../../actual/symbol/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/string/search.js",
+      "kind": "require",
+      "raw": "../../actual/string/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/regexp/search.js",
+      "kind": "require",
+      "raw": "../../stable/regexp/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/symbol/search.js",
+      "kind": "require",
+      "raw": "../../stable/symbol/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/string/search.js",
+      "kind": "require",
+      "raw": "../../stable/string/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/regexp/search.js",
+      "kind": "require",
+      "raw": "../../full/regexp/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/symbol/search.js",
+      "kind": "require",
+      "raw": "../../full/symbol/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/string/search.js",
+      "kind": "require",
+      "raw": "../../full/string/search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine-html.js",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/strings/conftest.py",
+      "kind": "test",
+      "raw": "search",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

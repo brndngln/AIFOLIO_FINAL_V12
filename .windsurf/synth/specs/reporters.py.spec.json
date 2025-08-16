@@ -1,0 +1,128 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "reporters.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/lint/parallel.py",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/config/config_initialization.py",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__init__.py",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers/abstract.py",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/reporters.d.ts",
+      "kind": "import",
+      "raw": "dist/reporters.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/config.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/config.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/coverage.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/index.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/index.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/reporters.d.ts",
+      "kind": "import",
+      "raw": "chunks/reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/index.VByaPkjc.js",
+      "kind": "import",
+      "raw": "reporters",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/vite.d.CMLlLIFP.d.ts",
+      "kind": "import",
+      "raw": "reporters.d.BFLkQcL6.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "reporters",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

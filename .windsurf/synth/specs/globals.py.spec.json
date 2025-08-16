@@ -1,0 +1,248 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "globals.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/termui.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/utils.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/exceptions.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/decorators.py",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_session.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_detect.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_fglobals.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_fglobals.cpython-312.pyc",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_session.cpython-312.pyc",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_detect.cpython-312.pyc",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_registry.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/tox_support.py",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/globals/index.js",
+      "kind": "require",
+      "raw": "./globals.json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@eslint/eslintrc/node_modules/globals/index.js",
+      "kind": "require",
+      "raw": "./globals.json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@eslint/eslintrc/node_modules/globals/index.d.ts",
+      "kind": "require",
+      "raw": "./globals.json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@eslint/eslintrc/conf/environments.js",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@eslint/eslintrc/conf/environments.js",
+      "kind": "import",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/setup-common.Dd054P77.js",
+      "kind": "import",
+      "raw": "globals.DEHgCU4V.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/scope/index.js",
+      "kind": "require",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/node_modules/globals/index.js",
+      "kind": "require",
+      "raw": "./globals.json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/node_modules/globals/index.d.ts",
+      "kind": "require",
+      "raw": "./globals.json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/no-extend-native.js",
+      "kind": "require",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/no-constant-binary-expression.js",
+      "kind": "require",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/source-code/source-code.js",
+      "kind": "require",
+      "raw": "../../conf/globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/jest-globals.js",
+      "kind": "require",
+      "raw": "@jest/globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/jest-globals.d.ts",
+      "kind": "import",
+      "raw": "jest/globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-custom-expect-types.test.ts",
+      "kind": "import",
+      "raw": "jest/globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-custom-expect-types.test.ts",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-types.test.ts",
+      "kind": "import",
+      "raw": "jest/globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-types.test.ts",
+      "kind": "test",
+      "raw": "globals",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/dist/jest-globals.js",
+      "kind": "require",
+      "raw": "@jest/globals",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

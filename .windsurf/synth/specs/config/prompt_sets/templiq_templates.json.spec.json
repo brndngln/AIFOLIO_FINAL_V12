@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "json",
+  "path": "config/prompt_sets/templiq_templates.json",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "tests/quantum_vault_duplication.test.js",
+      "kind": "test",
+      "raw": "templiq_templates",
+      "symbols": []
+    }
+  ],
+  "role": "templates",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

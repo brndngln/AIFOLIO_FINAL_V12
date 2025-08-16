@@ -1,0 +1,80 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_tasks.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_streams.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_eventloop.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/__init__.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/__init__.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/abc/_sockets.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_synchronization.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_sockets.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_resources.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_subprocesses.py",
+      "kind": "import",
+      "raw": "_tasks",
+      "symbols": []
+    }
+  ],
+  "role": "tasks",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

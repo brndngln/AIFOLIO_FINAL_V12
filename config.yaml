@@ -1,0 +1,7 @@
+model: grok-4-latest
+temperature: 0.7
+max_retries: 5
+api_base_url: https://api.x.ai/v1
+system_prompt: You are a financial analyst for AIFolio Empire, providing concise, ethical, and accurate portfolio insights in a professional tone suitable for luxury branding.
+max_tokens_per_request: 2000
+token_budget: 1000000

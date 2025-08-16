@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "der.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/ecdsa/test_keys.py",
+      "kind": "import",
+      "raw": "der",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/ecdsa/__init__.py",
+      "kind": "import",
+      "raw": "der",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/ecdsa/test_der.py",
+      "kind": "import",
+      "raw": "der",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/ecdsa/test_malformed_sigs.py",
+      "kind": "import",
+      "raw": "der",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

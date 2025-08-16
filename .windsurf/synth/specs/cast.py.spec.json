@@ -1,0 +1,260 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "cast.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/h11/_state.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/lint/report_functions.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/_unix.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/_windows.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_ratio.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/spinner.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_ratio.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/spinner.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pluggy/_callers.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pluggy/_result.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pluggy/_manager.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/dist_info.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_pycapsule.py",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_pycapsule.cpython-312.pyc",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tomlkit/items.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/webhooks.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/runner.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/stash.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/capture.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/outcomes.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/reports.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/raises.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/nodes.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/fixtures.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/__init__.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/argparsing.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/_py/path.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyflakes/test/test_type_annotations.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyflakes/test/test_type_annotations.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyflakes/test/test_type_annotations.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/levn/lib/index.js",
+      "kind": "require",
+      "raw": "./cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test-d.ts",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test-d.ts",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/numerictypes.py",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numerictypes.pyi",
+      "kind": "test",
+      "raw": "cast",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/setuptools/config/__init__.py",
+      "kind": "import",
+      "raw": "cast",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

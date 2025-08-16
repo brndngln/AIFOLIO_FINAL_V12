@@ -1,0 +1,92 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "errorcodes.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/message_registry.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "errorcodes",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

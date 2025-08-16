@@ -1,0 +1,1174 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "other",
+  "path": "asyncio.py_custom",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "aifolio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": "test_suite.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/typing_extensions.py",
+      "kind": "import",
+      "raw": "asyncio.coroutines",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_ws.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_ws.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/worker.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_response.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_ws.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_ws.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/test_utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_app.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/streams.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_protocol.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_protocol.py",
+      "kind": "import",
+      "raw": "asyncio.streams",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_protocol.py",
+      "kind": "import",
+      "raw": "asyncio.Task.all_tasks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/compression_utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_urldispatcher.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_request.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_proto.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_runner.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/base_protocol.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/payload.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_reqrep.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/resolver.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_exceptions.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_fileresponse.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/http_writer.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/tcp_helpers.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/helpers.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/helpers.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/http_parser.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/cookiejar.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/pytest_plugin.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/abc.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/writer.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_py.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/_websocket/reader_c.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/cluster.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/search/__init__.py",
+      "kind": "import",
+      "raw": "asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/client.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/retry.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/cluster.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/lock.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/asyncio/sentinel.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/hiredis.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/hiredis.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/base.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/base.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "asyncio.run",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/starlette/_utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "asyncio.router",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "asyncio.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "asyncio.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "asyncio.compatibility",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.compatibility",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.StreamWriter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.StreamReaderProtocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.StreamReaderProtocol",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "asyncio.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "asyncio.compatibility",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/compatibility.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/compatibility.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/async_timeout.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.streams.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.streams.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.streams.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.streams.StreamWriter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "asyncio.streams.FlowControlMixin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/messages.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio.base_events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py",
+      "kind": "import",
+      "raw": "asyncio.coroutines",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/asgi.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpx/_transports/asgi.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/renderer.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/patch_stdout.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/buffer.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/history.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/input/win32.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/input/vt100.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/ssh/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/ssh/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/telnet/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/telnet/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/key_binding/key_processor.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/key_binding/bindings/completion.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/shortcuts/utils.py",
+      "kind": "import",
+      "raw": "asyncio.events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/shortcuts/prompt.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/shortcuts/dialogs.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/eventloop/async_generator.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/eventloop/utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/eventloop/utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/eventloop/inputhook.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/eventloop/inputhook.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/application/run_in_terminal.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/application/application.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/application/application.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/sniffio/_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/sniffio/_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/sniffio/_tests/test_sniffio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/auto.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/routing.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_bot.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_jobqueue.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_applicationbuilder.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_callbackcontext.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_updater.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_application.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_baseupdateprocessor.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_aioratelimiter.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_utils/webhookhandler.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_handlers/conversationhandler.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_handlers/callbackqueryhandler.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/_testbase.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/_testbase.py",
+      "kind": "import",
+      "raw": "asyncio.events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/__init__.py",
+      "kind": "import",
+      "raw": "asyncio.events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvloop/includes/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/server.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/config.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/workers.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/main.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/middleware/wsgi.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/lifespan/on.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/lifespan/on.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/loops/uvloop.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/loops/asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/utils.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/wsproto_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/auto.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/http/flow_control.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/http/auto.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py",
+      "kind": "import",
+      "raw": "asyncio.events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/blackd/__init__.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/autocommand/autoasync.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/autocommand/autoasync.py",
+      "kind": "import",
+      "raw": "asyncio.open_connection",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/asyncbackend.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/_asyncio_backend.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/quic/_asyncio.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/black/concurrency.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohappyeyeballs/_staggered.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_base_client.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_utils/_sync.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/vector_stores/file_batches.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/lib/streaming/_assistants.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/local_audio_player.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/microphone.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/run.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/main.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/main.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/main.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/fsspec/exceptions.py",
+      "kind": "import",
+      "raw": "asyncio",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

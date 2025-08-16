@@ -1,0 +1,13 @@
+{
+  "timestamp": 1755140202.775499,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_diff.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/legal/policy_translator.py",
+      "action": "updated"
+    }
+  ]
+}

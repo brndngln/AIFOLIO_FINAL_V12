@@ -1,0 +1,86 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "client_reqrep.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_middlewares.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/multipart.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_ws.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/test_utils.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/tracing.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/connector.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_exceptions.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/client_middleware_digest_auth.py",
+      "kind": "import",
+      "raw": "client_reqrep",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

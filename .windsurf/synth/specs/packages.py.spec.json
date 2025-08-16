@@ -1,0 +1,986 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "packages.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/filepost.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/filepost.py",
+      "kind": "import",
+      "raw": "packages.six",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/fields.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/request.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/request.py",
+      "kind": "import",
+      "raw": "packages.six.moves.urllib.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/poolmanager.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/poolmanager.py",
+      "kind": "import",
+      "raw": "packages.six.moves.urllib.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "kind": "import",
+      "raw": "packages.six.moves.http_client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "kind": "import",
+      "raw": "packages.six.moves.http_client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py",
+      "kind": "import",
+      "raw": "packages.six",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/exceptions.py",
+      "kind": "import",
+      "raw": "packages.six.moves.http_client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "kind": "import",
+      "raw": "packages.six.moves",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "kind": "import",
+      "raw": "packages.backports.weakref_finalize",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/queue.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/queue.py",
+      "kind": "import",
+      "raw": "packages.six.moves",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssltransport.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/request.py",
+      "kind": "import",
+      "raw": "packages.six",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/response.py",
+      "kind": "import",
+      "raw": "packages.six.moves",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/connection.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py",
+      "kind": "import",
+      "raw": "packages.backports.makefile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py",
+      "kind": "import",
+      "raw": "packages.backports.makefile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py",
+      "kind": "import",
+      "raw": "packages.six.moves.urllib.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py",
+      "kind": "import",
+      "raw": "packages.six.moves.http_client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py",
+      "kind": "import",
+      "raw": "packages.six",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/options.py",
+      "kind": "import",
+      "raw": "modules/packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_namespaces.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_find_packages.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_setuptools.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_develop.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/fixtures.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/namespaces.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/setupcfg_examples.txt",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_setupcfg.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pbr.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_install_lib.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_dist.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process_all.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_connections.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_osx.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_scripts.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_contracts.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_system.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_memleaks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_testutils.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_unicode.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_bsd.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_posix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_aix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_misc.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_windows.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_sunos.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__main__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_util.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_files.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_wsgi.py",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_util.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_wsgi.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_version.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_commands.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_files.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/util.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_hooks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_core.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_integration.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_pbr_json.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/CHANGES.txt",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/README.txt",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/setup.cfg",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/cmd.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/_setup_hooks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/extra.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/wsgi.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/__pycache__/setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/doc/source/__pycache__/conf.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_fglobals.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_extendpickle.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_restricted.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_logger.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_pycapsule.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_temp.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_recursive.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_dictviews.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functions.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functors.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_weakref.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_abc.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_session.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_dataclasses.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_sources.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_nested.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_properties.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_selected.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_registered.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_module.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_objects.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_threads.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_file.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_check.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_source.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_mixins.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/__main__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_moduledict.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_detect.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_diff.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/manager.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_extension.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/extension_unimportable.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_test_manager.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_hook.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_named.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_cache.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/utils.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_sphinxext.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_driver.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_callback.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_example_fields.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_enabled.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_dispatch.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_example_simple.cpython-312.pyc",
+      "kind": "test",
+      "raw": "packages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python.py",
+      "kind": "import",
+      "raw": "packages",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

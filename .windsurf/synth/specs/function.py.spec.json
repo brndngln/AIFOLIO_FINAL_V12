@@ -1,0 +1,1322 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "function.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/objects.py",
+      "kind": "import",
+      "raw": "function.infer_call_result",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py",
+      "kind": "import",
+      "raw": "function.infer_call_result",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py",
+      "kind": "import",
+      "raw": "function.infer_call_result",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/mosel.py",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/arturo.py",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/utils.py",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist_info.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_util.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_msvc.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_misc.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process_all.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_memleaks.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_testutils.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_memleaks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/README.txt",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/doc/source/conf.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_restricted.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_session.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_nested.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_temp.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_restricted.cpython-312.pyc",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_pbkdf2.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_scrypt.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyglobby/dist/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/function.js",
+      "kind": "require",
+      "raw": "../function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jiti/dist/babel.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jiti/dist/babel.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/doc/createNode.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/doc/createNode.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/canvg/lib/umd.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/doc.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/postcss.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/estree.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/safe-buffer/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_tsserver.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_typingsInstaller.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/watchGuard.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.es.min.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.node.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.node.min.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.umd.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.umd.min.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jspdf/dist/jspdf.es.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useSortBy.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowState.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowSelect.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFlexLayout.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useAbsoluteLayout.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGroupBy.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useColumnOrder.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useExpanded.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGridLayout.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useBlockLayout.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useResizeColumns.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/hooks/tests/useTable.test.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/safer-buffer/safer.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/safer-buffer/tests.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/html2canvas.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/html2canvas.min.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/html2canvas.esm.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/features.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/logger.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/__tests__/radial-gradient.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/font-family.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/syntax/__tests__/tokernizer-tests.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-sfc/dist/compiler-sfc.esm-browser.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/function/index.js",
+      "kind": "require",
+      "raw": "../../es/function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/function/index.js",
+      "kind": "require",
+      "raw": "../../actual/function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/function/index.js",
+      "kind": "require",
+      "raw": "../../stable/function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/function/index.js",
+      "kind": "require",
+      "raw": "../../full/function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.iterator.from.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.async-iterator.from.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.observable.from.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/qrcode/lib/core/error-correction-level.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/qrcode/lib/core/version.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/qrcode/lib/core/mask-pattern.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/qrcode/lib/core/mode.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/umd/react-dom-server.browser.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/umd/react-dom.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server.browser.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server.node.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/loupe/loupe.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/loupe/lib/index.js",
+      "kind": "import",
+      "raw": "function.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/immer/dist/cjs/immer.cjs.development.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/node_modules/convert-source-map/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/node_modules/convert-source-map/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/optionator/lib/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/convert-source-map/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/convert-source-map/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/immutableStateInvariantMiddleware.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/configureStore.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createReducer.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createEntityAdapter.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAction.test-d.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/configureStore.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/matchers.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/serializableStateInvariantMiddleware.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/utils/helpers.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/dynamicMiddleware/tests/react.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildCreateApi.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/apiProvider.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/useMutation-fixedCacheKey.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/infiniteQueries.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/devWarnings.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/queryFn.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/infiniteQueries.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fetchBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/errorHandling.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/refetchingBehaviors.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/cleanup.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/queryLifecycle.test-d.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildInitiate.test.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/cacheCollection.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/errorHandling.test-d.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test-d.tsx",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.withTypes.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test-d.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/effectScenarios.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.withTypes.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/entity_slice_enhancer.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/state_selectors.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/sorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vitest/spy/dist/index.d.ts",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/array-callback-return.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/utils/ast-utils.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/esbuild/install.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/esbuild/lib/main.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/vitest/vitest-custom-expect-types.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-custom-expect-types.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/bun/bun-custom-expect-types.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/jest/jest-custom-expect-types.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/dist/axios.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/dist/axios.min.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/SpecRunner.html",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lz-string-spec.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine-html.js",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/chunk-7I7T2IKX.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/.vite/deps_temp_6d695e38/chunk-PLDDJCW6.js",
+      "kind": "import",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/umath-validation-set-README.txt",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_character/foo77.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_character/foo90.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_complex/foo77.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_complex/foo90.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/cli/hiworld.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_real/foo77.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_real/foo90.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape/foo_mod.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/assumed_shape/foo_free.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_integer/foo77.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_integer/foo90.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_logical/foo77.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/return_logical/foo90.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/string/fixed_string.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/callback/gh18335.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/callback/gh17797.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/crackfortran/operators.f90",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/crackfortran/gh17859.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/crackfortran/gh15035.f",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/infrastructure.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/hooks/useToggle.test.ts",
+      "kind": "test",
+      "raw": "function",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

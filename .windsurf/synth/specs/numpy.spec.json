@@ -1,0 +1,1054 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "other",
+  "path": "numpy",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_numpy_core_numeric.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_numpy_ma.py",
+      "kind": "import",
+      "raw": "numpy.ma",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_numpy_random_mtrand.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_numpy_utils.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_numpy_utils.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/imports.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/imports.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/std.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/contrib/__init__.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/README.txt",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/__diff.py",
+      "kind": "import",
+      "raw": "numpy.ma",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_objects.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_objects.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_objects.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_objects.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/_dill.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_source.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_source.cpython-312.pyc",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_extras/__init__.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_extras/numpy_proxy.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_extras/numpy_proxy.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_extras/numpy_proxy.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/embeddings.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/local_audio_player.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/local_audio_player.py",
+      "kind": "import",
+      "raw": "numpy.typing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/microphone.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/microphone.py",
+      "kind": "import",
+      "raw": "numpy.typing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/python_api.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/examples/cython/checks.pyx",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/examples/limited_api/limited_api.c",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/array_api/_searching_functions.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/array_api/tests/test_set_functions.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/array_api/tests/test_sorting_functions.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/mypy.ini",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/misc/extended_precision.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/type_check.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/modules.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/warnings_and_errors.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/lib_utils.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/lib_function_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/random.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ufunclike.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/bitwise_ops.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/constants.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/index_tricks.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/scalars.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/twodim_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/flatiter.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/array_like.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/lib_version.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/rec.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/npyio.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/multiarray.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ufuncs.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/linalg.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/datasource.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/char.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/array_pad.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/array_constructors.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arrayterator.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/histograms.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/fromnumeric.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/dtype.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/lib_polynomial.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/nditer.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ufunc_config.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/testing.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/nested_sequence.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/numerictypes.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/einsumfunc.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/chararray.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/stride_tricks.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/false_positives.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/comparisons.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ndarray.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/shape_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/memmap.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arithmetic.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arrayprint.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/random.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/random.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/array_like.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/array_like.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/arrayprint.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/arrayprint.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ufunclike.py",
+      "kind": "import",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ufunclike.py",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/emath.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/type_check.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ctypeslib.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numeric.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/modules.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/warnings_and_errors.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_shape_manipulation.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_utils.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_function_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/version.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/getlimits.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/fft.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/random.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ufunclike.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/mod.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/bitwise_ops.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/constants.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/index_tricks.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/scalars.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/twodim_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/flatiter.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_version.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/rec.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/npyio.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ufuncs.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/linalg.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/datasource.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/char.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/array_constructors.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_conversion.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arrayterator.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/histograms.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/fromnumeric.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/dtype.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_polynomial.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arraypad.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/nditer.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ufunc_config.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/testing.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/nested_sequence.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numerictypes.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/nbit_base_example.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/einsumfunc.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/chararray.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/stride_tricks.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/matrix.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/false_positives.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/comparisons.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/shape_base.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arraysetops.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/memmap.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arithmetic.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arrayprint.pyi",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/array_from_pyobj/wrapmodule.c",
+      "kind": "test",
+      "raw": "numpy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/testing/utils.py",
+      "kind": "import",
+      "raw": "numpy.testing.utils",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

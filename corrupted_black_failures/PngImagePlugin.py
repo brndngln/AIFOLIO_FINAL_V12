@@ -42,7 +42,6 @@ def _save(im: Any, fp: Any, filename: str, **kwargs: Any) -> None:
     pass
 
 
-# Register format
 try:
     from PIL import Image
 

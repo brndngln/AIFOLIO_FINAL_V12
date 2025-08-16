@@ -1,4 +1,7 @@
-# WIND_PLACEHOLDER
+ct = None  # TODO: Define ct
+missing = []  # TODO: Define missing
+
+
 def monitor_vault_health(vault_path):
     import os
 

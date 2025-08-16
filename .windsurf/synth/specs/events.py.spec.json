@@ -1,0 +1,464 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "events.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/composer.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/__init__.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/parser.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/serializer.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/emitter.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/bin/celery.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/consumer/heart.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/consumer/mingle.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/worker/consumer/__init__.py",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/commander/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/async.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.walk/out/readers/async.d.ts",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/cli.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/index.X0nbfr6-.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/creator.GK6I-cL4.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chokidar/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chokidar/types/index.d.ts",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/keyv/src/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/keyv/src/index.d.ts",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useResizeColumns.test.js",
+      "kind": "test",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/virtual-console.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/constraint-validation/DefaultConstraintValidation-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/webstorage/Storage-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLInputElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLTextAreaElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLLabelElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLDetailsElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/Document-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLMediaElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLFormElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLFrameElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/websockets/WebSocket-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/file-api/FileReader-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/xhr/XMLHttpRequest-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/xhr/xhr-utils.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/xhr/xhr-utils.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/aborting/AbortSignal-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/window/SessionHistory.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/selection/Selection-impl.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js",
+      "kind": "require",
+      "raw": "../helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/focusing.js",
+      "kind": "require",
+      "raw": "./events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/page-transition-event.js",
+      "kind": "require",
+      "raw": "./events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/browser/Window.js",
+      "kind": "require",
+      "raw": "../living/helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/browser/resources/per-document-resource-loader.js",
+      "kind": "require",
+      "raw": "../../living/helpers/events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/cac/dist/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/cac/dist/index.d.ts",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/index.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/cli.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/watch-cli.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/shared/watch.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/rollup/dist/es/shared/watch.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/glob/glob.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/dom/types/index.d.ts",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/dom/dist/index.js",
+      "kind": "require",
+      "raw": "./events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/http-proxy-agent/dist/index.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/adapters/http.js",
+      "kind": "import",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/lib/_stream_readable.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/readable-stream/lib/internal/streams/stream-browser.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket-server.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket.js",
+      "kind": "require",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/ui/Button.test.tsx",
+      "kind": "test",
+      "raw": "events",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/layouts/AppWrapper.test.tsx",
+      "kind": "test",
+      "raw": "events",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "shared.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/contexts.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_mingw.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/sharedctypes.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/sharedctypes.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/sharedctypes.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/_pslinux.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_retrieve_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/vector_store.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/batch.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/__init__.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_list_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_update_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat_model.py",
+      "kind": "import",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_create_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/eval_stored_completions_data_source_config.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_stream_event.py",
+      "kind": "import",
+      "raw": "shared.error_object",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/thread.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_response_format_option.py",
+      "kind": "import",
+      "raw": "shared.response_format_text",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_response_format_option.py",
+      "kind": "import",
+      "raw": "shared.response_format_json_object",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_response_format_option.py",
+      "kind": "import",
+      "raw": "shared.response_format_json_schema",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/function_tool.py",
+      "kind": "import",
+      "raw": "shared.function_definition",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_create_params.py",
+      "kind": "import",
+      "raw": "shared.chat_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_create_params.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/assistant_update_params.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/thread_create_and_run_params.py",
+      "kind": "import",
+      "raw": "shared.chat_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/realtime_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/realtime/response_create_event.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/run.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/run_create_params.py",
+      "kind": "import",
+      "raw": "shared.chat_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/run_create_params.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/message.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/beta/threads/runs/run_step.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_retrieve_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_retrieve_response.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_create_params.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "shared.response_format_text",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "shared.response_format_json_object",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "shared.response_format_json_schema",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_cancel_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_cancel_response.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_list_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_list_response.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_create_response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/run_create_response.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/fine_tuning_job.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/completion_create_params.py",
+      "kind": "import",
+      "raw": "shared.chat_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/completion_create_params.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_tool.py",
+      "kind": "import",
+      "raw": "shared.function_definition",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/chat/chat_completion_reasoning_effort.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/file_search_tool.py",
+      "kind": "import",
+      "raw": "shared.compound_filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/file_search_tool.py",
+      "kind": "import",
+      "raw": "shared.comparison_filter",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_format_text_config.py",
+      "kind": "import",
+      "raw": "shared.response_format_text",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response_format_text_config.py",
+      "kind": "import",
+      "raw": "shared.response_format_json_object",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response.py",
+      "kind": "import",
+      "raw": "shared.metadata",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response.py",
+      "kind": "import",
+      "raw": "shared.reasoning",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/response.py",
+      "kind": "import",
+      "raw": "shared.responses_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared_params/reasoning.py",
+      "kind": "import",
+      "raw": "shared.reasoning_effort",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/shared_params/responses_model.py",
+      "kind": "import",
+      "raw": "shared.chat_model",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vue/dist/vue.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vue/dist/vue.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vue/dist/vue.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-core/dist/compiler-core.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/shared/index.js",
+      "kind": "require",
+      "raw": "./dist/shared.cjs.prod.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/shared/index.js",
+      "kind": "require",
+      "raw": "./dist/shared.cjs.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/server-renderer/dist/server-renderer.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/server-renderer/dist/server-renderer.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/server-renderer/dist/server-renderer.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/reactivity/dist/reactivity.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/reactivity/dist/reactivity.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js",
+      "kind": "import",
+      "raw": "vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.prod.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-ssr/dist/compiler-ssr.cjs.js",
+      "kind": "require",
+      "raw": "@vue/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/reflect-metadata.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/shared-key.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/well-known-symbol.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/regexp-exec.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/symbol-is-well-known.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.symbol.key-for.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.symbol.constructor.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.symbol.for.js",
+      "kind": "require",
+      "raw": "../internals/shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/useMutation-fixedCacheKey.test.tsx",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/polling.test.tsx",
+      "kind": "test",
+      "raw": "shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/messages/invalid-rule-severity.js",
+      "kind": "require",
+      "raw": "./shared",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/messages/invalid-rule-options.js",
+      "kind": "require",
+      "raw": "./shared",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

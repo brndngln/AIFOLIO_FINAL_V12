@@ -1,0 +1,62 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "formatting.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "formatting",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "formatting",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "formatting",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "formatting",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "formatting",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "formatting",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

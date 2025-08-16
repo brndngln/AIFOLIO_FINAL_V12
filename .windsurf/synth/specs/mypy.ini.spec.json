@@ -1,0 +1,7024 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "other",
+  "path": "mypy.ini",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/build.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/common.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/errors.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/errors.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ll_builder.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ll_builder.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ll_builder.py",
+      "kind": "import",
+      "raw": "mypy.operators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ll_builder.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/util.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/mapper.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/mapper.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/mapper.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/mapper.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prebuildvisitor.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prebuildvisitor.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/env_class.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/format_str_tokenizer.py",
+      "kind": "import",
+      "raw": "mypy.checkstrformat",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/format_str_tokenizer.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/format_str_tokenizer.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/format_str_tokenizer.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/format_str_tokenizer.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/statement.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/constant_fold.py",
+      "kind": "import",
+      "raw": "mypy.constant_fold",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/constant_fold.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ast_helpers.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/builder.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/classdef.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/classdef.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/generator.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/visitor.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/context.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/specialize.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/specialize.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/main.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/main.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/main.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/main.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/for_helpers.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/expression.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/expression.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/prepare.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/function.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/function.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/match.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/match.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/match.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/match.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_lowering.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_lowering.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_lowering.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_commandline.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_commandline.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_commandline.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_optimizations.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_optimizations.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_optimizations.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_irbuild.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_irbuild.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_irbuild.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_refcount.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_refcount.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_refcount.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_run.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_analysis.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_analysis.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_analysis.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_exceptions.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_exceptions.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_exceptions.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_emitfunc.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_alwaysdefined.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_alwaysdefined.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_alwaysdefined.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_emitwrapper.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/ir/rtypes.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/ir/func_ir.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitmodule.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitwrapper.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/codegen/emitwrapper.py",
+      "kind": "import",
+      "raw": "mypy.operators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/doc/conf.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/erasetype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/erasetype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/erasetype.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/erasetype.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.message_registry",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.reachability",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.sharedparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fastparse.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/evalexpr.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/evalexpr.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.semanal_main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.graph_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.indirection",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.partially_defined",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.semanal_pass1",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.report",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.config_parser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.fixup",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.freetree",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.metastore",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.plugins.default",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.renaming",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.stats",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.stubinfo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.report",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.server.target",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "mypy.refinfo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/options.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/options.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/options.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/message_registry.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "mypy.typevartuples",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/expandtype.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.mixedtraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.moduleinspect",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.sharedparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubdoc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubgenc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubutil",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgen.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.checkexpr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.server.update",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/suggestions.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/exprtotype.py",
+      "kind": "import",
+      "raw": "mypy.fastparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/exprtotype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/exprtotype.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/exprtotype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/patterns.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/patterns.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/config_parser.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/config_parser.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/config_parser.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.exprtotype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_namedtuple.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkmember.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/refinfo.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/refinfo.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/refinfo.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/refinfo.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/modulefinder.py",
+      "kind": "import",
+      "raw": "mypy.stubinfo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/type_visitor.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/type_visitor.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mro.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mro.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mro.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fswatcher.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.checkexpr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkstrformat.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.server.update",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/inspections.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/treetransform.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/maptype.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/maptype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/maptype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/maptype.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/indirection.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/indirection.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/indirection.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constant_fold.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/lookup.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/memprofile.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/memprofile.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/memprofile.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/meet.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.exprtotype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_newtype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.bogus_type",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/literals.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/literals.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/join.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/tvar_scope.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/tvar_scope.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/tvar_scope.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_pass1.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_pass1.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_pass1.py",
+      "kind": "import",
+      "raw": "mypy.reachability",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_pass1.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types_utils.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/types_utils.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.tvar_scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeanal.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgenc.py",
+      "kind": "import",
+      "raw": "mypy.fastparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgenc.py",
+      "kind": "import",
+      "raw": "mypy.moduleinspect",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgenc.py",
+      "kind": "import",
+      "raw": "mypy.stubdoc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubgenc.py",
+      "kind": "import",
+      "raw": "mypy.stubutil",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.exprtotype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeddict.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_enum.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_enum.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_enum.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_enum.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/api.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/api.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/api.py",
+      "kind": "import",
+      "raw": "mypy.dmypy.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.reachability",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/partially_defined.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_classprop.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_classprop.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_classprop.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_classprop.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/visitor.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/visitor.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/reachability.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/reachability.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/reachability.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/reachability.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/reachability.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.semanal_classprop",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.semanal_infer",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.semanal_typeargs",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.server.aststrip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_main.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typevars.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typevars.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typevars.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/copytype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/copytype.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_util.py",
+      "kind": "import",
+      "raw": "mypy.ipc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.copytype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.infer",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typeops.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stats.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.fswatcher",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.inspections",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.ipc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.server.update",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.suggestions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy_server.py",
+      "kind": "import",
+      "raw": "mypy.memprofile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.operators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.mixedtraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_typeargs.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubdoc.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.lookup",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.message_registry",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.tvar_scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugin.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/infer.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/infer.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/infer.py",
+      "kind": "import",
+      "raw": "mypy.solve",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/infer.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/traverser.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/traverser.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/traverser.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typetraverser.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/renaming.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/renaming.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/renaming.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/applytype.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/applytype.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/applytype.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/applytype.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/applytype.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.graph_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/solve.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/constraints.py",
+      "kind": "import",
+      "raw": "mypy.infer",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/binder.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.message_registry",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubutil.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubutil.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubutil.py",
+      "kind": "import",
+      "raw": "mypy.moduleinspect",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubutil.py",
+      "kind": "import",
+      "raw": "mypy.stubdoc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubutil.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/parse.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/parse.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/parse.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/parse.py",
+      "kind": "import",
+      "raw": "mypy.fastparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/freetree.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/freetree.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.strconv",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.config_parser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.split_namespace",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/main.py",
+      "kind": "import",
+      "raw": "mypy.memprofile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.checkstrformat",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.infer",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.message_registry",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.semanal_enum",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkexpr.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.tvar_scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.type_visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_shared.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_infer.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_infer.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_infer.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_infer.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal_infer.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typestate.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typestate.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typestate.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/strconv.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/__main__.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/__main__.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/scope.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/report.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fixup.py",
+      "kind": "import",
+      "raw": "mypy.lookup",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fixup.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fixup.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fixup.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.checkexpr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.binder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.checkpattern",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.message_registry",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.mro",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.operators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.semanal_enum",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.sharedparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.treetransform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checker.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/fscache.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.constant_fold",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.exprtotype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.mro",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.reachability",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_enum",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_namedtuple",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_newtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.semanal_typeddict",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.tvar_scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.typeanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.patterns",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/checkpattern.py",
+      "kind": "import",
+      "raw": "mypy.visitor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mixedtraverser.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mixedtraverser.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mixedtraverser.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/mixedtraverser.py",
+      "kind": "import",
+      "raw": "mypy.typetraverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.applytype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.solve",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/subtypes.py",
+      "kind": "import",
+      "raw": "mypy.solve",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/typevartuples.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy.infer",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/argmap.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/find_sources.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/find_sources.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/find_sources.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.config_parser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.evalexpr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/stubtest.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_os",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.ipc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/client.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/dmypy/__main__.py",
+      "kind": "import",
+      "raw": "mypy.dmypy.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testipc.py",
+      "kind": "import",
+      "raw": "mypy.ipc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testerrorstream.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsolve.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsolve.py",
+      "kind": "import",
+      "raw": "mypy.solve",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsolve.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsolve.py",
+      "kind": "import",
+      "raw": "mypy.test.typefixture",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsolve.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdaemon.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmodulefinder.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmodulefinder.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmodulefinder.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmodulefinder.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.config_parser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.dmypy_util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.server.mergecheck",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.server.update",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrained.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfinegrainedcache.py",
+      "kind": "import",
+      "raw": "mypy.test.testfinegrained",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.config_parser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.parse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testparse.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcmdline.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcmdline.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcmdline.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_find_sources.py",
+      "kind": "import",
+      "raw": "mypy.find_sources",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_find_sources.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_find_sources.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_find_sources.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpep561.py",
+      "kind": "import",
+      "raw": "mypy.api",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpep561.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpep561.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpep561.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/update_data.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.server.astdiff",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdiff.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testargs.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testargs.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testargs.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/typefixture.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/typefixture.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/typefixture.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/visitors.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/visitors.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/visitors.py",
+      "kind": "import",
+      "raw": "mypy.treetransform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/visitors.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.moduleinspect",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubdoc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubgen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubgenc",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.stubutil",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubinfo.py",
+      "kind": "import",
+      "raw": "mypy.stubinfo",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.test.visitors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypegen.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.literals",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.test.typefixture",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testinfer.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testformatter.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmypyc.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testconstraints.py",
+      "kind": "import",
+      "raw": "mypy.constraints",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testconstraints.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testconstraints.py",
+      "kind": "import",
+      "raw": "mypy.test.typefixture",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testconstraints.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.graph_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.report",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testgraph.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsemanal.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testfscache.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/test_ref_info.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testdeps.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.erasetype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.indirection",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.join",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.test.typefixture",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtypes.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testapi.py",
+      "kind": "import",
+      "raw": "mypy.api",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testapi.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubtest.py",
+      "kind": "import",
+      "raw": "mypy.stubtest",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubtest.py",
+      "kind": "import",
+      "raw": "mypy.stubtest",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubtest.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.inspections",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testutil.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testreports.py",
+      "kind": "import",
+      "raw": "mypy.report",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testreports.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.server.subexpr",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.server.update",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.strconv",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testmerge.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsubtypes.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsubtypes.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsubtypes.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsubtypes.py",
+      "kind": "import",
+      "raw": "mypy.test.typefixture",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testsubtypes.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testtransform.py",
+      "kind": "import",
+      "raw": "mypy.test.visitors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.api",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/helpers.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpythoneval.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpythoneval.py",
+      "kind": "import",
+      "raw": "mypy.defaults",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpythoneval.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpythoneval.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testpythoneval.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/data.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/data.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.test.data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testcheck.py",
+      "kind": "import",
+      "raw": "mypy.test.update_data",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/test_parse_data.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/test_parse_data.py",
+      "kind": "import",
+      "raw": "mypy.test.meta._pytest",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/_pytest.py",
+      "kind": "import",
+      "raw": "mypy.test.config",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/test_diff_helper.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/test_update_data.py",
+      "kind": "import",
+      "raw": "mypy.test.helpers",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/meta/test_update_data.py",
+      "kind": "import",
+      "raw": "mypy.test.meta._pytest",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/singledispatch.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.semanal_enum",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/enums.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/functools.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/functools.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/functools.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/functools.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/default.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.argmap",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.fixup",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.types_utils",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/common.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/dataclasses.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.applytype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.exprtotype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.meet",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/attrs.py",
+      "kind": "import",
+      "raw": "mypy.checkmember",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/proper_plugin.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/proper_plugin.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/proper_plugin.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/proper_plugin.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/proper_plugin.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.maptype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.messages",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.subtypes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/plugins/ctypes.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.build",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.checker",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.errors",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.fscache",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.modulefinder",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.semanal_main",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.astdiff",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.astmerge",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.aststrip",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.deps",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.target",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/update.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.semanal_shared",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astdiff.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/aststrip.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/aststrip.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/aststrip.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/aststrip.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.operators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.scope",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/deps.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/subexpr.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/subexpr.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/mergecheck.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/mergecheck.py",
+      "kind": "import",
+      "raw": "mypy.server.objgraph",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astmerge.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astmerge.py",
+      "kind": "import",
+      "raw": "mypy.traverser",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astmerge.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astmerge.py",
+      "kind": "import",
+      "raw": "mypy.typestate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/server/astmerge.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/blib2to3/pytree.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/importlib_metadata/_adapters.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/typeguard/_checkers.py",
+      "kind": "import",
+      "raw": "mypy.sharedparse",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.expandtype",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.plugins.common",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.state",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.typeops",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.errorcodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.nodes",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.options",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.plugins",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.semanal",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.server.trigger",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.typevars",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/v1/mypy.py",
+      "kind": "import",
+      "raw": "mypy.types",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_git.py",
+      "kind": "import",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/mypy.ini",
+      "kind": "test",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/simple.py",
+      "kind": "test",
+      "raw": "mypy",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/false_positives.pyi",
+      "kind": "test",
+      "raw": "mypy",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

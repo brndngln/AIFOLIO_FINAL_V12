@@ -1,0 +1,86 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "quarantine_non_python/quarantine_non_python/tests/test_basic.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/test_basic.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_basic.cpython-312.pyc",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_basic.cpython-311.pyc",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/test_basic.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_basic.cpython-312.pyc",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_basic.cpython-311.pyc",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_depends.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_setupcfg.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_nested.py",
+      "kind": "test",
+      "raw": "test_basic",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

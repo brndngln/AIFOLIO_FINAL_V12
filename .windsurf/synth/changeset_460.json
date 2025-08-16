@@ -1,0 +1,29 @@
+{
+  "timestamp": 1755140339.586532,
+  "files": [
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/income_vs_tax_map.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/risk_score_meters.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/refund_maximizer_tuner.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/integrations/gumroad_sync.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/integrations/live_income_bridge.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/integrations/stripe_income_tracker.py",
+      "action": "updated"
+    }
+  ]
+}

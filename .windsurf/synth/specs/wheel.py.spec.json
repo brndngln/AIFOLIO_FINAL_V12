@@ -1,0 +1,296 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "wheel.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/locators.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/wheelfile.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/wheelfile.py",
+      "kind": "import",
+      "raw": "wheel.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/__main__.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/cli/pack.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/cli/pack.py",
+      "kind": "import",
+      "raw": "wheel.wheelfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/installer.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/dist.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py",
+      "kind": "import",
+      "raw": "wheel.util",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/__main__.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/cli/pack.py",
+      "kind": "import",
+      "raw": "wheel.cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/cli/pack.py",
+      "kind": "import",
+      "raw": "wheel.wheelfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py",
+      "kind": "import",
+      "raw": "pypa/wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_virtualenv.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_virtualenv.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "import",
+      "raw": "pypa/wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "import",
+      "raw": "wheel.macosx_libfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/fixtures.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist_info.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml_dynamic_deps.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/setupcfg_examples.txt",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/editable_wheel.py",
+      "kind": "import",
+      "raw": "wheel.wheelfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py",
+      "kind": "import",
+      "raw": "wheel.wheelfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py",
+      "kind": "import",
+      "raw": "wheel.macosx_libfile",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/seed/embed/via_app_data/via_app_data.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "import",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_integration.cpython-312.pyc",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "wheel",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

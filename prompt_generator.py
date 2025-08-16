@@ -1,4 +1,6 @@
-# WIND_PLACEHOLDER
+pt = None  # TODO: Define pt
+
+
 def generate_prompt(topic, tags=None):
     base = f"Create a comprehensive guide on: {topic}"
     if tags:

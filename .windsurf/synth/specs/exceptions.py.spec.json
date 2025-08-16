@@ -1,0 +1,1292 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "exceptions.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/test/test_analysis.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/lint/message_state_handler.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/config/callback_actions.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/abstract.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/pidbox.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/message.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/entity.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/serialization.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/messaging.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/asynchronous/aws/ext.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/gcpubsub.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/gcpubsub.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/redis.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/redis.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/redis.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/utils.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/checker.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/options/config.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/flake8/main/application.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/graph/query_result.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/graph/commands.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/encoders.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/hiredis.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/resp3.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/socket.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/resp2.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/_parsers/base.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/compiler.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/loaders.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/runtime.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/runtime.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/runtime.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/sandbox.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/debug.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/lexer.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/environment.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/filters.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/ext.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/ext.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/cryptography/exceptions.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/types.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/parser.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/termui.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/termui.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/utils.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click/_termui_impl.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/abstract_channel.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/transport.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/channel.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/serialization.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/amqp/method_framing.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/server.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/protocol.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/client.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/frames.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/uri.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/headers.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/auth.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/handshake.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/protocol.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/http.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/framing.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/exceptions.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/extensions/permessage_deflate.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/server.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/client.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/messages.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/server.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/messages.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/core.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/api.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/settings.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/parse.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/main.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/jwe.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/jwt.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/backends/cryptography_backend.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/msgpack/fallback.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/sessions.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/utils.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/requests/adapters.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/poolmanager.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssltransport.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/request.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/timeout.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/response.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/connection.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/socks.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/socks.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/setters.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/validators.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_make.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_next_gen.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/attr/_funcs.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/python_multipart/multipart.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/python_multipart/decoders.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/platforms.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/result.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/beat.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/utils.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/_repl.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/click_repl/_repl.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_clib.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/context.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/common.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/pool.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/iniconfig/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/iniconfig/_parse.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_testutils.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/config/findpaths.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tldts/dist/es6/src/suffix-trie.js",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tldts/src/suffix-trie.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/types.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/index.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/index.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/task.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test.ts",
+      "kind": "import",
+      "raw": "internal/listenerMiddleware/exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/listenerMiddleware.test.ts",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/fork.test.ts",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.css",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine-html.js",
+      "kind": "test",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/jose/__init__.py",
+      "kind": "import",
+      "raw": "exceptions",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

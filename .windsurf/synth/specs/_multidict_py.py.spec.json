@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_multidict_py.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/multidict/_abc.py",
+      "kind": "import",
+      "raw": "_multidict_py",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/multidict/__init__.py",
+      "kind": "import",
+      "raw": "_multidict_py",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

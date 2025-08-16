@@ -1,0 +1,128 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_path.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/archive_util.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/discovery.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/build_meta.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/dist.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/setupcfg.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/pyprojecttoml.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/config/expand.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_namespaces.py",
+      "kind": "test",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_develop.py",
+      "kind": "test",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/bdist_egg.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/editable_wheel.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/install_scripts.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/install_lib.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/build_py.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/install_egg_info.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yarl/_url.py",
+      "kind": "import",
+      "raw": "_path",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

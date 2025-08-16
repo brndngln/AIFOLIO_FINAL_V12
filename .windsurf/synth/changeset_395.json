@@ -1,0 +1,17 @@
+{
+  "timestamp": 1755140270.755998,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/integrations/airtable_bridge.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/integrations/sms_bridge.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/integrations/third_party_integrations.py",
+      "action": "updated"
+    }
+  ]
+}

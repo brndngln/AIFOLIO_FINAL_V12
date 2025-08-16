@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "files": 24163
+  },
+  "duration_sec": 7.993,
+  "problems_snapshot": {
+    "case_collisions": 0,
+    "near_empty": 7374,
+    "reserved_names": 0,
+    "zero_byte": 0
+  },
+  "step": "inventory"
+}

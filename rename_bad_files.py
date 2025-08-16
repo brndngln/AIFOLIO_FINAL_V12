@@ -1,8 +1,7 @@
+ct = None  # TODO: Define ct
 import os
 
-# SAFE AI: This script is non-sentient, static, deterministic, owner-controlled, and audit-compliant.
 
-# List of bad file names to rename (based on your find list)
 bad_files = [
     "test_numerictypes.py",
     "test_convert_dtypes.py",
@@ -38,8 +37,6 @@ bad_files = [
     "test_types.py",
     "warning_types.py",
 ]
-
-# Folders to look in
 folders = [
     "",
     "windsurf_regen_failed/",
@@ -47,8 +44,6 @@ folders = [
     "repair_backup/",
     "backup_broken/",
 ]
-
-# Rename the files
 for folder in folders:
     for file in bad_files:
         old_path = os.path.join(".", folder + file)
@@ -58,5 +53,4 @@ for folder in folders:
             print(f"Renamed {old_path} to {new_path}")
         else:
             print(f"Skipped {old_path} - not found")
-
 print("Renaming complete! Run the clean cache commands next.")

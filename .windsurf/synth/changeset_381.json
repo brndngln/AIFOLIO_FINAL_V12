@@ -1,0 +1,17 @@
+{
+  "timestamp": 1755140256.97743,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/pi_scrubber.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/beginner_mistake_protections.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/backend/security/rollbackable_deploys.py",
+      "action": "updated"
+    }
+  ]
+}

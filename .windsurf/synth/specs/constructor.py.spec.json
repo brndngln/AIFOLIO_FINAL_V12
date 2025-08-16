@@ -1,0 +1,320 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "constructor.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/cyaml.py",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/loader.py",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_named.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_digest.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context_deprecated.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_builtin_md4.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/safer-buffer/tests.js",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/safer-buffer/tests.js",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/regexp/constructor.js",
+      "kind": "require",
+      "raw": "../../es/regexp/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/async-disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../es/async-disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/number/constructor.js",
+      "kind": "require",
+      "raw": "../../es/number/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/array-buffer/constructor.js",
+      "kind": "require",
+      "raw": "../../es/array-buffer/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/error/constructor.js",
+      "kind": "require",
+      "raw": "../../es/error/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../es/disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/regexp/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/regexp/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/async-disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/async-disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/dom-exception/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/dom-exception/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/number/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/number/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/array-buffer/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/array-buffer/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/error/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/error/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../actual/disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/regexp/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/regexp/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/async-disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/async-disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/dom-exception/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/dom-exception/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/number/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/number/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/array-buffer/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/array-buffer/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/error/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/error/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../stable/disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/regexp/constructor.js",
+      "kind": "require",
+      "raw": "../../full/regexp/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/async-disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../full/async-disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/dom-exception/constructor.js",
+      "kind": "require",
+      "raw": "../../full/dom-exception/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/number/constructor.js",
+      "kind": "require",
+      "raw": "../../full/number/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/array-buffer/constructor.js",
+      "kind": "require",
+      "raw": "../../full/array-buffer/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/error/constructor.js",
+      "kind": "require",
+      "raw": "../../full/error/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/features/disposable-stack/constructor.js",
+      "kind": "require",
+      "raw": "../../full/disposable-stack/constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vitest/utils/dist/diff.d.ts",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vitest/utils/dist/diff.js",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/no-constructor-return.js",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/no-constructor-return.js",
+      "kind": "import",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/strings/conftest.py",
+      "kind": "test",
+      "raw": "constructor",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

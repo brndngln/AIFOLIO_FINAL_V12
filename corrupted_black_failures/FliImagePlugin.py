@@ -24,11 +24,8 @@ def helper_function(data: Any) -> Any:
     return data
 
 
-# Module-level constants
 DEFAULT_VALUE = None
 SUPPORTED_FORMATS = []
-
-# Initialize module
 _instance = Fliimageplugin()
 
 

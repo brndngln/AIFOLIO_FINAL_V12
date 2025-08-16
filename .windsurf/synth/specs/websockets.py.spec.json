@@ -1,0 +1,206 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "websockets.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http.py",
+      "kind": "import",
+      "raw": "websockets.http",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http.py",
+      "kind": "import",
+      "raw": "websockets.http",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/server.py",
+      "kind": "import",
+      "raw": "websockets.sync.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/server.py",
+      "kind": "import",
+      "raw": "websockets.sync.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/client.py",
+      "kind": "import",
+      "raw": "websockets.sync.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/router.py",
+      "kind": "import",
+      "raw": "websockets.sync.router",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/server.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/server.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/router.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.router",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/__init__.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/__init__.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.datastructures",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.extensions.permessage_deflate",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.legacy.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.server",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py",
+      "kind": "import",
+      "raw": "websockets.typing",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/auto.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/websocket_connection_options.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/websocket_connection_options.py",
+      "kind": "import",
+      "raw": "websockets.extensions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/websocket_connection_options.py",
+      "kind": "import",
+      "raw": "websockets",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.sync.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.asyncio.client",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.exceptions",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/realtime.py",
+      "kind": "import",
+      "raw": "websockets.sync.client",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/caniuse-lite/data/features.js",
+      "kind": "require",
+      "raw": "./features/websockets",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

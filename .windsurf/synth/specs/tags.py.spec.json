@@ -1,0 +1,230 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "tags.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/omni_v4_integration.test.js",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/utils.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyasn1/type/namedtype.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/_bdist_wheel.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/cli/__init__.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/cli/__init__.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/vendored/packaging/utils.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/utils.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/cli/__init__.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/cli/__init__.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/utils.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_setup.py",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/options.d.ts",
+      "kind": "import",
+      "raw": "schema/tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/index.d.ts",
+      "kind": "import",
+      "raw": "schema/tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/dist/schema/Schema.js",
+      "kind": "require",
+      "raw": "./tags.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss-load-config/node_modules/yaml/browser/dist/schema/Schema.js",
+      "kind": "import",
+      "raw": "tags.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/devWarnings.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildSlice.test.ts",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/queryFn.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpserts.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildMiddleware.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpdates.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fakeBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/src/index.ts",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/styled/src/index.ts",
+      "kind": "import",
+      "raw": "tags",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

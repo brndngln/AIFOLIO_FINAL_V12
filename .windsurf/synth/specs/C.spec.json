@@ -1,0 +1,874 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "other",
+  "path": "C",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/unit/__pycache__/test_workflow_seeder_engine.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_cross_sell_recommender.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_affiliate_attribution.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_affiliate_attribution.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_store_backup_to_archive.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_store_backup_to_archive.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_send_confirmation_email.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_workflow_seeder_engine.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_send_confirmation_email.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_cross_sell_recommender.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_affiliate_attribution.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_affiliate_attribution.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_store_backup_to_archive.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_store_backup_to_archive.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_send_confirmation_email.cpython-311.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_send_confirmation_email.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypyc/irbuild/ll_builder.py",
+      "kind": "import",
+      "raw": "native/C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/teststubgen.py",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_install_scripts.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/msvc.py",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_unix.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_base.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/semaphore_tracker.py",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_memleaks.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_windows.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process_all.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_process.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_connections.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_osx.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_scripts.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_contracts.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_system.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_memleaks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_testutils.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_unicode.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_bsd.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_posix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_aix.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_misc.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_windows.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_sunos.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/util.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_core.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_hooks.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_commands.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_util.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_version.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_commands.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_setup.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_files.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_hooks.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_core.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_integration.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_pbr_json.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/README.txt",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/LICENSE.txt",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/_setup_hooks.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/wsgi.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_classdef.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_fglobals.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_extendpickle.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_logger.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_pycapsule.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_recursive.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_dictviews.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functions.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_weakref.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_abc.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_session.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_dataclasses.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_sources.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_nested.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_registered.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_objects.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_classdef.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_source.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/__main__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_detect.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_diff.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_test_manager.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_driver.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_extension.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_test_manager.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_cache.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_sphinxext.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_driver.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_dispatch.cpython-312.pyc",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pyflakes/test/test_type_annotations.py",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/worker.d.CKwWzBSj.d.ts",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@headlessui/react/dist/components/tabs/tabs.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@headlessui/react/dist/components/popover/popover.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/logger.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/font-family.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/syntax/__tests__/tokernizer-tests.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js.map",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-CEGXe0Sr.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-COdkJwUb.js",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite-node/dist/hmr.d.ts",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildSlice.test.ts",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpserts.test.tsx",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/fetchBaseQuery.test.tsx",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/listenerMiddleware/tests/useCases.test.ts",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/entities/tests/sorted_state_adapter.test.ts",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyrainbow/dist/node.d.ts",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyrainbow/dist/browser.d.ts",
+      "kind": "import",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/flatiter.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_misc.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/ndarray_shape_manipulation.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/numeric.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_shape_manipulation.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/array_constructors.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_conversion.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/nditer.pyi",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/array_from_pyobj/wrapmodule.c",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/string/string.f",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/apply/conftest.py",
+      "kind": "test",
+      "raw": "C",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

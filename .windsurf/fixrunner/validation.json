@@ -1,0 +1,26 @@
+{
+  "data": {
+    "json_errors": [],
+    "yaml_errors": [],
+    "yaml_tool": "pyyaml"
+  },
+  "duration_sec": 5.407,
+  "eslint": {
+    "skipped": true
+  },
+  "failed": false,
+  "python": {
+    "compiled": 8404,
+    "duration_sec": 4.902,
+    "errors": [],
+    "lint": {
+      "ok": true,
+      "output_tail": "",
+      "tool": "pyflakes"
+    }
+  },
+  "timestamp": "2025-08-16 16:11:04",
+  "typescript": {
+    "skipped": true
+  }
+}

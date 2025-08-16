@@ -1,0 +1,254 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "shape.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/__tests__/radial-gradient.js",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.js",
+      "kind": "require",
+      "raw": "./createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/index.js",
+      "kind": "import",
+      "raw": "createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/index.js",
+      "kind": "import",
+      "raw": "createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/index.js",
+      "kind": "import",
+      "raw": "createTheme/shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/createTheme/createTheme.js",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/createTheme/createTheme.d.ts",
+      "kind": "import",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/createTheme/createTheme.js",
+      "kind": "require",
+      "raw": "./shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test-d.ts",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/array_api/tests/test_set_functions.py",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/arrayterator.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/stride_tricks.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/memmap.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/fromnumeric.py",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/multiarray.py",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ndarray_misc.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/ctypeslib.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/scalars.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/rec.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/multiarray.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/arrayterator.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/fromnumeric.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/nditer.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/stride_tricks.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/memmap.pyi",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/py2-objarr.npy",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/py3-objarr.npz",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/python3.npy",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/win64python2.npy",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/py2-objarr.npz",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/lib/tests/data/py3-objarr.npy",
+      "kind": "test",
+      "raw": "shape",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

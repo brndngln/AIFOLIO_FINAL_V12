@@ -1,0 +1,158 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "http11.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/http_proxy.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/__init__.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_async/connection.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/__init__.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/httpcore/_sync/connection.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/server.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/protocol.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/client.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/server.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/legacy/client.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/server.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/client.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/connection.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/sync/router.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/server.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/client.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/connection.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/router.py",
+      "kind": "import",
+      "raw": "http11",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

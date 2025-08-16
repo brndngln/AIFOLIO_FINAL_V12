@@ -1,0 +1,68 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "sentinel.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/test_utils.py",
+      "kind": "import",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/redis.py",
+      "kind": "import",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/__init__.py",
+      "kind": "import",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_test_manager.py",
+      "kind": "import",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_test_manager.py",
+      "kind": "test",
+      "raw": "sentinel",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/__pycache__/test_test_manager.cpython-312.pyc",
+      "kind": "test",
+      "raw": "sentinel",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

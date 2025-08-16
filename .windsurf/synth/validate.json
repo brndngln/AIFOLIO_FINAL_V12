@@ -1,0 +1,53 @@
+{
+  "changed_files": [
+    "frontend/src/components/PartnerCertificationExportPanel.jsx",
+    "frontend/src/components/SalesHeatmapPanel.jsx",
+    "frontend/src/components/PrivacyStatusBar.jsx",
+    "frontend/src/components/PartnerCertificationForm.jsx",
+    "frontend/src/components/FractalRevenueHeatmapPanel.jsx",
+    "frontend/src/__tests__/test_color_customization.test.jsx",
+    "financial/__init__.py",
+    "admin_export/__init__.py",
+    "config/vault_control_flags.json",
+    "config/vault_registry_backup.json",
+    "config/license_mode.json",
+    "config/prompt_sets/contentdrop_network.json",
+    "config/prompt_sets/templatevault_hub.json",
+    "config/prompt_sets/ritualux_rituals.json",
+    "config/prompt_sets/rebelremedy_recipes.json",
+    "config/prompt_sets/templiq_templates.json",
+    "config/prompt_sets/talentvault_explorer.json"
+  ],
+  "python": {
+    "compiled": 2,
+    "errors": [],
+    "lint": {
+      "tool": "pyflakes",
+      "errors": []
+    },
+    "mypy": {
+      "ok": true
+    }
+  },
+  "ts_js": {
+    "ts": {
+      "checked": 0
+    },
+    "js": {
+      "checked": 6
+    }
+  },
+  "data": {
+    "json": {
+      "checked": 9,
+      "errors": []
+    },
+    "yaml": {
+      "checked": 0,
+      "errors": []
+    }
+  },
+  "duration_sec": 0.346,
+  "passed": true,
+  "timestamp": "2025-08-13 20:59:04"
+}

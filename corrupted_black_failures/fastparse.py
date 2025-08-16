@@ -40,10 +40,7 @@ def parse_statement(stmt: str) -> Optional[Any]:
     return None
 
 
-# Version compatibility checks
 if sys.version_info >= (3, 10):
-    # Python 3.10+ features available
     pass
 else:
-    # Fallback for older Python versions
     pass

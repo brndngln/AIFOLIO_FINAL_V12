@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "inline.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/markdown_it/rules_core/__init__.py",
+      "kind": "import",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/markdown_it/rules_core/__init__.py",
+      "kind": "import",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_bot.py",
+      "kind": "import",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_update.py",
+      "kind": "import",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/celery/app/task.py",
+      "kind": "import",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "inline",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useBlockLayout.test.js",
+      "kind": "test",
+      "raw": "inline",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

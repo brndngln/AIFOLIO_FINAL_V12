@@ -1,0 +1,230 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "namespaces.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_namespaces.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_develop.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/namespaces.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_expand.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/attributes.js",
+      "kind": "require",
+      "raw": "./helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/node.js",
+      "kind": "require",
+      "raw": "./helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/domparsing/InnerHTML-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLOptionElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/Element-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/DOMImplementation-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/SVGElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/Document-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLTableElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLTableRowElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCollection-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLLegendElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/nodes/HTMLOrSVGElement-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/attributes/NamedNodeMap-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/custom-elements/CustomElementRegistry-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/range/Range-impl.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/traversal.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/form-controls.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/create-element.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/validate-names.js",
+      "kind": "require",
+      "raw": "../helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/focusing.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/custom-elements.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/html-constructor.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/details.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/shadow-dom.js",
+      "kind": "require",
+      "raw": "./namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/living/helpers/svg/render.js",
+      "kind": "require",
+      "raw": "../namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/browser/parser/html.js",
+      "kind": "require",
+      "raw": "../../living/helpers/namespaces",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jsdom/lib/jsdom/browser/parser/xml.js",
+      "kind": "require",
+      "raw": "../../living/helpers/namespaces",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

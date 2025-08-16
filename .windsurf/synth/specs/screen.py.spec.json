@@ -1,0 +1,164 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "screen.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": "tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/live.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/layout/containers.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/layout/scrollable_pane.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/console.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/live.py",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildCreateApi.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/useMutation-fixedCacheKey.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/optimisticUpserts.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/errorHandling.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/refetchingBehaviors.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/cleanup.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/dom/types/index.d.ts",
+      "kind": "import",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/dom/dist/index.js",
+      "kind": "require",
+      "raw": "./screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ethical_monitoring.test.js",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/ui/Button.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/__tests__/layouts/AppWrapper.test.tsx",
+      "kind": "test",
+      "raw": "screen",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

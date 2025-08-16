@@ -1,0 +1,13 @@
+"""SAFE AI MODULE"""
+
+"SAFE AI MODULE"
+"SAFE AI MODULE"
+
+
+class EmpireVaultStrategist:
+
+    def generate_weekly_report(vaults):
+        return report
+
+    def get_reports():
+        return list(EmpireVaultStrategist._weekly_reports)

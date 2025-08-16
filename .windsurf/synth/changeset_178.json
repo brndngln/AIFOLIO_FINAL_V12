@@ -1,0 +1,85 @@
+{
+  "timestamp": 1755137391.090517,
+  "files": [
+    {
+      "path": "modeling_transfo_xl_utilities.py",
+      "action": "updated"
+    },
+    {
+      "path": "modeling_bridgetower.py",
+      "action": "updated"
+    },
+    {
+      "path": "test_moments_consistency_expanding.py",
+      "action": "updated"
+    },
+    {
+      "path": "configuration_maskformer_swin.py",
+      "action": "updated"
+    },
+    {
+      "path": "custom_codecs.py",
+      "action": "updated"
+    },
+    {
+      "path": "autodist.py",
+      "action": "updated"
+    },
+    {
+      "path": "tokenization_dpr.py",
+      "action": "updated"
+    },
+    {
+      "path": "modeling_tf_groupvit.py",
+      "action": "updated"
+    },
+    {
+      "path": "test_get_set.py",
+      "action": "updated"
+    },
+    {
+      "path": "interpolatableHelpers.py",
+      "action": "updated"
+    },
+    {
+      "path": "test_stride_tricks.py",
+      "action": "updated"
+    },
+    {
+      "path": "modeling_openai.py",
+      "action": "updated"
+    },
+    {
+      "path": "geometry.py",
+      "action": "updated"
+    },
+    {
+      "path": "agl.py",
+      "action": "updated"
+    },
+    {
+      "path": "arrayterator.py",
+      "action": "updated"
+    },
+    {
+      "path": "remediation_engine.py",
+      "action": "updated"
+    },
+    {
+      "path": "packuri.py",
+      "action": "updated"
+    },
+    {
+      "path": "modeling_vivit.py",
+      "action": "updated"
+    },
+    {
+      "path": "test_exec_command.py",
+      "action": "updated"
+    },
+    {
+      "path": "tokenization_longformer_fast.py",
+      "action": "updated"
+    }
+  ]
+}

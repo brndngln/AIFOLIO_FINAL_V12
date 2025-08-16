@@ -1,0 +1,62 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/test_request_review.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/test_request_review.py",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_request_review.cpython-311.pyc",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/tests/__pycache__/test_request_review.cpython-312.pyc",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/test_request_review.py",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_request_review.cpython-311.pyc",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    },
+    {
+      "file": "quarantine_non_python/quarantine_non_python/AIFOLIO_KNOWLEDGE_INJECT/tests/__pycache__/test_request_review.cpython-312.pyc",
+      "kind": "test",
+      "raw": "test_request_review",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

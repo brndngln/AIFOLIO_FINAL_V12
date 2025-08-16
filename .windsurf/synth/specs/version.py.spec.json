@@ -1,0 +1,1316 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "version.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/utils.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/packaging/specifiers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wcwidth/__init__.py",
+      "kind": "import",
+      "raw": "version.json",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dotenv/cli.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/transport/redis.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/locators.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/metadata.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/database.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/markers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distlib/wheel.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/redis/commands/core.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/distro/distro.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/_bdist_wheel.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/vendored/packaging/utils.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/wheel/vendored/packaging/specifiers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/version.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/http11.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/cli.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/filelock/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/packaging/specifiers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/metadata.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/database.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/markers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distlib/wheel.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/distro/distro.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/cli.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/contrib/discord.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/test/testargs.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pluggy/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/blackd/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic_settings/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/utils.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/specifiers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/utils.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/specifiers.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_logging.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_virtualenv.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_namespaces.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_manifest.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_wheel.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_egg_info.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_install_scripts.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/environment.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_setuptools.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_develop.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/fixtures.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/namespaces.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_dist_info.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml_dynamic_deps.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_expand.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_expand.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_setupcfg.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/integration/test_pip_install_sdist.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_version.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_bdist_rpm.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sysconfig.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_util.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_build_ext.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_check.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_bdist_dumb.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_dist.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/cygwin.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_unix.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_cygwin.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/tests/test_msvc.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_integration_zope_interface.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_working_set.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_pkg_resources.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/data/my-test-package-source/setup.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/warnings.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_migration.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/networks.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/errors.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dns/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/black/cache.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/black/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_unicode.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_unicode.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_misc.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_memleaks.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_scripts.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_linux.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_scripts.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_unicode.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/test_misc.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/git.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/packaging.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_version.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_version.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_packaging.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_util.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_commands.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/test_integration.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/base.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_util.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/base.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/__pycache__/test_packaging.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/CHANGES.txt",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/README.txt",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/setup.cfg",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__init__.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pbr/tests/testpackage/pbr_testpackage/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_functions.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__main__.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functions.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/__main__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/email_validator/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dateutil/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/platformdirs/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/__init__.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/cli.py",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/tox_support.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_django.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_totp.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django_source.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_argon2.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_des.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_bcrypt.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_crypto_scrypt.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint-scope/lib/index.js",
+      "kind": "import",
+      "raw": "version.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/logger.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/color-tests.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/functions/__tests__/radial-gradient.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/font-family.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/syntax/__tests__/tokernizer-tests.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js.map",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/qrcode/lib/core/qrcode.js",
+      "kind": "require",
+      "raw": "./version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.js",
+      "kind": "require",
+      "raw": "./version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/index.d.ts",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/index.js",
+      "kind": "require",
+      "raw": "./version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createSlice.test.ts",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/createAsyncThunk.test-d.ts",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/queryLifecycle.test-d.tsx",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildHooks.test-d.tsx",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vitest/pretty-format/dist/index.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/espree/espree.js",
+      "kind": "import",
+      "raw": "lib/version.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pretty-format/build/plugins/Immutable.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/dom/dist/@testing-library/dom.umd.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/cli/build/deps.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/corePlugins.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/cli/build/deps.js",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/index.js",
+      "kind": "require",
+      "raw": "../version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/cookieJar.js",
+      "kind": "require",
+      "raw": "../version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/index.d.ts",
+      "kind": "import",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.css",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine-html.js",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/test_limited_api.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/recarray_from_file.fits",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/lib_version.pyi",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/modules.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/pass/lib_version.py",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/modules.pyi",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/version.pyi",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/reveal/lib_version.pyi",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/array_from_pyobj/wrapmodule.c",
+      "kind": "test",
+      "raw": "version",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

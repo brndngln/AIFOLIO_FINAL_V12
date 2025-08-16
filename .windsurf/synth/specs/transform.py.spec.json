@@ -1,0 +1,188 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "transform.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/asynchronous/aws/sqs/queue.py",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/kombu/asynchronous/aws/sqs/connection.py",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/regular_languages/compiler.py",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/contrib/regular_languages/compiler.py",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_extension.py",
+      "kind": "test",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/object.js",
+      "kind": "require",
+      "raw": "./transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lodash/fp/transform.js",
+      "kind": "require",
+      "raw": "../transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "readable-stream/transform.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jiti/dist/babel.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jiti/dist/babel.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/register.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/cli.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/transformers/JestHoistTransformer.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/esm/transformers/RootTransformer.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/transformers/JestHoistTransformer.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/sucrase/dist/transformers/RootTransformer.js",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "property-descriptors/transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/render/effects.d.ts",
+      "kind": "import",
+      "raw": "css/property-descriptors/transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/index.js",
+      "kind": "require",
+      "raw": "./property-descriptors/transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js.map",
+      "kind": "test",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js",
+      "kind": "require",
+      "raw": "../transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js",
+      "kind": "test",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/lib/index.js",
+      "kind": "require",
+      "raw": "./transform.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test-d.ts",
+      "kind": "test",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/createApi.test.ts",
+      "kind": "test",
+      "raw": "transform",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/lib/load-config.ts",
+      "kind": "import",
+      "raw": "transform",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

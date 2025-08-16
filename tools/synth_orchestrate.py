@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 """
+ct = None  # TODO: Define ct
+pt = None  # TODO: Define pt
+valid = True  # TODO: Define valid
+keys = []  # TODO: Define keys
+result = None  # TODO: Define result
+report = {}  # TODO: Define report
+missing = []  # TODO: Define missing
+plan = {}  # TODO: Define plan
 Synth Orchestrator
 
 Runs the full AIFOLIO synthesis pipeline end-to-end in atomic batches:
@@ -19,20 +27,23 @@ Usage examples:
   python3 tools/synth_orchestrate.py --resume
   python3 tools/synth_orchestrate.py --start-batch 66 --end-batch 120 --size 20 --summary-every 25
 """
+
 from __future__ import annotations
 
-import argparse
-import math
 import json
 import os
 import re
-import shlex
-import subprocess
 import sys
-from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, Tuple
+
+import argparse
+import math
+import shlex
+import subprocess
+from dataclasses import dataclass
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_DIR = REPO_ROOT / "tools"
@@ -58,7 +69,9 @@ def run(cmd: str, cwd: Path | None = None, check: bool = False) -> CmdResult:
         capture_output=True,
     )
     if check and p.returncode != 0:
-        raise RuntimeError(f"Command failed rc={p.returncode}: {cmd}\nSTDOUT\n{p.stdout}\nSTDERR\n{p.stderr}")
+        raise RuntimeError(
+            f"Command failed rc={p.returncode}: {cmd}\nSTDOUT\n{p.stdout}\nSTDERR\n{p.stderr}"
+        )
     return CmdResult(p.returncode, p.stdout, p.stderr)
 
 
@@ -109,18 +122,32 @@ def fix_imports(changeset: int, kinds: list[str]) -> Tuple[int, bool]:
     planned_total = 0
     applied_any = False
     for group in kinds:
-        dry = run(f"python3 tools/synth_fix_imports.py --changesets {changeset} --limit 50 --only {group}")
+        dry = run(
+            f"python3 tools/synth_fix_imports.py --changesets {changeset} --limit 50 --only {group}"
+        )
         planned = 0
         try:
             # first JSON block is on stdout
-            j = json.loads(dry.out.splitlines()[0]) if dry.out.strip().startswith("{") else {}
+            j = (
+                json.loads(dry.out.splitlines()[0])
+                if dry.out.strip().startswith("{")
+                else {}
+            )
             planned = int(j.get("planned_patches", 0))
         except Exception:
             planned = 0
-        log_event("fix_imports_dry", changeset=changeset, group=group, planned=planned, rc=dry.rc)
+        log_event(
+            "fix_imports_dry",
+            changeset=changeset,
+            group=group,
+            planned=planned,
+            rc=dry.rc,
+        )
         planned_total += planned
         if planned > 0:
-            ap = run(f"python3 tools/synth_fix_imports.py --changesets {changeset} --limit 50 --only {group} --apply")
+            ap = run(
+                f"python3 tools/synth_fix_imports.py --changesets {changeset} --limit 50 --only {group} --apply"
+            )
             applied_any = True or applied_any
             log_event("fix_imports_apply", changeset=changeset, group=group, rc=ap.rc)
     return planned_total, applied_any
@@ -145,7 +172,14 @@ def commit_changeset(n: int) -> bool:
     add_cmd = "git add -- " + " ".join(shlex.quote(p) for p in files)
     add_res = run(add_cmd)
     if add_res.rc != 0:
-        log_event("commit_fail", changeset=n, step="git_add", rc=add_res.rc, out=add_res.out, err=add_res.err)
+        log_event(
+            "commit_fail",
+            changeset=n,
+            step="git_add",
+            rc=add_res.rc,
+            out=add_res.out,
+            err=add_res.err,
+        )
         return False
     staged = run("git diff --cached --name-only")
     if not any(ln.strip() for ln in staged.out.splitlines()):
@@ -177,19 +211,39 @@ def refresh_summary() -> bool:
     if res.rc != 0:
         log_event("summary_fail", rc=res.rc, out=res.out, err=res.err)
         return False
-    res2 = run("git add .windsurf/synth/summary.md && git commit --no-verify -m 'synth: refresh summary' ")
+    res2 = run(
+        "git add .windsurf/synth/summary.md && git commit --no-verify -m 'synth: refresh summary' "
+    )
     log_event("summary_commit", rc=res2.rc)
     return True
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--start-batch", type=int, default=None, help="First batch id to apply")
-    ap.add_argument("--end-batch", type=int, default=None, help="Inclusive last batch id to apply. If omitted, run until exhaustion.")
+    ap.add_argument(
+        "--start-batch", type=int, default=None, help="First batch id to apply"
+    )
+    ap.add_argument(
+        "--end-batch",
+        type=int,
+        default=None,
+        help="Inclusive last batch id to apply. If omitted, run until exhaustion.",
+    )
     ap.add_argument("--size", type=int, default=20, help="Batch size for synth_apply")
-    ap.add_argument("--summary-every", type=int, default=25, help="Refresh summary every N changesets")
-    ap.add_argument("--resume", action="store_true", help="Infer start-batch from last committed changeset")
-    ap.add_argument("--max-failures", type=int, default=1, help="Abort after this many failures")
+    ap.add_argument(
+        "--summary-every",
+        type=int,
+        default=25,
+        help="Refresh summary every N changesets",
+    )
+    ap.add_argument(
+        "--resume",
+        action="store_true",
+        help="Infer start-batch from last committed changeset",
+    )
+    ap.add_argument(
+        "--max-failures", type=int, default=1, help="Abort after this many failures"
+    )
     args = ap.parse_args()
 
     # Determine maximum batch index from candidates, if available
@@ -208,7 +262,9 @@ def main():
         last_cs = last_committed_changeset_from_git()
         if last_cs is not None:
             # Empirically: batch_id == changeset_id + 1
-            start_batch = last_cs + 2  # continue with next batch after the last one processed
+            start_batch = (
+                last_cs + 2
+            )  # continue with next batch after the last one processed
     if start_batch is None:
         start_batch = 1
 
@@ -216,19 +272,37 @@ def main():
     total_committed = 0
     batch = start_batch
 
-    log_event("orchestrate_start", start_batch=start_batch, end_batch=args.end_batch, size=args.size, max_batch=max_batch)
+    log_event(
+        "orchestrate_start",
+        start_batch=start_batch,
+        end_batch=args.end_batch,
+        size=args.size,
+        max_batch=max_batch,
+    )
 
     while True:
         if args.end_batch is not None and batch > args.end_batch:
-            log_event("orchestrate_stop", reason="end_batch_reached", last_batch=batch - 1)
+            log_event(
+                "orchestrate_stop", reason="end_batch_reached", last_batch=batch - 1
+            )
             break
         if max_batch is not None and batch > max_batch:
-            log_event("orchestrate_stop", reason="all_batches_exhausted", last_batch=batch - 1, max_batch=max_batch)
+            log_event(
+                "orchestrate_stop",
+                reason="all_batches_exhausted",
+                last_batch=batch - 1,
+                max_batch=max_batch,
+            )
             break
         # Apply
         apply_cmd = f"python3 tools/synth_apply.py --batch {batch} --size {args.size}"
         apply_res = run(apply_cmd)
-        log_event("apply", batch=batch, rc=apply_res.rc, out=apply_res.out.splitlines()[-1:] or [])
+        log_event(
+            "apply",
+            batch=batch,
+            rc=apply_res.rc,
+            out=apply_res.out.splitlines()[-1:] or [],
+        )
         if apply_res.rc != 0:
             failures += 1
             if failures >= args.max_failures:
@@ -261,13 +335,19 @@ def main():
             log_event("orchestrate_stop", reason="validation_failed", changeset=cs)
             break
         # Import fixes: TS/JS then Python
-        planned_tsjs, applied_tsjs = fix_imports(cs, ["ts js"])  # run combined ts/js group
-        planned_py, applied_py = fix_imports(cs, ["py"])        # then python group
+        planned_tsjs, applied_tsjs = fix_imports(
+            cs, ["ts js"]
+        )  # run combined ts/js group
+        planned_py, applied_py = fix_imports(cs, ["py"])  # then python group
         if applied_tsjs or applied_py:
             # re-validate after applying fixes
             if not validate_changeset(cs):
                 failures += 1
-                log_event("orchestrate_stop", reason="post_fix_validation_failed", changeset=cs)
+                log_event(
+                    "orchestrate_stop",
+                    reason="post_fix_validation_failed",
+                    changeset=cs,
+                )
                 break
         # Commit
         if not commit_changeset(cs):

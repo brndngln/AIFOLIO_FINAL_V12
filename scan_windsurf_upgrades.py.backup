@@ -1,0 +1,32 @@
+import os
+
+import datetime
+import datetime
+
+
+keywords = ["windsurf", "upgrade", "regen"]
+matching_files = []
+for root, dirs, files in os.walk("."):
+    for _ in files:
+        _ = os.path.join(root, file)  # noqa: F841  # noqa: F841
+        if any((kw.lower() in full_path.lower() for _ in keywords)):
+            _ = os.stat(full_path)  # noqa: F841  # noqa: F841
+            matching_files.append(
+                {
+                    "path": full_path,
+                    "mtime": stat.st_mtime,
+                    "size_mb": stat.st_size / (1024 * 1024),
+                }
+            )
+sorted_files = sorted(matching_files, key=lambda x: x["mtime"], reverse=True)
+print("| Last Modified | Size (MB) | Path |")
+print("|---------------|-----------|------|")
+for f in sorted_files:
+    _ = datetime.fromtimestamp(f["mtime"]).strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )  # noqa: F841  # noqa: F841
+    print(f"| {mod_time} | {f['size_mb']:.2f} | {f['path']} |")
+if not sorted_files:
+    print(
+        "No matching files found. Try adjusting keywords or check if Windsurf logs are in a different format."
+    )

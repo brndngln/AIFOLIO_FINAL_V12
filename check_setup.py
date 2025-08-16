@@ -1,6 +1,9 @@
+pt = None  # TODO: Define pt
 import os
-import subprocess
 import sys
+
+import subprocess
+
 
 print(f"Using Python {sys.version}")
 

@@ -1,0 +1,842 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "constants.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/lint/base_options.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/non_ascii_names.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/base/name_checker/checker.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/checkers/base/name_checker/naming_style.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/pyreverse/inspector.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pylint/pyreverse/main.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/utils.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/metrics.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/tester.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/config.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/config.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/node_visitor.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/issue.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/manager.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/formatters/screen.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/formatters/text.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/cli/main.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/jwe.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/jwt.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jose/backends/cryptography_backend.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_chatboost.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_botcommand.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_chatlocation.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_poll.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_chatmember.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_version.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_callbackquery.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_forcereply.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_chat.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_dice.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_messageentity.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_menubutton.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_botcommandscope.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_reaction.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_botname.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_replykeyboardmarkup.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/__main__.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_messageorigin.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_update.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inlinequery.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inputlocationmessagecontent.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inlinequeryresultsbutton.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inlinekeyboardbutton.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inlinequeryresultlocation.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_inline/inlinequeryresult.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_payment/invoice.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_files/sticker.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_files/location.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_files/chatphoto.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/_files/inputmedia.py",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_distutils/tests/test_extension.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_system.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/index.js",
+      "kind": "require",
+      "raw": "./lib/zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako_inflate.js",
+      "kind": "require",
+      "raw": "./zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako.js",
+      "kind": "require",
+      "raw": "./zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/dist/pako.js",
+      "kind": "require",
+      "raw": "./lib/zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pako/lib/inflate.js",
+      "kind": "require",
+      "raw": "./zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyglobby/node_modules/picomatch/lib/utils.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tinyglobby/node_modules/picomatch/lib/scan.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "constants.PNG_SIGNATURE",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "import",
+      "raw": "constants.PNG_SIGNATURE",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/browser.js",
+      "kind": "require",
+      "raw": "pako/lib/zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/bitpacker.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer-sync.js",
+      "kind": "import",
+      "raw": "constants.PNG_SIGNATURE",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer-sync.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/parser.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer-async.js",
+      "kind": "import",
+      "raw": "constants.PNG_SIGNATURE",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/pngjs/lib/packer-async.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/providers/sync.js",
+      "kind": "require",
+      "raw": "../constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@nodelib/fs.scandir/out/providers/async.js",
+      "kind": "require",
+      "raw": "../constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/coverage.js",
+      "kind": "import",
+      "raw": "chunks/constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/config.js",
+      "kind": "import",
+      "raw": "chunks/constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.js",
+      "kind": "import",
+      "raw": "chunks/constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/workers.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/cli.js",
+      "kind": "import",
+      "raw": "chunks/constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/vm.BThCzidc.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/creator.GK6I-cL4.js",
+      "kind": "import",
+      "raw": "constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/globals.DEHgCU4V.js",
+      "kind": "import",
+      "raw": "constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cli-api.BkDphVBG.js",
+      "kind": "import",
+      "raw": "constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/runBaseTests.9Ij9_de-.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js",
+      "kind": "import",
+      "raw": "constants.DnKduX2e.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/workers/vmThreads.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/workers/runVmTests.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/workers/vmForks.js",
+      "kind": "import",
+      "raw": "vite-node/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/node_modules/picomatch/lib/utils.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/node_modules/picomatch/lib/scan.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/picomatch/lib/parse.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/picomatch/lib/picomatch.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/picomatch/lib/utils.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/picomatch/lib/scan.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chokidar/index.js",
+      "kind": "require",
+      "raw": "./lib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chokidar/lib/fsevents-handler.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chokidar/lib/nodefs-handler.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/foreground-child/dist/esm/all-signals.js",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/index.js",
+      "kind": "import",
+      "raw": "constants.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/cli.js",
+      "kind": "import",
+      "raw": "constants.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js",
+      "kind": "import",
+      "raw": "constants.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "require",
+      "raw": "./lib/zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/jszip/dist/jszip.js",
+      "kind": "require",
+      "raw": "./zlib/constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/tests/serializableStateInvariantMiddleware.test.ts",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/react/buildHooks.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/react/buildHooks.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/react/index.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/w3c-xmlserializer/lib/serialize.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/w3c-xmlserializer/lib/attributes.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/cookie.d.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/cookieJar.d.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/index.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/canonicalDomain.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/cookieJar.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tough-cookie/dist/cookie/index.d.ts",
+      "kind": "import",
+      "raw": "constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/braces/lib/parse.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket-server.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/event-target.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/permessage-deflate.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/receiver.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/sender.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/websocket.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/validation.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/ws/lib/buffer-util.js",
+      "kind": "require",
+      "raw": "./constants",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/f2py/tests/src/parameter/constant_non_compound.f90",
+      "kind": "test",
+      "raw": "constants",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

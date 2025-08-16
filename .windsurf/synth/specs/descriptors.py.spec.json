@@ -1,0 +1,446 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "descriptors.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js.map",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/font-family.js.map",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/font-family.js",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js.map",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/transform-tests.js",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/paint-order.js.map",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/text-shadow.js",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js.map",
+      "kind": "test",
+      "raw": "descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/safe-get-built-in.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/object-to-array.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/object-define-properties.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/array-buffer.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/collection-strong.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/ie8-dom-define.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/array-buffer-view-core.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/typed-array-constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/object-assign.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/create-non-enumerable-property.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/make-built-in.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/set-species.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/error-to-string.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/v8-prototype-define-bug.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/function-name.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/numeric-range-iterator.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/object-define-property.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/url-constructor-detection.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/create-property.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/array-set-length.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/wrap-error-constructor-with-cause.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/internals/object-get-own-property-descriptor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.regexp.sticky.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.async-disposable-stack.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.observable.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.reflect.get-own-property-descriptor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.self.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.get-own-property-descriptor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.array.iterator.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.iterator.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.create.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.proto.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.regexp.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.array.last-index.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.symbol.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.define-property.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.dom-exception.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.symbol.description.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url-search-params.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.reflect.define-property.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.number.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.dom-exception.stack.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.function.is-callable.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.array-buffer.detached.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.define-properties.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.array.last-item.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url-search-params.size.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.get-own-property-descriptors.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.queue-microtask.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/esnext.json.parse.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.define-getter.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.lookup-setter.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.regexp.flags.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.regexp.dot-all.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.function.name.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.lookup-getter.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.object.define-setter.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/es.disposable-stack.constructor.js",
+      "kind": "require",
+      "raw": "../internals/descriptors",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

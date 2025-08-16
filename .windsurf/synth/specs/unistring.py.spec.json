@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "unistring.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/futhark.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/mojo.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/jvm.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/haskell.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/dotnet.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexers/wgsl.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "kind": "import",
+      "raw": "unistring",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

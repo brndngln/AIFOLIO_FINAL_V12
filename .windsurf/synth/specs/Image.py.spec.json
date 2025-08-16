@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "Image.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "cover_generator.py",
+      "kind": "import",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": "corrupted_black_failures/PngImagePlugin.py",
+      "kind": "import",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/formatters/img.py",
+      "kind": "import",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/__init__.py",
+      "kind": "import",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/images_response.py",
+      "kind": "import",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js",
+      "kind": "test",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/recarray_from_file.fits",
+      "kind": "test",
+      "raw": "Image",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/PIL/ImageChops.py",
+      "kind": "import",
+      "raw": "Image.py",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

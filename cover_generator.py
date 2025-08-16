@@ -1,4 +1,3 @@
-# WIND_PLACEHOLDER
 def generate_cover(title, style="minimal"):
     from PIL import Image, ImageDraw, ImageFont
 

@@ -1,0 +1,210 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "jsx",
+  "path": "frontend/components/HyperEliteVaultBadge.jsx",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "Hyperelitevaultbadge"
+    ],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "frontend/src/components/AdminSessionPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AdminSessionPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/GumroadIntegrationPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/GumroadIntegrationPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/VaultPreviewCompilerPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/VaultPreviewCompilerPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/UpcomingVaultsPipelinePanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/UpcomingVaultsPipelinePanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AdminToolsPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AdminToolsPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AdminSettingsPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/AdminSettingsPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ProductLifecycleTrackerPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ProductLifecycleTrackerPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/components/HyperEliteVaultBadge.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge.css",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSessionPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSessionPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultDropCountdownPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultDropCountdownPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/GumroadIntegrationPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/GumroadIntegrationPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultPreviewCompilerPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultPreviewCompilerPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/UpcomingVaultsPipelinePanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/UpcomingVaultsPipelinePanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminToolsPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminToolsPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSettingsPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSettingsPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ProductLifecycleTrackerPanel.jsx",
+      "kind": "import",
+      "raw": "HyperEliteVaultBadge",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ProductLifecycleTrackerPanel.jsx",
+      "kind": "import",
+      "raw": "components/HyperEliteVaultBadge",
+      "symbols": []
+    }
+  ],
+  "role": "components",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

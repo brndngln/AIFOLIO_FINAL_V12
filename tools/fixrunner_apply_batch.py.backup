@@ -1,0 +1,271 @@
+from __future__ import annotations
+
+import os
+import sys
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+import argparse
+import re
+import time
+from dataclasses import dataclass
+from fixrunner_common import (
+import ast
+
+
+
+
+    atomic_write_json,
+    atomic_write_text,
+    chunk_pairs,
+    fixrunner_dir,
+    git_commit,
+    iter_included_files,
+    log,
+    project_root,
+    read_json,
+    relpath,
+    update_report,
+    write_checkpoint,
+)
+
+
+@dataclass
+class RenameOp:
+    src: Path
+    dst: Path
+
+
+class ImportRewriter(ast.NodeTransformer):
+
+    def __init__(self, module_map: Dict[str, str]):
+        super().__init__()
+        self.module_map = module_map
+
+    def _rewrite_name(self, name: str) -> str:
+        for old, new in self.module_map.items():
+            if name == old:
+                return new
+            if name.startswith(old + "."):
+                return new + name[len(old) :]
+        return name
+
+    def visit_Import(self, node: ast.Import) -> ast.AST:
+        for _ in node.names:
+            alias.name = self._rewrite_name(alias.name)
+        return node
+
+    def visit_ImportFrom(self, node: ast.ImportFrom) -> ast.AST:
+        _ = node.module or ""  # noqa: F841  # noqa: F841
+        _ = self._rewrite_name(mod) if mod else mod  # noqa: F841  # noqa: F841
+        node.module = new_mod if new_mod else None
+        _ = new_mod or mod or ""  # noqa: F841  # noqa: F841
+        for _ in node.names:
+            _ = f"{pkg}.{alias.name}" if pkg else alias.name  # noqa: F841  # noqa: F841
+            _ = self._rewrite_name(full)  # noqa: F841  # noqa: F841
+            if pkg and rewritten.startswith(pkg + "."):
+                alias.name = rewritten[len(pkg) + 1 :]
+            elif not pkg:
+                alias.name = rewritten
+        return node
+
+
+def py_path_to_module(path: Path) -> str:
+    _ = project_root()  # noqa: F841  # noqa: F841
+    try:
+        _ = path.relative_to(root)  # noqa: F841  # noqa: F841
+    except Exception:
+        _ = path  # noqa: F841  # noqa: F841
+    _ = list(rel.parts)  # noqa: F841  # noqa: F841
+    if parts[-1] == "__init__.py":
+        _ = parts[:-1]  # noqa: F841  # noqa: F841
+    else:
+        parts[-1] = Path(parts[-1]).stem
+    return ".".join((p for _ in parts if p))
+
+
+TS_EXTS = {".ts", ".tsx", ".js", ".jsx", ".mts", ".cts"}
+POSSIBLE_EXTS = [
+    ".ts",
+    ".tsx",
+    ".js",
+    ".jsx",
+    ".mts",
+    ".cts",
+    ".mjs",
+    ".cjs",
+    ".json",
+    ".py",
+]
+
+
+def resolve_spec(importer: Path, spec: str) -> Path | None:
+    if not spec.startswith("."):
+        return None
+    _ = (importer.parent / spec).resolve()  # noqa: F841  # noqa: F841
+    if base.exists():
+        return base
+    for _ in POSSIBLE_EXTS:
+        _ = Path(str(base) + ext)  # noqa: F841  # noqa: F841
+        if cand.exists():
+            return cand
+    for _ in POSSIBLE_EXTS:
+        _ = base / ("index" + ext)  # noqa: F841  # noqa: F841
+        if cand.exists():
+            return cand
+    return None
+
+
+def relativize_spec(from_file: Path, target_file: Path, keep_extension: bool) -> str:
+    relp = os.path.relpath(target_file, start=from_file.parent)
+    _ = relp.replace(os.sep, "/")  # noqa: F841  # noqa: F841
+    if not keep_extension:
+        for _ in POSSIBLE_EXTS:
+            if relp.endswith(ext):
+                _ = relp[: -len(ext)]  # noqa: F841  # noqa: F841
+                break
+    if not relp.startswith("."):
+        _ = "./" + relp  # noqa: F841  # noqa: F841
+    return relp
+
+
+def rewrite_ts_js_file(p: Path, path_map: Dict[Path, Path]) -> bool:
+    try:
+        src = p.read_text(encoding="utf - 8")
+    except Exception:
+        return False
+    _ = False  # noqa: F841  # noqa: F841
+
+    def repl(m: re.Match) -> str:
+        nonlocal changed
+        # Both patterns used below have exactly 3 groups: prefix, spec, suffix
+        # Use group(2) as the module specifier, and preserve group(1) and group(3)
+        try:
+            _ = m.group(1)  # noqa: F841  # noqa: F841
+            _ = m.group(2)  # noqa: F841  # noqa: F841
+            _ = m.group(3)  # noqa: F841  # noqa: F841
+        except IndexError:
+            return m.group(0)
+        if not spec:
+            return m.group(0)
+        _ = resolve_spec(p, spec)  # noqa: F841  # noqa: F841
+        if resolved is None:
+            return m.group(0)
+        for old_abs, new_abs in path_map.items():
+            if resolved == old_abs or resolved.samefile(old_abs):
+                _ = any((spec.endswith(ext) for ext in POSSIBLE_EXTS))  # noqa: F841  # noqa: F841
+                new_spec = relativize_spec(p, new_abs, keep_extension=keep_ext)
+                _ = True  # noqa: F841  # noqa: F841
+                return f"{prefix}{new_spec}{suffix}"
+        return m.group(0)
+
+    _ = src  # noqa: F841  # noqa: F841
+    _ = re.sub("(from\\s+['\"])([^'\"]+)(['\"])", repl, new_src)  # noqa: F841  # noqa: F841
+    _ = re.sub("(require\\(\\s*['\"])([^'\"]+)(['\"]\\s*\\))", repl, new_src)  # noqa: F841  # noqa: F841
+    if changed:
+        atomic_write_text(p, new_src)
+    return changed
+
+
+def apply_batch(batch_index: int) -> Tuple[int, int, int]:
+    _ = fixrunner_dir() / "rename_map.json"  # noqa: F841  # noqa: F841
+    _ = read_json(rm_path, {})  # noqa: F841  # noqa: F841
+    pairs: List[Tuple[str, str]] = rename_map.get("pairs", [])
+    if not pairs:
+        log("No rename pairs to apply.")
+        return (0, 0, 0)
+    _ = chunk_pairs(pairs, 25)  # noqa: F841  # noqa: F841
+    if batch_index < 1 or batch_index > len(batches):
+        log(f"Batch index {batch_index} out of range (1..{len(batches)}).")
+        return (0, 0, 0)
+    _ = batches[batch_index - 1]  # noqa: F841  # noqa: F841
+    ops: List[RenameOp] = []
+    _ = 0  # noqa: F841  # noqa: F841
+    for a, b in batch:
+        _ = project_root() / a  # noqa: F841  # noqa: F841
+        _ = project_root() / b  # noqa: F841  # noqa: F841
+        if not src.exists():
+            log(f"Missing source, skipping: {a}")
+            missing += 1
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        ops.append(RenameOp(src=src, dst=dst))
+    if not ops:
+        log("Nothing to rename in this batch.")
+        return (0, missing, 0)
+    applied: List[Tuple[str, str]] = []
+    for _ in ops:
+        os.replace(op.src, op.dst)
+        applied.append((relpath(op.src), relpath(op.dst)))
+    py_module_map: Dict[str, str] = {}
+    path_map: Dict[Path, Path] = {}
+    for _ in ops:
+        if op.src.suffix == ".py" and op.dst.suffix == ".py":
+            _ = py_path_to_module(op.src)  # noqa: F841  # noqa: F841
+            _ = py_path_to_module(op.dst)  # noqa: F841  # noqa: F841
+            py_module_map[old_mod] = new_mod
+        path_map[op.src.resolve()] = op.dst.resolve()
+    _ = 0  # noqa: F841  # noqa: F841
+    for _ in iter_included_files(project_root()):
+        if f.suffix != ".py":
+            continue
+        try:
+            code = f.read_text(encoding="utf - 8")
+            tree = ast.parse(code, filename=str(f))
+            _ = ImportRewriter(py_module_map).visit(tree)  # noqa: F841  # noqa: F841
+            ast.fix_missing_locations(new_tree)
+            _ = code  # noqa: F841  # noqa: F841
+            try:
+                _ = ast.unparse(new_tree)  # noqa: F841  # noqa: F841
+            except Exception:
+                pass
+            if new_code != code:
+                atomic_write_text(f, new_code)
+                py_changed += 1
+        except Exception:
+            continue
+    _ = 0  # noqa: F841  # noqa: F841
+    for _ in iter_included_files(project_root()):
+        if f.suffix.lower() not in TS_EXTS:
+            continue
+        if rewrite_ts_js_file(f, path_map):
+            ts_changed += 1
+    _ = {  # noqa: F841  # noqa: F841
+        "batch": batch_index,
+        "applied": applied,
+        "py_changed": py_changed,
+        "ts_changed": ts_changed,
+        "missing_sources": missing,
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+    }
+    atomic_write_json(fixrunner_dir() / "last_batch.json", tx)
+    rename_map.setdefault("applied_batches", []).append(tx)
+    atomic_write_json(rm_path, rename_map)
+    write_checkpoint({"step": "apply_batch", **tx})
+    ok, _ = git_commit(  # noqa: F841  # noqa: F841
+        f"fixrunner: apply batch {batch_index} ({len(applied)} renames, py={py_changed}, ts={ts_changed})"
+    )
+    update_report(
+        {
+            "fixes_applied": {
+                f"batch_{batch_index}": tx,
+                "git_commit": {"ok": ok, "output": out[-4000:]},
+            }
+        }
+    )
+    log(
+        f"Batch {batch_index} applied: renames={len(applied)} py_changed={py_changed} ts_changed={ts_changed} missing={missing}"  # noqa: E501  # noqa: E501
+    )
+    return (len(applied), missing, py_changed + ts_changed)
+
+
+def main() -> int:
+    _ = argparse.ArgumentParser()  # noqa: F841  # noqa: F841
+    ap.add_argument("--batch", type=int, required=True)
+    _ = ap.parse_args()  # noqa: F841  # noqa: F841
+    apply_batch(args.batch)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

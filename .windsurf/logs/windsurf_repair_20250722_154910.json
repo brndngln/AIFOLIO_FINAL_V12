@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-07-22T15:49:01.748760",
+  "mode": "WINDSURF_DEV_REPAIR",
+  "philosophy": "Open development - repair without lockdown",
+  "files_scanned": 10330,
+  "files_repaired": 0,
+  "syntax_fixes": [],
+  "import_fixes": [
+    {
+      "action": "Made hook permissive",
+      "details": "pre-commit",
+      "timestamp": "2025-07-22T15:49:10.136052"
+    },
+    {
+      "action": "Deactivated lockdown file",
+      "details": "CODEBASE_REPAIR_COMPLETE.md \u2192 CODEBASE_REPAIR_COMPLETE.md.inactive",
+      "timestamp": "2025-07-22T15:49:10.137553"
+    },
+    {
+      "action": "Deactivated lockdown file",
+      "details": "comprehensive_linting_cleanup.py \u2192 comprehensive_linting_cleanup.py.inactive",
+      "timestamp": "2025-07-22T15:49:10.137844"
+    },
+    {
+      "action": "Deactivated lockdown file",
+      "details": "comprehensive_syntax_repair.py \u2192 comprehensive_syntax_repair.py.inactive",
+      "timestamp": "2025-07-22T15:49:10.137943"
+    }
+  ],
+  "shebang_updates": [],
+  "formatting_applied": [
+    {
+      "action": "Import sorting",
+      "details": "Success",
+      "timestamp": "2025-07-22T15:49:10.133772"
+    }
+  ],
+  "backups_created": [],
+  "errors": [
+    {
+      "action": "Black formatting failed",
+      "details": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 148, in _get_module_details\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"src/black/__init__.py\", line 46, in <module>\n  File \"/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.venv/lib/python3.12/site-packages/black/files.py\", line 21, in <module>\n    from packaging.specifiers import InvalidSpecifier, Specifier, SpecifierSet\nModuleNotFoundError: No module named 'packaging.specifiers'; 'packaging' is not a package\n",
+      "timestamp": "2025-07-22T15:49:03.030669"
+    }
+  ]
+}

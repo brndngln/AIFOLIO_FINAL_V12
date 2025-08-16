@@ -4,11 +4,8 @@ import os
 base_dir = os.getcwd()
 quarantine_dir = os.path.join(base_dir, "quarantine_non_python")
 fix_log_path = os.path.join(base_dir, "fix_log.txt")
-
 os.makedirs(quarantine_dir, exist_ok=True)
-
 log_entries = []
-
 for root, _, files in os.walk(base_dir):
     for filename in files:
         if filename.endswith(".py"):
@@ -47,8 +44,6 @@ for root, _, files in os.walk(base_dir):
                     log_entries.append(f"QUARANTINED (invalid syntax): {file_path}")
             except Exception as e:
                 log_entries.append(f"ERROR: {file_path} — {str(e)}")
-
 with open(fix_log_path, "w", encoding="utf-8") as f:
     f.write("\n".join(log_entries))
-
 print(f"✅ Fix complete. Log saved to {fix_log_path}")

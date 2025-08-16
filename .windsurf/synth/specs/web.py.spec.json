@@ -1,0 +1,1022 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "web.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/worker.py",
+      "kind": "import",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/test_utils.py",
+      "kind": "import",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_app.py",
+      "kind": "import",
+      "raw": "web.Application",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/typedefs.py",
+      "kind": "import",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/pytest_plugin.py",
+      "kind": "import",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/blackd/__init__.py",
+      "kind": "import",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pkg_resources/tests/test_resources.py",
+      "kind": "test",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers.py",
+      "kind": "test",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "web",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/canvg/lib/index.es.js",
+      "kind": "import",
+      "raw": "core-js/modules/web.dom-collections.iterator.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/is-iterable.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.atob",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.btoa",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.queue-microtask",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.self",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.structured-clone",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.can-parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.to-json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.delete",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.has",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.size",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/aggregate-error.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/btoa.js",
+      "kind": "require",
+      "raw": "../modules/web.btoa",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/btoa.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/btoa.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/btoa.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/clear-immediate.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/get-iterator-method.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/get-iterator.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/structured-clone.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/structured-clone.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/structured-clone.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/structured-clone.js",
+      "kind": "require",
+      "raw": "../modules/web.structured-clone",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/set-immediate.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/set-timeout.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/self.js",
+      "kind": "require",
+      "raw": "../modules/web.self",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/atob.js",
+      "kind": "require",
+      "raw": "../modules/web.atob",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/atob.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/atob.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/atob.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/set-interval.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/symbol/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/symbol/iterator.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/constructor.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/constructor.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-exception/to-string-tag.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url/parse.js",
+      "kind": "require",
+      "raw": "../../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url/parse.js",
+      "kind": "require",
+      "raw": "../../modules/web.url.parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url/to-json.js",
+      "kind": "require",
+      "raw": "../../modules/web.url.to-json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url/can-parse.js",
+      "kind": "require",
+      "raw": "../../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url/can-parse.js",
+      "kind": "require",
+      "raw": "../../modules/web.url.can-parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/weak-map/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/iterator/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/iterator/flat-map.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/iterator/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/map/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/object/from-entries.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/object/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-collections/for-each.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-collections/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-collections/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/dom-collections/iterator.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/instance/keys.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/instance/for-each.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/instance/values.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/instance/entries.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/promise/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/promise/any.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/promise/all-settled.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/weak-set/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/set/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/stable/url-search-params/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.atob",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.btoa",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.queue-microtask",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.self",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.structured-clone",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.can-parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.to-json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.delete",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.has",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.size",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/weak-map/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/iterator/zip-keyed.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/iterator/zip.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/map/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/observable/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/weak-set/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/symmetric-difference.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/is-disjoint-from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/difference.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/is-superset-of.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/intersection.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/is-subset-of.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/full/set/union.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/async-iterator/index.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/actual/async-iterator/from.js",
+      "kind": "require",
+      "raw": "../../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/immediate.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url-search-params.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url-search-params.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.delete",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url-search-params.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.has",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url-search-params.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.size",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.atob",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.btoa",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.queue-microtask",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.self",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.structured-clone",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.can-parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url.to-json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.delete",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.has",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/index.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.size",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/dom-exception.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/dom-exception.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.stack",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/dom-exception.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-exception.to-string-tag",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/timers.js",
+      "kind": "require",
+      "raw": "../modules/web.timers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/structured-clone.js",
+      "kind": "require",
+      "raw": "../modules/web.structured-clone",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/dom-collections.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.for-each",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/dom-collections.js",
+      "kind": "require",
+      "raw": "../modules/web.dom-collections.iterator",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url.js",
+      "kind": "require",
+      "raw": "../modules/web.url",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url.js",
+      "kind": "require",
+      "raw": "../modules/web.url.can-parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url.js",
+      "kind": "require",
+      "raw": "../modules/web.url.parse",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/url.js",
+      "kind": "require",
+      "raw": "../modules/web.url.to-json",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/web/queue-microtask.js",
+      "kind": "require",
+      "raw": "../modules/web.queue-microtask",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url.constructor.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url-search-params.js",
+      "kind": "require",
+      "raw": "../modules/web.url-search-params.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.immediate.js",
+      "kind": "require",
+      "raw": "../modules/web.clear-immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.immediate.js",
+      "kind": "require",
+      "raw": "../modules/web.set-immediate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.timers.js",
+      "kind": "require",
+      "raw": "../modules/web.set-interval",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.timers.js",
+      "kind": "require",
+      "raw": "../modules/web.set-timeout",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/core-js/modules/web.url.js",
+      "kind": "require",
+      "raw": "../modules/web.url.constructor",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@testing-library/jest-dom/types/__tests__/bun/tsconfig.json",
+      "kind": "test",
+      "raw": "web",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

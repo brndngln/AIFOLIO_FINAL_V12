@@ -1,0 +1,65 @@
+{
+  "timestamp": 1755140190.6782122,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/admin_tools/audit_inspector.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/dashboard/empire_admin_dashboard.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/gumroad_refund_optimizer.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/csv_bulk_import_export.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/gumroad_sync.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/analytics_reporting.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/crm_sync.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/notion_connector.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/xbrl_connector.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/stripe_sync.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/stripe_connector.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/notion_sync.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/telegram_alerts.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/neuro_core_bridge.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/integrations/xbrl_export.py",
+      "action": "updated"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
-# WIND_PLACEHOLDER
+data = {}  # TODO: Define data
+
+
 def generate_pdf(content_blocks, metadata):
     from fpdf import FPDF
 

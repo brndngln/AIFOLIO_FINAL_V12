@@ -1,0 +1,85 @@
+{
+  "timestamp": 1755140209.872322,
+  "files": [
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/vault_performance.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/multi_vault_launch_planner.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/vault_bundle_planner.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_buyer_journey_funnel.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_revenue_forecast.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/export_scheduler.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/cross_vault_ip_overlap_map.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/revenue_tracker.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/refund_threshold_alert.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/vault_archive_retirement_tracker.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/vault_launch_impact_report.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/vault_advanced_analytics.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_funnel_reports.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_vault_cross_market_fit_report.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_what_worked_best_summary.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/revenue_milestone_tracker.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/nl_query_parser.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/static_compliance_checks.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/multi_currency_safe_ai_revenue_tracking.py",
+      "action": "updated"
+    },
+    {
+      "path": "quarantine_non_python/quarantine_non_python/autonomy/analytics/sales_heatmap_by_daytime.py",
+      "action": "updated"
+    }
+  ]
+}

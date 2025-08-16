@@ -9,7 +9,6 @@ def placeholder_function():
     pass
 
 
-# Minimal class placeholder
 class PlaceholderClass:
     """Placeholder class to ensure valid Python syntax."""
 

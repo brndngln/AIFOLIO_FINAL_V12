@@ -1,17 +1,8 @@
-# SAFE AI DOCSTRING ENFORCED - NON-SENTIENT STATIC MODULE
 """SAFE AI MODULE"""
 
-"""SAFE AI MODULE"""
-"""SAFE AI MODULE"""
-
-
-# ✅ SAFE AI MARKER: This module has been verified to align with ethical AI design standards.
-# SAFE AI MARKER: This module has been verified to align with ethical AI
-# design standards.
-
-# - Static, aggregate, no targeting
+"SAFE AI MODULE"
+"SAFE AI MODULE"
 
 
 def partner_storefront_opportunity_map(opportunities):
-    # Expects: list of {'partner': str, 'opportunity': str}
     return {"opportunities": opportunities}

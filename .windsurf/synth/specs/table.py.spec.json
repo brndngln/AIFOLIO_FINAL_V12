@@ -1,0 +1,362 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "table.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/markdown_it/rules_block/__init__.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/markdown_it/rules_block/__init__.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/isort/_vendored/tomli/_parser.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/tomli/_parser.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/box.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_log_render.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_log_render.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/columns.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/_inspect.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/live.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/progress.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/progress.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/spinner.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/rich/scope.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/box.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/color.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_log_render.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_log_render.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/columns.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/_inspect.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/live.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/progress.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/progress.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/spinner.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/rich/scope.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/_vendor/tomli/_parser.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_sdist.py",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tomlkit/__init__.py",
+      "kind": "import",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/types.d.ts",
+      "kind": "import",
+      "raw": "core/table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/index.js",
+      "kind": "require",
+      "raw": "./core/table.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/build/lib/index.d.ts",
+      "kind": "import",
+      "raw": "core/table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/types.ts",
+      "kind": "import",
+      "raw": "core/table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@tanstack/table-core/src/index.ts",
+      "kind": "import",
+      "raw": "core/table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFilters.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useSortBy.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowState.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useRowSelect.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFlexLayout.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useAbsoluteLayout.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useFiltersAndRowSelect.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGroupBy.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useColumnOrder.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useExpanded.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useGridLayout.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useBlockLayout.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/useResizeColumns.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/hooks/tests/useTable.test.js",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/core/tests/data/recarray_from_file.fits",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/pandas/tests/io/json/conftest.py",
+      "kind": "test",
+      "raw": "table",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "filters.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/defaults.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/auto_suggest.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/buffer.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/document.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/search.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/validation.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_handlers/prefixhandler.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_handlers/commandhandler.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/telegram/ext/_handlers/messagehandler.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/test_functions.py",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dill/tests/__pycache__/test_functions.cpython-312.pyc",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/run.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/__init__.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/cli.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/main.py",
+      "kind": "import",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-table/src/plugin-hooks/tests/usePagination.test.js",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/PromptMarketplace.test.jsx",
+      "kind": "test",
+      "raw": "filters",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

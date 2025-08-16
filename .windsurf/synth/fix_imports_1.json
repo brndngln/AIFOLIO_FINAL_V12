@@ -1,0 +1,135 @@
+{
+  "patches": [
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import tokenization_t5\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import django\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import modeling_flax_electra\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import test_check_indexer\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import configuration_data2vec_text\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import MpoImagePlugin\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import fetch\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import test_sequence\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import configuration_vivit\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import other_file_chunking_strategy_object\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import modeling_reformer\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import tokenization_llama\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import web_ws\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import feature_extraction_audio_spectrogram_transformer\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import package\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import _decoders\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import openai_api_simulator\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import abstract\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import eanbc\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import scatter_lines\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import configuration_mega\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import modeling_instructblip\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import tokenization_mbart50\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import convert_vitmatte_to_hf\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    },
+    {
+      "after": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')\nfrom . import optimization_tf\n",
+      "before": "def placeholder() -> None:\n    print('TODO: regenerate logic for __init__')",
+      "path": "__init__.py"
+    }
+  ],
+  "summary": {
+    "applied": false,
+    "planned_patches": 25,
+    "timestamp": "2025-08-13 18:16:26",
+    "total_candidates": 665
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "arrow.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/popper.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/popper.js",
+      "kind": "import",
+      "raw": "modifiers/arrow.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/dist/esm/modifiers/index.js",
+      "kind": "import",
+      "raw": "arrow.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/popper.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/popper.js",
+      "kind": "import",
+      "raw": "modifiers/arrow.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/types.d.ts",
+      "kind": "import",
+      "raw": "modifiers/arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/popper.d.ts",
+      "kind": "import",
+      "raw": "modifiers/arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/index.js",
+      "kind": "import",
+      "raw": "arrow.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@popperjs/core/lib/modifiers/index.d.ts",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/typescript.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/prettier/plugins/typescript.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_tsc.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/_tsc.js",
+      "kind": "import",
+      "raw": "arrow",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

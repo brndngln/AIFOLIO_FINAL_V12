@@ -1,0 +1,206 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "cli.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi_cli/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dotenv/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/dotenv/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/typer/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/filters/__init__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/prompt_toolkit/filters/__init__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/__init__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/tqdm/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_meta.py",
+      "kind": "test",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_windows_wrappers.py",
+      "kind": "test",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_setuptools.py",
+      "kind": "test",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/watchfiles/__main__.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_cisco.py",
+      "kind": "test",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/node.d.ts",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/coverage.DL5VHqXY.js",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/reporters.d.BFLkQcL6.d.ts",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vite/bin/vite.js",
+      "kind": "import",
+      "raw": "dist/node/cli.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/bin/eslint.js",
+      "kind": "require",
+      "raw": "../lib/cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.13/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.13/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/venv/lib/python3.13/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/venv/lib/python3.13/site-packages/tqdm/_main.py",
+      "kind": "import",
+      "raw": "cli",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "multipart.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/web_request.py",
+      "kind": "import",
+      "raw": "multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/aiohttp/__init__.py",
+      "kind": "import",
+      "raw": "multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/starlette/requests.py",
+      "kind": "import",
+      "raw": "multipart.multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/starlette/formparsers.py",
+      "kind": "import",
+      "raw": "multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/starlette/formparsers.py",
+      "kind": "import",
+      "raw": "multipart.multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/python_multipart/__init__.py",
+      "kind": "import",
+      "raw": "multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py",
+      "kind": "import",
+      "raw": "multipart",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py",
+      "kind": "import",
+      "raw": "multipart.multipart",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

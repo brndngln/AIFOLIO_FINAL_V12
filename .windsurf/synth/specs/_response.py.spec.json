@@ -1,0 +1,266 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "_response.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_types.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/_base_client.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/__init__.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/files.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/models.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/moderations.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/completions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/embeddings.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/images.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/batches.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/assistants.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/sessions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/realtime/transcription_sessions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/threads/threads.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/threads/messages.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/threads/runs/steps.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/beta/threads/runs/runs.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/vector_stores/files.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/vector_stores/vector_stores.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/vector_stores/file_batches.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/evals/evals.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/evals/runs/output_items.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/evals/runs/runs.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/fine_tuning/checkpoints/permissions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/fine_tuning/jobs/checkpoints.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/fine_tuning/jobs/jobs.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/fine_tuning/alpha/graders.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/chat/completions/messages.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/responses/responses.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/responses/input_items.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/uploads/parts.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/uploads/uploads.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/audio/translations.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/audio/transcriptions.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/audio/speech.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/containers/containers.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/containers/files/files.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/containers/files/content.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/helpers/local_audio_player.py",
+      "kind": "import",
+      "raw": "_response",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "plugin.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pytest_asyncio/__init__.py",
+      "kind": "import",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_core_metadata.py",
+      "kind": "test",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/run/__init__.py",
+      "kind": "import",
+      "raw": "plugin.activators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/run/__init__.py",
+      "kind": "import",
+      "raw": "plugin.creators",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/run/__init__.py",
+      "kind": "import",
+      "raw": "plugin.discovery",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/virtualenv/run/__init__.py",
+      "kind": "import",
+      "raw": "plugin.seeders",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/type_adapter.py",
+      "kind": "import",
+      "raw": "plugin._schema_validator",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py",
+      "kind": "import",
+      "raw": "plugin._schema_validator",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py",
+      "kind": "import",
+      "raw": "plugin._schema_validator",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py",
+      "kind": "import",
+      "raw": "plugin._schema_validator",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/stevedore/tests/test_extension.py",
+      "kind": "test",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "plugins/plugin.colors.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/core/core.plugins.d.ts",
+      "kind": "import",
+      "raw": "plugins/plugin.tooltip.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.colors.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.decimation.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.legend.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.subtitle.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.title.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/chart.js/dist/plugins/index.d.ts",
+      "kind": "import",
+      "raw": "plugin.tooltip.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss/lib/css-syntax-error.d.ts",
+      "kind": "import",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss/lib/css-syntax-error.d.ts",
+      "kind": "import",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss/lib/css-syntax-error.d.ts",
+      "kind": "import",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/lib/config/partial.js",
+      "kind": "require",
+      "raw": "./plugin.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/lib/config/full.js",
+      "kind": "require",
+      "raw": "./plugin.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js",
+      "kind": "require",
+      "raw": "../config/plugin.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/index.js",
+      "kind": "require",
+      "raw": "./plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/postcss-plugins/nesting/index.js",
+      "kind": "require",
+      "raw": "./plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/cli/build/index.js",
+      "kind": "require",
+      "raw": "./plugin.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/index.js",
+      "kind": "require",
+      "raw": "./plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/postcss-plugins/nesting/index.js",
+      "kind": "import",
+      "raw": "plugin",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/cli/build/index.js",
+      "kind": "import",
+      "raw": "plugin.js",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

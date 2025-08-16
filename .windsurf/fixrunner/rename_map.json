@@ -1,0 +1,9 @@
+{
+  "applied_batches": [],
+  "generated_at": "2025-08-16 16:11:10",
+  "pairs": [],
+  "policy": {
+    "python_stdlib_or_package_shadow": "<name>.py -> <name>_mod.py",
+    "windows_reserved": "<name> -> safe_<name>"
+  }
+}

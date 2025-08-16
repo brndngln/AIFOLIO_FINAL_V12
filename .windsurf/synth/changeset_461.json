@@ -1,0 +1,49 @@
+{
+  "timestamp": 1755140340.68035,
+  "files": [
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/export/quarterly_compliance_card.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/firewalls/non_sentient_enforcer.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/zero_liability_matcher.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/s_corp_comp_optimizer.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/multi-entity_split_planner.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/tax_savings_projection_graph.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/tax_credit_auto_loader.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/cpa_export_mapper.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/audit_trap_detector.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/schedule_c_rebuilder.py",
+      "action": "updated"
+    },
+    {
+      "path": "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/engine/deferral_auto_selector.py",
+      "action": "updated"
+    }
+  ]
+}

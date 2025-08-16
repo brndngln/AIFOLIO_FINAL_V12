@@ -1,0 +1,746 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "context.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": "tests/omni_v4_integration.test.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/nodes/node_ng.py",
+      "kind": "import",
+      "raw": "context.inferred",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_re.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_typing.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/astroid/brain/brain_regex.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/jinja2/compiler.py",
+      "kind": "import",
+      "raw": "context.blocks",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/websockets/asyncio/async_timeout.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/__init__.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/tester.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/bandit/core/__init__.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/build.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/messages.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/errors.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/nodes.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/mypy/semanal.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_build_py.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_distutils_adoption.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_config_discovery.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/contexts.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_bdist_wheel.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/test_editable_install.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/fixtures.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_expand.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/setuptools/tests/config/test_apply_pyprojecttoml.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/process.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/billiard/sharedctypes.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_linux.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__init__.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_process.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/test_bsd.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/psutil/tests/__pycache__/__init__.cpython-312.pyc",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/ext/django/utils.py",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_ext_django_source.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/utils.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_handlers_pbkdf2.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_context_deprecated.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_apache.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/tests/test_utils_handlers.py",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-redux/src/components/connect.tsx",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/cac.Cb-PYCCB.js",
+      "kind": "import",
+      "raw": "context.annotate",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/vitest/dist/chunks/reporters.d.BFLkQcL6.d.ts",
+      "kind": "import",
+      "raw": "vitest/browser/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/nwsapi/src/nwsapi.js",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/index.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/core/cache-storage.d.ts",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/ITypeDescriptor.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/IPropertyDescriptor.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/index.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/color.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/linear-gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/-webkit-gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/radial-gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/-prefix-linear-gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/types/functions/-prefix-radial-gradient.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/layout/bounds.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/css/layout/text.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/render/renderer.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/render/canvas/canvas-renderer.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/render/canvas/foreignobject-renderer.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/document-cloner.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/node-parser.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/text-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/elements/select-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/elements/textarea-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/elements/ol-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/elements/li-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/iframe-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/canvas-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/svg-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/image-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/types/dom/replaced-elements/input-element-container.d.ts",
+      "kind": "import",
+      "raw": "core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/index.js",
+      "kind": "require",
+      "raw": "./core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js",
+      "kind": "require",
+      "raw": "../context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/core/__tests__/cache-storage.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js",
+      "kind": "require",
+      "raw": "../../../core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/types/__tests__/image-tests.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "require",
+      "raw": "../../../core/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/css/property-descriptors/__tests__/background-tests.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/html2canvas/dist/lib/__tests__/index.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/visitors.js",
+      "kind": "require",
+      "raw": "./path/context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/index.js",
+      "kind": "require",
+      "raw": "./path/context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/traverse-node.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/traverse-node.js",
+      "kind": "require",
+      "raw": "./path/context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/context.js",
+      "kind": "require",
+      "raw": "./path/context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/path/conversion.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/path/index.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/path/removal.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/path/modification.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/path/replacement.js",
+      "kind": "require",
+      "raw": "./context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@babel/traverse/lib/scope/lib/renamer.js",
+      "kind": "require",
+      "raw": "../../path/context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/dynamicMiddleware/tests/react.test.tsx",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/buildCreateApi.test.tsx",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@reduxjs/toolkit/src/query/tests/apiProvider.test.tsx",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/linter/linter.js",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/linter/code-path-analysis/code-path-state.js",
+      "kind": "import",
+      "raw": "context.brokenForkContext",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/eslint/lib/rules/func-names.js",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/react/dist/declarations/src/index.d.ts",
+      "kind": "import",
+      "raw": "context.js",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/react/src/global.tsx",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/react/src/emotion-element.tsx",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/react/src/class-names.tsx",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@emotion/react/src/index.ts",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/lib/lib/generateRules.js",
+      "kind": "import",
+      "raw": "context.candidateRuleCache.get",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/src/lib/generateRules.js",
+      "kind": "import",
+      "raw": "context.candidateRuleCache.get",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/dist/axios.js",
+      "kind": "import",
+      "raw": "context.headers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/dist/esm/axios.js",
+      "kind": "import",
+      "raw": "context.headers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/axios/lib/core/transformData.js",
+      "kind": "import",
+      "raw": "context.headers",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/lz-string/tests/lib/jasmine-1.3.1/jasmine.js",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/index.d.ts",
+      "kind": "import",
+      "raw": "lib/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/index.d.ts",
+      "kind": "import",
+      "raw": "lib/context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/lib/hooks.d.ts",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/react-router/dist/lib/components.d.ts",
+      "kind": "import",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/scalars.pyi",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/.venv/lib/python3.11/site-packages/numpy/typing/tests/data/fail/ndarray.pyi",
+      "kind": "test",
+      "raw": "context",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

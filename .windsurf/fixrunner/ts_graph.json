@@ -1,0 +1,5765 @@
+{
+  "tsconfig": {
+    "baseUrl": ".",
+    "paths": {}
+  },
+  "counts": {
+    "files": 829,
+    "imports": 1439
+  },
+  "edges": {
+    ".backups/aifolio_snapshot_20250630_0003/api/gateway.js": [
+      {
+        "module": "express"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/autonomy/analytics/frontend_dashboard_stub.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/babel.config.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/ai_prompt_engine.js": [
+      {
+        "module": "./prompt_executor.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/analytics_engine.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/asset_health_checker.js": [
+      {
+        "module": "fs"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/audit_trail.js": [
+      {
+        "module": "fs"
+      },
+      {
+        "module": "path"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/image_generator.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/license_manager.js": [
+      {
+        "module": "crypto"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/marketplace_trend_analyzer.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/pdf_builder.js": [
+      {
+        "module": "jspdf"
+      },
+      {
+        "module": "./style_tuner.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/prompt_executor.js": [
+      {
+        "module": "../config/prompt_sets/utils.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/qr_generator.js": [
+      {
+        "module": "qrcode"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/refund_risk_flagger.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/scheduler.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/style_tuner.js": [
+      {
+        "module": "../config/themes/global.json"
+      },
+      {
+        "module": "../config/themes/vaults.json"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/tone_voice_matcher.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/typo_grammar_checker.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/vault_manager.js": [
+      {
+        "module": "../config/vault_registry.json"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/vault_registry.js": [
+      {
+        "module": "fs"
+      },
+      {
+        "module": "path"
+      },
+      {
+        "module": "./license_manager"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/core/visual_balance_checker.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/core/zip_archiver.js": [
+      {
+        "module": "jszip"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/anti_sentience_guard_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/audit_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/audit_timestamp_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/auto_recovery_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/cold_start_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/csv_import_export_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/load_balancer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/output_transparency_explorer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/phase8_static_modules_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/phase9_static_modules_panel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/policy_audit_panel.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/prompt_fingerprinting_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/refund_suggestions_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/style_voice_tuner_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/synthetic_monitoring_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/telegram_alert_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/variant_generator_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/version_history_panel.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/vocab_scope_limiter_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/webhook_events_panel.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/admin_panels/webhook_latency_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/App.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./components/Stats"
+      },
+      {
+        "module": "./components/EventCharts"
+      },
+      {
+        "module": "./Phase8ModulesDashboard"
+      },
+      {
+        "module": "./Phase9ModulesDashboard"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/EliteAuditComplianceDashboard"
+      },
+      {
+        "module": "./components/PromptMarketplace"
+      },
+      {
+        "module": "./components/WorkflowBuilder"
+      },
+      {
+        "module": "./components/ExportPanel"
+      },
+      {
+        "module": "./components/BillingDashboard"
+      },
+      {
+        "module": "./components/PartnerProgram"
+      },
+      {
+        "module": "./components/Leaderboard"
+      },
+      {
+        "module": "./components/AutomationBuilder"
+      },
+      {
+        "module": "./components/OnboardingTour"
+      },
+      {
+        "module": "./components/AIOverridePanel"
+      },
+      {
+        "module": "./components/RedactionPanel"
+      },
+      {
+        "module": "./components/SAFEAISelfTestPanel"
+      },
+      {
+        "module": "./components/BackupManager"
+      },
+      {
+        "module": "./components/OwnerGuide"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/Phase8ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase8_static_modules_panel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/Phase9ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase9_static_modules_panel"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/Phase9KeyAdminPanel"
+      },
+      {
+        "module": "./components/Phase9AuditLogStream"
+      },
+      {
+        "module": "./components/StaticEnhancementsPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/AIOverridePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/AutomationBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/BackupManager.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/BillingDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/EliteAuditComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../../core/audit_trail"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/EventCharts.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-chartjs-2"
+      },
+      {
+        "module": "chart.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/ExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Leaderboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/OnboardingTour.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/OwnerGuide.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/PartnerProgram.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Phase9AnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./StaticEnhancementsPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Phase9AuditLogStream.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Phase9AuditLogWidget.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Phase9KeyAdminPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./Phase9RoleBadge"
+      },
+      {
+        "module": "./Phase9AnalyticsPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Phase9RoleBadge.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/PromptMarketplace.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/RedactionPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/SAFEAISelfTestPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/StaticEnhancementsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/Stats.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/components/WorkflowBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/i18n/index.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/dashboard/frontend/src/utils/accessibility.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/engines/elite_ai_engine.ts": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/admin_audit_log.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/admin_failed_hooks_dashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./admin_audit_log.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/analytics_dashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-apexcharts"
+      },
+      {
+        "module": "date-fns"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/automation_dashboard.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/AdminRoleManager.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Save"
+      },
+      {
+        "module": "@mui/icons-material/Refresh"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/AdvancedAnalyticsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/AnomalyDrilldown.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/AnomalyRootCausePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/AuditLogSearch.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/ComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "./ComplianceFeedPanel"
+      },
+      {
+        "module": "./PolicyMappingPanel"
+      },
+      {
+        "module": "./ComplianceGapPanel"
+      },
+      {
+        "module": "./RemediationRecommendationsPanel"
+      },
+      {
+        "module": "./RemediationWorkflowPanel"
+      },
+      {
+        "module": "./ReviewerAnalyticsPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/ComplianceFeedPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/ComplianceGapPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteAIAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/BugReport"
+      },
+      {
+        "module": "@mui/icons-material/GroupWork"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteAdvancedAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteAlertRoutingPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/NotificationsActive"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteAuditSimulationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/BugReport"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteBusinessIntegrationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/IntegrationInstructions"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/icons-material/EventAvailable"
+      },
+      {
+        "module": "@mui/icons-material/Replay"
+      },
+      {
+        "module": "@mui/icons-material/Edit"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Error"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/FlashOn"
+      },
+      {
+        "module": "./EliteAIAnalyticsPanel"
+      },
+      {
+        "module": "./EliteKPIDashboard"
+      },
+      {
+        "module": "./EliteRuleEditor"
+      },
+      {
+        "module": "./EliteAlertRoutingPanel"
+      },
+      {
+        "module": "./EliteDrilldownModal"
+      },
+      {
+        "module": "./EliteThemeToggle"
+      },
+      {
+        "module": "./EliteGamificationPanel"
+      },
+      {
+        "module": "./EliteExportPanel"
+      },
+      {
+        "module": "./EliteAuditSimulationPanel"
+      },
+      {
+        "module": "./EliteSAFEAIScorePanel"
+      },
+      {
+        "module": "./EliteBusinessIntegrationsPanel"
+      },
+      {
+        "module": "./EliteAdvancedAnalyticsPanel"
+      },
+      {
+        "module": "./EliteSecurityPerformancePanel"
+      },
+      {
+        "module": "./EliteComplianceExportsPanel"
+      },
+      {
+        "module": "./EliteHeartbeatPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteComplianceExportsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteDrilldownModal.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/History"
+      },
+      {
+        "module": "@mui/icons-material/Assignment"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteEventsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/EventAvailable"
+      },
+      {
+        "module": "@mui/icons-material/Replay"
+      },
+      {
+        "module": "@mui/icons-material/Edit"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Error"
+      },
+      {
+        "module": "@mui/icons-material/Sms"
+      },
+      {
+        "module": "@mui/icons-material/IntegrationInstructions"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteExportPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Download"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteGamificationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/EmojiEvents"
+      },
+      {
+        "module": "@mui/icons-material/Whatshot"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteHeartbeatPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteKPIDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/Assessment"
+      },
+      {
+        "module": "@mui/icons-material/Score"
+      },
+      {
+        "module": "@mui/icons-material/Leaderboard"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteRuleEditor.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/EditNote"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteSAFEAIScorePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Shield"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteSecurityPerformancePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/EliteThemeToggle.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/FreezeRotationSwitch.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "./MFAOverrideModal"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/HyperEliteVaultBadge.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./HyperEliteVaultBadge.css"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/LiveComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/MFAOverrideModal.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/PolicyApprovalPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/PolicyEditor.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/PolicyMappingPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/PolicyRecommendationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/RegulatoryWorkflowPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/RemediationRecommendationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/RemediationWorkflowPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/ReviewerAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/ReviewerDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/RuleManagerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Delete"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/SSOLogin.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/components/UsageMonitorPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "react-chartjs-2"
+      },
+      {
+        "module": "@mui/icons-material/Refresh"
+      },
+      {
+        "module": "@mui/icons-material/WarningAmber"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Download"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/cypress/e2e/admin_tools.cy.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/cypress.config.js": [
+      {
+        "module": "cypress"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/AdminManualTriggers.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/AuditInspector.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/Batch1315Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/Batch1620Widgets.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/Batch56Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/Batch712Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/ComplianceControls.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/Dashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../src/components/PhaseControlPanel"
+      },
+      {
+        "module": "../src/components/PDFBuilderDashboard"
+      },
+      {
+        "module": "../src/components/PDFQueueViewer"
+      },
+      {
+        "module": "../src/components/AuditLogViewer"
+      },
+      {
+        "module": "../src/components/NotificationSettingsUI"
+      },
+      {
+        "module": "../src/components/PDFBuilderSettings"
+      },
+      {
+        "module": "../src/components/Phase3000StatusPanel.jsx"
+      },
+      {
+        "module": "../src/components/Phase4000SelectedStatusPanel.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/LogViewer.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/dashboard/api.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/empire_admin_dashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./dashboard.css"
+      },
+      {
+        "module": "./src/components/FractalRevenueHeatmapPanel"
+      },
+      {
+        "module": "./src/components/RevenueFunnelPanel"
+      },
+      {
+        "module": "./src/components/ReferralManagementPanel"
+      },
+      {
+        "module": "./src/components/AutopilotUpsellPanel"
+      },
+      {
+        "module": "./src/components/CompoundingVaultPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/financial_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/pdf_catalog.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/public/service-worker.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/App.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./components/AnalyticsDashboard"
+      },
+      {
+        "module": "./components/SafeAIDashboard"
+      },
+      {
+        "module": "./components/OwnerControlPanel"
+      },
+      {
+        "module": "./components/CompletionChecklist"
+      },
+      {
+        "module": "./components/ReadinessChecklist"
+      },
+      {
+        "module": "./components/UXBestPractices"
+      },
+      {
+        "module": "./components/SafeAIStaticLogicSuggestions"
+      },
+      {
+        "module": "./components/SafeAIMistakesToAvoid"
+      },
+      {
+        "module": "./components/InnovationPipeline"
+      },
+      {
+        "module": "./components/SafeguardValidationLayer"
+      },
+      {
+        "module": "./components/ComplianceWorkflowStack"
+      },
+      {
+        "module": "./components/PolicyDocuments"
+      },
+      {
+        "module": "./components/FutureStaticEnhancements"
+      },
+      {
+        "module": "./components/BeginnerMistakesToAvoid"
+      },
+      {
+        "module": "./components/OnboardingPanel"
+      },
+      {
+        "module": "./components/FirstStepsChecklist"
+      },
+      {
+        "module": "./components/AccessibilityBestPractices"
+      },
+      {
+        "module": "./components/SupportPanel"
+      },
+      {
+        "module": "./components/LaunchReadinessChecklist"
+      },
+      {
+        "module": "./components/FAQPanel"
+      },
+      {
+        "module": "./components/ReleaseNotesPanel"
+      },
+      {
+        "module": "./components/ShowcaseEnginePanel"
+      },
+      {
+        "module": "./components/SmartPricingEnginePanel"
+      },
+      {
+        "module": "./components/PriceTestingEnginePanel"
+      },
+      {
+        "module": "./components/ComplianceExportsPanel"
+      },
+      {
+        "module": "./components/StaticBundleRecommendationPanel"
+      },
+      {
+        "module": "./components/ProductLifecycleTrackerPanel"
+      },
+      {
+        "module": "./components/GDPRDashboardPanel"
+      },
+      {
+        "module": "./components/AffiliateCampaignROIPanel"
+      },
+      {
+        "module": "./components/UpcomingVaultsPipelinePanel"
+      },
+      {
+        "module": "./components/LowPerformerAutoFlagPanel"
+      },
+      {
+        "module": "./components/AudienceInterestHeatmapPanel"
+      },
+      {
+        "module": "./components/EmailHealthReportPanel"
+      },
+      {
+        "module": "./components/TaxFilingCalendarPanel"
+      },
+      {
+        "module": "./components/OwnerOnboardingPanel"
+      },
+      {
+        "module": "./components/OwnerExportAllDataPanel"
+      },
+      {
+        "module": "./components/OwnerHelpSupportPanel"
+      },
+      {
+        "module": "./components/OwnerReleaseNotesPanel"
+      },
+      {
+        "module": "./components/OwnerAccessibilityChecklistPanel"
+      },
+      {
+        "module": "./components/OwnerBrandCustomizationPanel"
+      },
+      {
+        "module": "./components/OwnerDemoModePanel"
+      },
+      {
+        "module": "./components/OwnerBackupRestorePanel"
+      },
+      {
+        "module": "./components/OwnerAuditLogViewerPanel"
+      },
+      {
+        "module": "./components/NewCountryTaxLawsWatchPanel"
+      },
+      {
+        "module": "./components/AIGuardIntegrityMonitorPanel"
+      },
+      {
+        "module": "./components/BatchTabs1to16"
+      },
+      {
+        "module": "./components/BatchTabs"
+      },
+      {
+        "module": "./components/PartnerCertificationExportPanel"
+      },
+      {
+        "module": "../theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "./components/GumroadIntegrationPanel"
+      },
+      {
+        "module": "../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/vault_preview.json"
+      },
+      {
+        "module": "../vaults/the_ultimate_guide_to_ai_tools_and_automation_success/metadata.json"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/__tests__/test_color_customization.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "../../theme/ThemeProvider"
+      },
+      {
+        "module": "../components/ColorCustomization"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AIGuardIntegrityMonitorPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AILogVisualizerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AccessibilityBestPractices.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSessionPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminSettingsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AdminToolsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./AuditLogViewer"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      },
+      {
+        "module": "./ExportHistoryPanel"
+      },
+      {
+        "module": "./UserManagementPanel"
+      },
+      {
+        "module": "./AdminSessionPanel"
+      },
+      {
+        "module": "./AdminSettingsPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AffiliateCampaignROIPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AnalyticsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./VaultDropCountdownPanel"
+      },
+      {
+        "module": "./SalesHeatmapPanel"
+      },
+      {
+        "module": "./AILogVisualizerPanel"
+      },
+      {
+        "module": "./ComplianceRiskScoreWidget"
+      },
+      {
+        "module": "./AutomationTriggerPanel"
+      },
+      {
+        "module": "./PrivacyStatusBar"
+      },
+      {
+        "module": "./AuditLogSearchPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AudienceInterestHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AuditLogPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AuditLogSearchPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AuditLogViewer.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AuditTrailExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AutomationTriggerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/AutopilotUpsellPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch1620Widgets.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./PartnerCertificationForm"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch21FederatedTrustPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch22CertificationLegalPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch23GlobalPublicReadinessPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch24EnterprisePublicScalePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Batch25FinalTrustCertificationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/BatchPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/BatchTabs.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./Batch21FederatedTrustPanel"
+      },
+      {
+        "module": "./Batch22CertificationLegalPanel"
+      },
+      {
+        "module": "./Batch23GlobalPublicReadinessPanel"
+      },
+      {
+        "module": "./Batch24EnterprisePublicScalePanel"
+      },
+      {
+        "module": "./Batch25FinalTrustCertificationPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/BatchTabs1to16.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/BeginnerMistakesToAvoid.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ButtonPreview.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorCustomization.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./EnhancedColorPicker"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "./ColorPreview"
+      },
+      {
+        "module": "./ButtonPreview"
+      },
+      {
+        "module": "../utils/EthicalMonitor"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorMonitorDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorPicker.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorPreview.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorSchemeManager.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/CompletionChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ComplianceExportsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ComplianceRiskScoreWidget.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ComplianceWorkflowStack.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/CompoundingVaultPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/DownloadAllPoliciesButton.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/EmailHealthReportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/EnhancedColorPicker.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/EthicalDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ExportHistoryPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/FAQPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/FirstStepsChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/FractalRevenueHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/FutureStaticEnhancements.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/GDPRDashboardPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/GlobalPartnershipPlaybook.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/GumroadIntegrationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/InnovationPipeline.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/LaunchReadinessChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/LockdownMode.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Login.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/LowPerformerAutoFlagPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/NewCountryTaxLawsWatchPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/NotificationSettingsUI.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OnboardingPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerAccessibilityChecklistPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerAuditLogViewerPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerBackupRestorePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerBrandCustomizationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerControlPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./AuditLogPanel"
+      },
+      {
+        "module": "./CompletionChecklist"
+      },
+      {
+        "module": "./ReadinessChecklist"
+      },
+      {
+        "module": "./UXBestPractices"
+      },
+      {
+        "module": "./GlobalPartnershipPlaybook"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerDemoModePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerExportAllDataPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "jszip"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerHelpSupportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerManualPriceLockPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerOnboardingPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/OwnerReleaseNotesPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PDFBuilderDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PDFBuilderSettings.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PDFQueueViewer.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PartnerCertificationExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PartnerCertificationExportPanel.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "./PartnerCertificationExportPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PartnerCertificationForm.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PerformanceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Phase3000StatusPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/Phase4000SelectedStatusPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PhaseControlPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./PhaseControlPanel.css"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PolicyDocuments.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./DownloadAllPoliciesButton"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PriceTestingEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PrivacyStatusBar.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ProductLifecycleTrackerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ReadinessChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ReferralManagementPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ReleaseNotesPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/RevenueFunnelPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SafeAIDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./OwnerAuditLogViewerPanel"
+      },
+      {
+        "module": "./OwnerControlPanel"
+      },
+      {
+        "module": "./SmartPricingEnginePanel"
+      },
+      {
+        "module": "./ShowcaseEnginePanel"
+      },
+      {
+        "module": "./ComplianceExportsPanel"
+      },
+      {
+        "module": "./SafeguardValidationLayer"
+      },
+      {
+        "module": "./AnalyticsDashboard"
+      },
+      {
+        "module": "./StaticBundleRecommendationPanel"
+      },
+      {
+        "module": "./GDPRDashboardPanel"
+      },
+      {
+        "module": "./FutureStaticEnhancements"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SafeAIMistakesToAvoid.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SafeAIStaticLogicSuggestions.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SafeguardValidationLayer.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SalesHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SecretRotationHeatmap.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SecurityDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ShowcaseEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SmartPricingEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/StaticBundleRecommendationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SupportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/TaxFilingCalendarPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ThemeMonitorDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/TreatyTracker.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/UXBestPractices.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/UpcomingVaultsPipelinePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/UserManagementPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultDropCountdownPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/VaultPreviewCompilerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/WorldTrustDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/dashboard/AdminAuditDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../components/AuditTrailExportPanel"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/main.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-dom/client"
+      },
+      {
+        "module": "../theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "./App"
+      },
+      {
+        "module": "./registerServiceWorker"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/registerServiceWorker.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/setupTests.js": [
+      {
+        "module": "@testing-library/jest-dom"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/src/utils/SentiencePatternRecognizer.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/theme/ThemeProvider.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/theme/ThemeProvider.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/theme/theme.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/frontend/vitest.config.js": [
+      {
+        "module": "vitest/config"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/hooks/useEliteAuditTrail.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/integrations/partner_api_stub.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/integrations/webhooks/hmac_aes_stub.js": [
+      {
+        "module": "crypto"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/jest.config.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/sdk/extension_sdk.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/tests/ethical_monitoring.test.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "@testing-library/jest-dom"
+      },
+      {
+        "module": "../src/utils/EthicalMonitor"
+      },
+      {
+        "module": "../src/utils/SentiencePatternRecognizer"
+      },
+      {
+        "module": "../src/components/ColorCustomization"
+      },
+      {
+        "module": "../src/components/EthicalDashboard"
+      },
+      {
+        "module": "../src/components/PerformanceDashboard"
+      },
+      {
+        "module": "../src/components/SecurityDashboard"
+      },
+      {
+        "module": "../src/components/ThemeMonitorDashboard"
+      },
+      {
+        "module": "../src/components/ColorMonitorDashboard"
+      },
+      {
+        "module": "../src/utils/RemediationService"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/PromptMarketplace.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "../../dashboard/frontend/src/components/PromptMarketplace"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx": [
+      {
+        "module": "@testing-library/jest-dom"
+      },
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "../../frontend/theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "../../frontend/src/components/ColorCustomization.jsx"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/ui/EliteVaultSelector.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/_TEMPLATE_/bundle_generator.js": [],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/contentdrop_network/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/rebelremedy_recipes/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/ritualux_rituals/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/talentvault_explorer/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/templatevault_hub/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      },
+      {
+        "module": "../../core/license_manager.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/templiq_templates/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    ".backups/aifolio_snapshot_20250630_0003/vaults/therapiq_therapy/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/__tests__/hooks/useToggle.test.ts": [
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "../../hooks/useToggle"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/__tests__/infrastructure.test.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/__tests__/layouts/AppWrapper.test.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "@testing-library/user-event"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "../../layouts/AppWrapper"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/__tests__/ui/Button.test.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "@testing-library/user-event"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "../../ui/components/forms/Button"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/.eslintrc.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/babel.config.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/commitlint.config.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/eslint.config.js": [
+      {
+        "module": "eslint-plugin-react"
+      },
+      {
+        "module": "@typescript-eslint/eslint-plugin"
+      },
+      {
+        "module": "@typescript-eslint/parser"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/jest.config.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/jest.setup.js": [
+      {
+        "module": "@testing-library/jest-dom"
+      },
+      {
+        "module": "jest-axe"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/postcss.config.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/config/tailwind.config.js": [
+      {
+        "module": "@tailwindcss/forms"
+      },
+      {
+        "module": "@tailwindcss/typography"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/AnomalyWatchdog.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/App.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../layouts/AppWrapper"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/App.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-router-dom"
+      },
+      {
+        "module": "./init/app"
+      },
+      {
+        "module": "../ui/components/ThemeProvider"
+      },
+      {
+        "module": "../layouts/main/AppLayout"
+      },
+      {
+        "module": "../features/theme/ThemeEditor"
+      },
+      {
+        "module": "../ui/components/LoadingSpinner"
+      },
+      {
+        "module": "../hooks/common/useGlobalState"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/LockdownDebugger.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/LockdownGate.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/NoSentienceLayer.ts": [
+      {
+        "module": "./AnomalyWatchdog"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/RenderCage.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ai_clone_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ai_engine.js": [
+      {
+        "module": "./prompt_executor"
+      },
+      {
+        "module": "./style_tuner"
+      },
+      {
+        "module": "./pdf_builder"
+      },
+      {
+        "module": "./scheduler"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ai_prompt_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/analytics_3.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/analytics_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/api_layer.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/arnault_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/asset_health_checker.js": [
+      {
+        "module": "fs"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/audit_trail.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/bezos_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/billionaire_fusion_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/buffett_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/business_cloner_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/business_spawner.js": [
+      {
+        "module": "./oleary_engine.js"
+      },
+      {
+        "module": "./musk_engine.js"
+      },
+      {
+        "module": "./bezos_engine.js"
+      },
+      {
+        "module": "./zuck_engine.js"
+      },
+      {
+        "module": "./buffett_engine.js"
+      },
+      {
+        "module": "./ellison_engine.js"
+      },
+      {
+        "module": "./arnault_engine.js"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ecom_sync.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ellison_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ethics_firewall.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/futureproof_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/gates_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/globalization_layer.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/growth_layer.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/hormozi_vayner_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/ideation_hub.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/image_generator.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/infrastructure.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/init/app.ts": [
+      {
+        "module": "../state/globalState"
+      },
+      {
+        "module": "../system/config"
+      },
+      {
+        "module": "../../lib/utils/logger"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/jobs_fadell_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/license_manager.js": [
+      {
+        "module": "crypto"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/license_manager_backup.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/main.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-dom/client"
+      },
+      {
+        "module": "../theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "./App"
+      },
+      {
+        "module": "./registerServiceWorker"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/marketplace_trend_analyzer.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/memory_feedback_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/musk_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/oleary_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/optimization_loop.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/pdf_builder.js": [
+      {
+        "module": "jspdf"
+      },
+      {
+        "module": "./style_tuner.js"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/product_gen.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/prompt_executor.js": [
+      {
+        "module": "../config/prompt_sets/utils.js"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/qr_generator.js": [
+      {
+        "module": "qrcode"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/quantum_vault_duplicator.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/refund_risk_flagger.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/registerServiceWorker.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/scheduler.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/security_compliance.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/state/globalState.ts": [
+      {
+        "module": "rxjs"
+      },
+      {
+        "module": "../../lib/utils/logger"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/style_theme_logic.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/style_tuner.js": [
+      {
+        "module": "../config/themes/global.json"
+      },
+      {
+        "module": "../config/themes/vaults.json"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/system/config.ts": [
+      {
+        "module": "../../lib/utils/logger"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/tone_voice_matcher.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/typo_grammar_checker.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/vault_manager.js": [
+      {
+        "module": "../config/vault_registry.json"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/vault_registry.js": [
+      {
+        "module": "fs"
+      },
+      {
+        "module": "path"
+      },
+      {
+        "module": "./license_manager"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/visual_balance_checker.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/web3_nft.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/zip_archiver.js": [
+      {
+        "module": "jszip"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/core/zuck_engine.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/examples/LockdownIntegration.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/admin/admin_audit_log.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/admin/admin_failed_hooks_dashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./admin_audit_log.jsx"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/admin/empire_admin_dashboard.jsx": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/analytics/analytics_dashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-apexcharts"
+      },
+      {
+        "module": "date-fns"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/analytics/financial_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/automation/automation_dashboard.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/automation/backend/analytics/frontend_dashboard_stub.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/DashboardPage.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../../ui/components/display/Card"
+      },
+      {
+        "module": "../../ui/components/display/Badge"
+      },
+      {
+        "module": "../../ui/components/forms/Button"
+      },
+      {
+        "module": "../../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/anti_sentience_guard_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/audit_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/audit_timestamp_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/auto_recovery_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/cold_start_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/csv_import_export_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/load_balancer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/output_transparency_explorer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/phase8_static_modules_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/phase9_static_modules_panel.jsx": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/policy_audit_panel.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/prompt_fingerprinting_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/refund_suggestions_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/style_voice_tuner_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/synthetic_monitoring_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/telegram_alert_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/variant_generator_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/version_history_panel.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/vocab_scope_limiter_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/webhook_events_panel.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/admin_panels/webhook_latency_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/ar_preview.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/App.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./components/Stats"
+      },
+      {
+        "module": "./components/EventCharts"
+      },
+      {
+        "module": "./Phase8ModulesDashboard"
+      },
+      {
+        "module": "./Phase9ModulesDashboard"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/EliteAuditComplianceDashboard"
+      },
+      {
+        "module": "./components/PromptMarketplace"
+      },
+      {
+        "module": "./components/WorkflowBuilder"
+      },
+      {
+        "module": "./components/ExportPanel"
+      },
+      {
+        "module": "./components/BillingDashboard"
+      },
+      {
+        "module": "./components/PartnerProgram"
+      },
+      {
+        "module": "./components/Leaderboard"
+      },
+      {
+        "module": "./components/AutomationBuilder"
+      },
+      {
+        "module": "./components/OnboardingTour"
+      },
+      {
+        "module": "./components/AIOverridePanel"
+      },
+      {
+        "module": "./components/RedactionPanel"
+      },
+      {
+        "module": "./components/SAFEAISelfTestPanel"
+      },
+      {
+        "module": "./components/BackupManager"
+      },
+      {
+        "module": "./components/OwnerGuide"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/Phase8ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase8_static_modules_panel"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/Phase9ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase9_static_modules_panel"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/Phase9KeyAdminPanel"
+      },
+      {
+        "module": "./components/Phase9AuditLogStream"
+      },
+      {
+        "module": "./components/StaticEnhancementsPanel"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/AIOverridePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/AutomationBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/BackupManager.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/BillingDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/EliteAuditComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../../core/audit_trail"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/EventCharts.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-chartjs-2"
+      },
+      {
+        "module": "chart.js"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/ExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Leaderboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/OnboardingTour.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/OwnerGuide.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/PartnerProgram.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Phase9AnalyticsPanel.jsx": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Phase9AuditLogStream.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Phase9AuditLogWidget.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Phase9KeyAdminPanel.jsx": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Phase9RoleBadge.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/PromptMarketplace.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/RedactionPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/SAFEAISelfTestPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/StaticEnhancementsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/Stats.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/components/WorkflowBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/i18n/index.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/frontend/src/utils/accessibility.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/static/analytics.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/backend/voice_activation.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/AdminManualTriggers.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/AuditInspector.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch1315Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch1620Widgets.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch56Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch712Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/ComplianceControls.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Dashboard.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/IntegrationControls.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/LogViewer.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/api.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/marketing/pdf_catalog.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/settings/SettingsPage.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../../ui/components/display/Card"
+      },
+      {
+        "module": "../../ui/components/forms/Button"
+      },
+      {
+        "module": "../../ui/components/forms/Input"
+      },
+      {
+        "module": "../../ui/components/forms/Select"
+      },
+      {
+        "module": "../../ui/components/display/Badge"
+      },
+      {
+        "module": "../../ui/components/interactive/Modal"
+      },
+      {
+        "module": "../../hooks/useDarkMode"
+      },
+      {
+        "module": "../../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/theme/ThemeEditor.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../../hooks/common/useGlobalState"
+      },
+      {
+        "module": "../../hooks/common/useToggle"
+      },
+      {
+        "module": "../../hooks/ui/useClickOutside"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/static/compliance_dashboard.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/notifications/notify.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/injector_safety_guard.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/ai_tools.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/analytics_sync.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/branding_injector.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/coach.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/cta_generator.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/custom_template_loader.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/firewall_v2.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/freelancer.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/ip_compliance_checker.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/lgbtq.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/make_money_online.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/theme_override.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/autonomy/pdf_builder/visual_injectors/visual_alerts.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/calculateLuminance.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/colorPresets.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/colorPresetsExtended.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/enhancedColorPresets.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/safetyGuards.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/sentienceTests.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/validateAndApplyColor.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/features/vault/upgrades/validateColorCombination.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/frontend/accessibility.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "./muse_haven/HiddenMuseHaven.jsx"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/index.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useClickOutside.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useClickOutside.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useDarkMode.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./useLocalStorage"
+      },
+      {
+        "module": "./useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useDarkMode.ts": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./useLocalStorage"
+      },
+      {
+        "module": "./useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useLocalStorage.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useLocalStorage.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useMounted.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useMounted.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useToggle.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/hooks/useToggle.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../ui/ThemeEditorPanel"
+      },
+      {
+        "module": "../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/layouts/AppWrapper.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../ui/ThemeEditorPanel"
+      },
+      {
+        "module": "../ui/Navbar"
+      },
+      {
+        "module": "../ui/Sidebar"
+      },
+      {
+        "module": "../hooks/useMounted"
+      },
+      {
+        "module": "../hooks/useDarkMode"
+      },
+      {
+        "module": "../hooks/useToggle"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/lib/testing/ThemeTest.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../hooks/useDarkMode"
+      },
+      {
+        "module": "../../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/lib/testing/accessibility.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "./frontend/muse_haven/HiddenMuseHaven.jsx"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/public/sw.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/public/validate-pwa.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/types/vault.schema.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/Navbar.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useMounted"
+      },
+      {
+        "module": "../hooks/useDarkMode"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/Navbar.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useMounted"
+      },
+      {
+        "module": "../hooks/useDarkMode"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/Sidebar.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useMounted"
+      },
+      {
+        "module": "../hooks/useClickOutside"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/Sidebar.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useMounted"
+      },
+      {
+        "module": "../hooks/useClickOutside"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/ThemeEditorPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useDarkMode"
+      },
+      {
+        "module": "../hooks/useToggle"
+      },
+      {
+        "module": "../hooks/useClickOutside"
+      },
+      {
+        "module": "../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/ThemeEditorPanel.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../hooks/useDarkMode"
+      },
+      {
+        "module": "../hooks/useToggle"
+      },
+      {
+        "module": "../hooks/useClickOutside"
+      },
+      {
+        "module": "../hooks/useMounted"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/atoms/Divider.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/atoms/InlineNote.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/atoms/SectionTitle.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/atoms/Tag.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/atoms/TooltipHint.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/PWAInstallPrompt.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/PWAInstallPrompt.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/display/Badge.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/display/Card.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/display/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/forms/Button.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/forms/Input.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/forms/Select.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../../../hooks/useClickOutside"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/forms/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/interactive/Modal.tsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "framer-motion"
+      },
+      {
+        "module": "../../../hooks/useClickOutside"
+      }
+    ],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/components/interactive/index.ts": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/index.js": [],
+    "AIFOLIO_KNOWLEDGE_INJECT/ui/index.ts": [],
+    "AIFOLIO_TAX_ENGINE_ULTIMATE_V4/dashboard/static/compliance_dashboard.js": [],
+    "UPGRADES that are done/autonomy/notifications/notify.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/injector_safety_guard.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/ai_tools.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/analytics_sync.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/branding_injector.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/coach.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/cta_generator.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/custom_template_loader.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/firewall_v2.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/freelancer.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/ip_compliance_checker.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/lgbtq.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/make_money_online.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/theme_override.js": [],
+    "UPGRADES that are done/autonomy/pdf_builder/visual_injectors/visual_alerts.js": [],
+    "UPGRADES that are done/calculateLuminance.js": [],
+    "UPGRADES that are done/colorPresets.js": [],
+    "UPGRADES that are done/colorPresetsExtended.js": [],
+    "UPGRADES that are done/enhancedColorPresets.js": [],
+    "UPGRADES that are done/safetyGuards.js": [],
+    "UPGRADES that are done/sentienceTests.js": [],
+    "UPGRADES that are done/validateAndApplyColor.js": [],
+    "UPGRADES that are done/validateColorCombination.js": [],
+    "accessibility.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "./frontend/muse_haven/HiddenMuseHaven.jsx"
+      }
+    ],
+    "api/gateway.js": [
+      {
+        "module": "express"
+      }
+    ],
+    "autonomy/analytics/frontend_dashboard_stub.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "babel.config.js": [],
+    "branding/font_config.js": [],
+    "core/ai_clone_engine.js": [],
+    "core/ai_engine.js": [
+      {
+        "module": "./prompt_executor"
+      },
+      {
+        "module": "./style_tuner"
+      },
+      {
+        "module": "./pdf_builder"
+      },
+      {
+        "module": "./scheduler"
+      }
+    ],
+    "core/ai_prompt_engine.js": [],
+    "core/analytics_3.js": [],
+    "core/analytics_engine.js": [],
+    "core/api_layer.js": [],
+    "core/arnault_engine.js": [],
+    "core/asset_health_checker.js": [
+      {
+        "module": "fs"
+      }
+    ],
+    "core/audit_trail.js": [],
+    "core/bezos_engine.js": [],
+    "core/billionaire_fusion_engine.js": [],
+    "core/buffett_engine.js": [],
+    "core/business_cloner_engine.js": [],
+    "core/business_spawner.js": [
+      {
+        "module": "./oleary_engine.js"
+      },
+      {
+        "module": "./musk_engine.js"
+      },
+      {
+        "module": "./bezos_engine.js"
+      },
+      {
+        "module": "./zuck_engine.js"
+      },
+      {
+        "module": "./buffett_engine.js"
+      },
+      {
+        "module": "./ellison_engine.js"
+      },
+      {
+        "module": "./arnault_engine.js"
+      }
+    ],
+    "core/ecom_sync.js": [],
+    "core/ellison_engine.js": [],
+    "core/ethics_firewall.js": [],
+    "core/futureproof_engine.js": [],
+    "core/gates_engine.js": [],
+    "core/globalization_layer.js": [],
+    "core/growth_layer.js": [],
+    "core/hormozi_vayner_engine.js": [],
+    "core/ideation_hub.js": [],
+    "core/image_generator.js": [],
+    "core/infrastructure.js": [],
+    "core/jobs_fadell_engine.js": [],
+    "core/license_manager.js": [
+      {
+        "module": "crypto"
+      }
+    ],
+    "core/license_manager_backup.js": [],
+    "core/marketplace_trend_analyzer.js": [],
+    "core/memory_feedback_engine.js": [],
+    "core/musk_engine.js": [],
+    "core/oleary_engine.js": [],
+    "core/optimization_loop.js": [],
+    "core/pdf_builder.js": [
+      {
+        "module": "jspdf"
+      },
+      {
+        "module": "./style_tuner.js"
+      }
+    ],
+    "core/product_gen.js": [],
+    "core/prompt_executor.js": [
+      {
+        "module": "../config/prompt_sets/utils.js"
+      }
+    ],
+    "core/qr_generator.js": [
+      {
+        "module": "qrcode"
+      }
+    ],
+    "core/quantum_vault_duplicator.js": [],
+    "core/refund_risk_flagger.js": [],
+    "core/scheduler.js": [],
+    "core/security_compliance.js": [],
+    "core/style_theme_logic.js": [],
+    "core/style_tuner.js": [
+      {
+        "module": "../config/themes/global.json"
+      },
+      {
+        "module": "../config/themes/vaults.json"
+      }
+    ],
+    "core/tone_voice_matcher.js": [],
+    "core/typo_grammar_checker.js": [],
+    "core/vault_manager.js": [
+      {
+        "module": "../config/vault_registry.json"
+      }
+    ],
+    "core/vault_registry.js": [
+      {
+        "module": "fs"
+      },
+      {
+        "module": "path"
+      },
+      {
+        "module": "./license_manager"
+      }
+    ],
+    "core/visual_balance_checker.js": [],
+    "core/web3_nft.js": [],
+    "core/zip_archiver.js": [
+      {
+        "module": "jszip"
+      }
+    ],
+    "core/zuck_engine.js": [],
+    "corrupted_black_parse/Scripts/pin_node_dependencies.js": [
+      {
+        "module": "fs"
+      }
+    ],
+    "dashboard/admin_panels/anti_sentience_guard_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/audit_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/audit_timestamp_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/auto_recovery_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/cold_start_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/csv_import_export_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/load_balancer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/output_transparency_explorer_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/phase8_static_modules_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/phase9_static_modules_panel.jsx": [],
+    "dashboard/admin_panels/policy_audit_panel.js": [],
+    "dashboard/admin_panels/prompt_fingerprinting_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/refund_suggestions_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/style_voice_tuner_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/synthetic_monitoring_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/telegram_alert_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/variant_generator_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/version_history_panel.js": [],
+    "dashboard/admin_panels/vocab_scope_limiter_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/admin_panels/webhook_events_panel.js": [],
+    "dashboard/admin_panels/webhook_latency_panel.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/ar_preview.js": [],
+    "dashboard/frontend/src/App.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./components/Stats"
+      },
+      {
+        "module": "./components/EventCharts"
+      },
+      {
+        "module": "./Phase8ModulesDashboard"
+      },
+      {
+        "module": "./Phase9ModulesDashboard"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/EliteAuditComplianceDashboard"
+      },
+      {
+        "module": "./components/PromptMarketplace"
+      },
+      {
+        "module": "./components/WorkflowBuilder"
+      },
+      {
+        "module": "./components/ExportPanel"
+      },
+      {
+        "module": "./components/BillingDashboard"
+      },
+      {
+        "module": "./components/PartnerProgram"
+      },
+      {
+        "module": "./components/Leaderboard"
+      },
+      {
+        "module": "./components/AutomationBuilder"
+      },
+      {
+        "module": "./components/OnboardingTour"
+      },
+      {
+        "module": "./components/AIOverridePanel"
+      },
+      {
+        "module": "./components/RedactionPanel"
+      },
+      {
+        "module": "./components/SAFEAISelfTestPanel"
+      },
+      {
+        "module": "./components/BackupManager"
+      },
+      {
+        "module": "./components/OwnerGuide"
+      }
+    ],
+    "dashboard/frontend/src/Phase8ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase8_static_modules_panel"
+      }
+    ],
+    "dashboard/frontend/src/Phase9ModulesDashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../admin_panels/phase9_static_modules_panel"
+      },
+      {
+        "module": "./components/Phase9AuditLogWidget"
+      },
+      {
+        "module": "./components/Phase9KeyAdminPanel"
+      },
+      {
+        "module": "./components/Phase9AuditLogStream"
+      },
+      {
+        "module": "./components/StaticEnhancementsPanel"
+      }
+    ],
+    "dashboard/frontend/src/components/AIOverridePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/AutomationBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/BackupManager.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/BillingDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/EliteAuditComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../../core/audit_trail"
+      }
+    ],
+    "dashboard/frontend/src/components/EventCharts.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-chartjs-2"
+      },
+      {
+        "module": "chart.js"
+      }
+    ],
+    "dashboard/frontend/src/components/ExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/Leaderboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/OnboardingTour.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/OwnerGuide.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/PartnerProgram.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/Phase9AnalyticsPanel.jsx": [],
+    "dashboard/frontend/src/components/Phase9AuditLogStream.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/Phase9AuditLogWidget.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/Phase9KeyAdminPanel.jsx": [],
+    "dashboard/frontend/src/components/Phase9RoleBadge.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/PromptMarketplace.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/RedactionPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/SAFEAISelfTestPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/StaticEnhancementsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/Stats.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/components/WorkflowBuilder.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/i18n/index.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "dashboard/frontend/src/utils/accessibility.js": [],
+    "dashboard/static/analytics.js": [],
+    "dashboard/voice_activation.js": [],
+    "engines/elite_ai_engine.ts": [],
+    "eslint.config.js": [
+      {
+        "module": "eslint-plugin-react"
+      },
+      {
+        "module": "@typescript-eslint/eslint-plugin"
+      },
+      {
+        "module": "@typescript-eslint/parser"
+      }
+    ],
+    "frontend/.eslintrc.js": [],
+    "frontend/accessibility.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "jest-axe"
+      },
+      {
+        "module": "./muse_haven/HiddenMuseHaven.jsx"
+      }
+    ],
+    "frontend/admin_audit_log.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/admin_failed_hooks_dashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./admin_audit_log.jsx"
+      }
+    ],
+    "frontend/analytics_dashboard.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-apexcharts"
+      },
+      {
+        "module": "date-fns"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    "frontend/automation_dashboard.js": [],
+    "frontend/babel.config.js": [],
+    "frontend/components/AdminRoleManager.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/icons-material/Save"
+      },
+      {
+        "module": "@mui/icons-material/Refresh"
+      }
+    ],
+    "frontend/components/AdvancedAnalyticsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    "frontend/components/AnomalyDrilldown.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/AnomalyRootCausePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/AuditLogSearch.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/ComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "./ComplianceFeedPanel"
+      },
+      {
+        "module": "./PolicyMappingPanel"
+      },
+      {
+        "module": "./ComplianceGapPanel"
+      },
+      {
+        "module": "./RemediationRecommendationsPanel"
+      },
+      {
+        "module": "./RemediationWorkflowPanel"
+      },
+      {
+        "module": "./ReviewerAnalyticsPanel"
+      }
+    ],
+    "frontend/components/ComplianceFeedPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/ComplianceGapPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/EliteAIAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/BugReport"
+      },
+      {
+        "module": "@mui/icons-material/GroupWork"
+      }
+    ],
+    "frontend/components/EliteAdvancedAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/EliteAlertRoutingPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/NotificationsActive"
+      }
+    ],
+    "frontend/components/EliteAuditSimulationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/BugReport"
+      }
+    ],
+    "frontend/components/EliteBusinessIntegrationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/IntegrationInstructions"
+      }
+    ],
+    "frontend/components/EliteComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/icons-material/EventAvailable"
+      },
+      {
+        "module": "@mui/icons-material/Replay"
+      },
+      {
+        "module": "@mui/icons-material/Edit"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Error"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/FlashOn"
+      },
+      {
+        "module": "./EliteAIAnalyticsPanel"
+      },
+      {
+        "module": "./EliteKPIDashboard"
+      },
+      {
+        "module": "./EliteRuleEditor"
+      },
+      {
+        "module": "./EliteAlertRoutingPanel"
+      },
+      {
+        "module": "./EliteDrilldownModal"
+      },
+      {
+        "module": "./EliteThemeToggle"
+      },
+      {
+        "module": "./EliteGamificationPanel"
+      },
+      {
+        "module": "./EliteExportPanel"
+      },
+      {
+        "module": "./EliteAuditSimulationPanel"
+      },
+      {
+        "module": "./EliteSAFEAIScorePanel"
+      },
+      {
+        "module": "./EliteBusinessIntegrationsPanel"
+      },
+      {
+        "module": "./EliteAdvancedAnalyticsPanel"
+      },
+      {
+        "module": "./EliteSecurityPerformancePanel"
+      },
+      {
+        "module": "./EliteComplianceExportsPanel"
+      },
+      {
+        "module": "./EliteHeartbeatPanel"
+      }
+    ],
+    "frontend/components/EliteComplianceExportsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/EliteDrilldownModal.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/EliteEventsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/EventAvailable"
+      },
+      {
+        "module": "@mui/icons-material/Replay"
+      },
+      {
+        "module": "@mui/icons-material/Edit"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Error"
+      },
+      {
+        "module": "@mui/icons-material/Sms"
+      },
+      {
+        "module": "@mui/icons-material/IntegrationInstructions"
+      }
+    ],
+    "frontend/components/EliteExportPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Download"
+      }
+    ],
+    "frontend/components/EliteGamificationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/EmojiEvents"
+      },
+      {
+        "module": "@mui/icons-material/Whatshot"
+      }
+    ],
+    "frontend/components/EliteHeartbeatPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/EliteKPIDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/TrendingUp"
+      },
+      {
+        "module": "@mui/icons-material/Assessment"
+      },
+      {
+        "module": "@mui/icons-material/Score"
+      },
+      {
+        "module": "@mui/icons-material/Leaderboard"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    "frontend/components/EliteRuleEditor.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/icons-material/EditNote"
+      }
+    ],
+    "frontend/components/EliteSAFEAIScorePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      },
+      {
+        "module": "@mui/icons-material/Shield"
+      }
+    ],
+    "frontend/components/EliteSecurityPerformancePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/EliteThemeToggle.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    "frontend/components/EmmaAvatar.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/FreezeRotationSwitch.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "./MFAOverrideModal"
+      }
+    ],
+    "frontend/components/HyperEliteVaultBadge.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/LiveComplianceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-chartjs-2"
+      }
+    ],
+    "frontend/components/MFAOverrideModal.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/PolicyApprovalPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/PolicyEditor.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/PolicyMappingPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/PolicyRecommendationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/RegulatoryWorkflowPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/RemediationRecommendationsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/RemediationWorkflowPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/ReviewerAnalyticsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/ReviewerDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/components/RuleManagerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "@mui/icons-material/Delete"
+      }
+    ],
+    "frontend/components/SSOLogin.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/components/UsageMonitorPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "react-chartjs-2"
+      },
+      {
+        "module": "@mui/icons-material/Refresh"
+      },
+      {
+        "module": "@mui/icons-material/WarningAmber"
+      },
+      {
+        "module": "@mui/icons-material/CheckCircle"
+      },
+      {
+        "module": "@mui/icons-material/Download"
+      }
+    ],
+    "frontend/cypress/e2e/admin_tools.cy.js": [],
+    "frontend/cypress/e2e/owner-flows.cy.js": [],
+    "frontend/cypress.config.js": [
+      {
+        "module": "cypress"
+      }
+    ],
+    "frontend/dashboard/AdminManualTriggers.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "frontend/dashboard/AuditInspector.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "frontend/dashboard/Batch1315Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/dashboard/Batch1620Widgets.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "frontend/dashboard/Batch56Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/dashboard/Batch712Widgets.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/dashboard/ComplianceControls.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/dashboard/Dashboard.js": [],
+    "frontend/dashboard/IntegrationControls.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/dashboard/LogViewer.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./api"
+      }
+    ],
+    "frontend/dashboard/api.js": [],
+    "frontend/empire_admin_dashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/eslint.config.js": [
+      {
+        "module": "eslint-plugin-react"
+      },
+      {
+        "module": "@typescript-eslint/eslint-plugin"
+      },
+      {
+        "module": "@typescript-eslint/parser"
+      }
+    ],
+    "frontend/financial_dashboard.js": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/jest.config.js": [],
+    "frontend/muse_haven/ApiKeyStatus.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/muse_haven/HiddenMuseHaven.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./OnboardingOverlay"
+      },
+      {
+        "module": "./ApiKeyStatus"
+      },
+      {
+        "module": "../dashboard/IntegrationControls"
+      },
+      {
+        "module": "../components/EmmaAvatar.jsx"
+      }
+    ],
+    "frontend/muse_haven/OnboardingOverlay.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/pdf_catalog.js": [],
+    "frontend/public/service-worker.js": [],
+    "frontend/setupTests.js": [],
+    "frontend/src/App.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/__tests__/test_color_customization.test.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AIGuardIntegrityMonitorPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AILogVisualizerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/AccessibilityBestPractices.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AdminSessionPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    "frontend/src/components/AdminSettingsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    "frontend/src/components/AdminToolsPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./AuditLogViewer"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      },
+      {
+        "module": "./ExportHistoryPanel"
+      },
+      {
+        "module": "./UserManagementPanel"
+      },
+      {
+        "module": "./AdminSessionPanel"
+      },
+      {
+        "module": "./AdminSettingsPanel"
+      }
+    ],
+    "frontend/src/components/AffiliateCampaignROIPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AnalyticsDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./PrivacyStatusBar"
+      },
+      {
+        "module": "./VaultDropCountdownPanel"
+      },
+      {
+        "module": "./SalesHeatmapPanel"
+      },
+      {
+        "module": "./AILogVisualizerPanel"
+      },
+      {
+        "module": "./ComplianceRiskScoreWidget"
+      },
+      {
+        "module": "./AutomationTriggerPanel"
+      },
+      {
+        "module": "./AuditLogSearchPanel"
+      },
+      {
+        "module": "./VaultDropCountdownPanel"
+      },
+      {
+        "module": "./SalesHeatmapPanel"
+      },
+      {
+        "module": "./AILogVisualizerPanel"
+      },
+      {
+        "module": "./ComplianceRiskScoreWidget"
+      },
+      {
+        "module": "./AutomationTriggerPanel"
+      },
+      {
+        "module": "./PrivacyStatusBar"
+      },
+      {
+        "module": "./AuditLogSearchPanel"
+      }
+    ],
+    "frontend/src/components/AudienceInterestHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AuditLogPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AuditLogSearchPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/src/components/AuditLogViewer.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/AuditTrailExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/AutomationTriggerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/AutopilotUpsellPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Batch1620Widgets.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./PartnerCertificationForm"
+      }
+    ],
+    "frontend/src/components/Batch21FederatedTrustPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Batch22CertificationLegalPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Batch23GlobalPublicReadinessPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Batch24EnterprisePublicScalePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Batch25FinalTrustCertificationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/BatchPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/BatchTabs.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./Batch21FederatedTrustPanel"
+      },
+      {
+        "module": "./Batch22CertificationLegalPanel"
+      },
+      {
+        "module": "./Batch23GlobalPublicReadinessPanel"
+      },
+      {
+        "module": "./Batch24EnterprisePublicScalePanel"
+      },
+      {
+        "module": "./Batch25FinalTrustCertificationPanel"
+      }
+    ],
+    "frontend/src/components/BatchTabs1to16.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/BeginnerMistakesToAvoid.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ButtonPreview.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    "frontend/src/components/ColorCustomization.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./EnhancedColorPicker"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      },
+      {
+        "module": "./ColorPreview"
+      },
+      {
+        "module": "./ButtonPreview"
+      },
+      {
+        "module": "../utils/EthicalMonitor"
+      }
+    ],
+    "frontend/src/components/ColorMonitorDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    "frontend/src/components/ColorPicker.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    "frontend/src/components/ColorPreview.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    "frontend/src/components/ColorSchemeManager.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    "frontend/src/components/CompletionChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ComplianceExportsPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ComplianceRiskScoreWidget.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ComplianceWorkflowStack.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/CompoundingVaultPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/src/components/DownloadAllPoliciesButton.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/EmailHealthReportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/EnhancedColorPicker.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../theme/ThemeProvider.jsx"
+      }
+    ],
+    "frontend/src/components/EthicalDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    "frontend/src/components/ExportHistoryPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/FAQPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/FirstStepsChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/FractalRevenueHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/FutureStaticEnhancements.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/GDPRDashboardPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/GlobalPartnershipPlaybook.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/GumroadIntegrationPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/src/components/InnovationPipeline.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/LaunchReadinessChecklist.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/LockdownMode.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Login.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/LowPerformerAutoFlagPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/NewCountryTaxLawsWatchPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/NotificationSettingsUI.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OnboardingPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerAccessibilityChecklistPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerAuditLogViewerPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerBackupRestorePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerBrandCustomizationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerControlPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./AuditLogPanel"
+      },
+      {
+        "module": "./CompletionChecklist"
+      },
+      {
+        "module": "./ReadinessChecklist"
+      },
+      {
+        "module": "./UXBestPractices"
+      },
+      {
+        "module": "./GlobalPartnershipPlaybook"
+      }
+    ],
+    "frontend/src/components/OwnerDemoModePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerExportAllDataPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "jszip"
+      }
+    ],
+    "frontend/src/components/OwnerHelpSupportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerManualPriceLockPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerOnboardingPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/OwnerReleaseNotesPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PDFBuilderDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/PDFBuilderSettings.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PDFQueueViewer.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/PartnerCertificationExportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PartnerCertificationExportPanel.test.jsx": [
+      {
+        "module": "@testing-library/jest-dom"
+      },
+      {
+        "module": "vitest"
+      },
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "./PartnerCertificationExportPanel"
+      }
+    ],
+    "frontend/src/components/PartnerCertificationForm.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PerformanceDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    "frontend/src/components/Phase3000StatusPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/Phase4000SelectedStatusPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PhaseControlPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./PhaseControlPanel.css"
+      }
+    ],
+    "frontend/src/components/PolicyDocuments.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./DownloadAllPoliciesButton"
+      }
+    ],
+    "frontend/src/components/PriceTestingEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/PrivacyStatusBar.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ProductLifecycleTrackerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    "frontend/src/components/ReadinessChecklist.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/src/components/ReferralManagementPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ReleaseNotesPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/RevenueFunnelPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SafeAIDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "./OwnerAuditLogViewerPanel"
+      },
+      {
+        "module": "./OwnerControlPanel"
+      },
+      {
+        "module": "./SmartPricingEnginePanel"
+      },
+      {
+        "module": "./ShowcaseEnginePanel"
+      },
+      {
+        "module": "./ComplianceExportsPanel"
+      },
+      {
+        "module": "./SafeguardValidationLayer"
+      },
+      {
+        "module": "./AnalyticsDashboard"
+      },
+      {
+        "module": "./StaticBundleRecommendationPanel"
+      },
+      {
+        "module": "./GDPRDashboardPanel"
+      },
+      {
+        "module": "./FutureStaticEnhancements"
+      },
+      {
+        "module": "@mui/material"
+      }
+    ],
+    "frontend/src/components/SafeAIMistakesToAvoid.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SafeAIStaticLogicSuggestions.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SafeguardValidationLayer.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SalesHeatmapPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SecretRotationHeatmap.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/SecurityDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      }
+    ],
+    "frontend/src/components/ShowcaseEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SmartPricingEnginePanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/StaticBundleRecommendationPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/SupportPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/TaxFilingCalendarPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/ThemeMonitorDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      },
+      {
+        "module": "../theme/ThemeProvider"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "date-fns"
+      }
+    ],
+    "frontend/src/components/TreatyTracker.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/UXBestPractices.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/UpcomingVaultsPipelinePanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    "frontend/src/components/UserManagementPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "axios"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/src/components/VaultDropCountdownPanel.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/components/VaultPreviewCompilerPanel.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../../components/HyperEliteVaultBadge"
+      }
+    ],
+    "frontend/src/components/WorldTrustDashboard.jsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "frontend/src/dashboard/AdminAuditDashboard.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "../components/AuditTrailExportPanel"
+      }
+    ],
+    "frontend/src/main.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "react-dom/client"
+      },
+      {
+        "module": "@/App"
+      },
+      {
+        "module": "@/theme/ThemeProvider"
+      },
+      {
+        "module": "@/registerServiceWorker"
+      }
+    ],
+    "frontend/src/registerServiceWorker.js": [],
+    "frontend/src/setupTests.js": [],
+    "frontend/src/utils/SentiencePatternRecognizer.jsx": [
+      {
+        "module": "../theme/ThemeProvider"
+      }
+    ],
+    "frontend/src/utils/client_security.js": [],
+    "frontend/theme/ThemeProvider.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "prop-types"
+      }
+    ],
+    "frontend/theme/theme.js": [],
+    "frontend/vite.config.js": [
+      {
+        "module": "vite"
+      },
+      {
+        "module": "@vitejs/plugin-react"
+      },
+      {
+        "module": "path"
+      },
+      {
+        "module": "@/components/Button"
+      }
+    ],
+    "frontend/vitest.config.js": [
+      {
+        "module": "vitest/config"
+      }
+    ],
+    "frontend/vitest.config.ts": [
+      {
+        "module": "vitest/config"
+      }
+    ],
+    "hooks/useEliteAuditTrail.ts": [
+      {
+        "module": "react"
+      }
+    ],
+    "integrations/partner_api_stub.js": [],
+    "integrations/webhooks/hmac_aes_stub.js": [
+      {
+        "module": "crypto"
+      }
+    ],
+    "jest.config.js": [],
+    "sdk/extension_sdk.js": [],
+    "tests/ethical_monitoring.test.js": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "@testing-library/jest-dom"
+      },
+      {
+        "module": "../src/utils/EthicalMonitor"
+      },
+      {
+        "module": "../src/utils/SentiencePatternRecognizer"
+      },
+      {
+        "module": "../src/components/ColorCustomization"
+      },
+      {
+        "module": "../src/components/EthicalDashboard"
+      },
+      {
+        "module": "../src/components/PerformanceDashboard"
+      },
+      {
+        "module": "../src/components/SecurityDashboard"
+      },
+      {
+        "module": "../src/components/ThemeMonitorDashboard"
+      },
+      {
+        "module": "../src/components/ColorMonitorDashboard"
+      },
+      {
+        "module": "../src/utils/RemediationService"
+      }
+    ],
+    "tests/omni_v4_integration.test.js": [
+      {
+        "module": "vitest"
+      },
+      {
+        "module": "../core/billionaire_fusion_engine.js"
+      },
+      {
+        "module": "../core/business_cloner_engine.js"
+      },
+      {
+        "module": "../core/growth_layer.js"
+      },
+      {
+        "module": "../core/memory_feedback_engine.js"
+      },
+      {
+        "module": "../core/globalization_layer.js"
+      },
+      {
+        "module": "../core/optimization_loop.js"
+      },
+      {
+        "module": "../core/futureproof_engine.js"
+      },
+      {
+        "module": "../core/ethics_firewall.js"
+      }
+    ],
+    "tests/quantum_vault_duplication.test.js": [
+      {
+        "module": "vitest"
+      },
+      {
+        "module": "../core/quantum_vault_duplicator.js"
+      },
+      {
+        "module": "../core/ai_clone_engine.js"
+      }
+    ],
+    "tests/ui_enhancements/PromptMarketplace.test.jsx": [
+      {
+        "module": "react"
+      },
+      {
+        "module": "@testing-library/react"
+      },
+      {
+        "module": "../../dashboard/frontend/src/components/PromptMarketplace"
+      }
+    ],
+    "tests/ui_enhancements/test_color_customization.test.jsx": [],
+    "tools/fixrunner_ts_graph.js": [
+      {
+        "module": "fs"
+      },
+      {
+        "module": "path"
+      }
+    ],
+    "ui/EliteVaultSelector.tsx": [
+      {
+        "module": "react"
+      }
+    ],
+    "vaults/_TEMPLATE_/bundle_generator.js": [],
+    "vaults/contentdrop_network/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "vaults/rebelremedy_recipes/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "vaults/ritualux_rituals/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "vaults/talentvault_explorer/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "vaults/templatevault_hub/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      },
+      {
+        "module": "../../core/license_manager.js"
+      }
+    ],
+    "vaults/templiq_templates/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ],
+    "vaults/therapiq_therapy/logic.js": [
+      {
+        "module": "../../core/ai_prompt_engine.js"
+      },
+      {
+        "module": "../../core/pdf_builder.js"
+      },
+      {
+        "module": "../../core/image_generator.js"
+      },
+      {
+        "module": "../../core/analytics_engine.js"
+      }
+    ]
+  }
+}

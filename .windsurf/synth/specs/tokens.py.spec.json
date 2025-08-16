@@ -1,0 +1,110 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "tokens.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/pycodestyle.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pycodestyle.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pygments/lexer.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexer.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/scanner.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/__init__.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/yaml/parser.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/passlib/totp.py",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@pkgjs/parseargs/index.js",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@pkgjs/parseargs/index.js",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/typescript/lib/typescript.js",
+      "kind": "import",
+      "raw": "tokens",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/postcss/lib/parser.js",
+      "kind": "import",
+      "raw": "tokens.length",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@vue/compiler-sfc/dist/compiler-sfc.esm-browser.js",
+      "kind": "import",
+      "raw": "tokens.length",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/tailwindcss/peers/index.js",
+      "kind": "import",
+      "raw": "tokens.length",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

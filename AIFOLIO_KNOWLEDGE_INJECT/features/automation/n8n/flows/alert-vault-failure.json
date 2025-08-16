@@ -14,7 +14,7 @@
     {
       "parameters": {
         "chatId": "@AIFOLIO_ALERTS",
-        "message": "[AIFOLIO OMNILOCK] Vault Failure: {{$json["msg"]}}",
+        "message": "[AIFOLIO OMNILOCK] Vault Failure: {{$json[\"msg\"]}}",
         "options": {}
       },
       "name": "Send Telegram Alert",

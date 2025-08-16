@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "tsx",
+  "path": "AIFOLIO_KNOWLEDGE_INJECT/core/LockdownDebugger.tsx",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "Lockdowndebugger"
+    ],
+    "functions": []
+  },
+  "references": [
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/core/index.ts",
+      "kind": "import",
+      "raw": "LockdownDebugger",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

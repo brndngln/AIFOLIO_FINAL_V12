@@ -1,0 +1,34 @@
+{
+  "counts": {
+    "fixed_n8n": 3,
+    "ok": 0,
+    "skipped": 0,
+    "stubbed": 13
+  },
+  "duration_sec": 0.021,
+  "files": {
+    "fixed_n8n": {
+      ".backups/aifolio_snapshot_20250630_0003/n8n/flows/alert-vault-failure.json": 1,
+      "AIFOLIO_KNOWLEDGE_INJECT/features/automation/n8n/flows/alert-vault-failure.json": 1,
+      "n8n/flows/alert-vault-failure.json": 1
+    },
+    "ok": {},
+    "skipped": {},
+    "stubbed": {
+      ".backups/aifolio_snapshot_20250630_0003/analytics/safe_ai_self_test_report.json": 1,
+      ".backups/aifolio_snapshot_20250630_0003/n8n/flows/spike-usage-alert.json": 1,
+      "AIFOLIO_KNOWLEDGE_INJECT/features/analytics/data/safe_ai_self_test_report.json": 1,
+      "AIFOLIO_KNOWLEDGE_INJECT/features/automation/n8n/flows/spike-usage-alert.json": 1,
+      "analytics/safe_ai_self_test_report.json": 1,
+      "config/prompt_sets/contentdrop_network.json": 1,
+      "config/prompt_sets/rebelremedy_recipes.json": 1,
+      "config/prompt_sets/ritualux_rituals.json": 1,
+      "config/prompt_sets/talentvault_explorer.json": 1,
+      "config/prompt_sets/templatevault_hub.json": 1,
+      "config/prompt_sets/templiq_templates.json": 1,
+      "config/prompt_sets/therapiq_therapy.json": 1,
+      "n8n/flows/spike-usage-alert.json": 1
+    }
+  },
+  "timestamp": "2025-08-12 19:10:57"
+}

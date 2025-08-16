@@ -21,13 +21,13 @@ The following icons are required for full PWA compatibility:
 - `shortcut-settings.png` - Settings shortcut (192x192px)
 
 ### Additional Icons
-- `favicon.ico` - Browser favicon (16x16, 32x32, 48x48px multi-size)
+- `favicon.svg` - Browser favicon (16x16, 32x32, 48x48px multi-size)
 - `favicon-32x32.png` - Standard favicon (32x32px)
 - `apple-touch-icon.png` - iOS home screen icon (180x180px)
 
 ## Icon Requirements
 
-1. **Format**: PNG format (except favicon.ico)
+1. **Format**: PNG format (except favicon.svg)
 2. **Background**: Solid background (no transparency for better compatibility)
 3. **Design**: Square format with rounded corners applied by OS
 4. **Colors**: Brand consistent with AIFOLIO theme

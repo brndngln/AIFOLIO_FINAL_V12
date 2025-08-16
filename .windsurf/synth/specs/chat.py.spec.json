@@ -1,0 +1,62 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "python",
+  "path": "chat.py",
+  "public_api": {
+    "classes": [],
+    "constants": [
+      "__all__"
+    ],
+    "default_export": [],
+    "functions": [
+      "ping"
+    ]
+  },
+  "references": [
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/completion_create_params.py",
+      "kind": "import",
+      "raw": "chat.chat_completion_stream_options_param",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source.py",
+      "kind": "import",
+      "raw": "chat.chat_completion_tool",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/evals/create_eval_completions_run_data_source_param.py",
+      "kind": "import",
+      "raw": "chat.chat_completion_tool_param",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/types/responses/tool_param.py",
+      "kind": "import",
+      "raw": "chat.chat_completion_tool_param",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/__init__.py",
+      "kind": "import",
+      "raw": "chat",
+      "symbols": []
+    },
+    {
+      "file": ".venv/lib/python3.12/site-packages/openai/resources/chat/__init__.py",
+      "kind": "import",
+      "raw": "chat",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}
