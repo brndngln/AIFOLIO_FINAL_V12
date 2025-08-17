@@ -6,10 +6,6 @@ target-version = ['py311']
 profile = "black"
 line_length = 88
 
-[tool.pytest.ini_options]
-addopts = "--maxfail=5 --disable-warnings -q"
-testpaths = ["backend"]
-
 [tool.mypy]
 python_version = "3.11"
 ignore_missing_imports = true
@@ -21,13 +17,13 @@ exclude = ["venv_backend", "__pycache__", ".git", ".mypy_cache", ".pytest_cache"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q --strict-markers --strict-config"
-testpaths = ["tests"]
+addopts = "-ra -q --strict-markers --strict-config --maxfail=5 --disable-warnings"
+testpaths = ["tests", "backend"]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 markers = [
-    "slow: marks tests as slow (deselect with '-m "not slow"')",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests",
     "performance: marks tests as performance tests",

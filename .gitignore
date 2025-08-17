@@ -78,10 +78,23 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Temporary files
+# Temporary
+tmp/
+temp/
 *.tmp
 *.temp
-.tmp/
+.cache/
+
+# Large generated files
+duplicate_files_full.txt
+all_file_hashes.txt
+all_duplicate_files_expanded.txt
+black_parse_errors.txt
+flake8_lint_report.txt
+tools/structural_analysis_report.json
+
+# Backup directories
+.backups/
 .temp/
 
 # AIFOLIO Security
