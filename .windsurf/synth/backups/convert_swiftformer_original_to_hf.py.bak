@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_swiftformer_original_to_hf')

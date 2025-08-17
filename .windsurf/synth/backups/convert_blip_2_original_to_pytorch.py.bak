@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_blip_2_original_to_pytorch')

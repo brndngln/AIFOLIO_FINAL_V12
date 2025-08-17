@@ -8,9 +8,8 @@ Comprehensive fix for corrupted synth files to unblock commits.
 from __future__ import annotations
 
 import os
-from pathlib import Path
-
 import shutil
+from pathlib import Path
 
 
 def create_minimal_synth_file(filepath: Path, module_name: str) -> None:

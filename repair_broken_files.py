@@ -1,9 +1,7 @@
 pt = None  # TODO: Define pt
-from pathlib import Path
-
 import shutil
 import subprocess
-
+from pathlib import Path
 
 BROKEN_FILE_LIST = "cleaned_broken_files.txt"
 UNREPAIRABLE_LOG = "unrepairable_files.txt"

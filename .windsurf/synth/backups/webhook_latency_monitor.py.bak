@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for webhook_latency_monitor')

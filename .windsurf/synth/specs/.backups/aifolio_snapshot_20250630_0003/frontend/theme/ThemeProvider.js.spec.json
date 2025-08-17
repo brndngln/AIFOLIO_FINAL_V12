@@ -1,0 +1,554 @@
+{
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "error_handling": "Raise specific exceptions; return clear error messages.",
+  "language": "js",
+  "path": ".backups/aifolio_snapshot_20250630_0003/frontend/theme/ThemeProvider.js",
+  "public_api": {
+    "classes": [],
+    "constants": [],
+    "default_export": [
+      "main"
+    ],
+    "functions": [
+      "util"
+    ]
+  },
+  "references": [
+    {
+      "file": "frontend/analytics_dashboard.js",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/main.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/main.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/utils/SentiencePatternRecognizer.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ColorMonitorDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/SecurityDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ColorPicker.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/PerformanceDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ColorCustomization.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ButtonPreview.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ColorPreview.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/EnhancedColorPicker.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/EthicalDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ColorSchemeManager.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "frontend/src/components/ThemeMonitorDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/analytics_dashboard.js",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.js",
+      "kind": "require",
+      "raw": "./ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/ThemeProvider/index.js",
+      "kind": "require",
+      "raw": "./ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/ThemeProvider/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/ThemeProvider/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/ThemeProvider/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/esm/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/ThemeProvider/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/legacy/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/cssVars/createCssVarsProvider.js",
+      "kind": "require",
+      "raw": "../ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/ThemeProvider/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/system/modern/cssVars/createCssVarsProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/ThemeProvider/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/ThemeProvider/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/legacy/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/legacy/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/legacy/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/modern/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/modern/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/modern/ThemeProvider/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/node/index.js",
+      "kind": "require",
+      "raw": "./ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/private-theming/node/ThemeProvider/index.js",
+      "kind": "require",
+      "raw": "./ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/legacy/styles/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/styles/index.d.ts",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/ThemeProvider.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/modern/styles/index.js",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/node_modules/@mui/material/node/styles/index.js",
+      "kind": "require",
+      "raw": "./ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/main.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/main.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/App.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/App.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/utils/SentiencePatternRecognizer.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorMonitorDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/SecurityDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorPicker.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/PerformanceDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorCustomization.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ButtonPreview.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorPreview.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/EnhancedColorPicker.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/EthicalDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ColorSchemeManager.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/components/ThemeMonitorDashboard.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/__tests__/test_color_customization.test.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/__tests__/test_color_customization.test.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/src/__tests__/test_color_customization.test.jsx",
+      "kind": "test",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx",
+      "kind": "import",
+      "raw": "frontend/theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": ".backups/aifolio_snapshot_20250630_0003/tests/ui_enhancements/test_color_customization.test.jsx",
+      "kind": "test",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/core/App.tsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/core/App.tsx",
+      "kind": "import",
+      "raw": "ui/components/ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/core/main.jsx",
+      "kind": "import",
+      "raw": "ThemeProvider",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/core/main.jsx",
+      "kind": "import",
+      "raw": "theme/ThemeProvider.jsx",
+      "symbols": []
+    },
+    {
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/features/analytics/analytics_dashboard.js",
+      "kind": "import",
+      "raw": "theme/ThemeProvider",
+      "symbols": []
+    }
+  ],
+  "role": "utils",
+  "security_notes": "Validate inputs; avoid code injection; handle paths safely.",
+  "tests_to_create": [
+    "happy_path"
+  ]
+}

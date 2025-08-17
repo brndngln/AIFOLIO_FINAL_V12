@@ -8,15 +8,14 @@ Comprehensive syntax checker for AIFOLIO_FINAL_V12 codebase
 Identifies all Python syntax errors, import issues, and compilation problems
 """
 
+import ast
 import json
 import os
+import py_compile
 import sys
+import tempfile
 from pathlib import Path
 from typing import Dict, List, Tuple
-
-import ast
-import py_compile
-import tempfile
 
 
 def check_python_file(filepath: str) -> Tuple[bool, str]:

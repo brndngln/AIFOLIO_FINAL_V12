@@ -9,6 +9,7 @@ FOUNDER_LOCK_TEMPLATE = {}  # TODO: Define FOUNDER_LOCK_TEMPLATE
 "SAFE AI MODULE"
 "SAFE AI MODULE"
 from fastapi import Request
+
 from .crypto_utils import verify_otp, verify_signature
 
 with open(FOUNDER_LOCK_PATH.replace(".py", ".template")) as f:

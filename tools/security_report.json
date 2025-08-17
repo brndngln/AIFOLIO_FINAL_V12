@@ -1,0 +1,246 @@
+{
+  "timestamp": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12",
+  "secrets_found": 30,
+  "vulnerabilities_found": 4,
+  "security_issues": 0,
+  "secrets_detail": [
+    {
+      "type": "password",
+      "file": "sync_to_veracrypt.sh",
+      "line": 6,
+      "match": "PASSWORD=\"your-secure-password\""
+    },
+    {
+      "type": "password",
+      "file": "sync_to_veracrypt.sh",
+      "line": 12,
+      "match": "password=\"$VC_PASSWORD\""
+    },
+    {
+      "type": "password",
+      "file": "restore_from_veracrypt.sh",
+      "line": 6,
+      "match": "PASSWORD=\"your-secure-password\""
+    },
+    {
+      "type": "password",
+      "file": "restore_from_veracrypt.sh",
+      "line": 12,
+      "match": "password=\"$VC_PASSWORD\""
+    },
+    {
+      "type": "password",
+      "file": "frontend/admin_failed_hooks_dashboard.jsx",
+      "line": 85,
+      "match": "password: \"\" });\n  const [isLoggedIn, setIsLoggedI..."
+    },
+    {
+      "type": "password",
+      "file": "config/notification_channels.json",
+      "line": 13,
+      "match": "password\": \"YOUR_PASSWORD\""
+    },
+    {
+      "type": "token",
+      "file": "config/notification_channels.json",
+      "line": 20,
+      "match": "token\": \"YOUR_PUSHOVER_API_TOKEN\""
+    },
+    {
+      "type": "token",
+      "file": "config/notification_channels.json",
+      "line": 25,
+      "match": "token\": \"YOUR_TELEGRAM_BOT_TOKEN\""
+    },
+    {
+      "type": "password",
+      "file": ".backups/aifolio_snapshot_20250630_0003/frontend/admin_failed_hooks_dashboard.jsx",
+      "line": 85,
+      "match": "password: \"\" });\n  const [isLoggedIn, setIsLoggedI..."
+    },
+    {
+      "type": "api_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 6,
+      "match": "API_KEY=sk-proj-9Xnu-XCDzojegWzVbGeE07yvdgwH7IJfNs..."
+    },
+    {
+      "type": "api_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 18,
+      "match": "API_KEY=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"
+    },
+    {
+      "type": "password",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 918,
+      "match": "PASSWORD:\"\n  },\n  {\n    \""
+    },
+    {
+      "type": "password",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 936,
+      "match": "PASSWORD:\"\n  },\n  {\n    \""
+    },
+    {
+      "type": "password",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 4518,
+      "match": "PASSWORD:\"\n  },\n  {\n    \""
+    },
+    {
+      "type": "password",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 4536,
+      "match": "PASSWORD:\"\n  },\n  {\n    \""
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1458,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1470,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1494,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1566,
+      "match": "-----BEGIN OPENSSH PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1602,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1614,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1662,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1692,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1704,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1716,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1734,
+      "match": "-----BEGIN EC PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1824,
+      "match": "-----BEGIN RSA PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1842,
+      "match": "-----BEGIN RSA PRIVATE KEY-----"
+    },
+    {
+      "type": "private_key",
+      "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
+      "line": 1854,
+      "match": "-----BEGIN RSA PRIVATE KEY-----"
+    },
+    {
+      "type": "password",
+      "file": "AIFOLIO_KNOWLEDGE_INJECT/features/admin/admin_failed_hooks_dashboard.jsx",
+      "line": 85,
+      "match": "password: \"\" });\n  const [isLoggedIn, setIsLoggedI..."
+    }
+  ],
+  "vulnerabilities_detail": [
+    {
+      "type": "command_injection",
+      "file": "check_setup.py",
+      "line": 23,
+      "code": "subprocess.call(script, shell=True"
+    },
+    {
+      "type": "command_injection",
+      "file": "corrupted_black_failures/test_query_eval.py",
+      "line": 29,
+      "code": "Eval("
+    },
+    {
+      "type": "command_injection",
+      "file": "corrupted_black_failures/rl_safe_eval.py",
+      "line": 29,
+      "code": "Eval("
+    },
+    {
+      "type": "command_injection",
+      "file": "corrupted_black_failures/test_eval.py",
+      "line": 29,
+      "code": "Eval("
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "CRITICAL",
+      "title": "Remove Hardcoded Secrets",
+      "description": "Found 30 hardcoded secrets. Move to environment variables.",
+      "action": "Use .env file and environment variable loading"
+    },
+    {
+      "priority": "HIGH",
+      "title": "Fix Security Vulnerabilities",
+      "description": "Found 4 potential vulnerabilities.",
+      "action": "Review and fix SQL injection, command injection, and XSS issues"
+    },
+    {
+      "priority": "HIGH",
+      "title": "Implement Input Validation",
+      "description": "Add comprehensive input validation and sanitization",
+      "action": "Use validation libraries like pydantic or marshmallow"
+    },
+    {
+      "priority": "MEDIUM",
+      "title": "Enable Security Headers",
+      "description": "Implement security headers for web endpoints",
+      "action": "Use security.json configuration for headers"
+    },
+    {
+      "priority": "MEDIUM",
+      "title": "Implement Rate Limiting",
+      "description": "Add rate limiting to prevent abuse",
+      "action": "Configure rate limiting in security.json"
+    }
+  ]
+}

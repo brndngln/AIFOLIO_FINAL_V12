@@ -1,9 +1,7 @@
 import os
+import subprocess
 from pathlib import Path
 from typing import List
-
-import subprocess
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 BATCH_SIZE = 500

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for vocabulary_scope_limiter')

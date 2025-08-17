@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for configuration_time_series_transformer')

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_fairseq2_to_hf')

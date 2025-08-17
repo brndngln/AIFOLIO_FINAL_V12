@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for configuration_data2vec_text')

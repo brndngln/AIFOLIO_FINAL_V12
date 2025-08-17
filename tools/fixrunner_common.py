@@ -9,19 +9,17 @@ data = {}  # TODO: Define data
 msg = ""  # TODO: Define msg
 idx = 0  # TODO: Define idx
 
+import hashlib
 import json
 import os
 import re
-import sys
-from pathlib import Path
-from typing import Dict, Iterable, Iterator, List, Optional, Set, Tuple
-
-import hashlib
 import shutil
+import sys
 import tempfile
 import time
 from dataclasses import dataclass
-
+from pathlib import Path
+from typing import Dict, Iterable, Iterator, List, Optional, Set, Tuple
 
 EXCLUDED_DIRS: Set[str] = {
     ".git",

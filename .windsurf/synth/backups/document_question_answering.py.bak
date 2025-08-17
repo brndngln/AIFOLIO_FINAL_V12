@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for document_question_answering')

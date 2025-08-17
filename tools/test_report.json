@@ -1,0 +1,12 @@
+{
+  "tests_generated": 10,
+  "test_files_created": 12,
+  "coverage_percentage": 0,
+  "test_infrastructure_status": "OPERATIONAL",
+  "recommendations": [
+    "Run tests regularly with: pytest tests/",
+    "Check coverage with: pytest --cov=. tests/",
+    "Run performance tests with: pytest -m performance",
+    "Run integration tests with: pytest -m integration"
+  ]
+}

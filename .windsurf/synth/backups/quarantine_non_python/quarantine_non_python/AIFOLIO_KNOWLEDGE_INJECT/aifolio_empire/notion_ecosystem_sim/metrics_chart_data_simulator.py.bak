@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for metrics_chart_data_simulator')

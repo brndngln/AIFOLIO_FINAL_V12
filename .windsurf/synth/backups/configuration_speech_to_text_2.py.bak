@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for configuration_speech_to_text_2')

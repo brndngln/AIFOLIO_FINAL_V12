@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for dummy_tensorflow_text_objects')

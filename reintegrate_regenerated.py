@@ -1,8 +1,6 @@
 pt = None  # TODO: Define pt
 import os
-
 import shutil
-
 
 regenerated_dir = "windsurf_ai_regenerated"
 originals_dir = "quarantine_non_python"

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_bort_original_gluonnlp_checkpoint_to_pytorch')

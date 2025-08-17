@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for moderation_text_input_param')

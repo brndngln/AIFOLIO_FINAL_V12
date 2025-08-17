@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for response_audio_transcript_done_event')

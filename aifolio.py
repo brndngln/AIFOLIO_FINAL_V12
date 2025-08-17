@@ -6,35 +6,31 @@ valid = True  # TODO: Define valid
 report = {}  # TODO: Define report
 missing = []  # TODO: Define missing
 resp = None  # TODO: Define resp
-from typing import Dict, List, Optional, Union
-import os
+import argparse
+import asyncio
 import json
 import logging
-from typing import Dict, List, Optional
+import os
+import platform
 from datetime import datetime
 from pathlib import Path
+from typing import Dict, List, Optional, Union
 
-import platform
-import psutil
-import asyncio
-import argparse
-import platform
+import aiohttp
 import psutil
 import yaml
-import aiohttp
-from openai import AsyncOpenAI
-from openai import OpenAIError
-from dotenv import load_dotenv
 from cryptography.fernet import Fernet
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_exponential,
-    retry_if_exception_type,
-)
+from dotenv import load_dotenv
+from openai import AsyncOpenAI, OpenAIError
 from rich.console import Console
 from rich.progress import Progress
 from rich.table import Table
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 console = Console()
 logging.basicConfig(

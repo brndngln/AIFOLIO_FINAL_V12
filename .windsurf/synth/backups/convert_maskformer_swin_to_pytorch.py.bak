@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_maskformer_swin_to_pytorch')

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for rule_manager_api')

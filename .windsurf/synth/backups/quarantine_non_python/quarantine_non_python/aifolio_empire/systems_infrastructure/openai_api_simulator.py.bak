@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for openai_api_simulator')

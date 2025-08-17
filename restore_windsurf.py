@@ -1,8 +1,6 @@
 pt = None  # TODO: Define pt
 import os
-
 import shutil
-
 
 backup_folder = "./windsurf_backup_replaced/"
 path_mappings = {

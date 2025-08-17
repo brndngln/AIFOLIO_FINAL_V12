@@ -13,12 +13,12 @@ invalid = []  # TODO: Define invalid
 
 import json
 import re
+import shutil
 import sys
+import time
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-import shutil
-import time
 from fixrunner_common import (
     atomic_write_json,
     atomic_write_text,

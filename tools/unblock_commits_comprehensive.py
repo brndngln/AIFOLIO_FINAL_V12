@@ -60,13 +60,12 @@ This script will systematically fix all linting issues across the entire codebas
 
 from __future__ import annotations
 
+import ast
 import os
 import re
 import sys
 from pathlib import Path
 from typing import Dict, List, Set
-
-import ast
 
 
 def fix_undefined_names_comprehensive(content: str, filepath: str) -> str:

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for safe_ai_audit_report')

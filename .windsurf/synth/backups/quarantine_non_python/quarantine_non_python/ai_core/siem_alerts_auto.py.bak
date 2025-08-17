@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for siem_alerts_auto')

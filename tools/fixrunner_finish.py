@@ -10,10 +10,10 @@ plan = {}  # TODO: Define plan
 
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict
 
-import time
 from fixrunner_common import (
     atomic_write_json,
     fixrunner_dir,

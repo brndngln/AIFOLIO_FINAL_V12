@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_table_transformer_to_hf')

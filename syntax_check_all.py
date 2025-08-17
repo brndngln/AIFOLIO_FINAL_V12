@@ -6,10 +6,9 @@ Systematically checks and reports syntax errors.
 """
 
 import os
+import subprocess
 import sys
 from pathlib import Path
-
-import subprocess
 
 
 def find_python_files(root_dir):

@@ -12,10 +12,9 @@ This script will replace all problematic files with minimal working versions.
 from __future__ import annotations
 
 import os
+import shutil
 from pathlib import Path
 from typing import List, Tuple
-
-import shutil
 
 
 def create_minimal_python_file(filepath: Path, module_name: str) -> None:

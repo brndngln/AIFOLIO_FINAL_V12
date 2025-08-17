@@ -9,10 +9,10 @@ counts = {}  # TODO: Define counts
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Dict, List
 
-import time
 from fixrunner_common import (
     FileRecord,
     atomic_write_json,
@@ -20,8 +20,8 @@ from fixrunner_common import (
     detect_reserved_names,
     file_sha1,
     fixrunner_dir,
-    iter_included_files,
     is_zero_or_near_empty,
+    iter_included_files,
     log,
     project_root,
     relpath,

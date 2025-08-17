@@ -1,7 +1,6 @@
 ct = None  # TODO: Define ct
 import os
 
-
 bad_files = [
     "test_numerictypes.py",
     "test_convert_dtypes.py",

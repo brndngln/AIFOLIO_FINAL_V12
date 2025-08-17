@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for adaptive_monetization_signal_detector')

@@ -177,16 +177,14 @@ def main():
     """Main function to fix all linting errors."""
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-import os
-import sys
-from pathlib import Path
-from typing import Dict, List, Set
-
+import ast
 import datetime
 import importlib
-import ast
+import os
 import re
+import sys
+from pathlib import Path
+from typing import TYPE_CHECKING, Dict, List, Set
 
 #!/usr / bin / env python3
 

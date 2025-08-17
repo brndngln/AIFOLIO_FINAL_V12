@@ -1,3 +1,17 @@
+# AIFOLIO Security Fortress .gitignore
+
+# Environment and Secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -20,38 +34,21 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+# Virtual Environments
+.venv/
 venv/
-
-# WINDSURF SECURE GIT IMMUNIZATION
-*.hc
-*.veracrypt
-*.tar.gz
-*.zip
-*.7z
-*.pkl
-*.h5
-*.iso
-/secure/
-/mnt/vera/
-/AIFOLIO_FINAL_V12_RESTORED/
-/sync_to_veracrypt.sh
-/restore_from_veracrypt.sh
-/EmmaVolumeMonitor.py
-/vaults/
-/backups/
-/mount/
-# Ignore nothing in omnisecure_stack — allow full access:
-!omnisecure_stack/
-!omnisecure_stack/**
-#UPGRADES that are done/MoreUpgrades4/vaults/  # [EmmaBypass 2025-07-03T11:28:42-06:00] Temporarily commented for legacy lockdown
-# autonomy/vaults/  # [EmmaBypass 2025-07-03T11:19:14-06:00] Temporarily commented for anti_sentience.marker deployment
-vaults/
-admin/tools/system_backups/
-#analytics/backups/ # [OMNIELITE sweep: temporarily commented to allow analytics access]
-
 ENV/
+env/
 
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -59,142 +56,57 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Project specific
-
-# Python caches and build artifacts
-__pycache__/
-.mypy_cache/
-*.py[cod]
-*.pyo
-*.pyd
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environment
-venv/
-ENV/
-
-# Logs, temp, and backup files
+# Logs
 *.log
+logs/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
 *.tmp
-*.bak
+*.temp
+.tmp/
+.temp/
 
-# Test and result artifacts
-frontend_test_results.json
-
-# OS-specific and system files
-.DS_Store
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Archives and encrypted volumes
-*.zip
-*.tar.gz
-*.7z
+# AIFOLIO Security
+.env*
+!.env.example
+private/
+.env/
+# Dependencies
+.npm
+.yarn/
+# Testing
+.tox/
+# AI/ML
+*.model
 *.pkl
 *.h5
-*.iso
-
-# Build and distribution folders
-/dist/
-/build/
-
-# Project-specific lockdowns
-/secure/
-/mnt/vera/
-/AIFOLIO_FINAL_V12_RESTORED/
-/sync_to_veracrypt.sh
-/restore_from_veracrypt.sh
-/EmmaVolumeMonitor.py
-/vaults/
-admin/tools/system_backups/
-#analytics/backups/ # [OMNIELITE sweep: temporarily commented to allow analytics access]
-
-# WINDSURF SECURE GIT IMMUNIZATION
-*.hc
-*.veracrypt
-omnisecure_stack/
-
-# Ignore egg-info and dist-info folders anywhere
-*.egg-info/
-*.dist-info/
-
-# Ignore pdf_builder and related build folders
-# **/pdf_builder/
-
-# Ignore pip build operations
-**/pip/_internal/operations/build/
-
-# Uncomment or update additional rules as needed
-
-.env
-.env.*
-.env.example
-
-# *.log (ALLOW ai_core/EmmaLogs/*.log for Emma audit)
-!/ai_core/EmmaLogs/*.log
-__tests__/
-node_modules/
-coverage/
-*.coverage
-*.pyc
-*.pyo
-*.pyd
-*.db
-*.sqlite3
-# *.lock
-*.pkl
-*.pickle
-
-# Distribution
-distribution/
-build/
-dist/
-*.egg-info/
-.backups/
-.backups/
-.backups/
-node_modules
-node_modules
-node_modules
-node_modules
-
-# Ignore Python cache
-.mypy_cache/
-__pycache__/
-
-# Ignore large test results
-frontend/frontend_test_results.json
-
-# Ignore all .zip and .json files created by knowledge injection
-# AIFOLIO_KNOWLEDGE_INJECT/
-AIFOLIO_KNOWLEDGE_INJECT/*.zip
-AIFOLIO_KNOWLEDGE_INJECT/**/*.zip
-AIFOLIO_KNOWLEDGE_INJECT/**/*.json
-*.zip
-node_modules/
-
-# Windsurf override: allow access to blocked directories
-!AIFOLIO_KNOWLEDGE_INJECT/
-!AIFOLIO_KNOWLEDGE_INJECT/**
-!omnisecure_stack/
-!omnisecure_stack/**
+*.weights
+checkpoints/
+# Temporary
+tmp/
+temp/
+# Database
+# Compiled
+*.com
+*.class
+*.dll
+*.exe
+*.o

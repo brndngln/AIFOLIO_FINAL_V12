@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-08-17T13:22:16.835155",
+  "ux_analysis": {
+    "component_count": 470,
+    "style_files": 29,
+    "accessibility_issues": [
+      "Missing ARIA attributes: EliteVaultSelector.tsx",
+      "Missing ARIA attributes: connect.tsx",
+      "Missing ARIA attributes: Provider.tsx",
+      "Missing ARIA attributes: QueryErrorResetBoundary.tsx",
+      "Missing ARIA attributes: usePrefetchQuery.tsx",
+      "Missing ARIA attributes: QueryClientProvider.tsx",
+      "Missing ARIA attributes: usePrefetchInfiniteQuery.tsx",
+      "Missing ARIA attributes: HydrationBoundary.tsx",
+      "Missing ARIA attributes: index.tsx"
+    ],
+    "design_inconsistencies": [],
+    "performance_concerns": []
+  },
+  "accessibility_audit": {
+    "enhancements_applied": 1
+  },
+  "design_system": {
+    "files_created": 2
+  },
+  "optimizations_applied": [
+    "performance-monitoring"
+  ],
+  "recommendations": [
+    "Implement consistent design tokens across all components",
+    "Add comprehensive ARIA labels and semantic HTML",
+    "Optimize component rendering performance",
+    "Establish design system documentation",
+    "Conduct user testing sessions",
+    "Implement dark mode support",
+    "Add micro-interactions for delight",
+    "Ensure mobile-first responsive design"
+  ]
+}

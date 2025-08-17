@@ -30,20 +30,18 @@ Usage examples:
 
 from __future__ import annotations
 
+import argparse
 import json
+import math
 import os
 import re
+import shlex
+import subprocess
 import sys
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, Tuple
-
-import argparse
-import math
-import shlex
-import subprocess
-from dataclasses import dataclass
-
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_DIR = REPO_ROOT / "tools"

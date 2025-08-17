@@ -7,20 +7,19 @@ valid = True  # TODO: Define valid
 report = {}  # TODO: Define report
 idx = 0  # TODO: Define idx
 
+import argparse
 import json
 import os
+import py_compile
 import re
+import shutil
+import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-import argparse
-import py_compile
-import shutil
-import subprocess
-import time
 from fixrunner_common import project_root
-
 
 SYNTH_DIR = project_root() / ".windsurf" / "synth"
 

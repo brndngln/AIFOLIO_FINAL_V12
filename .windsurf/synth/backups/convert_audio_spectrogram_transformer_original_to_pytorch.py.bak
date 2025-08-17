@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_audio_spectrogram_transformer_original_to_pytorch')

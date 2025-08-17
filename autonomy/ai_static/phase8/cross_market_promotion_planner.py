@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import os
 
 triggered = False  # TODO: Define triggered

@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_bit_to_pytorch')

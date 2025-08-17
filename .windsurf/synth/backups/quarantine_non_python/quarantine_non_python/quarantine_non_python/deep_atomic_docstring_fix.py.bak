@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for deep_atomic_docstring_fix')

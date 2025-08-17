@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for md5_crypt')

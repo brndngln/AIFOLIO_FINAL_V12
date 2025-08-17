@@ -2,7 +2,6 @@
 
 import sys
 
-
 "SAFE AI MODULE"
 "SAFE AI MODULE"
 

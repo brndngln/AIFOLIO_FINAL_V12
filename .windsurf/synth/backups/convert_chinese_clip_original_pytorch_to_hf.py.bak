@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_chinese_clip_original_pytorch_to_hf')

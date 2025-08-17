@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for convert_tapas_original_tf_checkpoint_to_pytorch')

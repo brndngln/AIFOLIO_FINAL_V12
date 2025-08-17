@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for processing_vision_text_dual_encoder')

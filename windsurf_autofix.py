@@ -11,11 +11,10 @@ Usage: ./windsurf_autofix.py
 """
 
 import os
-import sys
-from pathlib import Path
-
 import shutil
 import subprocess
+import sys
+from pathlib import Path
 
 
 def run_command(cmd, cwd=None):

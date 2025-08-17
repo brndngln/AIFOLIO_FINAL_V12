@@ -1,0 +1,2 @@
+def placeholder():
+    print('TODO: regenerate logic for visual_balance_checker')
