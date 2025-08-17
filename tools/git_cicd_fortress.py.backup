@@ -65,7 +65,6 @@ class GitCICDFortress:
         except Exception as e:
             return {"success": False, "error": str(e)}
     
-    # TODO: High complexity function (9 branches) - consider refactoring
     def analyze_git_status(self) -> Dict[str, Any]:
         """Analyze current Git repository status."""
         logger.info("🔍 Analyzing Git repository status...")

@@ -1,21 +1,47 @@
+name: 🛡️ Security Scan
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
 jobs:
-  security:
+  security-audit:
+    name: 🔍 Security Audit
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v4
+    
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
-        format: sarif
-        output: trivy-results.sarif
-        scan-ref: .
-        scan-type: fs
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+    
     - name: Upload Trivy scan results
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: trivy-results.sarif
-name: Security Scan
-'on':
-  schedule:
-  - cron: 0 2 * * *
-  workflow_dispatch: {}
+        sarif_file: 'trivy-results.sarif'
+    
+    - name: Run CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        languages: python, javascript
+    
+    - name: OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'AIFOLIO'
+        path: '.'
+        format: 'ALL'
+    
+    - name: Upload dependency check results
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: reports/

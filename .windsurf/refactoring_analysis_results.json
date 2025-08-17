@@ -1,0 +1,2229 @@
+{
+  "analysis_stats": {
+    "files_analyzed": 7141,
+    "code_smells_found": 128,
+    "design_pattern_opportunities": 10,
+    "performance_optimizations": 81,
+    "complexity_issues": 37,
+    "estimated_effort_hours": 0
+  },
+  "refactoring_plan": {
+    "summary": {
+      "total_smells": 128,
+      "high_priority": 39,
+      "medium_priority": 78,
+      "low_priority": 11,
+      "estimated_effort_hours": 1120,
+      "estimated_effort_days": 140.0
+    },
+    "phases": [
+      {
+        "phase": "Phase 1: Critical Refactoring",
+        "priority": "HIGH",
+        "items": [
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/fix_python_files.py",
+            "line": 9,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+            "line": 225,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 255,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 319,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 406,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 414,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 96,
+            "description": "Deeply nested loops detected (3 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 162,
+            "description": "Deeply nested loops detected (3 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 96,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 96,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 98,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+            "line": 122,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+            "line": 219,
+            "description": "Function 'main' has high complexity (28)",
+            "suggestion": "Break function into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+            "line": 219,
+            "description": "Function 'main' is very long (147 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+            "line": 38,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+            "line": 82,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+            "line": 133,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+            "line": 34,
+            "description": "Function 'main' has high complexity (23)",
+            "suggestion": "Break function into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+            "line": 34,
+            "description": "Function 'main' is very long (103 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 182,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 386,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 386,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 414,
+            "description": "Function 'apply_containment_measures' is very long (206 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 71,
+            "description": "Function 'fix_undefined_names_comprehensive' has high complexity (22)",
+            "suggestion": "Break function into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 194,
+            "description": "Function 'fix_import_order_comprehensive' has high complexity (31)",
+            "suggestion": "Break function into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 71,
+            "description": "Function 'fix_undefined_names_comprehensive' is very long (120 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 194,
+            "description": "Function 'fix_import_order_comprehensive' is very long (108 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_common.py",
+            "line": 179,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+            "line": 73,
+            "description": "Function 'validate_python' has high complexity (19)",
+            "suggestion": "Break function into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 206,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 206,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 120,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 212,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+            "line": 504,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "NESTED_LOOP_OPTIMIZATION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 210,
+            "description": "Deeply nested loops detected (2 levels)",
+            "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+            "effort": "HIGH"
+          },
+          {
+            "type": "N_PLUS_ONE_QUERY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 331,
+            "description": "Potential N+1 query problem detected",
+            "suggestion": "Use bulk queries, prefetch, or select_related",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+            "line": 99,
+            "description": "Function 'generate_phase_summaries' is very long (123 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+            "line": 118,
+            "description": "Function 'create_git_hooks' is very long (105 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          },
+          {
+            "type": "VERY_LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+            "line": 324,
+            "description": "Function 'enhance_gitignore' is very long (125 lines)",
+            "suggestion": "Break into smaller, focused functions",
+            "effort": "HIGH"
+          }
+        ],
+        "estimated_hours": 648
+      },
+      {
+        "phase": "Phase 2: Performance Optimization",
+        "priority": "MEDIUM",
+        "items": [
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/windsurf_autofix.py",
+            "line": 36,
+            "description": "Function 'main' has moderate complexity (11)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/windsurf_autofix.py",
+            "line": 36,
+            "description": "Function 'main' is long (63 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/reintegrate_regenerated.py",
+            "line": 12,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/reintegrate_regenerated.py",
+            "line": 13,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/windsurf_regen_batch.py",
+            "line": 27,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/windsurf_regen_batch.py",
+            "line": 27,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+            "line": 351,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 486,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 231,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 231,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 231,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 319,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 319,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 444,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 155,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 155,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 277,
+            "description": "Function '_check_separation_of_concerns' has moderate complexity (12)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 136,
+            "description": "Function 'analyze_file_structure' is long (66 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 512,
+            "description": "Long if-elif chain (3 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 465,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 338,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 338,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 338,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 338,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 524,
+            "description": "Function 'main' is long (54 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+            "line": 446,
+            "description": "Function 'execute_security_scan' is long (62 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "FACTORY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 77,
+            "description": "Function 'analyze_factory_opportunities' could use factory pattern",
+            "suggestion": "Extract object creation into factory classes",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 287,
+            "description": "Long if-elif chain (3 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 603,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 107,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 286,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 286,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 286,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 286,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 517,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 523,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 400,
+            "description": "Function 'generate_refactoring_plan' has moderate complexity (11)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 559,
+            "description": "Function 'main' is long (51 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 400,
+            "description": "Function 'generate_refactoring_plan' is long (73 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+            "line": 500,
+            "description": "Function 'execute_refactoring_analysis' is long (56 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+            "line": 122,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+            "line": 154,
+            "description": "Function 'commit_changeset' has moderate complexity (12)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+            "line": 82,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 355,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 355,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 339,
+            "description": "Function 'scan_codebase' has moderate complexity (11)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 211,
+            "description": "Function '_analyze_python_ast' is long (81 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+            "line": 339,
+            "description": "Function 'scan_codebase' is long (73 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 149,
+            "description": "Long if-elif chain (4 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 221,
+            "description": "Long if-elif chain (4 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 151,
+            "description": "Long if-elif chain (3 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRATEGY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 231,
+            "description": "Long if-elif chain (3 branches) could use strategy pattern",
+            "suggestion": "Replace if-elif chain with strategy pattern",
+            "effort": "HIGH"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 175,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 184,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 351,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 351,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 365,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 365,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+            "line": 334,
+            "description": "Function 'main' is long (51 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_common.py",
+            "line": 198,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/stability_fortress.py",
+            "line": 138,
+            "description": "Function 'stability_wrapper' is long (61 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "FACTORY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_commit_fix.py",
+            "line": 20,
+            "description": "Function 'create_minimal_python_file' could use factory pattern",
+            "suggestion": "Extract object creation into factory classes",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_commit_fix.py",
+            "line": 77,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+            "line": 77,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+            "line": 172,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+            "line": 172,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+            "line": 125,
+            "description": "Function 'validate_ts_js' has moderate complexity (15)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 153,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 167,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 268,
+            "description": "Function '_create_gitignore_fortress' is long (93 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "FACTORY_PATTERN_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+            "line": 145,
+            "description": "Function '_apply_factory_pattern' could use factory pattern",
+            "suggestion": "Extract object creation into factory classes",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+            "line": 331,
+            "description": "Function '_optimize_imports' has moderate complexity (14)",
+            "suggestion": "Consider simplifying or breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ux_alchemy_engine.py",
+            "line": 61,
+            "description": "Function 'create_design_system' is long (90 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "STRING_CONCATENATION_IN_LOOP",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 544,
+            "description": "String concatenation in loop - use join() instead",
+            "suggestion": "Use str.join() or f-strings for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+            "line": 351,
+            "description": "Function 'generate_executive_summary' is long (52 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_inventory.py",
+            "line": 33,
+            "description": "Function 'main' is long (56 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+            "line": 225,
+            "description": "Function 'create_github_workflows' is long (97 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          },
+          {
+            "type": "LONG_FUNCTION",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+            "line": 476,
+            "description": "Function 'create_repository_templates' is long (73 lines)",
+            "suggestion": "Consider breaking into smaller functions",
+            "effort": "MEDIUM"
+          }
+        ],
+        "estimated_hours": 450
+      },
+      {
+        "phase": "Phase 3: Code Quality Improvements",
+        "priority": "LOW",
+        "items": [
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 219,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+            "line": 414,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+            "line": 102,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "SINGLETON_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/stability_fortress.py",
+            "line": 202,
+            "description": "Class 'AsyncStabilityManager' could benefit from singleton pattern",
+            "suggestion": "Implement singleton pattern for configuration classes",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 122,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+            "line": 214,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+            "line": 436,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 379,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 401,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 212,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          },
+          {
+            "type": "LIST_COMPREHENSION_OPPORTUNITY",
+            "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+            "line": 223,
+            "description": "Loop can be converted to list comprehension",
+            "suggestion": "Convert to list comprehension for better performance",
+            "effort": "LOW"
+          }
+        ],
+        "estimated_hours": 22
+      }
+    ],
+    "recommendations": [
+      "Investigate algorithmic improvements and data structure optimizations",
+      "Implement database query optimization guidelines and ORM best practices",
+      "Consider implementing a design patterns training program",
+      "Implement automated code quality checks in CI/CD pipeline",
+      "Establish coding standards and guidelines document",
+      "Set up regular refactoring sessions in development workflow"
+    ]
+  },
+  "code_smells": [
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/windsurf_autofix.py",
+      "line": 36,
+      "description": "Function 'main' has moderate complexity (11)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/windsurf_autofix.py",
+      "line": 36,
+      "description": "Function 'main' is long (63 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/reintegrate_regenerated.py",
+      "line": 12,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/reintegrate_regenerated.py",
+      "line": 13,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/windsurf_regen_batch.py",
+      "line": 27,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/windsurf_regen_batch.py",
+      "line": 27,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/fix_python_files.py",
+      "line": 9,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 351,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 225,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 255,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 319,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 219,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 414,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 486,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 231,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 231,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 231,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 319,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 319,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 444,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 155,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 155,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 406,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 414,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 277,
+      "description": "Function '_check_separation_of_concerns' has moderate complexity (12)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 136,
+      "description": "Function 'analyze_file_structure' is long (66 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 512,
+      "description": "Long if-elif chain (3 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 96,
+      "description": "Deeply nested loops detected (3 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 162,
+      "description": "Deeply nested loops detected (3 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 465,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 338,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 338,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 338,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 338,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 96,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 96,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 98,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 524,
+      "description": "Function 'main' is long (54 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 446,
+      "description": "Function 'execute_security_scan' is long (62 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "FACTORY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 77,
+      "description": "Function 'analyze_factory_opportunities' could use factory pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Extract object creation into factory classes",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 287,
+      "description": "Long if-elif chain (3 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 603,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 107,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 286,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 286,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 286,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 286,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 517,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 523,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 400,
+      "description": "Function 'generate_refactoring_plan' has moderate complexity (11)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 559,
+      "description": "Function 'main' is long (51 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 400,
+      "description": "Function 'generate_refactoring_plan' is long (73 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 500,
+      "description": "Function 'execute_refactoring_analysis' is long (56 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 122,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 122,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 154,
+      "description": "Function 'commit_changeset' has moderate complexity (12)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 219,
+      "description": "Function 'main' has high complexity (28)",
+      "severity": "HIGH",
+      "suggestion": "Break function into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 219,
+      "description": "Function 'main' is very long (147 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+      "line": 82,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+      "line": 38,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+      "line": 82,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_json_remediate.py",
+      "line": 133,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+      "line": 102,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+      "line": 34,
+      "description": "Function 'main' has high complexity (23)",
+      "severity": "HIGH",
+      "suggestion": "Break function into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_finish.py",
+      "line": 34,
+      "description": "Function 'main' is very long (103 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 182,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 355,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 355,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 386,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 386,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 339,
+      "description": "Function 'scan_codebase' has moderate complexity (11)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 211,
+      "description": "Function '_analyze_python_ast' is long (81 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 339,
+      "description": "Function 'scan_codebase' is long (73 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 414,
+      "description": "Function 'apply_containment_measures' is very long (206 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 149,
+      "description": "Long if-elif chain (4 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 221,
+      "description": "Long if-elif chain (4 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 151,
+      "description": "Long if-elif chain (3 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRATEGY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 231,
+      "description": "Long if-elif chain (3 branches) could use strategy pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Replace if-elif chain with strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 175,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 184,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 351,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 351,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 365,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 365,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 71,
+      "description": "Function 'fix_undefined_names_comprehensive' has high complexity (22)",
+      "severity": "HIGH",
+      "suggestion": "Break function into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 194,
+      "description": "Function 'fix_import_order_comprehensive' has high complexity (31)",
+      "severity": "HIGH",
+      "suggestion": "Break function into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 71,
+      "description": "Function 'fix_undefined_names_comprehensive' is very long (120 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 194,
+      "description": "Function 'fix_import_order_comprehensive' is very long (108 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 334,
+      "description": "Function 'main' is long (51 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_common.py",
+      "line": 198,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_common.py",
+      "line": 179,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "SINGLETON_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/stability_fortress.py",
+      "line": 202,
+      "description": "Class 'AsyncStabilityManager' could benefit from singleton pattern",
+      "severity": "LOW",
+      "suggestion": "Implement singleton pattern for configuration classes",
+      "effort": "LOW"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/stability_fortress.py",
+      "line": 138,
+      "description": "Function 'stability_wrapper' is long (61 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "FACTORY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_commit_fix.py",
+      "line": 20,
+      "description": "Function 'create_minimal_python_file' could use factory pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Extract object creation into factory classes",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_commit_fix.py",
+      "line": 77,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+      "line": 77,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+      "line": 172,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+      "line": 172,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "HIGH_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+      "line": 73,
+      "description": "Function 'validate_python' has high complexity (19)",
+      "severity": "HIGH",
+      "suggestion": "Break function into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_validate.py",
+      "line": 125,
+      "description": "Function 'validate_ts_js' has moderate complexity (15)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 206,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 122,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 214,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 153,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 167,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 206,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 120,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 212,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 268,
+      "description": "Function '_create_gitignore_fortress' is long (93 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "FACTORY_PATTERN_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 145,
+      "description": "Function '_apply_factory_pattern' could use factory pattern",
+      "severity": "MEDIUM",
+      "suggestion": "Extract object creation into factory classes",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 436,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 504,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "MEDIUM_CYCLOMATIC_COMPLEXITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 331,
+      "description": "Function '_optimize_imports' has moderate complexity (14)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider simplifying or breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ux_alchemy_engine.py",
+      "line": 61,
+      "description": "Function 'create_design_system' is long (90 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "NESTED_LOOP_OPTIMIZATION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 210,
+      "description": "Deeply nested loops detected (2 levels)",
+      "severity": "HIGH",
+      "suggestion": "Consider vectorization, caching, or algorithmic improvements",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 379,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 401,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 212,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "LIST_COMPREHENSION_OPPORTUNITY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 223,
+      "description": "Loop can be converted to list comprehension",
+      "severity": "LOW",
+      "suggestion": "Convert to list comprehension for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "STRING_CONCATENATION_IN_LOOP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 544,
+      "description": "String concatenation in loop - use join() instead",
+      "severity": "MEDIUM",
+      "suggestion": "Use str.join() or f-strings for better performance",
+      "effort": "LOW"
+    },
+    {
+      "type": "N_PLUS_ONE_QUERY",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 331,
+      "description": "Potential N+1 query problem detected",
+      "severity": "HIGH",
+      "suggestion": "Use bulk queries, prefetch, or select_related",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 99,
+      "description": "Function 'generate_phase_summaries' is very long (123 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 351,
+      "description": "Function 'generate_executive_summary' is long (52 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/fixrunner_inventory.py",
+      "line": 33,
+      "description": "Function 'main' is long (56 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 118,
+      "description": "Function 'create_git_hooks' is very long (105 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 225,
+      "description": "Function 'create_github_workflows' is long (97 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "VERY_LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 324,
+      "description": "Function 'enhance_gitignore' is very long (125 lines)",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused functions",
+      "effort": "HIGH"
+    },
+    {
+      "type": "LONG_FUNCTION",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 476,
+      "description": "Function 'create_repository_templates' is long (73 lines)",
+      "severity": "MEDIUM",
+      "suggestion": "Consider breaking into smaller functions",
+      "effort": "MEDIUM"
+    }
+  ]
+}

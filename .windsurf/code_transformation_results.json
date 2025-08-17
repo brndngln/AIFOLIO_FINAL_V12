@@ -1,0 +1,193 @@
+{
+  "transformation_stats": {
+    "files_transformed": 10,
+    "total_transformations": 26,
+    "performance_optimizations": 3,
+    "complexity_reductions": 23,
+    "pattern_suggestions": 0
+  },
+  "transformations": [
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 401,
+      "type": "LIST_COMPREHENSION_OPTIMIZATION",
+      "description": "Added list comprehension optimization comment",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 237,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _check_import_issues",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 316,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _analyze_dependency_file",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 416,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _detect_orphaned_files",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 472,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _generate_recommendations",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 68,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for analyze_git_status",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 91,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for detect_secrets_in_content",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 157,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for detect_injections",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 309,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for scan_file_security",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 446,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for execute_security_scan",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 71,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for fix_undefined_names_comprehensive",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 194,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for fix_import_order_comprehensive",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/unblock_commits_comprehensive.py",
+      "line": 334,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for main",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 114,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _scan_file_for_secrets",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 138,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _create_env_template",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 204,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _scan_patterns",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 219,
+      "type": "LIST_COMPREHENSION_OPTIMIZATION",
+      "description": "Added list comprehension optimization comment",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 414,
+      "type": "LIST_COMPREHENSION_OPTIMIZATION",
+      "description": "Added list comprehension optimization comment",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 136,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for analyze_file_structure",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 254,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _check_singleton_violations",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 278,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for _check_separation_of_concerns",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 310,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for analyze_directory_structure",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 352,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for generate_optimization_recommendations",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 394,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for execute_structural_analysis",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 154,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for commit_changeset",
+      "applied": false
+    },
+    {
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/synth_orchestrate.py",
+      "line": 219,
+      "type": "COMPLEXITY_REDUCTION_COMMENT",
+      "description": "Added complexity warning for main",
+      "applied": false
+    }
+  ]
+}

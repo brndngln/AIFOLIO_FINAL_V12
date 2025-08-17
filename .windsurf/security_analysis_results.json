@@ -1,0 +1,102 @@
+{
+  "scan_summary": {
+    "files_scanned": 8704,
+    "vulnerabilities_found": 4,
+    "critical_vulnerabilities": 0,
+    "high_vulnerabilities": 4,
+    "medium_vulnerabilities": 0,
+    "low_vulnerabilities": 0,
+    "secrets_detected": 4,
+    "injection_vulnerabilities": 0,
+    "crypto_issues": 0,
+    "auth_issues": 0
+  },
+  "vulnerabilities": [
+    {
+      "type": "SECRET_EXPOSURE",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/frontend/dashboard/Batch712Widgets.js",
+      "line": 25,
+      "description": "Potential aws_secret_key detected: fetchExternalPlatfor...",
+      "severity": "HIGH",
+      "cwe_id": "CWE-798",
+      "remediation": "Move aws_secret_key to environment variables",
+      "risk_score": 8
+    },
+    {
+      "type": "SECRET_EXPOSURE",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/frontend/dashboard/Batch712Widgets.js",
+      "line": 245,
+      "description": "Potential aws_secret_key detected: fetchExternalPlatfor...",
+      "severity": "HIGH",
+      "cwe_id": "CWE-798",
+      "remediation": "Move aws_secret_key to environment variables",
+      "risk_score": 8
+    },
+    {
+      "type": "SECRET_EXPOSURE",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch712Widgets.js",
+      "line": 25,
+      "description": "Potential aws_secret_key detected: fetchExternalPlatfor...",
+      "severity": "HIGH",
+      "cwe_id": "CWE-798",
+      "remediation": "Move aws_secret_key to environment variables",
+      "risk_score": 8
+    },
+    {
+      "type": "SECRET_EXPOSURE",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/AIFOLIO_KNOWLEDGE_INJECT/features/dashboard/frontend/Batch712Widgets.js",
+      "line": 245,
+      "description": "Potential aws_secret_key detected: fetchExternalPlatfor...",
+      "severity": "HIGH",
+      "cwe_id": "CWE-798",
+      "remediation": "Move aws_secret_key to environment variables",
+      "risk_score": 8
+    }
+  ],
+  "security_config": {
+    "environment_variables": {
+      "SECURE_SSL_REDIRECT": "True",
+      "SESSION_COOKIE_SECURE": "True",
+      "SESSION_COOKIE_HTTPONLY": "True",
+      "SESSION_COOKIE_SAMESITE": "Strict",
+      "CSRF_COOKIE_SECURE": "True",
+      "CSRF_COOKIE_HTTPONLY": "True",
+      "X_FRAME_OPTIONS": "DENY",
+      "CONTENT_TYPE_OPTIONS": "nosniff",
+      "BROWSER_XSS_FILTER": "True",
+      "FORCE_SCRIPT_NAME": "",
+      "SECURE_HSTS_SECONDS": "31536000",
+      "SECURE_HSTS_INCLUDE_SUBDOMAINS": "True",
+      "SECURE_HSTS_PRELOAD": "True"
+    },
+    "security_headers": {
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-XSS-Protection": "1; mode=block",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+    },
+    "encryption_settings": {
+      "algorithm": "AES-256-GCM",
+      "key_derivation": "PBKDF2-SHA256",
+      "iterations": 100000,
+      "salt_length": 32,
+      "iv_length": 16
+    },
+    "authentication": {
+      "password_min_length": 12,
+      "password_complexity": true,
+      "session_timeout": 3600,
+      "max_login_attempts": 5,
+      "lockout_duration": 900,
+      "require_2fa": true
+    }
+  },
+  "env_template": "# AIFOLIO Security Configuration Template\n# Copy to .env and fill in actual values\n\n# Database Configuration\nDATABASE_URL=postgresql://user:password@localhost:5432/aifolio\nDATABASE_ENCRYPTION_KEY=\n\n# API Keys (Use environment-specific values)\nOPENAI_API_KEY=\nSTRIPE_SECRET_KEY=\nSTRIPE_PUBLISHABLE_KEY=\nAWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=\n\n# Security Settings\nSECRET_KEY=\nJWT_SECRET_KEY=\nENCRYPTION_KEY=\n\n# External Services\nREDIS_URL=redis://localhost:6379/0\nCELERY_BROKER_URL=redis://localhost:6379/0\n\n# Email Configuration\nEMAIL_HOST=\nEMAIL_PORT=587\nEMAIL_HOST_USER=\nEMAIL_HOST_PASSWORD=\nEMAIL_USE_TLS=True\n\n# Monitoring\nSENTRY_DSN=\nNEW_RELIC_LICENSE_KEY=\n\n# Development Settings (Set to False in production)\nDEBUG=False\nDEVELOPMENT_MODE=False\n\n# Security Headers\nSECURE_SSL_REDIRECT=True\nSESSION_COOKIE_SECURE=True\nCSRF_COOKIE_SECURE=True\n",
+  "risk_assessment": {
+    "total_risk_score": 32,
+    "average_risk_score": 8.0,
+    "security_grade": "F - Critical Security Issues"
+  }
+}

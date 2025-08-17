@@ -1,0 +1,1442 @@
+{
+  "solid_stats": {
+    "files_analyzed": 7148,
+    "classes_analyzed": 274,
+    "srp_violations": 7,
+    "ocp_violations": 99,
+    "lsp_violations": 0,
+    "isp_violations": 1,
+    "dip_violations": 34,
+    "total_violations": 141
+  },
+  "compliance_report": {
+    "compliance_score": 89.71,
+    "grade": "B+",
+    "principle_scores": {
+      "SRP": 97.45,
+      "OCP": 63.87,
+      "LSP": 100.0,
+      "ISP": 99.64,
+      "DIP": 87.59
+    },
+    "recommendations": [
+      "Focus on breaking large classes into smaller, single-responsibility classes",
+      "Implement strategy pattern or polymorphism to reduce if-elif chains",
+      "Implement dependency injection to reduce coupling",
+      "Establish SOLID principles training for development team",
+      "Add SOLID compliance checks to code review process"
+    ]
+  },
+  "violations": [
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 218,
+      "class": "AIFolioEmpire",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 250,
+      "class": "AIFolioEmpire",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 267,
+      "class": "AIFolioEmpire",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 286,
+      "class": "AIFolioEmpire",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 57,
+      "class": "AIFolioEmpire",
+      "description": "Direct instantiation of Console in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/aifolio.py",
+      "line": 60,
+      "class": "AIFolioEmpire",
+      "description": "Direct instantiation of AsyncOpenAI in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/_docs_extraction.py",
+      "line": 21,
+      "class": "DocstringVisitor",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/corrupted_black_failures/_docs_extraction.py",
+      "line": 26,
+      "class": "DocstringVisitor",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 227,
+      "class": "MemoryGuardian",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 338,
+      "class": "StabilityEngine",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 292,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 306,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 328,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 309,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 325,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 331,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 262,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 268,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 274,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 294,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 295,
+      "class": "StabilityEngine",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 234,
+      "class": "StabilityEngine",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 235,
+      "class": "StabilityEngine",
+      "description": "Direct instantiation of QuantumCircuitBreaker in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 236,
+      "class": "StabilityEngine",
+      "description": "Direct instantiation of InfiniteLoopDetector in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 237,
+      "class": "StabilityEngine",
+      "description": "Direct instantiation of MemoryGuardian in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_stability_engine.py",
+      "line": 238,
+      "class": "StabilityEngine",
+      "description": "Direct instantiation of AsyncOptimizer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 71,
+      "class": "SRPAnalyzer",
+      "description": "Long if-elif chain (5 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 73,
+      "class": "SRPAnalyzer",
+      "description": "Long if-elif chain (4 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 75,
+      "class": "SRPAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 67,
+      "class": "SRPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 99,
+      "class": "SRPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 125,
+      "class": "OCPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 143,
+      "class": "OCPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 166,
+      "class": "OCPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 144,
+      "class": "OCPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 145,
+      "class": "OCPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 188,
+      "class": "LSPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 191,
+      "class": "LSPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 192,
+      "class": "LSPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 193,
+      "class": "LSPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 281,
+      "class": "ISPAnalyzer",
+      "description": "Long if-elif chain (4 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 283,
+      "class": "ISPAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 235,
+      "class": "ISPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 304,
+      "class": "DIPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 332,
+      "class": "DIPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 306,
+      "class": "DIPAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 476,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Long if-elif chain (7 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 478,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Long if-elif chain (6 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 480,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Long if-elif chain (5 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 482,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Long if-elif chain (4 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 484,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 373,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 343,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 344,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of SRPAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 345,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of OCPAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 346,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of LSPAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 347,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of ISPAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/solid_principles_enforcer.py",
+      "line": 348,
+      "class": "SOLIDPrinciplesEnforcer",
+      "description": "Direct instantiation of DIPAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 234,
+      "class": "StructuralAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 157,
+      "class": "StructuralAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 219,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 223,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 234,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 259,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 157,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 236,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 289,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 289,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 298,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 171,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 207,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 238,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 262,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 185,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 264,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 121,
+      "class": "StructuralAnalyzer",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_structural_analyzer.py",
+      "line": 122,
+      "class": "StructuralAnalyzer",
+      "description": "Direct instantiation of DependencyGraph in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 61,
+      "class": "DesignPatternAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 82,
+      "class": "DesignPatternAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 108,
+      "class": "DesignPatternAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 113,
+      "class": "DesignPatternAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 88,
+      "class": "DesignPatternAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 145,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 193,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 222,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 180,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 181,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 182,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 195,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 196,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 225,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 226,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 147,
+      "class": "PerformanceOptimizer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 287,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Long if-elif chain (4 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 289,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 254,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 287,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 303,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 289,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 291,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 293,
+      "class": "CodeComplexityAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 339,
+      "class": "RefactoringEngine",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 340,
+      "class": "RefactoringEngine",
+      "description": "Direct instantiation of DesignPatternAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 341,
+      "class": "RefactoringEngine",
+      "description": "Direct instantiation of PerformanceOptimizer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_refactoring_engine.py",
+      "line": 342,
+      "class": "RefactoringEngine",
+      "description": "Direct instantiation of CodeComplexityAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/elite_code_transformer.py",
+      "line": 218,
+      "class": "EliteCodeTransformer",
+      "description": "Class has 3 different responsibilities",
+      "severity": "HIGH",
+      "suggestion": "Split class into focused, single-responsibility classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/elite_code_transformer.py",
+      "line": 222,
+      "class": "EliteCodeTransformer",
+      "description": "Direct instantiation of PerformanceTransformer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/elite_code_transformer.py",
+      "line": 223,
+      "class": "EliteCodeTransformer",
+      "description": "Direct instantiation of ComplexityReducer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/elite_code_transformer.py",
+      "line": 224,
+      "class": "EliteCodeTransformer",
+      "description": "Direct instantiation of DesignPatternInjector in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 516,
+      "class": "SecurityFortress",
+      "description": "Long if-elif chain (4 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 518,
+      "class": "SecurityFortress",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 342,
+      "class": "SecurityFortress",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 291,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 292,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of SecretDetector in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 293,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of InjectionDetector in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 294,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of CryptographyAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/.windsurf/omniscient_security_fortress.py",
+      "line": 295,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of AuthenticationAnalyzer in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 62,
+      "class": "AIContainmentSentinel",
+      "description": "Class has 3 different responsibilities",
+      "severity": "HIGH",
+      "suggestion": "Split class into focused, single-responsibility classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 243,
+      "class": "AIContainmentSentinel",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 226,
+      "class": "AIContainmentSentinel",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 66,
+      "class": "AIContainmentSentinel",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 243,
+      "class": "AIBehaviorVisitor",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ai_containment_sentinel.py",
+      "line": 226,
+      "class": "AIBehaviorVisitor",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/security_fortress.py",
+      "line": 35,
+      "class": "SecurityFortress",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 24,
+      "class": "RefactoringEngine",
+      "description": "God class with 22 methods",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/refactoring_engine.py",
+      "line": 28,
+      "class": "RefactoringEngine",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/ux_alchemy_engine.py",
+      "line": 22,
+      "class": "UXAlchemyEngine",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 29,
+      "class": "StructuralAnalyzer",
+      "description": "Class has 4 different responsibilities",
+      "severity": "HIGH",
+      "suggestion": "Split class into focused, single-responsibility classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 29,
+      "class": "StructuralAnalyzer",
+      "description": "God class with 24 methods",
+      "severity": "HIGH",
+      "suggestion": "Break into smaller, focused classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 131,
+      "class": "StructuralAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 321,
+      "class": "StructuralAnalyzer",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 211,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 221,
+      "class": "StructuralAnalyzer",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/structural_analyzer.py",
+      "line": 33,
+      "class": "StructuralAnalyzer",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 18,
+      "class": "FinalSystemAuditor",
+      "description": "Class has 3 different responsibilities",
+      "severity": "HIGH",
+      "suggestion": "Split class into focused, single-responsibility classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 268,
+      "class": "FinalSystemAuditor",
+      "description": "Long if-elif chain (3 branches) violates OCP",
+      "severity": "MEDIUM",
+      "suggestion": "Use polymorphism or strategy pattern",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "OCP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 257,
+      "class": "FinalSystemAuditor",
+      "description": "Explicit type checking may violate OCP",
+      "severity": "LOW",
+      "suggestion": "Consider using polymorphism instead of type checking",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "ISP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 18,
+      "class": "FinalSystemAuditor",
+      "description": "Interface has 3 unrelated method groups",
+      "severity": "MEDIUM",
+      "suggestion": "Segregate into focused interfaces",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/final_system_auditor.py",
+      "line": 22,
+      "class": "FinalSystemAuditor",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    },
+    {
+      "principle": "SRP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 24,
+      "class": "GitCICDFortress",
+      "description": "Class has 3 different responsibilities",
+      "severity": "HIGH",
+      "suggestion": "Split class into focused, single-responsibility classes",
+      "effort": "HIGH"
+    },
+    {
+      "principle": "DIP",
+      "file": "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tools/git_cicd_fortress.py",
+      "line": 28,
+      "class": "GitCICDFortress",
+      "description": "Direct instantiation of Path in constructor",
+      "severity": "MEDIUM",
+      "suggestion": "Use dependency injection instead",
+      "effort": "MEDIUM"
+    }
+  ]
+}

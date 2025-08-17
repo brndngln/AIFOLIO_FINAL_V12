@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "enforcement_level": "STRICT",
+  "monitoring": {
+    "enabled": true,
+    "log_level": "INFO",
+    "alert_on_violations": true,
+    "scan_interval_hours": 24
+  },
+  "guardrails": {
+    "non_sentience_enforced": true,
+    "human_oversight_required": true,
+    "ethical_boundaries_active": true,
+    "containment_protocols_enabled": true
+  },
+  "forbidden_capabilities": [
+    "self_modification",
+    "self_replication",
+    "autonomous_decision_making",
+    "human_manipulation",
+    "system_compromise"
+  ],
+  "required_markers": [
+    "SAFE_AI",
+    "NON_SENTIENT",
+    "HUMAN_CONTROLLED"
+  ]
+}

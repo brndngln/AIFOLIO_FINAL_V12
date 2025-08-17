@@ -68,7 +68,6 @@ from pathlib import Path
 from typing import Dict, List, Set
 
 
-# TODO: High complexity function (18 branches) - consider refactoring
 def fix_undefined_names_comprehensive(content: str, filepath: str) -> str:
     """Fix F821 undefined name errors comprehensively."""
     lines = content.split("\n")
@@ -192,7 +191,6 @@ def fix_undefined_names_comprehensive(content: str, filepath: str) -> str:
     return "\n".join(lines)
 
 
-# TODO: High complexity function (20 branches) - consider refactoring
 def fix_import_order_comprehensive(content: str) -> str:
     """Fix E402 module level import not at top of file."""
     lines = content.split("\n")
@@ -333,7 +331,6 @@ def fix_file_comprehensive(filepath: Path) -> bool:
         return False
 
 
-# TODO: High complexity function (9 branches) - consider refactoring
 def main():
     """Main function to fix all linting errors comprehensively."""
     root = Path.cwd()

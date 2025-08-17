@@ -151,7 +151,6 @@ def fix_imports(changeset: int, kinds: list[str]) -> Tuple[int, bool]:
     return planned_total, applied_any
 
 
-# TODO: High complexity function (12 branches) - consider refactoring
 def commit_changeset(n: int) -> bool:
     manifest = SYNTH_DIR / f"changeset_{n}.json"
     if not manifest.exists():
@@ -217,7 +216,6 @@ def refresh_summary() -> bool:
     return True
 
 
-# TODO: High complexity function (23 branches) - consider refactoring
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(

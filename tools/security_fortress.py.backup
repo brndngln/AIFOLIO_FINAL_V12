@@ -111,7 +111,6 @@ class SecurityFortress:
         }
         return file_path.suffix.lower() in text_extensions
 
-    # TODO: High complexity function (6 branches) - consider refactoring
     def _scan_file_for_secrets(self, file_path: Path):
         """Scan individual file for secrets."""
         try:
@@ -136,7 +135,6 @@ class SecurityFortress:
         except Exception as e:
             logger.warning(f"Could not scan {file_path}: {e}")
 
-    # TODO: High complexity function (6 branches) - consider refactoring
     def _create_env_template(self):
         """Create .env.example template for secrets."""
         env_example_path = self.root_path / ".env.example"
@@ -203,7 +201,6 @@ class SecurityFortress:
         self._scan_patterns("command_injection", cmd_patterns)
         self._scan_patterns("xss", xss_patterns)
 
-    # TODO: High complexity function (8 branches) - consider refactoring
     def _scan_patterns(self, vuln_type: str, patterns: List[str]):
         """Scan for vulnerability patterns."""
         for file_path in self.root_path.rglob("*.py"):

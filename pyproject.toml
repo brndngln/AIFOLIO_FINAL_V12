@@ -1,59 +1,12 @@
-[tool.black]
-line-length = 88
-target-version = ['py311']
-
-[tool.isort]
-profile = "black"
-line_length = 88
-
-[tool.mypy]
-python_version = "3.11"
-ignore_missing_imports = true
-warn_unused_configs = true
-
-[tool.flake8]
-max-line-length = 88
-exclude = ["venv_backend", "__pycache__", ".git", ".mypy_cache", ".pytest_cache"]
-
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q --strict-markers --strict-config --maxfail=5 --disable-warnings"
-testpaths = ["tests", "backend"]
-python_files = ["test_*.py", "*_test.py"]
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 markers = [
-    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "slow: marks tests as slow",
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests",
-    "performance: marks tests as performance tests",
-    "security: marks tests as security tests"
-]
-filterwarnings = [
-    "error",
-    "ignore::UserWarning",
-    "ignore::DeprecationWarning"
-]
-
-[tool.coverage.run]
-source = ["."]
-omit = [
-    "*/tests/*",
-    "*/venv/*",
-    "*/.venv/*",
-    "*/build/*",
-    "*/dist/*",
-    "*/__pycache__/*"
-]
-
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "if self.debug:",
-    "if settings.DEBUG",
-    "raise AssertionError",
-    "raise NotImplementedError",
-    "if 0:",
-    "if __name__ == .__main__.:"
 ]

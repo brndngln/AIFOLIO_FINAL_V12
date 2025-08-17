@@ -234,7 +234,6 @@ class StructuralAnalyzer:
 
         return imports
 
-    # TODO: High complexity function (7 branches) - consider refactoring
     def _check_import_issues(self, file_path: Path, imports: List[Dict[str, Any]]):
         """Check for import-related issues."""
         relative_path = str(file_path.relative_to(self.root_path))
@@ -314,7 +313,6 @@ class StructuralAnalyzer:
         for req_file in req_files:
             self._analyze_dependency_file(req_file)
 
-    # TODO: High complexity function (6 branches) - consider refactoring
     def _analyze_dependency_file(self, file_path: Path):
         """Analyze dependency file for external packages."""
         try:
@@ -400,7 +398,6 @@ class StructuralAnalyzer:
         """Detect files with identical names in different directories."""
         name_to_paths = defaultdict(list)
 
-        # Original loop converted to list comprehension
         for py_file in self.python_files:
             name_to_paths[py_file.name].append(py_file)
 
@@ -415,7 +412,6 @@ class StructuralAnalyzer:
                     }
                 )
 
-    # TODO: High complexity function (8 branches) - consider refactoring
     def _detect_orphaned_files(self):
         """Detect files that are not imported by any other file."""
         imported_modules = set()
@@ -472,7 +468,6 @@ class StructuralAnalyzer:
                         }
                     )
 
-    # TODO: High complexity function (6 branches) - consider refactoring
     def _generate_recommendations(self):
         """Generate architectural recommendations."""
         logger.info("💡 Generating recommendations...")
