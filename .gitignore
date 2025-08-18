@@ -123,3 +123,29 @@ temp/
 *.dll
 *.exe
 *.o
+# Large files that should be in LFS or ignored
+*.log
+*.cache
+*.tmp
+*.temp
+node_modules/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.coverage
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+
+# Quarantine directories
+quarantine_non_python/
+corrupted_black_failures/
+corrupted_black_parse/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
