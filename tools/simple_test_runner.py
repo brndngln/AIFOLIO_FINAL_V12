@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Simple test runner for commit validation."""
+
+import ast
+import sys
+from pathlib import Path
+
+def validate_python_syntax():
+    """Validate Python syntax in all Python files."""
+    project_root = Path.cwd()
+    errors = []
+    
+    for py_file in project_root.rglob("*.py"):
+        if any(exclude in str(py_file) for exclude in ['.venv', '__pycache__', '.git', 'quarantine']):
+            continue
+        
+        try:
+            with open(py_file, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+            
+            ast.parse(content)
+        except SyntaxError as e:
+            errors.append(f"{py_file}: {e}")
+        except Exception:
+            continue
+    
+    if errors:
+        print("❌ Python syntax errors found:")
+        for error in errors[:5]:  # Show first 5 errors
+            print(f"  {error}")
+        return False
+    
+    print("✅ All Python files have valid syntax")
+    return True
+
+if __name__ == "__main__":
+    if validate_python_syntax():
+        sys.exit(0)
+    else:
+        sys.exit(1)
