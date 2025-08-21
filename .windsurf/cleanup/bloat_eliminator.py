@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Consider adding metrics collection for performance monitoring
 # Implement graceful degradation for better UX
 # Consider Result pattern instead of exceptions
@@ -7,7 +8,6 @@
 import functools
 # Builder pattern recommended for complex object construction
 # Factory pattern applied for object creation
-#!/usr/bin/env python3
 """AIFOLIO Bloat Eliminator - Phase 3 Implementation.
 
 This script implements zero-redundancy aegis by eliminating all forms of bloat,
