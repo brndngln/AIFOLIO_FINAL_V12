@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for response_code_interpreter_call_completed_event')

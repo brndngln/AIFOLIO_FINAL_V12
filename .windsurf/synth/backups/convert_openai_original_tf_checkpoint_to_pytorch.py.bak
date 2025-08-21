@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_openai_original_tf_checkpoint_to_pytorch')

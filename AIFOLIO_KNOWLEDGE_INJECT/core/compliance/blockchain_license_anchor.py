@@ -1,8 +1,0 @@
-"""SAFE AI MODULE"""
-
-"SAFE AI MODULE"
-"SAFE AI MODULE"
-
-
-def anchor_license_hash(hash_value):
-    return True

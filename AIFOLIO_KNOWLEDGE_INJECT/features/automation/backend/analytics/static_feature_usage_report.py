@@ -1,8 +1,0 @@
-"""SAFE AI MODULE"""
-
-"SAFE AI MODULE"
-"SAFE AI MODULE"
-
-
-def static_feature_usage_report(feature_stats):
-    return feature_stats

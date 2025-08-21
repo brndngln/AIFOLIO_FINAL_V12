@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for response_mcp_call_arguments_delta_event')

@@ -1,2 +1,0 @@
-def placeholder():
-    print("TODO: regenerate logic for upgrade_harden_pipeline")

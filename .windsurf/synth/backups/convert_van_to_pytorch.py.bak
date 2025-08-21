@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_van_to_pytorch')

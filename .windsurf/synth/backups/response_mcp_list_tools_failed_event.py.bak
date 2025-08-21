@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for response_mcp_list_tools_failed_event')

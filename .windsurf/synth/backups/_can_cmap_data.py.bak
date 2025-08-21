@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for _can_cmap_data')

@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_imagegpt_original_tf2_to_pytorch')

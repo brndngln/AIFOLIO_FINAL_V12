@@ -1,8 +1,0 @@
-# Core directory lock file
-# Enforces edit protection and anti-sentience lockdown for all core modules.
-{
-  "locked": true,
-  "trusted": true,
-  "edit_access": ["owner", "Emma"],
-  "immutable_recovery_anchor": true
-}

@@ -1,17 +1,3 @@
-# AIFOLIO Security Fortress .gitignore
-
-# Environment and Secrets
-.env
-.env.local
-.env.production
-.env.staging
-*.key
-*.pem
-*.p12
-*.pfx
-secrets/
-credentials/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -34,118 +20,51 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environments
-.venv/
+# Environments
+.env
+.venv
+env/
 venv/
 ENV/
-env/
+env.bak/
+venv.bak/
 
-# IDEs
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
+*.sublime-project
+*.sublime-workspace
 
 # OS
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
 # Logs
-*.log
 logs/
-
-# Databases
-*.db
-*.sqlite
-*.sqlite3
-
-# Cache
-.cache/
-.pytest_cache/
-.mypy_cache/
-.coverage
-htmlcov/
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Temporary
-tmp/
-temp/
-*.tmp
-*.temp
-.cache/
-
-# Large generated files
-duplicate_files_full.txt
-all_file_hashes.txt
-all_duplicate_files_expanded.txt
-black_parse_errors.txt
-flake8_lint_report.txt
-tools/structural_analysis_report.json
-
-# Backup directories
-.backups/
-.temp/
-
-# AIFOLIO Security
-.env*
-!.env.example
-private/
-.env/
-# Dependencies
-.npm
-.yarn/
-# Testing
-.tox/
-# AI/ML
-*.model
-*.pkl
-*.h5
-*.weights
-checkpoints/
-# Temporary
-tmp/
-temp/
-# Database
-# Compiled
-*.com
-*.class
-*.dll
-*.exe
-*.o
-# Large files that should be in LFS or ignored
 *.log
-*.cache
-*.tmp
-*.temp
-node_modules/
-.venv/
-venv/
-__pycache__/
-.pytest_cache/
+
+# Coverage
+htmlcov/
 .coverage
-*.pyc
-*.pyo
-*.pyd
-.DS_Store
-Thumbs.db
+.coverage.*
+.cache
+coverage.xml
+*.cover
 
-# Quarantine directories
-quarantine_non_python/
-corrupted_black_failures/
-corrupted_black_parse/
+# Security
+*.key
+*.pem
+*.p12
+secrets/
+.secrets/
+credentials/
 
-# Build artifacts
-dist/
-build/
-*.egg-info/
+# AIFOLIO specific
+*.backup
+*.bak
+*.old
+.windsurf_cache/
+.aifolio_cache/
+aifolio_temp/

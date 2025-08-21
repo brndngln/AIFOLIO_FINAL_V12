@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_vivit_flax_to_pytorch')

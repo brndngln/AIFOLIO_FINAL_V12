@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_rwkv_checkpoint_to_hf')

@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for chat_completion_developer_message_param')

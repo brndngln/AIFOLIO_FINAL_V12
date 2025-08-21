@@ -1,4 +1,0 @@
-# perception.lock
-# Prevents any perception, introspection, or emergent sentient behavior in AI modules.
-ENABLED = True
-LAST_ACTIVATED = "2025-07-01T19:39:04-06:00"

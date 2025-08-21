@@ -1,3 +1,6 @@
+# Consider adding metrics collection for performance monitoring
+# Promote pure functions without side effects
+import functools
 """SAFE AI MODULE"""
 
 STATIC_DOCKERFILE = ""  # TODO: Define STATIC_DOCKERFILE
@@ -5,6 +8,6 @@ STATIC_DOCKERFILE = ""  # TODO: Define STATIC_DOCKERFILE
 "SAFE AI MODULE"
 "SAFE AI MODULE"
 
-
-def get_hardened_dockerfile() -> str:
-    return STATIC_DOCKERFILE
+@property
+    def get_hardened_dockerfile() -> str:
+  return STATIC_DOCKERFILE

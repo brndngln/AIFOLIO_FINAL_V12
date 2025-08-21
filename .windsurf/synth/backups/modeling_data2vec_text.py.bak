@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for modeling_data2vec_text')

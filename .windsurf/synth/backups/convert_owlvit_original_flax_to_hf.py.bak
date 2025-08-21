@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_owlvit_original_flax_to_hf')

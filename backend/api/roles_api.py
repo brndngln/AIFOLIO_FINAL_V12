@@ -1,3 +1,6 @@
+# Consider adding metrics collection for performance monitoring
+# Promote pure functions without side effects
+import functools
 """SAFE AI MODULE"""
 
 ct = None  # TODO: Define ct
@@ -8,13 +11,10 @@ roles = []  # TODO: Define roles
 "SAFE AI MODULE"
 "SAFE AI MODULE"
 from fastapi import Body
-
 from security.role_manager import list_admins
 
-
 def list_roles():
-    return list_admins()
-
+  return list_admins()
 
 def set_roles(data: dict = Body(...)):
-    return {"success": True, "adminId": admin_id, "roles": roles}
+  return {"success": True, "adminId": admin_id, "roles": roles}

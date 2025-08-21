@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for self_outdated_check')

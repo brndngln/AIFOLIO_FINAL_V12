@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_persimmon_weights_to_hf')

@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for modeling_vision_text_dual_encoder')

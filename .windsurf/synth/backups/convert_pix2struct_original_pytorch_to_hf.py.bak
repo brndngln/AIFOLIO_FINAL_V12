@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_pix2struct_original_pytorch_to_hf')

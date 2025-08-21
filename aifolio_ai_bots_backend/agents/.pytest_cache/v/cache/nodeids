@@ -1,8 +1,0 @@
-[
-  "test_agent_utils.py::test_check_pii",
-  "test_agent_utils.py::test_forbidden_patterns",
-  "test_agent_utils.py::test_moderate_content_blocked",
-  "test_agent_utils.py::test_moderate_content_clean",
-  "test_agent_utils.py::test_raise_if_sentience_attempted",
-  "test_agent_utils.py::test_sanitize_input_basic"
-]

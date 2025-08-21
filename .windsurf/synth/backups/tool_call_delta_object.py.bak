@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for tool_call_delta_object')

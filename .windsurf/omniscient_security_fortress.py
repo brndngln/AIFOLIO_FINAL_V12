@@ -1,3 +1,15 @@
+# Health check endpoint recommended for services
+# Implement graceful degradation for better UX
+# Consider Result pattern instead of exceptions
+# Consider monadic patterns for optional value handling
+# Consider using map/filter/reduce for functional style
+# Promote pure functions without side effects
+# Consider using dataclasses with frozen=True for immutability
+# Consider using generators for memory efficiency
+import functools
+# Strategy pattern recommended to replace if/elif chains
+# Builder pattern recommended for complex object construction
+# Factory pattern applied for object creation
 #!/usr/bin/env python3
 """
 AIFOLIO OMNISCIENT SECURITY FORTRESS - Phase 3 Elite Implementation
@@ -9,399 +21,394 @@ for the entire AIFOLIO ecosystem with military-grade protection.
 
 from __future__ import annotations
 
-import ast
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
+from urllib.parse import urlparse
 import base64
 import hashlib
 import json
 import logging
 import os
 import re
-import subprocess
 import sys
-import secrets
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple, Union
-from urllib.parse import urlparse
 
-# Configure omniscient logging
+import ast
+import secrets
+import subprocess
+
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    handlers=[
-        logging.FileHandler(".windsurf/security_fortress.log"),
-        logging.StreamHandler(sys.stdout),
-    ],
+  level=logging.INFO,
+  format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+  handlers=[
+  logging.FileHandler(".windsurf/security_fortress.log"),
+  logging.StreamHandler(sys.stdout),
+  ],
 )
 logger = logging.getLogger(__name__)
 
-
+# Consider adding __slots__ for memory optimization
 class SecurityVulnerability:
-    """Represents a security vulnerability with severity and remediation."""
-    
-    def __init__(self, vuln_type: str, file_path: str, line_number: int, 
-                 description: str, severity: str = "MEDIUM", cwe_id: str = ""):
-        self.vuln_type = vuln_type
-        self.file_path = file_path
-        self.line_number = line_number
-        self.description = description
-        self.severity = severity
-        self.cwe_id = cwe_id
-        self.remediation = ""
-        self.risk_score = self._calculate_risk_score()
-    
-    def _calculate_risk_score(self) -> int:
-        """Calculate CVSS-like risk score."""
-        severity_scores = {"LOW": 3, "MEDIUM": 6, "HIGH": 8, "CRITICAL": 10}
-        return severity_scores.get(self.severity, 5)
+  """Represents a security vulnerability with severity and remediation."""
 
+  def __init__(self, vuln_type: str, file_path: str, line_number: int,
+  description: str, severity: str = "MEDIUM", cwe_id: str = ""):
+  self.vuln_type = vuln_type
+  self.file_path = file_path
+  self.line_number = line_number
+  self.description = description
+  self.severity = severity
+  self.cwe_id = cwe_id
+  self.remediation = ""
+  self.risk_score = self._calculate_risk_score()
+
+  def _calculate_risk_score(self) -> int:
+  """Calculate CVSS-like risk score."""
+  severity_scores = {"LOW": 3, "MEDIUM": 6, "HIGH": 8, "CRITICAL": 10}
+  return severity_scores.get(self.severity, 5)
 
 class SecretDetector:
-    """Advanced secret detection with entropy analysis."""
-    
-    def __init__(self):
-        self.secret_patterns = {
-            'aws_access_key': r'AKIA[0-9A-Z]{16}',
-            'aws_secret_key': r'[0-9a-zA-Z/+]{40}',
-            'github_token': r'ghp_[0-9a-zA-Z]{36}',
-            'slack_token': r'xox[baprs]-[0-9a-zA-Z-]+',
-            'stripe_key': r'sk_live_[0-9a-zA-Z]{24}',
-            'jwt_token': r'eyJ[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+',
-            'api_key': r'[aA][pP][iI][_]?[kK][eE][yY].*[\'"][0-9a-zA-Z]{32,}[\'"]',
-            'password': r'[pP][aA][sS][sS][wW][oO][rR][dD].*[\'"][^\'\"]{8,}[\'"]',
-            'private_key': r'-----BEGIN [A-Z]+ PRIVATE KEY-----',
-            'database_url': r'[a-zA-Z][a-zA-Z0-9+.-]*://[^\s]+',
-        }
-        
-        self.entropy_threshold = 4.5
-        self.min_secret_length = 16
-    
-    def calculate_entropy(self, string: str) -> float:
-        """Calculate Shannon entropy of a string."""
-        if not string:
-            return 0
-        
-        entropy = 0
-        for char in set(string):
-            prob = string.count(char) / len(string)
-            if prob > 0:
-                entropy -= prob * (prob).bit_length()
-        
-        return entropy
-    
-    # TODO: High complexity function (7 branches) - consider refactoring
-    def detect_secrets_in_content(self, content: str, file_path: str) -> List[SecurityVulnerability]:
-        """Detect secrets in file content."""
-        vulnerabilities = []
-        lines = content.splitlines()
-        
-        for line_num, line in enumerate(lines, 1):
-            # Pattern-based detection
-            for secret_type, pattern in self.secret_patterns.items():
-                matches = re.finditer(pattern, line, re.IGNORECASE)
-                for match in matches:
-                    vuln = SecurityVulnerability(
-                        "SECRET_EXPOSURE",
-                        file_path,
-                        line_num,
-                        f"Potential {secret_type} detected: {match.group()[:20]}...",
-                        "HIGH",
-                        "CWE-798"
-                    )
-                    vuln.remediation = f"Move {secret_type} to environment variables"
-                    vulnerabilities.append(vuln)
-            
-            # Entropy-based detection for unknown secrets
-            words = re.findall(r'["\'][^"\']{16,}["\']', line)
-            for word in words:
-                clean_word = word.strip('"\'')
-                if (len(clean_word) >= self.min_secret_length and 
-                    self.calculate_entropy(clean_word) > self.entropy_threshold):
-                    
-                    vuln = SecurityVulnerability(
-                        "HIGH_ENTROPY_STRING",
-                        file_path,
-                        line_num,
-                        f"High entropy string detected (entropy: {self.calculate_entropy(clean_word):.2f})",
-                        "MEDIUM",
-                        "CWE-798"
-                    )
-                    vuln.remediation = "Review if this is a hardcoded secret"
-                    vulnerabilities.append(vuln)
-        
-        return vulnerabilities
+  """Advanced secret detection with entropy analysis."""
 
+  def __init__(self):
+  self.secret_patterns = {
+  'aws_access_key': r'AKIA[0-9A-Z]{16}',
+  'aws_secret_key': r'[0-9a-zA-Z/+]{40}',
+  'github_token': r'ghp_[0-9a-zA-Z]{36}',
+  'slack_token': r'xox[baprs]-[0-9a-zA-Z-]+',
+  'stripe_key': r'sk_live_[0-9a-zA-Z]{24}',
+  'jwt_token': r'eyJ[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+',
+  'api_key': r'[aA][pP][iI][_]?[kK][eE][yY].*[\'"][0-9a-zA-Z]{32,}[\'"]',
+  'password': r'[pP][aA][sS][sS][wW][oO][rR][dD].*[\'"][^\'\"]{8,}[\'"]',
+  'private_key': r'-----BEGIN [A-Z]+ PRIVATE KEY-----',
+  'database_url': r'[a-zA-Z][a-zA-Z0-9+.-]*://[^\s]+',
+  }
+
+  self.entropy_threshold = 4.5
+  self.min_secret_length = 16
+
+  def calculate_entropy(self, string: str) -> float:
+  """Calculate Shannon entropy of a string."""
+  if not string:
+  return 0
+
+  entropy = 0
+  for char in set(string):
+  prob = string.count(char) / len(string)
+  if prob > 0:
+  entropy -= prob * (prob).bit_length()
+
+  return entropy
+
+  # TODO: High complexity function (7 branches) - consider refactoring
+  def detect_secrets_in_content(self, content: str, file_path: str) -> List[SecurityVulnerability]:
+  """Detect secrets in file content."""
+  vulnerabilities = []
+  lines = content.splitlines()
+
+  for line_num, line in enumerate(lines, 1):
+  # Pattern-based detection
+  for secret_type, pattern in self.secret_patterns.items():
+  matches = re.finditer(pattern, line, re.IGNORECASE)
+  for match in matches:
+  vuln = SecurityVulnerability(
+  "SECRET_EXPOSURE",
+  file_path,
+  line_num,
+  f"Potential {secret_type} detected: {match.group()[:20]}...",
+  "HIGH",
+  "CWE-798"
+  )
+  vuln.remediation = f"Move {secret_type} to environment variables"
+  vulnerabilities.append(vuln)
+
+  # Entropy-based detection for unknown secrets
+  words = re.findall(r'["\'][^"\']{16,}["\']', line)
+  for word in words:
+  clean_word = word.strip('"\'')
+  if (len(clean_word) >= self.min_secret_length and
+  self.calculate_entropy(clean_word) > self.entropy_threshold):
+
+  vuln = SecurityVulnerability(
+  "HIGH_ENTROPY_STRING",
+  file_path,
+  line_num,
+  f"High entropy string detected (entropy: {self.calculate_entropy(clean_word):.2f})",
+  "MEDIUM",
+  "CWE-798"
+  )
+  vuln.remediation = "Review if this is a hardcoded secret"
+  vulnerabilities.append(vuln)
+
+  return vulnerabilities
 
 class InjectionDetector:
-    """Detect various injection vulnerabilities."""
-    
-    def __init__(self):
-        self.sql_injection_patterns = [
-            r'execute\s*\(\s*["\'][^"\']*%[^"\']*["\']',
-            r'cursor\.execute\s*\(\s*["\'][^"\']*\+[^"\']*["\']',
-            r'query\s*=\s*["\'][^"\']*%[^"\']*["\']',
-            r'SELECT\s+.*\s+FROM\s+.*\s+WHERE\s+.*%',
-        ]
-        
-        self.command_injection_patterns = [
-            r'os\.system\s*\(\s*[^)]*\+',
-            r'subprocess\.(run|call|Popen)\s*\(\s*[^)]*\+',
-            r'eval\s*\(',
-            r'exec\s*\(',
-        ]
-        
-        self.xss_patterns = [
-            r'innerHTML\s*=\s*[^;]*\+',
-            r'document\.write\s*\([^)]*\+',
-            r'\.html\s*\([^)]*\+',
-        ]
-    
-    # TODO: High complexity function (9 branches) - consider refactoring
-    def detect_injections(self, content: str, file_path: str) -> List[SecurityVulnerability]:
-        """Detect injection vulnerabilities."""
-        vulnerabilities = []
-        lines = content.splitlines()
-        
-        for line_num, line in enumerate(lines, 1):
-            # SQL Injection
-            for pattern in self.sql_injection_patterns:
-                if re.search(pattern, line, re.IGNORECASE):
-                    vuln = SecurityVulnerability(
-                        "SQL_INJECTION",
-                        file_path,
-                        line_num,
-                        "Potential SQL injection vulnerability",
-                        "HIGH",
-                        "CWE-89"
-                    )
-                    vuln.remediation = "Use parameterized queries or ORM"
-                    vulnerabilities.append(vuln)
-            
-            # Command Injection
-            for pattern in self.command_injection_patterns:
-                if re.search(pattern, line, re.IGNORECASE):
-                    vuln = SecurityVulnerability(
-                        "COMMAND_INJECTION",
-                        file_path,
-                        line_num,
-                        "Potential command injection vulnerability",
-                        "CRITICAL",
-                        "CWE-78"
-                    )
-                    vuln.remediation = "Use subprocess with shell=False and validate inputs"
-                    vulnerabilities.append(vuln)
-            
-            # XSS (for web files)
-            if file_path.endswith(('.html', '.js', '.jsx', '.ts', '.tsx')):
-                for pattern in self.xss_patterns:
-                    if re.search(pattern, line, re.IGNORECASE):
-                        vuln = SecurityVulnerability(
-                            "XSS_VULNERABILITY",
-                            file_path,
-                            line_num,
-                            "Potential XSS vulnerability",
-                            "HIGH",
-                            "CWE-79"
-                        )
-                        vuln.remediation = "Sanitize user inputs and use safe DOM methods"
-                        vulnerabilities.append(vuln)
-        
-        return vulnerabilities
+  """Detect various injection vulnerabilities."""
 
+  def __init__(self):
+  self.sql_injection_patterns = [
+  r'execute\s*\(\s*["\'][^"\']*%[^"\']*["\']',
+  r'cursor\.execute\s*\(\s*["\'][^"\']*\+[^"\']*["\']',
+  r'query\s*=\s*["\'][^"\']*%[^"\']*["\']',
+  r'SELECT\s+.*\s+FROM\s+.*\s+WHERE\s+.*%',
+  ]
+
+  self.command_injection_patterns = [
+  r'os\.system\s*\(\s*[^)]*\+',
+  r'subprocess\.(run|call|Popen)\s*\(\s*[^)]*\+',
+  r'eval\s*\(',
+  r'exec\s*\(',
+  ]
+
+  self.xss_patterns = [
+  r'innerHTML\s*=\s*[^;]*\+',
+  r'document\.write\s*\([^)]*\+',
+  r'\.html\s*\([^)]*\+',
+  ]
+
+  # TODO: High complexity function (9 branches) - consider refactoring
+  def detect_injections(self, content: str, file_path: str) -> List[SecurityVulnerability]:
+  """Detect injection vulnerabilities."""
+  vulnerabilities = []
+  lines = content.splitlines()
+
+  for line_num, line in enumerate(lines, 1):
+  # SQL Injection
+  for pattern in self.sql_injection_patterns:
+  if re.search(pattern, line, re.IGNORECASE):
+  vuln = SecurityVulnerability(
+  "SQL_INJECTION",
+  file_path,
+  line_num,
+  "Potential SQL injection vulnerability",
+  "HIGH",
+  "CWE-89"
+  )
+  vuln.remediation = "Use parameterized queries or ORM"
+  vulnerabilities.append(vuln)
+
+  # Command Injection
+  for pattern in self.command_injection_patterns:
+  if re.search(pattern, line, re.IGNORECASE):
+  vuln = SecurityVulnerability(
+  "COMMAND_INJECTION",
+  file_path,
+  line_num,
+  "Potential command injection vulnerability",
+  "CRITICAL",
+  "CWE-78"
+  )
+  vuln.remediation = "Use subprocess with shell=False and validate inputs"
+  vulnerabilities.append(vuln)
+
+  # XSS (for web files)
+  if file_path.endswith(('.html', '.js', '.jsx', '.ts', '.tsx')):
+  for pattern in self.xss_patterns:
+  if re.search(pattern, line, re.IGNORECASE):
+  vuln = SecurityVulnerability(
+  "XSS_VULNERABILITY",
+  file_path,
+  line_num,
+  "Potential XSS vulnerability",
+  "HIGH",
+  "CWE-79"
+  )
+  vuln.remediation = "Sanitize user inputs and use safe DOM methods"
+  vulnerabilities.append(vuln)
+
+  return vulnerabilities
 
 class CryptographyAnalyzer:
-    """Analyze cryptographic implementations for weaknesses."""
-    
-    def __init__(self):
-        self.weak_algorithms = {
-            'md5': 'Use SHA-256 or stronger',
-            'sha1': 'Use SHA-256 or stronger',
-            'des': 'Use AES-256',
-            'rc4': 'Use AES-256',
-            'md4': 'Use SHA-256 or stronger',
-        }
-        
-        self.weak_patterns = [
-            r'hashlib\.md5\(',
-            r'hashlib\.sha1\(',
-            r'Crypto\.Hash\.MD5',
-            r'Crypto\.Hash\.SHA1',
-            r'random\.random\(',  # Weak randomness
-            r'time\.time\(\)',    # Predictable seeds
-        ]
-    
-    def analyze_crypto(self, content: str, file_path: str) -> List[SecurityVulnerability]:
-        """Analyze cryptographic implementations."""
-        vulnerabilities = []
-        lines = content.splitlines()
-        
-        for line_num, line in enumerate(lines, 1):
-            for pattern in self.weak_patterns:
-                if re.search(pattern, line):
-                    vuln = SecurityVulnerability(
-                        "WEAK_CRYPTOGRAPHY",
-                        file_path,
-                        line_num,
-                        f"Weak cryptographic implementation detected",
-                        "MEDIUM",
-                        "CWE-327"
-                    )
-                    vuln.remediation = "Use cryptographically secure algorithms"
-                    vulnerabilities.append(vuln)
-        
-        return vulnerabilities
+  """Analyze cryptographic implementations for weaknesses."""
 
+  def __init__(self):
+  self.weak_algorithms = {
+  'md5': 'Use SHA-256 or stronger',
+  'sha1': 'Use SHA-256 or stronger',
+  'des': 'Use AES-256',
+  'rc4': 'Use AES-256',
+  'md4': 'Use SHA-256 or stronger',
+  }
+
+  self.weak_patterns = [
+  r'hashlib\.md5\(',
+  r'hashlib\.sha1\(',
+  r'Crypto\.Hash\.MD5',
+  r'Crypto\.Hash\.SHA1',
+  r'random\.random\(',  # Weak randomness
+  r'time\.time\(\)',  # Predictable seeds
+  ]
+
+  def analyze_crypto(self, content: str, file_path: str) -> List[SecurityVulnerability]:
+  """Analyze cryptographic implementations."""
+  vulnerabilities = []
+  lines = content.splitlines()
+
+  for line_num, line in enumerate(lines, 1):
+  for pattern in self.weak_patterns:
+  if re.search(pattern, line):
+  vuln = SecurityVulnerability(
+  "WEAK_CRYPTOGRAPHY",
+  file_path,
+  line_num,
+  f"Weak cryptographic implementation detected",
+  "MEDIUM",
+  "CWE-327"
+  )
+  vuln.remediation = "Use cryptographically secure algorithms"
+  vulnerabilities.append(vuln)
+
+  return vulnerabilities
 
 class AuthenticationAnalyzer:
-    """Analyze authentication and authorization implementations."""
-    
-    def __init__(self):
-        self.auth_patterns = {
-            'hardcoded_password': r'password\s*=\s*["\'][^"\']+["\']',
-            'weak_session': r'session\[.*\]\s*=\s*["\'][^"\']{1,8}["\']',
-            'no_csrf_protection': r'@app\.route.*methods.*POST',
-            'weak_jwt': r'jwt\.encode.*algorithm.*none',
-        }
-    
-    def analyze_auth(self, content: str, file_path: str) -> List[SecurityVulnerability]:
-        """Analyze authentication mechanisms."""
-        vulnerabilities = []
-        lines = content.splitlines()
-        
-        for line_num, line in enumerate(lines, 1):
-            for vuln_type, pattern in self.auth_patterns.items():
-                if re.search(pattern, line, re.IGNORECASE):
-                    severity = "HIGH" if "hardcoded" in vuln_type else "MEDIUM"
-                    vuln = SecurityVulnerability(
-                        f"AUTH_{vuln_type.upper()}",
-                        file_path,
-                        line_num,
-                        f"Authentication issue: {vuln_type}",
-                        severity,
-                        "CWE-287"
-                    )
-                    vulnerabilities.append(vuln)
-        
-        return vulnerabilities
+  """Analyze authentication and authorization implementations."""
 
+  def __init__(self):
+  self.auth_patterns = {
+  'hardcoded_password': r'password\s*=\s*["\'][^"\']+["\']',
+  'weak_session': r'session\[.*\]\s*=\s*["\'][^"\']{1,8}["\']',
+  'no_csrf_protection': r'@app\.route.*methods.*POST',
+  'weak_jwt': r'jwt\.encode.*algorithm.*none',
+  }
+
+  def analyze_auth(self, content: str, file_path: str) -> List[SecurityVulnerability]:
+  """Analyze authentication mechanisms."""
+  vulnerabilities = []
+  lines = content.splitlines()
+
+  for line_num, line in enumerate(lines, 1):
+  for vuln_type, pattern in self.auth_patterns.items():
+  if re.search(pattern, line, re.IGNORECASE):
+  severity = "HIGH" if "hardcoded" in vuln_type else "MEDIUM"
+  vuln = SecurityVulnerability(
+  f"AUTH_{vuln_type.upper()}",
+  file_path,
+  line_num,
+  f"Authentication issue: {vuln_type}",
+  severity,
+  "CWE-287"
+  )
+  vulnerabilities.append(vuln)
+
+  return vulnerabilities
 
 class SecurityFortress:
-    """Master security fortress orchestrating all security measures."""
-    
-    def __init__(self, root_path: Path):
-        self.root_path = Path(root_path)
-        self.secret_detector = SecretDetector()
-        self.injection_detector = InjectionDetector()
-        self.crypto_analyzer = CryptographyAnalyzer()
-        self.auth_analyzer = AuthenticationAnalyzer()
-        
-        self.vulnerabilities = []
-        self.security_metrics = {
-            "files_scanned": 0,
-            "vulnerabilities_found": 0,
-            "critical_vulnerabilities": 0,
-            "high_vulnerabilities": 0,
-            "medium_vulnerabilities": 0,
-            "low_vulnerabilities": 0,
-            "secrets_detected": 0,
-            "injection_vulnerabilities": 0,
-            "crypto_issues": 0,
-            "auth_issues": 0,
-        }
-    
-    # TODO: High complexity function (6 branches) - consider refactoring
-    def scan_file_security(self, file_path: Path) -> List[SecurityVulnerability]:
-        """Comprehensive security scan of a single file."""
-        try:
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                content = f.read()
-            
-            file_vulnerabilities = []
-            
-            # Secret detection
-            secrets = self.secret_detector.detect_secrets_in_content(content, str(file_path))
-            file_vulnerabilities.extend(secrets)
-            self.security_metrics["secrets_detected"] += len(secrets)
-            
-            # Injection detection
-            injections = self.injection_detector.detect_injections(content, str(file_path))
-            file_vulnerabilities.extend(injections)
-            self.security_metrics["injection_vulnerabilities"] += len(injections)
-            
-            # Cryptography analysis
-            crypto_issues = self.crypto_analyzer.analyze_crypto(content, str(file_path))
-            file_vulnerabilities.extend(crypto_issues)
-            self.security_metrics["crypto_issues"] += len(crypto_issues)
-            
-            # Authentication analysis
-            auth_issues = self.auth_analyzer.analyze_auth(content, str(file_path))
-            file_vulnerabilities.extend(auth_issues)
-            self.security_metrics["auth_issues"] += len(auth_issues)
-            
-            # Update severity counters
-            for vuln in file_vulnerabilities:
-                if vuln.severity == "CRITICAL":
-                    self.security_metrics["critical_vulnerabilities"] += 1
-                elif vuln.severity == "HIGH":
-                    self.security_metrics["high_vulnerabilities"] += 1
-                elif vuln.severity == "MEDIUM":
-                    self.security_metrics["medium_vulnerabilities"] += 1
-                else:
-                    self.security_metrics["low_vulnerabilities"] += 1
-            
-            return file_vulnerabilities
-            
-        except Exception as e:
-            logger.error(f"Error scanning {file_path}: {e}")
-            return []
-    
-    def generate_security_config(self) -> Dict[str, Any]:
-        """Generate comprehensive security configuration."""
-        security_config = {
-            "environment_variables": {
-                "SECURE_SSL_REDIRECT": "True",
-                "SESSION_COOKIE_SECURE": "True",
-                "SESSION_COOKIE_HTTPONLY": "True",
-                "SESSION_COOKIE_SAMESITE": "Strict",
-                "CSRF_COOKIE_SECURE": "True",
-                "CSRF_COOKIE_HTTPONLY": "True",
-                "X_FRAME_OPTIONS": "DENY",
-                "CONTENT_TYPE_OPTIONS": "nosniff",
-                "BROWSER_XSS_FILTER": "True",
-                "FORCE_SCRIPT_NAME": "",
-                "SECURE_HSTS_SECONDS": "31536000",
-                "SECURE_HSTS_INCLUDE_SUBDOMAINS": "True",
-                "SECURE_HSTS_PRELOAD": "True",
-            },
-            "security_headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
-                "X-Content-Type-Options": "nosniff",
-                "X-Frame-Options": "DENY",
-                "X-XSS-Protection": "1; mode=block",
-                "Referrer-Policy": "strict-origin-when-cross-origin",
-                "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'",
-            },
-            "encryption_settings": {
-                "algorithm": "AES-256-GCM",
-                "key_derivation": "PBKDF2-SHA256",
-                "iterations": 100000,
-                "salt_length": 32,
-                "iv_length": 16,
-            },
-            "authentication": {
-                "password_min_length": 12,
-                "password_complexity": True,
-                "session_timeout": 3600,
-                "max_login_attempts": 5,
-                "lockout_duration": 900,
-                "require_2fa": True,
-            },
-        }
-        
-        return security_config
-    
-    def create_env_template(self) -> str:
-        """Create secure .env template."""
-        template = """# AIFOLIO Security Configuration Template
+  """Master security fortress orchestrating all security measures."""
+
+  def __init__(self, root_path: Path):
+  self.root_path = Path(root_path)
+  self.secret_detector = SecretDetector()
+  self.injection_detector = InjectionDetector()
+  self.crypto_analyzer = CryptographyAnalyzer()
+  self.auth_analyzer = AuthenticationAnalyzer()
+
+  self.vulnerabilities = []
+  self.security_metrics = {
+  "files_scanned": 0,
+  "vulnerabilities_found": 0,
+  "critical_vulnerabilities": 0,
+  "high_vulnerabilities": 0,
+  "medium_vulnerabilities": 0,
+  "low_vulnerabilities": 0,
+  "secrets_detected": 0,
+  "injection_vulnerabilities": 0,
+  "crypto_issues": 0,
+  "auth_issues": 0,
+  }
+
+  # TODO: High complexity function (6 branches) - consider refactoring
+  def scan_file_security(self, file_path: Path) -> List[SecurityVulnerability]:
+  """Comprehensive security scan of a single file."""
+  try:
+  with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+  content = f.read()
+
+  file_vulnerabilities = []
+
+  # Secret detection
+  secrets = self.secret_detector.detect_secrets_in_content(content, str(file_path))
+  file_vulnerabilities.extend(secrets)
+  self.security_metrics["secrets_detected"] += len(secrets)
+
+  # Injection detection
+  injections = self.injection_detector.detect_injections(content, str(file_path))
+  file_vulnerabilities.extend(injections)
+  self.security_metrics["injection_vulnerabilities"] += len(injections)
+
+  # Cryptography analysis
+  crypto_issues = self.crypto_analyzer.analyze_crypto(content, str(file_path))
+  file_vulnerabilities.extend(crypto_issues)
+  self.security_metrics["crypto_issues"] += len(crypto_issues)
+
+  # Authentication analysis
+  auth_issues = self.auth_analyzer.analyze_auth(content, str(file_path))
+  file_vulnerabilities.extend(auth_issues)
+  self.security_metrics["auth_issues"] += len(auth_issues)
+
+  # Update severity counters
+  for vuln in file_vulnerabilities:
+  if vuln.severity == "CRITICAL":
+  self.security_metrics["critical_vulnerabilities"] += 1
+  elif vuln.severity == "HIGH":
+  self.security_metrics["high_vulnerabilities"] += 1
+  elif vuln.severity == "MEDIUM":
+  self.security_metrics["medium_vulnerabilities"] += 1
+  else:
+  self.security_metrics["low_vulnerabilities"] += 1
+
+  return file_vulnerabilities
+
+  except Exception as e:
+  logger.error(f"Error scanning {file_path}: {e}")
+  return []
+
+  def generate_security_config(self) -> Dict[str, Any]:
+  """Generate comprehensive security configuration."""
+  security_config = {
+  "environment_variables": {
+  "SECURE_SSL_REDIRECT": "True",
+  "SESSION_COOKIE_SECURE": "True",
+  "SESSION_COOKIE_HTTPONLY": "True",
+  "SESSION_COOKIE_SAMESITE": "Strict",
+  "CSRF_COOKIE_SECURE": "True",
+  "CSRF_COOKIE_HTTPONLY": "True",
+  "X_FRAME_OPTIONS": "DENY",
+  "CONTENT_TYPE_OPTIONS": "nosniff",
+  "BROWSER_XSS_FILTER": "True",
+  "FORCE_SCRIPT_NAME": "",
+  "SECURE_HSTS_SECONDS": "31536000",
+  "SECURE_HSTS_INCLUDE_SUBDOMAINS": "True",
+  "SECURE_HSTS_PRELOAD": "True",
+  },
+  "security_headers": {
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "X-XSS-Protection": "1; mode=block",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'",
+  },
+  "encryption_settings": {
+  "algorithm": "AES-256-GCM",
+  "key_derivation": "PBKDF2-SHA256",
+  "iterations": 100000,
+  "salt_length": 32,
+  "iv_length": 16,
+  },
+  "authentication": {
+  "password_min_length": 12,
+  "password_complexity": True,
+  "session_timeout": 3600,
+  "max_login_attempts": 5,
+  "lockout_duration": 900,
+  "require_2fa": True,
+  },
+  }
+
+  return security_config
+
+  def create_env_template(self) -> str:
+  """Create secure .env template."""
+  template = """# AIFOLIO Security Configuration Template
 # Copy to .env and fill in actual values
 
 # Database Configuration
@@ -444,108 +451,107 @@ SECURE_SSL_REDIRECT=True
 SESSION_COOKIE_SECURE=True
 CSRF_COOKIE_SECURE=True
 """
-        return template
-    
-    # TODO: High complexity function (7 branches) - consider refactoring
-    def execute_security_scan(self) -> Dict[str, Any]:
-        """Execute comprehensive security scan."""
-        logger.info("🛡️ INITIATING OMNISCIENT SECURITY SCAN...")
-        
-        # Find all relevant files
-        scan_extensions = {'.py', '.js', '.jsx', '.ts', '.tsx', '.html', '.php', '.java', '.go', '.rs'}
-        files_to_scan = []
-        
-        for file_path in self.root_path.rglob("*"):
-            if (file_path.is_file() and 
-                file_path.suffix in scan_extensions and
-                ".venv" not in str(file_path) and
-                "__pycache__" not in str(file_path) and
-                "node_modules" not in str(file_path)):
-                files_to_scan.append(file_path)
-        
-        logger.info(f"🔍 Scanning {len(files_to_scan)} files for security vulnerabilities...")
-        
-        # Scan files
-        for i, file_path in enumerate(files_to_scan):
-            if i % 500 == 0:
-                logger.info(f"📊 Scanned {i}/{len(files_to_scan)} files")
-            
-            file_vulnerabilities = self.scan_file_security(file_path)
-            self.vulnerabilities.extend(file_vulnerabilities)
-            self.security_metrics["files_scanned"] += 1
-        
-        self.security_metrics["vulnerabilities_found"] = len(self.vulnerabilities)
-        
-        # Generate security artifacts
-        security_config = self.generate_security_config()
-        env_template = self.create_env_template()
-        
-        # Calculate risk score
-        total_risk_score = sum(vuln.risk_score for vuln in self.vulnerabilities)
-        average_risk_score = total_risk_score / max(len(self.vulnerabilities), 1)
-        
-        results = {
-            "scan_summary": self.security_metrics,
-            "vulnerabilities": [
-                {
-                    "type": vuln.vuln_type,
-                    "file": vuln.file_path,
-                    "line": vuln.line_number,
-                    "description": vuln.description,
-                    "severity": vuln.severity,
-                    "cwe_id": vuln.cwe_id,
-                    "remediation": vuln.remediation,
-                    "risk_score": vuln.risk_score,
-                }
-                for vuln in self.vulnerabilities
-            ],
-            "security_config": security_config,
-            "env_template": env_template,
-            "risk_assessment": {
-                "total_risk_score": total_risk_score,
-                "average_risk_score": average_risk_score,
-                "security_grade": self._calculate_security_grade(average_risk_score),
-            },
-        }
-        
-        logger.info(f"🚨 Security scan complete: {len(self.vulnerabilities)} vulnerabilities found")
-        return results
-    
-    def _calculate_security_grade(self, avg_risk_score: float) -> str:
-        """Calculate security grade based on average risk score."""
-        if avg_risk_score >= 8:
-            return "F - Critical Security Issues"
-        elif avg_risk_score >= 6:
-            return "D - Major Security Issues"
-        elif avg_risk_score >= 4:
-            return "C - Moderate Security Issues"
-        elif avg_risk_score >= 2:
-            return "B - Minor Security Issues"
-        else:
-            return "A - Excellent Security"
+  return template
 
+  # TODO: High complexity function (7 branches) - consider refactoring
+  def execute_security_scan(self) -> Dict[str, Any]:
+  """Execute comprehensive security scan."""
+  logger.info("🛡️ INITIATING OMNISCIENT SECURITY SCAN...")
+
+  # Find all relevant files
+  scan_extensions = {'.py', '.js', '.jsx', '.ts', '.tsx', '.html', '.php', '.java', '.go', '.rs'}
+  files_to_scan = []
+
+  for file_path in self.root_path.rglob("*"):
+  if (file_path.is_file() and
+  file_path.suffix in scan_extensions and
+  ".venv" not in str(file_path) and
+  "__pycache__" not in str(file_path) and
+  "node_modules" not in str(file_path)):
+  files_to_scan.append(file_path)
+
+  logger.info(f"🔍 Scanning {len(files_to_scan)} files for security vulnerabilities...")
+
+  # Scan files
+  for i, file_path in enumerate(files_to_scan):
+  if i % 500 == 0:
+  logger.info(f"📊 Scanned {i}/{len(files_to_scan)} files")
+
+  file_vulnerabilities = self.scan_file_security(file_path)
+  self.vulnerabilities.extend(file_vulnerabilities)
+  self.security_metrics["files_scanned"] += 1
+
+  self.security_metrics["vulnerabilities_found"] = len(self.vulnerabilities)
+
+  # Generate security artifacts
+  security_config = self.generate_security_config()
+  env_template = self.create_env_template()
+
+  # Calculate risk score
+  total_risk_score = sum(vuln.risk_score for vuln in self.vulnerabilities)
+  average_risk_score = total_risk_score / max(len(self.vulnerabilities), 1)
+
+  results = {
+  "scan_summary": self.security_metrics,
+  "vulnerabilities": [
+  {
+  "type": vuln.vuln_type,
+  "file": vuln.file_path,
+  "line": vuln.line_number,
+  "description": vuln.description,
+  "severity": vuln.severity,
+  "cwe_id": vuln.cwe_id,
+  "remediation": vuln.remediation,
+  "risk_score": vuln.risk_score,
+  }
+  for vuln in self.vulnerabilities
+  ],
+  "security_config": security_config,
+  "env_template": env_template,
+  "risk_assessment": {
+  "total_risk_score": total_risk_score,
+  "average_risk_score": average_risk_score,
+  "security_grade": self._calculate_security_grade(average_risk_score),
+  },
+  }
+
+  logger.info(f"🚨 Security scan complete: {len(self.vulnerabilities)} vulnerabilities found")
+  return results
+
+  def _calculate_security_grade(self, avg_risk_score: float) -> str:
+  """Calculate security grade based on average risk score."""
+  if avg_risk_score >= 8:
+  return "F - Critical Security Issues"
+  elif avg_risk_score >= 6:
+  return "D - Major Security Issues"
+  elif avg_risk_score >= 4:
+  return "C - Moderate Security Issues"
+  elif avg_risk_score >= 2:
+  return "B - Minor Security Issues"
+  else:
+  return "A - Excellent Security"
 
 def main():
-    """Execute omniscient security analysis."""
-    root_path = Path("/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12")
-    
-    fortress = SecurityFortress(root_path)
-    results = fortress.execute_security_scan()
-    
-    # Save results
-    with open(".windsurf/security_analysis_results.json", "w") as f:
-        json.dump(results, f, indent=2, default=str)
-    
-    # Create .env template
-    with open(".windsurf/.env.security.template", "w") as f:
-        f.write(results["env_template"])
-    
-    # Create security config
-    with open(".windsurf/security_config.json", "w") as f:
-        json.dump(results["security_config"], f, indent=2)
-    
-    # Generate summary report
-    summary = f"""
+  """Execute omniscient security analysis."""
+  root_path = Path("/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12")
+
+  fortress = SecurityFortress(root_path)
+  results = fortress.execute_security_scan()
+
+  # Save results
+  with open(".windsurf/security_analysis_results.json", "w") as f:
+  json.dump(results, f, indent=2, default=str)
+
+  # Create .env template
+  with open(".windsurf/.env.security.template", "w") as f:
+  f.write(results["env_template"])
+
+  # Create security config
+  with open(".windsurf/security_config.json", "w") as f:
+  json.dump(results["security_config"], f, indent=2)
+
+  # Generate summary report
+  summary = f"""
 # 🛡️ OMNISCIENT SECURITY ANALYSIS REPORT
 
 ## 📊 SECURITY SUMMARY
@@ -574,13 +580,12 @@ def main():
 - Environment variables template
 - Vulnerability remediation guide
 """
-    
-    with open(".windsurf/security_analysis_summary.md", "w") as f:
-        f.write(summary)
-    
-    logger.info("✅ OMNISCIENT SECURITY ANALYSIS COMPLETE")
-    return results
 
+  with open(".windsurf/security_analysis_summary.md", "w") as f:
+  f.write(summary)
+
+  logger.info("✅ OMNISCIENT SECURITY ANALYSIS COMPLETE")
+  return results
 
 if __name__ == "__main__":
-    main()
+  main()

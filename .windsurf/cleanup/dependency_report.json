@@ -1,0 +1,336 @@
+{
+  "analysis_results": {
+    "total_modules": 5636,
+    "circular_dependencies": 0,
+    "redundant_modules": 36,
+    "import_patterns": 4,
+    "recommendations": [
+      {
+        "type": "redundant_modules",
+        "priority": "medium",
+        "description": "Consolidate 36 groups of redundant modules",
+        "action": "Merge similar modules and create unified interfaces"
+      },
+      {
+        "type": "wildcard_imports",
+        "priority": "medium",
+        "description": "Replace 10 wildcard imports",
+        "action": "Use explicit imports instead of wildcard imports"
+      }
+    ]
+  },
+  "circular_dependencies": [],
+  "redundant_modules": [
+    {
+      "base_functionality": "sso_api",
+      "modules": [
+        "sso_api",
+        "custom_sso_api"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "test_basic",
+      "modules": [
+        "test_basic",
+        "tests.test_basic"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "conftest",
+      "modules": [
+        "conftest",
+        "tests.conftest"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "lgbtq",
+      "modules": [
+        "lgbtq_engine",
+        "lgbtq"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "emma_crypto",
+      "modules": [
+        "emma_crypto",
+        "modules.knowledge.core.ai_core.emma_crypto"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "global_scale_systems",
+      "modules": [
+        "global_scale_systems",
+        "global_expansion.global_scale_systems"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "analytics",
+      "modules": [
+        "ai_analytics_engine",
+        "analytics"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "monitor",
+      "modules": [
+        "monitor",
+        "core.ai_monitor"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "test_sample",
+      "modules": [
+        "test_sample",
+        "tests.test_sample"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "violation",
+      "modules": [
+        "violation",
+        "violation_engine"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "owner_intent",
+      "modules": [
+        "owner_intent_engine",
+        "ai_owner_intent_engine"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "anti_sentience_codedefense",
+      "modules": [
+        "anti_sentience_codedefense",
+        "modules.knowledge.core.anti_sentience_codedefense"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "gumroad_sync",
+      "modules": [
+        "gumroad_sync",
+        "modules.tax_engine.integrations.gumroad_sync"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "security",
+      "modules": [
+        "security",
+        "security_engine"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "inspect",
+      "modules": [
+        "custom_inspect",
+        "custom_inspect_module"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "test_simd",
+      "modules": [
+        "test_simd",
+        "test_simd_module"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "dalle",
+      "modules": [
+        "dalle",
+        "autonomy.ai_cover_creator.dalle"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "warnings",
+      "modules": [
+        "aifolio_warnings",
+        "custom_warnings"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "remediation",
+      "modules": [
+        "remediation_engine",
+        "remediation"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "function",
+      "modules": [
+        "function_tool",
+        "function"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "types",
+      "modules": [
+        "custom_types",
+        "aifolio_types"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "ethics_checker",
+      "modules": [
+        "ethics_checker",
+        "core.ethics_checker"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "auto_variant_generator",
+      "modules": [
+        "auto_variant_generator",
+        "autonomy.ai_static.auto_variant_generator"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "audit_compliance",
+      "modules": [
+        "audit_compliance",
+        "autonomy.ai_tools.audit_compliance"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "export",
+      "modules": [
+        "export_engine",
+        "admin.export"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "tenant_registry",
+      "modules": [
+        "autonomy.tenant.tenant_registry",
+        "modules.knowledge.features.automation.backend.tenant.tenant_registry"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "module_registry",
+      "modules": [
+        "autonomy.tenant.module_registry",
+        "modules.knowledge.features.automation.backend.tenant.module_registry"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "liquidity_funnel",
+      "modules": [
+        "autonomy.ai_static_engines.liquidity_funnel",
+        "modules.knowledge.features.automation.backend.ai_static_engines.liquidity_funnel"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "reserve_rebalancer",
+      "modules": [
+        "autonomy.ai_static_engines.reserve_rebalancer",
+        "modules.knowledge.features.automation.backend.ai_static_engines.reserve_rebalancer"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "reinvestment_planner",
+      "modules": [
+        "autonomy.ai_static_engines.reinvestment_planner",
+        "modules.knowledge.features.automation.backend.ai_static_engines.reinvestment_planner"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "legal_pressure_monitor",
+      "modules": [
+        "autonomy.legal.legal_pressure_monitor",
+        "modules.knowledge.features.automation.backend.legal.legal_pressure_monitor"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "legal_horizon_monitor",
+      "modules": [
+        "autonomy.legal.legal_horizon_monitor",
+        "modules.knowledge.features.automation.backend.legal.legal_horizon_monitor"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "tax_harmonization",
+      "modules": [
+        "autonomy.legal.tax_harmonization_engine",
+        "modules.knowledge.features.automation.backend.legal.tax_harmonization_engine"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "empire_clone",
+      "modules": [
+        "omniexpansion.empire_clone_engine",
+        "modules.knowledge.features.empire.omniexpansion.empire_clone_engine"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "darkweb_intel_firewall",
+      "modules": [
+        "omniexpansion.darkweb_intel_firewall",
+        "modules.knowledge.features.empire.omniexpansion.darkweb_intel_firewall"
+      ],
+      "count": 2
+    },
+    {
+      "base_functionality": "high_ticket_vault_leaderboard",
+      "modules": [
+        "modules.knowledge.features.analytics.data.high_ticket_vault_leaderboard",
+        "analytics.high_ticket_vault_leaderboard"
+      ],
+      "count": 2
+    }
+  ],
+  "import_patterns": {
+    "relative_imports": [
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/backend/identity/founder_auth.py"
+    ],
+    "wildcard_imports": [
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_other_file_chunking_strategy_object.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_test_sequence.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_configuration_data2vec_text.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_configuration_vivit.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_django.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_fetch.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_tokenization_t5.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_MpoImagePlugin.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_test_check_indexer.py",
+      "/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12/tests/unit/test_modeling_flax_electra.py"
+    ],
+    "long_import_chains": [],
+    "unused_imports": []
+  },
+  "fixes_applied": {
+    "circular_fixes": 0,
+    "consolidation_fixes": 36
+  }
+}

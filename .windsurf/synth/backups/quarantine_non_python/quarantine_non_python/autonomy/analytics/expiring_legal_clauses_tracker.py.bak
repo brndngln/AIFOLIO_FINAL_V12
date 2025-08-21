@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for expiring_legal_clauses_tracker')

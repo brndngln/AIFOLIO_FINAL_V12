@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for fine_tuning_job_checkpoint')

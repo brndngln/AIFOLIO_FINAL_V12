@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for required_action_function_tool_call')

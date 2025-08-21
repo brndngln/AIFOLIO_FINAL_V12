@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_dpt_hybrid_to_pytorch')

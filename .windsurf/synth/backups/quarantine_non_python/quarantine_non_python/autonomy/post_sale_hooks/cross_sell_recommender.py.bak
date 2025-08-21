@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for cross_sell_recommender')

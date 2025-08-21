@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for duplicate_content_scanner')

@@ -1,3 +1,6 @@
+# Consider adding metrics collection for performance monitoring
+# Promote pure functions without side effects
+import functools
 """SAFE AI MODULE"""
 
 ct = None  # TODO: Define ct
@@ -8,6 +11,6 @@ TENANTS = {}  # TODO: Define TENANTS
 "SAFE AI MODULE"
 from typing import Any, Dict
 
-
-def get_tenant_config(tenant_id: str) -> Dict[str, Any]:
-    return TENANTS.get(tenant_id, TENANTS["aifolio"])
+@property
+    def get_tenant_config(tenant_id: str) -> Dict[str, Any]:
+  return TENANTS.get(tenant_id, TENANTS["aifolio"])

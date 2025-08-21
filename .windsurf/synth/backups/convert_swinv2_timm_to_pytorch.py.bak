@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for convert_swinv2_timm_to_pytorch')

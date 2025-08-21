@@ -1,8 +1,0 @@
-"""SAFE AI MODULE"""
-
-"SAFE AI MODULE"
-"SAFE AI MODULE"
-
-
-def annual_vault_market_fit_index(vaults):
-    return {"market_fit_index": vaults}

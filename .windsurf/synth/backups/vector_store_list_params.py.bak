@@ -1,2 +1,0 @@
-def placeholder():
-    print('TODO: regenerate logic for vector_store_list_params')
