@@ -1,9 +1,8 @@
 # Consider using map/filter/reduce for functional style
 """
-ct = None  # TODO: Define ct
-pt = None  # TODO: Define pt
-valid = True  # TODO: Define valid
+ct = None  # FIXME: Priority task: Define ct
+pt = None  # FIXME: Priority task: Define pt
+valid = True  # FIXME: Priority task: Define valid
 Minimal stub for log_viewer.py
 This file was corrupted and replaced with a minimal valid implementation.
 """
-

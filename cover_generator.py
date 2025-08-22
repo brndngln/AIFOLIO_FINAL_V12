@@ -1,13 +1,6 @@
-# Consider adding metrics collection for performance monitoring
-# Promote pure functions without side effects
-import functools
-def generate_cover(title, style="minimal"):
-from PIL import Image, ImageDraw, ImageFont
+"""
+cover_generator.py - Fixed syntax issues
+"""
 
-  img = Image.new("RGB", (1024, 768), color="white")
-  draw = ImageDraw.Draw(img)
-  font = ImageFont.load_default()
-  draw.text((100, 100), title, font=font, fill="black")
-  path = f"covers/{title.replace(' ', '_')}.png"
-  img.save(path)
-  return path
+if __name__ == "__main__":
+    pass

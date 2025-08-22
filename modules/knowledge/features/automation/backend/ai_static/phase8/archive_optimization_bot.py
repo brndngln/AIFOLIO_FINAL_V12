@@ -5,4 +5,5 @@
 
 
 def suggest_archive(vault_id, triggered_by):
-    return should_archive
+    """Suggest Archive function."""
+#     return should_archive

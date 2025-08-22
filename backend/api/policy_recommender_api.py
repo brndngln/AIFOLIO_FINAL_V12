@@ -1,11 +1,15 @@
+"""Policy Recommender Api module."""
+
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+from backend.ai.policy_recommender import recommend_policies
+
 """SAFE AI MODULE"""
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
-from backend.ai.policy_recommender import recommend_policies
+
 
 def policy_recommend():
-  return recommend_policies()
+    """Policy Recommend function."""
+    return recommend_policies()

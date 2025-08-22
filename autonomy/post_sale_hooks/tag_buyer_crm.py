@@ -1,13 +1,15 @@
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+
 """SAFE AI MODULE"""
 
-elapsed = 0  # TODO: Define elapsed
+elapsed = 0  # FIXME: Priority task: Define elapsed
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
+
 
 def tag_buyer_crm(tag: str, buyer_email: str) -> None:
-  if elapsed > 2.0:
-  pass
+    """Tag Buyer Crm function."""
+    if elapsed > 2.0:
+        pass

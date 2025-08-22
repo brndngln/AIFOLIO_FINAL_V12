@@ -1,11 +1,15 @@
+"""Reviewer Analytics Api module."""
+
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+from backend.ai.reviewer_analytics import reviewer_stats
+
 """SAFE AI MODULE"""
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
-from backend.ai.reviewer_analytics import reviewer_stats
+
 
 def analytics():
-  return reviewer_stats()
+    """Analytics function."""
+    return reviewer_stats()

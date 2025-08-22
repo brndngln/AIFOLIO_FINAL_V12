@@ -1,10 +1,12 @@
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+
 """SAFE AI MODULE"""
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
 
+
 def partner_self_certification_submission(submissions):
-  return {"partner_self_certification": submissions}
+    """Partner Self Certification Submission function."""
+    return {"partner_self_certification": submissions}

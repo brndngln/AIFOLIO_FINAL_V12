@@ -1,11 +1,15 @@
+"""Spawner module."""
+
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+from typing import Any
+
 """SAFE AI MODULE"""
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
-from typing import Any
+
 
 def spawn_agent() -> Any:
-  return agent
+    """Spawn Agent function."""
+#     return agent

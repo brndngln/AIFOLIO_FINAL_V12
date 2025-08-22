@@ -34,7 +34,8 @@ def fix_future_imports(content: str) -> str:
         insert_index = 0
         for i, line in enumerate(lines):
             stripped = line.strip()
-            if stripped and not stripped.startswith('#') and not stripped.startswith('"""') and not stripped.startswith("'''"):
+            if stripped and not stripped.startswith('#') and not stripped.startswith(
+                    '"""') and not stripped.startswith("'''"):
                 insert_index = i
                 break
 
@@ -43,6 +44,7 @@ def fix_future_imports(content: str) -> str:
         lines.insert(1, '')  # Add blank line after
 
     return '\n'.join(lines)
+
 
 def fix_syntax_errors(content: str, filepath: str) -> str:
     """Fix common syntax errors in Python files."""
@@ -83,6 +85,7 @@ def fix_syntax_errors(content: str, filepath: str) -> str:
 
     return '\n'.join(fixed_lines)
 
+
 def create_minimal_stub(filepath: str) -> str:
     """Create a minimal valid Python stub for corrupted files."""
     filename = os.path.basename(filepath)
@@ -100,6 +103,7 @@ class PlaceholderClass:
     """Placeholder class to ensure valid Python syntax."""
     pass
 '''
+
 
 def repair_python_file(filepath: str) -> Tuple[bool, str]:
     """Repair a single Python file."""
@@ -127,6 +131,7 @@ def repair_python_file(filepath: str) -> Tuple[bool, str]:
 
     except Exception as e:
         return False, f"Repair failed: {e}"
+
 
 def main():
     """Main repair function."""
@@ -174,9 +179,9 @@ def main():
         repair_results['details'][relative_path] = message
 
     # Summary
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
     print("🔧 SYNTAX REPAIR SUMMARY")
-    print("="*80)
+    print("=" * 80)
     print(f"Total files processed: {len(failed_files)}")
     print(f"✅ Successfully repaired: {len(repair_results['repaired'])}")
     print(f"❌ Failed to repair: {len(repair_results['failed'])}")
@@ -194,6 +199,7 @@ def main():
     print(f"\n📄 Repair results saved to: {repair_results_file}")
 
     return len(repair_results['failed']) == 0
+
 
 if __name__ == "__main__":
     success = main()

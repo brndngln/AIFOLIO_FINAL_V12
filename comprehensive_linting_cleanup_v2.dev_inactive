@@ -39,6 +39,7 @@ def run_black_formatting(root_dir: Path) -> Tuple[bool, str]:
         print(f"❌ Black formatting error: {e}")
         return False, str(e)
 
+
 def run_isort_imports(root_dir: Path) -> Tuple[bool, str]:
     """Run isort import organization."""
     print("📦 Running isort import organization...")
@@ -71,6 +72,7 @@ def run_isort_imports(root_dir: Path) -> Tuple[bool, str]:
     except Exception as e:
         print(f"❌ isort error: {e}")
         return False, str(e)
+
 
 def clean_dangerous_patterns(root_dir: Path) -> List[Dict]:
     """Remove or fix dangerous code patterns."""
@@ -115,6 +117,7 @@ class SafePlaceholder:
 
     return cleaned
 
+
 def fix_import_conflicts(root_dir: Path) -> List[str]:
     """Fix import conflicts with standard library."""
     print("🔧 Fixing import conflicts...")
@@ -146,6 +149,7 @@ def fix_import_conflicts(root_dir: Path) -> List[str]:
 
     return fixed
 
+
 def update_python_version_configs(root_dir: Path) -> bool:
     """Update Python version to 3.13.5 in all config files."""
     print("🐍 Updating Python version configurations...")
@@ -172,6 +176,7 @@ def update_python_version_configs(root_dir: Path) -> bool:
             print(f"❌ Failed to update .tool-versions: {e}")
 
     return True
+
 
 def run_pre_commit_validation(root_dir: Path) -> Tuple[bool, str]:
     """Run pre-commit hooks validation."""
@@ -200,11 +205,12 @@ def run_pre_commit_validation(root_dir: Path) -> Tuple[bool, str]:
         print(f"⚠️  Pre-commit validation error: {e}")
         return False, str(e)
 
+
 def generate_final_report(root_dir: Path) -> Dict:
     """Generate final codebase health report."""
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
     print("🎯 FINAL CODEBASE HEALTH REPORT")
-    print("="*80)
+    print("=" * 80)
 
     report = {
         'timestamp': '2025-07-22T15:25:08-06:00',
@@ -227,7 +233,13 @@ def generate_final_report(root_dir: Path) -> Dict:
 
     for root, dirs, files in os.walk(root_dir):
         # Skip excluded directories
-        dirs[:] = [d for d in dirs if d not in {'.venv', '.git', '__pycache__', '.backups', 'node_modules'}]
+        dirs[:] = [
+            d for d in dirs if d not in {
+                '.venv',
+                '.git',
+                '__pycache__',
+                '.backups',
+                'node_modules'}]
 
         for file in files:
             total_files += 1
@@ -251,12 +263,13 @@ def generate_final_report(root_dir: Path) -> Dict:
 
     return report
 
+
 def main():
     """Main cleanup function."""
     root_dir = Path('/Users/b/--NeuroCore--/AIFOLIO/AIFOLIO_FINAL_V12')
 
     print("🚀 COMPREHENSIVE CODEBASE CLEANUP - PHASE 2.1")
-    print("="*80)
+    print("=" * 80)
 
     # Step 1: Clean dangerous patterns
     cleaned_patterns = clean_dangerous_patterns(root_dir)
@@ -285,12 +298,16 @@ def main():
             'dangerous_patterns_cleaned': cleaned_patterns,
             'import_conflicts_fixed': fixed_imports,
             'python_version_updated': version_updated,
-            'black_formatting': {'success': black_success, 'message': black_msg},
-            'isort_imports': {'success': isort_success, 'message': isort_msg},
-            'precommit_validation': {'success': precommit_success, 'message': precommit_msg}
-        },
-        'final_report': final_report
-    }
+            'black_formatting': {
+                'success': black_success,
+                'message': black_msg},
+            'isort_imports': {
+                'success': isort_success,
+                'message': isort_msg},
+            'precommit_validation': {
+                'success': precommit_success,
+                'message': precommit_msg}},
+        'final_report': final_report}
 
     results_file = root_dir / 'comprehensive_cleanup_results.json'
     with open(results_file, 'w') as f:
@@ -299,6 +316,7 @@ def main():
     print(f"\n📄 Complete results saved to: {results_file}")
 
     return black_success and isort_success and version_updated
+
 
 if __name__ == "__main__":
     success = main()

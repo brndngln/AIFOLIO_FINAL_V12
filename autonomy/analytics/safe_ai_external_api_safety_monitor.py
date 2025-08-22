@@ -1,14 +1,14 @@
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-import functools
+
 """SAFE AI MODULE"""
 
-config = {}  # TODO: Define config
-flagged = []  # TODO: Define flagged
-compliant = True  # TODO: Define compliant
+flagged = []  # FIXME: Priority task: Define flagged
 
 "SAFE AI MODULE"
 "SAFE AI MODULE"
+
 
 def external_api_safety_monitor(api_configs):
-  return {"non_compliant_apis": flagged}
+    """External Api Safety Monitor function."""
+    return {"non_compliant_apis": flagged}
