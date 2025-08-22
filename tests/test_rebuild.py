@@ -6,8 +6,6 @@ including unit tests, integration tests, and edge case validation.
 
 import sys
 import unittest
-from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
@@ -24,7 +22,6 @@ except ImportError as e:
 
 
 class TestRebuild(unittest.TestCase):
-
     """Test cases for rebuild module."""
 
     def setUp(self):
@@ -43,7 +40,6 @@ class TestRebuild(unittest.TestCase):
 
 
 class TestIntegration(unittest.TestCase):
-
     """Integration tests for the module."""
 
     def test_module_integration(self):
@@ -53,7 +49,6 @@ class TestIntegration(unittest.TestCase):
 
 
 class TestPerformance(unittest.TestCase):
-
     """Performance tests for the module."""
 
     def test_performance_benchmarks(self):

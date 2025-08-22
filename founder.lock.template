@@ -1,8 +1,0 @@
-{
-  "founder": "YOUR FULL NAME",
-  "uid": "UNBREAKABLE HASH OF YOUR SIGNATURE",
-  "device_id": "BOUND DEVICE UUID",
-  "biometric_required": true,
-  "emergency_backup": "QR code or Yubikey only",
-  "signed_at": "2025-06-28T12:00:00Z"
-}

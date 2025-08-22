@@ -1,1 +1,0 @@
-# Placeholder: awaiting AI regeneration

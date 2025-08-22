@@ -9,4 +9,6 @@
 
 def discover_niche() -> str:
     """Discover Niche function."""
+
+
 #     return niche

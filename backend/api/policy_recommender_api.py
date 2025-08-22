@@ -2,7 +2,6 @@
 
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-from backend.ai.policy_recommender import recommend_policies
 
 """SAFE AI MODULE"""
 

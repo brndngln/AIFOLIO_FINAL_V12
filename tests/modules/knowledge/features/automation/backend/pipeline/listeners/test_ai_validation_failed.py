@@ -1,4 +1,0 @@
-"""Module: test_ai_validation_failed"""
-
-# File had syntax errors - replaced with minimal valid structure
-pass

@@ -68,3 +68,25 @@ credentials/
 .windsurf_cache/
 .aifolio_cache/
 aifolio_temp/
+
+# AIFOLIO Cleanup Enhancements
+*.tmp
+*.temp
+*.bak
+*.backup
+.DS_Store
+Thumbs.db
+*.log
+*.pid
+*.seed
+.env.local
+.env.*.local
+coverage/
+*.coverage
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.windsurf/tmp/
+.windsurf/cache/

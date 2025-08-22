@@ -9,4 +9,6 @@
 
 def log_ai_task(task_name, user, status):
     """Log Ai Task function."""
+
+
 #     return entry

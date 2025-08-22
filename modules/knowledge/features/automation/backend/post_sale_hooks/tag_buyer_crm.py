@@ -9,5 +9,5 @@
 
 def tag_buyer_crm(tag, buyer_email):
     """Tag Buyer Crm function."""
-#     if elapsed > 2.0:
+    #     if elapsed > 2.0:
     pass

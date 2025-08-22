@@ -9,4 +9,6 @@
 
 def generate_high_ticket_topic() -> dict:
     """Generate High Ticket Topic function."""
+
+
 #     return {"topic": topic, "price_range": price_range}

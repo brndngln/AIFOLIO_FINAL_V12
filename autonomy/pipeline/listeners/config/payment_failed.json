@@ -1,9 +1,0 @@
-{
-  "critical": true,
-  "fallback_channels": [
-    "slack",
-    "sms"
-  ],
-  "log_level": "error",
-  "retry_count": 3
-}

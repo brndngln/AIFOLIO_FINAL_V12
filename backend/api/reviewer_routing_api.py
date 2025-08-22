@@ -2,9 +2,7 @@
 
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-from fastapi import Body
 
-from backend.ai.reviewer_routing import assign_custom_reviewers
 
 """SAFE AI MODULE"""
 

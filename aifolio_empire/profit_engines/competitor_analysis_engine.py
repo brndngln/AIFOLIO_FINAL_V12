@@ -2,7 +2,6 @@
 
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-from typing import Any, Dict
 
 """SAFE AI MODULE"""
 

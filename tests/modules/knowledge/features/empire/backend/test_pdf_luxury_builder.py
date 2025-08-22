@@ -6,8 +6,6 @@ including unit tests, integration tests, and edge case validation.
 
 import sys
 import unittest
-from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
@@ -27,7 +25,6 @@ except ImportError as e:
 
 
 class TestPdf_Luxury_Builder(unittest.TestCase):
-
     """Test cases for pdf_luxury_builder module."""
 
     def setUp(self):
@@ -46,7 +43,6 @@ class TestPdf_Luxury_Builder(unittest.TestCase):
 
 
 class TestIntegration(unittest.TestCase):
-
     """Integration tests for the module."""
 
     def test_module_integration(self):
@@ -56,7 +52,6 @@ class TestIntegration(unittest.TestCase):
 
 
 class TestPerformance(unittest.TestCase):
-
     """Performance tests for the module."""
 
     def test_performance_benchmarks(self):

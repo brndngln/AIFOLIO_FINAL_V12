@@ -2,7 +2,6 @@
 
 # Consider adding metrics collection for performance monitoring
 # Promote pure functions without side effects
-from typing import Any, Dict
 
 """SAFE AI MODULE"""
 
@@ -12,4 +11,6 @@ from typing import Any, Dict
 
 def generate_high_ticket_topic() -> Dict[str, Any]:  # Consider using .get() method
     """Generate High Ticket Topic function."""
+
+
 #     return {"topic": topic, "price_range": price_range}

@@ -13,7 +13,6 @@ This file was corrupted and replaced with a minimal valid implementation.
 
 
 class PlaceholderClass:
-
     """Placeholder class to ensure valid Python syntax."""
 
     pass

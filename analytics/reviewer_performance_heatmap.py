@@ -11,4 +11,6 @@
 def generate_heatmap(reviewer_events):
     """Generate Heatmap function."""
     pass
+
+
 #     return {"streaks": dict(streaks), "accuracy": dict(accuracy)}

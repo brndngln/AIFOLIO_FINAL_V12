@@ -10,5 +10,4 @@
 
 
 class AffiliatePathGenerator:
-
     """Class docstring. # SAFE AI"""

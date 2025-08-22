@@ -9,4 +9,6 @@
 
 def competitive_vault_overlap(our_vaults, competitor_vaults):
     """Competitive Vault Overlap function."""
+
+
 #     return {"overlap": list(overlap)}

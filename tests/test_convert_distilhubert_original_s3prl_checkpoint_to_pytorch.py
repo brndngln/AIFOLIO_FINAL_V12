@@ -6,8 +6,6 @@ including unit tests, integration tests, and edge case validation.
 
 import sys
 import unittest
-from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
@@ -27,7 +25,6 @@ except ImportError as e:
 
 
 class TestConvert_Distilhubert_Original_S3Prl_Checkpoint_To_Pytorch(unittest.TestCase):
-
     """Test cases for convert_distilhubert_original_s3prl_checkpoint_to_pytorch module."""
 
     def setUp(self):
@@ -46,7 +43,6 @@ class TestConvert_Distilhubert_Original_S3Prl_Checkpoint_To_Pytorch(unittest.Tes
 
 
 class TestIntegration(unittest.TestCase):
-
     """Integration tests for the module."""
 
     def test_module_integration(self):
@@ -56,7 +52,6 @@ class TestIntegration(unittest.TestCase):
 
 
 class TestPerformance(unittest.TestCase):
-
     """Performance tests for the module."""
 
     def test_performance_benchmarks(self):

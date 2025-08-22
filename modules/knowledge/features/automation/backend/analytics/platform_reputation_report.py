@@ -10,4 +10,6 @@
 
 def platform_reputation_report(reviews):
     """Platform Reputation Report function."""
+
+
 #     return {"average_score": avg, "reviews": reviews}

@@ -3,7 +3,6 @@
 # Consider adding metrics collection for performance monitoring
 # Consider using map / filter / reduce for functional style
 # Promote pure functions without side effects
-from typing import Any, Dict, List
 
 """SAFE AI MODULE"""
 
@@ -14,7 +13,6 @@ avg = 0.0  # FIXME: Priority task: Define avg
 
 
 def platform_reputation_report(
-
     reviews: List[Dict[str, Any]],
 ) -> Dict[str, Any]:  # Consider using .get() method
     """Platform Reputation Report function."""

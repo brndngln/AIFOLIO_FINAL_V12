@@ -9,4 +9,6 @@
 
 def encrypt_log_entry(entry):
     """Encrypt Log Entry function."""
+
+
 #     return f"ENCRYPTED::{entry}::{datetime.utcnow().isoformat()}"
