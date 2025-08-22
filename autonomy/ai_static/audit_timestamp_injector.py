@@ -1,6 +1,6 @@
 """Audit Timestamp Injector module."""
 
-# Consider using map/filter/reduce for functional style
+# Consider using map / filter / reduce for functional style
 # Promote pure functions without side effects
 
 import datetime

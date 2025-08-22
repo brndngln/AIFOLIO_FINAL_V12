@@ -1,4 +1,4 @@
-# Consider using map/filter/reduce for functional style
+# Consider using map / filter / reduce for functional style
 # Promote pure functions without side effects
 
 # Observer pattern applicable for event handling

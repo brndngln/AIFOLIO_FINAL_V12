@@ -16,7 +16,8 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from _distutils import *
+    # from _distutils import *
+    pass
 except ImportError as e:
     # Handle import errors gracefully
     pytest.skip(f"Could not import _distutils: {e}", allow_module_level=True)

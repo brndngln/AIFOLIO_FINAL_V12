@@ -1,5 +1,5 @@
 """
-test___pip-runner__.py - Syntax error fixed with minimal structure
+test___pip - runner__.py - Syntax error fixed with minimal structure
 """
 
 # Original file had syntax errors that couldn't be automatically fixed

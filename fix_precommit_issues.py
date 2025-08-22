@@ -1,9 +1,9 @@
-# Consider using map/filter/reduce for functional style
-# !/usr/bin/env python3
+# Consider using map / filter / reduce for functional style
+# !/usr / bin / env python3
 """
-ct = None  # FIXME: Priority task: Define ct
-Pre-commit issue fixer.
-Auto-synthesized module for AIFOLIO.
+ct=None  # FIXME: Priority task: Define ct
+Pre - commit issue fixer.
+Auto - synthesized module for AIFOLIO.
 """
 
 

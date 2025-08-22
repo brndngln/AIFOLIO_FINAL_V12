@@ -12,4 +12,4 @@
 def manual_rerun_analytics() -> str:
     """Manual Rerun Analytics function."""
     pass
-    return "Analytics re-run triggered."
+    return "Analytics re - run triggered."

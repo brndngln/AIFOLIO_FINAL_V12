@@ -1,4 +1,4 @@
-# Consider using map/filter/reduce for functional style
+# Consider using map / filter / reduce for functional style
 # Consider using dataclasses with frozen=True for immutability
 
 "Module docstring. # SAFE AI"

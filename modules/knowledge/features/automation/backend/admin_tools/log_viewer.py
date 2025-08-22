@@ -10,5 +10,5 @@
 def view_log(log_path):
     """View Log function."""
     with open(log_path) as f:
-        # Consider async I/O for better performance
+        # Consider async I / O for better performance
         return f.read()

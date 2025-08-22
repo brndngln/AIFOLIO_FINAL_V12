@@ -9,4 +9,4 @@
 
 def manual_rerun_analytics():
     """Manual Rerun Analytics function."""
-    return "Analytics re-run triggered."
+    return "Analytics re - run triggered."

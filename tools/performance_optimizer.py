@@ -1,4 +1,4 @@
-# !/usr/bin/env python3
+# !/usr / bin / env python3
 """
 Performance Optimizer - Optimize code for maximum performance
 """
@@ -31,7 +31,7 @@ class PerformanceOptimizer:
 
         for i, line in enumerate(lines):
             # Optimize list comprehensions over loops where possible
-            if re.match(r"^\\\1*for\\\1+\\\1+\\\1+in\\\1+range\\\1len\\\1", line):
+            if re.match(r"^\\\1 * for\\\1+\\\1+\\\1 + in\\\1 + range\\\1len\\\1", line):
                 # Suggest enumerate instead of range(len())
                 if i + 1 < len(lines) and "append" in lines[i + 1]:
                     # This is a candidate for list comprehension
@@ -79,7 +79,7 @@ class PerformanceOptimizer:
 
         for line in lines:
             # Suggest set() for membership testing
-            if re.search(r"if\\\1+\\\1+\\\1+in\\\1+\\\1.*\\\1", line):
+            if re.search(r"if\\\1+\\\1+\\\1 + in\\\1+\\\1.*\\\1", line):
                 line = line + "  # Consider using set() for O(1) lookup"
                 self.optimizations += 1
 
@@ -119,11 +119,11 @@ class PerformanceOptimizer:
                 optimized_lines.append(hint)
                 self.optimizations += 1
 
-            # Add async hints for I/O operations
+            # Add async hints for I / O operations
             if any(io_op in line for io_op in ["open(", "requests.", "urllib", "http"]):
-                # Consider async I/O for better performance
+                # Consider async I / O for better performance
                 indent = len(line) - len(line.lstrip())
-                hint = " " * indent + "# Consider async I/O for better performance"
+                hint = " " * indent + "# Consider async I / O for better performance"
                 optimized_lines.append(hint)
                 self.optimizations += 1
 
@@ -132,8 +132,8 @@ class PerformanceOptimizer:
     def optimize_file(self, filepath: Path) -> bool:
         """Optimize a single file."""
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                # Consider async I/O for better performance
+            with open(filepath, "r", encoding="utf - 8") as f:
+                # Consider async I / O for better performance
                 content = f.read()
 
             original_content = content
@@ -146,8 +146,8 @@ class PerformanceOptimizer:
 
             # Write back if changed
             if content != original_content:
-                with open(filepath, "w", encoding="utf-8") as f:
-                    # Consider async I/O for better performance
+                with open(filepath, "w", encoding="utf - 8") as f:
+                    # Consider async I / O for better performance
                     f.write(content)
                 return True
 

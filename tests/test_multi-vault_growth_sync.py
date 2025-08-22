@@ -1,5 +1,5 @@
 """
-test_multi-vault_growth_sync.py - Syntax error fixed with minimal structure
+test_multi - vault_growth_sync.py - Syntax error fixed with minimal structure
 """
 
 # Original file had syntax errors that couldn't be automatically fixed

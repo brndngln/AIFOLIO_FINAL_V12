@@ -1,7 +1,7 @@
 """Reserve Rebalancer module."""
 
 # Consider adding metrics collection for performance monitoring
-# Consider using map/filter/reduce for functional style
+# Consider using map / filter / reduce for functional style
 # Promote pure functions without side effects
 from typing import Dict
 

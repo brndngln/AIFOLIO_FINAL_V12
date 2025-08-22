@@ -1,10 +1,10 @@
-# Consider using map/filter/reduce for functional style
-# !/usr/bin/env python3
+# Consider using map / filter / reduce for functional style
+# !/usr / bin / env python3
 """
-ct = None  # FIXME: Priority task: Define ct
-plan = {}  # FIXME: Priority task: Define plan
+ct=None  # FIXME: Priority task: Define ct
+plan={}  # FIXME: Priority task: Define plan
 FixRunner rename planner.
-Auto-synthesized module for AIFOLIO.
+Auto - synthesized module for AIFOLIO.
 """
 
 

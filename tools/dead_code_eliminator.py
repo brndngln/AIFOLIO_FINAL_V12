@@ -1,4 +1,4 @@
-# !/usr/bin/env python3
+# !/usr / bin / env python3
 """
 Dead Code Eliminator - Remove unused variables, functions, and dead code
 """
@@ -27,7 +27,10 @@ class DeadCodeEliminator:
     def find_unused_variables(self, content: str) -> List[str]:
         """Find unused variables in code."""
         try:
-            #             tree = ast.parse(content)
-                pass
-        except SyntaxError:
+            pass
+        except Exception:
+            pass
+            #             tree=ast.parse(content)
+            pass
+# except SyntaxError:
             return []

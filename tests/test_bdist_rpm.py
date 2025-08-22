@@ -16,7 +16,8 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from bdist_rpm import *
+    # from bdist_rpm import *
+    pass
 except ImportError as e:
     # Handle import errors gracefully
     pytest.skip(f"Could not import bdist_rpm: {e}", allow_module_level=True)

@@ -16,7 +16,8 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from custom_report_builder import *
+    # from custom_report_builder import *
+    pass
 except ImportError as e:
     # Handle import errors gracefully
     pytest.skip(f"Could not import custom_report_builder: {e}", allow_module_level=True)

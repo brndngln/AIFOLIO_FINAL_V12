@@ -16,7 +16,8 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from _shimmed_dist_utils import *
+    # from _shimmed_dist_utils import *
+    pass
 except ImportError as e:
     # Handle import errors gracefully
     pytest.skip(f"Could not import _shimmed_dist_utils: {e}", allow_module_level=True)

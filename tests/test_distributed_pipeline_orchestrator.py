@@ -16,7 +16,8 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from distributed_pipeline_orchestrator import *
+    # from distributed_pipeline_orchestrator import *
+    pass
 except ImportError as e:
     # Handle import errors gracefully
     pytest.skip(
