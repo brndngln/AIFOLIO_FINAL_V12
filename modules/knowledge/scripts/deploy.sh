@@ -396,7 +396,7 @@ main() {
 
     log_success "🎉 AIFOLIO Elite v$VERSION deployed successfully to $DEPLOYMENT_ENV!"
     log_info "🔗 Application URL: http://localhost"
-    log_info "📊 Monitoring: http://localhost:3001 (if enabled)"
+    log_info "📊 Monitoring: http://localhost:PORT (if enabled)"
     log_info "📋 Logs: docker-compose logs -f"
 }
 

@@ -16,7 +16,7 @@ const FAQ = [
   },
   {
     q: "How do I contact support?",
-    a: "Email owner@aifolio.com or use the Support panel.",
+    a: "Email user@example.com or use the Support panel.",
   },
   {
     q: "How do I export all policy docs?",

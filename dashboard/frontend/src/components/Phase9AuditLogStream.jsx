@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export default function Phase9AuditLogStream({
-  apiBase = "http://localhost:8090",
+  apiBase = "http://localhost:PORT",
 }) {
   const [lines, setLines] = useState([]);
   const [connected, setConnected] = useState(false);

@@ -176,6 +176,6 @@ export default function UserManagementPanel({ token, enableRoles }) {
 }
 
 UserManagementPanel.propTypes = {
-  token: PropTypes.string.isRequired,
+  token: "YOUR_TOKEN_HERE",
   enableRoles: PropTypes.bool,
 };

@@ -38,7 +38,7 @@ export const SettingsPage: React.FC = () => {
   const [settings, setSettings] = useState<SettingsData>({
     profile: {
       name: 'AIFOLIO User',
-      email: 'user@aifolio.elite',
+      email: 'user@example.com',
       role: 'Administrator',
     },
     preferences: {
@@ -89,7 +89,7 @@ export const SettingsPage: React.FC = () => {
     setSettings({
       profile: {
         name: 'AIFOLIO User',
-        email: 'user@aifolio.elite',
+        email: 'user@example.com',
         role: 'Administrator',
       },
       preferences: {

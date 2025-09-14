@@ -16,7 +16,7 @@ export default function Phase9ModulesDashboard() {
       <Phase9StaticModulesPanel />
       {/* Static Future Enhancements Panel */}
       <StaticEnhancementsPanel
-        apiBase="http://localhost:8090"
+        apiBase="http://localhost:PORT"
         tenantId={"default_tenant"}
       />
     </div>

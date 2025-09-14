@@ -22,10 +22,10 @@ export default function SupportPanel() {
         <li>
           Email:{" "}
           <a
-            href="mailto:owner@aifolio.com"
+            href="mailto:user@example.com"
             style={{ color: "#0ea5e9", textDecoration: "underline" }}
           >
-            owner@aifolio.com
+            user@example.com
           </a>
         </li>
         <li>GDPR Requests: Use the static GDPR dashboard or email above</li>

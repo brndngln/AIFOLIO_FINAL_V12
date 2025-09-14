@@ -89,4 +89,29 @@ __pycache__/
 *.pyo
 *.pyd
 .windsurf/tmp/
-.windsurf/cache/
+.windsurf/cache/# Sensitive Data Protection
+*.env
+*.env.local
+*.env.production
+*.env.staging
+config/secrets.json
+config/credentials.json
+**/secrets/**
+**/credentials/**
+**/*secret*
+**/*credential*
+**/*password*
+**/*token*
+**/*key*.json
+**/*key*.yml
+**/*key*.yaml
+.sensitive_backup/
+sensitive_cleanup_report.json
+# API Keys and Tokens
+**/api_keys/**
+**/tokens/**
+**/*.pem
+**/*.key
+**/*.crt
+**/*.p12
+**/*.pfx

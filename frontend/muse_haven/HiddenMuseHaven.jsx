@@ -16,10 +16,10 @@ function quantumEncrypt(data) {
 function authenticate({ biometric, passphrase, location, time }) {
   // Static SAFE AI: only allows exact match
   return (
-    biometric === "OWNER_BIOMETRIC" &&
-    passphrase === "OWNER_SECRET" &&
-    location === "OWNER_LOCATION" &&
-    time === "OWNER_TIME"
+    biometric === "YOUR_BIOMETRIC_HERE" &&
+    passphrase === "YOUR_SECRET_HERE" &&
+    location === "YOUR_LOCATION_HERE" &&
+    time === "YOUR_TIME_HERE"
   );
 }
 
@@ -275,9 +275,9 @@ export default function HiddenMuseHaven() {
     // 3D face/passcode/biometric/behavioral biometric stub
     const pass =
       passcode.length >= 16 && /[A-Z]/.test(passcode) && /[0-9]/.test(passcode);
-    const bio = biometric === "OWNER_BIOMETRIC";
-    const face = facial === "OWNER_FACE_3D";
-    const behav = behavioral === "OWNER_BEHAVIOR";
+    const bio = biometric === "YOUR_BIOMETRIC_HERE";
+    const face = facial === "YOUR_FACE_3D_HERE";
+    const behav = behavioral === "YOUR_BEHAVIOR_HERE";
     if (pass && bio && face && behav) {
       setAuth(true);
     }

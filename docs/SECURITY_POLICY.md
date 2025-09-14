@@ -44,4 +44,4 @@ This document outlines all security controls, policies, and best practices enfor
 
 ---
 
-For questions or incident reporting, contact: security@aifolio.com
+For questions or incident reporting, contact: user@example.com

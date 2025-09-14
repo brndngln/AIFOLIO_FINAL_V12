@@ -3,7 +3,7 @@
 # === CONFIGURATION ===
 VC_VOLUME="/secure/volumes/AIFOLIO_CORE_VERA.hc"
 VC_MOUNT="/mnt/vera"
-VC_PASSWORD="your-secure-password"  # 🔐 Consider prompting or using a secret manager
+VC_password: "YOUR_PASSWORD_HERE""  # 🔐 Consider prompting or using a secret manager
 SOURCE_DIR="./AIFOLIO_FINAL_V12"
 BACKUP_TARGET="$VC_MOUNT/AIFOLIO_BACKUP"
 

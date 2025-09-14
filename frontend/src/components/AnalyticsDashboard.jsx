@@ -25,7 +25,7 @@ function AnalyticsDashboard() {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token: "YOUR_TOKEN_HERE"("token");
         const response = await fetch("/api/analytics/metrics", {
           headers: {
             Authorization: `Bearer ${token}`,

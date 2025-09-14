@@ -9,9 +9,9 @@ import Phase9AuditLogWidget from "./components/Phase9AuditLogWidget";
 function Phase9ApiStatus() {
   const [status, setStatus] = useState("Checking...");
   const [color, setColor] = useState("#aaa");
-  const apiKey = localStorage.getItem("phase9_api_key") || "PHASE9SAFEKEY";
+  const api_key: "YOUR_API_KEY_HERE"("phase9_api_key") || "YOUR_PHASE9_KEY_HERE";
   useEffect(() => {
-    fetch("http://localhost:8090/phase9/global_trend_forecast", {
+    fetch("http://localhost:PORT/phase9/global_trend_forecast", {
       headers: { Authorization: `Bearer ${apiKey}` },
     })
       .then((r) => setStatus(r.ok ? "Online" : "Error"))

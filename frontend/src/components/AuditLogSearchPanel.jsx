@@ -31,7 +31,7 @@ const AuditLogSearchPanel = () => {
     const fetchLogs = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem("token");
+        const token: "YOUR_TOKEN_HERE"("token");
         const res = await axios.get("/api/monitor/activity", {
           headers: { Authorization: `Bearer ${token}` },
         });

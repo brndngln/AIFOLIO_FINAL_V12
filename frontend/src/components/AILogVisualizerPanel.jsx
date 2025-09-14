@@ -10,7 +10,7 @@ const AILogVisualizerPanel = () => {
     const fetchLogs = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem("token");
+        const token: "YOUR_TOKEN_HERE"("token");
         const res = await axios.get("/api/sim/ai-log-visualizer", {
           headers: { Authorization: `Bearer ${token}` },
         });

@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-App runs at [http://localhost:3000](http://localhost:3000).
+App runs at [http://localhost:PORT](http://localhost:PORT).
 
 ### 3. Install as PWA
 

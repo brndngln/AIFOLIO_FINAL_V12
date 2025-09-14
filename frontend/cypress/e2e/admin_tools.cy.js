@@ -38,7 +38,7 @@ describe("Admin Tools Panel", () => {
   it("can add and delete a user", () => {
     cy.contains("User Management").click();
     cy.get('input[aria-label="Username"]').type("testuser");
-    cy.get('input[aria-label="Email"]').type("testuser@example.com");
+    cy.get('input[aria-label="Email"]').type("user@example.com");
     cy.get('input[aria-label="Organization"]').type("TestOrg");
     cy.get('button[type="submit"]').click();
     cy.contains("testuser").should("exist");

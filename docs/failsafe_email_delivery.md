@@ -16,7 +16,7 @@ AIFOLIO™ ensures all emails and receipts are delivered reliably using multi-ch
 
 ```python
 from autonomy.pipeline.failsafe_email_delivery import send_email
-send_email('test@gamil.com', 'Test Subject', 'Test Body')
+send_email('user@example.com', 'Test Subject', 'Test Body')
 ```
 
 ## Audit & Safety

@@ -1,7 +1,7 @@
 [
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -19,7 +19,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -37,7 +37,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -55,7 +55,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -73,7 +73,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -91,7 +91,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -109,7 +109,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {
@@ -127,7 +127,7 @@
   },
   {
     "buyer_data": {
-      "email": "user2@example.com"
+      "email": "user@example.com"
     },
     "fraud_flag": true,
     "sale_metadata": {

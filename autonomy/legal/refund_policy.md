@@ -19,4 +19,4 @@ Requests must be made within 7 days of purchase.
 We will respond within 48 hours of receiving your request.
 
 **Contact:**
-For refund requests, contact: [your-email@domain.com]
+For refund requests, contact: [user@example.com]

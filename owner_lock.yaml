@@ -6,7 +6,7 @@ owner_lock:
     - naughty_mode
     - personality_features
   allowed_users:
-    - owner_biometric_hash: "REPLACE_WITH_OWNER_HASH"
+    - YOUR_BIOMETRIC_HERE_hash: "REPLACE_WITH_OWNER_HASH"
   forbidden_users:
     - "*"
   notes: |

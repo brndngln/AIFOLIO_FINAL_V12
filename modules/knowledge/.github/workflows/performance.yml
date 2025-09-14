@@ -212,7 +212,7 @@ jobs:
           module.exports = {
             ci: {
               collect: {
-                url: ['http://localhost:3000'],
+                url: ['http://localhost:PORT'],
                 numberOfRuns: 3,
                 settings: {
                   chromeFlags: '--no-sandbox --headless'
@@ -325,7 +325,7 @@ jobs:
           };
 
           export default function() {
-            const response = http.get('http://localhost:3000');
+            const response = http.get('http://localhost:PORT');
 
             const result = check(response, {
               'status is 200': (r) => r.status === 200,
@@ -357,7 +357,7 @@ jobs:
           };
 
           export default function() {
-            const response = http.get('http://localhost:3000');
+            const response = http.get('http://localhost:PORT');
             check(response, {
               'status is 200': (r) => r.status === 200,
             });

@@ -10,19 +10,19 @@
     "webhook_url": "YOUR_DISCORD_WEBHOOK_URL"
   },
   "email": {
-    "password": "YOUR_PASSWORD",
+    "password: "YOUR_PASSWORD_HERE"",
     "smtp_port": 587,
     "smtp_server": "smtp.example.com",
     "to": "YOUR_EMAIL_HERE",
     "username": "YOUR_USERNAME"
   },
   "push": {
-    "api_token": "YOUR_PUSHOVER_API_TOKEN",
+    "api_token: "YOUR_TOKEN_HERE"",
     "service": "pushover",
     "user_key": "YOUR_PUSHOVER_USER_KEY"
   },
   "telegram": {
-    "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+    "bot_token: "YOUR_TOKEN_HERE"",
     "chat_id": "YOUR_TELEGRAM_CHAT_ID"
   }
 }

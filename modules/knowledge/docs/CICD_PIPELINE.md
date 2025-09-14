@@ -174,18 +174,16 @@ graph TB
 # Required for all environments
 NODE_ENV=production
 PORT=3000
-DATABASE_URL=postgresql://...
-REDIS_URL=redis://...
-JWT_SECRET=your-jwt-secret
+DATABASE_URL=postgresql://user:pass@host:port/db"
 
 # Optional monitoring
 PROMETHEUS_ENABLED=true
-GRAFANA_PASSWORD=secure-password
+GRAFANA_password: "YOUR_PASSWORD_HERE"
 WEBHOOK_URL=https://hooks.slack.com/...
 
 # Security scanning
-SNYK_TOKEN=your-snyk-token
-SONAR_TOKEN=your-sonar-token
+SNYK_token: "YOUR_TOKEN_HERE"
+SONAR_token: "YOUR_TOKEN_HERE"
 ```
 
 ### Secrets Management
@@ -299,9 +297,9 @@ curl -w "@curl-format.txt" http://localhost/api/status
 ### Dashboard URLs
 
 - **Application:** `http://localhost` (production: `https://aifolio.app`)
-- **Grafana:** `http://localhost:3001` (admin/admin)
-- **Prometheus:** `http://localhost:9090`
-- **Kibana:** `http://localhost:5601`
+- **Grafana:** `http://localhost:PORT` (admin/admin)
+- **Prometheus:** `http://localhost:PORT`
+- **Kibana:** `http://localhost:PORT`
 
 ### Alert Conditions
 

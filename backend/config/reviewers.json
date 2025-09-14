@@ -5,7 +5,7 @@
     "badges": [
       "policy_defender"
     ],
-    "email": "hannah.lee@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "FDA",
       "GDPR"
@@ -20,7 +20,7 @@
     "badges": [
       "sla_champion"
     ],
-    "email": "omar.syed@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "Copyright",
       "Amazon",
@@ -34,7 +34,7 @@
     "accuracy": 0.92,
     "assigned": 0,
     "badges": [],
-    "email": "ai-reviewer@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "Gumroad",
       "Etsy",
@@ -50,7 +50,7 @@
     "badges": [
       "reviewer_ace"
     ],
-    "email": "jordan.kim@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "GDPR",
       "HIPAA",
@@ -67,7 +67,7 @@
       "sla_champion",
       "reviewer_ace"
     ],
-    "email": "sophia.martinez@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "GDPR",
       "Copyright",
@@ -83,7 +83,7 @@
     "badges": [
       "policy_defender"
     ],
-    "email": "aarav.patel@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "FTC",
       "Amazon",
@@ -97,7 +97,7 @@
     "accuracy": 0.93,
     "assigned": 0,
     "badges": [],
-    "email": "ai-pro@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "Amazon",
       "GDPR",
@@ -114,7 +114,7 @@
     "badges": [
       "sla_champion"
     ],
-    "email": "linda.zhao@aifolio.com",
+    "email": "user@example.com",
     "expertise": [
       "HIPAA",
       "FDA",

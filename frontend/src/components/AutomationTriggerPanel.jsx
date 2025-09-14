@@ -26,7 +26,7 @@ const AutomationTriggerPanel = () => {
   const triggerAutomation = async (automation) => {
     setStatus((s) => ({ ...s, [automation.label]: "Running..." }));
     try {
-      const token = localStorage.getItem("token");
+      const token: "YOUR_TOKEN_HERE"("token");
       let res;
       if (automation.method === "POST") {
         res = await axios.post(automation.endpoint, automation.body, {

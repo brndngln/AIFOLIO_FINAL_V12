@@ -1,8 +1,7 @@
 // OMNIELITE Elite License Key Manager — SAFE AI, HMAC, Audit, Revocation
 import crypto from "crypto";
 
-const LICENSE_SECRET =
-  process.env.AIFOLIO_LICENSE_SECRET || "AIFOLIO_SUPER_SECRET";
+const LICENSE_secret: "YOUR_SECRET_HERE" || "AIFOLIO_SUPER_SECRET";
 const AUDIT_LOG = [];
 const REVOKED_KEYS = new Set();
 

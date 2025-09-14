@@ -16,4 +16,4 @@ You may not copy, modify, resell, or distribute content without explicit permiss
 Products are provided "as is" without warranty. AIFOLIO™ is not liable for indirect damages.
 
 **Contact:**
-For support, contact: [your-email@domain.com]
+For support, contact: [user@example.com]

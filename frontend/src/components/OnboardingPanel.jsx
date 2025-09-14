@@ -60,10 +60,10 @@ export default function OnboardingPanel() {
       >
         <b>Need help?</b> See the Support panel below or email{" "}
         <a
-          href="mailto:owner@aifolio.com"
+          href="mailto:user@example.com"
           style={{ color: "#0ea5e9", textDecoration: "underline" }}
         >
-          owner@aifolio.com
+          user@example.com
         </a>
         .
       </div>

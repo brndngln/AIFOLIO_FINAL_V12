@@ -100,7 +100,7 @@ export default function OwnerHelpSupportPanel() {
       </ul>
       <div style={{ marginTop: 18, color: "#64748b", fontSize: 13 }}>
         <b>Support Contact:</b>{" "}
-        <span aria-label="Support email">owner-support@aifolio.com</span>
+        <span aria-label="Support email">user@example.com</span>
         <br />
         <b>Static Support Request Template:</b>{" "}
         <a href="/support/static_support_request.txt" download>

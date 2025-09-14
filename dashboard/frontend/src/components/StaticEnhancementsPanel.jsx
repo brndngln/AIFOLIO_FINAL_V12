@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function StaticEnhancementsPanel({ apiBase = "http://localhost:8090", tenantId }) {
+export default function StaticEnhancementsPanel({ apiBase = "http://localhost:PORT", tenantId }) {
   const [result, setResult] = useState({});
   const widgets = [
     { label: "Audience Interest Heatmap", path: "/phase10/analytics/audience_heatmap" },

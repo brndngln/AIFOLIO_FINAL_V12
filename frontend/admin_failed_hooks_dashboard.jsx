@@ -183,7 +183,7 @@ function FailedHooksDashboard() {
             type="password"
             placeholder="Password"
             value={loginState.password}
-            onChange={e => setLoginState({ ...loginState, password: e.target.value })}
+            onChange={e => setLoginState({ ...loginState, password: "YOUR_PASSWORD_HERE" })}
           />
           <button style={styles.button} type="submit">Login</button>
         </form>

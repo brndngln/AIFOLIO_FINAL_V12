@@ -62,13 +62,13 @@
       "type": "api_key",
       "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
       "line": 6,
-      "match": "API_KEY=sk-proj-9Xnu-XCDzojegWzVbGeE07yvdgwH7IJfNs..."
+      "match": "api_key: "YOUR_API_KEY_HERE""
     },
     {
       "type": "api_key",
       "file": ".backups/aifolio_snapshot_20250630_0003/audit/exports/security_privacy_findings.json",
       "line": 18,
-      "match": "API_KEY=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"
+      "match": "api_key: "YOUR_API_KEY_HERE""
     },
     {
       "type": "password",

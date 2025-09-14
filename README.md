@@ -816,19 +816,19 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=aifolio
 DB_USER=postgres
-DB_PASSWORD=your_password
+DB_password: "YOUR_PASSWORD_HERE"
 
 # Redis
 REDIS_HOST=localhost
 REDIS_PORT=6379
 
 # API Keys
-OPENAI_API_KEY=your_openai_key
-NOTION_API_KEY=your_notion_key
-GUMROAD_API_KEY=your_gumroad_key
+OPENAI_api_key: "YOUR_API_KEY_HERE"
+NOTION_api_key: "YOUR_API_KEY_HERE"
+GUMROAD_api_key: "YOUR_API_KEY_HERE"
 
 # Security
-JWT_SECRET=your_jwt_secret
+JWT_SECRET=YOUR_JWT_SECRET_HERE"
 ENCRYPTION_KEY=your_encryption_key
 ```
 
@@ -923,7 +923,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For support, please:
 
 - Open an issue in the GitHub repository
-- Email support@aifolio.com
+- Email user@example.com
 - Join our Discord community
 
 Generated: 2025-06-03

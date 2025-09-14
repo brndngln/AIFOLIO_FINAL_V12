@@ -40,7 +40,7 @@ export class SystemConfig {
   private config: SystemConfiguration;
   private defaultConfig: SystemConfiguration = {
     api: {
-      baseUrl: process.env.REACT_APP_API_URL || 'http://localhost:3001',
+      baseUrl: process.env.REACT_APP_API_URL || 'http://localhost:PORT',
       timeout: 30000,
       retries: 3
     },

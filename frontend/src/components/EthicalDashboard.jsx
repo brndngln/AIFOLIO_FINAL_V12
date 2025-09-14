@@ -27,7 +27,7 @@ const EthicalDashboard = () => {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem("token");
+      const token: "YOUR_TOKEN_HERE"("token");
       // Fetch activity log
       const activityResponse = await axios.get("/api/monitor/activity", {
         headers: { Authorization: `Bearer ${token}` },

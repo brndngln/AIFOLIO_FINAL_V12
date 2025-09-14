@@ -59,16 +59,11 @@ docker-compose -f docker-compose.backup.yml up -d
 ### Required Environment Variables
 ```bash
 # Database
-DATABASE_URL=postgresql://user:pass@host:port/db
-REDIS_URL=redis://host:port/0
-
-# Security
-SECRET_KEY=your-secret-key
-JWT_SECRET=your-jwt-secret
+DATABASE_URL=postgresql://user:pass@host:port/db"
 
 # External Services
-API_KEY=your-api-key
-MONITORING_TOKEN=your-monitoring-token
+api_key: "YOUR_API_KEY_HERE"
+MONITORING_token: "YOUR_TOKEN_HERE"
 ```
 
 ### SSL Configuration

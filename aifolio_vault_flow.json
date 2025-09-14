@@ -57,7 +57,7 @@
       "parameters": {
         "method": "GET",
         "responseFormat": "json",
-        "url": "http://localhost:8000/generate-vault"
+        "url": "http://localhost:PORT/generate-vault"
       },
       "position": [
         500,

@@ -21,7 +21,7 @@ describe("PartnerCertificationExportPanel", () => {
               id: 1,
               name: "Test Partner",
               status: "Certified",
-              email: "test@partner.com",
+              email: "user@example.com",
               vault: "Vault001",
               date: "2023-01-01",
               progress: 100,

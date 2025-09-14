@@ -24,7 +24,7 @@ services:
     environment:
       POSTGRES_DB: aifolio
       POSTGRES_USER: aifolio
-      POSTGRES_PASSWORD: aifolio
+      POSTGRES_password: "YOUR_PASSWORD_HERE"
     ports:
       - "5432:5432"
     volumes:
