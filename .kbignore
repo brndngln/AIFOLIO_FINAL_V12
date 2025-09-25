@@ -1,0 +1,44 @@
+# Build + cache
+node_modules/
+dist/
+build/
+.out/
+.next/
+.cache/
+coverage/
+__pycache__/
+
+# VCS
+.git/
+.DS_Store
+
+# Secrets / env / keys
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.keystore
+*.sqlite
+
+# Big binaries (keep KB small)
+*.zip
+*.tar
+*.tar.gz
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.mov
+*.pdf
+
+# Misc noisy
+*.log
+*.lock
+*.tmp
+*.swp
+
+# Secrets (KB)
+tools/security_report.json

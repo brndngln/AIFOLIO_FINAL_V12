@@ -12,24 +12,24 @@ jobs:
     name: 🌟 Production Deployment
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    
+
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Setup deployment environment
       run: |
         echo "🔧 Setting up deployment environment..."
-    
+
     - name: Blue-Green Deployment
       run: |
         echo "🔄 Executing blue-green deployment..."
         # Blue-green deployment logic here
-    
+
     - name: Health Check
       run: |
         echo "🏥 Running health checks..."
         # Health check logic here
-    
+
     - name: Rollback on Failure
       if: failure()
       run: |

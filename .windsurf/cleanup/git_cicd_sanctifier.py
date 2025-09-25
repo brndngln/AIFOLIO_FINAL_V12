@@ -174,24 +174,24 @@ jobs:
     strategy:
       matrix:
         python-version: [3.11, 3.12]
-    
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    
+
     - name: Run tests
       run: |
         pytest --cov=. --cov-report=xml
-    
+
     - name: Upload coverage
       uses: codecov/codecov-action@v3
 
@@ -203,11 +203,11 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.12
-    
+
     - name: Install quality tools
       run: |
         pip install black isort flake8 mypy
-    
+
     - name: Check code formatting
       run: |
         black --check .

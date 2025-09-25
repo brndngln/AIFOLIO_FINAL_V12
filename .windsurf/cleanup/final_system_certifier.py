@@ -364,9 +364,9 @@ class FinalSystemCertifier:
 
 ## 🏅 CERTIFICATION LEVEL: {self.metrics.certification_level}
 
-**Certification Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
-**Protocol Version:** 12.0.0  
-**Certification Authority:** AIFOLIO Cleanup Protocol Engine  
+**Certification Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**Protocol Version:** 12.0.0
+**Certification Authority:** AIFOLIO Cleanup Protocol Engine
 
 ---
 
@@ -487,8 +487,8 @@ The system has been validated for:
 - ✅ Performance optimization
 - ✅ Maintainability excellence
 
-**Certified by:** AIFOLIO Cleanup Protocol Engine  
-**Signature:** 🛡️ FORTRESS-GRADE CERTIFIED 🛡️  
+**Certified by:** AIFOLIO Cleanup Protocol Engine
+**Signature:** 🛡️ FORTRESS-GRADE CERTIFIED 🛡️
 **Valid Until:** Indefinite (with regular maintenance)
 
 ---

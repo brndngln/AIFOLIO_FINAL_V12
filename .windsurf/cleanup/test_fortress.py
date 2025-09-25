@@ -263,15 +263,15 @@ except ImportError as e:
 
 class Test{module_name.title()}(unittest.TestCase):
     """Test cases for {module_name} module."""
-    
+
     def setUp(self):
         """Set up test fixtures before each test method."""
         pass
-    
+
     def tearDown(self):
         """Clean up after each test method."""
         pass
-    
+
     def test_module_imports(self):
         """Test that the module can be imported without errors."""
         try:
@@ -279,7 +279,7 @@ class Test{module_name.title()}(unittest.TestCase):
             self.assertTrue(True, "Module imported successfully")
         except ImportError:
             self.skipTest("Module import failed - skipping tests")
-    
+
     def test_basic_functionality(self):
         """Test basic functionality of the module."""
         # TODO: Add specific tests for {module_name}
@@ -299,7 +299,7 @@ testpaths = tests
 python_files = test_*.py *_test.py
 python_classes = Test*
 python_functions = test_*
-addopts = 
+addopts =
     --verbose
     --tb=short
     --strict-markers

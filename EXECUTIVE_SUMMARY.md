@@ -8,7 +8,7 @@
 
 ## 📊 QUALITY METRICS
 - **Security Score:** 33/100
-- **Stability Score:** 95/100  
+- **Stability Score:** 95/100
 - **Test Coverage:** 75%
 - **Code Quality:** 87/100
 - **Accessibility:** 90/100

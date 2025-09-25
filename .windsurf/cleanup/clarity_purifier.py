@@ -41,31 +41,31 @@ class ClarityPurifier:
         self.docstring_templates = {
             "function": '''"""
         {description}
-        
+
         Args:
             {args}
-        
+
         Returns:
             {returns}
-        
+
         Raises:
             {raises}
         """''',
             "class": '''"""
         {description}
-        
+
         Attributes:
             {attributes}
-        
+
         Methods:
             {methods}
         """''',
             "module": '''"""
         {description}
-        
+
         This module provides:
             {features}
-        
+
         Example:
             {example}
         """''',

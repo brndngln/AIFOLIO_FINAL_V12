@@ -115,3 +115,7 @@ sensitive_cleanup_report.json
 **/*.crt
 **/*.p12
 **/*.pfx
+
+# Secrets
+key.pem
+tools/security_report.json

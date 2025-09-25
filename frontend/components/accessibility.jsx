@@ -9,13 +9,13 @@ import React from 'react';
 // Focus management hook
 export const useFocusManagement = () => {
   const focusRing = React.useRef(null);
-  
+
   const setFocusRing = React.useCallback((element) => {
     if (focusRing.current) {
       focusRing.current.focus();
     }
   }, []);
-  
+
   return { focusRing, setFocusRing };
 };
 
@@ -33,7 +33,7 @@ export const useKeyboardNavigation = (onEnter, onEscape) => {
         break;
     }
   }, [onEnter, onEscape]);
-  
+
   return { handleKeyDown };
 };
 
@@ -44,38 +44,38 @@ export const announceToScreenReader = (message, priority = 'polite') => {
   announcement.setAttribute('aria-atomic', 'true');
   announcement.className = 'sr-only';
   announcement.textContent = message;
-  
+
   document.body.appendChild(announcement);
-  
+
   setTimeout(() => {
     document.body.removeChild(announcement);
   }, 1000);
 };
 
 // Accessible button component
-export const AccessibleButton = ({ 
-  children, 
-  onClick, 
-  disabled = false, 
-  ariaLabel, 
+export const AccessibleButton = ({
+  children,
+  onClick,
+  disabled = false,
+  ariaLabel,
   variant = 'primary',
   size = 'md',
-  ...props 
+  ...props
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:pointer-events-none disabled:opacity-50';
-  
+
   const variants = {
     primary: 'bg-primary-600 text-white hover:bg-primary-700',
     secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
     outline: 'border border-gray-300 bg-transparent hover:bg-gray-50'
   };
-  
+
   const sizes = {
     sm: 'h-8 px-3 text-sm',
     md: 'h-10 px-4',
     lg: 'h-12 px-6 text-lg'
   };
-  
+
   return (
     <button
       className={`${baseClasses} ${variants[variant]} ${sizes[size]}`}
@@ -90,20 +90,20 @@ export const AccessibleButton = ({
 };
 
 // Accessible form input
-export const AccessibleInput = ({ 
-  label, 
-  error, 
-  required = false, 
+export const AccessibleInput = ({
+  label,
+  error,
+  required = false,
   type = 'text',
-  ...props 
+  ...props
 }) => {
   const id = React.useId();
   const errorId = `${id}-error`;
-  
+
   return (
     <div className="space-y-2">
-      <label 
-        htmlFor={id} 
+      <label
+        htmlFor={id}
         className="block text-sm font-medium text-gray-700"
       >
         {label}
@@ -140,9 +140,9 @@ export const SkipNavigation = () => (
 
 // Loading indicator with proper ARIA
 export const AccessibleLoader = ({ message = "Loading..." }) => (
-  <div 
-    role="status" 
-    aria-live="polite" 
+  <div
+    role="status"
+    aria-live="polite"
     className="flex items-center justify-center p-4"
   >
     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>

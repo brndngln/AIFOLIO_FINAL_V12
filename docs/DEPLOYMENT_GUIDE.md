@@ -21,7 +21,7 @@
    ```bash
    # Run migrations
    python manage.py migrate
-   
+
    # Create superuser
    python manage.py createsuperuser
    ```
@@ -30,7 +30,7 @@
    ```bash
    # Build and deploy
    docker-compose -f docker-compose.prod.yml up -d
-   
+
    # Verify deployment
    docker-compose ps
    ```

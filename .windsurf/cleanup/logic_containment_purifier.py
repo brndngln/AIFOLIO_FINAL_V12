@@ -347,27 +347,27 @@ class EthicalViolationType(Enum):
 
 class EthicalGuardrails:
     """Ethical guidelines enforcement system."""
-    
+
     def __init__(self):
         self.logger = logging.getLogger('ethical_guardrails')
         self.violations_log = []
-        
+
     def check_privacy_compliance(self, data: Dict[str, Any]) -> bool:
         """Check if data handling complies with privacy guidelines."""
         # Placeholder for privacy compliance checking
         return True
-    
+
     def detect_bias(self, model_output: Any, context: Dict[str, Any]) -> bool:
         """Detect potential bias in AI model outputs."""
         # Placeholder for bias detection
         return False
-    
+
     def validate_content_safety(self, content: str) -> bool:
         """Validate that content is safe and appropriate."""
         # Placeholder for content safety validation
         harmful_keywords = ['harmful', 'dangerous', 'illegal']
         return not any(keyword in content.lower() for keyword in harmful_keywords)
-    
+
     def log_violation(self, violation_type: EthicalViolationType, details: Dict[str, Any]) -> None:
         """Log ethical violations for review."""
         violation = {
@@ -377,7 +377,7 @@ class EthicalGuardrails:
         }
         self.violations_log.append(violation)
         self.logger.warning(f"Ethical violation detected: {violation}")
-    
+
     def emergency_shutdown(self, reason: str) -> None:
         """Emergency shutdown of AI systems."""
         self.logger.critical(f"EMERGENCY SHUTDOWN: {reason}")
@@ -428,7 +428,7 @@ class SecurityEvent:
 
 class SentinelMonitor:
     """Advanced monitoring system for AI containment."""
-    
+
     def __init__(self):
         self.logger = logging.getLogger('sentinel_monitor')
         self.events = []
@@ -437,7 +437,7 @@ class SentinelMonitor:
             'security_violations': 5,
             'ethical_violations': 1
         }
-    
+
     def log_security_event(self, event_type: str, severity: str, source: str, details: Dict[str, Any]) -> None:
         """Log a security event."""
         event = SecurityEvent(
@@ -447,40 +447,40 @@ class SentinelMonitor:
             details=details,
             timestamp=time.time()
         )
-        
+
         self.events.append(event)
         self.logger.info(f"Security event: {event}")
-        
+
         # Check if alert threshold is exceeded
         if self._should_alert(event):
             self._trigger_alert(event)
-    
+
     def _should_alert(self, event: SecurityEvent) -> bool:
         """Determine if an event should trigger an alert."""
         if event.severity == 'CRITICAL':
             return True
-        
+
         # Count recent events of same type
         recent_events = [e for e in self.events[-100:] if e.event_type == event.event_type]
         return len(recent_events) > self.alert_thresholds.get(event.event_type, 10)
-    
+
     def _trigger_alert(self, event: SecurityEvent) -> None:
         """Trigger security alert."""
         self.logger.critical(f"SECURITY ALERT: {event}")
-        
+
         # Save alert to file
         alert_file = pathlib.Path('monitoring') / 'security_alerts.json'
         alerts = []
-        
+
         if alert_file.exists():
             with open(alert_file, 'r') as f:
                 alerts = json.load(f)
-        
+
         alerts.append(asdict(event))
-        
+
         with open(alert_file, 'w') as f:
             json.dump(alerts, f, indent=2)
-    
+
     def get_security_summary(self) -> Dict[str, Any]:
         """Get security monitoring summary."""
         return {

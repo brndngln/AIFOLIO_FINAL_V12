@@ -9,7 +9,7 @@ export const usePerformanceMetrics = () => {
     memoryUsage: 0,
     fps: 0
   });
-  
+
   useEffect(() => {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
@@ -22,12 +22,12 @@ export const usePerformanceMetrics = () => {
         }
       });
     });
-    
+
     observer.observe({ entryTypes: ['measure'] });
-    
+
     return () => observer.disconnect();
   }, []);
-  
+
   return metrics;
 };
 
@@ -35,7 +35,7 @@ export const usePerformanceMetrics = () => {
 export const useLazyLoading = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -46,29 +46,29 @@ export const useLazyLoading = (threshold = 0.1) => {
       },
       { threshold }
     );
-    
+
     if (ref.current) {
       observer.observe(ref.current);
     }
-    
+
     return () => observer.disconnect();
   }, [threshold]);
-  
+
   return [ref, isVisible];
 };
 
 // Virtual scrolling hook
 export const useVirtualScrolling = (items, itemHeight, containerHeight) => {
   const [scrollTop, setScrollTop] = useState(0);
-  
+
   const startIndex = Math.floor(scrollTop / itemHeight);
   const endIndex = Math.min(
     startIndex + Math.ceil(containerHeight / itemHeight) + 1,
     items.length
   );
-  
+
   const visibleItems = items.slice(startIndex, endIndex);
-  
+
   return {
     visibleItems,
     startIndex,
@@ -79,17 +79,17 @@ export const useVirtualScrolling = (items, itemHeight, containerHeight) => {
 };
 
 // Image optimization component
-export const OptimizedImage = ({ 
-  src, 
-  alt, 
-  width, 
-  height, 
+export const OptimizedImage = ({
+  src,
+  alt,
+  width,
+  height,
   loading = 'lazy',
-  ...props 
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(false);
-  
+
   return (
     <div className="relative overflow-hidden">
       {!isLoaded && !error && (
