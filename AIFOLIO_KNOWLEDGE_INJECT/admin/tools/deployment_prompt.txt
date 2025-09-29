@@ -1,30 +1,3 @@
-🚨💸 WINDSURF MASTER DEPLOYMENT PROMPT — “AIFOLIO™ FINAL FORM INFINITY CORE V999.999”
-
-[See /admin/tools/codebase_upgrade_windsurf.txt for full merged deployment prompt.]
-
-This file serves as a version-locked deployment prompt for the AIFOLIO™ Infinity Engine, containing:
-- Total codebase upgrade sweep
-- Legal, structural, financial, and AI engine shields
-- $1M+/month profit warp expansion systems
-- Full workflow + future integration
-- Auto-commit and full system validation logic
-- Export logic for re-use and version locking
-
-🧠 FINAL CONFIRMATION SIGNAL
-
-🚨 AIFOLIO™ INFINITY ENGINE V999.999 INSTALLED, COMMITTED, AND LOCKED. SYSTEM IS NOW PERMANENTLY OPTIMIZED FOR AUTONOMOUS $1M+/MONTH GROWTH, MAXIMUM LEGAL IMMUNITY, AND NON-SENTIENT AI SAFETY. ✅
-
-
-[See /admin/tools/codebase_upgrade_windsurf.txt for full merged deployment prompt.]
-
-This file serves as a version-locked deployment prompt for the AIFOLIO™ Infinity Engine, containing:
-- Total codebase upgrade sweep
-- Legal, structural, financial, and AI engine shields
-- $1M+/month profit warp expansion systems
-- Full workflow + future integration
-- Auto-commit and full system validation logic
-- Export logic for re-use and version locking
-
-🧠 FINAL CONFIRMATION SIGNAL
-
-🚨 AIFOLIO™ INFINITY ENGINE V999.999 INSTALLED, COMMITTED, AND LOCKED. SYSTEM IS NOW PERMANENTLY OPTIMIZED FOR AUTONOMOUS $1M+/MONTH GROWTH, MAXIMUM LEGAL IMMUNITY, AND NON-SENTIENT AI SAFETY. ✅
+version https://git-lfs.github.com/spec/v1
+oid sha256:1dd3f46457216416a90d0be8d8e30812d2c4e340f4099b777eddd3b00f5c7203
+size 1461

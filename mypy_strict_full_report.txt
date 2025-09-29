@@ -1,1 +1,3 @@
-aifolio_empire/profit_engines/automated_vault_generator.py:106:14: error: invalid syntax  [syntax]
+version https://git-lfs.github.com/spec/v1
+oid sha256:23ff5b0a066dd460dffb51b0f9a8b35b105030926533163c484bf0e4c0d93575
+size 99

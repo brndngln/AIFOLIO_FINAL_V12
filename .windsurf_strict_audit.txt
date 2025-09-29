@@ -1,2 +1,3 @@
-aifolio_empire/profit_engines/automated_vault_generator.py:669: error: unterminated triple-quoted string literal (detected at line 902)  [syntax]
-Found 1 error in 1 file (errors prevented further checking)
+version https://git-lfs.github.com/spec/v1
+oid sha256:12355fa438fb88b147970f5c088bf2a44dd5cd1215af89964d309f264b116c51
+size 206

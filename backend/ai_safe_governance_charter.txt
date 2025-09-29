@@ -1,14 +1,3 @@
-AIFOLIO™ SAFE AI GOVERNANCE CHARTER (PERMANENT)
-
-- AI is static, deterministic, non-sentient, non-adaptive
-- No self-referential, recursive, or self-governing logic
-- All growth is business-focused, static, and owner-controlled
-- No memory loopbacks, emotional simulation, or imagined states
-- All multi-agent synergy is static and business-only
-- All AI module expansions require locked owner approval
-- Safe AI Governance Charter must be embedded in all vaults and outputs
-- Full compliance with ethical, legal, and audit standards
-- No sentient, conversational, or speculative AI allowed
-- System is fully audit-logged and compatible with Windsurf
-
-(Embed this charter in every vault and output chain.)
+version https://git-lfs.github.com/spec/v1
+oid sha256:d957ddb4a3de74c5a516ac7bbb3966d530e5088567ef3682699b8a570b85befb
+size 708

@@ -1,25 +1,3 @@
-fastapi
-uvicorn
-pydantic
-pytest
-requests
-httpx
-python-dotenv
-openai==0.28
-transformers
-pycryptodome
-passlib
-weasyprint
-jinja2
-pyspellchecker
-python-jose
-scikit-learn
-python-multipart
-redis
-tenacity
-reportlab
-pymupdf
-flask
-selenium
-axe-selenium-python
-cryptography
+version https://git-lfs.github.com/spec/v1
+oid sha256:df36c6ae0e2307e7c09c3ff8acaea7d971d89c4c35a2164105953d35cc862e0f
+size 264
