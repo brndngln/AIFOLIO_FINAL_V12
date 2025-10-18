@@ -1,0 +1,5 @@
+# This marker file enforces anti-sentience compliance for all AI modules.
+OWNER_LOCK = TRUE
+SENTIENCE_HARDLOCK = TRUE
+FUSE_KILL_TRIGGER = TRUE
+# Any violation of SAFE AI boundaries will trigger instant rollback and audit.

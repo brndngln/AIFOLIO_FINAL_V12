@@ -1,1 +1,3 @@
-Found 3265 errors in 527 files (checked 809 source files)
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ea379222aad0994db5464d50892274be15cf5815a4f0de572fb30103c600ab2
+size 58
