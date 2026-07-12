@@ -198,3 +198,27 @@ node_modules/
 !AIFOLIO_KNOWLEDGE_INJECT/**
 !omnisecure_stack/
 !omnisecure_stack/**
+
+# ─── SECRETS — never commit these ───
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*secrets*
+!*.secrets.baseline
+
+# ─── Build artifacts — never commit these ───
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.DS_Store
