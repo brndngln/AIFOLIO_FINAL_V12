@@ -1,4 +1,23 @@
 repos:
+# ─────────────────────────────────────────────────────────────────────
+# SECRET SCANNING — runs on EVERY file, with NO `files:` filter.
+# A `files:` filter here would recreate the 2026-07 leak: .env lives at
+# the repo root, so a filter scoped to ai_logic/ etc. never sees it.
+# This hook BLOCKS the commit if it finds a key, token, or private key.
+# ─────────────────────────────────────────────────────────────────────
+- repo: https://github.com/gitleaks/gitleaks
+  rev: v8.24.0
+  hooks:
+  - id: gitleaks
+    name: 🔐 Gitleaks — block secrets before they leave this machine
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+  - id: detect-private-key
+    name: 🔐 Block private keys (.pem / id_rsa)
+  - id: check-merge-conflict
+
 - repo: https://github.com/psf/black
   rev: 25.1.0
   hooks:
